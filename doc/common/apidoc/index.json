@@ -43,6 +43,14 @@
                             "type": "AccordionState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -264,6 +272,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -409,6 +425,14 @@
                             "type": "AccordionTabContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -583,6 +607,14 @@
                             "type": "PTOptions<AccordionTabPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         }
                     ],
                     "methods": []
@@ -2732,6 +2764,14 @@
                             "type": "AutoCompleteContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -3473,6 +3513,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -3836,6 +3884,14 @@
                             "type": "AvatarGroupPassThroughOptions",
                             "default": "",
                             "description": "Defines parent instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -3970,6 +4026,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -4095,6 +4159,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -4164,6 +4236,14 @@
                             "type": "BadgeProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -4241,6 +4321,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -4299,6 +4387,14 @@
                             "readonly": false,
                             "type": "BadgeContext",
                             "default": ""
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -4314,6 +4410,14 @@
                             "type": "PTOptions<BadgeDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -4805,6 +4909,14 @@
                             "type": "BlockUIState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -4913,6 +5025,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -5010,6 +5130,14 @@
                             "type": "BreadcrumbContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -5213,6 +5341,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -5331,6 +5467,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Defines parent instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -5560,6 +5704,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -5694,6 +5846,14 @@
                             "type": "CalendarContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -6867,6 +7027,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -7254,6 +7422,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -7370,6 +7546,14 @@
                             "type": "CarouselContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -7811,6 +7995,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -7940,6 +8132,14 @@
                             "type": "CascadeSelectState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -8498,6 +8698,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -8750,6 +8958,14 @@
                             "type": "ChartProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -8898,6 +9114,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -9009,6 +9233,14 @@
                             "type": "CheckboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -9237,6 +9469,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -9412,6 +9652,14 @@
                             "type": "ChipState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -9554,6 +9802,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -9671,6 +9927,14 @@
                             "type": "ChipsState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -9973,6 +10237,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -10117,6 +10389,14 @@
                             "type": "ColorPickerState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -10360,6 +10640,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -10486,6 +10774,14 @@
                             "type": "ColumnContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -11542,6 +11838,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -11968,6 +12272,14 @@
                             "type": "ColumnGroupContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -12027,6 +12339,14 @@
                             "type": "PTOptions<ColumnGroupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -13913,6 +14233,14 @@
                             "type": "ConfirmDialogState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -14114,6 +14442,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -14230,6 +14566,14 @@
                             "type": "ConfirmPopupState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -14368,6 +14712,14 @@
                             "type": "PTOptions<ConfirmPopupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -14528,6 +14880,14 @@
                             "type": "ContextMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -14897,6 +15257,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -15094,6 +15462,14 @@
                             "type": "DataTableContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -17219,6 +17595,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -17924,6 +18308,14 @@
                             "type": "DataViewState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -18223,6 +18615,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -18397,6 +18797,14 @@
                             "type": "DataViewLayoutOptionsState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -18513,6 +18921,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -18617,6 +19033,14 @@
                             "type": "DeferredContentState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -18683,6 +19107,14 @@
                             "type": "PTOptions<DeferredContentPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -18776,6 +19208,14 @@
                             "type": "DialogState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -19164,6 +19604,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -19388,6 +19836,14 @@
                             "type": "DividerProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -19471,6 +19927,14 @@
                             "type": "PTOptions<DividerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -19564,6 +20028,14 @@
                             "type": "DockContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -19867,6 +20339,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -20006,6 +20486,14 @@
                             "type": "DropdownContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -20724,6 +21212,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -21249,6 +21745,14 @@
                             "type": "EditorState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -21610,6 +22114,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -21748,6 +22260,14 @@
                             "type": "FieldsetState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -21928,6 +22448,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -22057,6 +22585,14 @@
                             "type": "FileUploadState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -22727,6 +23263,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -22982,6 +23526,14 @@
                             "type": "PTOptions<FocusTrapDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         }
                     ],
                     "methods": []
@@ -23117,6 +23669,14 @@
                             "type": "GalleriaContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -23742,6 +24302,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -24048,6 +24616,14 @@
                             "type": "ImageState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -24333,6 +24909,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -24475,6 +25059,14 @@
                             "type": "InlineMessageState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -24576,6 +25168,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -24665,6 +25265,14 @@
                             "type": "InplaceState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -24806,6 +25414,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -24942,6 +25558,14 @@
                             "type": "InputMaskContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -25064,6 +25688,14 @@
                             "type": "PTOptions<InputMaskPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -25215,6 +25847,14 @@
                             "type": "InputNumberState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -25643,6 +26283,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -25786,6 +26434,14 @@
                             "type": "InputSwitchState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -25950,6 +26606,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -26079,6 +26743,14 @@
                             "type": "InputTextContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -26171,6 +26843,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -26254,6 +26934,14 @@
                             "type": "KnobState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -26514,6 +27202,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -26624,6 +27320,14 @@
                             "type": "ListboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -27146,6 +27850,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -27401,6 +28113,14 @@
                             "type": "MegaMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -27778,6 +28498,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -27978,6 +28706,14 @@
                             "type": "MenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -28300,6 +29036,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -28467,6 +29211,14 @@
                             "type": "MenubarContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -28828,6 +29580,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -29120,6 +29880,14 @@
                             "type": "MessageState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -29311,6 +30079,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -29471,6 +30247,14 @@
                             "type": "MultiSelectContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -30341,6 +31125,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -30747,6 +31539,14 @@
                             "type": "OrderListContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -31124,6 +31924,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -31321,6 +32129,14 @@
                             "type": "OrganizationChartContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -31673,6 +32489,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -31903,6 +32727,14 @@
                             "type": "OverlayPanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -32073,6 +32905,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -32187,6 +33027,14 @@
                             "type": "PaginatorContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -32523,6 +33371,14 @@
                             "type": "PTOptions<PaginatorPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         }
                     ],
                     "methods": []
@@ -32685,6 +33541,14 @@
                             "type": "PanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -32881,6 +33745,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -33041,6 +33913,14 @@
                             "type": "PanelMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -33432,6 +34312,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -33578,7 +34466,7 @@
                         },
                         {
                             "name": "options",
-                            "type": "usePassThroughOptions"
+                            "type": "PassThroughOptions"
                         }
                     ],
                     "returnType": "object"
@@ -33591,7 +34479,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "usePassThroughOptions": {
+                "PassThroughOptions": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -33659,6 +34547,14 @@
                             "type": "PasswordState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -34055,6 +34951,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -34216,6 +35120,14 @@
                             "type": "PickListContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -34871,6 +35783,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -35245,6 +36165,14 @@
                             "type": "ProgressBarProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -35338,6 +36266,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -35414,6 +36350,14 @@
                             "type": "ProgressSpinnerProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -35507,6 +36451,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -35584,6 +36536,14 @@
                             "type": "RadioButtonState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -35764,6 +36724,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -35888,6 +36856,14 @@
                             "type": "RatingContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -36157,6 +37133,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -36304,6 +37288,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -36429,6 +37421,14 @@
                             "type": "RowContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -36566,6 +37566,14 @@
                             "type": "ScrollPanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -36698,6 +37706,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -36782,6 +37798,14 @@
                             "type": "ScrollTopState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -36899,6 +37923,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -36994,6 +38026,14 @@
                             "type": "SelectButtonContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -37212,6 +38252,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -37355,6 +38403,14 @@
                             "type": "SidebarState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -37552,6 +38608,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -37676,6 +38740,14 @@
                             "type": "SkeletonProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -37777,6 +38849,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -37846,6 +38926,14 @@
                             "type": "SliderProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -38034,6 +39122,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -38159,6 +39255,14 @@
                             "type": "SpeedDialContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -38521,6 +39625,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -38690,6 +39802,14 @@
                             "type": "SplitButtonState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -38936,6 +40056,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -39081,6 +40209,14 @@
                             "type": "SplitterContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -39266,6 +40402,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -39377,6 +40521,14 @@
                             "type": "SplitterPanelContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -39459,6 +40611,14 @@
                             "type": "PTOptions<SplitterPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -39545,6 +40705,14 @@
                             "type": "StepsContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -39740,6 +40908,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -39878,6 +41054,14 @@
                             "type": "PTOptions<StyleClassDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         }
                     ],
                     "methods": []
@@ -39968,6 +41152,14 @@
                             "type": "TabMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -40201,6 +41393,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -40327,6 +41527,14 @@
                             "type": "TabPanelContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -40484,6 +41692,14 @@
                             "type": "PTOptions<TabPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         }
                     ],
                     "methods": []
@@ -40888,6 +42104,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -41016,6 +42240,14 @@
                             "type": "TagProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -41118,6 +42350,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -41208,6 +42448,14 @@
                             "type": "TerminalState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -41364,6 +42612,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -41509,6 +42765,14 @@
                             "type": "TextareaContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -41599,6 +42863,14 @@
                             "type": "PTOptions<TextareaPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -41702,6 +42974,14 @@
                             "type": "TieredMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -42071,6 +43351,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -42242,6 +43530,14 @@
                             "type": "TimelineContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -42390,6 +43686,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -42519,6 +43823,14 @@
                             "type": "ToastState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -42871,6 +44183,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -43075,6 +44395,14 @@
                             "type": "ToggleButtonContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -43320,6 +44648,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -43456,6 +44792,14 @@
                             "type": "ToolbarProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -43541,6 +44885,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -43611,6 +44963,14 @@
                             "readonly": false,
                             "type": "TooltipContext",
                             "default": ""
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -43690,6 +45050,14 @@
                             "type": "PTOptions<TooltipDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -43927,6 +45295,14 @@
                             "type": "TreeContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -44442,6 +45818,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -44657,6 +46041,14 @@
                             "type": "TreeSelectState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -44989,6 +46381,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -45272,6 +46672,14 @@
                             "type": "TreeTableContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -46280,6 +47688,14 @@
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
@@ -46646,6 +48062,14 @@
                             "type": "TriStateCheckboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -46856,6 +48280,14 @@
                             "type": "PTOptions<TriStateCheckboxPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
@@ -47224,6 +48656,14 @@
                             "type": "VirtualScrollerState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
                         }
                     ],
                     "methods": []
@@ -47792,6 +49232,14 @@
                             "type": "PTOptions<VirtualScrollerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
                         },
                         {
                             "name": "unstyled",
