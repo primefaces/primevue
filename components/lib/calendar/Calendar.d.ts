@@ -410,7 +410,7 @@ export interface CalendarContext {
 }
 
 /**
- * Defines cuurent month options.
+ * Defines current month options.
  */
 export interface CalendarMonthOptions {
     /**
