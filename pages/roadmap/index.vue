@@ -28,9 +28,9 @@
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Accessibility</h2>
-                                <p class="mt-0 mb-3 line-height-3">Finalize WCAG Level AA compliance for all components with screen reader and keyboard support based on community feedback and audit tools.</p>
+                                <p class="mt-0 mb-3 line-height-3">WCAG Level AA compliance for all components with screen reader and keyboard support based on community feedback and audit tools.</p>
                                 <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 95%; height: 4px"></div>
+                                    <div class="bg-blue-500 border-round" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
