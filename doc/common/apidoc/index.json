@@ -13905,6 +13905,13 @@
                             "default": ""
                         },
                         {
+                            "name": "showMonthAfterYear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
                             "name": "dateFormat",
                             "optional": true,
                             "readonly": false,
