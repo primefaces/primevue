@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.34.0](https://github.com/primefaces/primevue/tree/3.34.0) (2023-09-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.33.0...3.34.0)
+
+**Breaking Changes:**
+
+-   Rename PTOptions and DefaultPTOptions types with PassThrough and DefaultPassThrough types [\4389](https://github.com/primefaces/primevue/issues/4389)
+
+**Implemented New Features and Enhancements:**
+
+-   Add ptOptions property to all components [\4384](https://github.com/primefaces/primevue/issues/4384)
+-   Improve the performance of resolveFieldData method in core [\4296](https://github.com/primefaces/primevue/issues/4296)
+-   Locale: Add fileSizeTypes [\4376](https://github.com/primefaces/primevue/issues/4376)
+-   AutoComplete: Empty Message never displayed [\3669](https://github.com/primefaces/primevue/issues/3669)
+
+**Fixed bugs:**
+
+-   OrderList and PickList: Getting error when empty field [\4383](https://github.com/primefaces/primevue/issues/4383)
+-   MenuPassThrough: The PT option menu does not work [\4381](https://github.com/primefaces/primevue/issues/4381)
+-   Menu components: RouterBindProps typing [\4379](https://github.com/primefaces/primevue/issues/4379)
+-   TreeTable: aria-expanded attribute should not be on leaf nodes [\4368](https://github.com/primefaces/primevue/issues/4368)
+-   InputMask: Copy Paste not working [\3915](https://github.com/primefaces/primevue/issues/3915)
+-   DataTable: Selection and Row/Cell editing : Cannot input space character [\4120](https://github.com/primefaces/primevue/issues/4120)
+
 ## [3.33.0](https://github.com/primefaces/primevue/tree/3.33.0) (2023-09-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.32.2...3.33.0)
