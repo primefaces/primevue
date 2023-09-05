@@ -378,7 +378,7 @@ if (project) {
                                                     const childSinature = child.signatures[0];
                                                     const parameters = childSinature.parameters.reduce((acc, { name, type }, index) => (index === 0 ? `${name}: ${type.name}` : `${acc}, ${name}: ${type.name}`), '');
 
-                                                    type += ` \t <b>${childSinature.name}(${parameters})</b>: ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
+                                                    type += ` \t <span class="font-medium">${childSinature.name}(${parameters})</span>: ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
                                                 } else {
                                                     if (child.type?.declaration?.signatures) {
                                                         let functionParameters = '';
@@ -388,17 +388,17 @@ if (project) {
                                                             functionParameters += `${param.name}: ${param.type?.name}`;
                                                         });
 
-                                                        type += `\t <b>${child.name}</b>: (${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}, // ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}\n`;
+                                                        type += `\t <span class="font-medium">${child.name}</span>: (${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}, // ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}\n`;
                                                     } else {
                                                         const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 
-                                                        type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                        type += ` \t <span class="font-medium">${child.name}</span>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
                                                     }
                                                 }
                                             });
                                         }
 
-                                        type = `{\n ${type} }`;
+                                        type = `{\n ${type}}`;
                                     }
 
                                     return {
