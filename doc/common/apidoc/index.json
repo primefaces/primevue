@@ -6521,7 +6521,7 @@
                     "methods": []
                 },
                 "CalendarMonthOptions": {
-                    "description": "Defines cuurent month options.",
+                    "description": "Defines current month options.",
                     "relatedProp": "",
                     "props": [
                         {
