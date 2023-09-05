@@ -9,7 +9,7 @@
             <h1>Roadmap</h1>
             <p>
                 At <a href="https://www.primetek.com.tr/" class="font-semibold hover:underline text-primary">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2023 with the community. These are planned to
-                be implemented in parallel to the regular maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. This page is updated on changes so please visit it to learn more about what is coming up next.
+                be implemented in parallel to the regular maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support.
             </p>
         </div>
 
@@ -28,9 +28,9 @@
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Accessibility</h2>
-                                <p class="mt-0 mb-3 line-height-3">Finalize WCAG Level AA compliance for all components with screen reader and keyboard support based on community feedback and audit tools.</p>
+                                <p class="mt-0 mb-3 line-height-3">WCAG Level AA compliance for all components with screen reader and keyboard support based on community feedback and audit tools.</p>
                                 <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 95%; height: 4px"></div>
+                                    <div class="bg-blue-500 border-round" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
@@ -46,51 +46,44 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Unstyled Mode</h2>
                                 <p class="mt-0 mb-3 line-height-3">Introduce new unstyled mode to fully support styling with CSS libraries like Tailwind.</p>
                                 <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 90%; height: 4px"></div>
+                                    <div class="bg-blue-500 border-round" style="width: 100%; height: 4px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex gap-3 flex-column">
+                            <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
+                                <h2 class="text-lg font-bold mt-0 mb-2">Tailwind Theme</h2>
+                                <p class="mt-0 mb-3 line-height-3">A built-in TailwindCSS theme using the new Unstyled mode.</p>
+                                <div class="surface-200 border-round">
+                                    <div class="bg-blue-500 border-round" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Tailwind Theme</h2>
-                                <p class="mt-0 mb-3 line-height-3">Implement a built-in TailwindCSS theme using the new Unstyled mode.</p>
+                                <h2 class="text-lg font-bold mt-0 mb-2">New Design Tokens</h2>
+                                <p class="mt-0 mb-3 line-height-3">Introduce new design tokens for styled mode.</p>
                                 <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 50%; height: 4px"></div>
+                                    <div class="bg-blue-500 border-round" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">CSS Variables</h2>
-                                <p class="mt-0 mb-3 line-height-3">Migrate to CSS variables for a dynamic approach.</p>
+                                <p class="mt-0 mb-3 line-height-3">Implement design tokens as CSS variables instead of SCSS.</p>
+                                <div class="surface-200 border-round">
+                                    <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
+                                </div>
+                            </div>
+                            <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
+                                <h2 class="text-lg font-bold mt-0 mb-2">New Styled Mode</h2>
+                                <p class="mt-0 mb-3 line-height-3">Move theming into core to replace external sass repo.</p>
                                 <div class="surface-200 border-round">
                                     <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">RTL Mode</h2>
-                                <p class="mt-0 mb-3 line-height-3">Implement RTL support for all components.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex gap-3 flex-column">
-                            <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">DragDrop Utils</h2>
-                                <p class="mt-0 mb-3 line-height-3">Standalone Drag and Drop utilities that are also integrated within certain components e.g. Tree.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Full Calendar</h2>
-                                <p class="mt-0 mb-3 line-height-3">New Full Calendar / Scheduler component.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Testing</h2>
-                                <p class="mt-0 mb-3 line-height-3">Increase unit test coverage.</p>
+                                <p class="mt-0 mb-3 line-height-3">Begin RTL support.</p>
                                 <div class="surface-200 border-round">
                                     <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
                                 </div>
@@ -99,6 +92,7 @@
                     </div>
                     <div class="flex gap-3 border-bottom-1 surface-border pb-3">
                         <div class="flex-shrink-0 p-3 bg-indigo-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">Figma UI Kit</div>
+                        <div class="flex-1 flex gap-3 flex-column"></div>
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-indigo-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Tokens</h2>
@@ -111,14 +105,21 @@
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-indigo-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Tokens</h2>
-                                <p class="mt-0 mb-3 line-height-3">Finalize Figma Tokens..</p>
+                                <p class="mt-0 mb-3 line-height-3">Initial release of Figma Tokens.</p>
                                 <div class="surface-200 border-round">
-                                    <div class="bg-indigo-500 border-round" style="width: 50%; height: 4px"></div>
+                                    <div class="bg-indigo-500 border-round" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
+                        <div class="flex-1 flex gap-3 flex-column">
+                            <div class="p-3 surface-card border-round border-indigo-500" style="border-left: 6px solid">
+                                <h2 class="text-lg font-bold mt-0 mb-2">Tokens</h2>
+                                <p class="mt-0 mb-3 line-height-3">Sync new design tokens with tokens.</p>
+                                <div class="surface-200 border-round">
+                                    <div class="bg-indigo-500 border-round" style="width: 0%; height: 4px"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="flex gap-3 border-bottom-1 surface-border pb-3">
                         <div class="flex-shrink-0 p-3 bg-teal-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">SHOWCASE</div>
@@ -153,15 +154,7 @@
                         <div class="flex-shrink-0 p-3 bg-orange-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">PrimeBlocks</div>
                         <div class="flex-1 flex gap-3 flex-column"></div>
                         <div class="flex-1 flex gap-3 flex-column"></div>
-                        <div class="flex-1 flex gap-3 flex-column">
-                            <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
-                                <p class="mt-0 mb-3 line-height-3">New UI Blocks.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-orange-500 border-round" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="flex-1 flex gap-3 flex-column"></div>
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
@@ -184,6 +177,7 @@
                             </div>
                         </div>
                         <div class="flex-1 flex gap-3 flex-column"></div>
+                        <div class="flex-1 flex gap-3 flex-column"></div>
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-pink-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">New UI Based Theme Editor</h2>
@@ -193,37 +187,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
-                    </div>
-                    <div class="flex gap-3 border-bottom-1 surface-border pb-3">
-                        <div class="flex-shrink-0 p-3 bg-purple-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">Templates</div>
-                        <div class="flex-1 flex gap-3 flex-column">
-                            <div class="p-3 surface-card border-round border-purple-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Apollo</h2>
-                                <p class="mt-0 mb-3 line-height-3">Port Apollo from PrimeNG using Vite.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-purple-500 border-round" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-3 surface-card border-round border-purple-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Migrate to Vite</h2>
-                                <p class="mt-0 mb-3 line-height-3">Initiate migration of templates to Vite.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-purple-500 border-round" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex gap-3 flex-column">
-                            <div class="p-3 surface-card border-round border-purple-500" style="border-left: 6px solid">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Migrate to Vite</h2>
-                                <p class="mt-0 mb-3 line-height-3">Finish migration of templates to Vite.</p>
-                                <div class="surface-200 border-round">
-                                    <div class="bg-purple-500 border-round" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
                     </div>
                 </div>
             </div>

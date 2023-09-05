@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            The built-in theme provides a strong base that can be extended further for your requirements. For customization, the pass through values need to be overriden. The unstyled section of the theming documentation for each component
-            demonstrates the theme with an editable example. For instance, the panel component has the following default configuration.
+            The built-in theme implements the PrimeOne Design to provide a strong base that can be extended further for your requirements. For customization, the pass through values need to be overriden. The unstyled section of the theming
+            documentation for each component demonstrates the theme with an editable example. For instance, the panel component has the following default configuration.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p>Let's assume the <i>title</i> section should be lighter and bigger. For the merge configuration behavior, visit <NuxtLink to="/passthrough/#usepassthrough">usePassThrough</NuxtLink> documentation.</p>
