@@ -86,7 +86,7 @@
                                         </slot>
                                     </button>
                                     <div :class="cx('title')" v-bind="ptm('title')">
-                                        <span v-if="$primevue.config.locale.showMonthAfterYear">
+                                        <template v-if="$primevue.config.locale.showMonthAfterYear">
                                             <button
                                                 v-if="currentView !== 'year'"
                                                 type="button"
@@ -113,8 +113,8 @@
                                             >
                                                 {{ getMonthName(month.month) }}
                                             </button>
-                                        </span>
-                                        <span v-else>
+                                        </template>
+                                        <template v-else>
                                             <button
                                                 v-if="currentView === 'date'"
                                                 type="button"
@@ -141,7 +141,7 @@
                                             >
                                                 {{ getYear(month) }}
                                             </button>
-                                        </span>
+                                        </template>
                                         <span v-if="currentView === 'year'" :class="cx('decadeTitle')" v-bind="ptm('decadeTitle')">
                                             <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
