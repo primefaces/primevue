@@ -5,7 +5,7 @@
         :style="node.style"
         :tabindex="tabindex"
         role="row"
-        :aria-expanded="expanded"
+        :aria-expanded="node.children && node.children.length ? expanded : undefined"
         :aria-level="level + 1"
         :aria-setsize="ariaSetSize"
         :aria-posinset="ariaPosInset"
