@@ -10,7 +10,7 @@
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPassThroughAttributes | ((options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes | string) | string | null | undefined;
 
@@ -161,7 +161,7 @@ export interface TriStateCheckboxProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TriStateCheckboxPassThroughOptions}
      */
-    pt?: PTOptions<TriStateCheckboxPassThroughOptions>;
+    pt?: PassThrough<TriStateCheckboxPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | string) | string | null | undefined;
 
@@ -148,7 +148,7 @@ export interface StepsProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {StepsPassThroughOptions}
      */
-    pt?: PTOptions<StepsPassThroughOptions>;
+    pt?: PassThrough<StepsPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -339,7 +339,7 @@ export interface CascadeSelectProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {CascadeSelectPassThroughOptions}
      */
-    pt?: PTOptions<CascadeSelectPassThroughOptions>;
+    pt?: PassThrough<CascadeSelectPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

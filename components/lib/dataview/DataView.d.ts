@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -226,7 +226,7 @@ export interface DataViewProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataViewPassThroughOptions}
      */
-    pt?: PTOptions<DataViewPassThroughOptions>;
+    pt?: PassThrough<DataViewPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

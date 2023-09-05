@@ -11,7 +11,7 @@ import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
@@ -257,7 +257,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Used to pass attributes to DOM elements inside the component.
      * @type {PasswordPassThroughOptions}
      */
-    pt?: PTOptions<PasswordPassThroughOptions>;
+    pt?: PassThrough<PasswordPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

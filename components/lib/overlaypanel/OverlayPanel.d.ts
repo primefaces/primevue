@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -152,7 +152,7 @@ export interface OverlayPanelProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {OverlayPanelPassThroughOptions}
      */
-    pt?: PTOptions<OverlayPanelPassThroughOptions>;
+    pt?: PassThrough<OverlayPanelPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

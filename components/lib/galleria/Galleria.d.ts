@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | string) | string | null | undefined;
 
@@ -394,7 +394,7 @@ export interface GalleriaProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {GalleriaPassThroughOptions}
      */
-    pt?: PTOptions<GalleriaPassThroughOptions>;
+    pt?: PassThrough<GalleriaPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

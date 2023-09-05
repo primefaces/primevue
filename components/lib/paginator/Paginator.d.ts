@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { InputNumberPassThroughOptionType } from '../inputnumber';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes | string) | string | null | undefined;
 
@@ -252,7 +252,7 @@ export interface PaginatorProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {PaginatorPassThroughOptions}
      */
-    pt?: PTOptions<PaginatorPassThroughOptions>;
+    pt?: PassThrough<PaginatorPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

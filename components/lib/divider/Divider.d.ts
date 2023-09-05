@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DividerPassThroughOptionType = DividerPassThroughAttributes | ((options: DividerPassThroughMethodOptions) => DividerPassThroughAttributes | string) | string | null | undefined;
 
@@ -81,7 +81,7 @@ export interface DividerProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DividerPassThroughOptions}
      */
-    pt?: PTOptions<DividerPassThroughOptions>;
+    pt?: PassThrough<DividerPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

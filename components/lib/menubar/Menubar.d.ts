@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | string) | string | null | undefined;
 
@@ -243,7 +243,7 @@ export interface MenubarProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {MenubarPassThroughOptions}
      */
-    pt?: PTOptions<MenubarPassThroughOptions>;
+    pt?: PassThrough<MenubarPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
 
@@ -153,7 +153,7 @@ export interface AccordionProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionPassThroughOptions}
      */
-    pt?: PTOptions<AccordionPassThroughOptions>;
+    pt?: PassThrough<AccordionPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

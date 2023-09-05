@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -176,7 +176,7 @@ export interface TabMenuProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TabMenuPassThroughOptions}
      */
-    pt?: PTOptions<TabMenuPassThroughOptions>;
+    pt?: PassThrough<TabMenuPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

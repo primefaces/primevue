@@ -11,7 +11,7 @@ import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'v
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TabViewPassThroughOptions } from '../tabview';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -125,7 +125,7 @@ export interface TabPanelProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TabPanelPassThroughOptions}
      */
-    pt?: PTOptions<TabPanelPassThroughOptions>;
+    pt?: PassThrough<TabPanelPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

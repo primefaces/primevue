@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | string) | string | null | undefined;
 
@@ -153,7 +153,7 @@ export interface SplitterProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPassThroughOptions}
      */
-    pt?: PTOptions<SplitterPassThroughOptions>;
+    pt?: PassThrough<SplitterPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

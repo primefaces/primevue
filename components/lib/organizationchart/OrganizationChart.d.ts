@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | string) | string | null | undefined;
 
@@ -241,7 +241,7 @@ export interface OrganizationChartProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {OrganizationChartPassThroughOptions}
      */
-    pt?: PTOptions<OrganizationChartPassThroughOptions>;
+    pt?: PassThrough<OrganizationChartPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

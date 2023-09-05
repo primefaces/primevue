@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InlineMessagePassThroughOptionType = InlineMessagePassThroughAttributes | ((options: InlineMessagePassThroughMethodOptions) => InlineMessagePassThroughAttributes | string) | string | null | undefined;
 
@@ -96,7 +96,7 @@ export interface InlineMessageProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {InlineMessagePassThroughOptions}
      */
-    pt?: PTOptions<InlineMessagePassThroughOptions>;
+    pt?: PassThrough<InlineMessagePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

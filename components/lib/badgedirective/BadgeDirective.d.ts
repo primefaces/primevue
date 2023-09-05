@@ -9,7 +9,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PTOptions } from '../ts-helpers';
+import { PassThrough } from '../ts-helpers';
 
 export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
 
@@ -32,7 +32,7 @@ export interface BadgeDirectiveOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {BadgeDirectivePassThroughOptions}
      */
-    pt?: PTOptions<BadgeDirectivePassThroughOptions>;
+    pt?: PassThrough<BadgeDirectivePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

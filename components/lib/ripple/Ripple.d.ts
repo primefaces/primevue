@@ -9,7 +9,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PTOptions } from '../ts-helpers';
+import { PassThrough } from '../ts-helpers';
 
 export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassThroughAttributes | null | undefined;
 
@@ -21,7 +21,7 @@ export interface RippleOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {RippleDirectivePassThroughOptions}
      */
-    pt?: PTOptions<RippleDirectivePassThroughOptions>;
+    pt?: PassThrough<RippleDirectivePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes | string) | string | null | undefined;
 
@@ -216,7 +216,7 @@ export interface DockProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DockPassThroughOptions}
      */
-    pt?: PTOptions<DockPassThroughOptions>;
+    pt?: PassThrough<DockPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
