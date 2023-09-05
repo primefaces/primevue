@@ -10,6 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
@@ -36,6 +37,10 @@ export interface PickListPassThroughMethodOptions {
      * Defines current options.
      */
     context: PickListContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -386,6 +391,11 @@ export interface PickListProps {
      * @type {PickListPassThroughOptions}
      */
     pt?: PTOptions<PickListPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -9,6 +9,7 @@
 import { VNode } from 'vue';
 import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes | string) | string | null | undefined;
@@ -29,6 +30,10 @@ export interface AvatarPassThroughMethodOptions {
      * Defines parent instance.
      */
     parent: AvatarGroupPassThroughOptions;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -106,6 +111,11 @@ export interface AvatarProps {
      * @type {AvatarPassThroughOptions}
      */
     pt?: PTOptions<AvatarPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

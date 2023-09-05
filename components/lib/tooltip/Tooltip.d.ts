@@ -9,6 +9,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
 import { PTOptions } from '../ts-helpers';
 
 export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
@@ -18,6 +19,10 @@ export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePass
  */
 export interface TooltipPassThroughMethodOptions {
     context: TooltipContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -66,6 +71,11 @@ export interface TooltipOptions {
      * @type {TooltipDirectivePassThroughOptions}
      */
     pt?: PTOptions<TooltipDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

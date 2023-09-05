@@ -9,6 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type BadgePassThroughOptionType = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgePassThroughAttributes | string) | string | null | undefined;
@@ -25,6 +26,10 @@ export interface BadgePassThroughMethodOptions {
      * Defines valid properties.
      */
     props: BadgeProps;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -71,6 +76,11 @@ export interface BadgeProps {
      * @type {BadgePassThroughOptions}
      */
     pt?: PTOptions<BadgePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

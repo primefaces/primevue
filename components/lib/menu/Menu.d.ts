@@ -10,6 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
@@ -36,6 +37,10 @@ export interface MenuPassThroughMethodOptions {
      * Defines current options.
      */
     context: MenuContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -220,6 +225,11 @@ export interface MenuProps {
      * @type {MenuPassThroughOptions}
      */
     pt?: PTOptions<MenuPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

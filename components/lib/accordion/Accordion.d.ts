@@ -10,6 +10,7 @@
 import { VNode } from 'vue';
 import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
@@ -30,6 +31,10 @@ export interface AccordionPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: AccordionState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 /**
  * Custom tab open event.
@@ -149,6 +154,11 @@ export interface AccordionProps {
      * @type {AccordionPassThroughOptions}
      */
     pt?: PTOptions<AccordionPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -11,6 +11,7 @@ import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { InputTextPassThroughOptionType } from '../inputtext';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
 
 export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes | string) | string | null | undefined;
@@ -31,6 +32,10 @@ export interface InputNumberPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: InputNumberState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -283,6 +288,11 @@ export interface InputNumberProps {
      * @type {InputNumberPassThroughOptions}
      */
     pt?: PTOptions<InputNumberPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

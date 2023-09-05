@@ -9,6 +9,7 @@
  */
 import { TransitionProps } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
@@ -31,6 +32,10 @@ export interface ColorPickerPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: ColorPickerState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -174,6 +179,11 @@ export interface ColorPickerProps {
      * @type {ColorPickerPassThroughOptions}
      */
     pt?: PTOptions<ColorPickerPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

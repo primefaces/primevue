@@ -8,6 +8,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
 import { PTOptions } from '../ts-helpers';
 
 /**
@@ -56,6 +57,11 @@ export interface StyleClassOptions {
      * @type {StyleClassDirectivePassThroughOptions}
      */
     pt?: PTOptions<StyleClassDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
 }
 
 /**

@@ -9,6 +9,7 @@
  */
 import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
 
 export declare type InputTextPassThroughOptionType = InputTextPassThroughAttributes | ((options: InputTextPassThroughMethodOptions) => InputTextPassThroughAttributes | string) | string | null | undefined;
@@ -29,6 +30,10 @@ export interface InputTextPassThroughMethodOptions {
      * Defines current options.
      */
     context: InputTextContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -87,6 +92,11 @@ export interface InputTextProps extends InputHTMLAttributes {
      * @type {InputTextPassThroughOptions}
      */
     pt?: PTOptions<InputTextPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

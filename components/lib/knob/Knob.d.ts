@@ -8,6 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | string) | string | null | undefined;
@@ -28,6 +29,10 @@ export interface KnobPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: KnobState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -184,6 +189,11 @@ export interface KnobProps {
      * @type {KnobPassThroughOptions}
      */
     pt?: PTOptions<KnobPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

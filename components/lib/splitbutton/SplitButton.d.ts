@@ -11,6 +11,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
+import { PassThroughOptions } from '../passthrough';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
@@ -32,6 +33,10 @@ export interface SplitButtonPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: SplitButtonState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -179,6 +184,11 @@ export interface SplitButtonProps {
      * @type {SplitButtonPassThroughOptions}
      */
     pt?: PTOptions<SplitButtonPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

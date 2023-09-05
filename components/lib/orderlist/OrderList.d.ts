@@ -10,6 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
@@ -36,6 +37,10 @@ export interface OrderListPassThroughMethodOptions {
      * Defines current options.
      */
     context: OrderListContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -253,6 +258,11 @@ export interface OrderListProps {
      * @type {OrderListPassThroughOptions}
      */
     pt?: PTOptions<OrderListPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

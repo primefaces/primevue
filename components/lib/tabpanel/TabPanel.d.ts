@@ -9,6 +9,7 @@
  */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
@@ -34,6 +35,10 @@ export interface TabPanelPassThroughMethodOptions {
      * Defines current options.
      */
     context: TabPanelContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -121,6 +126,11 @@ export interface TabPanelProps {
      * @type {TabPanelPassThroughOptions}
      */
     pt?: PTOptions<TabPanelPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
 }
 
 /**

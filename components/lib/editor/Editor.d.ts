@@ -9,7 +9,9 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
 export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | string) | string | null | undefined;
 
 /**
@@ -28,6 +30,10 @@ export interface EditorPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: EditorState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -229,6 +235,11 @@ export interface EditorProps {
      * @type {EditorPassThroughOptions}
      */
     pt?: PTOptions<EditorPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

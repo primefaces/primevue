@@ -11,6 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ConfirmDialogPassThroughOptionType = ConfirmDialogPassThroughAttributes | ((options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes | string) | string | null | undefined;
@@ -31,6 +32,10 @@ export interface ConfirmDialogPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: ConfirmDialogState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -162,6 +167,11 @@ export interface ConfirmDialogProps {
      * @type {ConfirmDialogPassThroughOptions}
      */
     pt?: PTOptions<ConfirmDialogPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

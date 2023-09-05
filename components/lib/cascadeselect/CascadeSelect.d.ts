@@ -9,6 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | string) | string | null | undefined;
@@ -31,6 +32,10 @@ export interface CascadeSelectPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: CascadeSelectState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -335,6 +340,11 @@ export interface CascadeSelectProps {
      * @type {CascadeSelectPassThroughOptions}
      */
     pt?: PTOptions<CascadeSelectPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

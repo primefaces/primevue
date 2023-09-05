@@ -9,6 +9,7 @@
  */
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
@@ -32,6 +33,10 @@ export interface TreeSelectPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: TreeSelectState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -218,6 +223,11 @@ export interface TreeSelectProps {
      * @type {TreeSelectPassThroughOptions}
      */
     pt?: PTOptions<TreeSelectPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

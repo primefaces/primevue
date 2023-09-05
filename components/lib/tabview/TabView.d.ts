@@ -9,6 +9,7 @@
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
@@ -182,6 +183,11 @@ export interface TabViewProps {
      * @type {TabViewPassThroughOptions}
      */
     pt?: PTOptions<TabViewPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -10,6 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
@@ -36,6 +37,10 @@ export interface CalendarPassThroughMethodOptions {
      * Defines current options.
      */
     context: CalendarContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -704,6 +709,11 @@ export interface CalendarProps {
      * @type {CalendarPassThroughOptions}
      */
     pt?: PTOptions<CalendarPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

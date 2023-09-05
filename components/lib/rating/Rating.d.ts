@@ -9,6 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | string) | string | null | undefined;
@@ -33,6 +34,10 @@ export interface RatingPassThroughMethodOptions {
      * Defines current options.
      */
     context: RatingContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -191,6 +196,11 @@ export interface RatingProps {
      * @type {RatingPassThroughOptions}
      */
     pt?: PTOptions<RatingPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

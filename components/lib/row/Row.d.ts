@@ -31,6 +31,10 @@ export interface RowPassThroughMethodOptions {
      * Defines current options.
      */
     context: RowContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**

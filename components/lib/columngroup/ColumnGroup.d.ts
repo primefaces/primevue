@@ -7,6 +7,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { DataTablePassThroughOptions } from '../datatable';
+import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAttributes | ((options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes | string) | string | null | undefined;
@@ -31,6 +32,10 @@ export interface ColumnGroupPassThroughMethodOptions {
      * Defines current options.
      */
     context: ColumnGroupContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -69,6 +74,11 @@ export interface ColumnGroupProps {
      * @type {ColumnGroupPassThroughOptions}
      */
     pt?: PTOptions<ColumnGroupPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

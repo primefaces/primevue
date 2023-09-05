@@ -8,6 +8,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
 import { PTOptions } from '../ts-helpers';
 
 export declare type FocusTrapDirectivePassThroughOptionType = FocusTrapDirectivePassThroughAttributes | null | undefined;
@@ -31,6 +32,11 @@ export interface FocusTrapOptions {
      * @type {FocusTrapDirectivePassThroughOptions}
      */
     pt?: PTOptions<FocusTrapDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
 }
 
 /**
