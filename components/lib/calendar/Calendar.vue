@@ -69,7 +69,6 @@
                                 <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <button
-                                        v-show="showOtherMonths ? groupIndex === 0 : false"
                                         :ref="previousButtonRef"
                                         v-ripple
                                         :class="cx('previousButton')"
@@ -117,7 +116,6 @@
                                         </span>
                                     </div>
                                     <button
-                                        v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
                                         :ref="nextButtonRef"
                                         v-ripple
                                         :class="cx('nextButton')"
@@ -172,32 +170,34 @@
                                                     :data-p-other-month="date.otherMonth"
                                                     data-pc-group-section="tablebodycell"
                                                 >
-                                                    <span
-                                                        v-ripple
-                                                        :class="cx('dayLabel', { date })"
-                                                        @click="onDateSelect($event, date)"
-                                                        draggable="false"
-                                                        @keydown="onDateCellKeydown($event, date, groupIndex)"
-                                                        :aria-selected="isSelected(date)"
-                                                        :aria-disabled="!date.selectable"
-                                                        v-bind="
-                                                            ptm('dayLabel', {
-                                                                context: {
-                                                                    date,
-                                                                    selected: isSelected(date),
-                                                                    disabled: !date.selectable
-                                                                }
-                                                            })
-                                                        "
-                                                        :data-p-disabled="!date.selectable"
-                                                        :data-p-highlight="isSelected(date)"
-                                                        data-pc-group-section="tablebodycelllabel"
-                                                    >
-                                                        <slot name="date" :date="date">{{ date.day }}</slot>
-                                                    </span>
-                                                    <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
-                                                        {{ date.day }}
-                                                    </div>
+                                                    <template v-if="showOtherMonths || (!showOtherMonths && !date.otherMonth)">
+                                                        <span
+                                                            v-ripple
+                                                            :class="cx('dayLabel', { date })"
+                                                            @click="onDateSelect($event, date)"
+                                                            draggable="false"
+                                                            @keydown="onDateCellKeydown($event, date, groupIndex)"
+                                                            :aria-selected="isSelected(date)"
+                                                            :aria-disabled="!date.selectable"
+                                                            v-bind="
+                                                                ptm('dayLabel', {
+                                                                    context: {
+                                                                        date,
+                                                                        selected: isSelected(date),
+                                                                        disabled: !date.selectable
+                                                                    }
+                                                                })
+                                                            "
+                                                            :data-p-disabled="!date.selectable"
+                                                            :data-p-highlight="isSelected(date)"
+                                                            data-pc-group-section="tablebodycelllabel"
+                                                        >
+                                                            <slot name="date" :date="date">{{ date.day }}</slot>
+                                                        </span>
+                                                        <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
+                                                            {{ date.day }}
+                                                        </div>
+                                                    </template>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -816,16 +816,12 @@ export default {
             this.overlay = null;
         },
         onPrevButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: true, button: true };
-                this.navBackward(event);
-            }
+            this.navigationState = { backward: true, button: true };
+            this.navBackward(event);
         },
         onNextButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: false, button: true };
-                this.navForward(event);
-            }
+            this.navigationState = { backward: false, button: true };
+            this.navForward(event);
         },
         navBackward(event) {
             event.preventDefault();
