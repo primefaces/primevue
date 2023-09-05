@@ -10,7 +10,7 @@
 import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes | string) | string | null | undefined;
 
@@ -129,7 +129,7 @@ export interface InputSwitchProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputSwitchPassThroughOptions}
      */
-    pt?: PTOptions<InputSwitchPassThroughOptions>;
+    pt?: PassThrough<InputSwitchPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

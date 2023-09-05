@@ -11,7 +11,7 @@ import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -222,7 +222,7 @@ export interface TreeSelectProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}
      */
-    pt?: PTOptions<TreeSelectPassThroughOptions>;
+    pt?: PassThrough<TreeSelectPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

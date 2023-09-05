@@ -10,7 +10,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PTOptions } from '../ts-helpers';
+import { PassThrough } from '../ts-helpers';
 
 export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
 
@@ -70,7 +70,7 @@ export interface TooltipOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
      */
-    pt?: PTOptions<TooltipDirectivePassThroughOptions>;
+    pt?: PassThrough<TooltipDirectivePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

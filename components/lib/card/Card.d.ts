@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CardPassThroughOptionType = CardPassThroughAttributes | null | undefined;
 
@@ -69,7 +69,7 @@ export interface CardProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {CardPassThroughOptions}
      */
-    pt?: PTOptions<CardPassThroughOptions>;
+    pt?: PassThrough<CardPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -12,7 +12,7 @@ import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes | string) | string | null | undefined;
 
@@ -121,7 +121,7 @@ export interface InplaceProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {InplacePassThroughOptions}
      */
-    pt?: PTOptions<InplacePassThroughOptions>;
+    pt?: PassThrough<InplacePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}

@@ -33,6 +33,6 @@ export declare type Numberish = number | string;
 
 export declare type Nullable<T = void> = T | null | undefined;
 
-export declare type PTOptions<T = void> = T | object | undefined;
+export declare type PassThrough<T = void> = T | object | undefined;
 
-export declare type DefaultPTOptions<T = void> = T | ((instance?: VNode) => T | undefined) | undefined;
+export declare type DefaultPassThrough<T = void> = T | ((instance?: VNode) => T | undefined) | undefined;

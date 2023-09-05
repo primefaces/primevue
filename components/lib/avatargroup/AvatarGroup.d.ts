@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | null | undefined;
 
@@ -44,7 +44,7 @@ export interface AvatarGroupProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarGroupPassThroughOptions}
      */
-    pt?: PTOptions<AvatarGroupPassThroughOptions>;
+    pt?: PassThrough<AvatarGroupPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
