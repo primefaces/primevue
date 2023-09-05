@@ -13344,7 +13344,7 @@
                         },
                         {
                             "name": "fileSizeTypes",
-                            "optional": true,
+                            "optional": false,
                             "readonly": false,
                             "type": "string[]",
                             "default": ""
