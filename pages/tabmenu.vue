@@ -1,72 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue TabMenu Component</Title>
-            <Meta name="description" content="TabMenu is a navigation/command component that displays items as tab headers." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>TabMenu</h1>
-                <p>TabMenu is a navigation component that displays items as tab headers. Example below uses nested routes with TabMenu.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Default</h5>
-                <TabMenu :model="items" />
-                <NuxtPage />
-            </div>
-
-            <div class="card">
-                <h5>Programmatic</h5>
-                <div class="py-2">
-                    <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
-                    <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
-                </div>
-
-                <TabMenu v-model:activeIndex="active" :model="items2" />
-            </div>
-        </div>
-
-        <TabMenuDoc />
-    </div>
+    <DocComponent
+        title="Vue TabMenu Component"
+        header="TabMenu"
+        description="TabMenu is a navigation/command component that displays items as tab headers."
+        :componentDocs="docs"
+        :apiDocs="['TabMenu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import TabMenuDoc from './tabmenu/TabMenuDoc';
+import PTComponent from '@/doc/tabmenu/pt/index.vue';
+import ThemingDoc from '@/doc/tabmenu/theming/index.vue';
+import AccessibilityDoc from '../doc/tabmenu/AccessibilityDoc.vue';
+import BasicDoc from '../doc/tabmenu/BasicDoc.vue';
+import ControlledDoc from '../doc/tabmenu/ControlledDoc.vue';
+import ImportDoc from '../doc/tabmenu/ImportDoc.vue';
+import RouterDoc from '../doc/tabmenu/RouterDoc.vue';
 
 export default {
     data() {
         return {
-            active: 3,
-            items: [
-                { label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu' },
-                { label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar' },
-                { label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit' },
-                { label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings' }
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'controlled',
+                    label: 'Controlled',
+                    component: ControlledDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
             ],
-            items2: [
-                { label: 'Home', icon: 'pi pi-fw pi-home' },
-                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-                { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-                { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog' }
-            ]
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        TabMenuDoc: TabMenuDoc
     }
 };
 </script>
-
-<style scoped lang="scss">
-::v-deep(.tabmenudemo-content) {
-    padding: 2rem 1rem;
-}
-</style>

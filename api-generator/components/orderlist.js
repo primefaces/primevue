@@ -47,6 +47,18 @@ const OrderListProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether to displays rows with alternating colors.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -93,19 +105,35 @@ const OrderListEvents = [
 const OrderListSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'item',
-        description: 'Custom content for the item'
+        description: 'Custom content for the item.'
     },
     {
         name: 'controlsstart',
-        description: 'Custom content before the buttons'
+        description: 'Custom content before the buttons.'
     },
     {
         name: 'controlsend',
-        description: 'Custom content after the buttons'
+        description: 'Custom content after the buttons.'
+    },
+    {
+        name: 'movetopicon',
+        description: 'Custom move top icon template.'
+    },
+    {
+        name: 'moveupicon',
+        description: 'Custom move up icon template.'
+    },
+    {
+        name: 'movedownicon',
+        description: 'Custom move down icon template.'
+    },
+    {
+        name: 'movebottomicon',
+        description: 'Custom move bottom icon template.'
     }
 ];
 

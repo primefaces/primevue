@@ -59,6 +59,18 @@ const PickListProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show buttons of target list.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -173,40 +185,76 @@ const PickListEvents = [
 
 const PickListSlots = [
     {
+        name: 'header',
+        description: 'Custom header template.'
+    },
+    {
         name: 'sourceheader',
-        description: "Custom content for the component's source header"
+        description: "Custom content for the component's source header."
     },
     {
         name: 'item',
-        description: 'Custom content for the item'
+        description: 'Custom content for the item.'
     },
     {
         name: 'targetheader',
-        description: "Custom content for the component's target header"
+        description: "Custom content for the component's target header."
     },
     {
         name: 'sourcecontrolsstart',
-        description: 'Custom content before source control buttons'
+        description: 'Custom content before source control buttons.'
     },
     {
         name: 'sourcecontrolsend',
-        description: 'Custom content after source control buttons'
+        description: 'Custom content after source control buttons.'
     },
     {
         name: 'movecontrolsstart',
-        description: 'Custom content before move buttons'
+        description: 'Custom content before move buttons.'
     },
     {
         name: 'movecontrolsend',
-        description: 'Custom content after move buttons'
+        description: 'Custom content after move buttons.'
     },
     {
         name: 'targetcontrolsstart',
-        description: 'Custom content before target control buttons'
+        description: 'Custom content before target control buttons.'
     },
     {
         name: 'targetcontrolsend',
-        description: 'Custom content after target control buttons'
+        description: 'Custom content after target control buttons.'
+    },
+    {
+        name: 'moveupicon',
+        description: 'Custom move up icon template.'
+    },
+    {
+        name: 'movetopicon',
+        description: 'Custom move top icon template.'
+    },
+    {
+        name: 'movedownicon',
+        description: 'Custom move down icon template.'
+    },
+    {
+        name: 'movebottomicon',
+        description: 'Custom move bottom icon template.'
+    },
+    {
+        name: 'movetotargeticon',
+        description: 'Custom move to target icon template.'
+    },
+    {
+        name: 'movealltotargeticon',
+        description: 'Custom move all to target icon template.'
+    },
+    {
+        name: 'movetosourceicon',
+        description: 'Custom move to source icon template.'
+    },
+    {
+        name: 'movealltosourceicon',
+        description: 'Custom move all to source icon template.'
     }
 ];
 

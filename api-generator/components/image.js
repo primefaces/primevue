@@ -4,6 +4,36 @@ const ImageProps = [
         type: 'boolean',
         default: 'false',
         description: 'Controls the preview functionality.'
+    },
+    {
+        name: 'indicatorIcon',
+        type: 'string',
+        default: 'pi pi-eye',
+        description: 'Custom indicator icon.'
+    },
+    {
+        name: 'zoomInDisabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Disable the zoom-in button'
+    },
+    {
+        name: 'zoomOutDisabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Disable the zoom-out button'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -25,7 +55,35 @@ const ImageEvents = [
 const ImageSlots = [
     {
         name: 'indicator',
-        description: 'Custom content for the preview indicator'
+        description: 'Custom content for the preview indicator.'
+    },
+    {
+        name: 'refresh',
+        description: 'Custom content for the component refresh.'
+    },
+    {
+        name: 'undo',
+        description: 'Custom content for the component undo.'
+    },
+    {
+        name: 'zoomout',
+        description: 'Custom content for the component zoomout.'
+    },
+    {
+        name: 'zoomin',
+        description: 'Custom content for the component zoomin.'
+    },
+    {
+        name: 'close',
+        description: 'Custom content for the component close.'
+    },
+    {
+        name: 'image',
+        description: 'Custom content for the component image.'
+    },
+    {
+        name: 'preview',
+        description: 'Custom content for the component preview.'
     }
 ];
 

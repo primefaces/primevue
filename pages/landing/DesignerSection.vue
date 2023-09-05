@@ -2,35 +2,35 @@
     <section class="landing-designer py-8">
         <div class="section-header">Theme Designer</div>
         <p class="section-detail">Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer.</p>
-        <div class="designer-main mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize: 'cover' }">
+        <div class="designer-main mt-7 justify-content-center px-5 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize: 'cover' }">
             <div class="box p-4 flex flex-column md:flex-row z-1 designer-editor">
                 <div class="mr-0 md:mr-4 p-4 designer-controls box border-bottom-1 border-left-none border-right-none border-top-none md:border-bottom-none md:border-right-1" style="border-radius: '10px'">
                     <div class="text-center mb-4">
-                        <img :src="'demo/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
+                        <img :src="'https://primefaces.org/cdn/primevue/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
                     </div>
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
                         <div>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #03e8bf" @click="changeTheme('#03E8BF', '#02ba99')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #916aff" @click="changeTheme('#916AFF', '#7455cc')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link" style="background-color: #ffbd80" @click="changeTheme('#FFBD80', '#cc9766')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #03e8bf" @click="changeTheme('#03E8BF', '#02ba99')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #916aff" @click="changeTheme('#916AFF', '#7455cc')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link" style="background-color: #ffbd80" @click="changeTheme('#FFBD80', '#cc9766')"></button>
                         </div>
 
                         <span class="font-semibold block mt-4 mb-3">Font</span>
                         <Dropdown v-model="font" :options="fonts" optionLabel="label" @change="changeFont"></Dropdown>
 
                         <span class="font-semibold block mt-4 mb-3">Size</span>
-                        <div class="flex align-items-center">
+                        <div class="flex flex-wrap gap-4 align-items-center">
                             <div class="flex align-items-center">
                                 <RadioButton id="size-small" v-model="size" value="small" name="sizevalue" />
                                 <label for="size-small" class="ml-2 font-medium">Small</label>
                             </div>
-                            <div class="flex align-items-center ml-4">
+                            <div class="flex align-items-center">
                                 <RadioButton id="size-normal" v-model="size" value="normal" name="sizevalue" />
                                 <label for="size-normal" class="ml-2 font-medium">Normal</label>
                             </div>
-                            <div class="flex align-items-center ml-4">
+                            <div class="flex align-items-center">
                                 <RadioButton id="size-large" v-model="size" value="large" name="sizevalue" />
                                 <label for="size-large" class="ml-2 font-medium">Large</label>
                             </div>
@@ -48,14 +48,14 @@
                             </div>
                         </div>
 
-                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <a href="https://designer.primevue.org" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
                         </a>
                     </div>
                 </div>
                 <div :ref="editorRef" :class="editorclass" style="border-radius: '10px'">
-                    <div class="p-fluid formgrid grid">
+                    <div class="p-fluid formgrid grid pt-3">
                         <div class="field col-12 xl:col-6">
                             <label for="username" class="font-semibold mb-3 p-component">Username</label>
                             <InputText id="username" type="text" />
@@ -104,7 +104,7 @@
                             <span class="font-semibold mb-2 block mb-3 mt-5 p-component">Buttons</span>
                             <div class="flex align-items-center">
                                 <Button type="button" label="Save" icon="pi pi-check" class="mr-1"></Button>
-                                <Button type="button" label="Clear" icon="pi pi-times" class="p-button-outlined ml-1"></Button>
+                                <Button type="button" label="Clear" icon="pi pi-times" outlined class="ml-1"></Button>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default {
             fonts: [
                 { label: 'Arial', value: 'Arial,Helvetica Neue,Helvetica,sans-serif' },
                 { label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol' },
-                { label: 'Trebuches MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif' },
+                { label: 'Trebuchet MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif' },
                 { label: 'Verdana', value: 'Verdana,Geneva,sans-serif' }
             ],
             selectedCity: null,
@@ -159,7 +159,7 @@ export default {
     computed: {
         editorclass() {
             return [
-                'p-4 designer-demo',
+                'designer-demo',
                 {
                     'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'demo-size-small': this.size === 'small',

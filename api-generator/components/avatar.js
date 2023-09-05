@@ -28,13 +28,39 @@ const AvatarProps = [
         type: 'string',
         default: 'square',
         description: 'Shape of the element, valid options are "square" and "circle".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const AvatarSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
     }
 ];
 
 const AvatarEvents = [
     {
         name: 'error',
-        description: 'Triggered when an error occurs while loading an image file.'
+        description: 'Triggered when an error occurs while loading an image file.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 
@@ -43,6 +69,7 @@ module.exports = {
         name: 'Avatar',
         description: 'Avatar represents people using icons, labels and images.',
         props: AvatarProps,
+        slots: AvatarSlots,
         events: AvatarEvents
     }
 };

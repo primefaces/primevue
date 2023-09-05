@@ -1,53 +1,61 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Badge Component</Title>
-            <Meta name="description" content="Badge is a small status indicator for another element." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Badge</h1>
-                <p>Badge is a small status indicator for another element.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Numbers</h5>
-                <Badge value="2" class="mr-2" aria-label="Tabable Primary Badge" tabindex="0"></Badge>
-                <Badge value="8" severity="success" class="mr-2"></Badge>
-                <Badge value="4" severity="info" class="mr-2"></Badge>
-                <Badge value="12" severity="warning" class="mr-2"></Badge>
-                <Badge value="3" severity="danger"></Badge>
-
-                <h5 class="mb-4">Positioned Badge</h5>
-                <i v-badge="2" class="pi pi-bell mr-4 p-text-secondary" style="font-size: 2rem"></i>
-                <i v-badge.danger="'10+'" class="pi pi-calendar mr-4 p-text-secondary" style="font-size: 2rem"></i>
-                <i v-badge.danger class="pi pi-envelope p-text-secondary" style="font-size: 2rem"></i>
-
-                <h5>Button Badge</h5>
-                <Button type="button" label="Emails" badge="8" class="mr-2" />
-                <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
-
-                <h5>Sizes</h5>
-                <Badge value="2" class="mr-2"></Badge>
-                <Badge value="4" class="mr-2" size="large" severity="warning"></Badge>
-                <Badge value="6" size="xlarge" severity="success"></Badge>
-            </div>
-        </div>
-
-        <BadgeDoc />
-    </div>
+    <DocComponent title="Vue Badge Component" header="Badge" description="Badge is a small status indicator for another element." :componentDocs="docs" :apiDocs="['Badge', 'BadgeDirective']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
-import BadgeDoc from './BadgeDoc';
+import AccessibilityDoc from '@/doc/badge/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/badge/BasicDoc.vue';
+import ButtonDoc from '@/doc/badge/ButtonDoc.vue';
+import ImportDoc from '@/doc/badge/ImportDoc.vue';
+import PositionDoc from '@/doc/badge/PositionDoc.vue';
+import SeverityDoc from '@/doc/badge/SeverityDoc.vue';
+import SizeDoc from '@/doc/badge/SizeDoc.vue';
+import PTComponent from '@/doc/badge/pt/index.vue';
+import ThemingDoc from '@/doc/badge/theming/index.vue';
 
 export default {
-    components: {
-        BadgeDoc: BadgeDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'severity',
+                    label: 'Severity',
+                    component: SeverityDoc
+                },
+                {
+                    id: 'size',
+                    label: 'Size',
+                    component: SizeDoc
+                },
+                {
+                    id: 'positioned',
+                    label: 'Position',
+                    component: PositionDoc
+                },
+                {
+                    id: 'button',
+                    label: 'Button',
+                    component: ButtonDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>

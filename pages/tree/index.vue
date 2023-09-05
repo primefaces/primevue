@@ -1,82 +1,90 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Tree Component</Title>
-            <Meta name="description" content="Tree is used to display hierarchical data." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Tree</h1>
-                <p>Tree is used to display hierarchical data.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <Tree :value="nodes"></Tree>
-
-                <h5>Programmatic Control</h5>
-                <div style="margin-bottom: 1em">
-                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
-                </div>
-                <Tree v-model:expandedKeys="expandedKeys" :value="nodes"></Tree>
-            </div>
-        </div>
-
-        <TreeDoc />
-    </div>
+    <DocComponent title="Vue Tree Component" header="Tree" description="Tree is used to display hierarchical data." :componentDocs="docs" :apiDocs="['Tree']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 <script>
-import NodeService from '../../service/NodeService';
-import TreeDoc from './TreeDoc';
+import AccessibilityDoc from '@/doc/tree/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/tree/BasicDoc.vue';
+import ControlledDoc from '@/doc/tree/ControlledDoc.vue';
+import EventsDoc from '@/doc/tree/EventsDoc.vue';
+import FilterDoc from '@/doc/tree/FilterDoc.vue';
+import ImportDoc from '@/doc/tree/ImportDoc.vue';
+import LazyDoc from '@/doc/tree/LazyDoc.vue';
+import TemplateDoc from '@/doc/tree/TemplateDoc.vue';
+import PTComponent from '@/doc/tree/pt/index.vue';
+import CheckboxDoc from '@/doc/tree/selection/CheckboxDoc.vue';
+import MultipleDoc from '@/doc/tree/selection/MultipleDoc.vue';
+import SingleDoc from '@/doc/tree/selection/SingleDoc.vue';
+import ThemingDoc from '@/doc/tree/theming/index.vue';
 
 export default {
     data() {
         return {
-            nodes: null,
-            expandedKeys: {}
-        };
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
-    },
-    methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
-
-            this.expandedKeys = { ...this.expandedKeys };
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            if (node.children && node.children.length) {
-                this.expandedKeys[node.key] = true;
-
-                for (let child of node.children) {
-                    this.expandNode(child);
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'controlled',
+                    label: 'Controlled',
+                    component: ControlledDoc
+                },
+                {
+                    id: 'selection',
+                    label: 'Selection',
+                    children: [
+                        {
+                            id: 'single',
+                            label: 'Single',
+                            component: SingleDoc
+                        },
+                        {
+                            id: 'multiple',
+                            label: 'Multiple',
+                            component: MultipleDoc
+                        },
+                        {
+                            id: 'checkbox',
+                            label: 'Checkbox',
+                            component: CheckboxDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'events',
+                    label: 'Events',
+                    component: EventsDoc
+                },
+                {
+                    id: 'lazy',
+                    label: 'Lazy',
+                    component: LazyDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
                 }
-            }
-        }
-    },
-    components: {
-        TreeDoc: TreeDoc
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>
-
-<style scoped>
-button {
-    margin-right: 0.5rem;
-}
-</style>

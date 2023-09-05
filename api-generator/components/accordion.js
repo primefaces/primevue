@@ -20,13 +20,13 @@ const AccordionProps = [
     {
         name: 'expandIcon',
         type: 'string',
-        default: 'pi-chevron-right',
+        default: 'null',
         description: 'Icon of a collapsed tab.'
     },
     {
         name: 'collapseIcon',
         type: 'string',
-        default: 'pi-chevron-down',
+        default: 'null',
         description: 'Icon of a expanded tab.'
     },
     {
@@ -40,6 +40,18 @@ const AccordionProps = [
         type: 'boolean',
         default: 'false',
         description: 'When enabled, the focused tab is activated.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

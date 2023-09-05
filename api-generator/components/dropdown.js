@@ -121,7 +121,7 @@ const DropdownProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -129,7 +129,7 @@ const DropdownProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
     },
     {
         name: 'panelStyle',
@@ -147,19 +147,19 @@ const DropdownProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
         name: 'filterInputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the filter input inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the filter input inside the component.'
     },
     {
         name: 'clearIconProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLElement to the clear icon inside the component.'
+        description: 'Used to pass all properties of the HTMLElement to the clear icon inside the component.'
     },
     {
         name: 'appendTo',
@@ -256,6 +256,18 @@ const DropdownProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -372,6 +384,22 @@ const DropdownSlots = [
     {
         name: 'loader',
         description: 'Custom content for the virtual scroller loader items'
+    },
+    {
+        name: 'clearicon',
+        description: 'Custom clear icon template.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
     }
 ];
 

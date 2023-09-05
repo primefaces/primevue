@@ -82,10 +82,26 @@ const CarouselProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to display indicator container.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
 const CarouselSlots = [
+    {
+        name: 'header',
+        description: 'Custom content for the component header.'
+    },
     {
         name: 'header',
         description: 'Custom content for the component header.'
@@ -97,6 +113,14 @@ const CarouselSlots = [
     {
         name: 'item',
         description: 'Custom content for the component item.'
+    },
+    {
+        name: 'previousicon',
+        description: 'Custom previous icon template.'
+    },
+    {
+        name: 'nexticon',
+        description: 'Custom next icon template.'
     }
 ];
 

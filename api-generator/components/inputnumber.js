@@ -155,13 +155,13 @@ const InputNumberProps = [
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -169,19 +169,31 @@ const InputNumberProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
     },
     {
         name: 'incrementButtonProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLButtonElement to increment button inside the component.'
+        description: 'Used to pass all properties of the HTMLButtonElement to increment button inside the component.'
     },
     {
         name: 'decrementButtonProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.'
+        description: 'Used to pass all properties of the HTMLButtonElement to decrement button inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -231,11 +243,23 @@ const InputNumberEvents = [
     }
 ];
 
+const InputNumberSlots = [
+    {
+        name: 'incrementbuttonicon',
+        description: 'Custom increment button icon template.'
+    },
+    {
+        name: 'decrementbuttonicon',
+        description: 'Custom decrement button icon template.'
+    }
+];
+
 module.exports = {
     inputnumber: {
         name: 'InputNumber',
         description: 'InputNumber is an input component to provide numerical input.',
         props: InputNumberProps,
-        events: InputNumberEvents
+        events: InputNumberEvents,
+        slots: InputNumberSlots
     }
 };

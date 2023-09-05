@@ -1,69 +1,88 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue TreeSelect Component</Title>
-            <Meta name="description" content="TreeSelect is a form component to choose from hierarchical data." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>TreeSelect</h1>
-                <p>TreeSelect is a form component to choose from hierarchical data.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Single</h5>
-                <TreeSelect v-model="selectedNode" :options="nodes" placeholder="Select Item"></TreeSelect>
-
-                <h5>Multiple</h5>
-                <TreeSelect v-model="selectedNodes1" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Items"></TreeSelect>
-
-                <h5>Checkbox</h5>
-                <TreeSelect v-model="selectedNodes2" :options="nodes" display="chip" selectionMode="checkbox" placeholder="Select Items"></TreeSelect>
-            </div>
-        </div>
-
-        <TreeSelectDoc />
-    </div>
+    <DocComponent
+        title="Vue TreeSelect Component"
+        header="TreeSelect"
+        description="TreeSelect is a form component to choose from hierarchical data."
+        :componentDocs="docs"
+        :apiDocs="['TreeSelect']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import NodeService from '../../service/NodeService';
-import TreeSelectDoc from './TreeSelectDoc';
+import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc';
+import BasicDoc from '@/doc/treeselect/BasicDoc';
+import CheckboxDoc from '@/doc/treeselect/CheckboxDoc';
+import DisabledDoc from '@/doc/treeselect/DisabledDoc';
+import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc';
+import ImportDoc from '@/doc/treeselect/ImportDoc';
+import InvalidDoc from '@/doc/treeselect/InvalidDoc';
+import MultipleDoc from '@/doc/treeselect/MultipleDoc';
+import VeeValidateDoc from '@/doc/treeselect/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/treeselect/pt/index.vue';
+import ThemingDoc from '@/doc/treeselect/theming/index.vue';
 
 export default {
     data() {
         return {
-            nodes: null,
-            selectedNode: null,
-            selectedNodes1: null,
-            selectedNodes2: null
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
+                },
+                {
+                    id: 'checkbox',
+                    label: 'Checkbox',
+                    component: CheckboxDoc
+                },
+                {
+                    id: 'float-label',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
-    mounted() {
-        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
-    },
-    components: {
-        TreeSelectDoc: TreeSelectDoc
     }
 };
 </script>
-
-<style scoped>
-.p-treeselect {
-    width: 20rem;
-}
-
-@media screen and (max-width: 640px) {
-    .p-treeselect {
-        width: 100%;
-    }
-}
-</style>

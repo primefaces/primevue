@@ -142,33 +142,65 @@ const GalleriaProps = [
         type: 'any',
         default: 'null',
         description: "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
 const GalleriaSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'item',
-        description: 'Custom content for the item'
+        description: 'Custom content for the item.'
     },
     {
         name: 'caption',
-        description: 'Custom caption content'
+        description: 'Custom caption content.'
     },
     {
         name: 'thumbnail',
-        description: 'Custom thumbnail content'
+        description: 'Custom thumbnail content.'
     },
     {
         name: 'indicator',
-        description: 'Custom indicator content'
+        description: 'Custom indicator content.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
+    },
+    {
+        name: 'previousitemicon',
+        description: 'Custom navigator previous item icon template.'
+    },
+    {
+        name: 'nextitemicon',
+        description: 'Custom navigator next item icon template.'
+    },
+    {
+        name: 'previousthumbnailicon',
+        description: 'Custom thumbnail previous icon template.'
+    },
+    {
+        name: 'nextthumbnailicon',
+        description: 'Custom thumbnail next icon template.'
     }
 ];
 

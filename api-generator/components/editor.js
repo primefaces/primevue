@@ -34,6 +34,18 @@ const EditorProps = [
         type: 'object',
         default: 'null',
         description: 'Modules configuration, see <a href="http://quilljs.com/docs/modules/">here</a> for available options.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

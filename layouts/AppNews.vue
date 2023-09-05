@@ -15,24 +15,17 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
-    data() {
-        return {
-            storageKey: 'primevue',
-            hovered: false
-        };
-    },
     mounted() {
         EventBus.emit('news-activate');
     },
     methods: {
         onClose() {
             this.$appState.newsActive = false;
-
             const item = {
                 hiddenNews: this.$appState.announcement.id
             };
 
-            localStorage.setItem(this.storageKey, JSON.stringify(item));
+            localStorage.setItem(this.$appState.storageKey, JSON.stringify(item));
         }
     }
 };

@@ -28,6 +28,51 @@ const RatingProps = [
         type: 'boolean',
         default: 'true',
         description: 'When specified a cancel icon is displayed to allow clearing the value.'
+    },
+    {
+        name: 'onIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the on state.'
+    },
+    {
+        name: 'offIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the off state.'
+    },
+    {
+        name: 'cancelIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the cancelable state.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const RatingSlots = [
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'onicon',
+        description: 'Custom on icon template.'
+    },
+    {
+        name: 'officon',
+        description: 'Custom off icon template.'
     }
 ];
 
@@ -55,6 +100,7 @@ module.exports = {
         name: 'rating',
         description: 'Rating component is a star based selection input.',
         props: RatingProps,
+        slots: RatingSlots,
         events: RatingEvents
     }
 };

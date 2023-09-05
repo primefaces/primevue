@@ -34,6 +34,18 @@ const MenuProps = [
         type: 'boolean',
         default: 'true',
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -50,8 +62,24 @@ const MenuEvents = [
 
 const MenuSlots = [
     {
+        name: 'start',
+        description: 'Custom content before the content'
+    },
+    {
+        name: 'end',
+        description: 'Custom content after the content'
+    },
+    {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
+    },
+    {
+        name: 'itemicon',
+        description: 'Custom item icon template.'
+    },
+    {
+        name: 'submenuheader',
+        description: 'Custom submenuheader template.'
     }
 ];
 

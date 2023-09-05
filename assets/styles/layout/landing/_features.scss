@@ -1,0 +1,10 @@
+.landing-features {
+    .box {
+        box-shadow: var(--home-features-card-shadow);
+    }
+    .features-container{
+        max-width: 1250px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

@@ -7,10 +7,15 @@ module.exports = {
     extends: ['plugin:nuxt/recommended', 'plugin:vue/vue3-essential', 'prettier'],
     parserOptions: {
         parser: '@babel/eslint-parser',
-        requireConfigFile: false
+        requireConfigFile: false,
+        babelOptions: {
+            parserOpts: {
+                plugins: ['typescript']
+            }
+        }
     },
     plugins: ['prettier'],
-    ignorePatterns: ['**/public/**', '/layouts/AppDocumentation.vue'],
+    ignorePatterns: ['**/public/**', '**/dist/**'],
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -87,7 +92,8 @@ module.exports = {
             { blankLine: 'always', prev: 'block', next: '*' },
             { blankLine: 'always', prev: '*', next: 'block' },
             { blankLine: 'always', prev: 'block-like', next: '*' },
-            { blankLine: 'always', prev: '*', next: 'block-like' }
+            { blankLine: 'always', prev: '*', next: 'block-like' },
+            { blankLine: 'always', prev: ['import'], next: ['const', 'let', 'var'] }
         ]
     }
 };

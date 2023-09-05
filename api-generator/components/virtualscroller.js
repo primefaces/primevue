@@ -101,6 +101,12 @@ const VirtualScrollerProps = [
         type: 'number|string',
         default: '0',
         description: 'Index of the element in tabbing order.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -153,15 +159,19 @@ const VirtualScrollerEvents = [
 const VirtualScrollerSlots = [
     {
         name: 'item',
-        description: 'Content for the item'
+        description: 'Content for the item.'
     },
     {
         name: 'content',
-        description: 'Custom content for the component'
+        description: 'Custom content for the component.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the loader items'
+        description: 'Custom content for the loader items.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     }
 ];
 

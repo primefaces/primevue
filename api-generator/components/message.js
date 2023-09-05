@@ -26,8 +26,37 @@ const MessageProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'null',
+        default: 'undefined',
         description: 'Display a custom icon for the message.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'undefined',
+        description: 'Display a custom close icon for the message.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const MessageSlots = [
+    {
+        name: 'messageicon',
+        description: 'Custom message icon template.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 
@@ -50,6 +79,7 @@ module.exports = {
         name: 'Message',
         description: 'Messages is used to display inline messages with various severities.',
         props: MessageProps,
+        slots: MessageSlots,
         events: MessageEvents
     }
 };

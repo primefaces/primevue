@@ -25,13 +25,13 @@ const InputSwitchProps = [
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -39,7 +39,19 @@ const InputSwitchProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

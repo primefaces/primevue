@@ -367,6 +367,12 @@ const DataTableProps = [
         description: 'Whether to displays rows with alternating colors.'
     },
     {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the table.'
+    },
+    {
         name: 'tableStyle',
         type: 'object',
         default: 'null',
@@ -377,6 +383,18 @@ const DataTableProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the table element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -1120,31 +1138,67 @@ const DataTableEvents = [
 const DataTableSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'paginatorstart',
-        description: "Custom content for the component paginator's left side"
+        description: "Custom content for the component paginator's left side."
     },
     {
         name: 'paginatorend',
-        description: "Custom content for the component paginator's right side"
+        description: "Custom content for the component paginator's right side."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'groupheader',
-        description: "Custom content for the component's subgroup header"
+        description: "Custom content for the component's subgroup header."
     },
     {
         name: 'groupfooter',
-        description: "Custom content for the component's subgroup footer"
+        description: "Custom content for the component's subgroup footer."
     },
     {
-        name: 'expansion',
-        description: "Custom content for the component's expanded content"
+        name: 'loading',
+        description: 'Custom loading template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'reorderindicatorupicon',
+        description: 'Custom reorder indicator up icon template.'
+    },
+    {
+        name: 'reorderindicatordownicon',
+        description: 'Custom reorder indicator down icon template.'
+    },
+    {
+        name: 'rowgrouptogglericon',
+        description: 'Custom rowgroup toggler icon template.'
+    },
+    {
+        name: 'paginatorfirstpagelinkicon',
+        description: 'Custom paginator first page link icon template.'
+    },
+    {
+        name: 'paginatorprevpagelinkicon',
+        description: 'Custom paginator prev page link icon template.'
+    },
+    {
+        name: 'paginatornextpagelinkicon',
+        description: 'Custom paginator next page link icon template.'
+    },
+    {
+        name: 'paginatorlastpagelinkicon',
+        description: 'Custom paginator last page link icon template.'
+    },
+    {
+        name: 'empty',
+        description: 'Custom empty template.'
     }
 ];
 

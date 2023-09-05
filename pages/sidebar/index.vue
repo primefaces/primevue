@@ -1,67 +1,69 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Sidebar Component</Title>
-            <Meta name="description" content="Sidebar is a panel component displayed as an overlay." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Sidebar</h1>
-                <p>Sidebar is a panel component displayed as an overlay at the edges of the screen.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
-                <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2" />
-                <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2" />
-                <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2" />
-                <Button icon="pi pi-th-large" @click="visibleFull = true" />
-
-                <Sidebar v-model:visible="visibleLeft" :baseZIndex="10000">
-                    <h3>Left Sidebar</h3>
-                </Sidebar>
-
-                <Sidebar v-model:visible="visibleRight" :baseZIndex="10000" position="right">
-                    <h3>Right Sidebar</h3>
-                </Sidebar>
-
-                <Sidebar v-model:visible="visibleTop" :baseZIndex="10000" position="top">
-                    <h3>Top Sidebar</h3>
-                </Sidebar>
-
-                <Sidebar v-model:visible="visibleBottom" :baseZIndex="10000" position="bottom">
-                    <h3>Bottom Sidebar</h3>
-                </Sidebar>
-
-                <Sidebar v-model:visible="visibleFull" :baseZIndex="10000" position="full">
-                    <h3>Full Screen</h3>
-                </Sidebar>
-            </div>
-        </div>
-
-        <SidebarDoc />
-    </div>
+    <DocComponent
+        title="Vue Sidebar Component"
+        header="Sidebar"
+        description="Sidebar, also known as Drawer, is a container component displayed as an overlay."
+        :componentDocs="docs"
+        :apiDocs="['Sidebar']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import SidebarDoc from './SidebarDoc';
+import AccessibilityDoc from '@/doc/sidebar/AccessibilityDoc';
+import BasicDoc from '@/doc/sidebar/BasicDoc';
+import FullScreenDoc from '@/doc/sidebar/FullScreenDoc';
+import ImportDoc from '@/doc/sidebar/ImportDoc';
+import PositionDoc from '@/doc/sidebar/PositionDoc';
+import SizeDoc from '@/doc/sidebar/SizeDoc';
+import TemplateDoc from '@/doc/sidebar/TemplateDoc';
+import PTComponent from '@/doc/sidebar/pt/index.vue';
+import ThemingDoc from '@/doc/sidebar/theming/index.vue';
 
 export default {
     data() {
         return {
-            visibleLeft: false,
-            visibleRight: false,
-            visibleTop: false,
-            visibleBottom: false,
-            visibleFull: false
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'position',
+                    label: 'Position',
+                    component: PositionDoc
+                },
+                {
+                    id: 'size',
+                    label: 'Size',
+                    component: SizeDoc
+                },
+                {
+                    id: 'fullscreen',
+                    label: 'Full Screen',
+                    component: FullScreenDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        SidebarDoc: SidebarDoc
     }
 };
 </script>

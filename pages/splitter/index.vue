@@ -1,64 +1,63 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Splitter Component</Title>
-            <Meta name="description" content="Splitter is utilized to separate and resize panels." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Splitter</h1>
-                <p>Splitter is utilized to separate and resize panels.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Horizontal</h5>
-                <Splitter style="height: 300px" class="mb-5">
-                    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-                    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
-                </Splitter>
-            </div>
-
-            <div class="card">
-                <h5>Vertical</h5>
-                <Splitter style="height: 300px" layout="vertical">
-                    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-                    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
-                </Splitter>
-            </div>
-
-            <div class="card">
-                <h5>Nested</h5>
-                <Splitter style="height: 300px">
-                    <SplitterPanel class="flex align-items-center justify-content-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
-                    <SplitterPanel :size="80">
-                        <Splitter layout="vertical">
-                            <SplitterPanel class="flex align-items-center justify-content-center" :size="15"> Panel 2 </SplitterPanel>
-                            <SplitterPanel :size="85">
-                                <Splitter>
-                                    <SplitterPanel class="flex align-items-center justify-content-center" :size="20"> Panel 3 </SplitterPanel>
-                                    <SplitterPanel class="flex align-items-center justify-content-center" :size="80"> Panel 4 </SplitterPanel>
-                                </Splitter>
-                            </SplitterPanel>
-                        </Splitter>
-                    </SplitterPanel>
-                </Splitter>
-            </div>
-        </div>
-
-        <SplitterDoc />
-    </div>
+    <DocComponent
+        title="Vue Splitter Component"
+        header="Splitter"
+        description="Splitter is utilized to separate and resize panels."
+        :componentDocs="docs"
+        :apiDocs="['Splitter', 'SplitterPanel']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import SplitterDoc from './SplitterDoc';
+import AccessibilityDoc from '@/doc/splitter/AccessibilityDoc';
+import HorizontalDoc from '@/doc/splitter/HorizontalDoc.vue';
+import ImportDoc from '@/doc/splitter/ImportDoc';
+import NestedDoc from '@/doc/splitter/NestedDoc.vue';
+import SizeDoc from '@/doc/splitter/SizeDoc.vue';
+import VerticalDoc from '@/doc/splitter/VerticalDoc.vue';
+import PTComponent from '@/doc/splitter/pt/index.vue';
+import ThemingDoc from '@/doc/splitter/theming/index.vue';
 
 export default {
-    components: {
-        SplitterDoc: SplitterDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'horizontal',
+                    label: 'Horizontal',
+                    component: HorizontalDoc
+                },
+                {
+                    id: 'size',
+                    label: 'Size',
+                    component: SizeDoc
+                },
+                {
+                    id: 'vertical',
+                    label: 'Vertical',
+                    component: VerticalDoc
+                },
+                {
+                    id: 'nested',
+                    label: 'Nested',
+                    component: NestedDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>

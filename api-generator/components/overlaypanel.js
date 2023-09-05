@@ -40,6 +40,31 @@ const OverlayPanelProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'undefined',
+        description: 'Display a custom close icon for the message.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const OverlayPanelSlots = [
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 
@@ -59,6 +84,7 @@ module.exports = {
         name: 'OverlayPanel',
         description: 'OverlayPanel is a container component positioned as connected to its target.',
         props: OverlayPanelProps,
+        slots: OverlayPanelSlots,
         events: OverlayPanelEvents
     }
 };

@@ -1,77 +1,45 @@
 <template>
-    <section class="landing-users py-8 pad-section">
+    <section class="landing-users py-8 px-3 lg:px-8">
         <div class="section-header">Who Uses</div>
-        <p class="section-detail">Open source products of PrimeTek are used all around the world by millions of developers.</p>
-        <div class="grid mt-7">
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('fox')" alt="fox logo" />
+        <p class="section-detail">
+            PrimeTek libraries have reached over <span class="font-semibold animated-text relative white-space-nowrap"> <span>110 Million Downloads </span> </span> on npm! Join the PrimeLand community and experience the difference yourself.
+        </p>
+        <div class="flex justify-content-center align-items-center mt-4">
+            <span class="ml-2"> </span>
+        </div>
+        <div v-for="(x, i) in users" :key="i" class="logo-section relative w-full md:w-8 mt-6 users-container">
+            <div class="fade-left h-6rem w-6rem block absolute top-0 left-0 z-2"></div>
+            <div class="marquee-wrapper overflow-hidden flex">
+                <div v-for="i of [1, 2, 3]" :key="i" :class="`marquee${x.reverse ? ' marquee-reverse' : ''}`">
+                    <template v-for="user of x.slicedUsers" :key="user">
+                        <div class="w-full">
+                            <img :src="imgSrc(user)" :alt="`${user}-${colorScheme}`" />
+                        </div>
+                    </template>
                 </div>
             </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('airbus')" alt="airbus logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('mercedes')" alt="mercedes logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('ebay')" alt="ebay logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('ford')" alt="ford logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('vw')" alt="volkswage logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('intel')" alt="intel logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('unicredit')" alt="unicredit logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('lufthansa')" alt="lufthansa logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('nvidia')" alt="nvidia logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('verizon')" alt="verizon logo" />
-                </div>
-            </div>
-            <div class="col-6 md:col-4 lg:col-3 xl:col-2 flex justify-content-center p-3">
-                <div class="box w-10rem h-10rem flex justify-content-center align-items-center bg-transparent">
-                    <img :src="imgSrc('amex')" alt="american express logo" />
-                </div>
-            </div>
+            <div class="fade-right h-6rem w-6rem block absolute top-0 right-0 z-2"></div>
         </div>
     </section>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            usersData: ['fox', 'airbus', 'mercedes', 'ebay', 'ford', 'vw', 'intel', 'unicredit', 'lufthansa', 'nvidia', 'verizon', 'amex'],
+            users: null
+        };
+    },
+    mounted() {
+        this.users = [
+            { slicedUsers: this.usersData.slice(0, 6), reverse: false },
+            { slicedUsers: this.usersData.slice(6), reverse: true }
+        ];
+    },
     methods: {
         imgSrc(brand) {
-            return `demo/images/landing/whouses/${brand}-${this.colorScheme}.svg`;
+            return `https://primefaces.org/cdn/primevue/images/landing/whouses/${brand}-${this.colorScheme}.svg`;
         }
     },
     computed: {

@@ -16,6 +16,18 @@ const InplaceProps = [
         type: 'boolean',
         default: 'false',
         description: 'When present, it specifies that the element should be disabled.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -47,11 +59,15 @@ const InplaceEvents = [
 const InplaceSlots = [
     {
         name: 'display',
-        description: 'Output content'
+        description: 'Custom display template.'
     },
     {
         name: 'content',
-        description: 'Actual content'
+        description: 'Custom content template.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 

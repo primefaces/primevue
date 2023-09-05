@@ -78,6 +78,12 @@ const AutoCompleteProps = [
         description: 'Default text to display when no option is selected.'
     },
     {
+        name: 'loading',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the multiselect is in loading state.'
+    },
+    {
         name: 'disabled',
         type: 'boolean',
         default: 'false',
@@ -133,7 +139,7 @@ const AutoCompleteProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -141,7 +147,7 @@ const AutoCompleteProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
     },
     {
         name: 'panelStyle',
@@ -151,7 +157,7 @@ const AutoCompleteProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
@@ -159,13 +165,31 @@ const AutoCompleteProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
+        name: 'dropdownClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the dropdown button.'
     },
     {
         name: 'loadingIcon',
         type: 'string',
-        default: 'pi pi-spinner',
+        default: 'null',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in chip remove action.'
     },
     {
         name: 'virtualScrollerOptions',
@@ -232,6 +256,18 @@ const AutoCompleteProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -396,6 +432,18 @@ const AutoCompleteSlots = [
     {
         name: 'empty',
         description: 'Custom empty template when there is no data to display.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'removetokenicon',
+        description: 'Custom remove token icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     }
 ];
 

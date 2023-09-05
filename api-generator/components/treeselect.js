@@ -43,13 +43,13 @@ const TreeSelectProps = [
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -61,7 +61,7 @@ const TreeSelectProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
@@ -101,6 +101,18 @@ const TreeSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Used to define a string that labels the element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -196,8 +208,16 @@ const TreeSelectSlots = [
         description: 'Custom content when there is no data to display'
     },
     {
-        name: 'indicator',
+        name: 'triggericon',
         description: 'Custom content for the dropdown indicator'
+    },
+    {
+        name: 'itemtogglericon',
+        description: 'Custom item toggler icon template.'
+    },
+    {
+        name: 'itemcheckboxicon',
+        description: 'Custom item checkbox icon template.'
     }
 ];
 

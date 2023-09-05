@@ -1,66 +1,51 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue ScrollTop Component</Title>
-            <Meta name="description" content="ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ScrollTop</h1>
-                <p>ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Window</h5>
-                <p>Scroll down the page to display the ScrollTop component.</p>
-                <ScrollTop />
-
-                <h5>Element</h5>
-                <ScrollPanel style="width: 250px; height: 200px">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur
-                        adipiscing elit ut. Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor
-                        augue mauris. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet
-                        nisl purus. Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus
-                        viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
-                    </p>
-                    <ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
-                </ScrollPanel>
-            </div>
-        </div>
-
-        <ScrollTopDoc />
-    </div>
+    <DocComponent
+        title="Vue ScrollTop Component"
+        header="ScrollTop"
+        description="ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly."
+        :componentDocs="docs"
+        :apiDocs="['ScrollTop']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import ScrollTopDoc from './ScrollTopDoc';
+import AccessibilityDoc from '@/doc/scrolltop/AccessibilityDoc';
+import BasicDoc from '@/doc/scrolltop/BasicDoc';
+import ElementDoc from '@/doc/scrolltop/ElementDoc';
+import ImportDoc from '@/doc/scrolltop/ImportDoc';
+import PTComponent from '@/doc/scrolltop/pt/index.vue';
+import ThemingDoc from '@/doc/scrolltop/theming/index.vue';
 
 export default {
-    components: {
-        ScrollTopDoc: ScrollTopDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'element',
+                    label: 'Element',
+                    component: ElementDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.custom-scrolltop) {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-
-    &:hover {
-        background-color: var(--primary-color);
-    }
-
-    .p-scrolltop-icon {
-        font-size: 1rem;
-        color: var(--primary-color-text);
-    }
-}
-</style>

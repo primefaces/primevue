@@ -1,38 +1,42 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue ProgressSpinner Component</Title>
-            <Meta name="description" content="ProgressSpinner is a process status indicator." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ProgressSpinner</h1>
-                <p>ProgressSpinner is a process status indicator.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <ProgressSpinner aria-label="Basic ProgressSpinner" />
-
-                <h5>Custom</h5>
-                <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" aria-label="Custom ProgressSpinner" />
-            </div>
-        </div>
-
-        <ProgressSpinnerDoc />
-    </div>
+    <DocComponent title="Vue ProgressSpinner Component" header="ProgressSpinner" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressSpinner']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
-import ProgressSpinnerDoc from './ProgressSpinnerDoc';
-
+import AccessibilityDoc from '@/doc/progressspinner/AccessibilityDoc';
+import BasicDoc from '@/doc/progressspinner/BasicDoc';
+import CustomDoc from '@/doc/progressspinner/CustomDoc';
+import ImportDoc from '@/doc/progressspinner/ImportDoc';
+import PTComponent from '@/doc/progressspinner/pt/index.vue';
+import ThemingDoc from '@/doc/progressspinner/theming/index.vue';
 export default {
-    components: {
-        ProgressSpinnerDoc: ProgressSpinnerDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'custom',
+                    label: 'Custom',
+                    component: CustomDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>

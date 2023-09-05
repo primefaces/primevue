@@ -46,6 +46,18 @@ const PaginatorProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show the paginator even there is only one page.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -80,12 +92,28 @@ const PaginatorEvents = [
 
 const PaginatorSlots = [
     {
-        name: 'left',
-        description: "Custom content for the component's left side"
+        name: 'start',
+        description: "Custom content for the component's left side."
     },
     {
-        name: 'right',
-        description: "Custom content for the component's right side"
+        name: 'end',
+        description: "Custom content for the component's right side."
+    },
+    {
+        name: 'firstpagelinkicon',
+        description: 'Custom first page link icon template.'
+    },
+    {
+        name: 'prevpagelinkicon',
+        description: 'Custom previous page link icon template.'
+    },
+    {
+        name: 'nextpagelinkicon',
+        description: 'Custom next page link icon template.'
+    },
+    {
+        name: 'lastpagelinkicon',
+        description: 'Custom last page link icon template.'
     }
 ];
 

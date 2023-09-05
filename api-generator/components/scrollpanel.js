@@ -4,6 +4,18 @@ const ScrollPanelProps = [
         type: 'number',
         default: '5',
         description: 'Step factor to scroll the content while pressing the arrow keys.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

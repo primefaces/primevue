@@ -14,7 +14,7 @@ const ScrollTopProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'pi pi-chevron-up',
+        default: 'undefined',
         description: 'Icon to display.'
     },
     {
@@ -22,6 +22,25 @@ const ScrollTopProps = [
         type: 'string',
         default: 'smooth',
         description: 'Defines the scrolling behavi, "smooth" adds an animation and "auto" scrolls with a jump.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const ScrollTopSlots = [
+    {
+        name: 'icon',
+        description: 'Custom scrolltop icon template.'
     }
 ];
 
@@ -29,6 +48,7 @@ module.exports = {
     scrolltop: {
         name: 'ScrollTop',
         description: 'ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.',
-        props: ScrollTopProps
+        props: ScrollTopProps,
+        slots: ScrollTopSlots
     }
 };

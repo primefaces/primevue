@@ -1,12 +1,16 @@
-import vueJsx from '@vitejs/plugin-vue-jsx';
+const baseUrl = '/';
 
-import path from 'path';
-const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue/' : '/';
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
-    components: true,
+    modules: ['nuxt-gtag'],
+    components: [
+        '~/components',
+        {
+            path: '~/components/layout',
+            prefetch: false
+        }
+    ],
     app: {
         baseURL: baseUrl,
         head: {
@@ -22,7 +26,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:title', content: 'PrimeVue | Vue UI Component Library' },
-                { property: 'og:url', content: 'https://www.primefaces.org/primevue' },
+                { property: 'og:url', content: 'https://primevue.org/' },
                 { property: 'og:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
                 { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
                 { property: 'og:ttl', content: '604800' }
@@ -42,21 +46,6 @@ export default defineNuxtConfig({
             ],
             script: [
                 {
-                    strategy: 'lazyOnload',
-                    src: 'https://www.googletagmanager.com/gtag/js?id=UA-93461466-1'
-                },
-                {
-                    id: 'ga-analytics',
-                    strategy: 'lazyOnload',
-                    children: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'UA-93461466-1');
-                    `
-                },
-                {
                     src: baseUrl + 'scripts/prism.js',
                     'data-manual': true
                 }
@@ -68,39 +57,8 @@ export default defineNuxtConfig({
             contextPath: baseUrl
         }
     },
-    css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css'],
-    vite: {
-        plugins: [vueJsx()],
-        resolve: {
-            alias: {
-                'primevue/ripple': path.resolve(__dirname, './components/ripple/Ripple.js'),
-                'primevue/tooltip': path.resolve(__dirname, './components/tooltip/Tooltip.js'),
-                'primevue/focustrap': path.resolve(__dirname, './components/focustrap/FocusTrap.js'),
-                'primevue/useconfirm': path.resolve(__dirname, './components/useconfirm/UseConfirm.js'),
-                'primevue/usetoast': path.resolve(__dirname, './components/usetoast/UseToast.js'),
-                'primevue/usedialog': path.resolve(__dirname, './components/usedialog/UseDialog.js'),
-                'primevue/utils': path.resolve(__dirname, './components/utils/Utils.js'),
-                'primevue/api': path.resolve(__dirname, './components/api/Api.js'),
-                'primevue/portal': path.resolve(__dirname, './components/portal/Portal.vue'),
-                'primevue/button': path.resolve(__dirname, './components/button/Button.vue'),
-                'primevue/inputtext': path.resolve(__dirname, './components/inputtext/InputText.vue'),
-                'primevue/dialog': path.resolve(__dirname, './components/dialog/Dialog.vue'),
-                'primevue/menu': path.resolve(__dirname, './components/menu/Menu.vue'),
-                'primevue/tieredmenu': path.resolve(__dirname, './components/tieredmenu/TieredMenu.vue'),
-                'primevue/dropdown': path.resolve(__dirname, './components/dropdown/Dropdown.vue'),
-                'primevue/inputnumber': path.resolve(__dirname, './components/inputnumber/InputNumber.vue'),
-                'primevue/paginator': path.resolve(__dirname, './components/paginator/Paginator.vue'),
-                'primevue/progressbar': path.resolve(__dirname, './components/progressbar/ProgressBar.vue'),
-                'primevue/message': path.resolve(__dirname, './components/message/Message.vue'),
-                'primevue/tree': path.resolve(__dirname, './components/tree/Tree.vue'),
-                'primevue/badge': path.resolve(__dirname, './components/badge/Badge.vue'),
-                'primevue/confirmationeventbus': path.resolve(__dirname, './components/confirmationeventbus/ConfirmationEventBus.js'),
-                'primevue/toasteventbus': path.resolve(__dirname, './components/toasteventbus/ToastEventBus.js'),
-                'primevue/overlayeventbus': path.resolve(__dirname, './components/overlayeventbus/OverlayEventBus.js'),
-                'primevue/terminalservice': path.resolve(__dirname, './components/terminalservice/TerminalService.js'),
-                'primevue/dynamicdialogeventbus': path.resolve(__dirname, './components/dynamicdialogeventbus/DynamicDialogEventBus.js'),
-                'primevue/virtualscroller': path.resolve(__dirname, './components/virtualscroller/VirtualScroller.vue')
-            }
-        }
-    }
+    gtag: {
+        id: 'G-48TTQ6G6KV'
+    },
+    css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css']
 });

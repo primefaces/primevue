@@ -1,7 +1,7 @@
 const BadgeProps = [
     {
         name: 'value',
-        type: 'any',
+        type: 'string | number',
         default: 'null',
         description: 'Value to display inside the badge.'
     },
@@ -16,6 +16,18 @@ const BadgeProps = [
         type: 'string',
         default: 'null',
         description: 'Size of the badge, valid options are "large" and "xlarge".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

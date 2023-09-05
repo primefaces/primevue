@@ -1,0 +1,214 @@
+/**
+ *
+ * Message groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/message/)
+ *
+ * @module message
+ *
+ */
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | string) | string | null | undefined;
+
+export declare type MessagePassThroughTransitionType = TransitionProps | ((options: MessagePassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface MessagePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
+    instance: any;
+    /**
+     * Defines valid properties.
+     */
+    props: MessageProps;
+    /**
+     * Defines current inline state.
+     */
+    state: MessageState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link MessageProps.pt}
+ */
+export interface MessagePassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the icon's DOM element.
+     */
+    icon?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the text's DOM element.
+     */
+    text?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
+     */
+    button?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button's DOM element.
+     */
+    closeButton?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
+     */
+    buttonIcon?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: MessagePassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: MessagePassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface MessagePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Message component.
+ */
+export interface MessageState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+}
+
+/**
+ * Defines valid properties in Message component.
+ */
+export interface MessageProps {
+    /**
+     * Severity level of the message.
+     * @defaultValue info
+     */
+    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    /**
+     * Whether the message can be closed manually using the close icon.
+     * @defaultValue true
+     */
+    closable?: boolean | undefined;
+    /**
+     * When enabled, message is not removed automatically.
+     * @defaultValue true
+     */
+    sticky?: boolean | undefined;
+    /**
+     * Delay in milliseconds to close the message automatically.
+     * @defaultValue 3000
+     */
+    life?: number | undefined;
+    /**
+     * Display a custom icon for the message.
+     */
+    icon?: string | undefined;
+    /**
+     * Icon to display in the message close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
+     */
+    closeIcon?: string | undefined;
+    /**
+     * Used to pass all properties of the HTMLButtonElement to the close button.
+     */
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {MessagePassThroughOptions}
+     */
+    pt?: PTOptions<MessagePassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
+
+/**
+ * Defines valid slots in Message slots.
+ */
+export interface MessageSlots {
+    /**
+     * Default custom slot.
+     */
+    default(): VNode[];
+    /**
+     * Custom message icon template.
+     * @param {Object} scope - messageicon slot's params.
+     */
+    messageicon(scope: {
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom close icon template.
+     * @param {Object} scope - closeicon slot's params.
+     */
+    closeicon(scope: {
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
+}
+
+/**
+ * Defines valid emits in Message component.
+ */
+export interface MessageEmits {
+    /**
+     * Callback to invoke when a message is closed.
+     * @param {Event} event - Browser event.
+     */
+    close(event: Event): void;
+}
+
+/**
+ * **PrimeVue - Message**
+ *
+ * _Messages is used to display inline messages with various severities._
+ *
+ * [Live Demo](https://www.primevue.org/message/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> {}
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Message: GlobalComponentConstructor<Message>;
+    }
+}
+
+export default Message;

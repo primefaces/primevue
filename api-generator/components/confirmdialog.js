@@ -10,13 +10,43 @@ const ConfirmDialogProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'draggable',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether the dialog can be relocated by dragging.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
 const ConfirmDialogSlots = [
     {
         name: 'message',
-        description: 'Custom content for the component.'
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'accepticon',
+        description: 'Custom accept icon template.'
+    },
+    {
+        name: 'rejecticon',
+        description: 'Custom reject icon template.'
     }
 ];
 

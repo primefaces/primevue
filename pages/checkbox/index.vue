@@ -1,78 +1,82 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Checkbox Component</Title>
-            <Meta name="description" content="Checkbox is an extension to standard checkbox element with theming." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Checkbox</h1>
-                <p>Checkbox is an extension to standard checkbox element with theming.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <div class="field-checkbox">
-                    <Checkbox v-model="checked" inputId="binary" :binary="true" />
-                    <label for="binary">Remember Me</label>
-                </div>
-
-                <h5>Multiple</h5>
-                <div class="field-checkbox">
-                    <Checkbox v-model="cities" inputId="city1" name="city" value="Chicago" />
-                    <label for="city1">Chicago</label>
-                </div>
-                <div class="field-checkbox">
-                    <Checkbox v-model="cities" inputId="city2" name="city" value="Los Angeles" />
-                    <label for="city2">Los Angeles</label>
-                </div>
-                <div class="field-checkbox">
-                    <Checkbox v-model="cities" inputId="city3" name="city" value="New York" />
-                    <label for="city3">New York</label>
-                </div>
-                <div class="field-checkbox">
-                    <Checkbox v-model="cities" inputId="city4" name="city" value="San Francisco" />
-                    <label for="city4">San Francisco</label>
-                </div>
-
-                <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
-                <div v-for="category of categories" :key="category.key" class="field-checkbox">
-                    <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" :disabled="category.key === 'R'" />
-                    <label :for="category.key">{{ category.name }}</label>
-                </div>
-            </div>
-        </div>
-
-        <CheckboxDoc />
-    </div>
+    <DocComponent
+        title="Vue Checkbox Component"
+        header="Checkbox"
+        description="Checkbox is an extension to standard checkbox element with theming."
+        :componentDocs="docs"
+        :apiDocs="['Checkbox']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import CheckboxDoc from './CheckboxDoc';
+import AccessibilityDoc from '@/doc/checkbox/AccessibilityDoc';
+import BasicDoc from '@/doc/checkbox/BasicDoc';
+import DisabledDoc from '@/doc/checkbox/DisabledDoc';
+import DynamicDoc from '@/doc/checkbox/DynamicDoc';
+import GroupDoc from '@/doc/checkbox/GroupDoc';
+import ImportDoc from '@/doc/checkbox/ImportDoc';
+import InvalidDoc from '@/doc/checkbox/InvalidDoc';
+import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc';
+import PTComponent from '@/doc/checkbox/pt/index.vue';
+import ThemingDoc from '@/doc/checkbox/theming/index.vue';
 
 export default {
     data() {
         return {
-            checked: false,
-            cities: [],
-            categories: [
-                { name: 'Accounting', key: 'A' },
-                { name: 'Marketing', key: 'M' },
-                { name: 'Production', key: 'P' },
-                { name: 'Research', key: 'R' }
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'group',
+                    label: 'Group',
+                    component: GroupDoc
+                },
+                {
+                    id: 'dynamic',
+                    label: 'Dynamic',
+                    component: DynamicDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
             ],
-            selectedCategories: []
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    created() {
-        this.selectedCategories = this.categories.slice(1, 3);
-    },
-    components: {
-        CheckboxDoc: CheckboxDoc
     }
 };
 </script>

@@ -22,6 +22,25 @@ const TagProps = [
         type: 'string',
         default: 'null',
         description: 'Icon of the tag to display next to the value.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const TagSlots = [
+    {
+        name: 'icon',
+        description: 'custom icon template.'
     }
 ];
 
@@ -29,6 +48,7 @@ module.exports = {
     tag: {
         name: 'Tag',
         description: 'Tag component is used to categorize content.',
-        props: TagProps
+        props: TagProps,
+        slots: TagSlots
     }
 };

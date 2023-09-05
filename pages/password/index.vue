@@ -1,72 +1,92 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Password Component</Title>
-            <Meta name="description" content="Password displays strength indicator for password fields." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Password</h1>
-                <p>Password displays strength indicator for password fields.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <Password v-model="value1" :feedback="false" />
-
-                <h5>Password Meter</h5>
-                <Password v-model="value2" />
-
-                <h5>Show Password</h5>
-                <Password v-model="value3" toggleMask></Password>
-
-                <h5>Templating</h5>
-                <Password v-model="value4">
-                    <template #header>
-                        <h6>Pick a password</h6>
-                    </template>
-                    <template #footer>
-                        <Divider />
-                        <p class="mt-2">Suggestions</p>
-                        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-                            <li>At least one lowercase</li>
-                            <li>At least one uppercase</li>
-                            <li>At least one numeric</li>
-                            <li>Minimum 8 characters</li>
-                        </ul>
-                    </template>
-                </Password>
-            </div>
-        </div>
-
-        <PasswordDoc />
-    </div>
+    <DocComponent title="Vue Password Component" header="Password" description="Password displays strength indicator for password fields." :componentDocs="docs" :apiDocs="['Password']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
-import PasswordDoc from './PasswordDoc';
+import AccessibilityDoc from '@/doc/password/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/password/BasicDoc.vue';
+import DisabledDoc from '@/doc/password/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/password/ImportDoc.vue';
+import InvalidDoc from '@/doc/password/InvalidDoc.vue';
+import LocaleDoc from '@/doc/password/LocaleDoc.vue';
+import MeterDoc from '@/doc/password/MeterDoc.vue';
+import TemplateDoc from '@/doc/password/TemplateDoc.vue';
+import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
+import VeeValidateDoc from '@/doc/password/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/password/pt/index.vue';
+import ThemingDoc from '@/doc/password/theming/index.vue';
 
 export default {
     data() {
         return {
-            value1: null,
-            value2: null,
-            value3: null,
-            value4: null
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'meter',
+                    label: 'Meter',
+                    component: MeterDoc
+                },
+                {
+                    id: 'locale',
+                    label: 'Locale',
+                    component: LocaleDoc
+                },
+                {
+                    id: 'togglemask',
+                    label: 'ToggleMask',
+                    component: ToggleMaskDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'FloatLabel',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        PasswordDoc: PasswordDoc
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.p-password input) {
-    width: 15rem;
-}
-</style>

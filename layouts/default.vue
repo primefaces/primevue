@@ -1,9 +1,9 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
         <app-news v-if="$appState.newsActive" />
-        <app-topbar @menubutton-click="onMenuButtonClick" />
+        <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
         <app-menu :active="sidebarActive" />
-        <app-configurator />
+        <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import DomHandler from '@/components/utils/DomHandler';
+import DomHandler from '@/components/lib/utils/DomHandler';
 import AppConfigurator from './AppConfigurator.vue';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
@@ -29,7 +29,8 @@ import AppTopBar from './AppTopBar.vue';
 export default {
     data() {
         return {
-            sidebarActive: false
+            sidebarActive: false,
+            appConfigActive: false
         };
     },
     watch: {
@@ -39,10 +40,6 @@ export default {
                 if (!process.client || typeof window === 'undefined') {
                     return;
                 }
-
-                window['gtag']('config', 'UA-93461466-1', {
-                    page_path: '/primevue' + to.path
-                });
 
                 this.sidebarActive = false;
                 DomHandler.removeClass(document.body, 'blocked-scroll');
@@ -78,20 +75,6 @@ export default {
             sessionStorage.setItem('primevue-news-hidden', 'true');
             event.stopPropagation();
         },
-        addClass(element, className) {
-            if (!this.hasClass(element, className)) {
-                if (element.classList) element.classList.add(className);
-                else element.className += ' ' + className;
-            }
-        },
-        removeClass(element, className) {
-            if (element.classList) element.classList.remove(className);
-            else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        },
-        hasClass(element, className) {
-            if (element.classList) return element.classList.contains(className);
-            else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
-        },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;
 
@@ -102,7 +85,13 @@ export default {
             return false;
         },
         redirect() {
-            window.location.href = 'https://www.primefaces.org/primeblocks-vue';
+            window.location.href = 'https://blocks.primevue.org';
+        },
+        onConfigButtonClick() {
+            this.appConfigActive = true;
+        },
+        onUpdateConfigActive() {
+            this.appConfigActive = false;
         }
     },
     computed: {

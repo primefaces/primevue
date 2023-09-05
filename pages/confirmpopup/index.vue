@@ -1,94 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Confirmation Popup Component</Title>
-            <Meta name="description" content="ConfirmPopup displays a confirmation overlay displayed relatively to its target." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ConfirmPopup</h1>
-                <p>ConfirmPopup displays a confirmation overlay displayed relatively to its target.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <ConfirmPopup></ConfirmPopup>
-            <ConfirmPopup group="demo">
-                <template #message="slotProps">
-                    <div class="flex p-4">
-                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="pl-2">{{ slotProps.message.message }}</p>
-                    </div>
-                </template>
-            </ConfirmPopup>
-
-            <div class="card">
-                <h5>Overlay</h5>
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
-                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
-
-                <h5>Templating</h5>
-                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
-            </div>
-        </div>
-
-        <ConfirmPopupDoc />
-    </div>
+    <DocComponent
+        title="Vue Confirmation Popup Component"
+        header="ConfirmPopup"
+        description="ConfirmPopup displays a confirmation overlay displayed relatively to its target."
+        :componentDocs="docs"
+        :apiDocs="['ConfirmPopup', 'ConfirmationService-UseConfirm', 'ConfirmationOptions']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import ConfirmPopupDoc from './ConfirmPopupDoc';
+import AccessibilityDoc from '@/doc/confirmpopup/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/confirmpopup/BasicDoc.vue';
+import ConfirmationServiceDoc from '@/doc/confirmpopup/ConfirmationServiceDoc.vue';
+import ImportDoc from '@/doc/confirmpopup/ImportDoc.vue';
+import TemplateDoc from '@/doc/confirmpopup/TemplateDoc.vue';
+import PTComponent from '@/doc/confirmpopup/pt/index.vue';
+import ThemingDoc from '@/doc/confirmpopup/theming/index.vue';
 
 export default {
-    methods: {
-        confirm1(event) {
-            this.$confirm.require({
-                target: event.currentTarget,
-                message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
-                accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
                 },
-                reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                }
-            });
-        },
-        confirm2(event) {
-            this.$confirm.require({
-                target: event.currentTarget,
-                message: 'Do you want to delete this record?',
-                icon: 'pi pi-info-circle',
-                acceptClass: 'p-button-danger',
-                accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+                {
+                    id: 'confirmation-service',
+                    label: 'Confirmation Service',
+                    component: ConfirmationServiceDoc
                 },
-                reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                }
-            });
-        },
-        showTemplate(event) {
-            this.$confirm.require({
-                target: event.currentTarget,
-                group: 'demo',
-                message: 'Do you accept that?',
-                icon: 'pi pi-question-circle',
-                acceptIcon: 'pi pi-check',
-                rejectIcon: 'pi pi-times',
-                accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
                 },
-                reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
                 }
-            });
-        }
-    },
-    components: {
-        ConfirmPopupDoc: ConfirmPopupDoc
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
+        };
     }
 };
 </script>

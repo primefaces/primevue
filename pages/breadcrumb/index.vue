@@ -1,40 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue BreadCrumb Component</Title>
-            <Meta name="description" content="Breadcrumb provides contextual information about page hierarchy." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Breadcrumb</h1>
-                <p>Breadcrumb provides contextual information about page hierarchy.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <Breadcrumb :home="home" :model="items" aria-label="breadcrumb" />
-            </div>
-        </div>
-
-        <BreadcrumbDoc />
-    </div>
+    <DocComponent
+        title="Vue Breadcrumb Component"
+        header="Breadcrumb"
+        description="Breadcrumb provides contextual information about page hierarchy."
+        :componentDocs="docs"
+        :apiDocs="['Breadcrumb', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import BreadcrumbDoc from './BreadcrumbDoc';
+import AccessibilityDoc from '@/doc/breadcrumb/AccessibilityDoc';
+import BasicDoc from '@/doc/breadcrumb/BasicDoc';
+import ImportDoc from '@/doc/breadcrumb/ImportDoc';
+import RouterDoc from '@/doc/breadcrumb/RouterDoc';
+import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
+import PTComponent from '@/doc/breadcrumb/pt/index.vue';
+import ThemingDoc from '@/doc/breadcrumb/theming/index.vue';
 
 export default {
     data() {
         return {
-            home: { icon: 'pi pi-home', to: '/' },
-            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item', to: '/breadcrumb' }]
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        BreadcrumbDoc: BreadcrumbDoc
     }
 };
 </script>

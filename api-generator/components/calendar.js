@@ -44,8 +44,32 @@ const CalendarProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'pi pi-calendar',
+        default: 'null',
         description: 'Icon of the calendar button.'
+    },
+    {
+        name: 'previousIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in the previous button.'
+    },
+    {
+        name: 'nextIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in the next button.'
+    },
+    {
+        name: 'incrementIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in each of the increment buttons.'
+    },
+    {
+        name: 'decrementIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in each of the decrement buttons.'
     },
     {
         name: 'numberOfMonths',
@@ -219,7 +243,7 @@ const CalendarProps = [
         name: 'manualInput',
         type: 'boolean',
         default: 'true',
-        description: 'Wheter to allow prevents entering the date manually via typing.'
+        description: 'Whether to allow entering the date manually via typing.'
     },
     {
         name: 'appendTo',
@@ -259,13 +283,13 @@ const CalendarProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
@@ -273,17 +297,17 @@ const CalendarProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
     {
         name: 'panelStyle',
-        type: 'string',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the overlay panel.'
     },
@@ -291,7 +315,19 @@ const CalendarProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -436,6 +472,26 @@ const CalendarSlots = [
     {
         name: 'decade',
         description: 'Custom content for the calendar decade.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'previousicon',
+        description: 'Custom previous icon template.'
+    },
+    {
+        name: 'nexticon',
+        description: 'Custom next icon template.'
+    },
+    {
+        name: 'incrementicon',
+        description: 'Custom increment icon template.'
+    },
+    {
+        name: 'decrementicon',
+        description: 'Custom decrement icon template.'
     }
 ];
 

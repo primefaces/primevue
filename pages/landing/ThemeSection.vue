@@ -6,9 +6,12 @@
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
-            <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
+            <a type="button" class="font-medium px-link linkbox mt-4" href="https://designer.primevue.org">more...</a>
         </div>
-        <div class="themes-main flex mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('demo/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
+        <div
+            class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
+            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }"
+        >
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
                     v-model:selection="selectedCustomers"
@@ -23,7 +26,6 @@
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
-                    responsiveLayout="scroll"
                 >
                     <template #header>
                         <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
@@ -44,14 +46,16 @@
                     </Column>
                     <Column field="country.name" header="Country" sortable style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
-                            <span class="image-text">{{ data.country.name }}</span>
+                            <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${data.country.code}`" style="width: 24px" />
+                            <span>{{ data.country.name }}</span>
                         </template>
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
-                            <span class="image-text">{{ data.representative.name }}</span>
+                            <div class="flex align-items-center gap-2">
+                                <img :alt="data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + data.representative.image" width="32" />
+                                <span>{{ data.representative.name }}</span>
+                            </div>
                         </template>
                     </Column>
                     <Column field="date" header="Date" sortable dataType="date" style="min-width: 8rem">
@@ -66,7 +70,7 @@
                     </Column>
                     <Column field="status" header="Status" sortable style="min-width: 10rem">
                         <template #body="{ data }">
-                            <span :class="'customer-badge status-' + data.status">{{ data.status }}</span>
+                            <Tag :value="data.status" :severity="getSeverity(data.status)" class="text-sm font-bold" />
                         </template>
                     </Column>
                     <Column field="activity" header="Activity" sortable style="min-width: 6rem">
@@ -76,7 +80,7 @@
                     </Column>
                     <Column headerStyle="min-width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                         <template #body>
-                            <Button type="button" icon="pi pi-cog" class="p-button-text"></Button>
+                            <Button type="button" icon="pi pi-cog" text></Button>
                         </template>
                     </Column>
                 </DataTable>
@@ -86,8 +90,8 @@
 </template>
 
 <script>
+import { CustomerService } from '@/service/CustomerService';
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
-import CustomerService from '../../service/CustomerService';
 
 export default {
     emits: ['table-theme-change'],
@@ -112,12 +116,8 @@ export default {
             loading: true
         };
     },
-    customerService: null,
-    created() {
-        this.customerService = new CustomerService();
-    },
     mounted() {
-        this.customerService.getCustomersLarge().then((data) => {
+        CustomerService.getCustomersLarge().then((data) => {
             this.customers = data;
             this.customers.forEach((customer) => (customer.date = new Date(customer.date)));
             this.loading = false;
@@ -138,6 +138,24 @@ export default {
         },
         formatCurrency(value) {
             return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        },
+        getSeverity(status) {
+            switch (status) {
+                case 'unqualified':
+                    return 'danger';
+
+                case 'qualified':
+                    return 'success';
+
+                case 'new':
+                    return 'info';
+
+                case 'negotiation':
+                    return 'warning';
+
+                case 'renewal':
+                    return null;
+            }
         }
     }
 };

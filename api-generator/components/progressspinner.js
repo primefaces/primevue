@@ -16,6 +16,18 @@ const ProgressSpinnerProps = [
         type: 'string',
         default: '2s',
         description: 'Duration of the rotate animation.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

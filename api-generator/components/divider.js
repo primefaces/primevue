@@ -16,6 +16,18 @@ const DividerProps = [
         type: 'string',
         default: 'solid',
         description: 'Border style type, default is "solid" and other options are "dashed" and "dotted".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

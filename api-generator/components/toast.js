@@ -28,6 +28,43 @@ const ToastProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const ToastEvents = [
+    {
+        name: 'close',
+        description: 'Callback to invoke when the toast is closed.',
+        arguments: [
+            {
+                name: 'message',
+                type: 'any',
+                description: 'Message of toast.'
+            }
+        ]
+    },
+    {
+        name: 'life-end',
+        description: 'Callback to invoke when the toast timeout is over.',
+        arguments: [
+            {
+                name: 'message',
+                type: 'any',
+                description: 'Message of toast.'
+            }
+        ]
     }
 ];
 
@@ -35,6 +72,14 @@ const ToastSlots = [
     {
         name: 'message',
         description: 'Custom content for the toast message'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 
@@ -43,6 +88,7 @@ module.exports = {
         name: 'Toast',
         description: 'Toast is used to display messages in an overlay.',
         props: ToastProps,
+        events: ToastEvents,
         slots: ToastSlots
     }
 };

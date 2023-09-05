@@ -52,6 +52,24 @@ const SidebarProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether background scroll should be blocked when sidebar is visible.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'undefined',
+        description: 'Icon to display in the sidebar close button.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -63,6 +81,10 @@ const SidebarEvents = [
     {
         name: 'show',
         description: 'Callback to invoke when sidebar gets shown.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 
@@ -70,6 +92,10 @@ const SidebarSlots = [
     {
         name: 'header',
         description: 'Custom content for the component header.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 

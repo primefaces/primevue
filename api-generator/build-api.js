@@ -10,7 +10,7 @@ const pkg = require(path.resolve(rootDir, 'package.json'));
 const libraryName = 'PrimeVue';
 const libraryVersion = pkg.version;
 
-const showcaseURL = 'https://primefaces.org/primevue/showcase/#/';
+const showcaseURL = 'https://primevue.org/';
 
 const fileModules = {},
     veturTags = {},
@@ -155,6 +155,8 @@ Object.keys(fileModules).forEach((p) => {
     createVeturTags(fileModules[p][p]);
     createVeturAttributes(fileModules[p][p]);
 });
+
+!fs.existsSync(distDir) && fs.mkdirSync(distDir);
 
 const webTypesJson = JSON.stringify(webTypes, null, 2);
 

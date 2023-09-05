@@ -50,7 +50,7 @@ const SelectButtonProps = [
     {
         name: 'unselectable',
         type: 'boolean',
-        default: 'true',
+        default: 'false',
         description: 'Whether selection can be cleared.'
     },
     {
@@ -58,6 +58,18 @@ const SelectButtonProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

@@ -46,6 +46,79 @@ const ButtonProps = [
         type: 'string',
         default: 'pi pi-spinner pi-spin',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'link',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a link style to the button.'
+    },
+    {
+        name: 'severity',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the style of the button, valid values are "secondary", "success", "info", "warning", "help", "danger".'
+    },
+    {
+        name: 'raised',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a shadow to indicate elevation.'
+    },
+    {
+        name: 'rounded',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a circular border radius to the button.'
+    },
+    {
+        name: 'text',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a textual class to the button without a background initially.'
+    },
+    {
+        name: 'outlined',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a border class without a background initially.'
+    },
+    {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the button, valid values are "small" and "large".'
+    },
+    {
+        name: 'plain',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a plain textual class to the button without a background initially.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
+    }
+];
+
+const ButtonEvents = [];
+
+const ButtonSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     }
 ];
 
@@ -53,6 +126,8 @@ module.exports = {
     button: {
         name: 'Button',
         description: 'Button is an extension to standard button element with icons and theming.',
-        props: ButtonProps
+        props: ButtonProps,
+        events: ButtonEvents,
+        slots: ButtonSlots
     }
 };

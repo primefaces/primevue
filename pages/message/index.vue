@@ -1,104 +1,73 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Messages Component</Title>
-            <Meta name="description" content="Messages is used to display inline messages with various severities." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Message</h1>
-                <p>Messages is used to display inline messages with various severities.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Severities</h5>
-                <Message severity="success">Success Message Content</Message>
-                <Message severity="info">Info Message Content</Message>
-                <Message severity="warn">Warning Message Content</Message>
-                <Message severity="error">Error Message Content</Message>
-
-                <h5>Custom Icon</h5>
-                <Message severity="info" icon="pi-send">Info Message Content</Message>
-
-                <h5>Dynamic</h5>
-                <Button label="Show" @click="addMessages()" />
-                <transition-group name="p-message" tag="div">
-                    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
-                </transition-group>
-
-                <h5>Inline Messages</h5>
-                <p>Message component is used to display inline messages mostly within forms.</p>
-                <div class="grid">
-                    <div class="col-12 md:col-3">
-                        <InlineMessage severity="info">Message Content</InlineMessage>
-                    </div>
-                    <div class="col-12 md:col-3">
-                        <InlineMessage severity="success">Message Content</InlineMessage>
-                    </div>
-                    <div class="col-12 md:col-3">
-                        <InlineMessage severity="warn">Message Content</InlineMessage>
-                    </div>
-                    <div class="col-12 md:col-3">
-                        <InlineMessage severity="error">Message Content</InlineMessage>
-                    </div>
-                </div>
-
-                <h5>Auto Dismiss</h5>
-                <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
-
-                <h5>Validation Message</h5>
-                <div class="formgroup-inline" style="margin-bottom: 0.5rem">
-                    <label for="username" class="p-sr-only">Username</label>
-                    <InputText id="username" placeholder="Username" class="p-invalid" />
-                    <InlineMessage>Username is required</InlineMessage>
-                </div>
-                <div class="formgroup-inline">
-                    <label for="email" class="p-sr-only">email</label>
-                    <InputText id="email" placeholder="Email" class="p-invalid" />
-                    <InlineMessage />
-                </div>
-            </div>
-        </div>
-
-        <MessageDoc />
-    </div>
+    <DocComponent title="Vue Message Component" header="Message" description="Message component is used to display inline messages." :componentDocs="docs" :apiDocs="['Message']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
-import MessageDoc from './MessageDoc';
+import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/message/BasicDoc.vue';
+import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
+import CustomIconDoc from '@/doc/message/CustomIconDoc.vue';
+import DynamicDoc from '@/doc/message/DynamicDoc.vue';
+import ImportDoc from '@/doc/message/ImportDoc.vue';
+import SeverityDoc from '@/doc/message/SeverityDoc.vue';
+import StickyDoc from '@/doc/message/StickyDoc.vue';
+import TemplateDoc from '@/doc/message/TemplateDoc.vue';
+import PTComponent from '@/doc/message/pt/index.vue';
+import ThemingDoc from '@/doc/message/theming/index.vue';
 
 export default {
     data() {
         return {
-            messages: [],
-            count: 0
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'severity',
+                    label: 'Severity',
+                    component: SeverityDoc
+                },
+                {
+                    id: 'dynamic',
+                    label: 'Dynamic',
+                    component: DynamicDoc
+                },
+                {
+                    id: 'closable',
+                    label: 'Closable',
+                    component: ClosabledDoc
+                },
+                {
+                    id: 'sticky',
+                    label: 'Sticky',
+                    component: StickyDoc
+                },
+                {
+                    id: 'custom-icon',
+                    label: 'Custom Icon',
+                    component: CustomIconDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    methods: {
-        addMessages() {
-            this.messages = [
-                { severity: 'info', content: 'Dynamic Info Message', id: this.count++ },
-                { severity: 'success', content: 'Dynamic Success Message', id: this.count++ },
-                { severity: 'warn', content: 'Dynamic Warning Message', id: this.count++ }
-            ];
-        }
-    },
-    components: {
-        MessageDoc: MessageDoc
     }
 };
 </script>
-
-<style scoped>
-button.p-button {
-    margin-right: 0.5rem;
-}
-
-.p-inputtext {
-    margin-right: 0.5rem;
-}
-</style>

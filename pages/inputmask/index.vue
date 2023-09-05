@@ -1,74 +1,94 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Mask Component</Title>
-            <Meta name="description" content="InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>InputMask</h1>
-                <p>InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <div class="p-fluid formgrid grid">
-                    <div class="field col-12 md:col-4">
-                        <label for="basic">Basic</label>
-                        <InputMask id="basic" v-model="val1" mask="99-999999" placeholder="99-999999" />
-                    </div>
-
-                    <div class="field col-12 md:col-4">
-                        <label for="ssn">SSN</label>
-                        <InputMask id="ssn" v-model="val2" mask="999-99-9999" placeholder="999-99-9999" />
-                    </div>
-
-                    <div class="field col-12 md:col-4">
-                        <label for="date">Date</label>
-                        <InputMask id="date" v-model="val3" mask="99/99/9999" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
-                    </div>
-
-                    <div class="field col-12 md:col-4">
-                        <label for="phone">Phone</label>
-                        <InputMask v-model="val4" date="phone" mask="(999) 999-9999" placeholder="(999) 999-9999" />
-                    </div>
-
-                    <div class="field col-12 md:col-4">
-                        <label for="phoneext">Phone Ext</label>
-                        <InputMask id="phoneext" v-model="val5" mask="(999) 999-9999? x99999" placeholder="(999) 999-9999? x99999" />
-                    </div>
-
-                    <div class="field col-12 md:col-4">
-                        <label for="serial">Serial</label>
-                        <InputMask id="serial" v-model="val6" mask="a*-999-a999" placeholder="a*-999-a999" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <InputMaskDoc />
-    </div>
+    <DocComponent
+        title="Vue Mask Component"
+        header="InputMask"
+        description="InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone."
+        :componentDocs="docs"
+        :apiDocs="['InputMask']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import InputMaskDoc from './InputMaskDoc';
+import AccessibilityDoc from '@/doc/inputmask/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/inputmask/BasicDoc.vue';
+import DisabledDoc from '@/doc/inputmask/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/inputmask/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
+import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
+import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
+import OptionalDoc from '@/doc/inputmask/OptionalDoc.vue';
+import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
+import VeeValidateDoc from '@/doc/inputmask/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/inputmask/pt/index.vue';
+import ThemingDoc from '@/doc/inputmask/theming/index.vue';
 
 export default {
     data() {
         return {
-            val1: null,
-            val2: null,
-            val3: null,
-            val4: null,
-            val5: null,
-            val6: null
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'mask',
+                    label: 'Mask',
+                    component: MaskDoc
+                },
+                {
+                    id: 'optional',
+                    label: 'Optional',
+                    component: OptionalDoc
+                },
+                {
+                    id: 'slotchar',
+                    label: 'SlotChar',
+                    component: SlotCharDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'FloatLabel',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        InputMaskDoc: InputMaskDoc
     }
 };
 </script>

@@ -10,6 +10,12 @@ const SplitterPanelProps = [
         type: 'number',
         default: 'null',
         description: 'Minimum size of the element relative to 100%.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
     }
 ];
 

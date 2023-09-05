@@ -1,0 +1,8 @@
+{
+  "main": "./baseicon.cjs.js",
+  "module": "./baseicon.esm.js",
+  "unpkg": "./baseicon.min.js",
+  "browser": {
+    "./sfc": "./BaseIcon.vue"
+  }
+}

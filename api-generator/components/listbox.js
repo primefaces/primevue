@@ -106,7 +106,7 @@ const ListboxProps = [
         name: 'filterInputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the filter input inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the filter input inside the component.'
     },
     {
         name: 'virtualScrollerOptions',
@@ -173,6 +173,18 @@ const ListboxProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -236,35 +248,39 @@ const ListboxEvents = [
 const ListboxSlots = [
     {
         name: 'option',
-        description: "Custom content for the item's option"
+        description: "Custom content for the item's option."
     },
     {
         name: 'optiongroup',
-        description: "Custom content for the item's optiongroup"
+        description: "Custom content for the item's optiongroup."
     },
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'emptyfilter',
-        description: 'Custom content when there is no filtered data to display'
+        description: 'Custom content when there is no filtered data to display.'
     },
     {
         name: 'empty',
-        description: 'Custom content when there is no data to display'
+        description: 'Custom content when there is no data to display.'
     },
     {
         name: 'content',
-        description: 'Custom content for the virtual scroller'
+        description: 'Custom content for the virtual scroller.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the virtual scroller loader items'
+        description: 'Custom content for the virtual scroller loader items.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
     }
 ];
 

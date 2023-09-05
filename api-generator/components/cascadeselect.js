@@ -67,7 +67,7 @@ const CascadeSelectProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -75,7 +75,7 @@ const CascadeSelectProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.'
     },
     {
         name: 'panelStyle',
@@ -85,7 +85,7 @@ const CascadeSelectProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
@@ -93,7 +93,7 @@ const CascadeSelectProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
         name: 'appendTo',
@@ -108,10 +108,22 @@ const CascadeSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
-        default: 'pi pi-spinner pi-spin',
+        default: 'null',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'optionGroupIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the option group.'
     },
     {
         name: 'autoOptionFocus',
@@ -172,6 +184,18 @@ const CascadeSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -262,15 +286,27 @@ const CascadeSelectEvents = [
 const CascadeSelectSlots = [
     {
         name: 'value',
-        description: "Custom content for the item's value"
+        description: "Custom content for the item's value."
     },
     {
         name: 'option',
-        description: "Custom content for the item's option"
+        description: "Custom content for the item's option."
     },
     {
         name: 'indicator',
-        description: 'Custom content for the dropdown indicator'
+        description: 'Custom content for the dropdown indicator.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'optiongroupicon',
+        description: 'Custom content for the option group icon.'
     }
 ];
 

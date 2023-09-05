@@ -1,44 +1,70 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue ToggleButton Component</Title>
-            <Meta name="description" content="ToggleButton is used to select a boolean value using a button." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ToggleButton</h1>
-                <p>ToggleButton is used to select a boolean value using a button.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
-
-                <h5>Customized</h5>
-                <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="do you confirm" />
-            </div>
-        </div>
-
-        <ToggleButtonDoc />
-    </div>
+    <DocComponent
+        title="Vue ToggleButton Component"
+        header="ToggleButton"
+        description="ToggleButton is used to select a boolean value using a button."
+        :componentDocs="docs"
+        :apiDocs="['ToggleButton']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
-import ToggleButtonDoc from './ToggleButtonDoc';
+import AccessibilityDoc from '@/doc/togglebutton/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
+import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
+import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
+import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
+import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/togglebutton/pt/index.vue';
+import ThemingDoc from '@/doc/togglebutton/theming/index.vue';
 
 export default {
     data() {
         return {
-            checked1: false,
-            checked2: true
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'customized',
+                    label: 'Customized',
+                    component: CustomizedDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    components: {
-        ToggleButtonDoc: ToggleButtonDoc
     }
 };
 </script>
