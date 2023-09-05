@@ -182,8 +182,14 @@ export default {
         return undefined;
     },
 
+    setAttribute(element, attribute = '', value) {
+        if (this.isElement(element) && value !== null && value !== undefined) {
+            element.setAttribute(attribute, value);
+        }
+    },
+
     setAttributes(element, attributes = {}) {
-        if (element) {
+        if (this.isElement(element)) {
             const computedStyles = (rule, value) => {
                 const styles = element?.$attrs?.[rule] ? [element?.$attrs?.[rule]] : [];
 
@@ -225,7 +231,7 @@ export default {
     },
 
     getAttribute(element, name) {
-        if (element) {
+        if (this.isElement(element)) {
             const value = element.getAttribute(name);
 
             if (!isNaN(value)) {
@@ -243,7 +249,7 @@ export default {
     },
 
     isAttributeEquals(element, name, value) {
-        return element ? this.getAttribute(element, name) === value : false;
+        return this.isElement(element) ? this.getAttribute(element, name) === value : false;
     },
 
     isAttributeNotEquals(element, name, value) {
@@ -703,6 +709,28 @@ export default {
 
     isTouchDevice() {
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    },
+
+    hasCSSAnimation(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const animationDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+
+            return animationDuration > 0;
+        }
+
+        return false;
+    },
+
+    hasCSSTransition(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const transitionDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+
+            return transitionDuration > 0;
+        }
+
+        return false;
     },
 
     exportCSV(csv, filename) {

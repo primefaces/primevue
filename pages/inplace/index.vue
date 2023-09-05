@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['Inplace']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -16,8 +17,8 @@ import ImageDoc from '@/doc/inplace/ImageDoc';
 import ImportDoc from '@/doc/inplace/ImportDoc';
 import InputDoc from '@/doc/inplace/InputDoc';
 import LazyDoc from '@/doc/inplace/LazyDoc';
-import StyleDoc from '@/doc/inplace/StyleDoc';
 import PTComponent from '@/doc/inplace/pt/index.vue';
+import ThemingDoc from '@/doc/inplace/theming/index.vue';
 
 export default {
     data() {
@@ -49,17 +50,13 @@ export default {
                     component: LazyDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

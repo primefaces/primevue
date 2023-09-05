@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['Steps', 'MenuItem']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -14,8 +15,9 @@ import AccessibilityDoc from '@/doc/steps/AccessibilityDoc';
 import BasicDoc from '@/doc/steps/BasicDoc';
 import ImportDoc from '@/doc/steps/ImportDoc';
 import InteractiveDoc from '@/doc/steps/InteractiveDoc';
-import StyleDoc from '@/doc/steps/StyleDoc';
+import RouterDoc from '@/doc/steps/RouterDoc';
 import PTComponent from '@/doc/steps/pt/index.vue';
+import ThemingDoc from '@/doc/steps/theming/index.vue';
 
 export default {
     data() {
@@ -37,9 +39,9 @@ export default {
                     component: InteractiveDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
@@ -47,7 +49,8 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

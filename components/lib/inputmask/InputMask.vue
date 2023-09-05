@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" data-pc-name="inputmask" />
+    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root', ptmParams)" data-pc-name="inputmask" />
 </template>
 
 <script>
@@ -380,7 +380,9 @@ export default {
             return this.partialPosition ? i : this.firstNonMaskPos;
         },
         handleInputChange(event) {
-            if (this.readonly) {
+            const isPasteEvent = event.type === 'paste';
+
+            if (this.readonly || isPasteEvent) {
                 return;
             }
 
@@ -496,6 +498,14 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        ptmParams() {
+            return {
+                context: {
+                    filled: this.filled,
+                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
+                }
+            };
         }
     }
 };

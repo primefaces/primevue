@@ -7,18 +7,35 @@
  * @module colorpicker
  *
  */
+import { TransitionProps } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes) | null | undefined;
+export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ColorPickerPassThroughTransitionType = TransitionProps | ((options: ColorPickerPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ColorPickerPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ColorPickerProps;
+    /**
+     * Defines current inline state.
+     */
     state: ColorPickerState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -42,46 +59,50 @@ export interface ColorPickerChangeEvent {
  */
 export interface ColorPickerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the selector's DOM element.
+     * Used to pass attributes to the selector's DOM element.
      */
     selector?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the color's DOM element.
+     * Used to pass attributes to the color's DOM element.
      */
     color?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the color handler's DOM element.
+     * Used to pass attributes to the color handler's DOM element.
      */
     colorHandle?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hue's DOM element.
+     * Used to pass attributes to the hue's DOM element.
      */
     hue?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hue handler's DOM element.
+     * Used to pass attributes to the hue handler's DOM element.
      */
     hueHandle: ColorPickerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ColorPickerPassThroughTransitionType;
 }
 
 /**
@@ -154,10 +175,15 @@ export interface ColorPickerProps {
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ColorPickerPassThroughOptions}
      */
-    pt?: ColorPickerPassThroughOptions;
+    pt?: PassThrough<ColorPickerPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

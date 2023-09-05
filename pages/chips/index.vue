@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Chips Component" header="Chips" description="Chips is used to enter multiple values on an input field." :componentDocs="docs" :apiDocs="['Chips']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Chips Component" header="Chips" description="Chips is used to enter multiple values on an input field." :componentDocs="docs" :apiDocs="['Chips']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -10,10 +10,10 @@ import FloatLabelDoc from '@/doc/chips/FloatLabelDoc';
 import ImportDoc from '@/doc/chips/ImportDoc';
 import InvalidDoc from '@/doc/chips/InvalidDoc';
 import SeparatorDoc from '@/doc/chips/SeparatorDoc';
-import StyleDoc from '@/doc/chips/StyleDoc';
 import TemplateDoc from '@/doc/chips/TemplateDoc';
 import VeeValidateDoc from '@/doc/chips/form/VeeValidateDoc';
 import PTComponent from '@/doc/chips/pt/index.vue';
+import ThemingDoc from '@/doc/chips/theming/index.vue';
 
 export default {
     data() {
@@ -67,17 +67,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

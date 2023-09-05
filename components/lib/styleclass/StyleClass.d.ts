@@ -8,6 +8,8 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
+import { PassThrough } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.
@@ -51,10 +53,15 @@ export interface StyleClassOptions {
      */
     toggleClass?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {StyleClassDirectivePassThroughOptions}
      */
-    pt?: StyleClassDirectivePassThroughOptions;
+    pt?: PassThrough<StyleClassDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
 }
 
 /**
@@ -62,7 +69,7 @@ export interface StyleClassOptions {
  */
 export interface StyleClassDirectivePassThroughOptions {
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

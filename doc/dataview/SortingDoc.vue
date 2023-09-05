@@ -51,8 +51,7 @@ export default {
                 { label: 'Price Low to High', value: 'price' }
             ],
             code: {
-                basic: `
-<DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
+                basic: `<DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
     <template #header>
         <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
     </template>
@@ -81,8 +80,7 @@ export default {
         </div>
     </template>
 </DataView>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
             <template #header>
@@ -168,8 +166,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
             <template #header>

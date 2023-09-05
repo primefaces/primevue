@@ -1,14 +1,14 @@
 <template>
-    <div class="relative doc-section-code">
-        <div class="flex surface-card align-items-center justify-content-end absolute z-2" :style="{ right: '.75rem', top: '.75rem', gap: '.75rem' }">
+    <div v-if="!embedded" class="surface-card mb-4" style="border-radius: 10px">
+        <div class="flex doc-section-code-buttons surface-card align-items-center justify-content-end sticky z-1 top-0 mr-3">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
                     label="Composition API"
                     @click="codeLang = 'composition'"
                 ></Button>
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'javascript' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'options' }]"
                     label="Options API"
                     @click="codeLang = 'options'"
                 ></Button>
@@ -76,41 +76,35 @@
             ></Button>
         </div>
 
-        <template v-if="codeMode === 'basic' && importCode">
-            <pre v-code.script><code>
-{{ code.basic }}
-
+        <div class="relative doc-section-code overflow-auto" style="max-height: 40rem">
+            <template v-if="codeMode === 'basic' && importCode">
+                <pre v-code.script><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode === 'basic' && !importCode">
-            <pre v-code><code>
-{{ code.basic }}
-
+            <template v-if="codeMode === 'basic' && !importCode">
+                <pre v-code><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'options'">
-            <pre v-code><code>
-{{ code.options }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'options'">
+                <pre v-code><code>{{ code.options }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
-            <pre v-code><code>
-{{ code.composition }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
+                <pre v-code><code>{{ code.composition }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'data'">
-            <pre v-code.json><code>
-{{ code.data }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'data'">
+                <pre v-code.json><code>{{ code.data }}
 </code></pre>
-        </template>
+            </template>
+        </div>
+        <div class="h-1rem"></div>
     </div>
+    <div v-else id="embed"></div>
 </template>
 
 <script>
@@ -154,6 +148,10 @@ export default {
         importCode: {
             type: Boolean,
             default: false
+        },
+        embedded: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -161,6 +159,9 @@ export default {
             codeMode: 'basic',
             codeLang: this.code['options'] ? 'composition' : 'basic'
         };
+    },
+    mounted() {
+        this.embedded && useStackBlitz(this.codeLang, this.code['composition'], this.service, this.code.pages, this.dependencies, this.component, this.extFiles, this.embedded);
     },
     methods: {
         toggleCodeMode(content) {

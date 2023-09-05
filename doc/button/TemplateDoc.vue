@@ -15,12 +15,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button class="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
+                basic: `<Button class="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
     <img alt="logo" src="/images/logo.svg" class="h-2rem" />
 </Button>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button class="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
             <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-light.svg" class="h-2rem" />
@@ -30,8 +28,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button class="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
             <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-light.svg" class="h-2rem" />

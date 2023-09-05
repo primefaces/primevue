@@ -10,18 +10,35 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes) | null | undefined;
+export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface DockPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DockProps;
+    /**
+     * Defines current inline state.
+     */
     state: DockState;
+    /**
+     * Defines current options.
+     */
     context: DockContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,35 +47,35 @@ export interface DockPassThroughMethodOptions {
  */
 export interface DockPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: DockPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: DockPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -101,6 +118,14 @@ export interface DockState {
  */
 export interface DockContext {
     /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
@@ -124,6 +149,20 @@ export interface DockTooltipOptions {
      * Optional options.
      */
     [key: string]: any;
+}
+
+/**
+ * Defines valid router binding props in Dock component.
+ */
+export interface DockRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
 }
 
 /**
@@ -174,10 +213,15 @@ export interface DockProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DockPassThroughOptions}
      */
-    pt?: DockPassThroughOptions;
+    pt?: PassThrough<DockPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -202,6 +246,14 @@ export interface DockSlots {
          * Index of the menuitem
          */
         index: number;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: DockRouterBindProps;
     }): VNode[];
     /**
      * Custom icon content.

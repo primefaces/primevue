@@ -5,7 +5,17 @@
         </div>
         <div :class="[cx('content'), contentClass]" v-bind="ptm('content')">
             <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                <button v-if="showNavigators" v-ripple type="button" :class="cx('previousButton')" :disabled="backwardIsDisabled" :aria-label="ariaPrevButtonLabel" @click="navBackward" v-bind="{ ...prevButtonProps, ...ptm('previousButton') }">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('previousButton')"
+                    :disabled="backwardIsDisabled"
+                    :aria-label="ariaPrevButtonLabel"
+                    @click="navBackward"
+                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
+                    data-pc-group-section="navigator"
+                >
                     <slot name="previousicon">
                         <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
                     </slot>
@@ -49,14 +59,24 @@
                     </div>
                 </div>
 
-                <button v-if="showNavigators" v-ripple type="button" :class="cx('nextButton')" :disabled="forwardIsDisabled" :aria-label="ariaNextButtonLabel" @click="navForward" v-bind="{ ...nextButtonProps, ...ptm('nextButton') }">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('nextButton')"
+                    :disabled="forwardIsDisabled"
+                    :aria-label="ariaNextButtonLabel"
+                    @click="navForward"
+                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                    data-pc-group-section="navigator"
+                >
                     <slot name="nexticon">
                         <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
                     </slot>
                 </button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator')" :data-p-highlight="d_page === i">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
                     <button
                         :class="cx('indicatorButton')"
                         type="button"
@@ -64,7 +84,7 @@
                         :aria-label="ariaPageLabel(i + 1)"
                         :aria-current="d_page === i ? 'page' : undefined"
                         @click="onIndicatorClick($event, i)"
-                        v-bind="ptm('indicatorButton')"
+                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
                     />
                 </li>
             </ul>
@@ -239,6 +259,13 @@ export default {
         }
     },
     methods: {
+        getIndicatorPTOptions(index) {
+            return {
+                context: {
+                    highlighted: index === this.d_page
+                }
+            };
+        },
         step(dir, page) {
             let totalShiftedItems = this.totalShiftedItems;
             const isCircular = this.isCircular();
@@ -509,6 +536,7 @@ export default {
             if (!this.carouselStyle) {
                 this.carouselStyle = document.createElement('style');
                 this.carouselStyle.type = 'text/css';
+                DomHandler.setAttribute(this.carouselStyle, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.body.appendChild(this.carouselStyle);
             }
 
@@ -520,6 +548,7 @@ export default {
 
             if (this.responsiveOptions && !this.isUnstyled) {
                 let _responsiveOptions = [...this.responsiveOptions];
+                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
                 _responsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;
@@ -529,7 +558,7 @@ export default {
                     if (value1 == null && value2 != null) result = -1;
                     else if (value1 != null && value2 == null) result = 1;
                     else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                     else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                     return -1 * result;

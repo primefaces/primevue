@@ -9,17 +9,35 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes) | null | undefined;
+export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ToggleButtonPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ToggleButtonProps;
+    /**
+     * Defines current inline state.
+     */
     state: ToggleButtonState;
+    /**
+     * Defines current options.
+     */
+    context: ToggleButtonContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -28,27 +46,27 @@ export interface ToggleButtonPassThroughMethodOptions {
  */
 export interface ToggleButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -66,9 +84,30 @@ export interface ToggleButtonPassThroughAttributes {
  */
 export interface ToggleButtonState {
     /**
-     * Focused state as a number.
+     * Focused state as a boolean.
      */
     focused: boolean;
+}
+
+/**
+ * Defines current options in ToggleButton component.
+ */
+export interface ToggleButtonContext {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current highlighted state as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
 }
 
 /**
@@ -127,7 +166,7 @@ export interface ToggleButtonProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -139,10 +178,15 @@ export interface ToggleButtonProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ToggleButtonPassThroughOptions}
      */
-    pt?: ToggleButtonPassThroughOptions;
+    pt?: PassThrough<ToggleButtonPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -156,6 +200,7 @@ export interface ToggleButtonProps {
 export interface ToggleButtonSlots {
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

@@ -8,10 +8,15 @@ const styles = `
     align-items: center;
 }
 
+.p-message-icon {
+    flex-shrink: 0;
+}
+
 .p-message-close {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0; 
 }
 
 .p-message-close.p-link {
@@ -53,8 +58,8 @@ const classes = {
     wrapper: 'p-message-wrapper',
     icon: 'p-message-icon',
     text: 'p-message-text',
-    button: 'p-message-close p-link',
-    buttonIcon: 'p-message-close-icon'
+    closeButton: 'p-message-close p-link',
+    closeIcon: 'p-message-close-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { name: 'message', manual: true });

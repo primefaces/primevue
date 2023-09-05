@@ -20,8 +20,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<AvatarGroup>
+                basic: `<AvatarGroup>
     <Avatar image="/images/avatar/amyelsner.png" size="large" shape="circle" />
     <Avatar image="/images/avatar/asiyajavayant.png" size="large" shape="circle" />
     <Avatar image="/images/avatar/onyamalimba.png" size="large" shape="circle" />
@@ -29,8 +28,7 @@ export default {
     <Avatar image="/images/avatar/xuxuefeng.png" size="large" shape="circle" />
     <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
 </AvatarGroup>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <AvatarGroup>
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
@@ -46,8 +44,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <AvatarGroup>
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />

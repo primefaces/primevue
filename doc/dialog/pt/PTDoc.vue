@@ -26,8 +26,7 @@ export default {
         return {
             visible: false,
             code: {
-                basic: `
-<Dialog
+                basic: `<Dialog
     v-model:visible="visible"
     modal
     header="Header"
@@ -37,8 +36,7 @@ export default {
 >
     <p>Lorem ipsum </p>
 </Dialog>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
 
@@ -67,8 +65,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
 

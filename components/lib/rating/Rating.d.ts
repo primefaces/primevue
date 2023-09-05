@@ -9,18 +9,35 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes) | null | undefined;
+export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface RatingPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: RatingProps;
+    /**
+     * Defines current inline state.
+     */
     state: RatingState;
+    /**
+     * Defines current options.
+     */
     context: RatingContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -29,47 +46,47 @@ export interface RatingPassThroughMethodOptions {
  */
 export interface RatingPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cancel item's DOM element.
+     * Used to pass attributes to the cancel item's DOM element.
      */
     cancelItem?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cancel icon's DOM element.
+     * Used to pass attributes to the cancel icon's DOM element.
      */
     cancelIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the on icon's DOM element.
+     * Used to pass attributes to the on icon's DOM element.
      */
     onIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the off icon's DOM element.
+     * Used to pass attributes to the off icon's DOM element.
      */
     offIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden cancel inputW wapper's DOM element.
+     * Used to pass attributes to the hidden cancel inputW wapper's DOM element.
      */
     hiddenCancelInputWrapper?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden cancel input's DOM element.
+     * Used to pass attributes to the hidden cancel input's DOM element.
      */
     hiddenCancelInput?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden item input wrapper's DOM element.
+     * Used to pass attributes to the hidden item input wrapper's DOM element.
      */
     hiddenItemInputWrapper?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden item input's DOM element.
+     * Used to pass attributes to the hidden item input's DOM element.
      */
     hiddenItemInput?: RatingPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -175,10 +192,15 @@ export interface RatingProps {
      */
     cancelIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {RatingPassThroughOptions}
      */
-    pt?: RatingPassThroughOptions;
+    pt?: PassThrough<RatingPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -192,6 +214,7 @@ export interface RatingProps {
 export interface RatingSlots {
     /**
      * Custom cancel icon template.
+     * @param {Object} scope - cancelicon slot's params.
      */
     cancelicon(scope: {
         /**

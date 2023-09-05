@@ -49,6 +49,10 @@ const classes = {
     sourceWrapper: 'p-picklist-list-wrapper p-picklist-source-wrapper',
     sourceHeader: 'p-picklist-header',
     sourceList: 'p-picklist-list p-picklist-source-list',
+    buttons: 'p-picklist-buttons p-picklist-transfer-buttons',
+    targetWrapper: 'p-picklist-list-wrapper p-picklist-target-wrapper',
+    targetHeader: 'p-picklist-header',
+    targetList: 'p-picklist-list p-picklist-target',
     item: ({ instance, item, id, listIndex }) => [
         'p-picklist-item',
         {
@@ -56,10 +60,6 @@ const classes = {
             'p-focus': id === instance.focusedOptionId
         }
     ],
-    buttons: 'p-picklist-buttons p-picklist-transfer-buttons',
-    targetWrapper: 'p-picklist-list-wrapper p-picklist-target-wrapper',
-    targetHeader: 'p-picklist-header',
-    targetList: 'p-picklist-list p-picklist-target',
     targetControls: 'p-picklist-buttons p-picklist-target-controls'
 };
 

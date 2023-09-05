@@ -23,8 +23,7 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `
-<TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+                basic: `<TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
     <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
     <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
     <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
@@ -32,8 +31,7 @@ export default {
     <Column field="type" header="Type 3" style="width: 250px; height: 57px"></Column>
     <Column field="size" header="Size 3" style="width: 250px; height: 57px"></Column>
 </TreeTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
             <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
@@ -60,8 +58,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
             <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>

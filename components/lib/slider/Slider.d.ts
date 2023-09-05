@@ -8,16 +8,27 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes) | null | undefined;
+export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface SliderPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: SliderProps;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -26,27 +37,27 @@ export interface SliderPassThroughMethodOptions {
  */
 export interface SliderPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the range's DOM element.
+     * Used to pass attributes to the range's DOM element.
      */
     range?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the handle's DOM element.
+     * Used to pass attributes to the handle's DOM element.
      */
     handle?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start handler's DOM element.
+     * Used to pass attributes to the start handler's DOM element.
      */
     startHandler?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end handler's DOM element.
+     * Used to pass attributes to the end handler's DOM element.
      */
     endHandler?: SliderPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -125,10 +136,15 @@ export interface SliderProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SliderPassThroughOptions}
      */
-    pt?: SliderPassThroughOptions;
+    pt?: PassThrough<SliderPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

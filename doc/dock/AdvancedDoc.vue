@@ -243,16 +243,14 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Dock :model="items">
+                basic: `<Dock :model="items">
     <template #item="{ item }">
         <a v-tooltip.top="item.label" href="#" class="p-dock-link" @click="onDockItemClick($event, item)">
             <img :alt="item.label" :src="item.icon" style="width: 100%" />
         </a>
     </template>
 </Dock>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card dock-demo">
         <Toast position="top-center" group="tc" />
         <Menubar :model="menubarItems">
@@ -558,8 +556,7 @@ export default {
     border-radius: 0;
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div>
         <div class="card dock-demo">
             <Toast position="top-center" group="tc" />

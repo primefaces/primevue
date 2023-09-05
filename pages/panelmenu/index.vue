@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue PanelMenu Component" header="PanelMenu" description="PanelMenu is a hybrid of accordion-tree components." :componentDocs="docs" :apiDocs="['PanelMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue PanelMenu Component"
+        header="PanelMenu"
+        description="PanelMenu is a hybrid of accordion-tree components."
+        :componentDocs="docs"
+        :apiDocs="['PanelMenu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -8,8 +16,9 @@ import BasicDoc from '@/doc/panelmenu/BasicDoc';
 import ImportDoc from '@/doc/panelmenu/ImportDoc';
 import MultipleDoc from '@/doc/panelmenu/MultipleDoc';
 import ProgrammaticDoc from '@/doc/panelmenu/ProgrammaticDoc';
-import StyleDoc from '@/doc/panelmenu/StyleDoc';
+import RouterDoc from '@/doc/panelmenu/RouterDoc';
 import PTComponent from '@/doc/panelmenu/pt/index.vue';
+import ThemingDoc from '@/doc/panelmenu/theming/index.vue';
 
 export default {
     data() {
@@ -36,9 +45,9 @@ export default {
                     component: MultipleDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
@@ -46,7 +55,8 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

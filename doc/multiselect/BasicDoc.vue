@@ -1,9 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            MultiSelect is used as a controlled component with <i>v-model</i> property along with an <i>options</i> collection. Label and value of an option are defined with the <i>optionLabel</i> and <i>optionValue</i> properties respectively.
-            Default property name for the <i>optionLabel</i> is <i>label</i> and <i>value</i> for the <i>optionValue</i>. If <i>optionValue</i> is omitted and the object has no <i>value</i> property, the object itself becomes the value of an option.
-            Note that, when options are simple primitive values such as a string array, no <i>optionLabel</i> and <i>optionValue</i> would be necessary.
+            MultiSelect is used as a controlled component with <i>v-model</i> property along with an <i>options</i> collection. Label and value of an option are defined with the <i>optionLabel</i> and <i>optionValue</i> properties respectively. Note
+            that, when options are simple primitive values such as a string array, no <i>optionLabel</i> and <i>optionValue</i> would be necessary.
         </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
@@ -25,11 +24,9 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `
-<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
+                basic: `<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
     :maxSelectedLabels="3" class="w-full md:w-20rem" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"  
             :maxSelectedLabels="3" class="w-full md:w-20rem" />
@@ -52,8 +49,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
             :maxSelectedLabels="3" class="w-full md:w-20rem" />

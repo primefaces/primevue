@@ -33,7 +33,7 @@
                             <slot name="chip" :value="item">
                                 <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :onClick="(event) => removeOption(event, item)">
+                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :onClick="(event) => removeOption(event, item)">
                                 <span v-if="removeTokenIcon" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                                 <TimesCircleIcon v-else :class="cx('removeTokenIcon')" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                             </slot>
@@ -43,7 +43,7 @@
                 </slot>
             </div>
         </div>
-        <div :class="cx('trigger')" v-bind="ptm('triggger')">
+        <div :class="cx('trigger')" v-bind="ptm('trigger')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -53,7 +53,7 @@
             </slot>
         </div>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="[cx('panel'), panelClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
@@ -74,7 +74,7 @@
                             </div>
                             <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
                                 <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
-                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
+                                    <component v-show="allSelected" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
                                 </slot>
                             </div>
                         </div>
@@ -139,6 +139,7 @@
                                                 <div :class="cx('checkbox', { option })" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
                                                     <slot name="itemcheckboxicon" :selected="isSelected(option)" :class="cx('checkboxIcon')">
                                                         <component
+                                                            v-show="isSelected(option)"
                                                             :is="checkboxIcon ? 'span' : 'CheckIcon'"
                                                             :class="[cx('checkboxIcon'), { [checkboxIcon]: isSelected(option) }]"
                                                             v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"

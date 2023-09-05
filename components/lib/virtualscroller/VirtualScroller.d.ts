@@ -9,17 +9,31 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes) | null | undefined;
+export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface VirtualScrollerPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: VirtualScrollerProps;
+    /**
+     * Defines current inline state.
+     */
     state: VirtualScrollerState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -110,27 +124,27 @@ export interface VirtualScrollerItemOptions {
  */
 export interface VirtualScrollerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loader's DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
     loader?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the spacer's DOM element.
+     * Used to pass attributes to the spacer's DOM element.
      */
     spacer?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -311,10 +325,15 @@ export interface VirtualScrollerProps {
      */
     autoSize?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {VirtualScrollerPassThroughOptions}
      */
-    pt?: VirtualScrollerPassThroughOptions;
+    pt?: PassThrough<VirtualScrollerPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -343,13 +362,13 @@ export interface VirtualScrollerSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
-         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         * @return {@link VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
         /**
          * Whether the data is loaded.
          */
@@ -358,8 +377,9 @@ export interface VirtualScrollerSlots {
          * Loader options of the items while the data is loading.
          * @param {number} index - Rendered index
          * @param {*} [ext] - Extra options
+         * @return {@link VirtualScrollerItemOptions}
          */
-        getLoaderOptions(index: number, ext?: any): VirtualScrollerLoaderOptions;
+        getLoaderOptions: (index: number, ext?: any) => VirtualScrollerLoaderOptions;
         /**
          * The height/width of item according to orientation.
          */
@@ -419,6 +439,7 @@ export interface VirtualScrollerSlots {
     }): VNode[];
     /**
      * Custom loading icon template.
+     * @param {Object} scope - loadingicon slot's params.
      */
     loadingicon(scope: {
         /**

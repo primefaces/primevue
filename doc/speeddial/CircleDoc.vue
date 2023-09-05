@@ -52,13 +52,12 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />`,
-                options: `
-<template>
+                basic: `<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />`,
+                options: `<template>
     <div class="card">
         <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
             <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+            <Toast />
         </div>
     </div>
 </template>
@@ -108,11 +107,11 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
             <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+            <Toast />
         </div>
     </div>
 </template>

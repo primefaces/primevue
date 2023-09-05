@@ -8,8 +8,9 @@
         :class="cx('jumpToPageDropdown')"
         :disabled="disabled"
         :unstyled="unstyled"
-        :pt="ptm('jumpTpPageDropdown')"
+        :pt="ptm('jumpToPageDropdown')"
         data-pc-section="jumptopagedropdown"
+        data-pc-group-section="pagedropdown"
     ></JTPDropdown>
 </template>
 

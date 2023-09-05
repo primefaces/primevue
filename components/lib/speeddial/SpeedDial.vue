@@ -1,6 +1,6 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="speeddial">
-        <slot name="button" :toggle="onClick">
+    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')" data-pc-name="speeddial">
+        <slot name="button" :onClick="onClick">
             <SDButton
                 type="button"
                 :class="[cx('button'), buttonClass]"
@@ -23,13 +23,13 @@
                 </template>
             </SDButton>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
+        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" :style="sx('menu')" role="menu" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
                 <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" :class="cx('menuitem', { id: `${id}_${index}` })" :style="getItemStyle(index)" role="menuitem" v-bind="getPTOptions(`${id}_${index}`, 'menuitem')">
                     <template v-if="!$slots.item">
                         <a
-                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             v-ripple
+                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             :tabindex="-1"
                             :href="item.url || '#'"
                             role="menuitem"
@@ -111,7 +111,8 @@ export default {
         getPTOptions(id, key) {
             return this.ptm(key, {
                 context: {
-                    active: this.isItemActive(id)
+                    active: this.isItemActive(id),
+                    hidden: !this.d_visible
                 }
             });
         },

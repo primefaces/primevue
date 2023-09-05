@@ -7,21 +7,40 @@
  * @module panelmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttributes | ((options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes) | null | undefined;
+export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttributes | ((options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PanelMenuPassThroughTransitionType = TransitionProps | ((options: PanelMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface PanelMenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PanelMenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: PanelMenuState;
+    /**
+     * Defines current options.
+     */
     context: PanelMenuContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,82 +49,86 @@ export interface PanelMenuPassThroughMethodOptions {
  */
 export interface PanelMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header content's DOM element.
+     * Used to pass attributes to the header content's DOM element.
      */
     headerContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header action's DOM element.
+     * Used to pass attributes to the header action's DOM element.
      */
     headerAction?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenuIcon's DOM element.
+     * Used to pass attributes to the submenuIcon's DOM element.
      */
     submenuIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header icon's DOM element.
+     * Used to pass attributes to the header icon's DOM element.
      */
     headerIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header label's DOM element.
+     * Used to pass attributes to the header label's DOM element.
      */
     headerLabel?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the toggleable content's DOM element.
      */
     toggleableContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the menu content's DOM element.
+     * Used to pass attributes to the menu content's DOM element.
      */
     menuContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PanelMenuPassThroughTransitionType;
 }
 
 /**
@@ -134,6 +157,14 @@ export interface PanelMenuState {
  * Defines current options in PanelMenu component.
  */
 export interface PanelMenuContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem.
+     */
+    index: number;
     /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
@@ -178,6 +209,28 @@ export interface PanelMenuPanelOpenEvent {
 export interface PanelMenuPanelCloseEvent extends PanelMenuPanelOpenEvent {}
 
 /**
+ * Defines valid router binding props in PanelMenu component.
+ */
+export interface PanelMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
+}
+
+/**
  * Defines valid properties in PanelMenu component.
  */
 export interface PanelMenuProps {
@@ -200,10 +253,15 @@ export interface PanelMenuProps {
      */
     tabindex?: number | string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PanelMenuPassThroughOptions}
      */
-    pt?: PanelMenuPassThroughOptions;
+    pt?: PassThrough<PanelMenuPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -224,9 +282,22 @@ export interface PanelMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: PanelMenuRouterBindProps;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
     /**
      * Custom submenu icon template.
+     * @param {Object} scope - submenuicon slot's params.
      */
     submenuicon(scope: {
         /**

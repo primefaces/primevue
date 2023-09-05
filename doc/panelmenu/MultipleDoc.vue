@@ -154,10 +154,8 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />`,
-                options: `
-<template>
+                basic: `<PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />`,
+                options: `<template>
     <div class="card flex flex-column align-items-center">
         <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-25rem" />
     </div>
@@ -312,8 +310,7 @@ export default {
   },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column align-items-center">
         <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-25rem"  />
     </div>

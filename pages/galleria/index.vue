@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Gallery Component" header="Galleria" description="Galleria is a content gallery component." :componentDocs="docs" :apiDocs="['Galleria']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Gallery Component" header="Galleria" description="Galleria is a content gallery component." :componentDocs="docs" :apiDocs="['Galleria']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -11,7 +11,6 @@ import CaptionDoc from '@/doc/galleria/CaptionDoc';
 import ControlledDoc from '@/doc/galleria/ControlledDoc';
 import ImportDoc from '@/doc/galleria/ImportDoc';
 import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc';
-import StyleDoc from '@/doc/galleria/StyleDoc';
 import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc';
 import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc';
 import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc';
@@ -25,6 +24,7 @@ import IndicatorsDoc from '@/doc/galleria/navigator/IndicatorsDoc';
 import ItemThumbnailsDoc from '@/doc/galleria/navigator/ItemThumbnailsDoc';
 import ItemWithoutThumbnailsDoc from '@/doc/galleria/navigator/ItemWithoutThumbnailsDoc';
 import PTComponent from '@/doc/galleria/pt/index.vue';
+import ThemingDoc from '@/doc/galleria/theming/index.vue';
 
 export default {
     data() {
@@ -147,17 +147,13 @@ export default {
                     component: AdvancedDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

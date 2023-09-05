@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['VirtualScroller']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -18,8 +19,8 @@ import HorizontalDoc from '@/doc/virtualscroller/HorizontalDoc';
 import ImportDoc from '@/doc/virtualscroller/ImportDoc';
 import LazyDoc from '@/doc/virtualscroller/LazyDoc';
 import LoadingDoc from '@/doc/virtualscroller/LoadingDoc';
-import StyleDoc from '@/doc/virtualscroller/StyleDoc';
 import PTComponent from '@/doc/virtualscroller/pt/index.vue';
+import ThemingDoc from '@/doc/virtualscroller/theming/index.vue';
 
 export default {
     data() {
@@ -61,17 +62,13 @@ export default {
                     component: LazyDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

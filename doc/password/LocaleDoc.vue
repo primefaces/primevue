@@ -17,10 +17,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />`,
-                options: `
-<template>
+                basic: `<Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />`,
+                options: `<template>
   <div class="card flex justify-content-center">
       <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
   </div>
@@ -35,8 +33,7 @@ export default {
   }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
   <div class="card flex justify-content-center">
       <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
   </div>

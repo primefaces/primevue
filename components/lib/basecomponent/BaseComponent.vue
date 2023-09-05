@@ -8,7 +8,6 @@ const inlineStyles = {};
 
 const buttonStyles = `
 .p-button {
-    margin: 0;
     display: inline-flex;
     cursor: pointer;
     user-select: none;
@@ -53,7 +52,7 @@ const buttonStyles = `
     margin: 0;
 }
 
-.p-buttonset .p-button:not(:last-child) {
+.p-buttonset .p-button:not(:last-child), .p-buttonset .p-button:not(:last-child):hover {
     border-right: 0 none;
 }
 
@@ -96,10 +95,6 @@ const checkboxStyles = `
 }
 `;
 const inputTextStyles = `
-.p-inputtext {
-    margin: 0;
-}
-
 .p-fluid .p-inputtext {
     width: 100%;
 }
@@ -285,14 +280,6 @@ const styles = `
     word-wrap: normal !important;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="file"]::-webkit-file-upload-button,
-button { /* @todo */
-    border-radius: 0;
-}
-
 .p-link {
 	text-align: left;
 	background-color: transparent;
@@ -370,11 +357,16 @@ ${radioButtonStyles}
 `;
 
 const { load: loadStyle } = useStyle(styles, { name: 'common', manual: true });
+const { load: loadGlobalStyle } = useStyle('', { name: 'global', manual: true });
 
 export default {
     name: 'BaseComponent',
     props: {
         pt: {
+            type: Object,
+            default: undefined
+        },
+        ptOptions: {
             type: Object,
             default: undefined
         },
@@ -393,88 +385,159 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (!newValue) {
-                    loadStyle();
-                    this.$options.css && this.$css.loadStyle();
+                    loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
+                    this.$options.css && this.$css.loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
                 }
             }
         }
     },
     beforeCreate() {
-        this.pt?.hooks?.['beforeCreate']?.();
-        this.$primevue?.config?.pt?.[this.$.type.name]?.hooks?.['beforeCreate']?.();
+        const _usept = this.pt?.['_usept'];
+        const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
+        const value = _usept ? this.pt?.value?.[this.$.type.name] : this.pt;
+
+        (value || originalValue)?.hooks?.['onBeforeCreate']?.();
+
+        const _useptInConfig = this.$config?.pt?.['_usept'];
+        const originalValueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.originalValue : undefined;
+        const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
+
+        (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
     },
     created() {
-        this._hook('created');
+        this._hook('onCreated');
     },
     beforeMount() {
-        loadBaseStyle();
-        this._hook('beforeMount');
+        loadBaseStyle(undefined, { nonce: this.$config?.csp?.nonce });
+        this._loadGlobalStyles();
+        this._hook('onBeforeMount');
     },
     mounted() {
-        this._hook('mounted');
+        this._hook('onMounted');
     },
     beforeUpdate() {
-        this._hook('beforeUpdate');
+        this._hook('onBeforeUpdate');
     },
     updated() {
-        this._hook('updated');
+        this._hook('onUpdated');
     },
     beforeUnmount() {
-        this._hook('beforeUnmount');
+        this._hook('onBeforeUnmount');
     },
     unmounted() {
-        this._hook('unmounted');
+        this._hook('onUnmounted');
     },
     methods: {
         _hook(hookName) {
-            const selfHook = this._getOptionValue(this.pt, `hooks.${hookName}`);
-            const globalHook = this._getOptionValue(this.globalPT, `hooks.${hookName}`);
+            if (!this.$options.hostName) {
+                const selfHook = this._usePT(this._getPT(this.pt, this.$.type.name), this._getOptionValue, `hooks.${hookName}`);
+                const defaultHook = this._useDefaultPT(this._getOptionValue, `hooks.${hookName}`);
 
-            selfHook?.();
-            globalHook?.();
+                selfHook?.();
+                defaultHook?.();
+            }
+        },
+        _loadGlobalStyles() {
+            /*
+             * @todo Add self custom css support;
+             * <Panel :pt="{ css: `...` }" .../>
+             *
+             * const selfCSS = this._getPTClassValue(this.pt, 'css', this.$params);
+             * const defaultCSS = this._getPTClassValue(this.defaultPT, 'css', this.$params);
+             * const mergedCSS = mergeProps(selfCSS, defaultCSS);
+             * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
+             */
+
+            const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
+
+            ObjectUtils.isNotEmpty(globalCSS) && loadGlobalStyle(globalCSS, { nonce: this.$config?.csp?.nonce });
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
         },
         _getOptionValue(options, key = '', params = {}) {
-            const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
+            const fKeys = ObjectUtils.toFlatCase(key).split('.');
             const fKey = fKeys.shift();
 
             return fKey
                 ? ObjectUtils.isObject(options)
-                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
                     : undefined
                 : ObjectUtils.getItemValue(options, params);
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
-            const self = this._getOptionValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? this._getOptionValue(this.defaultPT, key, params) : undefined;
-            const merged = mergeProps(self, globalPT, {
-                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(this.$.type.name) }),
-                [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
-            });
+            const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
+            const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || {};
+            const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
+            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
+            const datasets = key !== 'transition' && {
+                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
+                [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+            };
 
-            return merged;
-            /*
-             * @todo: The 'class' option in self can always be more powerful to style the component easily.
-             *
-             * return self && self['class'] ? { ...merged, ...{ class: self['class'] } } : merged;
-             */
+            return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+        },
+        _getPTClassValue(...args) {
+            const value = this._getOptionValue(...args);
+
+            return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
+        },
+        _getPT(pt, key = '', callback) {
+            const _usept = pt?.['_usept'];
+
+            const getValue = (value, checkSameKey = false) => {
+                const computedValue = callback ? callback(value) : value;
+                const _key = ObjectUtils.toFlatCase(key);
+                const _cKey = ObjectUtils.toFlatCase(this.$name);
+
+                return (checkSameKey ? (_key !== _cKey ? computedValue?.[_key] : undefined) : computedValue?.[_key]) ?? computedValue;
+            };
+
+            return ObjectUtils.isNotEmpty(_usept)
+                ? {
+                      _usept,
+                      originalValue: getValue(pt.originalValue),
+                      value: getValue(pt.value)
+                  }
+                : getValue(pt, true);
+        },
+        _usePT(pt, callback, key, params) {
+            const fn = (value) => callback(value, key, params);
+
+            if (pt?.hasOwnProperty('_usept')) {
+                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
+                const originalValue = fn(pt.originalValue);
+                const value = fn(pt.value);
+
+                if (originalValue === undefined && value === undefined) return undefined;
+                else if (ObjectUtils.isString(value)) return value;
+                else if (ObjectUtils.isString(originalValue)) return originalValue;
+
+                return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+            }
+
+            return fn(pt);
+        },
+        _useGlobalPT(callback, key, params) {
+            return this._usePT(this.globalPT, callback, key, params);
+        },
+        _useDefaultPT(callback, key, params) {
+            return this._usePT(this.defaultPT, callback, key, params);
         },
         ptm(key = '', params = {}) {
-            return this._getPTValue(this.pt, key, { instance: this, props: this.$props, state: this.$data, ...params });
+            return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
         ptmo(obj = {}, key = '', params = {}) {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { ...this.$params, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = this._getOptionValue(this.$css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
-                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
+                const self = this._getOptionValue(this.$css.inlineStyles, key, { ...this.$params, ...params });
+                const base = this._getOptionValue(inlineStyles, key, { ...this.$params, ...params });
 
                 return [base, self];
             }
@@ -483,14 +546,26 @@ export default {
         }
     },
     computed: {
+        globalPT() {
+            return this._getPT(this.$config?.pt, undefined, (value) => ObjectUtils.getItemValue(value, { instance: this }));
+        },
         defaultPT() {
-            return this._getOptionValue(this.$primevue.config.pt, this.$options.hostName || this.$.type.name, { instance: this });
+            return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { ...this.$params }) || ObjectUtils.getItemValue(value, { ...this.$params }));
         },
         isUnstyled() {
-            return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
+            return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
+        },
+        $params() {
+            return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };
         },
         $css() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
+        },
+        $config() {
+            return this.$primevue?.config;
+        },
+        $name() {
+            return this.$options.hostName || this.$.type.name;
         }
     }
 };

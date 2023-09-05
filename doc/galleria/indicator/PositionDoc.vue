@@ -50,15 +50,13 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false"
+                basic: `<Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false"
     :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="inside" :indicatorsPosition="position">
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
     </template>
 </Galleria>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
@@ -112,8 +110,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">

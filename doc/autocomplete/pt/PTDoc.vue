@@ -23,8 +23,7 @@ export default {
             value: '',
             items: [],
             code: {
-                basic: `
-<AutoComplete
+                basic: `<AutoComplete
     v-model="value"
     :suggestions="items"
     @complete="search"
@@ -35,8 +34,7 @@ export default {
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <AutoComplete
             v-model="value"
@@ -67,8 +65,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <AutoComplete
             v-model="value"

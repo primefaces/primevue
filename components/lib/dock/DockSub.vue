@@ -25,11 +25,11 @@
                     :aria-disabled="disabled(processedItem)"
                     @click="onItemClick($event, processedItem)"
                     @mouseenter="onItemMouseEnter(index)"
-                    v-bind="getPTOptions(getItemId(index), 'menuitem')"
+                    v-bind="getPTOptions('menuitem', processedItem, index)"
                     :data-p-focused="isItemActive(getItemId(index))"
                     :data-p-disabled="disabled(processedItem) || false"
                 >
-                    <div :class="cx('content')" v-bind="getPTOptions(getItemId(index), 'content')">
+                    <div :class="cx('content')" v-bind="getPTOptions('content', processedItem, index)">
                         <template v-if="!templates['item']">
                             <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
                                 <a
@@ -40,10 +40,10 @@
                                     tabindex="-1"
                                     aria-hidden="true"
                                     @click="onItemActionClick($event, processedItem, navigate)"
-                                    v-bind="getPTOptions(getItemId(index), 'action')"
+                                    v-bind="getPTOptions('action', processedItem, index)"
                                 >
                                     <template v-if="!templates['icon']">
-                                        <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions(getItemId(index), 'icon')"></span>
+                                        <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions('icon', processedItem, index)"></span>
                                     </template>
                                     <component v-else :is="templates['icon']" :item="processedItem" :class="cx('icon')"></component>
                                 </a>
@@ -56,15 +56,15 @@
                                 :target="processedItem.target"
                                 tabindex="-1"
                                 aria-hidden="true"
-                                v-bind="getPTOptions(getItemId(index), 'action')"
+                                v-bind="getPTOptions('action', processedItem, index)"
                             >
                                 <template v-if="!templates['icon']">
-                                    <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions(getItemId(index), 'icon')"></span>
+                                    <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions('icon', processedItem, index)"></span>
                                 </template>
                                 <component v-else :is="templates['icon']" :item="processedItem" :class="cx('icon')"></component>
                             </a>
                         </template>
-                        <component v-else :is="templates['item']" :item="processedItem" :index="index"></component>
+                        <component v-else :is="templates['item']" :item="processedItem" :index="index" :label="processedItem.label" :props="getMenuItemProps(processedItem, index)"></component>
                     </div>
                 </li>
             </template>
@@ -77,6 +77,7 @@ import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'DockSub',
@@ -141,10 +142,12 @@ export default {
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
         },
-        getPTOptions(id, key) {
+        getPTOptions(key, item, index) {
             return this.ptm(key, {
                 context: {
-                    active: this.isItemActive(id)
+                    index,
+                    item,
+                    active: this.isItemActive(this.getItemId(index))
                 }
             });
         },
@@ -273,6 +276,24 @@ export default {
         },
         disabled(item) {
             return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
+        },
+        getMenuItemProps(item, index) {
+            return {
+                action: mergeProps(
+                    {
+                        tabindex: -1,
+                        'aria-hidden': true,
+                        class: this.cx('action')
+                    },
+                    this.getPTOptions('action', item, index)
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), item.icon]
+                    },
+                    this.getPTOptions('icon', item, index)
+                )
+            };
         }
     },
     computed: {

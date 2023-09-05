@@ -243,7 +243,7 @@ const CalendarProps = [
         name: 'manualInput',
         type: 'boolean',
         default: 'true',
-        description: 'Wheter to allow prevents entering the date manually via typing.'
+        description: 'Whether to allow entering the date manually via typing.'
     },
     {
         name: 'appendTo',
@@ -297,7 +297,7 @@ const CalendarProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
     },
     {
         name: 'panelClass',
@@ -315,13 +315,13 @@ const CalendarProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
     },
     {
         name: 'unstyled',

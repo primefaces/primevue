@@ -27,8 +27,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ConfirmDialog group="positionDialog"></ConfirmDialog>
+                basic: `<ConfirmDialog group="positionDialog"></ConfirmDialog>
 <div class="flex flex-wrap justify-content-center gap-2 mb-2">
     <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
@@ -43,8 +42,7 @@ export default {
     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <Toast />
     <ConfirmDialog group="positionDialog"></ConfirmDialog>
     <div class="card">
@@ -86,8 +84,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <Toast />
     <ConfirmDialog group="positionDialog"></ConfirmDialog>
     <div class="card">

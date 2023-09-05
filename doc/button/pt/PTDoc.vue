@@ -11,14 +11,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button label="Submit" icon="pi pi-check"
+                basic: `<Button label="Submit" icon="pi pi-check"
     :pt="{ 
         root: { class: 'bg-indigo-600 border-indigo-600' } 
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap gap-3 justify-content-center">
         <Button label="Submit" icon="pi pi-check"
             :pt="{ 
@@ -27,8 +25,7 @@ export default {
         />
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap gap-3 justify-content-center">
         <Button label="Submit" icon="pi pi-check"
             :pt="{ 

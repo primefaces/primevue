@@ -32,8 +32,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<TabView>
+                basic: `<TabView>
     <TabPanel header="Header I">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -54,8 +53,7 @@ export default {
     </TabPanel>
 </TabView>
                 `,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TabView>
             <TabPanel header="Header I">
@@ -83,8 +81,7 @@ export default {
 <script>
 <\/script>
     `,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TabView>
             <TabPanel header="Header I">

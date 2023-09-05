@@ -9,18 +9,35 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes) | null | undefined;
+export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TreePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TreeProps;
+    /**
+     * Defines current inline state.
+     */
     state: TreeState;
+    /**
+     * Defines current options.
+     */
     context: TreeContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -109,79 +126,79 @@ export interface TreeSelectionKeys {
  */
 export interface TreePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the filter container's DOM element.
      */
     filterContainer?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the search icon's DOM element.
+     * Used to pass attributes to the search icon's DOM element.
      */
     searchIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the node's DOM element.
+     * Used to pass attributes to the node's DOM element.
      */
     node?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the toggler icon's DOM element.
      */
     togglerIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the checkbox container's DOM element.
      */
     checkboxContainer?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox's DOM element.
+     * Used to pass attributes to the checkbox's DOM element.
      */
     checkbox?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
+     * Used to pass attributes to the checkbox icon's DOM element.
      */
     checkboxIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the node icon's DOM element.
+     * Used to pass attributes to the node icon's DOM element.
      */
     nodeIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the subgroup's DOM element.
+     * Used to pass attributes to the subgroup's DOM element.
      */
     subgroup?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the loading overlay's DOM element.
      */
     loadingOverlay?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -213,6 +230,10 @@ export interface TreeState {
  */
 export interface TreeContext {
     /**
+     * Index of the node.
+     */
+    index: number;
+    /**
      * Current expanded state of the node as a boolean.
      * @defaultValue false
      */
@@ -227,6 +248,11 @@ export interface TreeContext {
      * @defaultValue false
      */
     checked: boolean;
+    /**
+     * Current leaf state of the node as a boolean.
+     * @defaultValue false
+     */
+    leaf: boolean;
 }
 
 /**
@@ -301,10 +327,15 @@ export interface TreeProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TreePassThroughOptions}
      */
-    pt?: TreePassThroughOptions;
+    pt?: PassThrough<TreePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -318,6 +349,7 @@ export interface TreeProps {
 export interface TreeSlots {
     /**
      * Custom loading icon template.
+     * @param {Object} scope - loadingicon slot's params.
      */
     loadingicon(scope: {
         /**
@@ -327,6 +359,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom search icon template.
+     * @param {Object} scope - searchicon slot's params.
      */
     searchicon(scope: {
         /**
@@ -336,6 +369,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
      */
     togglericon(scope: {
         /**
@@ -349,6 +383,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom checkbox icon
+     * @param {Object} scope - checkboxicon slot's params.
      */
     checkboxicon(scope: {
         /**

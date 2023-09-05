@@ -1,14 +1,14 @@
 <template>
     <Portal>
         <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
-            <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
+            <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
                     <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
                         <div v-if="$slots.header" :class="cx('headerContent')" v-bind="ptm('headerContent')">
                             <slot name="header"></slot>
                         </div>
-                        <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')">
-                            <slot name="closeicon">
+                        <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
+                            <slot name="closeicon" :class="cx('closeIcon')">
                                 <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
                             </slot>
                         </button>
@@ -100,7 +100,7 @@ export default {
         },
         focus() {
             const findFocusableElement = (container) => {
-                return container.querySelector('[autofocus]');
+                return container && container.querySelector('[autofocus]');
             };
 
             let focusTarget = this.$slots.default && findFocusableElement(this.content);

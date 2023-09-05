@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['ScrollTop']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -14,8 +15,8 @@ import AccessibilityDoc from '@/doc/scrolltop/AccessibilityDoc';
 import BasicDoc from '@/doc/scrolltop/BasicDoc';
 import ElementDoc from '@/doc/scrolltop/ElementDoc';
 import ImportDoc from '@/doc/scrolltop/ImportDoc';
-import StyleDoc from '@/doc/scrolltop/StyleDoc';
 import PTComponent from '@/doc/scrolltop/pt/index.vue';
+import ThemingDoc from '@/doc/scrolltop/theming/index.vue';
 
 export default {
     data() {
@@ -37,17 +38,13 @@ export default {
                     component: ElementDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

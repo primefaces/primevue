@@ -17,13 +17,11 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<span class="p-float-label">
+                basic: `<span class="p-float-label">
     <Chips id="chips" v-model="value" />
     <label for="chips">Chips</label>
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card p-fluid">
         <span class="p-float-label">
             <Chips id="chips" v-model="value" />
@@ -41,8 +39,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card p-fluid">
         <span class="p-float-label">
             <Chips id="chips" v-model="value" />

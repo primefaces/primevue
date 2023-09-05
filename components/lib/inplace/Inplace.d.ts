@@ -11,17 +11,31 @@
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes) | null | undefined;
+export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface InplacePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: InplaceProps;
+    /**
+     * Defines current inline state.
+     */
     state: InplaceState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,24 +44,24 @@ export interface InplacePassThroughMethodOptions {
  */
 export interface InplacePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InplacePassThroughOptionType;
     /**
-     * Uses to pass attributes to the display's DOM element.
+     * Used to pass attributes to the display's DOM element.
      */
     display?: InplacePassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: InplacePassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     closeButton?: ButtonPassThroughOptions;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -96,18 +110,23 @@ export interface InplaceProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to display container.
+     * Used to pass all properties of the HTMLDivElement to display container.
      */
     displayProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * Used to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {InplacePassThroughOptions}
      */
-    pt?: InplacePassThroughOptions;
+    pt?: PassThrough<InplacePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

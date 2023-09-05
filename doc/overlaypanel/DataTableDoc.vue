@@ -44,8 +44,7 @@ export default {
             products: null,
             selectedProduct: null,
             code: {
-                basic: `
-<Toast />
+                basic: `<Toast />
 <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
 <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
@@ -74,8 +73,7 @@ export default {
         </Column>
     </DataTable>
 </OverlayPanel>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
@@ -135,8 +133,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />

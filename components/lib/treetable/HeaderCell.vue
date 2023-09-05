@@ -17,7 +17,7 @@
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
         <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
         <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
-            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" />
+            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" data-pc-section="sorticon" :class="cx('sortIcon')" v-bind="getColumnPT('sortIcon')" />
         </span>
         <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
@@ -29,6 +29,7 @@ import SortAltIcon from 'primevue/icons/sortalt';
 import SortAmountDownIcon from 'primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from 'primevue/icons/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'HeaderCell',
@@ -92,11 +93,18 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    sorted: this.isColumnSorted(),
+                    frozen: this.$parentInstance.scrollable && this.columnProp('frozen'),
+                    resizable: this.resizableColumns,
+                    scrollable: this.$parentInstance.scrollable,
+                    scrollDirection: this.$parentInstance.scrollDirection,
+                    showGridlines: this.$parentInstance.showGridlines,
+                    size: this.$parentInstance?.size
                 }
             };
 
-            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:

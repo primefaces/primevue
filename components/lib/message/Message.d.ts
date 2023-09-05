@@ -7,19 +7,35 @@
  * @module message
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes) | null | undefined;
+export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | string) | string | null | undefined;
+
+export declare type MessagePassThroughTransitionType = TransitionProps | ((options: MessagePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MessagePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MessageProps;
+    /**
+     * Defines current inline state.
+     */
     state: MessageState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -28,34 +44,48 @@ export interface MessagePassThroughMethodOptions {
  */
 export interface MessagePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button icon's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     */
+    closeButton?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: MessagePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: MessagePassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: MessagePassThroughTransitionType;
 }
 
 /**
@@ -110,14 +140,19 @@ export interface MessageProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * Used to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MessagePassThroughOptions}
      */
-    pt?: MessagePassThroughOptions;
+    pt?: PassThrough<MessagePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -135,6 +170,7 @@ export interface MessageSlots {
     default(): VNode[];
     /**
      * Custom message icon template.
+     * @param {Object} scope - messageicon slot's params.
      */
     messageicon(scope: {
         /**
@@ -144,6 +180,7 @@ export interface MessageSlots {
     }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - closeicon slot's params.
      */
     closeicon(scope: {
         /**

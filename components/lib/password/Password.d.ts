@@ -7,20 +7,36 @@
  * @module password
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptionType } from '../inputtext';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
-export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes) | null | undefined;
+export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PasswordPassThroughTransitionType = TransitionProps | ((options: PasswordPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface PasswordPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PasswordProps;
+    /**
+     * Defines current inline state.
+     */
     state: PasswordState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -29,47 +45,51 @@ export interface PasswordPassThroughMethodOptions {
  */
 export interface PasswordPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the InputText component.
+     * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptionType}
      */
     input?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hide icon's DOM element.
+     * Used to pass attributes to the hide icon's DOM element.
      */
     hideIcon?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the show icon's DOM element.
+     * Used to pass attributes to the show icon's DOM element.
      */
     showIcon?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the meter's DOM element.
+     * Used to pass attributes to the meter's DOM element.
      */
     meter?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the meter label's DOM element.
+     * Used to pass attributes to the meter label's DOM element.
      */
     meterLabel?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the info's DOM element.
+     * Used to pass attributes to the info's DOM element.
      */
     info?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden accessible DOM element.
+     * Used to pass attributes to the hidden accessible DOM element.
      */
     hiddenAccesible?: PasswordPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PasswordPassThroughTransitionType;
 }
 
 /**
@@ -206,7 +226,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -222,7 +242,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     panelStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -234,10 +254,15 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PasswordPassThroughOptions}
      */
-    pt?: PasswordPassThroughOptions;
+    pt?: PassThrough<PasswordPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -263,21 +288,23 @@ export interface PasswordSlots {
     content(): VNode[];
     /**
      * Custom hide icon template.
+     * @param {Object} scope - hideicon slot's params.
      */
     hideicon(scope: {
         /**
          * Hide icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
     /**
      * Custom show icon template.
+     * @param {Object} scope - showicon slot's params.
      */
     showicon(scope: {
         /**
          * Show icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
 }
 
@@ -290,6 +317,11 @@ export interface PasswordEmits {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string): void;
+    /**
+     * Callback to invoke on value change.
+     * @param {Event} event - Browser event.
+     */
+    change(event: Event): void;
 }
 
 /**

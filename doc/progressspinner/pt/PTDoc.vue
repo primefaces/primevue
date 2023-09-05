@@ -16,15 +16,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ProgressSpinner
+                basic: `<ProgressSpinner
     :pt="{
         spinner: { style: { animationDuration: '0s' } },
         circle: { style: { stroke: '#F59E0B', strokeWidth: 3, animation: 'none' } }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <ProgressSpinner
             :pt="{
@@ -37,8 +35,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <ProgressSpinner
             :pt="{

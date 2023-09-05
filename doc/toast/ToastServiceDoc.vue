@@ -14,16 +14,14 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-import {createApp} from 'vue';
+                basic: `import {createApp} from 'vue';
 import ToastService from 'primevue/toastservice';
 
 const app = createApp(App);
 app.use(ToastService);`
             },
             code2: {
-                basic: `
-import { useToast } from 'primevue/usetoast';
+                basic: `import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();`
             }

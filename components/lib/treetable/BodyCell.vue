@@ -1,11 +1,11 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
-        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggler')">
+        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggler')" data-pc-group-section="rowactionbutton">
             <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('rowTogglerIcon')" />
             <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
             <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPT('checkboxWrapper')">
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnCheckboxPT('checkboxWrapper')">
             <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPT('hiddenInput')" />
             </div>
@@ -29,6 +29,7 @@ import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'BodyCell',
@@ -112,17 +113,25 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    focused: this.checkboxFocused,
+                    selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
+                    selected: this.$parent.selected,
+                    frozen: this.columnProp('frozen'),
+                    scrollable: this.$parentInstance.scrollable,
+                    scrollDirection: this.$parentInstance.scrollDirection,
+                    showGridlines: this.$parentInstance.showGridlines,
+                    size: this.$parentInstance?.size
                 }
             };
 
-            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo
         },
         getColumnCheckboxPT(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
@@ -133,7 +142,9 @@ export default {
                     focused: this.checkboxFocused,
                     partialChecked: this.partialChecked
                 }
-            });
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {

@@ -64,6 +64,6 @@ describe('Tag.vue', () => {
             }
         });
 
-        expect(wrapper.html()).toBe('<span class="p-tag p-component"><!--v-if--><i class="pi pi-discord"></i></span>');
+        expect(wrapper.html()).toBe('<span class="p-tag p-component" data-pc-name="tag" data-pc-section="root"><!--v-if--><i class="pi pi-discord"></i></span>');
     });
 });

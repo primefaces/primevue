@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" v-bind="ptm('root')" data-pc-name="splitterpanel">
+    <div ref="container" :class="cx('root')" v-bind="ptm('root', getPTOptions)" data-pc-name="splitterpanel">
         <slot></slot>
     </div>
 </template>
@@ -15,6 +15,13 @@ export default {
             return this.$slots.default().some((child) => {
                 return child.type.name === 'Splitter';
             });
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    nested: this.isNested
+                }
+            };
         }
     }
 };

@@ -5,7 +5,7 @@
         :style="node.style"
         :tabindex="tabindex"
         role="row"
-        :aria-expanded="expanded"
+        :aria-expanded="node.children && node.children.length ? expanded : undefined"
         :aria-level="level + 1"
         :aria-setsize="ariaSetSize"
         :aria-posinset="ariaPosInset"
@@ -14,7 +14,7 @@
         @click="onClick"
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
-        v-bind="ptm('row')"
+        v-bind="ptm('row', ptmOptions)"
         :data-p-highlight="selected"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -394,7 +394,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.node.styleClass, this.cx('root')];
+            return [this.node.styleClass, this.cx('row')];
         },
         expanded() {
             return this.expandedKeys && this.expandedKeys[this.node.key] === true;
@@ -413,6 +413,15 @@ export default {
         },
         getAriaSelected() {
             return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : null;
+        },
+        ptmOptions() {
+            return {
+                context: {
+                    selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
+                    selected: this.selected,
+                    scrollable: this.$parentInstance.scrollable
+                }
+            };
         }
     },
     components: {

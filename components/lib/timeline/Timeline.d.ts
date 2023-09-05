@@ -8,9 +8,32 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | null | undefined;
+export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | ((options: TimelinePassThroughMethodOptions) => TimelinePassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TimelinePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
+    instance: any;
+    /**
+     * Defines valid properties.
+     */
+    props: TimelineProps;
+    /**
+     * Defines current options.
+     */
+    context: TimelineContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
+}
 
 /**
  * Custom passthrough(pt) options.
@@ -18,35 +41,35 @@ export declare type TimelinePassThroughOptionType = TimelinePassThroughAttribute
  */
 export interface TimelinePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the event's DOM element.
+     * Used to pass attributes to the event's DOM element.
      */
     event?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the opposite's DOM element.
+     * Used to pass attributes to the opposite's DOM element.
      */
     opposite?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the marker's DOM element.
+     * Used to pass attributes to the marker's DOM element.
      */
     marker?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the connector's DOM element.
+     * Used to pass attributes to the connector's DOM element.
      */
     connector?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TimelinePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -57,6 +80,16 @@ export interface TimelinePassThroughOptions {
  */
 export interface TimelinePassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Timeline component.
+ */
+export interface TimelineContext {
+    /**
+     * Current index of the item as a number.
+     */
+    index: number;
 }
 
 /**
@@ -82,10 +115,15 @@ export interface TimelineProps {
      */
     dataKey?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TimelinePassThroughOptions}
      */
-    pt?: TimelinePassThroughOptions;
+    pt?: PassThrough<TimelinePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

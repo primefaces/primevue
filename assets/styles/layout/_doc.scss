@@ -1,10 +1,11 @@
 .doc-tabmenu {
     list-style: none;
     margin: 0 17rem 0 0;
-    padding: 0;
+    padding: 0 0 1px 0;
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--surface-border);
+    overflow: auto;
 
     li {
         margin-bottom: -1px;
@@ -13,7 +14,7 @@
             background-color: transparent;
             border: 0 none;
             display: block;
-            padding: 1rem 0;
+            padding: 1rem 2rem;
             min-width: 12rem;
             text-align: center;
             color: var(--text-color-secondary);
@@ -25,6 +26,7 @@
             border-bottom: 1px solid transparent;
             border-top-right-radius: var(--border-round);
             border-top-left-radius: var(--border-round);
+            white-space: nowrap;
 
             &:hover {
                 border-bottom-color: var(--text-color);
@@ -41,6 +43,10 @@
                 border-bottom-color: var(--primary-color);
             }
         }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -160,7 +166,7 @@
         > .navbar-item-content {
             display: flex;
 
-            .p-link {
+            .px-link {
                 padding: 0.25rem 1rem 0.25rem 1rem;
                 color: var(--text-color);
                 white-space: nowrap;
@@ -178,7 +184,7 @@
             > .navbar-item-content {
                 border-color: var(--primary-color);
 
-                .p-link {
+                .px-link {
                     font-weight: 700;
                     color: var(--primary-color);
                 }
@@ -199,6 +205,18 @@
     }
 }
 
+.doc-section-code-buttons {
+    gap: .75rem;
+    padding: .75rem 0 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    .p-button-label {
+        font-weight: normal;
+        font-size: 0.875rem;
+    }
+}
+
 .doc-section-code-tooltip .p-tooltip-text {
     padding: 0.5rem;
     font-size: 11px;
@@ -211,19 +229,8 @@
         }
     }
 
-    .p-button-label {
-        font-weight: normal;
-        font-size: 0.875rem;
-    }
-
-    .doc-section-code-active {
-        .p-button-label {
-            font-weight: bold;
-        }
-    }
-
     pre {
-        margin: 0 0 1.5rem 0;
+        margin: 0;
     }
 }
 
@@ -269,6 +276,14 @@
                         text-decoration: underline;
                     }
                 }
+
+                .doc-option-type-options-container {
+                    display: flex;
+                    align-items: center;
+                }
+                span.doc-option-type-options {
+                    color: var(--primary-700);
+                }
             }
 
             &.doc-option-default {
@@ -283,7 +298,7 @@
             }
 
             .doc-option-name,
-            > i {
+            > i:not(.pi) {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
@@ -315,6 +330,10 @@
                         }
                     }
                 }
+            }
+
+            .doc-option-link {
+                color: var(--primary-color);
             }
         }
     }

@@ -19,7 +19,7 @@
             </thead>
             <tbody>
                 <tr v-for="prop in data" :key="prop">
-                    <td v-for="[k, v] in Object.entries(prop)" :key="k" :class="{ 'doc-option-type': k === 'type', 'doc-option-default': k === 'defaultValue' }">
+                    <td v-for="[k, v] in Object.entries(prop)" :key="k" :class="{ 'doc-option-type': k === 'type' || k === 'options', 'doc-option-default': k === 'defaultValue' }">
                         <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
                             <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name" :class="{ 'line-through cursor-pointer': !!prop.deprecated }" :title="prop.deprecated">
                                 {{ v
@@ -34,8 +34,16 @@
                                 </template>
                             </template>
 
+                            <template v-else-if="k === 'options'">
+                                <template v-for="val in v" :key="val.name">
+                                    <div class="doc-option-type-options-container">
+                                        {{ val.name }}: <span class="doc-option-type-options">{{ val.type }}</span>
+                                    </div>
+                                </template>
+                            </template>
+
                             <template v-else-if="k === 'parameters'">
-                                <span v-if="v.name" :class="{ 'parameter-bold': label === 'Slots' }"> {{ v.name }} : </span>
+                                <span v-if="v.name" :class="{ 'font-bold': label === 'Slots' }"> {{ v.name }} : </span>
                                 <template v-for="(value, i) in getType(v.type)" :key="value">
                                     {{ i !== 0 ? ' |' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link"> {{ value }} </NuxtLink>
                                     <span v-else v-html="value"> </span>
@@ -156,9 +164,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-.parameter-bold {
-    font-weight: bold;
-}
-</style>

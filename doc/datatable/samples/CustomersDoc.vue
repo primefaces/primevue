@@ -126,8 +126,7 @@ export default {
             ],
             statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'],
             code: {
-                basic: `
-<DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
+                basic: `<DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
     :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
         <div class="flex justify-content-between">
@@ -223,8 +222,7 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
@@ -413,8 +411,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">

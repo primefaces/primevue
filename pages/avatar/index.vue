@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Avatar Component" header="Avatar" description="Avatar represents people using icons, labels and images." :componentDocs="docs" :apiDocs="['Avatar', 'AvatarGroup']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Avatar Component"
+        header="Avatar"
+        description="Avatar represents people using icons, labels and images."
+        :componentDocs="docs"
+        :apiDocs="['Avatar', 'AvatarGroup']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -9,9 +17,8 @@ import IconDoc from '@/doc/avatar/IconDoc';
 import ImageDoc from '@/doc/avatar/ImageDoc';
 import ImportDoc from '@/doc/avatar/ImportDoc';
 import LabelDoc from '@/doc/avatar/LabelDoc';
-import StylingAvatarDoc from '@/doc/avatar/StylingAvatarDoc';
-import StylingAvatarGroupDoc from '@/doc/avatar/StylingAvatarGroupDoc';
 import PTComponent from '@/doc/avatar/pt/index.vue';
+import ThemingDoc from '@/doc/avatar/theming/index.vue';
 
 export default {
     data() {
@@ -43,22 +50,13 @@ export default {
                     component: AvatarGroupDoc
                 },
                 {
-                    id: 'stylingofavatar',
-                    label: 'Styling of Avatar',
-                    component: StylingAvatarDoc
-                },
-                {
-                    id: 'stylingofavatargroup',
-                    label: 'Styling of Avatar Group',
-                    component: StylingAvatarGroupDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

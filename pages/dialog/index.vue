@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -11,9 +11,9 @@ import LongContentDoc from '@/doc/dialog/LongContentDoc';
 import MaximizableDoc from '@/doc/dialog/MaximizableDoc';
 import PositionDoc from '@/doc/dialog/PositionDoc';
 import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc';
-import StyleDoc from '@/doc/dialog/StyleDoc';
 import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc';
 import PTComponent from '@/doc/dialog/pt/index.vue';
+import ThemingDoc from '@/doc/dialog/theming/index.vue';
 
 export default {
     data() {
@@ -60,17 +60,13 @@ export default {
                     component: MaximizableDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

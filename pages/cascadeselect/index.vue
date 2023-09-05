@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['CascadeSelect']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -17,10 +18,10 @@ import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc';
-import StyleDoc from '@/doc/cascadeselect/StyleDoc';
 import TemplateDoc from '@/doc/cascadeselect/TemplateDoc';
 import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc';
 import PTComponent from '@/doc/cascadeselect/pt/index.vue';
+import ThemingDoc from '@/doc/cascadeselect/theming/index.vue';
 
 export default {
     data() {
@@ -74,17 +75,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

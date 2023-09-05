@@ -22,11 +22,9 @@ export default {
         return {
             first: 0,
             code: {
-                basic: `
-<Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                basic: `<Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />
@@ -42,8 +40,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />

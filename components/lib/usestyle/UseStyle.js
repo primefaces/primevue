@@ -15,25 +15,34 @@ let _id = 0;
 
 export function useStyle(css, options = {}) {
     const isLoaded = ref(false);
+    const cssRef = ref(css);
+    const styleRef = ref(null);
 
     const defaultDocument = DomHandler.isClient() ? window.document : undefined;
-    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined } = options;
-
-    const cssRef = ref(css);
+    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined, nonce = undefined } = options;
 
     let stop = () => {};
 
-    const load = () => {
+    /* @todo: Improve _options params */
+    const load = (_css, _options = {}) => {
         if (!document) return;
 
-        const el = document.querySelector(`style[data-primevue-style-id="${name}"]`) || document.getElementById(id) || document.createElement('style');
+        const [_name, _id, _nonce] = [_options.name || name, _options.id || id, _options.nonce || nonce];
 
-        if (!el.isConnected) {
-            el.type = 'text/css';
-            id && (el.id = id);
-            media && (el.media = media);
-            document.head.appendChild(el);
-            name && el.setAttribute('data-primevue-style-id', name);
+        styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
+
+        if (!styleRef.value.isConnected) {
+            cssRef.value = _css || css;
+
+            DomHandler.setAttributes(styleRef.value, {
+                type: 'text/css',
+                id: _id,
+                media,
+                nonce: _nonce
+            });
+            document.head.appendChild(styleRef.value);
+            DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', name);
+            DomHandler.setAttributes(styleRef.value, _options);
         }
 
         if (isLoaded.value) return;
@@ -41,7 +50,7 @@ export function useStyle(css, options = {}) {
         stop = watch(
             cssRef,
             (value) => {
-                el.textContent = value;
+                styleRef.value.textContent = value;
             },
             { immediate: true }
         );
@@ -52,7 +61,7 @@ export function useStyle(css, options = {}) {
     const unload = () => {
         if (!document || !isLoaded.value) return;
         stop();
-        document.head.removeChild(document.getElementById(id));
+        DomHandler.isExist(styleRef.value) && document.head.removeChild(styleRef.value);
         isLoaded.value = false;
     };
 
@@ -63,6 +72,7 @@ export function useStyle(css, options = {}) {
 
     return {
         id,
+        name,
         css: cssRef,
         unload,
         load,

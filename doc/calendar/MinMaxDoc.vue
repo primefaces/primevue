@@ -16,10 +16,8 @@ export default {
             minDate: null,
             maxDate: null,
             code: {
-                basic: `
-<Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />`,
-                options: `
-<template>
+                basic: `<Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
     </div>
@@ -52,8 +50,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
     </div>

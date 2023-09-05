@@ -15,10 +15,8 @@ export default {
             nodes: null,
             loading: false,
             code: {
-                basic: `
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>`,
-                options: `
-<template>
+                basic: `<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
     </div>
@@ -87,8 +85,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
     </div>

@@ -19,8 +19,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Card :pt="{ body: { class: 'bg-primary border-round-lg' } }">
+                basic: `<Card :pt="{ body: { class: 'bg-primary border-round-lg' } }">
     <template #title> Simple Card </template>
     <template #content>
         <p>
@@ -29,8 +28,7 @@ export default {
         </p>
     </template>
 </Card>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Card :pt="{ body: { class: 'bg-primary border-round-lg' } }">
             <template #title> Simple Card </template>
@@ -43,8 +41,7 @@ export default {
         </Card>
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Card :pt="{ body: { class: 'bg-primary border-round-lg' } }">
             <template #title> Simple Card </template>

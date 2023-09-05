@@ -9,16 +9,31 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes) | null | undefined;
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+
+export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface EditorPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: EditorProps;
+    /**
+     * Defines current inline state.
+     */
     state: EditorState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -94,75 +109,75 @@ export interface EditorLoadEvent {
  */
 export interface EditorPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toolbar's DOM element.
+     * Used to pass attributes to the toolbar's DOM element.
      */
     toolbar?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the formats' DOM element.
+     * Used to pass attributes to the formats' DOM element.
      */
     formats?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the option's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
     option?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the bold's DOM element.
+     * Used to pass attributes to the bold's DOM element.
      */
     bold?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the italic's DOM element.
+     * Used to pass attributes to the italic's DOM element.
      */
     italic?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the underline's DOM element.
+     * Used to pass attributes to the underline's DOM element.
      */
     underline?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the color's DOM element.
+     * Used to pass attributes to the color's DOM element.
      */
     color?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the background's DOM element.
+     * Used to pass attributes to the background's DOM element.
      */
     background?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the select's DOM element.
+     * Used to pass attributes to the select's DOM element.
      */
     select?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the link's DOM element.
+     * Used to pass attributes to the link's DOM element.
      */
     link?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the image's DOM element.
+     * Used to pass attributes to the image's DOM element.
      */
     image?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the code block's DOM element.
+     * Used to pass attributes to the code block's DOM element.
      */
     codeBlock?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the clean's DOM element.
+     * Used to pass attributes to the clean's DOM element.
      */
     clean?: EditorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: EditorPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -216,10 +231,15 @@ export interface EditorProps {
      */
     modules?: any;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {EditorPassThroughOptions}
      */
-    pt?: EditorPassThroughOptions;
+    pt?: PassThrough<EditorPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

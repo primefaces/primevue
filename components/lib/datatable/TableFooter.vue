@@ -1,5 +1,5 @@
 <template>
-    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot'), ...getColumnGroupPT('root') } : ptm('tfoot')" data-pc-section="tfoot">
+    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot', ptmTFootOptions), ...getColumnGroupPT('root') } : ptm('tfoot', ptmTFootOptions)" data-pc-section="tfoot">
         <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                 <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
@@ -18,6 +18,7 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import FooterCell from './FooterCell.vue';
 
 export default {
@@ -46,11 +47,12 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    type: 'header'
+                    type: 'footer',
+                    scrollable: this.ptmTFootOptions.context.scrollable
                 }
             };
 
-            return { ...this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), ...this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData) };
+            return mergeProps(this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), this.ptm(`columnGroup.${key}`, columnGroupMetaData), this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData));
         },
         getColumnGroupProps() {
             return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
@@ -67,7 +69,7 @@ export default {
                 }
             };
 
-            return { ...this.ptm(`row.${key}`, { row: rowMetaData }), ...this.ptmo(this.getRowProp(row), key, rowMetaData) };
+            return mergeProps(this.ptm(`row.${key}`, { row: rowMetaData }), this.ptm(`row.${key}`, rowMetaData), this.ptmo(this.getRowProp(row), key, rowMetaData));
         },
         getRowProp(row) {
             return row.props && row.props.pt ? row.props.pt : undefined; //@todo
@@ -118,6 +120,13 @@ export default {
             }
 
             return hasFooter;
+        },
+        ptmTFootOptions() {
+            return {
+                context: {
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
+                }
+            };
         }
     },
     components: {

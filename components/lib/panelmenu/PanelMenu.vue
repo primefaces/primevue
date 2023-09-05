@@ -13,32 +13,32 @@
                     :aria-disabled="isItemDisabled(item)"
                     @click="onHeaderClick($event, item)"
                     @keydown="onHeaderKeyDown($event, item)"
-                    v-bind="getPTOptions(item, 'header')"
+                    v-bind="getPTOptions('header', item, index)"
                     :data-p-highlight="isItemActive(item)"
                     :data-p-disabled="isItemDisabled(item)"
                 >
-                    <div :class="cx('headerContent')" v-bind="getPTOptions(item, 'headerContent')">
+                    <div :class="cx('headerContent')" v-bind="getPTOptions('headerContent', item, index)">
                         <template v-if="!$slots.item">
                             <router-link v-if="getItemProp(item, 'to') && !isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(item, 'to')" custom>
-                                <a :href="href" :class="cx('headerAction', { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)" v-bind="getPTOptions(item, 'headerAction')">
+                                <a :href="href" :class="cx('headerAction', { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)" v-bind="getPTOptions('headerAction', item, index)">
                                     <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" />
-                                    <span v-else-if="getItemProp(item, 'icon')" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" v-bind="getPTOptions(item, 'headerIcon')" />
-                                    <span :class="cx('headerLabel')" v-bind="getPTOptions(item, 'headerLabel')">{{ getItemLabel(item) }}</span>
+                                    <span v-else-if="getItemProp(item, 'icon')" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" v-bind="getPTOptions('headerIcon', item, index)" />
+                                    <span :class="cx('headerLabel')" v-bind="getPTOptions('headerLabel', item, index)">{{ getItemLabel(item) }}</span>
                                 </a>
                             </router-link>
-                            <a v-else :href="getItemProp(item, 'url')" :class="cx('headerAction')" :tabindex="-1" v-bind="getPTOptions(item, 'headerAction')">
+                            <a v-else :href="getItemProp(item, 'url')" :class="cx('headerAction')" :tabindex="-1" v-bind="getPTOptions('headerAction', item, index)">
                                 <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
-                                    <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions(item, 'submenuIcon')" />
+                                    <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions('submenuIcon', item, index)" />
                                 </slot>
                                 <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" />
-                                <span v-else-if="getItemProp(item, 'icon')" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" v-bind="getPTOptions(item, 'headerIcon')" />
-                                <span :class="cx('headerLabel')" v-bind="getPTOptions(item, 'headerLabel')">{{ getItemLabel(item) }}</span>
+                                <span v-else-if="getItemProp(item, 'icon')" :class="[cx('headerIcon'), getItemProp(item, 'icon')]" v-bind="getPTOptions('headerIcon', item, index)" />
+                                <span :class="cx('headerLabel')" v-bind="getPTOptions('headerLabel', item, index)">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
                     </div>
                 </div>
-                <transition name="p-toggleable-content">
+                <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" :class="cx('toggleableContent')" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('toggleableContent')">
                         <div v-if="getItemProp(item, 'items')" :class="cx('menuContent')" v-bind="ptm('menuContent')">
                             <PanelMenuList
@@ -50,6 +50,7 @@
                                 @header-focus="updateFocusedHeader"
                                 :exact="exact"
                                 :pt="pt"
+                                :unstyled="unstyled"
                             />
                         </div>
                     </div>
@@ -81,6 +82,11 @@ export default {
             this.id = newValue || UniqueComponentId();
         }
     },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.id = this.id || UniqueComponentId();
     },
@@ -91,9 +97,10 @@ export default {
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
         },
-        getPTOptions(item, key) {
+        getPTOptions(key, item, index) {
             return this.ptm(key, {
-                options: {
+                context: {
+                    index,
                     active: this.isItemActive(item),
                     focused: this.isItemFocused(item)
                 }

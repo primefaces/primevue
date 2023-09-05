@@ -59,10 +59,16 @@ const CORE_ICON_DEPENDENCIES = {
     'primevue/icons/windowminimize': 'primevue.icons.windowminimize'
 };
 
+const CORE_PASSTHROUGH_DEPENDENCIES = {
+    'primevue/passthrough': 'primevue.passthrough',
+    'primevue/passthrough/tailwind': 'primevue.passthrough.tailwind'
+};
+
 const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    'primevue/usestyle': 'primevue.usestyle',
     'primevue/base': 'primevue.base',
     'primevue/basedirective': 'primevue.basedirective',
     'primevue/ripple': 'primevue.ripple',
@@ -80,7 +86,6 @@ const CORE_DEPENDENCIES = {
     'primevue/useconfirm': 'primevue.useconfirm',
     'primevue/usetoast': 'primevue.usetoast',
     'primevue/usedialog': 'primevue.usedialog',
-    'primevue/usestyle': 'primevue.usestyle',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/inputnumber': 'primevue.inputnumber',
@@ -92,7 +97,8 @@ const CORE_DEPENDENCIES = {
     'primevue/tree': 'primevue.tree',
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
-    'primevue/badge': 'primevue.badge'
+    'primevue/badge': 'primevue.badge',
+    ...CORE_PASSTHROUGH_DEPENDENCIES
 };
 
 // dependencies
@@ -282,6 +288,11 @@ function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
 }
 
+function addPassThrough() {
+    addEntry('passthrough', 'index.js', 'index');
+    addEntry('passthrough/tailwind', 'index.js', 'index');
+}
+
 function addUtils() {
     addEntry('utils', 'Utils.js', 'utils');
 }
@@ -317,6 +328,7 @@ addDirectives();
 addServices();
 addSFC();
 addIcon();
+addPassThrough();
 addCore();
 
 export default entries;

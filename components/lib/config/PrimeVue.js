@@ -33,6 +33,7 @@ export const defaultOptions = {
         cancel: 'Cancel',
         completed: 'Completed',
         pending: 'Pending',
+        fileSizeTypes: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
         dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
@@ -133,7 +134,10 @@ export const defaultOptions = {
         tooltip: 1100
     },
     pt: undefined,
-    unstyled: false
+    unstyled: false,
+    csp: {
+        nonce: undefined
+    }
 };
 
 const PrimeVueSymbol = Symbol();

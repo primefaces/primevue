@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['DataView', 'DataViewLayoutOptions']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -18,8 +19,8 @@ import LoadingDoc from '@/doc/dataview/LoadingDoc';
 import PaginationDoc from '@/doc/dataview/PaginationDoc';
 import PrimeFlexDoc from '@/doc/dataview/PrimeFlexDoc';
 import SortingDoc from '@/doc/dataview/SortingDoc';
-import StyleDoc from '@/doc/dataview/StyleDoc';
 import PTComponent from '@/doc/dataview/pt/index.vue';
+import ThemingDoc from '@/doc/dataview/theming/index.vue';
 
 export default {
     data() {
@@ -61,17 +62,13 @@ export default {
                     component: LoadingDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

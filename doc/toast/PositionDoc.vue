@@ -17,8 +17,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Toast position="top-left" group="tl" />
+                basic: `<Toast position="top-left" group="tl" />
 <Toast position="bottom-left" group="bl" />
 <Toast position="bottom-right" group="br" />
 
@@ -27,8 +26,7 @@ export default {
     <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
     <Button label="Bottom Right" severity="success" @click="showBottomRight" />
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
@@ -57,8 +55,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />

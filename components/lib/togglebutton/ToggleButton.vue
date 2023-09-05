@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" :data-p-active="modelValue === true" data-pc-name="togglebutton">
+    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root', getPTOptions)" :data-p-active="modelValue === true" data-pc-name="togglebutton">
         <span class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 :id="inputId"
@@ -17,9 +17,9 @@
             />
         </span>
         <slot name="icon" :value="modelValue" :class="cx('icon')">
-            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="ptm('icon')" />
+            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="ptm('icon', getPTOptions)" />
         </slot>
-        <span :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
+        <span :class="cx('label')" v-bind="ptm('label', getPTOptions)">{{ label }}</span>
     </div>
 </template>
 
@@ -87,6 +87,15 @@ export default {
         },
         label() {
             return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    focused: this.focused,
+                    disabled: this.disabled,
+                    highlighted: this.modelValue === true
+                }
+            };
         }
     },
     directives: {

@@ -7,19 +7,35 @@
  * @module cascadeselect
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes) | null | undefined;
+export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | string) | string | null | undefined;
+
+export declare type CascadeSelectPassThroughTransitionType = TransitionProps | ((options: CascadeSelectPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface CascadeSelectPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: CascadeSelectProps;
+    /**
+     * Defines current inline state.
+     */
     state: CascadeSelectState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -49,66 +65,70 @@ export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent 
  */
 export interface CascadeSelectPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the dropdown button's DOM element.
+     * Used to pass attributes to the dropdown button's DOM element.
      */
     dropdownButton?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the group icon's DOM element.
+     * Used to pass attributes to the group icon's DOM element.
      */
     groupIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the search result message text aria's DOM element.
+     * Used to pass attributes to the search result message text aria's DOM element.
      */
     hiddenSearchResult?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: CascadeSelectPassThroughTransitionType;
 }
 
 /**
@@ -224,7 +244,7 @@ export interface CascadeSelectProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -236,7 +256,7 @@ export interface CascadeSelectProps {
      */
     panelClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -316,10 +336,15 @@ export interface CascadeSelectProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CascadeSelectPassThroughOptions}
      */
-    pt?: CascadeSelectPassThroughOptions;
+    pt?: PassThrough<CascadeSelectPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

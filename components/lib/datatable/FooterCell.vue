@@ -8,6 +8,7 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'FooterCell',
@@ -50,11 +51,13 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines || false
                 }
             };
 
-            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;

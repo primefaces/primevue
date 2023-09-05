@@ -1,5 +1,5 @@
 <template>
-    <textarea :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root')" data-pc-name="textarea"></textarea>
+    <textarea :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root', ptmParams)" data-pc-name="textarea"></textarea>
 </template>
 
 <script>
@@ -44,6 +44,13 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        ptmParams() {
+            return {
+                context: {
+                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
+                }
+            };
         }
     }
 };

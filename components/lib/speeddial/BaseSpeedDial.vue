@@ -79,44 +79,19 @@ const styles = `
 .p-speeddial-opened .p-speeddial-rotate {
     transform: rotate(45deg);
 }
+`;
 
 /* Direction */
-.p-speeddial-direction-up {
-    align-items: center;
-    flex-direction: column-reverse;
-}
-
-.p-speeddial-direction-up .p-speeddial-list {
-    flex-direction: column-reverse;
-}
-
-.p-speeddial-direction-down {
-    align-items: center;
-    flex-direction: column;
-}
-
-.p-speeddial-direction-down .p-speeddial-list {
-    flex-direction: column;
-}
-
-.p-speeddial-direction-left {
-    justify-content: center;
-    flex-direction: row-reverse;
-}
-
-.p-speeddial-direction-left .p-speeddial-list {
-    flex-direction: row-reverse;
-}
-
-.p-speeddial-direction-right {
-    justify-content: center;
-    flex-direction: row;
-}
-
-.p-speeddial-direction-right .p-speeddial-list {
-    flex-direction: row;
-}
-`;
+const inlineStyles = {
+    root: ({ props }) => ({
+        alignItems: props.direction === 'up' || props.direction === 'down' ? 'center' : '',
+        justifyContent: props.direction === 'left' || props.direction === 'right' ? 'center' : '',
+        flexDirection: props.direction === 'up' ? 'column-reverse' : props.direction === 'down' ? 'column' : props.direction === 'left' ? 'row-reverse' : props.direction === 'right' ? 'row' : null
+    }),
+    menu: ({ props }) => ({
+        flexDirection: props.direction === 'up' ? 'column-reverse' : props.direction === 'down' ? 'column' : props.direction === 'left' ? 'row-reverse' : props.direction === 'right' ? 'row' : null
+    })
+};
 
 const classes = {
     root: ({ instance, props }) => [
@@ -223,6 +198,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {

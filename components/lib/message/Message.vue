@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-message" appear>
+    <transition name="p-message" appear v-bind="ptm('transition')">
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')" data-pc-name="message">
             <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
                 <slot name="messageicon" class="p-message-icon">
@@ -8,10 +8,10 @@
                 <div class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple :class="cx('button')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button') }">
+                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
                     <slot name="closeicon">
-                        <i v-if="closeIcon" :class="[cx('buttonIcon'), closeIcon]" v-bind="ptm('buttonIcon')" />
-                        <TimesIcon v-else :class="[cx('buttonIcon'), closeIcon]" v-bind="ptm('buttonIcon')" />
+                        <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
+                        <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
                     </slot>
                 </button>
             </div>

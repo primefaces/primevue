@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue TreeTable Component" header="TreeTable" description="TreeTable is used to display hierarchical data in tabular format." :componentDocs="docs" :apiDocs="['TreeTable', 'Column']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue TreeTable Component"
+        header="TreeTable"
+        description="TreeTable is used to display hierarchical data in tabular format."
+        :componentDocs="docs"
+        :apiDocs="['TreeTable', 'Column']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -13,7 +21,6 @@ import ImportDoc from '@/doc/treetable/ImportDoc';
 import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc';
 import ResponsiveDoc from '@/doc/treetable/ResponsiveDoc';
 import SizeDoc from '@/doc/treetable/SizeDoc';
-import StyleDoc from '@/doc/treetable/StyleDoc';
 import TemplateDoc from '@/doc/treetable/TemplateDoc';
 import PaginatorBasicDoc from '@/doc/treetable/paginator/PaginatorBasicDoc';
 import PaginatorTemplateDoc from '@/doc/treetable/paginator/PaginatorTemplateDoc';
@@ -31,6 +38,7 @@ import SingleRowSelectionDoc from '@/doc/treetable/selection/SingleRowSelectionD
 import MultipleColumnsDoc from '@/doc/treetable/sort/MultipleColumnsDoc';
 import RemovableSortDoc from '@/doc/treetable/sort/RemovableSortDoc';
 import SingleColumnDoc from '@/doc/treetable/sort/SingleColumnDoc';
+import ThemingDoc from '@/doc/treetable/theming/index.vue';
 
 export default {
     data() {
@@ -192,17 +200,13 @@ export default {
                     component: ResponsiveDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

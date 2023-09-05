@@ -105,7 +105,7 @@ const SplitButtonProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
     },
     {
         name: 'unstyled',
@@ -137,6 +137,10 @@ const SplitButtonSlots = [
     {
         name: 'menubuttonicon',
         description: 'Custom menu button icon template.'
+    },
+    {
+        name: 'menuitemicon',
+        description: 'Custom menu item icon template.'
     }
 ];
 

@@ -3,6 +3,7 @@ const baseUrl = '/';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
+    modules: ['nuxt-gtag'],
     components: [
         '~/components',
         {
@@ -45,10 +46,6 @@ export default defineNuxtConfig({
             ],
             script: [
                 {
-                    strategy: 'lazyOnload',
-                    src: 'https://www.googletagmanager.com/gtag/js?id=UA-93461466-1'
-                },
-                {
                     src: baseUrl + 'scripts/prism.js',
                     'data-manual': true
                 }
@@ -59,6 +56,9 @@ export default defineNuxtConfig({
         public: {
             contextPath: baseUrl
         }
+    },
+    gtag: {
+        id: 'G-48TTQ6G6KV'
     },
     css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css']
 });

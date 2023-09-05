@@ -9,7 +9,8 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CardPassThroughOptionType = CardPassThroughAttributes | null | undefined;
 
@@ -19,35 +20,35 @@ export declare type CardPassThroughOptionType = CardPassThroughAttributes | null
  */
 export interface CardPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the body's DOM element.
+     * Used to pass attributes to the body's DOM element.
      */
     body?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the subtitle's DOM element.
+     * Used to pass attributes to the subtitle's DOM element.
      */
     subtitle?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: CardPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -65,10 +66,15 @@ export interface CardPassThroughAttributes {
  */
 export interface CardProps {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CardPassThroughOptions}
      */
-    pt?: CardPassThroughOptions;
+    pt?: PassThrough<CardPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

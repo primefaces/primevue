@@ -1,10 +1,25 @@
 <template>
     <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
         <slot>
-            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps" :unstyled="unstyled">
-                <template v-if="icon" #icon="slotProps">
+            <PVSButton
+                type="button"
+                :class="cx('button')"
+                :label="label"
+                :disabled="disabled"
+                :severity="severity"
+                :text="text"
+                :outlined="outlined"
+                :size="size"
+                :aria-label="label"
+                @click="onDefaultButtonClick"
+                :pt="ptm('button')"
+                v-bind="buttonProps"
+                :unstyled="unstyled"
+                data-pc-section="button"
+            >
+                <template #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
-                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
+                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
                     </slot>
                 </template>
             </PVSButton>
@@ -20,16 +35,25 @@
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             :pt="ptm('menuButton')"
+            :severity="severity"
+            :text="text"
+            :outlined="outlined"
+            :size="size"
             v-bind="menuButtonProps"
             :unstyled="unstyled"
+            data-pc-section="menubutton"
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon" :class="slotProps.class">
-                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" />
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" data-pc-section="menubuttonicon" />
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
+            <template v-if="$slots.menuitemicon" #itemicon="slotProps">
+                <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
+            </template>
+        </PVSMenu>
     </div>
 </template>
 

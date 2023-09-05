@@ -42,7 +42,7 @@
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
                         <CascadeSelectSub
@@ -63,6 +63,7 @@
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
                             :pt="pt"
+                            :unstyled="unstyled"
                         />
                     </div>
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">

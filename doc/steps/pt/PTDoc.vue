@@ -35,16 +35,14 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Steps
+                basic: `<Steps
     :model="items"
     :readonly="false"
     :pt="{
         root: { class: 'w-30rem' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div>        
         <div class="card">
             <Steps
@@ -84,8 +82,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div>
         <div class="card">
             <Steps

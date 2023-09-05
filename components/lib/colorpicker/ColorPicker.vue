@@ -2,7 +2,7 @@
     <div ref="container" :class="cx('root')" v-bind="ptm('root')">
         <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
                     <div :class="cx('panel')" v-bind="ptm('content')">
                         <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
@@ -30,45 +30,6 @@ export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
-    props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
-        defaultColor: {
-            type: null,
-            default: 'ff0000'
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        format: {
-            type: String,
-            default: 'hex'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: String,
-            default: null
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        panelClass: null
-    },
     data() {
         return {
             overlayVisible: false
@@ -384,7 +345,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+                ZIndexUtils.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
             }
 
             this.$emit('show');

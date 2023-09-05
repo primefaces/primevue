@@ -32,8 +32,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="flex flex-column md:flex-row">
+                basic: `<div class="flex flex-column md:flex-row">
     <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
         <div class="flex align-items-center gap-2">
             <label>Username</label>
@@ -53,8 +52,7 @@ export default {
         <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-10rem"></Button>
     </div>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex flex-column md:flex-row">
             <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
@@ -81,8 +79,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex flex-column md:flex-row">
             <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">

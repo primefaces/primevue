@@ -1,13 +1,13 @@
 <template>
     <div :class="cx('itemWrapper')" v-bind="ptm('itemWrapper')">
         <div :class="cx('itemContainer')" v-bind="ptm('itemContainer')">
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('previousItemButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')">
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('previousItemButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')" data-pc-group-section="itemnavigator">
                 <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('previousItemIcon')" v-bind="ptm('previousItemIcon')" />
             </button>
             <div :id="id + '_item_' + activeIndex" :class="cx('item')" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel" v-bind="ptm('item')">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextItemButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextItemButton')">
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextItemButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextItemButton')" data-pc-group-section="itemnavigator">
                 <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextItemIcon')" v-bind="ptm('nextItemIcon')" />
             </button>
             <div v-if="templates['caption']" :class="cx('caption')" v-bind="ptm('caption')">
@@ -26,10 +26,10 @@
                 @click="onIndicatorClick(index)"
                 @mouseenter="onIndicatorMouseEnter(index)"
                 @keydown="onIndicatorKeyDown($event, index)"
-                v-bind="ptm('indicator')"
+                v-bind="ptm('indicator', getIndicatorPTOptions(index))"
                 :data-p-highlight="isIndicatorItemActive(index)"
             >
-                <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')"></button>
+                <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton', getIndicatorPTOptions(index))"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
             </li>
         </ul>
@@ -44,6 +44,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaItem',
+    hostName: 'Galleria',
     extends: BaseComponent,
     emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
@@ -94,6 +95,13 @@ export default {
         }
     },
     methods: {
+        getIndicatorPTOptions(index) {
+            return {
+                context: {
+                    highlighted: this.activeIndex === index
+                }
+            };
+        },
         next() {
             let nextItemIndex = this.activeIndex + 1;
             let activeIndex = this.circular && this.value.length - 1 === this.activeIndex ? 0 : nextItemIndex;

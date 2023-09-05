@@ -26,7 +26,7 @@
                 </button>
             </div>
         </div>
-        <transition name="p-toggleable-content">
+        <transition name="p-toggleable-content" v-bind="ptm('transition')">
             <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
                 <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>

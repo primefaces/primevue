@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['DeferredContent']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -14,8 +15,8 @@ import AccessibilityDoc from '@/doc/deferredcontent/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/deferredcontent/BasicDoc.vue';
 import DataTableDoc from '@/doc/deferredcontent/DataTableDoc.vue';
 import ImportDoc from '@/doc/deferredcontent/ImportDoc.vue';
-import StyleDoc from '@/doc/deferredcontent/StyleDoc.vue';
 import PTComponent from '@/doc/deferredcontent/pt/index.vue';
+import ThemingDoc from '@/doc/deferredcontent/theming/index.vue';
 
 export default {
     data() {
@@ -37,17 +38,13 @@ export default {
                     component: DataTableDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

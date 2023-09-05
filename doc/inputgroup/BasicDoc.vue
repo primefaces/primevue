@@ -29,8 +29,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="p-inputgroup flex-1">
+                basic: `<div class="p-inputgroup flex-1">
     <span class="p-inputgroup-addon">
         <i class="pi pi-user"></i>
     </span>
@@ -47,8 +46,7 @@ export default {
     <span class="p-inputgroup-addon">www</span>
     <InputText placeholder="Website" />
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <span class="p-inputgroup-addon">
@@ -69,8 +67,7 @@ export default {
         </div>
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <span class="p-inputgroup-addon">

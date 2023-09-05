@@ -10,18 +10,35 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes) | null | undefined;
+export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MenubarPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MenubarProps;
+    /**
+     * Defines current inline state.
+     */
     state: MenubarState;
+    /**
+     * Defines current options.
+     */
     context: MenubarContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,63 +47,63 @@ export interface MenubarPassThroughMethodOptions {
  */
 export interface MenubarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mobile popup menu button's DOM element.
+     * Used to pass attributes to the mobile popup menu button's DOM element.
      */
     button?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mobile popup menu button icon's DOM element.
+     * Used to pass attributes to the mobile popup menu button icon's DOM element.
      */
     popupIcon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start of the component.
+     * Used to pass attributes to the start of the component.
      */
     start?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end of the component.
+     * Used to pass attributes to the end of the component.
      */
     end?: MenubarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -152,6 +169,14 @@ export interface MenubarState {
  */
 export interface MenubarContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
@@ -161,6 +186,32 @@ export interface MenubarContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current level of the menuitem.
+     */
+    level: number;
+}
+
+/**
+ * Defines valid router binding props in Menubar component.
+ */
+export interface MenubarRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
 }
 
 /**
@@ -177,7 +228,7 @@ export interface MenubarProps {
      */
     exact?: boolean | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     * Used to pass all properties of the HTMLButtonElement to the menu button.
      */
     buttonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -189,10 +240,15 @@ export interface MenubarProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MenubarPassThroughOptions}
      */
-    pt?: MenubarPassThroughOptions;
+    pt?: PassThrough<MenubarPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -221,6 +277,22 @@ export interface MenubarSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: MenubarRouterBindProps;
+        /**
+         * State of the root
+         */
+        root: boolean;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
     /**
      * Custom popup icon template on responsive mode.
@@ -228,6 +300,7 @@ export interface MenubarSlots {
     popupicon(): VNode[];
     /**
      * Custom submenu icon template.
+     * @param {Object} scope - submenuicon slot's params.
      */
     submenuicon(scope: {
         /**

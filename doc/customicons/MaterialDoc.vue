@@ -10,8 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Dropdown>
+                basic: `<Dropdown>
     <template #dropdownicon>
         <span class="material-icons">arrow_drop_down</span>
     </template>

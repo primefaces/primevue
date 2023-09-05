@@ -3,16 +3,11 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-dialog-mask {
-    pointer-events: none;
-}
-
 .p-dialog-mask.p-component-overlay {
     pointer-events: auto;
 }
 
 .p-dialog {
-    pointer-events: auto;
     max-height: 90%;
     transform: scale(1);
 }
@@ -152,11 +147,12 @@ const inlineStyles = {
         display: 'flex',
         justifyContent: position === 'left' || position === 'topleft' || position === 'bottomleft' ? 'flex-start' : position === 'right' || position === 'topright' || position === 'bottomright' ? 'flex-end' : 'center',
         alignItems: position === 'top' || position === 'topleft' || position === 'topright' ? 'flex-start' : position === 'bottom' || position === 'bottomleft' || position === 'bottomright' ? 'flex-end' : 'center',
-        pointerEvents: !modal && 'none'
+        pointerEvents: modal ? 'auto' : 'none'
     }),
     root: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        pointerEvents: 'auto'
     }
 };
 

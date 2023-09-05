@@ -187,6 +187,10 @@ export default {
             type: Boolean,
             default: false
         },
+        loading: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

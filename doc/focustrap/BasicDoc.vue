@@ -52,8 +52,7 @@ export default {
             password: null,
             accept: null,
             code: {
-                basic: `
-<div class="flex justify-content-center p-fluid">
+                basic: `<div class="flex justify-content-center p-fluid">
     <div v-focustrap class="card">
         <div class="field">
             <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
@@ -91,8 +90,7 @@ export default {
         <Button type="submit" label="Submit" class="mt-2" />
     </div>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
             <div class="field">
@@ -145,8 +143,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
             <div class="field">

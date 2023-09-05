@@ -646,7 +646,7 @@ describe('DataTable.vue', () => {
     it('should vertical scroll', async () => {
         await wrapper.setProps({ scrollable: true, scrollHeight: '100px' });
 
-        expect(wrapper.find('.p-datatable-wrapper').attributes().style).toBe('max-height: 100px;');
+        expect(wrapper.find('.p-datatable-wrapper').attributes().style).toBe('overflow: auto; max-height: 100px;');
     });
 
     it('should flex scrolling', async () => {

@@ -14,11 +14,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button type="button" label="Emails" badge="8" />
+                basic: `<Button type="button" label="Emails" badge="8" />
 <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />
@@ -28,8 +26,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Button type="button" label="Emails" badge="8" />
         <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />

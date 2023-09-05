@@ -19,18 +19,6 @@ const styles = `
     content: '';
 }
 
-.p-divider-horizontal.p-divider-left {
-    justify-content: flex-start;
-}
-
-.p-divider-horizontal.p-divider-right {
-    justify-content: flex-end;
-}
-
-.p-divider-horizontal.p-divider-center {
-    justify-content: center;
-}
-
 .p-divider-content {
     z-index: 1;
 }
@@ -50,18 +38,6 @@ const styles = `
     left: 50%;
     height: 100%;
     content: '';
-}
-
-.p-divider-vertical.p-divider-top {
-    align-items: flex-start;
-}
-
-.p-divider-vertical.p-divider-center {
-    align-items: center;
-}
-
-.p-divider-vertical.p-divider-bottom {
-    align-items: flex-end;
 }
 
 .p-divider-solid.p-divider-horizontal:before {
@@ -88,6 +64,14 @@ const styles = `
     border-left-style: dotted;
 }
 `;
+
+/* Position */
+const inlineStyles = {
+    root: ({ props }) => ({
+        justifyContent: props.layout === 'horizontal' ? (props.align === 'center' || props.align === null ? 'center' : props.align === 'left' ? 'flex-start' : props.align === 'right' ? 'flex-end' : null) : null,
+        alignItems: props.layout === 'vertical' ? (props.align === 'center' || props.align === null ? 'center' : props.align === 'top' ? 'flex-start' : props.align === 'bottom' ? 'flex-end' : null) : null
+    })
+};
 
 const classes = {
     root: ({ props }) => [
@@ -125,6 +109,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {

@@ -2,7 +2,7 @@
     <nav :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="steps">
         <ol ref="list" :class="cx('menu')" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="[cx('menuitem', { item }), item.class]" :style="item.style" v-bind="ptm('menuitem')" :data-p-highlight="isActive(item)" :data-p-disabled="isItemDisabled(item)">
+                <li v-if="visible(item)" :class="[cx('menuitem', { item }), item.class]" :style="item.style" v-bind="getPTOptions('menuitem', item, index)" :data-p-highlight="isActive(item)" :data-p-disabled="isItemDisabled(item)">
                     <template v-if="!$slots.item">
                         <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                             <a
@@ -12,18 +12,18 @@
                                 :aria-current="isExactActive ? 'step' : undefined"
                                 @click="onItemClick($event, item, navigate)"
                                 @keydown="onItemKeydown($event, item, navigate)"
-                                v-bind="ptm('action')"
+                                v-bind="getPTOptions('action', item, index)"
                             >
-                                <span :class="cx('step')" v-bind="ptm('step')">{{ index + 1 }}</span>
-                                <span :class="cx('label')" v-bind="ptm('label')">{{ label(item) }}</span>
+                                <span :class="cx('step')" v-bind="getPTOptions('step', item, index)">{{ index + 1 }}</span>
+                                <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
                             </a>
                         </router-link>
-                        <span v-else :class="cx('action')" @keydown="onItemKeydown($event, item)" v-bind="ptm('action')">
-                            <span :class="cx('step')" v-bind="ptm('step')">{{ index + 1 }}</span>
-                            <span :class="cx('label')" v-bind="ptm('label')">{{ label(item) }}</span>
+                        <span v-else :class="cx('action')" @keydown="onItemKeydown($event, item)" v-bind="getPTOptions('action', item, index)">
+                            <span :class="cx('step')" v-bind="getPTOptions('step', item, index)">{{ index + 1 }}</span>
+                            <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
                         </span>
                     </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    <component v-else :is="$slots.item" :item="item" :index="index" :label="label(item)" :props="getMenuItemProps(item, index)"></component>
                 </li>
             </template>
         </ol>
@@ -32,17 +32,33 @@
 
 <script>
 import { DomHandler } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseSteps from './BaseSteps.vue';
 
 export default {
     name: 'Steps',
     extends: BaseSteps,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         const firstItem = this.findFirstItem();
 
         firstItem.tabIndex = '0';
     },
     methods: {
+        getPTOptions(key, item, index) {
+            return this.ptm(key, {
+                context: {
+                    item,
+                    index,
+                    active: this.isActive(item),
+                    disabled: this.isItemDisabled(item)
+                }
+            });
+        },
         onItemClick(event, item, navigate) {
             if (this.disabled(item) || this.readonly) {
                 event.preventDefault();
@@ -162,6 +178,30 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        getMenuItemProps(item, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        onClick: ($event) => this.onItemClick($event, item),
+                        onKeyDown: ($event) => this.onItemKeydown($event, item)
+                    },
+                    this.getPTOptions('action', item, index)
+                ),
+                step: mergeProps(
+                    {
+                        class: this.cx('step')
+                    },
+                    this.getPTOptions('step', item, index)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label', item, index)
+                )
+            };
         }
     }
 };

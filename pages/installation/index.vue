@@ -21,7 +21,8 @@ import ExamplesDoc from '@/doc/installation/ExamplesDoc';
 import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc';
 import PluginDoc from '@/doc/installation/PluginDoc';
 import PropCasesDoc from '@/doc/installation/PropCasesDoc';
-import StylesDoc from '@/doc/installation/StylesDoc';
+import StyledModeDoc from '@/doc/installation/StyledModeDoc';
+import UnstyledModeDoc from '@/doc/installation/UnstyledModeDoc';
 import UsageDoc from '@/doc/installation/UsageDoc';
 import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc';
 import NuxtDoc from '@/doc/installation/videos/NuxtDoc';
@@ -41,14 +42,26 @@ export default {
                     component: PluginDoc
                 },
                 {
-                    id: 'styles',
-                    label: 'Styles',
-                    component: StylesDoc
-                },
-                {
                     id: 'usage',
                     label: 'Usage',
                     component: UsageDoc
+                },
+                {
+                    id: 'theming',
+                    label: 'Theming',
+                    description: 'PrimeVue has two theming has modes; styled or unstyled.',
+                    children: [
+                        {
+                            id: 'styled',
+                            label: 'Styled Mode',
+                            component: StyledModeDoc
+                        },
+                        {
+                            id: 'unstyled',
+                            label: 'Unstyled Mode',
+                            component: UnstyledModeDoc
+                        }
+                    ]
                 },
                 {
                     id: 'propcases',

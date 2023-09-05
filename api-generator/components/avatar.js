@@ -33,7 +33,7 @@ const AvatarProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
     },
     {
         name: 'unstyled',
@@ -53,7 +53,14 @@ const AvatarSlots = [
 const AvatarEvents = [
     {
         name: 'error',
-        description: 'Triggered when an error occurs while loading an image file.'
+        description: 'Triggered when an error occurs while loading an image file.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 

@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
+        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="menu">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
@@ -22,7 +22,7 @@
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
                             <li v-if="item.items" :id="id + '_' + i" :class="cx('submenuHeader')" role="none" v-bind="ptm('submenuHeader')">
-                                <slot name="item" :item="item">{{ label(item) }}</slot>
+                                <slot name="submenuheader" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
@@ -30,7 +30,7 @@
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="[cx('separator'), item.class]" :style="item.style" role="separator" v-bind="ptm('separator')"></li>
-                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
+                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :index="i" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
                     </template>
                 </ul>
                 <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
@@ -73,6 +73,11 @@ export default {
     resizeListener: null,
     container: null,
     list: null,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.id = this.id || UniqueComponentId();
 

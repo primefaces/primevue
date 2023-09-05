@@ -1,29 +1,29 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')">
-        <div v-if="showSourceControls" :class="cx('sourceControls')" v-bind="ptm('sourceControls')">
+        <div v-if="showSourceControls" :class="cx('sourceControls')" v-bind="ptm('sourceControls')" data-pc-group-section="controls">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="{ ...moveUpButtonProps, ...ptm('sourceMoveUpButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" :pt="ptm('sourceMoveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('sourceMoveUpButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="{ ...moveTopButtonProps, ...ptm('sourceMoveTopButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" :pt="ptm('sourceMoveTopButton')" v-bind="moveTopButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('sourceMoveTopButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="{ ...moveDownButtonProps, ...ptm('sourceMoveDownButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" :pt="ptm('sourceMoveDownButton')" v-bind="moveDownButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('sourceMoveDownButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="{ ...moveBottomButtonProps, ...ptm('sourceMoveBottomButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" :pt="ptm('sourceMoveBottomButton')" v-bind="moveBottomButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('sourceMoveBottomButton')['icon']" />
@@ -32,8 +32,8 @@
             </PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
-        <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')">
-            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')">
+        <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')" data-pc-group-section="listwrapper">
+            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')" data-pc-group-section="header">
                 <slot name="sourceheader"></slot>
             </div>
             <transition-group
@@ -50,7 +50,8 @@
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
-                v-bind="{ ...sourceListProps, ...ptm('sourceList') }"
+                v-bind="{ ...sourceListProps, ...ptm('sourceList'), ...ptm('transition') }"
+                data-pc-group-section="list"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
@@ -63,39 +64,39 @@
                         @mousedown="onOptionMouseDown(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
-                        v-bind="getPTOptions(item, 'item')"
+                        v-bind="getPTOptions(item, 'item', `${idSource}_${i}`, 0)"
                         :data-p-highlight="isSelected(item, 0)"
-                        :data-p-focused="`${id}_${i}` === focusedOptionId"
+                        :data-p-focused="`${idSource}_${i}` === focusedOptionId"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
             </transition-group>
         </div>
-        <div :class="cx('buttons')" v-bind="ptm('buttons')">
+        <div :class="cx('buttons')" v-bind="ptm('buttons')" data-pc-group-section="controls">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="{ ...moveToTargetProps, ...ptm('moveToTargetButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" :pt="ptm('moveToTargetButton')" v-bind="moveToTargetProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetotargeticon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" v-bind="ptm('moveToTargetButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="{ ...moveAllToTargetProps, ...ptm('moveAllToTargetButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" :pt="ptm('moveAllToTargetButton')" v-bind="moveAllToTargetProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltotargeticon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" v-bind="ptm('moveAllToTargetButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="{ ...moveToSourceProps, ...ptm('moveToSourceButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" :pt="ptm('moveToSourceButton')" v-bind="moveToSourceProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetosourceicon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" v-bind="ptm('moveToSourceButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="{ ...moveAllToSourceProps, ...ptm('moveAllToSourceButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" :pt="ptm('moveAllToSourceButton')" v-bind="moveAllToSourceProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltosourceicon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('moveAllToSourceButton')['icon']" />
@@ -104,8 +105,8 @@
             </PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
-        <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')">
-            <div v-if="$slots.targetheader" :class="cx('targetHeader')" v-bind="ptm('targetHeader')">
+        <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')" data-pc-group-section="listwrapper">
+            <div v-if="$slots.targetheader" :class="cx('targetHeader')" v-bind="ptm('targetHeader')" data-pc-group-section="header">
                 <slot name="targetheader"></slot>
             </div>
             <transition-group
@@ -122,7 +123,8 @@
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
-                v-bind="{ ...targetListProps, ...ptm('targetList') }"
+                v-bind="{ ...targetListProps, ...ptm('targetList'), ...ptm('transition') }"
+                data-pc-group-section="list"
             >
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
@@ -136,39 +138,39 @@
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
-                        v-bind="getPTOptions(item, 'item')"
+                        v-bind="getPTOptions(item, 'item', `${idTarget}_${i}`, 1)"
                         :data-p-highlight="isSelected(item, 1)"
-                        :data-p-focused="`${id}_${i}` === focusedOptionId"
+                        :data-p-focused="`${idTarget}_${i}` === focusedOptionId"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
             </transition-group>
         </div>
-        <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')">
+        <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')" data-pc-group-section="controls">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="{ ...moveUpButtonProps, ...ptm('targetMoveUpButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" :pt="ptm('targetMoveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('targetMoveUpButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="{ ...moveTopButtonProps, ...ptm('targetMoveTopButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" :pt="ptm('targetMoveTopButton')" v-bind="moveTopButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('targetMoveTopButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="{ ...moveDownButtonProps, ...ptm('targetMoveDownButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" :pt="ptm('targetMoveDownButton')" v-bind="moveDownButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('targetMoveDownButton')['icon']" />
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="{ ...moveBottomButtonProps, ...ptm('targetMoveBottomButton') }" :unstyled="unstyled">
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" :pt="ptm('targetMoveBottomButton')" v-bind="moveBottomButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('targetMoveBottomButton')['icon']" />
@@ -250,11 +252,11 @@ export default {
         getItemKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
         },
-        getPTOptions(item, key) {
+        getPTOptions(item, key, id, listIndex) {
             return this.ptm(key, {
                 context: {
-                    active: this.isSelected(item),
-                    focused: this.id === this.focusedOptionId
+                    active: this.isSelected(item, listIndex),
+                    focused: id === this.focusedOptionId
                 }
             });
         },
@@ -263,14 +265,17 @@ export default {
         },
         onListFocus(event, listType) {
             const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]');
-            const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children);
 
-            this.focused[listType] = true;
+            if (selectedFirstItem) {
+                const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children);
 
-            const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
+                this.focused[listType] = true;
 
-            this.changeFocusedOptionIndex(index, listType);
-            this.$emit('focus', event);
+                const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
+
+                this.changeFocusedOptionIndex(index, listType);
+                this.$emit('focus', event);
+            }
         },
         onListBlur(event, listType) {
             this.focused[listType] = false;
@@ -779,6 +784,7 @@ export default {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = `

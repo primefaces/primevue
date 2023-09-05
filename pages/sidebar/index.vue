@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Sidebar Component" header="Sidebar" description="Sidebar, also known as Drawer, is a container component displayed as an overlay." :componentDocs="docs" :apiDocs="['Sidebar']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Sidebar Component"
+        header="Sidebar"
+        description="Sidebar, also known as Drawer, is a container component displayed as an overlay."
+        :componentDocs="docs"
+        :apiDocs="['Sidebar']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -9,9 +17,9 @@ import FullScreenDoc from '@/doc/sidebar/FullScreenDoc';
 import ImportDoc from '@/doc/sidebar/ImportDoc';
 import PositionDoc from '@/doc/sidebar/PositionDoc';
 import SizeDoc from '@/doc/sidebar/SizeDoc';
-import StyleDoc from '@/doc/sidebar/StyleDoc';
 import TemplateDoc from '@/doc/sidebar/TemplateDoc';
 import PTComponent from '@/doc/sidebar/pt/index.vue';
+import ThemingDoc from '@/doc/sidebar/theming/index.vue';
 
 export default {
     data() {
@@ -48,17 +56,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

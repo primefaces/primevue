@@ -2352,8 +2352,15 @@
   font-size: 1.25rem;
   padding: 0.625rem 0.9375rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .p-splitbutton.p-button-secondary.p-button-outlined > .p-button {
@@ -2721,10 +2728,6 @@
 }
 .p-datatable .p-column-resizer-helper {
   background: #8dd0ff;
-}
-.p-datatable .p-datatable-scrollable-header,
-.p-datatable .p-datatable-scrollable-footer {
-  background: #2a323d;
 }
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot, .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead,
@@ -4387,6 +4390,10 @@
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  border: 1px dashed #8dd0ff;
+  background-color: #8dd0ff;
+}
 .p-fileupload .p-fileupload-file {
   padding: 1rem;
   border: 1px solid #3f4b5b;
@@ -5952,15 +5959,12 @@
 }
 
 /* Vendor extensions to the designer enhanced bootstrap compatibility */
-.p-breadcrumb .p-breadcrumb-chevron {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-.p-breadcrumb .p-breadcrumb-chevron:before {
-  content: "/";
-}
-
 .fc.fc-theme-standard .fc-highlight {
   background: #476880;
+}
+
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  background-color: #476880;
 }
 
 /* Customizations to the designer theme should be defined here */

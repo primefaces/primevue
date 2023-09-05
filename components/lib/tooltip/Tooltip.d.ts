@@ -9,8 +9,21 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
+import { PassThrough } from '../ts-helpers';
 
-export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | null | undefined;
+export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TooltipPassThroughMethodOptions {
+    context: TooltipContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
+}
 
 /**
  * Defines options of Tooltip.
@@ -54,10 +67,15 @@ export interface TooltipOptions {
      */
     hideDelay?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
      */
-    pt?: TooltipDirectivePassThroughOptions;
+    pt?: PassThrough<TooltipDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -71,19 +89,19 @@ export interface TooltipOptions {
  */
 export interface TooltipDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the arrow's DOM element.
+     * Used to pass attributes to the arrow's DOM element.
      */
     arrow?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;
@@ -94,6 +112,28 @@ export interface TooltipDirectivePassThroughOptions {
  */
 export interface TooltipDirectivePassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Tooltip directive.
+ */
+export interface TooltipContext {
+    /**
+     * Current top position state as a boolean.
+     */
+    top: boolean;
+    /**
+     * Current right position state as a boolean.
+     */
+    right: boolean;
+    /**
+     * Current bottom position state as a boolean.
+     */
+    bottom: boolean;
+    /**
+     * Current left position state as a boolean.
+     */
+    left: boolean;
 }
 
 /**

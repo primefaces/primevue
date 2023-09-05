@@ -13,10 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button label="Submit" disabled />`,
-                options: `
-<template>
+                basic: `<Button label="Submit" disabled />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button label="Submit" disabled />
     </div>
@@ -24,8 +22,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button label="Submit" disabled />
     </div>

@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
+        <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="tieredmenu">
                 <TieredMenuSub
                     :ref="menubarRef"
@@ -20,6 +20,7 @@
                     :exact="exact"
                     :level="0"
                     :pt="pt"
+                    :unstyled="unstyled"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -75,6 +76,11 @@ export default {
                     this.unbindResizeListener();
                 }
             }
+        }
+    },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {

@@ -436,6 +436,7 @@ export default {
 
                 case 'Tab':
                 case 'Enter':
+                case 'NumpadEnter':
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
                     this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);

@@ -7,21 +7,40 @@
  * @module menu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes) | null | undefined;
+export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type MenuPassThroughTransitionType = TransitionProps | ((options: MenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: MenuState;
+    /**
+     * Defines current options.
+     */
     context: MenuContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,54 +49,58 @@ export interface MenuPassThroughMethodOptions {
  */
 export interface MenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu header's DOM element.
+     * Used to pass attributes to the submenu header's DOM element.
      */
     submenuHeader?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start of the component.
+     * Used to pass attributes to the start of the component.
      */
     start?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end of the component.
+     * Used to pass attributes to the end of the component.
      */
     end?: MenuPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: MenuPassThroughTransitionType;
 }
 
 /**
@@ -120,10 +143,36 @@ export interface MenuState {
  */
 export interface MenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current focused state of menuitem as a boolean.
      * @defaultValue false
      */
     focused: boolean;
+}
+
+/**
+ * Defines valid router binding props in Menu component.
+ */
+export interface MenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
 }
 
 /**
@@ -172,10 +221,15 @@ export interface MenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MenuPassThroughOptions}
      */
-    pt?: MenuPassThroughOptions;
+    pt?: PassThrough<MenuPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -204,6 +258,14 @@ export interface MenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: MenuRouterBindProps;
     }): VNode[];
     /**
      * Custom item icon template.
@@ -218,6 +280,16 @@ export interface MenuSlots {
          * Style class of the item icon element.
          */
         class: any;
+    }): VNode[];
+    /**
+     * Custom item template.
+     * @param {Object} scope - submenuheader slot's params.
+     */
+    submenuheader(scope: {
+        /**
+         * Menuitem instance
+         */
+        submenuheader: MenuItem;
     }): VNode[];
 }
 

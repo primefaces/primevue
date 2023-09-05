@@ -32,8 +32,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Avatar label="P" class="mr-2" size="xlarge" />
+                basic: `<Avatar label="P" class="mr-2" size="xlarge" />
 <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
 <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
 
@@ -42,8 +41,7 @@ export default {
 <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
 
 <Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="flex flex-wrap gap-5">
         <div class="flex-auto">
             <h5>Label</h5>
@@ -69,8 +67,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="flex flex-wrap gap-5">
         <div class="flex-auto">
             <h5>Label</h5>

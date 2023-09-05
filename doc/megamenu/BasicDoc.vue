@@ -129,10 +129,8 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<MegaMenu :model="items" />`,
-                options: `
-<template>
+                basic: `<MegaMenu :model="items" />`,
+                options: `<template>
     <div class="card">
         <MegaMenu :model="items" />
     </div>
@@ -262,8 +260,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <MegaMenu :model="items" />
     </div>

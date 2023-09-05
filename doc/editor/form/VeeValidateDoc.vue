@@ -52,8 +52,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<template>
+                basic: `<template>
     <div class="card">
         <form @submit="onSubmit">
             <Editor v-model="value" editorStyle="height: 320px" aria-describedby="editor-error">
@@ -73,8 +72,7 @@ export default {
         <Toast />
     </div>
 </template>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <form @submit="onSubmit">
             <Editor v-model="value" editorStyle="height: 320px" aria-describedby="editor-error">
@@ -124,8 +122,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <form @submit="onSubmit">
             <Editor v-model="value" editorStyle="height: 320px" aria-describedby="editor-error">

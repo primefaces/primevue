@@ -39,8 +39,7 @@ export default {
             position: 'center',
             visible: false,
             code: {
-                basic: `
-<div class="flex flex-wrap justify-content-center gap-2 mb-2">
+                basic: `<div class="flex flex-wrap justify-content-center gap-2 mb-2">
     <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" severity="help" style="min-width: 10rem" />
     <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" severity="help" style="min-width: 10rem" />
 </div>
@@ -65,8 +64,7 @@ export default {
         <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
     </template>
 </Dialog>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-2">
             <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" severity="help" style="min-width: 10rem" />
@@ -112,8 +110,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-2">
             <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" severity="help" style="min-width: 10rem" />

@@ -20,8 +20,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button label="Primary" text raised />
+                basic: `<Button label="Primary" text raised />
 <Button label="Secondary" severity="secondary" text raised />
 <Button label="Success" severity="success" text raised />
 <Button label="Info" severity="info" text raised />
@@ -29,8 +28,7 @@ export default {
 <Button label="Help" severity="help" text raised />
 <Button label="Danger" severity="danger" text raised />
 <Button label="Plain" plain text raised />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" text raised />
         <Button label="Secondary" severity="secondary" text raised />
@@ -45,8 +43,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" text raised />
         <Button label="Secondary" severity="secondary" text raised />

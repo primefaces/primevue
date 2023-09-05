@@ -6,6 +6,8 @@
         v-else
         :style="containerStyle"
         :class="containerClass"
+        :colspan="columnProp('colspan')"
+        :rowspan="columnProp('rowspan')"
         @click="onClick"
         @keydown="onKeyDown"
         role="cell"
@@ -46,11 +48,21 @@
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cx('rowReorderIcon')" />
-            <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('rowReorderIcon'), columnProp('rowReorderIcon')]" />
-            <BarsIcon v-else :class="cx('rowReorderIcon')" data-pc-section="rowreordericon" />
+            <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('rowReorderIcon'), columnProp('rowReorderIcon')]" v-bind="getColumnPT('rowReorderIcon')" />
+            <BarsIcon v-else :class="cx('rowReorderIcon')" v-bind="getColumnPT('rowReorderIcon')" />
         </template>
         <template v-else-if="columnProp('expander')">
-            <button v-ripple :class="cx('rowToggler')" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPT('rowToggler')">
+            <button
+                v-ripple
+                :class="cx('rowToggler')"
+                type="button"
+                :aria-expanded="isRowExpanded"
+                :aria-controls="ariaControls"
+                :aria-label="expandButtonAriaLabel"
+                @click="toggleRow"
+                v-bind="getColumnPT('rowToggler')"
+                data-pc-group-section="rowactionbutton"
+            >
                 <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
                 <template v-else>
                     <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowTogglerIcon'), expandedRowIcon]" />
@@ -61,13 +73,13 @@
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')">
+            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="cx('rowEditorInitIcon')" v-bind="getColumnPT('rowEditorInitIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')">
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="cx('rowEditorSaveIcon')" v-bind="getColumnPT('rowEditorSaveIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')">
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="cx('rowEditorCancelIcon')" v-bind="getColumnPT('rowEditorCancelIcon')" />
             </button>
         </template>
@@ -86,6 +98,7 @@ import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import RowCheckbox from './RowCheckbox.vue';
 import RowRadioButton from './RowRadioButton.vue';
 
@@ -213,11 +226,13 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines
                 }
             };
 
-            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
@@ -311,6 +326,7 @@ export default {
             if (this.editMode === 'cell') {
                 switch (event.code) {
                     case 'Enter':
+                    case 'NumpadEnter':
                         this.completeEdit(event, 'enter');
                         break;
 

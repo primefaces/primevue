@@ -8,6 +8,8 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
+import { PassThrough } from '../ts-helpers';
 
 export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassThroughAttributes | null | undefined;
 
@@ -16,10 +18,15 @@ export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassTh
  */
 export interface RippleOptions {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {RippleDirectivePassThroughOptions}
      */
-    pt?: RippleDirectivePassThroughOptions;
+    pt?: PassThrough<RippleDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -33,11 +40,11 @@ export interface RippleOptions {
  */
 export interface RippleDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RippleDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

@@ -35,8 +35,7 @@ export default {
                 { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
             ],
             code: {
-                basic: `
-<Timeline :value="events" class="w-full md:w-20rem">
+                basic: `<Timeline :value="events" class="w-full md:w-20rem">
     <template #content="slotProps">
         {{ slotProps.item.status }}
     </template>
@@ -53,8 +52,7 @@ export default {
         {{ slotProps.item.status }}
     </template>
 </Timeline>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap gap-6">
         <Timeline :value="events" class="w-full md:w-20rem">
             <template #content="slotProps">
@@ -90,8 +88,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap gap-6">
         <Timeline :value="events" class="w-full md:w-20rem">
             <template #content="slotProps">

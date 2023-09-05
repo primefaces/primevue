@@ -57,7 +57,7 @@ const styles = `
 `;
 
 const classes = {
-    root: ({ instance }) => ['p-steps p-component', { 'p-readonly': instance.readonly }],
+    root: ({ props }) => ['p-steps p-component', { 'p-readonly': props.readonly }],
     menu: 'p-steps-list',
     menuitem: ({ instance, item }) => [
         'p-steps-item',

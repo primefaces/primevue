@@ -9,16 +9,27 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes | ((options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes) | null | undefined;
+export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes | ((options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ToolbarPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ToolbarProps;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -27,23 +38,23 @@ export interface ToolbarPassThroughMethodOptions {
  */
 export interface ToolbarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start's DOM element.
+     * Used to pass attributes to the start's DOM element.
      */
     start?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the center's DOM element.
+     * Used to pass attributes to the center's DOM element.
      */
     center?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the right's DOM element.
+     * Used to pass attributes to the right's DOM element.
      */
     end?: ToolbarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -65,10 +76,15 @@ export interface ToolbarProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ToolbarPassThroughOptions}
      */
-    pt?: ToolbarPassThroughOptions;
+    pt?: PassThrough<ToolbarPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

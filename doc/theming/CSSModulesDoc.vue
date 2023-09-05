@@ -17,8 +17,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-<style module>
+                basic: `<style module>
 .myinput {
     border-radius: 2rem;
     padding: 1rem 2rem;
@@ -29,8 +28,7 @@ export default {
             },
 
             code2: {
-                basic: `
-<template>
+                basic: `<template>
     <InputText :class="$style.myinput" placeholder="Search" />
 </template>
         `

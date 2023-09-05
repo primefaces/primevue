@@ -30,8 +30,7 @@ export default {
         return {
             products: null,
             code: {
-                basic: `
-<OrderList v-model="products" listStyle="height:auto" dataKey="id">
+                basic: `<OrderList v-model="products" listStyle="height:auto" dataKey="id">
     <template #header> List of Products </template>
     <template #item="slotProps">
         <div class="flex flex-wrap p-2 align-items-center gap-3">
@@ -47,8 +46,7 @@ export default {
         </div>
     </template>
 </OrderList>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card xl:flex xl:justify-content-center">
         <OrderList v-model="products" listStyle="height:auto" dataKey="id">
             <template #header> List of Products </template>
@@ -82,8 +80,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card xl:flex xl:justify-content-center">
         <OrderList v-model="products" listStyle="height:auto" dataKey="id">
             <template #header> List of Products </template>
@@ -111,7 +108,7 @@ import { ProductService } from '@/service/ProductService'
 const products = ref(null);
 
 onMounted(() => {
-    ProductService.getProductsSmall().then((data) => (this.products = data));
+    ProductService.getProductsSmall().then((data) => (products.value = data));
 });
 <\/script>`,
                 data: `

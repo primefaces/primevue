@@ -1,5 +1,5 @@
 <template>
-    <button v-ripple :class="cx('previousPageButton')" type="button" v-bind="getPTOptions('previousPageButton')">
+    <button v-ripple :class="cx('previousPageButton')" type="button" v-bind="getPTOptions('previousPageButton')" data-pc-group-section="pagebutton">
         <component :is="template || 'AngleLeftIcon'" :class="cx('previousPageIcon')" v-bind="getPTOptions('previousPageIcon')" />
     </button>
 </template>

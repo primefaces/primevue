@@ -1,15 +1,26 @@
 <template>
     <Portal :appendTo="appendTo">
         <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @click="onMaskClick" v-bind="ptm('mask')">
-            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
+            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="{ ...$attrs, ...ptm('root') }">
                     <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
-                        <slot name="header">
+                        <slot name="header" :class="cx('headerTitle')">
                             <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
                         </slot>
                         <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
-                            <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusableMax" :class="cx('maximizableButton')" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'" v-bind="ptm('maximizableButton')">
-                                <slot name="maximizeicon" :maximized="maximized">
+                            <button
+                                v-if="maximizable"
+                                :ref="maximizableRef"
+                                v-ripple
+                                :autofocus="focusableMax"
+                                :class="cx('maximizableButton')"
+                                @click="maximize"
+                                type="button"
+                                :tabindex="maximizable ? '0' : '-1'"
+                                v-bind="ptm('maximizableButton')"
+                                data-pc-group-section="headericon"
+                            >
+                                <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
                                     <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
                                 </slot>
                             </button>
@@ -23,8 +34,9 @@
                                 :aria-label="closeAriaLabel"
                                 type="button"
                                 v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
+                                data-pc-group-section="headericon"
                             >
-                                <slot name="closeicon">
+                                <slot name="closeicon" :class="cx('closeButtonIcon')">
                                     <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
                                 </slot>
                             </button>
@@ -151,7 +163,7 @@ export default {
         },
         focus() {
             const findFocusableElement = (container) => {
-                return container.querySelector('[autofocus]');
+                return container && container.querySelector('[autofocus]');
             };
 
             let focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
@@ -247,6 +259,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
@@ -271,7 +284,7 @@ export default {
             }
         },
         initDrag(event) {
-            if (DomHandler.findSingle(event.target, '[data-pc-section="headeraction"]') || DomHandler.findSingle(event.target.parentElement, '[data-pc-section="headeraction"]')) {
+            if (event.target.closest('div').getAttribute('data-pc-section') === 'headericons') {
                 return;
             }
 
@@ -310,24 +323,27 @@ export default {
                     let leftPos = offset.left + deltaX;
                     let topPos = offset.top + deltaY;
                     let viewport = DomHandler.getViewport();
+                    let containerComputedStyle = getComputedStyle(this.container);
+                    let marginLeft = parseFloat(containerComputedStyle.marginLeft);
+                    let marginTop = parseFloat(containerComputedStyle.marginTop);
 
                     this.container.style.position = 'fixed';
 
                     if (this.keepInViewport) {
                         if (leftPos >= this.minX && leftPos + width < viewport.width) {
                             this.lastPageX = event.pageX;
-                            this.container.style.left = leftPos + 'px';
+                            this.container.style.left = leftPos - marginLeft + 'px';
                         }
 
                         if (topPos >= this.minY && topPos + height < viewport.height) {
                             this.lastPageY = event.pageY;
-                            this.container.style.top = topPos + 'px';
+                            this.container.style.top = topPos - marginTop + 'px';
                         }
                     } else {
                         this.lastPageX = event.pageX;
-                        this.container.style.left = leftPos + 'px';
+                        this.container.style.left = leftPos - marginLeft + 'px';
                         this.lastPageY = event.pageY;
-                        this.container.style.top = topPos + 'px';
+                        this.container.style.top = topPos - marginTop + 'px';
                     }
                 }
             };

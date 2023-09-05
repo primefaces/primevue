@@ -25,8 +25,7 @@ export default {
         return {
             value: 20,
             code: {
-                basic: `
-<InputNumber
+                basic: `<InputNumber
     v-model="value"
     showButtons
     buttonLayout="horizontal"
@@ -40,8 +39,7 @@ export default {
         decrementButton: { class: 'bg-orange-500 border-orange-500' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <InputNumber
             v-model="value"
@@ -69,8 +67,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <InputNumber
             v-model="value"

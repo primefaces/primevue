@@ -9,17 +9,17 @@
                     </slot>
                     <span :class="cx('chooseButtonLabel')" v-bind="ptm('chooseButtonLabel')">{{ chooseButtonLabel }}</span>
                 </span>
-                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('uploadButton')">
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('uploadButton')" data-pc-section="uploadbutton">
                     <template #icon="iconProps">
                         <slot name="uploadicon">
-                            <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('uploadButton')['icon']" />
+                            <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('uploadButton')['icon']" data-pc-section="uploadbuttonicon" />
                         </slot>
                     </template>
                 </FileUploadButton>
-                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled" :unstyled="unstyled" :pt="ptm('cancelButton')">
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled" :unstyled="unstyled" :pt="ptm('cancelButton')" data-pc-section="cancelbutton">
                     <template #icon="iconProps">
                         <slot name="cancelicon">
-                            <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" v-bind="ptm('cancelButton')['icon']" />
+                            <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" v-bind="ptm('cancelButton')['icon']" data-pc-section="cancelbuttonicon" />
                         </slot>
                     </template>
                 </FileUploadButton>
@@ -60,6 +60,7 @@ import UploadIcon from 'primevue/icons/upload';
 import Message from 'primevue/message';
 import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 import BaseFileUpload from './BaseFileUpload.vue';
 import FileContent from './FileContent.vue';
 
@@ -265,6 +266,7 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled) {
+                !this.isUnstyled && DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
@@ -272,11 +274,13 @@ export default {
         },
         onDragLeave() {
             if (!this.disabled) {
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
             }
         },
         onDrop(event) {
             if (!this.disabled) {
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
                 event.stopPropagation();
                 event.preventDefault();
@@ -322,16 +326,18 @@ export default {
             }
         },
         formatSize(bytes) {
+            const k = 1024;
+            const dm = 3;
+            const sizes = this.$primevue.config.locale?.fileSizeTypes;
+
             if (bytes === 0) {
-                return '0 B';
+                return `0 ${sizes[0]}`;
             }
 
-            let k = 1000,
-                dm = 3,
-                sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                i = Math.floor(Math.log(bytes) / Math.log(k));
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            return `${formattedSize} ${sizes[i]}`;
         },
         isFileLimitExceeded() {
             if (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount && this.focused) {

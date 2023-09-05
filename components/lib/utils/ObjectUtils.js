@@ -56,7 +56,21 @@ export default {
     },
 
     resolveFieldData(data, field) {
-        if (data && Object.keys(data).length && field) {
+        if (!data || !field) {
+            // short circuit if there is nothing to resolve
+            return null;
+        }
+
+        try {
+            const value = data[field];
+
+            if (this.isNotEmpty(value)) return value;
+        } catch {
+            // Performance optimization: https://github.com/primefaces/primereact/issues/4797
+            // do nothing and continue to other methods to resolve field data
+        }
+
+        if (Object.keys(data).length) {
             if (this.isFunction(field)) {
                 return field(data);
             } else if (field.indexOf('.') === -1) {
@@ -75,9 +89,9 @@ export default {
 
                 return value;
             }
-        } else {
-            return null;
         }
+
+        return null;
     },
 
     getItemValue(obj, ...params) {
@@ -201,9 +215,23 @@ export default {
         return null;
     },
 
-    convertToFlatCase(str) {
+    toFlatCase(str) {
         // convert snake, kebab, camel and pascal cases to flat case
-        return this.isNotEmpty(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+        return this.isString(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+    },
+
+    toKebabCase(str) {
+        // convert snake, camel and pascal cases to kebab case
+        return this.isString(str)
+            ? str
+                  .replace(/(_)/g, '-')
+                  .replace(/[A-Z]/g, (c, i) => (i === 0 ? c : '-' + c.toLowerCase()))
+                  .toLowerCase()
+            : str;
+    },
+
+    toCapitalCase(str) {
+        return this.isString(str, { empty: false }) ? str[0].toUpperCase() + str.slice(1) : str;
     },
 
     isEmpty(value) {
@@ -218,16 +246,20 @@ export default {
         return !!(value && value.constructor && value.call && value.apply);
     },
 
-    isObject(value) {
-        return value !== null && value instanceof Object && value.constructor === Object;
+    isObject(value, empty = true) {
+        return value instanceof Object && value.constructor === Object && (empty || Object.keys(value).length !== 0);
     },
 
     isDate(value) {
-        return value !== null && value instanceof Date && value.constructor === Date;
+        return value instanceof Date && value.constructor === Date;
     },
 
-    isArray(value) {
-        return value !== null && Array.isArray(value);
+    isArray(value, empty = true) {
+        return Array.isArray(value) && (empty || value.length !== 0);
+    },
+
+    isString(value, empty = true) {
+        return typeof value === 'string' && (empty || value !== '');
     },
 
     isPrintableCharacter(char = '') {
@@ -268,5 +300,15 @@ export default {
         }
 
         return index;
+    },
+
+    nestedKeys(obj = {}, parentKey = '') {
+        return Object.entries(obj).reduce((o, [key, value]) => {
+            const currentKey = parentKey ? `${parentKey}.${key}` : key;
+
+            this.isObject(value) ? (o = o.concat(this.nestedKeys(value, currentKey))) : o.push(currentKey);
+
+            return o;
+        }, []);
     }
 };

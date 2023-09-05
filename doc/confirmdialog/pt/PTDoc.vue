@@ -12,15 +12,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ConfirmDialog
+                basic: `<ConfirmDialog
     group="pt"
     :pt="{
         headerTitle: { class: 'text-primary' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <ConfirmDialog
         group="pt"
         :pt="{
@@ -52,8 +50,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <ConfirmDialog
         group="pt"
         :pt="{

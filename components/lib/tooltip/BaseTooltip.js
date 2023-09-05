@@ -5,6 +5,7 @@ const styles = `
 .p-tooltip {
     position:absolute;
     display:none;
+    pointer-events:none;
     padding: .25em .5rem;
     max-width: 12.5rem;
 }
@@ -20,8 +21,8 @@ const styles = `
 }
 
 .p-tooltip .p-tooltip-text {
-   white-space: pre-line;
-   word-break: break-word;
+    white-space: pre-line;
+    word-break: break-word;
 }
 
 .p-tooltip-arrow {
@@ -33,15 +34,11 @@ const styles = `
 }
 
 .p-tooltip-right .p-tooltip-arrow {
-    top: 50%;
-    left: 0;
     margin-top: -.25rem;
     border-width: .25em .25em .25em 0;
 }
 
 .p-tooltip-left .p-tooltip-arrow {
-    top: 50%;
-    right: 0;
     margin-top: -.25rem;
     border-width: .25em 0 .25em .25rem;
 }
@@ -51,15 +48,11 @@ const styles = `
 }
 
 .p-tooltip-top .p-tooltip-arrow {
-    bottom: 0;
-    left: 50%;
     margin-left: -.25rem;
     border-width: .25em .25em 0;
 }
 
 .p-tooltip-bottom .p-tooltip-arrow {
-    top: 0;
-    left: 50%;
     margin-left: -.25rem;
     border-width: 0 .25em .25rem;
 }

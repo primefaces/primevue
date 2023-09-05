@@ -26,7 +26,7 @@ pre[class*="language-"] {
     position: relative;
     margin: .5em 0;
     overflow: visible;
-    padding: 1px;
+    padding: 0;
 }
 
 pre[class*="language-"] > code {
@@ -402,7 +402,8 @@ pre[class*="language-"] {
         margin: 0;
         color: var(--surface-900);
         font-size: 14px;
-        border-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
     }
 

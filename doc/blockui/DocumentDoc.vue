@@ -15,11 +15,9 @@ export default {
         return {
             blocked: false,
             code: {
-                basic: `
-<BlockUI :blocked="blocked" fullScreen />
+                basic: `<BlockUI :blocked="blocked" fullScreen />
 <Button label="Block" @click="blocked = true" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <BlockUI :blocked="blocked" fullScreen />
         <Button label="Block" @click="blockDocument" />
@@ -44,8 +42,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <BlockUI :blocked="blocked" fullScreen />
         <Button label="Block" @click="blockDocument" />

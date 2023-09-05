@@ -79,8 +79,7 @@ export default {
             },
             selection: {},
             code: {
-                basic: `
-<OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
+                basic: `<OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
     <template #person="slotProps">
         <div class="flex flex-column">
             <div class="flex flex-column align-items-center">
@@ -94,8 +93,7 @@ export default {
         <span>{{ slotProps.node.label }}</span>
     </template>
 </OrganizationChart>`,
-                options: `
-<template>
+                options: `<template>
     <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
         <template #person="slotProps">
             <div class="flex flex-column">
@@ -170,8 +168,7 @@ export default {
     },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
         <template #person="slotProps">
             <div class="flex flex-column">

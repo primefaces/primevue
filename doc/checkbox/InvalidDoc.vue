@@ -14,10 +14,8 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `
-<Checkbox v-model="checked" class="p-invalid" />`,
-                options: `
-<template>
+                basic: `<Checkbox v-model="checked" class="p-invalid" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Checkbox v-model="checked" class="p-invalid" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Checkbox v-model="checked" class="p-invalid" />
     </div>

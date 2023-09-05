@@ -15,7 +15,7 @@ const MenubarProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
     },
     {
         name: 'unstyled',

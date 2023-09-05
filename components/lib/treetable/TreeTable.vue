@@ -65,9 +65,9 @@
                             ></TTHeaderCell>
                         </template>
                     </tr>
-                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerFilterRow')">
+                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerFilterCell')">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerCell', ptHeaderCellOptions(col))">
                                 <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" :index="i" />
                             </th>
                         </template>
@@ -231,6 +231,13 @@ export default {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
+        ptHeaderCellOptions(column) {
+            return {
+                context: {
+                    frozen: this.columnProp(column, 'frozen')
+                }
+            };
+        },
         onNodeToggle(node) {
             const key = node.key;
 
@@ -354,9 +361,11 @@ export default {
 
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headerTitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sortIcon' ||
-                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sortIcon'
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    targetNode.closest('[data-p-sortable-column="true"]')
                 ) {
                     DomHandler.clearSelection();
 
@@ -408,6 +417,7 @@ export default {
         },
         sortNodesSingle(nodes) {
             let _nodes = [...nodes];
+            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
             _nodes.sort((node1, node2) => {
                 const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_sortField);
@@ -417,7 +427,7 @@ export default {
                 if (value1 == null && value2 != null) result = -1;
                 else if (value1 != null && value2 == null) result = 1;
                 else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                 else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                 return this.d_sortOrder * result;
@@ -449,7 +459,8 @@ export default {
                 if (value1 === value2) {
                     return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
                 } else {
-                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String)) return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String))
+                        return this.d_multiSortMeta[index].order * new Intl.Collator(undefined, { numeric: true }).compare(value1, value2);
                     else result = value1 < value2 ? -1 : 1;
                 }
             }

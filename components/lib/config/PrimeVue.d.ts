@@ -3,6 +3,7 @@ import { AccordionPassThroughOptions } from '../accordion';
 import { AccordionTabPassThroughOptions } from '../accordiontab';
 import { AutoCompletePassThroughOptions } from '../autocomplete';
 import { AvatarPassThroughOptions } from '../avatar';
+import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { BadgePassThroughOptions } from '../badge';
 import { BadgeDirectivePassThroughOptions } from '../badgedirective';
 import { BlockUIPassThroughOptions } from '../blockui';
@@ -17,6 +18,7 @@ import { CheckboxPassThroughOptions } from '../checkbox';
 import { ChipPassThroughOptions } from '../chip';
 import { ChipsPassThroughOptions } from '../chips';
 import { ColorPickerPassThroughOptions } from '../colorpicker';
+import { ColumnPassThroughOptions } from '../column';
 import { ColumnGroupPassThroughOptions } from '../columngroup';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
 import { ConfirmPopupPassThroughOptions } from '../confirmpopup';
@@ -59,6 +61,7 @@ import { PickListPassThroughOptions } from '../picklist';
 import { ProgressBarPassThroughOptions } from '../progressbar';
 import { ProgressSpinnerPassThroughOptions } from '../progressspinner';
 import { RadioButtonPassThroughOptions } from '../radiobutton';
+import { RatingPassThroughOptions } from '../rating';
 import { RippleDirectivePassThroughOptions } from '../ripple';
 import { RowPassThroughOptions } from '../row';
 import { ScrollPanelPassThroughOptions } from '../scrollpanel';
@@ -66,9 +69,11 @@ import { ScrollTopPassThroughOptions } from '../scrolltop';
 import { SelectButtonPassThroughOptions } from '../selectbutton';
 import { SidebarPassThroughOptions } from '../sidebar';
 import { SkeletonPassThroughOptions } from '../skeleton';
+import { SliderPassThroughOptions } from '../slider';
 import { SpeedDialPassThroughOptions } from '../speeddial';
 import { SplitButtonPassThroughOptions } from '../splitbutton';
 import { SplitterPassThroughOptions } from '../splitter';
+import { SplitterPanelPassThroughOptions } from '../splitterpanel';
 import { StepsPassThroughOptions } from '../steps';
 import { StyleClassDirectivePassThroughOptions } from '../styleclass';
 import { TabMenuPassThroughOptions } from '../tabmenu';
@@ -80,115 +85,129 @@ import { TextareaPassThroughOptions } from '../textarea';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { TimelinePassThroughOptions } from '../timeline';
 import { ToastPassThroughOptions } from '../toast';
+import { ToggleButtonPassThroughOptions } from '../togglebutton';
 import { ToolbarPassThroughOptions } from '../toolbar';
 import { TooltipDirectivePassThroughOptions } from '../tooltip';
 import { TreePassThroughOptions } from '../tree';
 import { TreeSelectPassThroughOptions } from '../treeselect';
 import { TreeTablePassThroughOptions } from '../treetable';
-import { DefaultPTOptions } from '../ts-helpers';
+import { TriStateCheckboxPassThroughOptions } from '../tristatecheckbox';
+import { DefaultPassThrough, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
-interface PrimeVueConfiguration {
+export interface PrimeVueConfiguration {
     ripple?: boolean;
     inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
-    pt?: PrimeVuePTOptions;
+    pt?: PassThrough<PrimeVuePTOptions>;
     unstyled?: boolean;
+    csp?: PrimeVueCSPOptions;
 }
 
-interface PrimeVueZIndexOptions {
+export interface PrimeVueZIndexOptions {
     modal?: number;
     overlay?: number;
     menu?: number;
     tooltip?: number;
 }
 
-interface PrimeVuePTOptions {
-    accordion?: DefaultPTOptions<AccordionPassThroughOptions>;
-    accordiontab?: DefaultPTOptions<AccordionTabPassThroughOptions>;
-    autocomplete?: DefaultPTOptions<AutoCompletePassThroughOptions>;
-    avatar?: DefaultPTOptions<AvatarPassThroughOptions>;
-    badge?: DefaultPTOptions<BadgePassThroughOptions>;
-    blockui?: DefaultPTOptions<BlockUIPassThroughOptions>;
-    breadcrumb?: DefaultPTOptions<BreadcrumbPassThroughOptions>;
-    button?: DefaultPTOptions<ButtonPassThroughOptions>;
-    calendar?: DefaultPTOptions<CalendarPassThroughOptions>;
-    card?: DefaultPTOptions<CardPassThroughOptions>;
-    carousel?: DefaultPTOptions<CarouselPassThroughOptions>;
-    cascadeselect?: DefaultPTOptions<CascadeSelectPassThroughOptions>;
-    chart?: DefaultPTOptions<ChartPassThroughOptions>;
-    checkbox?: DefaultPTOptions<CheckboxPassThroughOptions>;
-    chip?: DefaultPTOptions<ChipPassThroughOptions>;
-    chips?: DefaultPTOptions<ChipsPassThroughOptions>;
-    colorpicker?: DefaultPTOptions<ColorPickerPassThroughOptions>;
-    columngroup?: DefaultPTOptions<ColumnGroupPassThroughOptions>;
-    confirmdialog?: DefaultPTOptions<ConfirmDialogPassThroughOptions>;
-    confirmpopup?: DefaultPTOptions<ConfirmPopupPassThroughOptions>;
-    contextmenu?: DefaultPTOptions<ContextMenuPassThroughOptions>;
-    datatable?: DefaultPTOptions<DataTablePassThroughOptions>;
-    dataview?: DefaultPTOptions<DataViewPassThroughOptions>;
-    dataviewlayoutoptions?: DefaultPTOptions<DataViewLayoutOptionsPassThroughOptions>;
-    deferredcontent?: DefaultPTOptions<DeferredContentPassThroughOptions>;
-    divider?: DefaultPTOptions<DividerPassThroughOptions>;
-    dialog?: DefaultPTOptions<DialogPassThroughOptions>;
-    dock?: DefaultPTOptions<DockPassThroughOptions>;
-    dropdown?: DefaultPTOptions<DropdownPassThroughOptions>;
-    dynamicdialog?: DefaultPTOptions<DialogPassThroughOptions>;
-    editor?: DefaultPTOptions<EditorPassThroughOptions>;
-    fieldset?: DefaultPTOptions<FieldsetPassThroughOptions>;
-    fileupload?: DefaultPTOptions<FileUploadPassThroughOptions>;
-    galleria?: DefaultPTOptions<GalleriaPassThroughOptions>;
-    image?: DefaultPTOptions<ImagePassThroughOptions>;
-    inlinemessage?: DefaultPTOptions<InlineMessagePassThroughOptions>;
-    inplace?: DefaultPTOptions<InplacePassThroughOptions>;
-    inputmask?: DefaultPTOptions<InputMaskPassThroughOptions>;
-    inputnumber?: DefaultPTOptions<InputNumberPassThroughOptions>;
-    inputswitch?: DefaultPTOptions<InputSwitchPassThroughOptions>;
-    inputtext?: DefaultPTOptions<InputTextPassThroughOptions>;
-    knob?: DefaultPTOptions<KnobPassThroughOptions>;
-    listbox?: DefaultPTOptions<ListboxPassThroughOptions>;
-    megamenu?: DefaultPTOptions<MegaMenuPassThroughOptions>;
-    menu?: DefaultPTOptions<MenuPassThroughOptions>;
-    menubar?: DefaultPTOptions<MenubarPassThroughOptions>;
-    message?: DefaultPTOptions<MessagePassThroughOptions>;
-    multiselect?: DefaultPTOptions<MultiSelectPassThroughOptions>;
-    orderlist?: DefaultPTOptions<OrderListPassThroughOptions>;
-    organizationchart?: DefaultPTOptions<OrganizationChartPassThroughOptions>;
-    overlaypanel?: DefaultPTOptions<OverlayPanelPassThroughOptions>;
-    paginator?: DefaultPTOptions<PaginatorPassThroughOptions>;
-    panel?: DefaultPTOptions<PanelPassThroughOptions>;
-    panelmenu?: DefaultPTOptions<PanelMenuPassThroughOptions>;
-    password?: DefaultPTOptions<PasswordPassThroughOptions>;
-    picklist?: DefaultPTOptions<PickListPassThroughOptions>;
-    progressbar?: DefaultPTOptions<ProgressBarPassThroughOptions>;
-    progressspinner?: DefaultPTOptions<ProgressSpinnerPassThroughOptions>;
-    radiobutton?: DefaultPTOptions<RadioButtonPassThroughOptions>;
-    row?: DefaultPTOptions<RowPassThroughOptions>;
-    scrollpanel?: DefaultPTOptions<ScrollPanelPassThroughOptions>;
-    scrolltop?: DefaultPTOptions<ScrollTopPassThroughOptions>;
-    sidebar?: DefaultPTOptions<SidebarPassThroughOptions>;
-    skeleton?: DefaultPTOptions<SkeletonPassThroughOptions>;
-    speeddial?: DefaultPTOptions<SpeedDialPassThroughOptions>;
-    selectbutton?: DefaultPTOptions<SelectButtonPassThroughOptions>;
-    splitbutton?: DefaultPTOptions<SplitButtonPassThroughOptions>;
-    splitter?: DefaultPTOptions<SplitterPassThroughOptions>;
-    steps?: DefaultPTOptions<StepsPassThroughOptions>;
-    tabmenu?: DefaultPTOptions<TabMenuPassThroughOptions>;
-    tabpanel?: DefaultPTOptions<TabPanelPassThroughOptions>;
-    tabview?: DefaultPTOptions<TabViewPassThroughOptions>;
-    tag?: DefaultPTOptions<TagPassThroughOptions>;
-    terminal?: DefaultPTOptions<TerminalPassThroughOptions>;
-    textarea?: DefaultPTOptions<TextareaPassThroughOptions>;
-    tieredmenu?: DefaultPTOptions<TieredMenuPassThroughOptions>;
-    timeline?: DefaultPTOptions<TimelinePassThroughOptions>;
-    toast?: DefaultPTOptions<ToastPassThroughOptions>;
-    toolbar?: DefaultPTOptions<ToolbarPassThroughOptions>;
-    tree?: DefaultPTOptions<TreePassThroughOptions>;
-    treeselect?: DefaultPTOptions<TreeSelectPassThroughOptions>;
-    treetable?: DefaultPTOptions<TreeTablePassThroughOptions>;
-    virtualscroller?: DefaultPTOptions<VirtualScrollerPassThroughOptions>;
+export interface PrimeVueCSPOptions {
+    nonce?: string;
+}
+
+export interface PrimeVuePTOptions {
+    accordion?: DefaultPassThrough<AccordionPassThroughOptions>;
+    accordiontab?: DefaultPassThrough<AccordionTabPassThroughOptions>;
+    autocomplete?: DefaultPassThrough<AutoCompletePassThroughOptions>;
+    avatar?: DefaultPassThrough<AvatarPassThroughOptions>;
+    avatargroup?: DefaultPassThrough<AvatarGroupPassThroughOptions>;
+    badge?: DefaultPassThrough<BadgePassThroughOptions>;
+    blockui?: DefaultPassThrough<BlockUIPassThroughOptions>;
+    breadcrumb?: DefaultPassThrough<BreadcrumbPassThroughOptions>;
+    button?: DefaultPassThrough<ButtonPassThroughOptions>;
+    calendar?: DefaultPassThrough<CalendarPassThroughOptions>;
+    card?: DefaultPassThrough<CardPassThroughOptions>;
+    carousel?: DefaultPassThrough<CarouselPassThroughOptions>;
+    cascadeselect?: DefaultPassThrough<CascadeSelectPassThroughOptions>;
+    chart?: DefaultPassThrough<ChartPassThroughOptions>;
+    checkbox?: DefaultPassThrough<CheckboxPassThroughOptions>;
+    chip?: DefaultPassThrough<ChipPassThroughOptions>;
+    chips?: DefaultPassThrough<ChipsPassThroughOptions>;
+    colorpicker?: DefaultPassThrough<ColorPickerPassThroughOptions>;
+    column?: DefaultPassThrough<ColumnPassThroughOptions>;
+    columngroup?: DefaultPassThrough<ColumnGroupPassThroughOptions>;
+    confirmdialog?: DefaultPassThrough<ConfirmDialogPassThroughOptions>;
+    confirmpopup?: DefaultPassThrough<ConfirmPopupPassThroughOptions>;
+    contextmenu?: DefaultPassThrough<ContextMenuPassThroughOptions>;
+    datatable?: DefaultPassThrough<DataTablePassThroughOptions>;
+    dataview?: DefaultPassThrough<DataViewPassThroughOptions>;
+    dataviewlayoutoptions?: DefaultPassThrough<DataViewLayoutOptionsPassThroughOptions>;
+    deferredcontent?: DefaultPassThrough<DeferredContentPassThroughOptions>;
+    divider?: DefaultPassThrough<DividerPassThroughOptions>;
+    dialog?: DefaultPassThrough<DialogPassThroughOptions>;
+    dock?: DefaultPassThrough<DockPassThroughOptions>;
+    dropdown?: DefaultPassThrough<DropdownPassThroughOptions>;
+    dynamicdialog?: DefaultPassThrough<DialogPassThroughOptions>;
+    editor?: DefaultPassThrough<EditorPassThroughOptions>;
+    fieldset?: DefaultPassThrough<FieldsetPassThroughOptions>;
+    fileupload?: DefaultPassThrough<FileUploadPassThroughOptions>;
+    galleria?: DefaultPassThrough<GalleriaPassThroughOptions>;
+    image?: DefaultPassThrough<ImagePassThroughOptions>;
+    inlinemessage?: DefaultPassThrough<InlineMessagePassThroughOptions>;
+    inplace?: DefaultPassThrough<InplacePassThroughOptions>;
+    inputmask?: DefaultPassThrough<InputMaskPassThroughOptions>;
+    inputnumber?: DefaultPassThrough<InputNumberPassThroughOptions>;
+    inputswitch?: DefaultPassThrough<InputSwitchPassThroughOptions>;
+    inputtext?: DefaultPassThrough<InputTextPassThroughOptions>;
+    knob?: DefaultPassThrough<KnobPassThroughOptions>;
+    listbox?: DefaultPassThrough<ListboxPassThroughOptions>;
+    megamenu?: DefaultPassThrough<MegaMenuPassThroughOptions>;
+    menu?: DefaultPassThrough<MenuPassThroughOptions>;
+    menubar?: DefaultPassThrough<MenubarPassThroughOptions>;
+    message?: DefaultPassThrough<MessagePassThroughOptions>;
+    multiselect?: DefaultPassThrough<MultiSelectPassThroughOptions>;
+    orderlist?: DefaultPassThrough<OrderListPassThroughOptions>;
+    organizationchart?: DefaultPassThrough<OrganizationChartPassThroughOptions>;
+    overlaypanel?: DefaultPassThrough<OverlayPanelPassThroughOptions>;
+    paginator?: DefaultPassThrough<PaginatorPassThroughOptions>;
+    panel?: DefaultPassThrough<PanelPassThroughOptions>;
+    panelmenu?: DefaultPassThrough<PanelMenuPassThroughOptions>;
+    password?: DefaultPassThrough<PasswordPassThroughOptions>;
+    picklist?: DefaultPassThrough<PickListPassThroughOptions>;
+    progressbar?: DefaultPassThrough<ProgressBarPassThroughOptions>;
+    progressspinner?: DefaultPassThrough<ProgressSpinnerPassThroughOptions>;
+    radiobutton?: DefaultPassThrough<RadioButtonPassThroughOptions>;
+    rating?: DefaultPassThrough<RatingPassThroughOptions>;
+    row?: DefaultPassThrough<RowPassThroughOptions>;
+    scrollpanel?: DefaultPassThrough<ScrollPanelPassThroughOptions>;
+    scrolltop?: DefaultPassThrough<ScrollTopPassThroughOptions>;
+    sidebar?: DefaultPassThrough<SidebarPassThroughOptions>;
+    skeleton?: DefaultPassThrough<SkeletonPassThroughOptions>;
+    slider?: DefaultPassThrough<SliderPassThroughOptions>;
+    speeddial?: DefaultPassThrough<SpeedDialPassThroughOptions>;
+    selectbutton?: DefaultPassThrough<SelectButtonPassThroughOptions>;
+    splitbutton?: DefaultPassThrough<SplitButtonPassThroughOptions>;
+    splitter?: DefaultPassThrough<SplitterPassThroughOptions>;
+    splitterpanel?: DefaultPassThrough<SplitterPanelPassThroughOptions>;
+    steps?: DefaultPassThrough<StepsPassThroughOptions>;
+    tabmenu?: DefaultPassThrough<TabMenuPassThroughOptions>;
+    tabpanel?: DefaultPassThrough<TabPanelPassThroughOptions>;
+    tabview?: DefaultPassThrough<TabViewPassThroughOptions>;
+    tag?: DefaultPassThrough<TagPassThroughOptions>;
+    terminal?: DefaultPassThrough<TerminalPassThroughOptions>;
+    textarea?: DefaultPassThrough<TextareaPassThroughOptions>;
+    tieredmenu?: DefaultPassThrough<TieredMenuPassThroughOptions>;
+    timeline?: DefaultPassThrough<TimelinePassThroughOptions>;
+    toast?: DefaultPassThrough<ToastPassThroughOptions>;
+    togglebutton?: DefaultPassThrough<ToggleButtonPassThroughOptions>;
+    toolbar?: DefaultPassThrough<ToolbarPassThroughOptions>;
+    tree?: DefaultPassThrough<TreePassThroughOptions>;
+    treeselect?: DefaultPassThrough<TreeSelectPassThroughOptions>;
+    tristatecheckbox?: DefaultPassThrough<TriStateCheckboxPassThroughOptions>;
+    treetable?: DefaultPassThrough<TreeTablePassThroughOptions>;
+    virtualscroller?: DefaultPassThrough<VirtualScrollerPassThroughOptions>;
     directives?: {
         badge?: BadgeDirectivePassThroughOptions;
         tooltip?: TooltipDirectivePassThroughOptions;
@@ -196,9 +215,12 @@ interface PrimeVuePTOptions {
         focustrap?: FocusTrapDirectivePassThroughOptions;
         ripple?: RippleDirectivePassThroughOptions;
     };
+    global?: {
+        css?: (options: any) => string | string | undefined;
+    };
 }
 
-interface PrimeVueLocaleAriaOptions {
+export interface PrimeVueLocaleAriaOptions {
     trueLabel?: string;
     falseLabel?: string;
     nullLabel?: string;
@@ -249,7 +271,7 @@ interface PrimeVueLocaleAriaOptions {
     rotateLeft?: string;
 }
 
-interface PrimeVueLocaleOptions {
+export interface PrimeVueLocaleOptions {
     startsWith?: string;
     contains?: string;
     notContains?: string;
@@ -278,6 +300,7 @@ interface PrimeVueLocaleOptions {
     cancel?: string;
     completed?: string;
     pending?: string;
+    fileSizeTypes: string[];
     dayNames: string[];
     dayNamesShort: string[];
     dayNamesMin: string[];
@@ -318,7 +341,12 @@ interface PrimeVueLocaleOptions {
     aria?: PrimeVueLocaleAriaOptions;
 }
 
-export declare function usePrimeVue(): { config: PrimeVueConfiguration };
+export type PrimeVueChangeTheme = (currentTheme: string, newTheme: string, linkElementId: string, callback?: Function) => void;
+
+export declare function usePrimeVue(): {
+    config: PrimeVueConfiguration;
+    changeTheme: PrimeVueChangeTheme;
+};
 
 declare const plugin: Plugin;
 export default plugin;
@@ -327,6 +355,7 @@ declare module 'vue/types/vue' {
     interface Vue {
         $primevue: {
             config: PrimeVueConfiguration;
+            changeTheme: PrimeVueChangeTheme;
         };
     }
 }
@@ -335,6 +364,7 @@ declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
+            changeTheme: PrimeVueChangeTheme;
         };
     }
 }

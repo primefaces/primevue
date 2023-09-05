@@ -10,17 +10,31 @@
 import { VNode } from 'vue';
 import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes) | null | undefined;
+export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface AccordionPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: AccordionProps;
+    /**
+     * Defines current inline state.
+     */
     state: AccordionState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 /**
  * Custom tab open event.
@@ -58,15 +72,20 @@ export interface AccordionClickEvent extends AccordionTabOpenEvent {}
  */
 export interface AccordionPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionPassThroughOptionType;
     /**
-     * Uses to pass attributes to AccordionTab helper components.
+     * Used to pass attributes to AccordionTab helper components.
+     * @deprecated since v3.30.1. Use 'accordiontab' property instead.
      */
     tab?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to pass attributes to AccordionTab helper components.
+     */
+    accordiontab?: AccordionTabPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -131,10 +150,15 @@ export interface AccordionProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionPassThroughOptions}
      */
-    pt?: AccordionPassThroughOptions;
+    pt?: PassThrough<AccordionPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

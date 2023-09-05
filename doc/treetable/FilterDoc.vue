@@ -53,8 +53,7 @@ export default {
                 { label: 'Strict', value: 'strict' }
             ],
             code: {
-                basic: `
-<SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
+                basic: `<SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
 <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
     <template #header>
         <div class="text-right">
@@ -80,8 +79,7 @@ export default {
         </template>
     </Column>
 </TreeTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex justify-content-center mb-4">
             <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
@@ -134,8 +132,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex justify-content-center mb-4">
             <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />

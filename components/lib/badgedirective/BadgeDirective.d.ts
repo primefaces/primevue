@@ -8,18 +8,36 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PassThroughOptions } from '../passthrough';
+import { PassThrough } from '../ts-helpers';
 
-export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | null | undefined;
+export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface BadgePassThroughMethodOptions {
+    context: BadgeContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
+}
 
 /**
  * Defines options of Badge.
  */
 export interface BadgeDirectiveOptions {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {BadgeDirectivePassThroughOptions}
      */
-    pt?: BadgeDirectivePassThroughOptions;
+    pt?: PassThrough<BadgeDirectivePassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -33,11 +51,11 @@ export interface BadgeDirectiveOptions {
  */
 export interface BadgeDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BadgeDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;
@@ -48,6 +66,40 @@ export interface BadgeDirectivePassThroughOptions {
  */
 export interface BadgeDirectivePassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Badge directive.
+ */
+export interface BadgeContext {
+    /**
+     * Current info state as a boolean.
+     * @defaultValue true
+     */
+    info: boolean;
+    /**
+     * Current success state as a boolean.
+     * @defaultValue false
+     */
+    success: boolean;
+    /**
+     * Current warning state as a boolean.
+     * @defaultValue false
+     */
+    warning: boolean;
+    /**
+     * Current danger state as a boolean.
+     * @defaultValue false
+     */
+    danger: boolean;
+    /**
+     * Current gutter state as a boolean.
+     */
+    nogutter: boolean;
+    /**
+     * Current dot state as a boolean.
+     */
+    dot: boolean;
 }
 
 /**

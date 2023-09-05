@@ -20,8 +20,7 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<TriStateCheckbox
+                basic: `<TriStateCheckbox
     v-model="value"
     :pt="{
         checkbox: {
@@ -29,8 +28,7 @@ export default {
         }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <TriStateCheckbox
             v-model="value"
@@ -53,8 +51,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <TriStateCheckbox
             v-model="value"

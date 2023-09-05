@@ -60,7 +60,7 @@
             </slot>
         </div>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
@@ -339,6 +339,9 @@ export default {
                     this.onArrowLeftKey(event, this.editable);
                     break;
 
+                case 'Delete':
+                    this.onDeleteKey(event);
+
                 case 'Home':
                     this.onHomeKey(event, this.editable);
                     break;
@@ -405,7 +408,7 @@ export default {
                 return;
             }
 
-            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.tagName === 'path') {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
                 return;
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
@@ -505,6 +508,12 @@ export default {
 
                 default:
                     break;
+            }
+        },
+        onDeleteKey(event) {
+            if (this.showClear) {
+                this.updateModel(event, null);
+                event.preventDefault();
             }
         },
         onArrowDownKey(event) {

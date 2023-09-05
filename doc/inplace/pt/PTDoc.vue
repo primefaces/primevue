@@ -23,8 +23,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Inplace
+                basic: `<Inplace
     :pt="{
         display: { class: 'bg-primary' }
     }"
@@ -37,8 +36,7 @@ export default {
         </p>
     </template>
 </Inplace>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Inplace
             :pt="{
@@ -59,8 +57,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Inplace
             :pt="{

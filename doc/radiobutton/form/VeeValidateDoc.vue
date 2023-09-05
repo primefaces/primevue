@@ -60,8 +60,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="card flex justify-content-center">
+                basic: `<div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column gap-2">
         <div>Please choose your ingredient.</div>
         <div class="flex flex-wrap gap-3">
@@ -87,8 +86,7 @@ export default {
         <Button type="submit" label="Submit" />
     </form>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <div>Please choose your ingredient.</div>
@@ -146,8 +144,7 @@ export default {
     },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <div>Please choose your ingredient.</div>

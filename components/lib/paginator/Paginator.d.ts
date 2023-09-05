@@ -11,18 +11,35 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { InputNumberPassThroughOptionType } from '../inputnumber';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes) | null | undefined;
+export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface PaginatorPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PaginatorProps;
+    /**
+     * Defines current inline state.
+     */
     state: PaginatorState;
+    /**
+     * Defines current options.
+     */
     context: PaginatorContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -31,107 +48,82 @@ export interface PaginatorPassThroughMethodOptions {
  */
 export interface PaginatorPassThroughOptions {
     /**
-     * Uses to pass attributes to the paginator wrapper's DOM element.
+     * Used to pass attributes to the paginator wrapper's DOM element.
      */
     paginatorWrapper?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start's DOM element.
+     * Used to pass attributes to the start's DOM element.
      */
     start?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the first page button's DOM element.
+     * Used to pass attributes to the first page button's DOM element.
      */
     firstPageButton?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the first page icon's DOM element.
+     * Used to pass attributes to the first page icon's DOM element.
      */
     firstPageIcon?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the prev page button's DOM element.
-     * @deprecated since v3.30.0. Use 'previousPageButton' property instead.
-     */
-    prevPageButton?: PaginatorPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the prev page button's DOM element.
+     * Used to pass attributes to the prev page button's DOM element.
      */
     previousPageButton?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the prev page icon's DOM element.
-     * @deprecated since v3.30.0. Use 'previousPageIcon' property instead.
-     */
-    prevPageIcon?: PaginatorPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the prev page icon's DOM element.
+     * Used to pass attributes to the prev page icon's DOM element.
      */
     previousPageIcon?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next page button's DOM element.
+     * Used to pass attributes to the next page button's DOM element.
      */
     nextPageButton?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next page icon's DOM element.
+     * Used to pass attributes to the next page icon's DOM element.
      */
     nextPageIcon?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the last page button's DOM element.
+     * Used to pass attributes to the last page button's DOM element.
      */
     lastPageButton?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the last page icon's DOM element.
+     * Used to pass attributes to the last page icon's DOM element.
      */
     lastPageIcon?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the pages's DOM element.
+     * Used to pass attributes to the pages's DOM element.
      */
     pages?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the page button's DOM element.
+     * Used to pass attributes to the page button's DOM element.
      */
     pageButton?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the current's DOM element.
+     * Used to pass attributes to the current's DOM element.
      */
     current?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Dropdown component.
-     * @deprecated since v3.30.0. Use 'rowPerPageDropdown' property instead.
-     */
-    RPPDropdown?: DropdownPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Dropdown component.
+     * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
     rowPerPageDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Dropdown component.
-     * @deprecated since v3.30.0. Use 'jumpToPageDropdown' property instead.
-     */
-    JTPDropdown?: DropdownPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Dropdown component.
+     * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
     jumpToPageDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Dropdown component.
-     * @deprecated since v3.30.0. Use 'jumpToPageInput' property instead.
-     */
-    JTPInput?: InputNumberPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Dropdown component.
+     * Used to pass attributes to the Dropdown component.
      * @see {@link InputNumberPassThroughOptionType}
      */
     jumpToPageInput?: InputNumberPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end's DOM element.
+     * Used to pass attributes to the end's DOM element.
      */
     end?: PaginatorPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -257,10 +249,15 @@ export interface PaginatorProps {
      */
     alwaysShow?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PaginatorPassThroughOptions}
      */
-    pt?: PaginatorPassThroughOptions;
+    pt?: PassThrough<PaginatorPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
 }
 
 /**

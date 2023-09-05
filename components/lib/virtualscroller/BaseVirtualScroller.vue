@@ -65,7 +65,7 @@ const styles = `
 }
 `;
 
-const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller' });
+const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller', manual: true });
 
 export default {
     name: 'BaseVirtualScroller',
@@ -152,13 +152,13 @@ export default {
             default: false
         }
     },
-    css: {
-        loadStyle
-    },
     provide() {
         return {
             $parentInstance: this
         };
+    },
+    beforeMount() {
+        loadStyle();
     }
 };
 </script>

@@ -33,8 +33,7 @@ export default {
             ],
             selectedCategory: 'Production',
             code: {
-                basic: `
-<div v-for="(category, index) in categories" :key="category.key" class="flex align-items-center">
+                basic: `<div v-for="(category, index) in categories" :key="category.key" class="flex align-items-center">
     <RadioButton
         v-model="selectedCategory"
         :inputId="category.key"
@@ -49,8 +48,7 @@ export default {
     <label :for="category.key" class="ml-2">{{ category.name }}</label>
 </div>
 `,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="(category, index) in categories" :key="category.key" class="flex align-items-center">
@@ -86,8 +84,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="(category, index) in categories" :key="category.key" class="flex align-items-center">

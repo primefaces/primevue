@@ -14,10 +14,8 @@ export default {
         return {
             value: '',
             code: {
-                basic: `
-<Textarea v-model="value" rows="5" cols="30" />`,
-                options: `
-<template>
+                basic: `<Textarea v-model="value" rows="5" cols="30" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Textarea v-model="value" rows="5" cols="30" class="p-invalid" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Textarea v-model="value" rows="5" cols="30"   class="p-invalid" />
     </div>

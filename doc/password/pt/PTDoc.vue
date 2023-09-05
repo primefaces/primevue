@@ -17,15 +17,13 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Password
+                basic: `<Password
     v-model="value"
     :pt="{
         info: { class: 'font-bold' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Password
             v-model="value"
@@ -45,8 +43,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Password
             v-model="value"

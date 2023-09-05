@@ -21,8 +21,7 @@ export default {
         return {
             visible: false,
             code: {
-                basic: `
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+                basic: `<Button label="Show" icon="pi pi-external-link" @click="visible = true" />
 
 <Dialog v-model:visible="visible" maximizable modal header="Header" :style="{ width: '50vw' }">
     <p>
@@ -30,8 +29,7 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 </Dialog>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
         <Dialog v-model:visible="visible" maximizable modal header="Header" :style="{ width: '50vw' }">
@@ -52,8 +50,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
         <Dialog v-model:visible="visible" maximizable modal header="Header" :style="{ width: '50vw' }">

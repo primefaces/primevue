@@ -9,18 +9,35 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes) | null | undefined;
+export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface OrganizationChartPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: OrganizationChartProps;
+    /**
+     * Defines current inline state.
+     */
     state: OrganizationChartState;
+    /**
+     * Defines current options.
+     */
     context: OrganizationChartContext;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -83,59 +100,59 @@ export interface OrganizationChartCollapsedKeys {
  */
 export interface OrganizationChartPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table's DOM element.
+     * Used to pass attributes to the table's DOM element.
      */
     table?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the body's DOM element.
+     * Used to pass attributes to the body's DOM element.
      */
     body?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row' DOM element.
+     * Used to pass attributes to the row' DOM element.
      */
     row?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cell's DOM element.
+     * Used to pass attributes to the cell's DOM element.
      */
     cell?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the node's DOM element.
+     * Used to pass attributes to the node's DOM element.
      */
     node?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nodeToggler's DOM element.
+     * Used to pass attributes to the nodeToggler's DOM element.
      */
     nodeToggler?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nodeTogglerIcon's DOM element.
+     * Used to pass attributes to the nodeTogglerIcon's DOM element.
      */
     nodeTogglerIcon?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the lines's DOM element.
+     * Used to pass attributes to the lines's DOM element.
      */
     lines?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the lineCell's DOM element.
+     * Used to pass attributes to the lineCell's DOM element.
      */
     lineCell?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the lineDown's DOM element.
+     * Used to pass attributes to the lineDown's DOM element.
      */
     lineDown?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nodes's DOM element.
+     * Used to pass attributes to the nodes's DOM element.
      */
     nodes?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nodeCell's DOM element.
+     * Used to pass attributes to the nodeCell's DOM element.
      */
     nodeCell?: OrganizationChartPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -221,10 +238,15 @@ export interface OrganizationChartProps {
      */
     collapsible?: boolean;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {OrganizationChartPassThroughOptions}
      */
-    pt?: OrganizationChartPassThroughOptions;
+    pt?: PassThrough<OrganizationChartPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

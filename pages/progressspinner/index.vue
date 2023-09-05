@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue ProgressSpinner Component" header="ProgressSpinner" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressSpinner']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue ProgressSpinner Component" header="ProgressSpinner" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressSpinner']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -7,9 +7,8 @@ import AccessibilityDoc from '@/doc/progressspinner/AccessibilityDoc';
 import BasicDoc from '@/doc/progressspinner/BasicDoc';
 import CustomDoc from '@/doc/progressspinner/CustomDoc';
 import ImportDoc from '@/doc/progressspinner/ImportDoc';
-import StyleDoc from '@/doc/progressspinner/StyleDoc';
 import PTComponent from '@/doc/progressspinner/pt/index.vue';
-
+import ThemingDoc from '@/doc/progressspinner/theming/index.vue';
 export default {
     data() {
         return {
@@ -30,17 +29,13 @@ export default {
                     component: CustomDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

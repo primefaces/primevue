@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo">
-        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
+        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }">
                 <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
                     <slot></slot>
@@ -97,7 +97,6 @@ export default {
         },
         hide() {
             this.visible = false;
-            DomHandler.focus(this.target);
         },
         onContentClick() {
             this.selfClick = true;
@@ -160,7 +159,10 @@ export default {
             }
         },
         onContentKeydown(event) {
-            event.code === 'Escape' && this.hide();
+            if (event.code === 'Escape') {
+                this.hide();
+                DomHandler.focus(this.target);
+            }
         },
         onButtonKeydown(event) {
             switch (event.code) {
@@ -244,6 +246,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';

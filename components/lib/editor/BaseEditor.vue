@@ -2,7 +2,7 @@
 import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
-const styles = `
+const quillStyles = `
 /*!
  * Quill Editor v1.3.3
  * https://quilljs.com/
@@ -953,24 +953,10 @@ const styles = `
 const classes = {
     root: 'p-editor-container',
     toolbar: 'p-editor-toolbar',
-    formats: 'ql-formats',
-    header: 'ql-header',
-    font: 'ql-font',
-    bold: 'ql-bold',
-    italic: 'ql-italic',
-    underline: 'ql-underline',
-    color: 'ql-color',
-    background: 'ql-background',
-    list: 'ql-list',
-    select: 'ql-align',
-    link: 'ql-link',
-    image: 'ql-image',
-    codeBlock: 'ql-code-block',
-    clean: 'ql-clean',
     content: 'p-editor-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { name: 'editor', manual: true });
+const { load: loadStyle } = useStyle(quillStyles, { name: 'editor', manual: true });
 
 export default {
     name: 'BaseEditor',
@@ -983,14 +969,16 @@ export default {
         editorStyle: null,
         modules: null
     },
-    css: {
-        classes,
-        loadStyle
-    },
     provide() {
         return {
             $parentInstance: this
         };
+    },
+    beforeMount() {
+        loadStyle();
+    },
+    css: {
+        classes
     }
 };
 </script>

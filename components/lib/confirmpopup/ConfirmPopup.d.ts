@@ -7,21 +7,37 @@
  * @module confirmpopup
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughAttributes | ((options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes) | null | undefined;
+export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughAttributes | ((options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ConfirmPopupPassThroughTransitionType = TransitionProps | ((options: ConfirmPopupPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ConfirmPopupPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ConfirmPopupProps;
+    /**
+     * Defines current inline state.
+     */
     state: ConfirmPopupState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -30,40 +46,44 @@ export interface ConfirmPopupPassThroughMethodOptions {
  */
 export interface ConfirmPopupPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the message's DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     rejectButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     acceptButton?: ButtonPassThroughOptions;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ConfirmPopupPassThroughTransitionType;
 }
 
 /**
@@ -97,10 +117,15 @@ export interface ConfirmPopupProps {
      */
     group?: string;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmPopupPassThroughOptions}
      */
-    pt?: ConfirmPopupPassThroughOptions;
+    pt?: PassThrough<ConfirmPopupPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -124,6 +149,7 @@ export interface ConfirmPopupSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     *  @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

@@ -81,8 +81,7 @@ export default {
             products: null,
             layout: 'grid',
             code: {
-                basic: `
-<DataView
+                basic: `<DataView
     :value="products"
     :layout="layout"
     :pt="{
@@ -149,8 +148,7 @@ export default {
         </div>
     </template>
 </DataView>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataView
             :value="products"
@@ -254,8 +252,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataView
             :value="products"

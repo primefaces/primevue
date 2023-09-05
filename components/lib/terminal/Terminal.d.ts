@@ -8,17 +8,31 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { PassThroughOptions } from '../passthrough';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TerminalPassThroughOptionType = TerminalPassThroughAttributes | ((options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes) | null | undefined;
+export declare type TerminalPassThroughOptionType = TerminalPassThroughAttributes | ((options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TerminalPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TerminalProps;
+    /**
+     * Defines current inline state.
+     */
     state: TerminalState;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
 }
 
 /**
@@ -27,43 +41,43 @@ export interface TerminalPassThroughMethodOptions {
  */
 export interface TerminalPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the welcome message's DOM element.
+     * Used to pass attributes to the welcome message's DOM element.
      */
     welcomeMessage?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the commands' DOM element.
+     * Used to pass attributes to the commands' DOM element.
      */
     commands?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the prompt's DOM element.
+     * Used to pass attributes to the prompt's DOM element.
      */
     prompt?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the command's DOM element.
+     * Used to pass attributes to the command's DOM element.
      */
     command?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the response's DOM element.
+     * Used to pass attributes to the response's DOM element.
      */
     response?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the command text's DOM element.
+     * Used to pass attributes to the command text's DOM element.
      */
     commandText?: TerminalPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -103,10 +117,15 @@ export interface TerminalProps {
      */
     prompt?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TerminalPassThroughOptions}
      */
-    pt?: TerminalPassThroughOptions;
+    pt?: PassThrough<TerminalPassThroughOptions>;
+    /**
+     * Used to configure passthrough(pt) options of the component.
+     * @type {PassThroughOptions}
+     */
+    ptOptions?: PassThroughOptions;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
