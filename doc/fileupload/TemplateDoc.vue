@@ -317,7 +317,7 @@ const onTemplatedUpload = () => {
     toast.add({ severity: "info", summary: "Success", detail: "File Uploaded", life: 3000 });
 };
 
-formatSize(bytes) {
+const formatSize = (bytes) => {
     const k = 1024;
     const dm = 3;
     const sizes = this.$primevue.config.locale.fileSizeTypes;
