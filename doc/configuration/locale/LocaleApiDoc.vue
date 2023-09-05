@@ -229,6 +229,10 @@
                         <td>0</td>
                     </tr>
                     <tr>
+                        <td>showMonthAfterYear</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>dateFormat</td>
                         <td>mm/dd/yy</td>
                     </tr>
