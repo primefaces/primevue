@@ -56,16 +56,21 @@ export default {
     },
 
     resolveFieldData(data, field) {
+        if (!data || !field) {
+            // short circuit if there is nothing to resolve
+            return null;
+        }
+
         try {
             const value = data[field];
-            if (value)
-                return value;
-        }
-        catch {
+
+            if (this.isNotEmpty(value)) return value;
+        } catch {
+            // Performance optimization: https://github.com/primefaces/primereact/issues/4797
             // do nothing and continue to other methods to resolve field data
         }
 
-        if (data && Object.keys(data).length && field) {
+        if (Object.keys(data).length) {
             if (this.isFunction(field)) {
                 return field(data);
             } else if (field.indexOf('.') === -1) {
@@ -84,9 +89,9 @@ export default {
 
                 return value;
             }
-        } else {
-            return null;
         }
+
+        return null;
     },
 
     getItemValue(obj, ...params) {
