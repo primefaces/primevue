@@ -38,6 +38,6 @@ describe('Splitter.vue', () => {
 
         await wrapper.vm.onGutterMouseDown({ currentTarget: { gutter, previousElementSibling: siblings[0].element, nextElementSibling: siblings[1].element }, pageX: 123 }, 0);
 
-        expect(wrapper.find('.p-splitter').classes()).toContain('p-splitter-resizing');
+        expect(wrapper.find('.p-splitter').classes()).toContain('p-splitter-horizontal');
     });
 });

@@ -15,13 +15,13 @@ describe('Skeleton.vue', () => {
     it('should get width and height', async () => {
         await wrapper.setProps({ width: '5rem', height: '2rem', borderRadius: '10px' });
 
-        expect(wrapper.find('.p-skeleton').attributes().style).toEqual('width: 5rem; height: 2rem; border-radius: 10px;');
+        expect(wrapper.find('.p-skeleton').attributes().style).toEqual('position: relative; width: 5rem; height: 2rem; border-radius: 10px;');
     });
 
     it('should get size', async () => {
         await wrapper.setProps({ size: '4rem' });
 
-        expect(wrapper.find('.p-skeleton').attributes().style).toEqual('width: 4rem; height: 4rem;');
+        expect(wrapper.find('.p-skeleton').attributes().style).toEqual('position: relative; width: 4rem; height: 4rem;');
     });
 
     it('should get shape', async () => {

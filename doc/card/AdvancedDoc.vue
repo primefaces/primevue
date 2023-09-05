@@ -5,7 +5,7 @@
     <div class="card flex align-items-center justify-content-center">
         <Card style="width: 25em">
             <template #header>
-                <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+                <img alt="user header" class="w-full" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
             </template>
             <template #title> Advanced Card </template>
             <template #subtitle> Card subtitle </template>
@@ -29,8 +29,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Card style="width: 25em">
+                basic: `<Card style="width: 25em">
     <template #header>
         <img alt="user header" src="/images/usercard.png" />
     </template>
@@ -47,8 +46,7 @@ export default {
         <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
     </template>
 </Card>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex align-items-center justify-content-center">
         <Card style="width: 25em">
             <template #header>
@@ -72,8 +70,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex align-items-center justify-content-center">
         <Card style="width: 25em">
             <template #header>

@@ -1,15 +1,15 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')" data-pc-name="datatable">
         <slot></slot>
-        <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay">
+        <div v-if="loading" :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
-                <component v-if="$slots.loadingicon" :is="$slots.loadingicon" class="p-datatable-loading-icon" />
-                <i v-else-if="loadingIcon" :class="['p-datatable-loading-icon pi-spin', loadingIcon]" />
-                <SpinnerIcon v-else spin class="p-datatable-loading-icon" />
+                <component v-if="$slots.loadingicon" :is="$slots.loadingicon" :class="cx('loadingIcon')" />
+                <i v-else-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
             </template>
         </div>
-        <div v-if="$slots.header" class="p-datatable-header">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <DTPaginator
@@ -21,9 +21,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            class="p-paginator-top"
+            :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -44,7 +46,7 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
+        <div :class="cx('wrapper')" :style="[sx('wrapper'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('wrapper')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
@@ -57,9 +59,10 @@
                 inline
                 autoSize
                 :showSpacer="false"
+                :pt="ptm('virtualScroller')"
             >
                 <template #content="slotProps">
-                    <table ref="table" role="table" :class="tableStyleClass" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
+                    <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">
                         <DTTableHeader
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
@@ -89,13 +92,14 @@
                             @column-drop="onColumnHeaderDrop($event)"
                             @column-resizestart="onColumnResizeStart($event)"
                             @checkbox-change="toggleRowsWithCheckbox($event)"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                         <DTTableBody
                             v-if="frozenValue"
                             ref="frozenBodyRef"
                             :value="frozenValue"
                             :frozenRow="true"
-                            class="p-datatable-frozen-tbody"
                             :columns="slotProps.columns"
                             :first="d_first"
                             :dataKey="dataKey"
@@ -145,6 +149,8 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                         <DTTableBody
                             ref="bodyRef"
@@ -201,14 +207,21 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
-                        <tbody v-if="hasSpacerStyle(slotProps.spacerStyle)" :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }" class="p-datatable-virtualscroller-spacer"></tbody>
-                        <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" />
+                        <tbody
+                            v-if="hasSpacerStyle(slotProps.spacerStyle)"
+                            :class="cx('virtualScrollerSpacer')"
+                            :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }"
+                            v-bind="ptm('virtualScrollerSpacer')"
+                        ></tbody>
+                        <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" :pt="pt" />
                     </table>
                 </template>
             </DTVirtualScroller>
         </div>
-        <div v-if="$slots.footer" class="p-datatable-footer">
+        <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
         <DTPaginator
@@ -220,9 +233,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            class="p-paginator-bottom"
+            :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -243,11 +258,11 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
-        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="p-datatable-reorder-indicator-up" style="position: absolute; display: none">
+        <div ref="resizeHelper" :class="cx('resizeHelper')" style="display: none" v-bind="ptm('resizeHelper')"></div>
+        <span v-if="reorderableColumns" ref="reorderIndicatorUp" :class="cx('reorderIndicatorUp')" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorUp')">
             <component :is="$slots.reorderindicatorupicon || 'ArrowDownIcon'" />
         </span>
-        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="p-datatable-reorder-indicator-down" style="position: absolute; display: none">
+        <span v-if="reorderableColumns" ref="reorderIndicatorDown" :class="cx('reorderIndicatorDown')" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorDown')">
             <component :is="$slots.reorderindicatordownicon || 'ArrowUpIcon'" />
         </span>
     </div>
@@ -261,12 +276,14 @@ import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import BaseDataTable from './BaseDataTable.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
 import TableHeader from './TableHeader.vue';
 
 export default {
     name: 'DataTable',
+    extends: BaseDataTable,
     emits: [
         'value-change',
         'update:first',
@@ -307,264 +324,6 @@ export default {
         'row-edit-save',
         'row-edit-cancel'
     ],
-    props: {
-        value: {
-            type: Array,
-            default: null
-        },
-        dataKey: {
-            type: [String, Function],
-            default: null
-        },
-        rows: {
-            type: Number,
-            default: 0
-        },
-        first: {
-            type: Number,
-            default: 0
-        },
-        totalRecords: {
-            type: Number,
-            default: 0
-        },
-        paginator: {
-            type: Boolean,
-            default: false
-        },
-        paginatorPosition: {
-            type: String,
-            default: 'bottom'
-        },
-        alwaysShowPaginator: {
-            type: Boolean,
-            default: true
-        },
-        paginatorTemplate: {
-            type: [Object, String],
-            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
-        },
-        pageLinkSize: {
-            type: Number,
-            default: 5
-        },
-        rowsPerPageOptions: {
-            type: Array,
-            default: null
-        },
-        currentPageReportTemplate: {
-            type: String,
-            default: '({currentPage} of {totalPages})'
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        sortField: {
-            type: [String, Function],
-            default: null
-        },
-        sortOrder: {
-            type: Number,
-            default: null
-        },
-        defaultSortOrder: {
-            type: Number,
-            default: 1
-        },
-        multiSortMeta: {
-            type: Array,
-            default: null
-        },
-        sortMode: {
-            type: String,
-            default: 'single'
-        },
-        removableSort: {
-            type: Boolean,
-            default: false
-        },
-        filters: {
-            type: Object,
-            default: null
-        },
-        filterDisplay: {
-            type: String,
-            default: null
-        },
-        globalFilterFields: {
-            type: Array,
-            default: null
-        },
-        filterLocale: {
-            type: String,
-            default: undefined
-        },
-        selection: {
-            type: [Array, Object],
-            default: null
-        },
-        selectionMode: {
-            type: String,
-            default: null
-        },
-        compareSelectionBy: {
-            type: String,
-            default: 'deepEquals'
-        },
-        metaKeySelection: {
-            type: Boolean,
-            default: true
-        },
-        contextMenu: {
-            type: Boolean,
-            default: false
-        },
-        contextMenuSelection: {
-            type: Object,
-            default: null
-        },
-        selectAll: {
-            type: Boolean,
-            default: null
-        },
-        rowHover: {
-            type: Boolean,
-            default: false
-        },
-        csvSeparator: {
-            type: String,
-            default: ','
-        },
-        exportFilename: {
-            type: String,
-            default: 'download'
-        },
-        exportFunction: {
-            type: Function,
-            default: null
-        },
-        resizableColumns: {
-            type: Boolean,
-            default: false
-        },
-        columnResizeMode: {
-            type: String,
-            default: 'fit'
-        },
-        reorderableColumns: {
-            type: Boolean,
-            default: false
-        },
-        expandedRows: {
-            type: Array,
-            default: null
-        },
-        expandedRowIcon: {
-            type: String,
-            default: undefined
-        },
-        collapsedRowIcon: {
-            type: String,
-            default: undefined
-        },
-        rowGroupMode: {
-            type: String,
-            default: null
-        },
-        groupRowsBy: {
-            type: [Array, String, Function],
-            default: null
-        },
-        expandableRowGroups: {
-            type: Boolean,
-            default: false
-        },
-        expandedRowGroups: {
-            type: Array,
-            default: null
-        },
-        stateStorage: {
-            type: String,
-            default: 'session'
-        },
-        stateKey: {
-            type: String,
-            default: null
-        },
-        editMode: {
-            type: String,
-            default: null
-        },
-        editingRows: {
-            type: Array,
-            default: null
-        },
-        rowClass: {
-            type: null,
-            default: null
-        },
-        rowStyle: {
-            type: null,
-            default: null
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
-        },
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        frozenValue: {
-            type: Array,
-            default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: 'scroll'
-        },
-        breakpoint: {
-            type: String,
-            default: '960px'
-        },
-        showGridlines: {
-            type: Boolean,
-            default: false
-        },
-        stripedRows: {
-            type: Boolean,
-            default: false
-        },
-        tableStyle: {
-            type: null,
-            default: null
-        },
-        tableClass: {
-            type: String,
-            default: null
-        },
-        tableProps: {
-            type: null,
-            default: null
-        },
-        filterInputProps: {
-            type: null,
-            default: null
-        }
-    },
     data() {
         return {
             d_first: this.first,
@@ -627,9 +386,12 @@ export default {
                 this.updateExpandedRowKeys(newValue);
             }
         },
-        editingRows(newValue) {
-            if (this.dataKey) {
-                this.updateEditingRowKeys(newValue);
+        editingRows: {
+            deep: true,
+            handler(newValue) {
+                if (this.dataKey) {
+                    this.updateEditingRowKeys(newValue);
+                }
             }
         },
         filters: {
@@ -647,7 +409,7 @@ export default {
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
-        if (this.responsiveLayout === 'stack' && !this.scrollable) {
+        if (this.responsiveLayout === 'stack' && !this.scrollable && !this.unstyled) {
             this.createResponsiveStyle();
         }
 
@@ -702,11 +464,13 @@ export default {
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (
-                    DomHandler.hasClass(targetNode, 'p-sortable-column') ||
-                    DomHandler.hasClass(targetNode, 'p-column-title') ||
-                    DomHandler.hasClass(targetNode, 'p-column-header-content') ||
-                    DomHandler.hasClass(targetNode, 'p-sortable-column-icon') ||
-                    DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')
+                    DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headercontent' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]'))
                 ) {
                     DomHandler.clearSelection();
 
@@ -755,17 +519,24 @@ export default {
             }
 
             let data = [...value];
+            let resolvedFieldDatas = new Map();
+
+            for (let item of data) {
+                resolvedFieldDatas.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+            }
+
+            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
             data.sort((data1, data2) => {
-                let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
-                let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                let value1 = resolvedFieldDatas.get(data1);
+                let value2 = resolvedFieldDatas.get(data2);
 
                 let result = null;
 
                 if (value1 == null && value2 != null) result = -1;
                 else if (value1 != null && value2 == null) result = 1;
                 else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                 else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                 return this.d_sortOrder * result;
@@ -801,7 +572,9 @@ export default {
 
             if (typeof value1 === 'string' || value1 instanceof String) {
                 if (value1.localeCompare && value1 !== value2) {
-                    return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+
+                    return this.d_multiSortMeta[index].order * comparer(value1, value2);
                 }
             } else {
                 result = value1 < value2 ? -1 : 1;
@@ -825,6 +598,26 @@ export default {
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
+        getActiveFilters(filters) {
+            const removeEmptyFilters = ([key, value]) => {
+                if (value.constraints) {
+                    const filteredConstraints = value.constraints.filter((constraint) => constraint.value !== null);
+
+                    if (filteredConstraints.length > 0) {
+                        return [key, { ...value, constraints: filteredConstraints }];
+                    }
+                } else if (value.value !== null) {
+                    return [key, value];
+                }
+
+                return undefined;
+            };
+
+            const filterValidEntries = (entry) => entry !== undefined;
+            const entries = Object.entries(filters).map(removeEmptyFilters).filter(filterValidEntries);
+
+            return Object.fromEntries(entries);
+        },
         filter(data) {
             if (!data) {
                 return;
@@ -832,9 +625,10 @@ export default {
 
             this.clearEditingMetaData();
 
+            let activeFilters = this.getActiveFilters(this.filters);
             let globalFilterFieldsArray;
 
-            if (this.filters['global']) {
+            if (activeFilters['global']) {
                 globalFilterFieldsArray = this.globalFilterFields || this.columns.map((col) => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
             }
 
@@ -845,11 +639,11 @@ export default {
                 let globalMatch = false;
                 let localFiltered = false;
 
-                for (let prop in this.filters) {
-                    if (Object.prototype.hasOwnProperty.call(this.filters, prop) && prop !== 'global') {
+                for (let prop in activeFilters) {
+                    if (Object.prototype.hasOwnProperty.call(activeFilters, prop) && prop !== 'global') {
                         localFiltered = true;
                         let filterField = prop;
-                        let filterMeta = this.filters[filterField];
+                        let filterMeta = activeFilters[filterField];
 
                         if (filterMeta.operator) {
                             for (let filterConstraint of filterMeta.constraints) {
@@ -869,11 +663,11 @@ export default {
                     }
                 }
 
-                if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
+                if (localMatch && activeFilters['global'] && !globalMatch && globalFilterFieldsArray) {
                     for (let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
 
-                        globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+                        globalMatch = FilterService.filters[activeFilters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), activeFilters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
                             break;
@@ -883,7 +677,7 @@ export default {
 
                 let matches;
 
-                if (this.filters['global']) {
+                if (activeFilters['global']) {
                     matches = localFiltered ? localFiltered && localMatch && globalMatch : globalMatch;
                 } else {
                     matches = localFiltered && localMatch;
@@ -894,7 +688,7 @@ export default {
                 }
             }
 
-            if (filteredValue.length === this.value.length) {
+            if (filteredValue.length === this.value.length || Object.keys(activeFilters).length == 0) {
                 filteredValue = data;
             }
 
@@ -918,7 +712,7 @@ export default {
             const event = e.originalEvent;
             const index = e.index;
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
-            const focusedItem = DomHandler.findSingle(body, 'tr.p-selectable-row[tabindex="0"]');
+            const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
             if (DomHandler.isClickable(event.target)) {
                 return;
@@ -998,7 +792,7 @@ export default {
 
             if (focusedItem) {
                 focusedItem.tabIndex = '-1';
-                DomHandler.find(body, 'tr.p-selectable-row')[index].tabIndex = '0';
+                DomHandler.find(body, 'tr[data-p-selectable-row="true"]')[index].tabIndex = '0';
             }
         },
         onRowDblClick(e) {
@@ -1011,8 +805,10 @@ export default {
             this.$emit('row-dblclick', e);
         },
         onRowRightClick(event) {
-            DomHandler.clearSelection();
-            event.originalEvent.target.focus();
+            if (this.contextMenu) {
+                DomHandler.clearSelection();
+                event.originalEvent.target.focus();
+            }
 
             this.$emit('update:contextMenuSelection', event.data);
             this.$emit('row-contextmenu', event);
@@ -1152,11 +948,11 @@ export default {
         },
         onTabKey(event, rowIndex) {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
-            const rows = DomHandler.find(body, 'tr.p-selectable-row');
+            const rows = DomHandler.find(body, 'tr[data-p-selectable-row="true"]');
 
             if (event.code === 'Tab' && rows && rows.length > 0) {
-                const firstSelectedRow = DomHandler.findSingle(body, 'tr.p-highlight');
-                const focusedItem = DomHandler.findSingle(body, 'tr.p-selectable-row[tabindex="0"]');
+                const firstSelectedRow = DomHandler.findSingle(body, 'tr[data-p-highlight="true"]');
+                const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
                 if (firstSelectedRow) {
                     firstSelectedRow.tabIndex = '0';
@@ -1171,7 +967,7 @@ export default {
             let nextRow = row.nextElementSibling;
 
             if (nextRow) {
-                if (DomHandler.hasClass(nextRow, 'p-selectable-row')) return nextRow;
+                if (DomHandler.getAttribute(nextRow, 'data-p-selectable-row') === true) return nextRow;
                 else return this.findNextSelectableRow(nextRow);
             } else {
                 return null;
@@ -1181,19 +977,19 @@ export default {
             let prevRow = row.previousElementSibling;
 
             if (prevRow) {
-                if (DomHandler.hasClass(prevRow, 'p-selectable-row')) return prevRow;
+                if (DomHandler.getAttribute(prevRow, 'data-p-selectable-row') === true) return prevRow;
                 else return this.findPrevSelectableRow(prevRow);
             } else {
                 return null;
             }
         },
         findFirstSelectableRow() {
-            const firstRow = DomHandler.findSingle(this.$refs.table, '.p-selectable-row');
+            const firstRow = DomHandler.findSingle(this.$refs.table, 'tr[data-p-selectable-row="true"]');
 
             return firstRow;
         },
         findLastSelectableRow() {
-            const rows = DomHandler.find(this.$refs.table, '.p-selectable-row');
+            const rows = DomHandler.find(this.$refs.table, 'tr[data-p-selectable-row="true"]');
 
             return rows ? rows[rows.length - 1] : null;
         },
@@ -1437,7 +1233,8 @@ export default {
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
 
-            DomHandler.addClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -1465,6 +1262,8 @@ export default {
                         !!el && (el.style.width = el.style.minWidth = tableWidth);
                     };
 
+                    // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
+                    this.resizeTableCells(newColumnWidth);
                     updateTableWidth(this.$refs.table);
 
                     if (!this.virtualScrollerDisabled) {
@@ -1474,8 +1273,6 @@ export default {
                         updateTableWidth(body);
                         updateTableWidth(frozenBody);
                     }
-
-                    this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -1486,7 +1283,8 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            DomHandler.removeClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
 
@@ -1497,7 +1295,7 @@ export default {
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
             let widths = [];
-            let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+            let headers = DomHandler.find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
 
             headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
 
@@ -1505,16 +1303,16 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
+            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-section="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
                 let style = `width: ${colWidth}px !important; max-width: ${colWidth}px !important`;
 
                 innerHTML += `
-                    ${selector} > .p-datatable-thead > tr > th:nth-child(${index + 1}),
-                    ${selector} > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
-                    ${selector} > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                    ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
+                    ${selector} > tbody[data-pc-section="tbody"] > tr > td:nth-child(${index + 1}),
+                    ${selector} > tfoot[data-pc-section="tfoot"] > tr > td:nth-child(${index + 1}) {
                         ${style}
                     }
                 `;
@@ -1556,7 +1354,7 @@ export default {
             const column = e.column;
 
             if (this.reorderableColumns && this.columnProp(column, 'reorderableColumn') !== false) {
-                if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer')) event.currentTarget.draggable = false;
+                if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.getAttribute(event.target, '[data-pc-section="columnresizer"]')) event.currentTarget.draggable = false;
                 else event.currentTarget.draggable = true;
             }
         },
@@ -1668,7 +1466,7 @@ export default {
             return null;
         },
         onRowMouseDown(event) {
-            if (DomHandler.hasClass(event.target, 'p-datatable-reorderablerow-handle')) event.currentTarget.draggable = true;
+            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowreordericon') event.currentTarget.draggable = true;
             else event.currentTarget.draggable = false;
         },
         onRowDragStart(e) {
@@ -1691,17 +1489,30 @@ export default {
                 let prevRowElement = rowElement.previousElementSibling;
 
                 if (pageY < rowMidY) {
-                    DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                    !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
 
                     this.droppedRowIndex = index;
-                    if (prevRowElement) DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                        !this.isUnstyled && DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
                 } else {
-                    if (prevRowElement) DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                        !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
 
                     this.droppedRowIndex = index + 1;
-                    DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                    !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
                 }
 
                 event.preventDefault();
@@ -1712,11 +1523,14 @@ export default {
             let prevRowElement = rowElement.previousElementSibling;
 
             if (prevRowElement) {
-                DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
             }
 
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
+            rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+            rowElement.setAttribute('data-p-datatable-dragpoint-top', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
         },
         onRowDragEnd(event) {
             this.rowDragging = false;
@@ -1923,7 +1737,7 @@ export default {
         },
         saveColumnWidths(state) {
             let widths = [];
-            let headers = DomHandler.find(this.$el, '.p-datatable-thead > tr > th');
+            let headers = DomHandler.find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
 
             headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
             state.columnWidths = widths.join(',');
@@ -1946,15 +1760,15 @@ export default {
                     this.createStyleElement();
 
                     let innerHTML = '';
-                    let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
+                    let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-section="virtualscroller"]'} > table[data-pc-section="table"]`;
 
                     widths.forEach((width, index) => {
                         let style = `width: ${width}px !important; max-width: ${width}px !important`;
 
                         innerHTML += `
-                            ${selector} > .p-datatable-thead > tr > th:nth-child(${index + 1}),
-                            ${selector} > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
-                            ${selector} > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                            ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
+                            ${selector} > tbody[data-pc-section="tbody"] > tr > td:nth-child(${index + 1}),
+                            ${selector} > tfoot[data-pc-section="tfoot"] > tr > td:nth-child(${index + 1}) {
                                 ${style}
                             }
                         `;
@@ -2071,12 +1885,14 @@ export default {
         createStyleElement() {
             this.styleElement = document.createElement('style');
             this.styleElement.type = 'text/css';
+            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
         },
         createResponsiveStyle() {
             if (!this.responsiveStyleElement) {
                 this.responsiveStyleElement = document.createElement('style');
                 this.responsiveStyleElement.type = 'text/css';
+                DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.responsiveStyleElement);
 
                 let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
@@ -2163,35 +1979,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-datatable p-component',
-                {
-                    'p-datatable-hoverable-rows': this.rowHover || this.selectionMode,
-                    'p-datatable-resizable': this.resizableColumns,
-                    'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                    'p-datatable-scrollable': this.scrollable,
-                    'p-datatable-flex-scrollable': this.scrollable && this.scrollHeight === 'flex',
-                    'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
-                    'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll',
-                    'p-datatable-striped': this.stripedRows,
-                    'p-datatable-gridlines': this.showGridlines,
-                    'p-datatable-grouped-header': this.headerColumnGroup != null,
-                    'p-datatable-grouped-footer': this.footerColumnGroup != null
-                }
-            ];
-        },
-        tableStyleClass() {
-            return [
-                'p-datatable-table',
-                {
-                    'p-datatable-scrollable-table': this.scrollable,
-                    'p-datatable-resizable-table': this.resizableColumns,
-                    'p-datatable-resizable-table-fit': this.resizableColumns && this.columnResizeMode === 'fit'
-                },
-                this.tableClass
-            ];
-        },
         columns() {
             let children = this.getChildren();
 
@@ -2318,252 +2105,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-datatable {
-    position: relative;
-}
-
-.p-datatable > .p-datatable-wrapper {
-    overflow: auto;
-}
-
-.p-datatable-table {
-    border-spacing: 0px;
-    width: 100%;
-}
-
-.p-datatable .p-sortable-column {
-    cursor: pointer;
-    user-select: none;
-}
-
-.p-datatable .p-sortable-column .p-column-title,
-.p-datatable .p-sortable-column .p-sortable-column-icon,
-.p-datatable .p-sortable-column .p-sortable-column-badge {
-    vertical-align: middle;
-}
-
-.p-datatable .p-sortable-column .p-sortable-column-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-datatable-hoverable-rows .p-selectable-row {
-    cursor: pointer;
-}
-
-/* Scrollable */
-.p-datatable-scrollable > .p-datatable-wrapper {
-    position: relative;
-}
-
-.p-datatable-scrollable-table > .p-datatable-thead {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.p-datatable-scrollable-table > .p-datatable-frozen-tbody {
-    position: sticky;
-    z-index: 1;
-}
-
-.p-datatable-scrollable-table > .p-datatable-tfoot {
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-}
-
-.p-datatable-scrollable .p-frozen-column {
-    position: sticky;
-    background: inherit;
-}
-
-.p-datatable-scrollable th.p-frozen-column {
-    z-index: 1;
-}
-
-.p-datatable-flex-scrollable {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.p-datatable-flex-scrollable > .p-datatable-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
-}
-
-.p-datatable-scrollable-table > .p-datatable-tbody > .p-rowgroup-header {
-    position: sticky;
-    z-index: 1;
-}
-
-/* Resizable */
-.p-datatable-resizable-table > .p-datatable-thead > tr > th,
-.p-datatable-resizable-table > .p-datatable-tfoot > tr > td,
-.p-datatable-resizable-table > .p-datatable-tbody > tr > td {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-resizable-column:not(.p-frozen-column) {
-    background-clip: padding-box;
-    position: relative;
-}
-
-.p-datatable-resizable-table-fit > .p-datatable-thead > tr > th.p-resizable-column:last-child .p-column-resizer {
-    display: none;
-}
-
-.p-datatable .p-column-resizer {
-    display: block;
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    margin: 0;
-    width: 0.5rem;
-    height: 100%;
-    padding: 0px;
-    cursor: col-resize;
-    border: 1px solid transparent;
-}
-
-.p-datatable .p-column-header-content {
-    display: flex;
-    align-items: center;
-}
-
-.p-datatable .p-column-resizer-helper {
-    width: 1px;
-    position: absolute;
-    z-index: 10;
-    display: none;
-}
-
-.p-datatable .p-row-editor-init,
-.p-datatable .p-row-editor-save,
-.p-datatable .p-row-editor-cancel {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Expand */
-.p-datatable .p-row-toggler {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Reorder */
-.p-datatable-reorder-indicator-up,
-.p-datatable-reorder-indicator-down {
-    position: absolute;
-    display: none;
-}
-
-.p-reorderable-column,
-.p-datatable-reorderablerow-handle {
-    cursor: move;
-}
-
-/* Loader */
-.p-datatable .p-datatable-loading-overlay {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-/* Filter */
-.p-column-filter-row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.p-column-filter-menu {
-    display: inline-flex;
-    margin-left: auto;
-}
-
-.p-column-filter-row .p-column-filter-element {
-    flex: 1 1 auto;
-    width: 1%;
-}
-
-.p-column-filter-menu-button,
-.p-column-filter-clear-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-column-filter-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-column-filter-row-items {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-column-filter-row-item {
-    cursor: pointer;
-}
-
-.p-column-filter-add-button,
-.p-column-filter-remove-button {
-    justify-content: center;
-}
-
-.p-column-filter-add-button .p-button-label,
-.p-column-filter-remove-button .p-button-label {
-    flex-grow: 0;
-}
-
-.p-column-filter-buttonbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.p-column-filter-buttonbar .p-button:not(.p-button-icon-only) {
-    width: auto;
-}
-
-/* Responsive */
-.p-datatable .p-datatable-tbody > tr > td > .p-column-title {
-    display: none;
-}
-
-/* VirtualScroller */
-.p-datatable-virtualscroller-spacer {
-    display: flex;
-}
-
-.p-datatable .p-virtualscroller .p-virtualscroller-loading {
-    transform: none !important;
-    min-height: 0;
-    position: sticky;
-    top: 0;
-    left: 0;
-}
-</style>

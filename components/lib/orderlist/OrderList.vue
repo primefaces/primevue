@@ -1,39 +1,39 @@
 <template>
-    <div :class="containerClass">
-        <div class="p-orderlist-controls">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div :class="cx('controls')" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps">
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
-                        <AngleUpIcon />
+                        <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps">
-                <template #icon
-                    ><slot name="movetopicon">
-                        <AngleDoubleUpIcon />
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="ptm('moveTopButton')" :unstyled="unstyled">
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps">
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveDownButton')" v-bind="moveDownButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
-                        <AngleDownIcon />
+                        <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps">
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveBottomButton')" v-bind="moveBottomButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
-                        <AngleDoubleDownIcon />
+                        <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
             <slot name="controlsend"></slot>
         </div>
-        <div class="p-orderlist-list-container">
-            <div v-if="$slots.header" class="p-orderlist-header">
+        <div :class="cx('container')" v-bind="ptm('container')">
+            <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
                 <slot name="header"></slot>
             </div>
             <transition-group
@@ -41,7 +41,7 @@
                 :id="id + '_list'"
                 name="p-orderlist-flip"
                 tag="ul"
-                class="p-orderlist-list"
+                :class="cx('list')"
                 :style="listStyle"
                 role="listbox"
                 aria-multiselectable="true"
@@ -52,10 +52,22 @@
                 @focus="onListFocus"
                 @blur="onListBlur"
                 @keydown="onListKeyDown"
-                v-bind="listProps"
+                v-bind="{ ...listProps, ...ptm('list'), ...ptm('transition') }"
             >
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
-                    <li :id="id + '_' + i" v-ripple role="option" :class="itemClass(item, `${id}_${i}`)" @click="onItemClick($event, item, i)" @touchend="onItemTouchEnd" :aria-selected="isSelected(item)" @mousedown="onOptionMouseDown(i)">
+                    <li
+                        :id="id + '_' + i"
+                        v-ripple
+                        role="option"
+                        :class="cx('item', { item, id: `${id}_${i}` })"
+                        @click="onItemClick($event, item, i)"
+                        @touchend="onItemTouchEnd"
+                        :aria-selected="isSelected(item)"
+                        @mousedown="onOptionMouseDown(i)"
+                        v-bind="getPTOptions(item, 'item', i)"
+                        :data-p-highlight="isSelected(item)"
+                        :data-p-focused="`${id}_${i}` === focusedOptionId"
+                    >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -72,76 +84,12 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import BaseOrderList from './BaseOrderList.vue';
 
 export default {
     name: 'OrderList',
+    extends: BaseOrderList,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'focus', 'blur'],
-    props: {
-        modelValue: {
-            type: Array,
-            default: null
-        },
-        selection: {
-            type: Array,
-            default: null
-        },
-        dataKey: {
-            type: String,
-            default: null
-        },
-        listStyle: {
-            type: null,
-            default: null
-        },
-        metaKeySelection: {
-            type: Boolean,
-            default: true
-        },
-        responsive: {
-            type: Boolean,
-            default: true
-        },
-        breakpoint: {
-            type: String,
-            default: '960px'
-        },
-        stripedRows: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        listProps: {
-            type: null,
-            default: null
-        },
-        moveUpButtonProps: {
-            type: null,
-            default: null
-        },
-        moveTopButtonProps: {
-            type: null,
-            default: null
-        },
-        moveDownButtonProps: {
-            type: null,
-            default: null
-        },
-        moveBottomButtonProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     itemTouched: false,
     reorderDirection: null,
     styleElement: null,
@@ -179,11 +127,20 @@ export default {
         getItemKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
         },
+        getPTOptions(item, key, index) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(item),
+                    focused: `${this.id}_${index}` === this.focusedOptionId
+                }
+            });
+        },
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
         onListFocus(event) {
-            const selectedFirstItem = DomHandler.findSingle(this.list, 'li.p-orderlist-item.p-highlight');
+            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
+
             const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
 
             this.focused = true;
@@ -262,8 +219,8 @@ export default {
         },
         onHomeKey(event) {
             if (event.ctrlKey && event.shiftKey) {
-                const items = DomHandler.find(this.list, 'li.p-orderlist-item');
-                const focusedItem = DomHandler.findSingle(this.list, `li.p-orderlist-item[id=${this.focusedOptionIndex}]`);
+                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
+                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
                 const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
 
                 this.d_selection = [...this.modelValue].slice(0, matchedOptionIndex + 1);
@@ -276,21 +233,21 @@ export default {
         },
         onEndKey(event) {
             if (event.ctrlKey && event.shiftKey) {
-                const items = DomHandler.find(this.list, 'li.p-orderlist-item');
-                const focusedItem = DomHandler.findSingle(this.list, `li.p-orderlist-item[id=${this.focusedOptionIndex}]`);
+                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
+                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
                 const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
 
                 this.d_selection = [...this.modelValue].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
             } else {
-                this.changeFocusedOptionIndex(DomHandler.find(this.list, 'li.p-orderlist-item').length - 1);
+                this.changeFocusedOptionIndex(DomHandler.find(this.list, '[data-pc-section="item"]').length - 1);
             }
 
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.list, 'li.p-orderlist-item');
-            const focusedItem = DomHandler.findSingle(this.list, `li.p-orderlist-item[id=${this.focusedOptionIndex}]`);
+            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
+            const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
             const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
 
             this.onItemClick(event, this.modelValue[matchedOptionIndex], matchedOptionIndex);
@@ -299,9 +256,9 @@ export default {
         },
         onSpaceKey(event) {
             if (event.shiftKey) {
-                const items = DomHandler.find(this.list, 'li.p-orderlist-item');
+                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[0], [...this.modelValue]);
-                const focusedItem = DomHandler.findSingle(this.list, `li.p-orderlist-item[id=${this.focusedOptionIndex}]`);
+                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
                 const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
 
                 this.d_selection = [...this.modelValue].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
@@ -311,27 +268,27 @@ export default {
             }
         },
         findNextOptionIndex(index) {
-            const items = DomHandler.find(this.list, 'li.p-orderlist-item');
+            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
             const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.list, 'li.p-orderlist-item');
+            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
             const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.list, 'li.p-orderlist-item');
+            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
 
             let order = index >= items.length ? items.length - 1 : index < 0 ? 0 : index;
 
-            this.focusedOptionIndex = items[order].getAttribute('id');
-            this.scrollInView(items[order].getAttribute('id'));
+            this.focusedOptionIndex = items[order] ? items[order].getAttribute('id') : -1;
+            this.scrollInView(this.focusedOptionIndex);
         },
         scrollInView(id) {
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            const element = DomHandler.findSingle(this.list, `[data-pc-section="item"][id="${id}"]`);
 
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
@@ -450,7 +407,8 @@ export default {
             const selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
-            const selectedId = DomHandler.find(this.list, '.p-orderlist-item')[index].getAttribute('id');
+
+            const selectedId = DomHandler.find(this.list, '[data-pc-section="item"]')[index].getAttribute('id');
 
             this.focusedOptionIndex = selectedId;
 
@@ -484,28 +442,17 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem) return !DomHandler.hasClass(nextItem, 'p-orderlist-item') ? this.findNextItem(nextItem) : nextItem;
+            if (nextItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findNextItem(nextItem) : nextItem;
             else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) return !DomHandler.hasClass(prevItem, 'p-orderlist-item') ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findPrevItem(prevItem) : prevItem;
             else return null;
         },
-        findFirstItem() {
-            return DomHandler.findSingle(this.list, '.p-orderlist-item');
-        },
-        findLastItem() {
-            const items = DomHandler.find(this.list, '.p-orderlist-item');
-
-            return items[items.length - 1];
-        },
-        itemClass(item, id) {
-            return ['p-orderlist-item', { 'p-highlight': this.isSelected(item), 'p-focus': id === this.focusedOptionId }];
-        },
         updateListScroll() {
-            const listItems = DomHandler.find(this.list, '.p-orderlist-item.p-highlight');
+            const listItems = DomHandler.find(this.list, '[data-pc-section="item"][data-p-highlight="true"]');
 
             if (listItems && listItems.length) {
                 switch (this.reorderDirection) {
@@ -531,10 +478,11 @@ export default {
             }
         },
         createStyle() {
-            if (!this.styleElement) {
+            if (!this.styleElement && !this.isUnstyled) {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = `
@@ -578,14 +526,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-orderlist p-component',
-                {
-                    'p-orderlist-striped': this.stripedRows
-                }
-            ];
-        },
         attributeSelector() {
             return UniqueComponentId();
         },
@@ -617,43 +557,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-orderlist {
-    display: flex;
-}
-
-.p-orderlist-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.p-orderlist-list-container {
-    flex: 1 1 auto;
-}
-
-.p-orderlist-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    min-height: 12rem;
-    max-height: 24rem;
-}
-
-.p-orderlist-item {
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-orderlist.p-state-disabled .p-orderlist-item,
-.p-orderlist.p-state-disabled .p-button {
-    cursor: default;
-}
-
-.p-orderlist.p-state-disabled .p-orderlist-list {
-    overflow: hidden;
-}
-</style>

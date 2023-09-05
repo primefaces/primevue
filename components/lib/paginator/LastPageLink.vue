@@ -1,29 +1,31 @@
 <template>
-    <button v-ripple :class="containerClass" type="button">
-        <component :is="template || 'AngleDoubleRightIcon'" class="p-paginator-icon" />
+    <button v-ripple :class="cx('lastPageButton')" type="button" v-bind="getPTOptions('lastPageButton')" data-pc-group-section="pagebutton">
+        <component :is="template || 'AngleDoubleRightIcon'" :class="cx('lastPageIcon')" v-bind="getPTOptions('lastPageIcon')" />
     </button>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import AngleDoubleRightIcon from 'primevue/icons/angledoubleright';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'LastPageLink',
+    hostName: 'Paginator',
+    extends: BaseComponent,
     props: {
         template: {
             type: Function,
             default: null
         }
     },
-    computed: {
-        containerClass() {
-            return [
-                'p-paginator-last p-paginator-element p-link',
-                {
-                    'p-disabled': this.$attrs.disabled
+    methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    disabled: this.$attrs.disabled
                 }
-            ];
+            });
         }
     },
     components: {

@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Slider Component" header="Slider" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['Slider']" />
+    <DocComponent title="Vue Slider Component" header="Slider" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['Slider']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -9,8 +9,9 @@ import ImportDoc from '@/doc/slider/ImportDoc';
 import InputDoc from '@/doc/slider/InputDoc';
 import RangeDoc from '@/doc/slider/RangeDoc';
 import StepDoc from '@/doc/slider/StepDoc';
-import StyleDoc from '@/doc/slider/StyleDoc';
 import VerticalDoc from '@/doc/slider/VerticalDoc';
+import PTComponent from '@/doc/slider/pt/index.vue';
+import ThemingDoc from '@/doc/slider/theming/index.vue';
 
 export default {
     data() {
@@ -47,16 +48,13 @@ export default {
                     component: VerticalDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -8,14 +8,16 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes) | null | undefined;
+export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ProgressBarPassThroughMethodOptions {
+    instance: any;
     props: ProgressBarProps;
 }
 
@@ -25,17 +27,22 @@ export interface ProgressBarPassThroughMethodOptions {
  */
 export interface ProgressBarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ProgressBarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the value's DOM element.
+     * Used to pass attributes to the value's DOM element.
      */
     value?: ProgressBarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ProgressBarPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -64,10 +71,15 @@ export interface ProgressBarProps {
      */
     showValue?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ProgressBarPassThroughOptions}
      */
-    pt?: ProgressBarPassThroughOptions;
+    pt?: PTOptions<ProgressBarPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

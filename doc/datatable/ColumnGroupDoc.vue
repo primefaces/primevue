@@ -58,8 +58,7 @@ export default {
         return {
             sales: null,
             code: {
-                basic: `
-<DataTable :value="sales" tableStyle="min-width: 50rem">
+                basic: `<DataTable :value="sales" tableStyle="min-width: 50rem">
     <ColumnGroup type="header">
         <Row>
             <Column header="Product" :rowspan="3" />
@@ -101,8 +100,7 @@ export default {
         </Row>
     </ColumnGroup>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <DataTable :value="sales" tableStyle="min-width: 50rem">
         <ColumnGroup type="header">
             <Row>
@@ -198,8 +196,7 @@ export default {
 }
 <\/script>
 `,
-                composition: `
-<template>
+                composition: `<template>
     <DataTable :value="sales" tableStyle="min-width: 50rem">
         <ColumnGroup type="header">
             <Row>

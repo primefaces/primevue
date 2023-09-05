@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue CascadeSelect Component" header="CascadeSelect" description="CascadeSelect is a form component to select a value from a nested structure of options." :componentDocs="docs" :apiDocs="['CascadeSelect']" />
+    <DocComponent
+        title="Vue CascadeSelect Component"
+        header="CascadeSelect"
+        description="CascadeSelect is a form component to select a value from a nested structure of options."
+        :componentDocs="docs"
+        :apiDocs="['CascadeSelect']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -7,12 +15,13 @@ import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc';
 import BasicDoc from '@/doc/cascadeselect/BasicDoc';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc';
-import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc';
-import StyleDoc from '@/doc/cascadeselect/StyleDoc';
 import TemplateDoc from '@/doc/cascadeselect/TemplateDoc';
+import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc';
+import PTComponent from '@/doc/cascadeselect/pt/index.vue';
+import ThemingDoc from '@/doc/cascadeselect/theming/index.vue';
 
 export default {
     data() {
@@ -66,16 +75,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

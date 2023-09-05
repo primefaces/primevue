@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Timeline Component" header="Timeline" description="Timeline visualizes a series of chained events." :componentDocs="docs" :apiDocs="['Timeline']" />
+    <DocComponent title="Vue Timeline Component" header="Timeline" description="Timeline visualizes a series of chained events." :componentDocs="docs" :apiDocs="['Timeline']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -9,8 +9,9 @@ import BasicDoc from '@/doc/timeline/BasicDoc';
 import HorizontalDoc from '@/doc/timeline/HorizontalDoc';
 import ImportDoc from '@/doc/timeline/ImportDoc';
 import OppositeDoc from '@/doc/timeline/OppositeDoc';
-import StyleDoc from '@/doc/timeline/StyleDoc';
 import TemplateDoc from '@/doc/timeline/TemplateDoc';
+import PTComponent from '@/doc/timeline/pt/index.vue';
+import ThemingDoc from '@/doc/timeline/theming/index.vue';
 
 export default {
     data() {
@@ -47,39 +48,14 @@ export default {
                     component: HorizontalDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
 </script>
-
-<style lang="scss" scoped>
-@media screen and (max-width: 960px) {
-    ::v-deep(.customized-timeline) {
-        .p-timeline-event:nth-child(even) {
-            flex-direction: row !important;
-
-            .p-timeline-event-content {
-                text-align: left !important;
-            }
-        }
-
-        .p-timeline-event-opposite {
-            flex: 0;
-        }
-
-        .p-card {
-            margin-top: 1rem;
-        }
-    }
-}
-</style>

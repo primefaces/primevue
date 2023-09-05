@@ -1,14 +1,14 @@
 <template>
-    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup">
-        <tr v-if="!columnGroup" role="row">
+    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot', ptmTFootOptions), ...getColumnGroupPT('root') } : ptm('tfoot', ptmTFootOptions)" data-pc-section="tfoot">
+        <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
             </template>
         </tr>
         <template v-else>
-            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row">
+            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row" v-bind="{ ...ptm('footerRow'), ...getRowPT(row, 'root', i) }">
                 <template v-for="(col, j) of getFooterColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
-                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :pt="pt" />
                 </template>
             </tr>
         </template>
@@ -16,11 +16,15 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import FooterCell from './FooterCell.vue';
 
 export default {
     name: 'TableFooter',
+    hostName: 'DataTable',
+    extends: BaseComponent,
     props: {
         columnGroup: {
             type: null,
@@ -34,6 +38,41 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getColumnGroupPT(key) {
+            const columnGroupMetaData = {
+                props: this.getColumnGroupProps(),
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    type: 'footer',
+                    scrollable: this.ptmTFootOptions.context.scrollable
+                }
+            };
+
+            return mergeProps(this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), this.ptm(`columnGroup.${key}`, columnGroupMetaData), this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData));
+        },
+        getColumnGroupProps() {
+            return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
+        },
+        getRowPT(row, key, index) {
+            const rowMetaData = {
+                props: row.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    index
+                }
+            };
+
+            return mergeProps(this.ptm(`row.${key}`, { row: rowMetaData }), this.ptm(`row.${key}`, rowMetaData), this.ptmo(this.getRowProp(row), key, rowMetaData));
+        },
+        getRowProp(row) {
+            return row.props && row.props.pt ? row.props.pt : undefined; //@todo
         },
         getFooterRows() {
             let rows = [];
@@ -81,6 +120,13 @@ export default {
             }
 
             return hasFooter;
+        },
+        ptmTFootOptions() {
+            return {
+                context: {
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
+                }
+            };
         }
     },
     components: {

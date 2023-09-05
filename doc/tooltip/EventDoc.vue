@@ -14,18 +14,15 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
+                basic: `<InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
 <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
         <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
         <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />

@@ -1,8 +1,8 @@
 <template>
-    <div :class="containerClass">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="chips">
         <ul
             ref="container"
-            class="p-inputtext p-chips-multiple-container"
+            :class="cx('container')"
             tabindex="-1"
             role="listbox"
             aria-orientation="horizontal"
@@ -13,26 +13,29 @@
             @focus="onContainerFocus"
             @blur="onContainerBlur"
             @keydown="onContainerKeyDown"
+            v-bind="ptm('container')"
         >
             <li
                 v-for="(val, i) of modelValue"
                 :key="`${i}_${val}`"
                 :id="id + '_chips_item_' + i"
                 role="option"
-                :class="['p-chips-token', { 'p-focus': focusedIndex === i }]"
+                :class="cx('token', { index: i })"
                 :aria-label="val"
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
+                v-bind="ptm('token')"
+                :data-p-focused="focusedIndex === i"
             >
-                <slot name="chip" :value="val">
-                    <span class="p-chips-token-label">{{ val }}</span>
+                <slot name="chip" :class="cx('label')" :value="val">
+                    <span :class="cx('label')" v-bind="ptm('label')">{{ val }}</span>
                 </slot>
-                <slot name="removetokenicon" :onClick="(event) => removeItem(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" />
+                <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :onClick="(event) => removeItem(event, i)">
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
-            <li class="p-chips-input-token" role="option">
+            <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
                 <input
                     ref="input"
                     :id="inputId"
@@ -46,7 +49,7 @@
                     @input="onInput"
                     @keydown="onKeyDown($event)"
                     @paste="onPaste($event)"
-                    v-bind="inputProps"
+                    v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
         </ul>
@@ -56,68 +59,12 @@
 <script>
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import { UniqueComponentId } from 'primevue/utils';
+import BaseChips from './BaseChips.vue';
 
 export default {
     name: 'Chips',
+    extends: BaseChips,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
-    props: {
-        modelValue: {
-            type: Array,
-            default: null
-        },
-        max: {
-            type: Number,
-            default: null
-        },
-        separator: {
-            type: [String, Object],
-            default: null
-        },
-        addOnBlur: {
-            type: Boolean,
-            default: null
-        },
-        allowDuplicate: {
-            type: Boolean,
-            default: true
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        removeTokenIcon: {
-            type: String,
-            default: undefined
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             id: UniqueComponentId(),
@@ -298,17 +245,6 @@ export default {
         maxedOut() {
             return this.max && this.modelValue && this.max === this.modelValue.length;
         },
-        containerClass() {
-            return [
-                'p-chips p-component p-inputwrapper',
-                {
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': (this.modelValue && this.modelValue.length) || (this.inputValue && this.inputValue.length),
-                    'p-inputwrapper-focus': this.focused
-                }
-            ];
-        },
         focusedOptionId() {
             return this.focusedIndex !== null ? `${this.id}_chips_item_${this.focusedIndex}` : null;
         }
@@ -318,51 +254,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-chips {
-    display: inline-flex;
-}
-
-.p-chips-multiple-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    cursor: text;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-chips-token {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.p-chips-input-token {
-    flex: 1 1 auto;
-    display: inline-flex;
-}
-
-.p-chips-token-icon {
-    cursor: pointer;
-}
-
-.p-chips-input-token input {
-    border: 0 none;
-    outline: 0 none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
-    width: 100%;
-}
-
-.p-fluid .p-chips {
-    display: flex;
-}
-</style>

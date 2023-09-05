@@ -36,8 +36,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<label for="switch1">Remember Me</label>
+                basic: `<label for="switch1">Remember Me</label>
 <InputSwitch inputId="switch1" />
 
 <span id="switch2">Remember Me</span>

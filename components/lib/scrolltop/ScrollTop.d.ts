@@ -7,15 +7,19 @@
  * @module scrolltop
  *
  */
-import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes) | null | undefined;
+export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ScrollTopPassThroughTransitionType = TransitionProps | ((options: ScrollTopPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ScrollTopPassThroughMethodOptions {
+    instance: any;
     props: ScrollTopProps;
     state: ScrollTopState;
 }
@@ -26,13 +30,22 @@ export interface ScrollTopPassThroughMethodOptions {
  */
 export interface ScrollTopPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ScrollTopPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ScrollTopPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ScrollTopPassThroughTransitionType;
 }
 
 /**
@@ -78,10 +91,15 @@ export interface ScrollTopProps {
      */
     behavior?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollTopPassThroughOptions}
      */
-    pt?: ScrollTopPassThroughOptions;
+    pt?: PTOptions<ScrollTopPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

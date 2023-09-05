@@ -8,15 +8,17 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes) | null | undefined;
+export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MegaMenuPassThroughMethodOptions {
+    instance: any;
     props: MegaMenuProps;
     state: MegaMenuState;
     context: MegaMenuContext;
@@ -28,65 +30,74 @@ export interface MegaMenuPassThroughMethodOptions {
  */
 export interface MegaMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the grid's DOM element.
+     * Used to pass attributes to the grid's DOM element.
      */
     grid?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the column's DOM element.
+     * Used to pass attributes to the column's DOM element.
      */
     column?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu header's DOM element.
+     * Used to pass attributes to the submenu header's DOM element.
      */
     submenuHeader?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the submenu's DOM element.
+     */
+    submenu?: MegaMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start of the component.
+     * Used to pass attributes to the start of the component.
      */
     start?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end of the component.
+     * Used to pass attributes to the end of the component.
      */
     end?: MegaMenuPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -144,6 +155,14 @@ export interface MegaMenuState {
  */
 export interface MegaMenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
@@ -153,6 +172,28 @@ export interface MegaMenuContext {
      * @defaultValue false
      */
     focused: boolean;
+}
+
+/**
+ * Defines valid router binding props in MegaMenu component.
+ */
+export interface MegaMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
 }
 
 /**
@@ -191,10 +232,15 @@ export interface MegaMenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MegaMenuPassThroughOptions}
      */
-    pt?: MegaMenuPassThroughOptions;
+    pt?: PTOptions<MegaMenuPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -218,9 +264,22 @@ export interface MegaMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: MegaMenuRouterBindProps;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
     /**
      * Custom submenu icon template.
+     * @param {Object} scope - submenuicon slot's params.
      */
     submenuicon(scope: {
         /**

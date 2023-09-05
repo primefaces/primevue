@@ -56,7 +56,21 @@ export default {
     },
 
     resolveFieldData(data, field) {
-        if (data && Object.keys(data).length && field) {
+        if (!data || !field) {
+            // short circuit if there is nothing to resolve
+            return null;
+        }
+
+        try {
+            const value = data[field];
+
+            if (this.isNotEmpty(value)) return value;
+        } catch {
+            // Performance optimization: https://github.com/primefaces/primereact/issues/4797
+            // do nothing and continue to other methods to resolve field data
+        }
+
+        if (Object.keys(data).length) {
             if (this.isFunction(field)) {
                 return field(data);
             } else if (field.indexOf('.') === -1) {
@@ -75,13 +89,9 @@ export default {
 
                 return value;
             }
-        } else {
-            return null;
         }
-    },
 
-    isFunction(obj) {
-        return !!(obj && obj.constructor && obj.call && obj.apply);
+        return null;
     },
 
     getItemValue(obj, ...params) {
@@ -199,15 +209,29 @@ export default {
             let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;
 
-            return vnode.type.props[prop].type === Boolean && props[propName] === '' ? true : props[propName];
+            return vnode.type.extends.props[prop].type === Boolean && props[propName] === '' ? true : props[propName];
         }
 
         return null;
     },
 
-    convertToFlatCase(str) {
+    toFlatCase(str) {
         // convert snake, kebab, camel and pascal cases to flat case
-        return this.isNotEmpty(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+        return this.isString(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+    },
+
+    toKebabCase(str) {
+        // convert snake, camel and pascal cases to kebab case
+        return this.isString(str)
+            ? str
+                  .replace(/(_)/g, '-')
+                  .replace(/[A-Z]/g, (c, i) => (i === 0 ? c : '-' + c.toLowerCase()))
+                  .toLowerCase()
+            : str;
+    },
+
+    toCapitalCase(str) {
+        return this.isString(str, { empty: false }) ? str[0].toUpperCase() + str.slice(1) : str;
     },
 
     isEmpty(value) {
@@ -216,6 +240,26 @@ export default {
 
     isNotEmpty(value) {
         return !this.isEmpty(value);
+    },
+
+    isFunction(value) {
+        return !!(value && value.constructor && value.call && value.apply);
+    },
+
+    isObject(value, empty = true) {
+        return value instanceof Object && value.constructor === Object && (empty || Object.keys(value).length !== 0);
+    },
+
+    isDate(value) {
+        return value instanceof Date && value.constructor === Date;
+    },
+
+    isArray(value, empty = true) {
+        return Array.isArray(value) && (empty || value.length !== 0);
+    },
+
+    isString(value, empty = true) {
+        return typeof value === 'string' && (empty || value !== '');
     },
 
     isPrintableCharacter(char = '') {
@@ -256,5 +300,15 @@ export default {
         }
 
         return index;
+    },
+
+    nestedKeys(obj = {}, parentKey = '') {
+        return Object.entries(obj).reduce((o, [key, value]) => {
+            const currentKey = parentKey ? `${parentKey}.${key}` : key;
+
+            this.isObject(value) ? (o = o.concat(this.nestedKeys(value, currentKey))) : o.push(currentKey);
+
+            return o;
+        }, []);
     }
 };

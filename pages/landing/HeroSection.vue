@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </router-link>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeflex')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="navigateTo('https://primeflex.org')">
                         <div class="flex flex-column align-items-center">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/css-icon.svg" alt="primevue icons" />
                             <div class="name">

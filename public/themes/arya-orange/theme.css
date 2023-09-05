@@ -2340,8 +2340,15 @@
   font-size: 1.25rem;
   padding: 0.625rem 1.25rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .p-splitbutton.p-button-secondary.p-button-outlined > .p-button {
@@ -2709,10 +2716,6 @@
 }
 .p-datatable .p-column-resizer-helper {
   background: #FFD54F;
-}
-.p-datatable .p-datatable-scrollable-header,
-.p-datatable .p-datatable-scrollable-footer {
-  background: #1e1e1e;
 }
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot, .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead,
@@ -4374,6 +4377,10 @@
   color: rgba(255, 255, 255, 0.87);
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  border: 1px dashed #FFD54F;
+  background-color: rgba(255, 213, 79, 0.16);
 }
 .p-fileupload .p-fileupload-file {
   padding: 1rem;

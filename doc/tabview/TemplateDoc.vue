@@ -45,8 +45,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<TabView class="tabview-custom">
+                basic: `<TabView class="tabview-custom">
     <TabPanel>
         <template #header>
             <i class="pi pi-calendar mr-2"></i>
@@ -79,8 +78,7 @@ export default {
         </p>
     </TabPanel>
 </TabView>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TabView class="tabview-custom">
             <TabPanel>
@@ -120,8 +118,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TabView class="tabview-custom">
             <TabPanel>

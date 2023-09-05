@@ -13,7 +13,7 @@ export default {
                 basic: `import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
-app.use(PrimeVue);`
+app.use(PrimeVue, { /* options */ });`
             }
         };
     }

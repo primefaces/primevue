@@ -39,7 +39,13 @@ const MenuProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -65,11 +71,15 @@ const MenuSlots = [
     },
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
     },
     {
         name: 'itemicon',
         description: 'Custom item icon template.'
+    },
+    {
+        name: 'submenuheader',
+        description: 'Custom submenuheader template.'
     }
 ];
 

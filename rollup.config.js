@@ -1,3 +1,4 @@
+import { babel } from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import vue from 'rollup-plugin-vue';
@@ -9,7 +10,7 @@ let entries = [];
 
 let core = {};
 
-let coreIconDependencies = {
+const CORE_ICON_DEPENDENCIES = {
     'primevue/baseicon': 'primevue.baseicon',
     'primevue/icons/angledoubledown': 'primevue.icons.angledoubledown',
     'primevue/icons/angledoubleleft': 'primevue.icons.angledoubleleft',
@@ -58,14 +59,22 @@ let coreIconDependencies = {
     'primevue/icons/windowminimize': 'primevue.icons.windowminimize'
 };
 
-let coreDependencies = {
+const CORE_PASSTHROUGH_DEPENDENCIES = {
+    'primevue/passthrough': 'primevue.passthrough',
+    'primevue/passthrough/tailwind': 'primevue.passthrough.tailwind'
+};
+
+const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    'primevue/usestyle': 'primevue.usestyle',
+    'primevue/base': 'primevue.base',
+    'primevue/basedirective': 'primevue.basedirective',
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
     'primevue/basecomponent': 'primevue.basecomponent',
-    ...coreIconDependencies,
+    ...CORE_ICON_DEPENDENCIES,
     'primevue/tooltip': 'primevue.tooltip',
     'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',
@@ -88,58 +97,108 @@ let coreDependencies = {
     'primevue/tree': 'primevue.tree',
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
-    'primevue/badge': 'primevue.badge'
+    'primevue/badge': 'primevue.badge',
+    ...CORE_PASSTHROUGH_DEPENDENCIES
 };
 
-let globalDependencies = {
-    vue: 'Vue',
-    ...coreDependencies
+// dependencies
+const GLOBAL_DEPENDENCIES = {
+    vue: 'Vue'
 };
+
+const GLOBAL_COMPONENT_DEPENDENCIES = {
+    ...GLOBAL_DEPENDENCIES,
+    ...CORE_DEPENDENCIES
+};
+
+// externals
+const EXTERNAL = ['vue', 'chart.js/auto', 'quill'];
+
+const EXTERNAL_COMPONENT = [...EXTERNAL, ...Object.keys(CORE_DEPENDENCIES)];
+
+// plugins
+const BABEL_PLUGIN_OPTIONS = {
+    extensions: ['.js', '.vue'],
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-env'],
+    plugins: [],
+    skipPreflightCheck: true,
+    babelHelpers: 'runtime',
+    babelrc: false
+};
+
+const POSTCSS_PLUGIN_OPTIONS = {
+    sourceMap: false
+};
+
+const TERSER_PLUGIN_OPTIONS = {
+    compress: {
+        keep_infinity: true,
+        pure_getters: true,
+        reduce_funcs: false
+    }
+};
+
+const PLUGINS = [vue(), postcss(POSTCSS_PLUGIN_OPTIONS), babel(BABEL_PLUGIN_OPTIONS)];
 
 function addEntry(folder, inFile, outFile) {
-    let useCorePlugin = Object.keys(coreDependencies).some((d) => d.replace('primevue/', '') === folder);
+    const exports = inFile === 'PrimeVue.js' ? 'named' : 'auto';
+    const useCorePlugin = Object.keys(GLOBAL_COMPONENT_DEPENDENCIES).some((d) => d.replace('primevue/', '') === folder);
+    const plugins = PLUGINS;
+    const external = EXTERNAL_COMPONENT;
+    const inlineDynamicImports = true;
 
-    entries.push({
-        input: 'components/lib/' + folder + '/' + inFile,
-        output: [
-            {
-                format: 'cjs',
-                file: 'dist/' + folder + '/' + outFile + '.cjs.js'
-            },
-            {
-                format: 'esm',
-                file: 'dist/' + folder + '/' + outFile + '.esm.js'
-            },
-            {
-                format: 'iife',
-                name: 'primevue.' + folder.replaceAll('/', '.'),
-                file: 'dist/' + folder + '/' + outFile + '.js',
-                globals: globalDependencies
-            }
-        ],
-        plugins: [vue(), postcss(), useCorePlugin && corePlugin()]
-    });
+    const input = `components/lib/${folder}/${inFile}`;
+    const output = `dist/${folder}/${outFile}`;
 
-    entries.push({
-        input: 'components/lib/' + folder + '/' + inFile,
-        output: [
-            {
-                format: 'cjs',
-                file: 'dist/' + folder + '/' + outFile + '.cjs.min.js'
-            },
-            {
-                format: 'esm',
-                file: 'dist/' + folder + '/' + outFile + '.esm.min.js'
-            },
-            {
-                format: 'iife',
-                name: 'primevue.' + folder.replaceAll('/', '.'),
-                file: 'dist/' + folder + '/' + outFile + '.min.js',
-                globals: globalDependencies
-            }
-        ],
-        plugins: [vue(), postcss(), terser(), useCorePlugin && corePlugin()]
-    });
+    const getEntry = (isMinify) => {
+        return {
+            input,
+            plugins: [...plugins, isMinify && terser(TERSER_PLUGIN_OPTIONS), useCorePlugin && corePlugin()],
+            external,
+            inlineDynamicImports
+        };
+    };
+
+    const get_CJS_ESM = (isMinify) => {
+        return {
+            ...getEntry(isMinify),
+            output: [
+                {
+                    format: 'cjs',
+                    file: `${output}.cjs${isMinify ? '.min' : ''}.js`,
+                    exports
+                },
+                {
+                    format: 'esm',
+                    file: `${output}.esm${isMinify ? '.min' : ''}.js`,
+                    exports
+                }
+            ]
+        };
+    };
+
+    const get_IIFE = (isMinify) => {
+        return {
+            ...getEntry(isMinify),
+            output: [
+                {
+                    format: 'iife',
+                    name: 'primevue.' + folder.replaceAll('/', '.'),
+                    file: `${output}${isMinify ? '.min' : ''}.js`,
+                    globals: GLOBAL_COMPONENT_DEPENDENCIES,
+                    exports
+                }
+            ]
+        };
+    };
+
+    entries.push(get_CJS_ESM());
+    entries.push(get_IIFE());
+
+    // Minify
+    entries.push(get_CJS_ESM(true));
+    entries.push(get_IIFE(true));
 }
 
 function corePlugin() {
@@ -170,7 +229,7 @@ function addCore() {
             name: 'coreMergePlugin',
             generateBundle() {
                 Object.entries(core).forEach(([filePath, value]) => {
-                    const code = Object.keys(coreDependencies).reduce((val, d) => {
+                    const code = Object.keys(CORE_DEPENDENCIES).reduce((val, d) => {
                         const name = d.replace('primevue/', '');
 
                         val += value[name] + '\n';
@@ -217,6 +276,7 @@ function addIcon() {
 }
 
 function addDirectives() {
+    addEntry('basedirective', 'BaseDirective.js', 'basedirective');
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
@@ -228,12 +288,21 @@ function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
 }
 
+function addPassThrough() {
+    addEntry('passthrough', 'index.js', 'index');
+    addEntry('passthrough/tailwind', 'index.js', 'index');
+}
+
 function addUtils() {
     addEntry('utils', 'Utils.js', 'utils');
 }
 
 function addApi() {
     addEntry('api', 'Api.js', 'api');
+}
+
+function addBase() {
+    addEntry('base', 'Base.js', 'base');
 }
 
 function addServices() {
@@ -244,6 +313,7 @@ function addServices() {
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
     addEntry('overlayeventbus', 'OverlayEventBus.js', 'overlayeventbus');
     addEntry('usetoast', 'UseToast.js', 'usetoast');
+    addEntry('usestyle', 'UseStyle.js', 'usestyle');
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
     addEntry('usedialog', 'UseDialog.js', 'usedialog');
     addEntry('dialogservice', 'DialogService.js', 'dialogservice');
@@ -251,12 +321,14 @@ function addServices() {
 }
 
 addUtils();
+addBase();
 addApi();
 addConfig();
 addDirectives();
 addServices();
 addSFC();
 addIcon();
+addPassThrough();
 addCore();
 
 export default entries;

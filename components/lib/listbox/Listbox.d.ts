@@ -8,8 +8,21 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ListboxPassThroughMethodOptions {
+    instance: any;
+    props: ListboxProps;
+    state: ListboxState;
+    context: ListboxContext;
+}
 
 /**
  * Custom change event.
@@ -39,6 +52,131 @@ export interface ListboxFilterEvent {
      * Filter value
      */
     value: string;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ListboxProps.pt}
+ */
+export interface ListboxPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the header's DOM element.
+     */
+    header?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the filter container's DOM element.
+     */
+    filterContainer?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the filter input's DOM element.
+     */
+    filterInput?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the filter icon's DOM element.
+     */
+    filterIcon?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the list's DOM element.
+     */
+    list?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item group's DOM element.
+     */
+    itemGroup?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item's DOM element.
+     */
+    item?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the emptyMessage's DOM element.
+     */
+    emptyMessage?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden first focusable element's DOM element.
+     */
+    hiddenFirstFocusableEl?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden filter result's DOM element.
+     */
+    hiddenFilterResult?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden selected message's DOM element.
+     */
+    hiddenSelectedMessage?: ListboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden last focusable element's DOM element.
+     */
+    hiddenLastFocusableEl?: ListboxPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ListboxPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Listbox component.
+ */
+export interface ListboxState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current filter value state as a string.
+     */
+    filterValue: string;
+    /**
+     * Current focused item index as a number.
+     * @defaultValue -1
+     */
+    focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Listbox component.
+ */
+export interface ListboxContext {
+    /**
+     * Current selection state of the item as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
@@ -120,7 +258,7 @@ export interface ListboxProps {
      */
     filterFields?: string[] | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
+     * Used to pass all properties of the HTMLInputElement to the filter input inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
@@ -180,6 +318,16 @@ export interface ListboxProps {
      * Identifier of the underlying input element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ListboxPassThroughOptions}
+     */
+    pt?: PTOptions<ListboxPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -267,13 +415,13 @@ export interface ListboxSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
          * @return {VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -287,8 +435,14 @@ export interface ListboxSlots {
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filter icon slot's params.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the filter icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

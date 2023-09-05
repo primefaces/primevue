@@ -1,12 +1,27 @@
 <template>
-    <JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled"></JTPDropdown>
+    <JTPDropdown
+        :modelValue="page"
+        :options="pageOptions"
+        optionLabel="label"
+        optionValue="value"
+        @update:modelValue="onChange($event)"
+        :class="cx('jumpToPageDropdown')"
+        :disabled="disabled"
+        :unstyled="unstyled"
+        :pt="ptm('jumpToPageDropdown')"
+        data-pc-section="jumptopagedropdown"
+        data-pc-group-section="pagedropdown"
+    ></JTPDropdown>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Dropdown from 'primevue/dropdown';
 
 export default {
     name: 'JumpToPageDropdown',
+    hostName: 'Paginator',
+    extends: BaseComponent,
     emits: ['page-change'],
     props: {
         page: Number,

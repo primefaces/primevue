@@ -1,6 +1,6 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" v-bind="ptm('root')">
-        <div v-if="$slots.start" class="p-menubar-start" v-bind="ptm('start')">
+    <div :ref="containerRef" :class="cx('root')" v-bind="ptm('root')">
+        <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
         <a
@@ -8,7 +8,7 @@
             ref="menubutton"
             role="button"
             tabindex="0"
-            class="p-menubar-button"
+            :class="cx('button')"
             :aria-haspopup="model.length && model.length > 0 ? true : false"
             :aria-expanded="mobileActive"
             :aria-controls="id"
@@ -24,7 +24,6 @@
         <MenubarSub
             :ref="menubarRef"
             :id="id"
-            class="p-menubar-root-list"
             role="menubar"
             :items="processedItems"
             :templates="$slots"
@@ -40,50 +39,29 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :pt="pt"
+            :unstyled="unstyled"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
         />
-        <div v-if="$slots.end" class="p-menubar-end" v-bind="ptm('end')">
+        <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
             <slot name="end"></slot>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import BarsIcon from 'primevue/icons/bars';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseMenubar from './BaseMenubar.vue';
 import MenubarSub from './MenubarSub.vue';
 
 export default {
     name: 'Menubar',
-    extends: BaseComponent,
+    extends: BaseMenubar,
     emits: ['focus', 'blur'],
-    props: {
-        model: {
-            type: Array,
-            default: null
-        },
-        exact: {
-            type: Boolean,
-            default: true
-        },
-        buttonProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             id: this.$attrs.id,
@@ -111,6 +89,11 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.id = this.id || UniqueComponentId();
     },
@@ -157,7 +140,7 @@ export default {
                 ZIndexUtils.set('menu', this.menubar, this.$primevue.config.zIndex.menu);
                 setTimeout(() => {
                     this.show();
-                }, 0);
+                }, 1);
             }
 
             this.bindOutsideClickListener();
@@ -170,6 +153,7 @@ export default {
         },
         hide(event, isFocus) {
             if (this.mobileActive) {
+                this.mobileActive = false;
                 setTimeout(() => {
                     DomHandler.focus(this.$refs.menubutton);
                 }, 0);
@@ -405,7 +389,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
 
@@ -442,8 +426,8 @@ export default {
                     const isOutsideContainer = this.menubar !== event.target && !this.menubar.contains(event.target);
                     const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target);
 
-                    if (isOutsideContainer) {
-                        isOutsideMenuButton ? (this.mobileActive = false) : this.hide();
+                    if (isOutsideMenuButton && isOutsideContainer) {
+                        this.hide();
                     }
                 };
 
@@ -595,9 +579,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return ['p-menubar p-component', { 'p-menubar-mobile-active': this.mobileActive }];
-        },
         processedItems() {
             return this.createProcessedItems(this.model || []);
         },
@@ -616,77 +597,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-menubar {
-    display: flex;
-    align-items: center;
-}
-
-.p-menubar ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-menubar .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-menubar .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-menubar .p-menuitem {
-    position: relative;
-}
-
-.p-menubar-root-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-menubar-root-list > li ul {
-    display: none;
-    z-index: 1;
-}
-
-.p-menubar-root-list > .p-menuitem-active > .p-submenu-list {
-    display: block;
-}
-
-.p-menubar .p-submenu-list {
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-
-.p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list {
-    display: block;
-    left: 100%;
-    top: 0;
-}
-
-.p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-menubar .p-menubar-end {
-    margin-left: auto;
-    align-self: center;
-}
-
-.p-menubar-button {
-    display: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-</style>

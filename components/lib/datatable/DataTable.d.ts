@@ -7,9 +7,28 @@
  * @module datatable
  *
  */
-import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
-import { VirtualScrollerProps } from '../virtualscroller';
+import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ColumnPassThroughOptionType } from '../column';
+import { ColumnGroupPassThroughOptionType } from '../columngroup';
+import { PaginatorPassThroughOptionType } from '../paginator';
+import { RowPassThroughOptionType } from '../row';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
+import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
+
+export declare type DataTablePassThroughTransitionType = TransitionProps | ((options: DataTablePassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DataTablePassThroughMethodOptions {
+    instance: any;
+    props: DataTableProps;
+    state: DataTableState;
+    context: DataTableContext;
+}
 
 /**
  * Custom datatable export metadata.
@@ -522,6 +541,235 @@ export interface DataTableStateEvent {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link DataTableProps.pt}
+ */
+export interface DataTablePassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the loading overlay's DOM element.
+     */
+    loadingOverlay?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the header's DOM element.
+     */
+    header?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the Paginator component.
+     * @see {@link PaginatorPassThroughOptionType}
+     */
+    paginator?: PaginatorPassThroughOptionType;
+    /**
+     * Used to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the table's DOM element.
+     */
+    table?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the virtual scroller spacer's DOM element.
+     */
+    virtualScrollerSpacer?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the footer's DOM element.
+     */
+    footer?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the thead's DOM element.
+     */
+    thead?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the header row's DOM element.
+     */
+    headerRow?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the tbody's DOM element.
+     */
+    tbody?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the rowgroup header's DOM element.
+     */
+    rowGroupHeader?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the rowgroup header cell's DOM element.
+     */
+    rowGroupHeaderCell?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the body row's DOM element.
+     */
+    bodyRow?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the row expansion's DOM element.
+     */
+    rowExpansion?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the row expansion cell's DOM element.
+     */
+    rowExpansionCell?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the rowgroup footer's DOM element.
+     */
+    rowGroupFooter?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the rowgroup footer cell's DOM element.
+     */
+    rowGroupFooterCell?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message cell's DOM element.
+     */
+    emptyMessageCell?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the tfoot's DOM element.
+     */
+    tfoot?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the footer row's DOM element.
+     */
+    footerRow?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the resize helper's DOM element.
+     */
+    resizeHelper?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the reorder indicator up's DOM element.
+     */
+    reorderIndicatorUp?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the reorder indicator down's DOM element.
+     */
+    reorderIndicatorDown?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the ColumnGroup helper components.
+     */
+    columnGroup?: ColumnGroupPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Row helper components.
+     */
+    row?: RowPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: DataTablePassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DataTablePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in DataTable component.
+ */
+export interface DataTableState {
+    /**
+     * Current index of first record as a number.
+     */
+    d_first: number;
+    /**
+     * Current number of rows to display in new page as a number.
+     */
+    d_rows: number;
+    /**
+     * Current sort field.
+     */
+    d_sortField: string | ((item: any) => string) | undefined;
+    /**
+     * Current order to sort the data by default.
+     */
+    d_sortOrder: number;
+    /**
+     * Current sortmeta objects to sort the data.
+     */
+    d_multiSortMeta: DataTableSortMeta[];
+    /**
+     * Current group sortmeta objects to sort the data.
+     */
+    d_groupRowsSortMeta: DataTableSortMeta;
+    /**
+     * Current keys of selected rows.
+     */
+    d_selectionKeys: any[];
+    /**
+     * Current keys of rows in expanded state.
+     */
+    d_expandedRowKeys: any[];
+    /**
+     * Current order of the columns.
+     */
+    d_columnOrder: string[];
+    /**
+     * Current keys of editing rows.
+     */
+    d_editingRowKeys: any;
+    /**
+     * Current editing meta data.
+     */
+    d_editingMeta: object;
+    /**
+     * Current filters object.
+     */
+    d_filters: DataTableFilterMeta;
+    /**
+     * Current editing as a boolean.
+     * @defaultValue false
+     */
+    d_editing: boolean;
+}
+
+/**
+ * Defines current options in DataTable component.
+ */
+export interface DataTableContext {
+    /**
+     * Current index of the row.
+     */
+    index: number;
+    /**
+     * Current selectable state of row as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selected state of row as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current stripedRows state of row as a boolean.
+     * @defaultValue false
+     */
+    stripedRows: boolean;
+}
+
+/**
  * Defines valid properties in DataTable component.
  */
 export interface DataTableProps {
@@ -708,7 +956,7 @@ export interface DataTableProps {
     /**
      * Custom function to export data.
      */
-    exportFunction?(options: DataTableExportFunctionOptions): any;
+    exportFunction?: (options: DataTableExportFunctionOptions) => any;
     /**
      * When enabled, columns can be resized using drag and drop.
      * @defaultValue false
@@ -814,6 +1062,10 @@ export interface DataTableProps {
      */
     stripedRows?: boolean | undefined;
     /**
+     * Defines the size of the table.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Inline style of the table element.
      */
     tableStyle?: any;
@@ -822,13 +1074,23 @@ export interface DataTableProps {
      */
     tableClass?: any;
     /**
-     * Uses to pass all properties of the TableHTMLAttributes to table element inside the component.
+     * Used to pass all properties of the TableHTMLAttributes to table element inside the component.
      */
     tableProps?: TableHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {DataTablePassThroughOptions}
+     */
+    pt?: PTOptions<DataTablePassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -857,6 +1119,7 @@ export interface DataTableSlots {
     empty(): VNode[];
     /**
      * Custom group header template.
+     * @param {Object} scope - group header slot's params.
      */
     groupheader(scope: {
         /**
@@ -884,6 +1147,7 @@ export interface DataTableSlots {
     }): VNode[];
     /**
      * Custom loading template.
+     * @param {Object} scope - loading slot's params.
      */
     loading(): VNode[];
     /**

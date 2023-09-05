@@ -1,29 +1,31 @@
 <template>
-    <button v-ripple :class="containerClass" type="button">
-        <component :is="template || 'AngleRightIcon'" class="p-paginator-icon" />
+    <button v-ripple :class="cx('nextPageButton')" type="button" v-bind="getPTOptions('nextPageButton')" data-pc-group-section="pagebutton">
+        <component :is="template || 'AngleRightIcon'" :class="cx('nextPageIcon')" v-bind="getPTOptions('nextPageIcon')" />
     </button>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'NextPageLink',
+    hostName: 'Paginator',
+    extends: BaseComponent,
     props: {
         template: {
             type: Function,
             default: null
         }
     },
-    computed: {
-        containerClass() {
-            return [
-                'p-paginator-next p-paginator-element p-link',
-                {
-                    'p-disabled': this.$attrs.disabled
+    methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    disabled: this.$attrs.disabled
                 }
-            ];
+            });
         }
     },
     components: {

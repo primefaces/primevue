@@ -111,7 +111,7 @@ const PasswordProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
     },
     {
         name: 'panelId',
@@ -135,7 +135,19 @@ const PasswordProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 
@@ -162,11 +174,26 @@ const PasswordSlots = [
     }
 ];
 
+const PasswordEmits = [
+    {
+        name: 'change',
+        description: 'Callback to invoke on value change.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    }
+];
+
 module.exports = {
     password: {
         name: 'Password',
         description: 'Password displays strength indicator for password fields.',
         props: PasswordProps,
-        slots: PasswordSlots
+        slots: PasswordSlots,
+        events: PasswordEmits
     }
 };

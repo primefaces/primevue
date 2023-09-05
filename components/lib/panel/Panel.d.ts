@@ -7,15 +7,19 @@
  * @module panel
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes) | null | undefined;
+export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PanelPassThroughTransitionType = TransitionProps | ((options: PanelPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface PanelPassThroughMethodOptions {
+    instance: any;
     props: PanelProps;
     state: PanelState;
 }
@@ -41,41 +45,50 @@ export interface PanelToggleEvent {
  */
 export interface PanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icons' DOM element.
+     * Used to pass attributes to the icons' DOM element.
      */
     icons?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the togglericon's DOM element.
+     * Used to pass attributes to the togglericon's DOM element.
      */
     togglerIcon?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleablecontent's DOM element.
+     * Used to pass attributes to the toggleablecontent's DOM element.
      */
     toggleableContent?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: PanelPassThroughOptionType;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PanelPassThroughTransitionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -115,15 +128,20 @@ export interface PanelProps {
      */
     collapsed?: boolean;
     /**
-     * Uses to pass the custom value to read for the button inside the component.
+     * Used to pass the custom value to read for the button inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PanelPassThroughOptions}
      */
-    pt?: PanelPassThroughOptions;
+    pt?: PTOptions<PanelPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -136,12 +154,13 @@ export interface PanelSlots {
     default(): VNode[];
     /**
      * Custom header template.
+     * @param {Object} scope - header slot's params.
      */
     header(scope: {
         /**
          * Current id state as a string
          */
-        id: boolean;
+        id: string;
         /**
          * Style class of the icon
          */

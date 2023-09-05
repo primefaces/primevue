@@ -39,8 +39,7 @@ export default {
             radioValue1: '',
             radioValue2: '',
             code: {
-                basic: `
-<div class="p-inputgroup flex-1">
+                basic: `<div class="p-inputgroup flex-1">
     <InputText placeholder="Price" />
     <span class="p-inputgroup-addon">
         <RadioButton v-model="radioValue1" name="rb1" value="rb1" />
@@ -63,8 +62,7 @@ export default {
         <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
     </span>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <InputText placeholder="Price" />
@@ -104,8 +102,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <InputText placeholder="Price" />

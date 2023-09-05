@@ -32,13 +32,11 @@ export default {
             value3: 2351.35,
             value4: 50,
             code: {
-                basic: `
-<InputNumber v-model="value1" inputId="integeronly" />
+                basic: `<InputNumber v-model="value1" inputId="integeronly" />
 <InputNumber v-model="value2" inputId="withoutgrouping" :useGrouping="false" />
 <InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" />
 <InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
             <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>
@@ -71,8 +69,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
             <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>

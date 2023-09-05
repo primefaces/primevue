@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Menu Component" header="Menu" description="Menu is a navigation/command component that supports dynamic and static positioning." :componentDocs="docs" :apiDocs="['Menu', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Menu Component"
+        header="Menu"
+        description="Menu is a navigation/command component that supports dynamic and static positioning."
+        :componentDocs="docs"
+        :apiDocs="['Menu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -8,9 +16,10 @@ import BasicDoc from '@/doc/menu/BasicDoc';
 import GroupDoc from '@/doc/menu/GroupDoc';
 import ImportDoc from '@/doc/menu/ImportDoc';
 import PopupDoc from '@/doc/menu/PopupDoc';
-import StyleDoc from '@/doc/menu/StyleDoc';
+import RouterDoc from '@/doc/menu/RouterDoc';
 import TemplateDoc from '@/doc/menu/TemplateDoc';
 import PTComponent from '@/doc/menu/pt/index.vue';
+import ThemingDoc from '@/doc/menu/theming/index.vue';
 
 export default {
     data() {
@@ -42,9 +51,9 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
@@ -52,7 +61,8 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

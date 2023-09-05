@@ -8,6 +8,17 @@
  *
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
+import { DirectiveHooks } from '../basedirective';
+import { PTOptions } from '../ts-helpers';
+
+export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TooltipPassThroughMethodOptions {
+    context: TooltipContext;
+}
 
 /**
  * Defines options of Tooltip.
@@ -40,6 +51,79 @@ export interface TooltipOptions {
      * @defaultValue true
      */
     fitContent?: boolean | undefined;
+    /**
+     * When present, it adds a custom delay to the tooltip's display.
+     * @defaultValue 0
+     */
+    showDelay?: number | undefined;
+    /**
+     * When present, it adds a custom delay to the tooltip's hiding.
+     * @defaultValue 0
+     */
+    hideDelay?: number | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {TooltipDirectivePassThroughOptions}
+     */
+    pt?: PTOptions<TooltipDirectivePassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TooltipOptions.pt}
+ */
+export interface TooltipDirectivePassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: TooltipDirectivePassThroughOptionType;
+    /**
+     * Used to pass attributes to the text's DOM element.
+     */
+    text?: TooltipDirectivePassThroughOptionType;
+    /**
+     * Used to pass attributes to the arrow's DOM element.
+     */
+    arrow?: TooltipDirectivePassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseDirective.DirectiveHooks}
+     */
+    hooks?: DirectiveHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TooltipDirectivePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current options in Tooltip directive.
+ */
+export interface TooltipContext {
+    /**
+     * Current top position state as a boolean.
+     */
+    top: boolean;
+    /**
+     * Current right position state as a boolean.
+     */
+    right: boolean;
+    /**
+     * Current bottom position state as a boolean.
+     */
+    bottom: boolean;
+    /**
+     * Current left position state as a boolean.
+     */
+    left: boolean;
 }
 
 /**

@@ -1,12 +1,12 @@
 <template>
-    <DocComponent title="Vue Toolbar Component" header="Toolbar" description="Toolbar is a grouping component for buttons and other content." :componentDocs="docs" :apiDocs="['Toolbar']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Toolbar Component" header="Toolbar" description="Toolbar is a grouping component for buttons and other content." :componentDocs="docs" :apiDocs="['Toolbar']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/toolbar/AccessibilityDoc';
 import BasicDoc from '@/doc/toolbar/BasicDoc';
 import ImportDoc from '@/doc/toolbar/ImportDoc';
-import StyleDoc from '@/doc/toolbar/StyleDoc';
 import PTComponent from '@/doc/toolbar/pt/index.vue';
+import ThemingDoc from '@/doc/toolbar/theming/index.vue';
 
 export default {
     data() {
@@ -23,17 +23,13 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

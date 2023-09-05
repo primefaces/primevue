@@ -7,6 +7,19 @@
             <template #start>
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
             </template>
+            <template #item="{ label, item, props, root }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                </a>
+            </template>
             <template #end>
                 <InputText placeholder="Search" type="text" />
             </template>
@@ -138,26 +151,55 @@ export default {
                     ]
                 },
                 {
+                    label: 'Upload',
+                    icon: 'pi pi-fw pi-upload',
+                    route: '/fileupload'
+                },
+                {
                     label: 'Quit',
                     icon: 'pi pi-fw pi-power-off'
                 }
             ],
             code: {
-                basic: `
-<Menubar :model="items">
+                basic: `<Menubar :model="items">
     <template #start>
         <img alt="logo" src="/images/logo.svg" height="40" class="mr-2" />
+    </template>
+    <template #item="{ label, item, props, root }">
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+            <a :href="routerProps.href" v-bind="props.action">
+                <span v-bind="props.icon" />
+                <span v-bind="props.label">{{ label }}</span>
+            </a>
+        </router-link>
+        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+            <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+        </a>
     </template>
     <template #end>
         <InputText placeholder="Search" type="text" />
     </template>
 </Menubar>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #start>
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
+            </template>
+            <template #item="{ label, item, props, root }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                </a>
             </template>
             <template #end>
                 <InputText placeholder="Search" type="text" />
@@ -289,6 +331,11 @@ export default {
                     ]
                 },
                 {
+                    label: 'Upload',
+                    icon: 'pi pi-fw pi-upload',
+                    route: '/fileupload'
+                },
+                {
                     label: 'Quit',
                     icon: 'pi pi-fw pi-power-off'
                 }
@@ -297,12 +344,24 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #start>
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
+            </template>
+            <template #item="{ label, item, props, root }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                </a>
             </template>
             <template #end>
                 <InputText placeholder="Search" type="text" />
@@ -431,6 +490,11 @@ const items = ref([
                 ]
             }
         ]
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-fw pi-upload',
+        route: '/fileupload'
     },
     {
         label: 'Quit',

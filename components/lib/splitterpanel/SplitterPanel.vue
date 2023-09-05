@@ -1,33 +1,27 @@
 <template>
-    <div ref="container" :class="containerClass" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" v-bind="ptm('root', getPTOptions)" data-pc-name="splitterpanel">
         <slot></slot>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseSplitterPanel from './BaseSplitterPanel.vue';
 
 export default {
     name: 'SplitterPanel',
-    extends: BaseComponent,
-    props: {
-        size: {
-            type: Number,
-            default: null
-        },
-        minSize: {
-            type: Number,
-            default: null
-        }
-    },
+    extends: BaseSplitterPanel,
     computed: {
-        containerClass() {
-            return ['p-splitter-panel', { 'p-splitter-panel-nested': this.isNested }];
-        },
         isNested() {
             return this.$slots.default().some((child) => {
                 return child.type.name === 'Splitter';
             });
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    nested: this.isNested
+                }
+            };
         }
     }
 };

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The element to block should be placed as a child of BlockUI and <i>blocked</i> property is required to control the state.</p>
+        <p>FocusTrap is enabled by attaching the directive with the v- prefix.</p>
     </DocSectionText>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
@@ -52,8 +52,7 @@ export default {
             password: null,
             accept: null,
             code: {
-                basic: `
-<div class="flex justify-content-center p-fluid">
+                basic: `<div class="flex justify-content-center p-fluid">
     <div v-focustrap class="card">
         <div class="field">
             <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
@@ -91,8 +90,7 @@ export default {
         <Button type="submit" label="Submit" class="mt-2" />
     </div>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
             <div class="field">
@@ -145,8 +143,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
             <div class="field">

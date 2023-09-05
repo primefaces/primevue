@@ -8,8 +8,20 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { PaginatorPassThroughOptionType } from '../paginator';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
+export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DataViewPassThroughMethodOptions {
+    instance: any;
+    props: DataViewProps;
+    state: DataViewState;
+}
 /**
  * Custom page event.
  * @see {@link DataViewEmits.page}
@@ -31,6 +43,72 @@ export interface DataViewPageEvent {
      * Total number of pages
      */
     pageCount: number;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link DataViewProps.pt}
+ */
+export interface DataViewPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the header's DOM element.
+     */
+    header?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Paginator component.
+     * @see {@link PaginatorPassThroughOptionType}
+     */
+    paginator?: PaginatorPassThroughOptionType;
+    /**
+     * Used to pass attributes to the content's DOM element.
+     */
+    content?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the grid's DOM element.
+     */
+    grid?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the column's DOM element.
+     */
+    column?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: DataViewPassThroughOptionType;
+    /**
+     * Used to pass attributes to the footer's DOM element.
+     */
+    footer?: DataViewPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DataViewPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in DataView component.
+ */
+export interface DataViewState {
+    /**
+     * Current index of first record as a number.
+     */
+    d_first: number;
+    /**
+     * Current number of rows to display in new page as a number.
+     */
+    d_rows: number;
 }
 
 /**
@@ -130,6 +208,16 @@ export interface DataViewProps {
      * Name of the data that uniquely identifies the a record in the data.
      */
     dataKey: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {DataViewPassThroughOptions}
+     */
+    pt?: PTOptions<DataViewPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

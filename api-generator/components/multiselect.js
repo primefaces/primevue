@@ -69,7 +69,7 @@ const MultiSelectProps = [
         name: 'inputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+        description: 'Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
     },
     {
         name: 'panelStyle',
@@ -87,19 +87,19 @@ const MultiSelectProps = [
         name: 'panelProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel.'
+        description: 'Used to pass all properties of the HTMLDivElement to the overlay panel.'
     },
     {
         name: 'filterInputProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.'
+        description: 'Used to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.'
     },
     {
         name: 'closeButtonProps',
         type: 'object',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLButtonElement to the close button inside the overlay panel.'
+        description: 'Used to pass all properties of the HTMLButtonElement to the close button inside the overlay panel.'
     },
     {
         name: 'dataKey',
@@ -292,6 +292,18 @@ const MultiSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

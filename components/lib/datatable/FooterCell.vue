@@ -1,18 +1,26 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
+    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'FooterCell',
+    hostName: 'DataTable',
+    extends: BaseComponent,
     props: {
         column: {
             type: Object,
+            default: null
+        },
+        index: {
+            type: Number,
             default: null
         }
     },
@@ -34,6 +42,25 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPT(key) {
+            const columnMetaData = {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines || false
+                }
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -63,13 +90,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('footerClass'),
-                this.columnProp('class'),
-                {
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('footerClass'), this.columnProp('class'), this.cx('footerCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');

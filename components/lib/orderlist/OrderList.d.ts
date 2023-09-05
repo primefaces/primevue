@@ -7,8 +7,24 @@
  * @module orderlist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptionType } from '../button';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
+
+export declare type OrderListPassThroughTransitionType = TransitionProps | ((options: OrderListPassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface OrderListPassThroughMethodOptions {
+    instance: any;
+    props: OrderListProps;
+    state: OrderListState;
+    context: OrderListContext;
+}
 
 /**
  * Custom reorder event
@@ -42,6 +58,109 @@ export interface OrderListSelectionChangeEvent {
      * Ordered list
      */
     value: any[];
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link OrderListProps.pt}
+ */
+export interface OrderListPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: OrderListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the controls' DOM element.
+     */
+    controls?: OrderListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Button component.
+     */
+    moveUpButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Button component.
+     */
+    moveTopButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Button component.
+     */
+    moveDownButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Button component.
+     */
+    moveBottomButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the container's DOM element.
+     */
+    container?: OrderListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the header's DOM element.
+     */
+    header?: OrderListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the list's DOM element.
+     */
+    list?: OrderListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item's DOM element.
+     */
+    item?: OrderListPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: OrderListPassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface OrderListPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in OrderList component.
+ */
+export interface OrderListState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current id state as a string.
+     */
+    d_selection: any[];
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in OrderList component.
+ */
+export interface OrderListContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
@@ -90,23 +209,23 @@ export interface OrderListProps {
      */
     tabindex?: number | string | undefined;
     /**
-     *  Uses to pass all properties of the HTMLAttributes to the list element.
+     *  Used to pass all properties of the HTMLAttributes to the list element.
      */
     listProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move up button inside the component.
      */
     moveUpButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move top button inside the component.
      */
     moveTopButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move down button inside the component.
      */
     moveDownButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
      */
     moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -117,6 +236,16 @@ export interface OrderListProps {
      * Identifier of the underlying list element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {OrderListPassThroughOptions}
+     */
+    pt?: PTOptions<OrderListPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -14,10 +14,8 @@ export default {
         return {
             value: 'Always bet on Prime',
             code: {
-                basic: `
-<Editor v-model="value" editorStyle="height: 320px" readonly />`,
-                options: `
-<template>
+                basic: `<Editor v-model="value" editorStyle="height: 320px" readonly />`,
+                options: `<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px" readonly />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px" readonly />
     </div>

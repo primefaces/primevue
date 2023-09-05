@@ -1,46 +1,23 @@
 <template>
-    <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')">
-        <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle" v-bind="ptm('value')">
-            <div v-if="value != null && value !== 0 && showValue" class="p-progressbar-label" v-bind="ptm('label')">
+    <div role="progressbar" :class="cx('root')" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')">
+        <div v-if="determinate" :class="cx('value')" :style="progressStyle" v-bind="ptm('value')">
+            <div v-if="value != null && value !== 0 && showValue" :class="cx('label')" v-bind="ptm('label')">
                 <slot>{{ value + '%' }}</slot>
             </div>
         </div>
-        <div v-if="indeterminate" class="p-progressbar-indeterminate-container" v-bind="ptm('root')">
-            <div class="p-progressbar-value p-progressbar-value-animate" v-bind="ptm('value')"></div>
+        <div v-if="indeterminate" :class="cx('container')" v-bind="ptm('container')">
+            <div :class="cx('value')" v-bind="ptm('value')"></div>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseProgressBar from './BaseProgressBar.vue';
 
 export default {
     name: 'ProgressBar',
-    extends: BaseComponent,
-    props: {
-        value: {
-            type: Number,
-            default: null
-        },
-        mode: {
-            type: String,
-            default: 'determinate'
-        },
-        showValue: {
-            type: Boolean,
-            default: true
-        }
-    },
+    extends: BaseProgressBar,
     computed: {
-        containerClass() {
-            return [
-                'p-progressbar p-component',
-                {
-                    'p-progressbar-determinate': this.determinate,
-                    'p-progressbar-indeterminate': this.indeterminate
-                }
-            ];
-        },
         progressStyle() {
             return {
                 width: this.value + '%',
@@ -56,114 +33,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-progressbar {
-    position: relative;
-    overflow: hidden;
-}
-
-.p-progressbar-determinate .p-progressbar-value {
-    height: 100%;
-    width: 0%;
-    position: absolute;
-    display: none;
-    border: 0 none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.p-progressbar-determinate .p-progressbar-label {
-    display: inline-flex;
-}
-
-.p-progressbar-determinate .p-progressbar-value-animate {
-    transition: width 1s ease-in-out;
-}
-
-.p-progressbar-indeterminate .p-progressbar-value::before {
-    content: '';
-    position: absolute;
-    background-color: inherit;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    will-change: left, right;
-    -webkit-animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-    animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-}
-
-.p-progressbar-indeterminate .p-progressbar-value::after {
-    content: '';
-    position: absolute;
-    background-color: inherit;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    will-change: left, right;
-    -webkit-animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-    animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-    -webkit-animation-delay: 1.15s;
-    animation-delay: 1.15s;
-}
-
-@-webkit-keyframes p-progressbar-indeterminate-anim {
-    0% {
-        left: -35%;
-        right: 100%;
-    }
-    60% {
-        left: 100%;
-        right: -90%;
-    }
-    100% {
-        left: 100%;
-        right: -90%;
-    }
-}
-@keyframes p-progressbar-indeterminate-anim {
-    0% {
-        left: -35%;
-        right: 100%;
-    }
-    60% {
-        left: 100%;
-        right: -90%;
-    }
-    100% {
-        left: 100%;
-        right: -90%;
-    }
-}
-
-@-webkit-keyframes p-progressbar-indeterminate-anim-short {
-    0% {
-        left: -200%;
-        right: 100%;
-    }
-    60% {
-        left: 107%;
-        right: -8%;
-    }
-    100% {
-        left: 107%;
-        right: -8%;
-    }
-}
-@keyframes p-progressbar-indeterminate-anim-short {
-    0% {
-        left: -200%;
-        right: 100%;
-    }
-    60% {
-        left: 107%;
-        right: -8%;
-    }
-    100% {
-        left: 107%;
-        right: -8%;
-    }
-}
-</style>

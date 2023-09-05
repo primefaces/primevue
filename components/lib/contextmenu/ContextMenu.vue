@@ -1,11 +1,11 @@
 <template>
     <Portal :appendTo="appendTo">
-        <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="{ ...$attrs, ...ptm('root') }">
+        <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
+            <div v-if="visible" :ref="containerRef" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="contextmenu">
                 <ContextMenuSub
                     :ref="listRef"
                     :id="id + '_list'"
-                    class="p-contextmenu-root-list"
+                    :class="cx('menu')"
                     role="menubar"
                     :root="true"
                     :tabindex="tabindex"
@@ -22,6 +22,7 @@
                     :level="0"
                     :visible="submenuVisible"
                     :pt="pt"
+                    :unstyled="unstyled"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -34,54 +35,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Portal from 'primevue/portal';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     name: 'ContextMenu',
-    extends: BaseComponent,
+    extends: BaseContextMenu,
     inheritAttrs: false,
     emits: ['focus', 'blur', 'show', 'hide'],
-    props: {
-        model: {
-            type: Array,
-            default: null
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        global: {
-            type: Boolean,
-            default: false
-        },
-        exact: {
-            type: Boolean,
-            default: true
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     target: null,
     outsideClickListener: null,
     resizeListener: null,
@@ -116,6 +79,18 @@ export default {
             }
         }
     },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
+
+        if (this.global) {
+            this.bindDocumentContextMenuListener();
+        }
+    },
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -127,13 +102,6 @@ export default {
 
         this.target = null;
         this.container = null;
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
-
-        if (this.global) {
-            this.bindDocumentContextMenuListener();
-        }
     },
     methods: {
         getItemProp(item, name) {
@@ -349,7 +317,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
                 const processedItem = this.visibleItems[this.focusedItemInfo.index];
@@ -380,6 +348,7 @@ export default {
             this.hide();
         },
         onEnter(el) {
+            DomHandler.addStyles(el, { position: 'absolute' });
             this.position();
 
             if (this.autoZIndex) {
@@ -609,9 +578,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return ['p-contextmenu p-component', { 'p-input-filled': this.$primevue.config.inputStyle === 'filled', 'p-ripple-disabled': this.$primevue.config.ripple === false }];
-        },
         processedItems() {
             return this.createProcessedItems(this.model || []);
         },
@@ -630,50 +596,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-contextmenu {
-    position: absolute;
-}
-
-.p-contextmenu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-contextmenu .p-submenu-list {
-    position: absolute;
-    min-width: 100%;
-    z-index: 1;
-}
-
-.p-contextmenu .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-contextmenu .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-contextmenu .p-menuitem {
-    position: relative;
-}
-
-.p-contextmenu .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-contextmenu-enter-from {
-    opacity: 0;
-}
-
-.p-contextmenu-enter-active {
-    transition: opacity 250ms;
-}
-</style>

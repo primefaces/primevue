@@ -13,10 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InlineMessage severity="info">Username is required</InlineMessage>`,
-                options: `
-<template>
+                basic: `<InlineMessage severity="info">Username is required</InlineMessage>`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <InlineMessage severity="info">Username is required</InlineMessage>
     </div>
@@ -24,8 +22,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <InlineMessage severity="info">Username is required</InlineMessage>
     </div>

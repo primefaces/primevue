@@ -367,6 +367,12 @@ const DataTableProps = [
         description: 'Whether to displays rows with alternating colors.'
     },
     {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the table.'
+    },
+    {
         name: 'tableStyle',
         type: 'object',
         default: 'null',
@@ -377,6 +383,18 @@ const DataTableProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the table element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

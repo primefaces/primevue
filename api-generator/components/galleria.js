@@ -142,6 +142,18 @@ const GalleriaProps = [
         type: 'any',
         default: 'null',
         description: "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

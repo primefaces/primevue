@@ -7,7 +7,58 @@
  * @module inputmask
  *
  */
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttributes | ((options: InputMaskPassThroughMethodOptions) => InputMaskPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InputMaskPassThroughMethodOptions {
+    instance: any;
+    props: InputMaskProps;
+    context: InputMaskContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputMaskProps.pt}
+ */
+export interface InputMaskPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: InputMaskPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InputMaskPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current options in InputMask component.
+ */
+export interface InputMaskContext {
+    /**
+     * Current filled state of the component as a boolean.
+     * @defaultValue false
+     */
+    filled: boolean;
+    /**
+     * Current disabled state of the component as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
 
 /**
  * Defines valid properties in InputMask component.
@@ -41,8 +92,21 @@ export interface InputMaskProps {
      * @defaultValue false
      */
     readonly?: boolean | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {InputMaskPassThroughOptions}
+     */
+    pt?: PTOptions<InputMaskPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
+/**
+ * Defines valid slots in InputMask component.
+ */
 export interface InputMaskSlots {}
 
 /**

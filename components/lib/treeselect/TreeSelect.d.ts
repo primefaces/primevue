@@ -7,9 +7,119 @@
  * @module treeselect
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
-import { TreeNode } from '../tree';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
+
+export declare type TreeSelectPassThroughTransitionType = TransitionProps | ((options: TreeSelectPassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TreeSelectPassThroughMethodOptions {
+    instance: any;
+    props: TreeSelectProps;
+    state: TreeSelectState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TreeSelectProps.pt}
+ */
+export interface TreeSelectPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label container's DOM element.
+     */
+    labelContainer?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    label?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the token's DOM element.
+     */
+    token?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the token label's DOM element.
+     */
+    tokenLabel?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the trigger's DOM element.
+     */
+    trigger?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the trigger icon's DOM element.
+     */
+    triggerIcon?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the panel's DOM element.
+     */
+    panel?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to Tree component.
+     * @see {@link TreePassThroughOptionType}
+     */
+    tree?: TreePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: TreeSelectPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: TreeSelectPassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TreeSelectPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in TreeSelect component.
+ */
+export interface TreeSelectState {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current expanded keys state.
+     */
+    expandedKeys: TreeExpandedKeys;
+}
 
 /**
  * Defines valid properties in TreeSelect component.
@@ -83,7 +193,7 @@ export interface TreeSelectProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -94,6 +204,16 @@ export interface TreeSelectProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {TreeSelectPassThroughOptions}
+     */
+    pt?: PTOptions<TreeSelectPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -153,8 +273,14 @@ export interface TreeSelectSlots {
     indicator(): VNode[];
     /**
      * Custom indicator template.
+     * @param {Object} scope - triggericon slot's params.
      */
-    triggericon(): VNode[];
+    triggericon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom item toggler icon template.
      * @param {Object} scope - item toggler icon slot's params.

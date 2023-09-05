@@ -8,17 +8,20 @@
  *
  */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { TabViewPassThroughOptions } from '../tabview';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes) | null | undefined;
+export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TabPanelPassThroughMethodOptions {
+    instance: any;
     props: TabPanelProps;
     parent: TabViewPassThroughOptions;
+    context: TabPanelContext;
 }
 
 /**
@@ -27,25 +30,30 @@ export interface TabPanelPassThroughMethodOptions {
  */
 export interface TabPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TabPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: TabPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header action's DOM element.
+     * Used to pass attributes to the header action's DOM element.
      */
     headerAction?: TabPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     headerTitle?: TabPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     content?: TabPanelPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 export interface TabPanelPassThroughAttributes {
@@ -69,12 +77,12 @@ export interface TabPanelProps {
      */
     headerClass?: any;
     /**
-     * Uses to pass all properties of the HTMLLiElement to the tab header.
+     * Used to pass all properties of the HTMLLiElement to the tab header.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerProps?: LiHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
+     * Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
@@ -87,7 +95,7 @@ export interface TabPanelProps {
      */
     contentClass?: any;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the tab content.
+     * Used to pass all properties of the HTMLDivElement to the tab content.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
@@ -97,11 +105,38 @@ export interface TabPanelProps {
      */
     disabled?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TabPanelPassThroughOptions}
      */
-    pt?: TabPanelPassThroughOptions;
+    pt?: PTOptions<TabPanelPassThroughOptions>;
 }
+
+/**
+ * Defines current options in TabPanel component.
+ */
+export interface TabPanelContext {
+    /**
+     * Current index of the tab.
+     */
+    index: number;
+    /**
+     * Count of tabs
+     */
+    count: number;
+    /**
+     * Whether the tab is first.
+     */
+    first: boolean;
+    /**
+     * Whether the tab is last.
+     */
+    last: boolean;
+    /**
+     * Whether the tab is active.
+     */
+    active: boolean;
+}
+
 /**
  * Defines valid slots in TabPanel slots.
  */

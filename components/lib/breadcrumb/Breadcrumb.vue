@@ -1,39 +1,30 @@
 <template>
-    <nav class="p-breadcrumb p-component" v-bind="ptm('root')">
-        <ol class="p-breadcrumb-list" v-bind="ptm('menu')">
-            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :templates="$slots" :exact="exact" :pt="pt" />
+    <nav :class="cx('root')" v-bind="ptm('root')" data-pc-name="breadcrumb">
+        <ol :class="cx('menu')" v-bind="ptm('menu')">
+            <BreadcrumbItem v-if="home" :item="home" :class="cx('home')" :templates="$slots" :exact="exact" :pt="pt" :unstyled="unstyled" v-bind="ptm('home')" />
             <template v-for="(item, i) of model" :key="item.label">
-                <li v-if="home || i !== 0" class="p-menuitem-separator" v-bind="ptm('separator')">
+                <li v-if="home || i !== 0" :class="cx('separator')" v-bind="ptm('separator')">
                     <slot name="separator">
                         <ChevronRightIcon aria-hidden="true" v-bind="ptm('separatorIcon')" />
                     </slot>
                 </li>
-                <BreadcrumbItem :item="item" :index="i" :templates="$slots" :exact="exact" :pt="pt" />
+                <BreadcrumbItem :item="item" :index="i" :templates="$slots" :exact="exact" :pt="pt" :unstyled="unstyled" />
             </template>
         </ol>
     </nav>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import ChevronRightIcon from 'primevue/icons/chevronright';
+import BaseBreadcrumb from './BaseBreadcrumb.vue';
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
     name: 'Breadcrumb',
-    extends: BaseComponent,
-    props: {
-        model: {
-            type: Array,
-            default: null
-        },
-        home: {
-            type: null,
-            default: null
-        },
-        exact: {
-            type: Boolean,
-            default: true
+    extends: BaseBreadcrumb,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     components: {
@@ -42,37 +33,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-breadcrumb {
-    overflow-x: auto;
-}
-
-.p-breadcrumb .p-breadcrumb-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-.p-breadcrumb .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-breadcrumb .p-menuitem-link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.p-breadcrumb .p-menuitem-separator {
-    display: flex;
-    align-items: center;
-}
-
-.p-breadcrumb::-webkit-scrollbar {
-    display: none;
-}
-</style>

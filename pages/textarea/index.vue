@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Textarea Component" header="Textarea" description="Textarea adds styling, key filtering and autoResize functionality to standard textarea element." :componentDocs="docs" :apiDocs="['Textarea']" />
+    <DocComponent
+        title="Vue Textarea Component"
+        header="Textarea"
+        description="Textarea adds styling, key filtering and autoResize functionality to standard textarea element."
+        :componentDocs="docs"
+        :apiDocs="['Textarea']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -8,10 +16,11 @@ import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc';
 import BasicDoc from '@/doc/textarea/BasicDoc';
 import DisabledDoc from '@/doc/textarea/DisabledDoc';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
-import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc';
 import InvalidDoc from '@/doc/textarea/InvalidDoc';
-import StyleDoc from '@/doc/textarea/StyleDoc';
+import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/textarea/pt/index.vue';
+import ThemingDoc from '@/doc/textarea/theming/index.vue';
 
 export default {
     data() {
@@ -60,16 +69,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

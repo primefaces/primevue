@@ -1,8 +1,8 @@
 <template>
-    <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]" v-bind="ptm('root')">
-        <legend class="p-fieldset-legend" v-bind="ptm('legend')">
+    <fieldset :class="cx('root')" v-bind="ptm('root')" data-pc-name="fieldset">
+        <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
-                <span :id="ariaId + '_header'" class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                <span :id="ariaId + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
             </slot>
             <a
                 v-if="toggleable"
@@ -18,16 +18,16 @@
                 v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
                 <slot name="togglericon" :collapsed="d_collapsed">
-                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" class="p-fieldset-toggler" v-bind="ptm('togglericon')" />
+                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="cx('togglericon')" v-bind="ptm('togglericon')" />
                 </slot>
                 <slot name="legend">
-                    <span class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                    <span :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
                 </slot>
             </a>
         </legend>
-        <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div class="p-fieldset-content" v-bind="ptm('content')">
+        <transition name="p-toggleable-content" v-bind="ptm('transition')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
             </div>
@@ -36,25 +36,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
+import BaseFieldset from './BaseFieldset.vue';
 
 export default {
     name: 'Fieldset',
-    extends: BaseComponent,
+    extends: BaseFieldset,
     emits: ['update:collapsed', 'toggle'],
-    props: {
-        legend: String,
-        toggleable: Boolean,
-        collapsed: Boolean,
-        toggleButtonProps: {
-            type: null,
-            default: null
-        }
-    },
     data() {
         return {
             d_collapsed: this.collapsed
@@ -98,24 +89,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-fieldset-legend > a,
-.p-fieldset-legend > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-fieldset-toggleable .p-fieldset-legend a {
-    cursor: pointer;
-    user-select: none;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-}
-
-.p-fieldset-legend-text {
-    line-height: 1;
-}
-</style>

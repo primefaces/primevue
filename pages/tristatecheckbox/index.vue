@@ -1,15 +1,24 @@
 <template>
-    <DocComponent title="Vue TriStateCheckbox Component" header="TriStateCheckbox" description="TriStateCheckbox is used to select either true, false or null as the value." :componentDocs="docs" :apiDocs="['TriStateCheckbox']" />
+    <DocComponent
+        title="Vue TriStateCheckbox Component"
+        header="TriStateCheckbox"
+        description="TriStateCheckbox is used to select either true, false or null as the value."
+        :componentDocs="docs"
+        :apiDocs="['TriStateCheckbox']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/tristatecheckbox/AccessibilityDoc';
 import BasicDoc from '@/doc/tristatecheckbox/BasicDoc';
 import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc';
-import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/tristatecheckbox/ImportDoc';
 import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc';
-import StyleDoc from '@/doc/tristatecheckbox/StyleDoc';
+import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/tristatecheckbox/pt/index.vue';
+import ThemingDoc from '@/doc/tristatecheckbox/theming/index.vue';
 
 export default {
     data() {
@@ -48,16 +57,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -7,15 +7,19 @@
  * @module toast
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes) | null | undefined;
+export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ToastPassThroughTransitionType = TransitionProps | ((options: ToastPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ToastPassThroughMethodOptions {
+    instance: any;
     props: ToastProps;
     state: ToastState;
 }
@@ -26,49 +30,68 @@ export interface ToastPassThroughMethodOptions {
  */
 export interface ToastPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the message's DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the summary's DOM element.
+     * Used to pass attributes to the summary's DOM element.
      */
     summary?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the detail's DOM element.
+     * Used to pass attributes to the detail's DOM element.
      */
     detail?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button container's DOM element.
+     * Used to pass attributes to the button container's DOM element.
      */
     buttonContainer?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: ToastPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button icon's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     */
+    closeButton?: ToastPassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: ToastPassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: ToastPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ToastPassThroughTransitionType;
 }
 
 /**
@@ -197,15 +220,20 @@ export interface ToastProps {
      */
     successIcon?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * Used to pass all properties of the HTMLButtonElement to the close button.
      * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ToastPassThroughOptions}
      */
-    pt?: ToastPassThroughOptions;
+    pt?: PTOptions<ToastPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -224,12 +252,24 @@ export interface ToastSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
-    icon(): VNode[];
+    icon(scope: {
+        /**
+         * Style class of the icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - close icon slot's params.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the close icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

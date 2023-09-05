@@ -1,12 +1,12 @@
 <template>
-    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle" v-bind="$attrs.containerProps">
-        <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" class="p-galleria-close p-link" :aria-label="closeAriaLabel" @click="$emit('mask-hide')">
-            <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" class="p-galleria-close-icon" />
+    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="[cx('root'), $attrs.containerClass]" :style="$attrs.containerStyle" v-bind="{ ...$attrs.containerProps, ...getPTOptions('root') }" data-pc-name="galleria">
+        <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="$emit('mask-hide')" v-bind="getPTOptions('closeButton')">
+            <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" :class="cx('closeIcon')" v-bind="getPTOptions('closeIcon')" />
         </button>
-        <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
+        <div v-if="$attrs.templates && $attrs.templates['header']" :class="cx('header')" v-bind="getPTOptions('header')">
             <component :is="$attrs.templates['header']" />
         </div>
-        <div class="p-galleria-content" :aria-live="$attrs.autoPlay ? 'polite' : 'off'">
+        <div :class="cx('content')" :aria-live="$attrs.autoPlay ? 'polite' : 'off'" v-bind="getPTOptions('content')">
             <GalleriaItem
                 :id="id"
                 v-model:activeIndex="activeIndex"
@@ -20,6 +20,8 @@
                 :autoPlay="$attrs.autoPlay"
                 @start-slideshow="startSlideShow"
                 @stop-slideshow="stopSlideShow"
+                :pt="pt"
+                :unstyled="unstyled"
             />
 
             <GalleriaThumbnails
@@ -38,15 +40,18 @@
                 :prevButtonProps="$attrs.prevButtonProps"
                 :nextButtonProps="$attrs.nextButtonProps"
                 @stop-slideshow="stopSlideShow"
+                :pt="pt"
+                :unstyled="unstyled"
             />
         </div>
-        <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
+        <div v-if="$attrs.templates && $attrs.templates['footer']" :class="cx('footer')" v-bind="getPTOptions('footer')">
             <component :is="$attrs.templates['footer']" />
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import TimesIcon from 'primevue/icons/times';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
@@ -55,6 +60,8 @@ import GalleriaThumbnails from './GalleriaThumbnails.vue';
 
 export default {
     name: 'GalleriaContent',
+    hostName: 'Galleria',
+    extends: BaseComponent,
     inheritAttrs: false,
     interval: null,
     emits: ['activeitem-change', 'mask-hide'],
@@ -91,6 +98,15 @@ export default {
         }
     },
     methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                props: {
+                    ...this.$attrs,
+                    pt: this.pt,
+                    unstyled: this.unstyled
+                }
+            });
+        },
         isAutoPlayActive() {
             return this.slideShowActive;
         },
@@ -121,22 +137,6 @@ export default {
         }
     },
     computed: {
-        galleriaClass() {
-            const thumbnailsPosClass = this.$attrs.showThumbnails && this.getPositionClass('p-galleria-thumbnails', this.$attrs.thumbnailsPosition);
-            const indicatorPosClass = this.$attrs.showIndicators && this.getPositionClass('p-galleria-indicators', this.$attrs.indicatorsPosition);
-
-            return [
-                'p-galleria p-component',
-                {
-                    'p-galleria-fullscreen': this.$attrs.fullScreen,
-                    'p-galleria-indicator-onitem': this.$attrs.showIndicatorsOnItem,
-                    'p-galleria-item-nav-onhover': this.$attrs.showItemNavigatorsOnHover && !this.$attrs.fullScreen
-                },
-                thumbnailsPosClass,
-                indicatorPosClass,
-                this.$attrs.containerClass
-            ];
-        },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }

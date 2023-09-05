@@ -8,7 +8,90 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ToggleButtonPassThroughMethodOptions {
+    instance: any;
+    props: ToggleButtonProps;
+    state: ToggleButtonState;
+    context: ToggleButtonContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ToggleButtonProps.pt}
+ */
+export interface ToggleButtonPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: ToggleButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the icon's DOM element.
+     */
+    icon?: ToggleButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    label?: ToggleButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: ToggleButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: ToggleButtonPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ToggleButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ToggleButton component.
+ */
+export interface ToggleButtonState {
+    /**
+     * Focused state as a boolean.
+     */
+    focused: boolean;
+}
+
+/**
+ * Defines current options in ToggleButton component.
+ */
+export interface ToggleButtonContext {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current highlighted state as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
+}
 
 /**
  * Defines valid properties in ToggleButton component.
@@ -66,7 +149,7 @@ export interface ToggleButtonProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -77,6 +160,16 @@ export interface ToggleButtonProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ToggleButtonPassThroughOptions}
+     */
+    pt?: PTOptions<ToggleButtonPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -85,6 +178,7 @@ export interface ToggleButtonProps {
 export interface ToggleButtonSlots {
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

@@ -11,22 +11,19 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Skeleton
+                basic: `<Skeleton
     :pt="{
         root: { class: 'w-3rem h-3rem' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <Skeleton
         :pt="{
             root: { class: 'w-3rem h-3rem' }
         }"
     />
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <Skeleton
         :pt="{
             root: { class: 'w-3rem h-3rem' }

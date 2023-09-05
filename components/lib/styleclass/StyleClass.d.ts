@@ -7,6 +7,8 @@
  * @module styleclass
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
+import { DirectiveHooks } from '../basedirective';
+import { PTOptions } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.
@@ -49,6 +51,22 @@ export interface StyleClassOptions {
      * Adds or removes a class when no enter-leave animation is required.
      */
     toggleClass?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {StyleClassDirectivePassThroughOptions}
+     */
+    pt?: PTOptions<StyleClassDirectivePassThroughOptions>;
+}
+
+/**
+ * Custom passthrough(pt) directive options.
+ */
+export interface StyleClassDirectivePassThroughOptions {
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseDirective.DirectiveHooks}
+     */
+    hooks?: DirectiveHooks;
 }
 
 /**

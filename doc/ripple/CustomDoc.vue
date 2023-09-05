@@ -15,12 +15,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div v-ripple class="p-ripple card shadow-2 styled-box-green">Green</div>
+                basic: `<div v-ripple class="p-ripple card shadow-2 styled-box-green">Green</div>
 <div v-ripple class="p-ripple card shadow-2 styled-box-orange">Orange</div>
 <div v-ripple class="p-ripple card shadow-2 styled-box-purple">Purple</div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="flex justify-content-center align-items-center">
         <div v-ripple class="p-ripple card shadow-2 styled-box-green">Green</div>
         <div v-ripple class="p-ripple card shadow-2 styled-box-orange">Orange</div>
@@ -43,8 +41,7 @@ export default {
     background: rgba(156, 39, 176, 0.3);
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="flex justify-content-center align-items-center">
         <div v-ripple class="p-ripple card shadow-2 styled-box-green">Green</div>
         <div v-ripple class="p-ripple card shadow-2 styled-box-orange">Orange</div>

@@ -66,8 +66,7 @@ export default {
             totalSize: 0,
             totalSizePercent: 0,
             code: {
-                basic: `
-<FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
+                basic: `<FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
     <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
         <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
             <div class="flex gap-2">
@@ -118,8 +117,7 @@ export default {
         </div>
     </template>
 </FileUpload>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
@@ -210,22 +208,23 @@ export default {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
         },
         formatSize(bytes) {
+            const k = 1024;
+            const dm = 3;
+            const sizes = this.$primevue.config.locale.fileSizeTypes;
+
             if (bytes === 0) {
-                return '0 B';
+                return \`0 \${sizes[0]}\`;
             }
 
-            let k = 1000,
-                dm = 3,
-                sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                i = Math.floor(Math.log(bytes) / Math.log(k));
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            return \`\${formattedSize} \${sizes[i]}\`;
         }
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
@@ -319,12 +318,19 @@ const onTemplatedUpload = () => {
 };
 
 const formatSize = (bytes) => {
-    if (bytes === 0) return "0 B";
     const k = 1024;
-    const sizes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+    const dm = 3;
+    const sizes = this.$primevue.config.locale.fileSizeTypes;
+
+    if (bytes === 0) {
+        return \`0 \${sizes[0]}\`;
+    }
+
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
-};
+    const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
+
+    return \`\${formattedSize} \${sizes[i]}\`;
+},
 <\/script>`
             }
         };
@@ -354,16 +360,18 @@ const formatSize = (bytes) => {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
         },
         formatSize(bytes) {
+            const k = 1024;
+            const dm = 3;
+            const sizes = this.$primevue.config.locale.fileSizeTypes;
+
             if (bytes === 0) {
-                return '0 B';
+                return `0 ${sizes[0]}`;
             }
 
-            let k = 1000,
-                dm = 3,
-                sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                i = Math.floor(Math.log(bytes) / Math.log(k));
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            return `${formattedSize} ${sizes[i]}`;
         }
     }
 };

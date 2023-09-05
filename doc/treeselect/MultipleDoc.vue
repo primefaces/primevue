@@ -8,7 +8,7 @@
     </DocSectionText>
     <DocSectionCode :code="activeNodes" hideToggleCode importCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Items" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Items" class="md:w-20rem w-full" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -28,16 +28,16 @@ export default {
 }`
             },
             code: {
-                basic: `
-<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />`,
-                options: `
-<template>
+                basic: `<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
     data() {
         return {
@@ -50,15 +50,15 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);

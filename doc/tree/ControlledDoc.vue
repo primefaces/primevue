@@ -24,14 +24,12 @@ export default {
             nodes: null,
             expandedKeys: {},
             code: {
-                basic: `
-<div class="flex flex-wrap gap-2 mb-4">
+                basic: `<div class="flex flex-wrap gap-2 mb-4">
     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
 </div>
 <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column align-items-cente">
         <div class="flex flex-wrap gap-2 mb-4">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
@@ -77,8 +75,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column align-items-cente">
         <div class="flex flex-wrap gap-2 mb-4">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />

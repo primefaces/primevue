@@ -8,16 +8,19 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes) | null | undefined;
+export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface StepsPassThroughMethodOptions {
+    instance: any;
     props: StepsProps;
+    context: StepsContext;
 }
 
 /**
@@ -26,29 +29,34 @@ export interface StepsPassThroughMethodOptions {
  */
 export interface StepsPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: StepsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: StepsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: StepsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: StepsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the step's DOM element.
+     * Used to pass attributes to the step's DOM element.
      */
     step?: StepsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: StepsPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -56,6 +64,48 @@ export interface StepsPassThroughOptions {
  */
 export interface StepsPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Steps component.
+ */
+export interface StepsContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem.
+     */
+    index: number;
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
+/**
+ * Defines valid router binding props in Steps component.
+ */
+export interface StepsRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
 }
 
 /**
@@ -81,10 +131,15 @@ export interface StepsProps {
      */
     exact?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {StepsPassThroughOptions}
      */
-    pt?: StepsPassThroughOptions;
+    pt?: PTOptions<StepsPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -100,6 +155,18 @@ export interface StepsSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Order of the menuitem
+         */
+        index: number;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: StepsRouterBindProps;
     }): VNode[];
 }
 

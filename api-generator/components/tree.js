@@ -77,6 +77,18 @@ const TreeProps = [
         type: 'string',
         default: 'null',
         description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

@@ -46,6 +46,18 @@ const PaginatorProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show the paginator even there is only one page.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

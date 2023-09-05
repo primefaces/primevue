@@ -31,8 +31,7 @@ export default {
             nodes: null,
             dialogVisible: false,
             code: {
-                basic: `
-<Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
+                basic: `<Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
     <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
         <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
@@ -43,8 +42,7 @@ export default {
         <Button label="Ok" icon="pi pi-check" @click="dialogVisible = false" />
     </template>
 </Dialog>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
         <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
@@ -75,8 +73,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
         <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">

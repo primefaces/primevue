@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue DataView Component" header="DataView" description="DataView displays data in grid or list layout with pagination and sorting features." :componentDocs="docs" :apiDocs="['DataView', 'DataViewLayoutOptions']" />
+    <DocComponent
+        title="Vue DataView Component"
+        header="DataView"
+        description="DataView displays data in grid or list layout with pagination and sorting features."
+        :componentDocs="docs"
+        :apiDocs="['DataView', 'DataViewLayoutOptions']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -11,7 +19,8 @@ import LoadingDoc from '@/doc/dataview/LoadingDoc';
 import PaginationDoc from '@/doc/dataview/PaginationDoc';
 import PrimeFlexDoc from '@/doc/dataview/PrimeFlexDoc';
 import SortingDoc from '@/doc/dataview/SortingDoc';
-import StyleDoc from '@/doc/dataview/StyleDoc';
+import PTComponent from '@/doc/dataview/pt/index.vue';
+import ThemingDoc from '@/doc/dataview/theming/index.vue';
 
 export default {
     data() {
@@ -53,16 +62,13 @@ export default {
                     component: LoadingDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

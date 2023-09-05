@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['InlineMessage']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -15,9 +16,9 @@ import BasicDoc from '@/doc/inlinemessage/BasicDoc.vue';
 import FormDoc from '@/doc/inlinemessage/FormDoc.vue';
 import ImportDoc from '@/doc/inlinemessage/ImportDoc.vue';
 import SeverityDoc from '@/doc/inlinemessage/SeverityDoc.vue';
-import StyleDoc from '@/doc/inlinemessage/StyleDoc.vue';
 import TemplateDoc from '@/doc/inlinemessage/TemplateDoc.vue';
 import PTComponent from '@/doc/inlinemessage/pt/index.vue';
+import ThemingDoc from '@/doc/inlinemessage/theming/index.vue';
 
 export default {
     data() {
@@ -49,17 +50,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

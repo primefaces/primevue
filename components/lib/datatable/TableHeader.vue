@@ -1,11 +1,12 @@
 <template>
-    <thead class="p-datatable-thead" role="rowgroup">
+    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead', ptmTHeadOptions), ...getColumnGroupPT('root') } : ptm('thead', ptmTHeadOptions)" data-pc-section="thead">
         <template v-if="!columnGroup">
-            <tr role="row">
+            <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                     <DTHeaderCell
                         v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))"
                         :column="col"
+                        :index="i"
                         @column-click="$emit('column-click', $event)"
                         @column-mousedown="$emit('column-mousedown', $event)"
                         @column-dragstart="$emit('column-dragstart', $event)"
@@ -36,13 +37,19 @@
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
                         :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
+                        :pt="pt"
                     />
                 </template>
             </tr>
-            <tr v-if="filterDisplay === 'row'" role="row">
+            <tr v-if="filterDisplay === 'row'" role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                    <th v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))" :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
-                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" />
+                    <th
+                        v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))"
+                        :style="getFilterColumnHeaderStyle(col)"
+                        :class="getFilterColumnHeaderClass(col)"
+                        v-bind="{ ...getColumnPT(col, 'root', i), ...getColumnPT(col, 'headerCell', i) }"
+                    >
+                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" :column="col" :pt="pt" />
                         <DTColumnFilter
                             v-if="col.children && col.children.filter"
                             :field="columnProp(col, 'filterField') || columnProp(col, 'field')"
@@ -77,13 +84,16 @@
                             @constraint-add="$emit('constraint-add', $event)"
                             @constraint-remove="$emit('constraint-remove', $event)"
                             @apply-click="$emit('apply-click', $event)"
+                            :column="col"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                     </th>
                 </template>
             </tr>
         </template>
         <template v-else>
-            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row">
+            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row" v-bind="{ ...ptm('headerRow'), ...getRowPT(row, 'root', i) }">
                 <template v-for="(col, j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
                     <DTHeaderCell
                         v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field')) && typeof col.children !== 'string'"
@@ -110,6 +120,7 @@
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
                         :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
+                        :pt="pt"
                     />
                 </template>
             </tr>
@@ -118,13 +129,17 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import ColumnFilter from './ColumnFilter.vue';
 import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'TableHeader',
+    hostName: 'DataTable',
+    extends: BaseComponent,
     emits: [
         'column-click',
         'column-mousedown',
@@ -221,15 +236,60 @@ export default {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
-        getFilterColumnHeaderClass(column) {
-            return [
-                'p-filter-column',
-                this.columnProp(column, 'filterHeaderClass'),
-                this.columnProp(column, 'class'),
-                {
-                    'p-frozen-column': this.columnProp(column, 'frozen')
+        getColumnGroupPT(key) {
+            const columnGroupMetaData = {
+                props: this.getColumnGroupProps(),
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    type: 'header',
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
                 }
-            ];
+            };
+
+            return mergeProps(this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), this.ptm(`columnGroup.${key}`, columnGroupMetaData), this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData));
+        },
+        getColumnGroupProps() {
+            return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
+        },
+        getRowPT(row, key, index) {
+            const rowMetaData = {
+                props: row.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    index
+                }
+            };
+
+            return mergeProps(this.ptm(`row.${key}`, { row: rowMetaData }), this.ptm(`row.${key}`, rowMetaData), this.ptmo(this.getRowProp(row), key, rowMetaData));
+        },
+        getRowProp(row) {
+            return row.props && row.props.pt ? row.props.pt : undefined; //@todo
+        },
+        getColumnPT(column, key, index) {
+            const columnMetaData = {
+                props: column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    index
+                }
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(column), key, columnMetaData));
+        },
+        getColumnProp(column) {
+            return column.props && column.props.pt ? column.props.pt : undefined; //@todo
+        },
+        getFilterColumnHeaderClass(column) {
+            return [this.cx('headerCell', { column }), this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class')];
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
@@ -262,6 +322,15 @@ export default {
 
                 return cols;
             }
+        }
+    },
+    computed: {
+        ptmTHeadOptions() {
+            return {
+                context: {
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
+                }
+            };
         }
     },
     components: {

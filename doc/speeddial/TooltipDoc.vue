@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -53,15 +53,14 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
-<SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />`,
-                options: `
-<template>
+                basic: `<SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
+<SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />`,
+                options: `<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+            <Toast />
         </div>
     </div>
 </template>
@@ -111,12 +110,12 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+            <Toast />
         </div>
     </div>
 </template>

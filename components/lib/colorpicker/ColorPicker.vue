@@ -1,17 +1,17 @@
 <template>
-    <div ref="container" :class="containerClass">
-        <input v-if="!inline" ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" />
+    <div ref="container" :class="cx('root')" v-bind="ptm('root')">
+        <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="pickerClass" @click="onOverlayClick">
-                    <div class="p-colorpicker-content">
-                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div class="p-colorpicker-color">
-                                <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
+                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
+                    <div :class="cx('panel')" v-bind="ptm('content')">
+                        <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
+                            <div :class="cx('color')" v-bind="ptm('color')">
+                                <div :ref="colorHandleRef" :class="cx('colorHandle')" v-bind="ptm('colorHandle')"></div>
                             </div>
                         </div>
-                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)" @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
+                        <div :ref="hueViewRef" :class="cx('hue')" @mousedown="onHueMousedown($event)" @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('hue')">
+                            <div :ref="hueHandleRef" :class="cx('hueHandle')" v-bind="ptm('hueHandle')"></div>
                         </div>
                     </div>
                 </div>
@@ -24,49 +24,12 @@
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseColorPicker from './BaseColorPicker.vue';
 
 export default {
     name: 'ColorPicker',
+    extends: BaseColorPicker,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
-    props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
-        defaultColor: {
-            type: null,
-            default: 'ff0000'
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        format: {
-            type: String,
-            default: 'hex'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: String,
-            default: null
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        panelClass: null
-    },
     data() {
         return {
             overlayVisible: false
@@ -382,7 +345,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+                ZIndexUtils.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
             }
 
             this.$emit('show');
@@ -442,7 +405,8 @@ export default {
 
             this.colorDragging = true;
             this.pickColor(event);
-            DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            this.$el.setAttribute('p-colorpicker-dragging', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
             event.preventDefault();
         },
         onDrag(event) {
@@ -459,7 +423,8 @@ export default {
         onDragEnd() {
             this.colorDragging = false;
             this.hueDragging = false;
-            DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
+            this.$el.setAttribute('p-colorpicker-dragging', 'false');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
             this.unbindDragListeners();
         },
         onHueMousedown(event) {
@@ -477,7 +442,7 @@ export default {
 
             this.hueDragging = true;
             this.pickHue(event);
-            DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
         },
         isInputClicked(event) {
             return this.$refs.input && this.$refs.input.isSameNode(event.target);
@@ -591,26 +556,6 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
-        }
-    },
-    computed: {
-        containerClass() {
-            return ['p-colorpicker p-component', { 'p-colorpicker-overlay': !this.inline }];
-        },
-        inputClass() {
-            return ['p-colorpicker-preview p-inputtext', { 'p-disabled': this.disabled }];
-        },
-        pickerClass() {
-            return [
-                'p-colorpicker-panel',
-                this.panelClass,
-                {
-                    'p-colorpicker-overlay-panel': !this.inline,
-                    'p-disabled': this.disabled,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
         }
     },
     components: {

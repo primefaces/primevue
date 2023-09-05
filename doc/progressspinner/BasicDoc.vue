@@ -14,8 +14,7 @@ export default {
         return {
             code: {
                 basic: `<ProgressSpinner />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <ProgressSpinner />
     </div>
@@ -23,8 +22,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <ProgressSpinner />
     </div>

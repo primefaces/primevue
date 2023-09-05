@@ -8,21 +8,24 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes) | null | undefined;
+export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface SplitterPassThroughMethodOptions {
+    instance: any;
     props: SplitterProps;
     state: SplitterState;
+    context: SplitterContext;
 }
 
 /**
  * Custom resize start event.
- * @see {@link SplitterEmits.resizestar}
+ * @see {@link SplitterEmits.resizestart}
  */
 export interface SplitterResizeStartEvent {
     /**
@@ -37,7 +40,7 @@ export interface SplitterResizeStartEvent {
 
 /**
  * Custom resize end event.
- * @see {@link PickListEmits.resizeend}
+ * @see {@link SplitterEmits.resizeend}
  */
 export interface SplitterResizeEndEvent {
     /**
@@ -56,17 +59,22 @@ export interface SplitterResizeEndEvent {
  */
 export interface SplitterPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitterPassThroughOptionType;
     /**
-     * Uses to pass attributes to the gutter's DOM element.
+     * Used to pass attributes to the gutter's DOM element.
      */
     gutter?: SplitterPassThroughOptionType;
     /**
-     * Uses to pass attributes to the gutter handler's DOM element.
+     * Used to pass attributes to the gutter handler's DOM element.
      */
     gutterHandler?: SplitterPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -84,6 +92,16 @@ export interface SplitterState {
      * Previous size state as a number.
      */
     prevSize: number;
+}
+
+/**
+ * Defines options in Splitter component.
+ */
+export interface SplitterContext {
+    /**
+     * Current nested state of the component.
+     */
+    nested?: boolean;
 }
 
 /**
@@ -115,10 +133,15 @@ export interface SplitterProps {
      */
     step?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPassThroughOptions}
      */
-    pt?: SplitterPassThroughOptions;
+    pt?: PTOptions<SplitterPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -139,7 +162,7 @@ export interface SplitterEmits {
      * Callback to invoke when resize starts.
      * @param {SplitterResizeStartEvent} event - Custom resize start event.
      */
-    resizestar(event: SplitterResizeStartEvent): void;
+    resizestart(event: SplitterResizeStartEvent): void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.

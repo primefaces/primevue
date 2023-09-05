@@ -6,7 +6,7 @@
     left: 250px;
     width: calc(100% - 250px);
     z-index: 1100;
-    border-bottom: 1px solid var(--surface-border);
+    transition: background-color 1s;
 
     .layout-topbar-inner {
         height: 100%;
@@ -38,6 +38,23 @@
 
         i {
             font-size: 1.5rem;
+        }
+    }
+}
+
+
+.layout-wrapper-light {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(255,255,255,.7);
+        }
+    }
+}
+
+.layout-wrapper-dark {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(0,0,0,.3);
         }
     }
 }

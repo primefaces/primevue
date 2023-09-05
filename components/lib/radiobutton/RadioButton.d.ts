@@ -8,7 +8,69 @@
  *
  */
 import { InputHTMLAttributes } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAttributes | ((options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface RadioButtonPassThroughMethodOptions {
+    instance: any;
+    props: RadioButtonProps;
+    state: RadioButtonState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RadioButtonProps.pt}
+ */
+export interface RadioButtonPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: RadioButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the input's DOM element.
+     */
+    input?: RadioButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the icon's DOM element.
+     */
+    icon?: RadioButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden accessible DOM element wrapper.
+     */
+    hiddenInputWrapper?: RadioButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden accessible DOM element.
+     */
+    hiddenInput?: RadioButtonPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface RadioButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in RadioButton component.
+ */
+export interface RadioButtonState {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
 
 /**
  * Defines valid properties in RadioButton component.
@@ -44,7 +106,7 @@ export interface RadioButtonProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -55,6 +117,16 @@ export interface RadioButtonProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {RadioButtonPassThroughOptions}
+     */
+    pt?: PTOptions<RadioButtonPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface RadioButtonSlots {}

@@ -15,6 +15,7 @@
 
 <script>
 import { NodeService } from '/service/NodeService';
+
 export default {
     data() {
         return {
@@ -30,43 +31,43 @@ export default {
 }`
             },
             code: {
-                basic: `
-<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />`,
-                options: `
-<template>
-<div class="card flex justify-content-center">
-    <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
-</div>
+                basic: `<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />`,
+                options: `<template>
+    <div class="card flex justify-content-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
+    </div>
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
-data() {
-    return {
-        nodes: null,
-        selectedValue: null,
+    data() {
+        return {
+            nodes: null,
+            selectedValue: null,
+        }
+    },
+    mounted() {
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
     }
-},
-mounted() {
-    NodeService.getTreeNodes().then((data) => (this.nodes = data));
-}
 }
 <\/script>`,
-                composition: `
-<template>
-<div class="card flex justify-content-center">
-    <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
-</div>
+                composition: `<template>
+    <div class="card flex justify-content-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
+    </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);
 
 onMounted(() => {
-NodeService.getTreeNodes().then((data) => (nodes.value = data));
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
 });
 <\/script>`,
                 data: `

@@ -74,3 +74,26 @@ input[type="number"] {
 .p-toast.p-toast-top-left {
     top: 7rem;
 }
+
+.px-link {
+    font-size: 1rem;
+    font-family: var(--font-family);
+    border-radius: var(--border-radius);
+    text-align: left;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.px-link:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: var(--focus-ring);
+}
+
+.px-link:disabled {
+	cursor: default;
+}

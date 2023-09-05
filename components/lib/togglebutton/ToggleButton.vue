@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" v-ripple :class="buttonClass" @click="onClick($event)">
-        <span class="p-hidden-accessible">
+    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root', getPTOptions)" :data-p-active="modelValue === true" data-pc-name="togglebutton">
+        <span class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 :id="inputId"
                 type="checkbox"
@@ -13,71 +13,24 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </span>
-        <slot name="icon" :value="modelValue" :class="iconClass">
-            <span v-if="onIcon || offIcon" :class="iconClass" />
+        <slot name="icon" :value="modelValue" :class="cx('icon')">
+            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="ptm('icon', getPTOptions)" />
         </slot>
-        <span class="p-button-label">{{ label }}</span>
+        <span :class="cx('label')" v-bind="ptm('label', getPTOptions)">{{ label }}</span>
     </div>
 </template>
 
 <script>
 import Ripple from 'primevue/ripple';
+import BaseToggleButton from './BaseToggleButton.vue';
 
 export default {
     name: 'ToggleButton',
+    extends: BaseToggleButton,
     emits: ['update:modelValue', 'change', 'click', 'focus', 'blur'],
-    props: {
-        modelValue: Boolean,
-        onIcon: String,
-        offIcon: String,
-        onLabel: {
-            type: String,
-            default: 'Yes'
-        },
-        offLabel: {
-            type: String,
-            default: 'No'
-        },
-        iconPos: {
-            type: String,
-            default: 'left'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: null
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     data() {
         return {
@@ -126,27 +79,6 @@ export default {
         }
     },
     computed: {
-        buttonClass() {
-            return [
-                'p-button p-togglebutton p-component',
-                {
-                    'p-focus': this.focused,
-                    'p-button-icon-only': this.hasIcon && !this.hasLabel,
-                    'p-disabled': this.disabled,
-                    'p-highlight': this.modelValue === true
-                }
-            ];
-        },
-        iconClass() {
-            return [
-                this.modelValue ? this.onIcon : this.offIcon,
-                'p-button-icon',
-                {
-                    'p-button-icon-left': this.iconPos === 'left' && this.label,
-                    'p-button-icon-right': this.iconPos === 'right' && this.label
-                }
-            ];
-        },
         hasLabel() {
             return this.onLabel && this.onLabel.length > 0 && this.offLabel && this.offLabel.length > 0;
         },
@@ -155,6 +87,15 @@ export default {
         },
         label() {
             return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    focused: this.focused,
+                    disabled: this.disabled,
+                    highlighted: this.modelValue === true
+                }
+            };
         }
     },
     directives: {

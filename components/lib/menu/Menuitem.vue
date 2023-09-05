@@ -1,21 +1,32 @@
 <template>
-    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()" v-bind="getPTOptions('menuitem')">
-        <div class="p-menuitem-content" @click="onItemClick($event)" v-bind="getPTOptions('content')">
+    <li
+        v-if="visible()"
+        :id="id"
+        :class="[cx('menuitem'), item.class]"
+        role="menuitem"
+        :style="item.style"
+        :aria-label="label()"
+        :aria-disabled="disabled()"
+        v-bind="getPTOptions('menuitem')"
+        :data-p-focused="isItemFocused()"
+        :data-p-disabled="disabled() || false"
+    >
+        <div :class="cx('content')" @click="onItemClick($event)" v-bind="getPTOptions('content')">
             <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action')">
-                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                        <span v-else-if="item.icon" :class="iconClass" v-bind="getPTOptions('icon')" />
-                        <span class="p-menuitem-text" v-bind="getPTOptions('label')">{{ label() }}</span>
+                    <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action')">
+                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                        <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
+                        <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                     </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                    <span v-else-if="item.icon" :class="iconClass" v-bind="getPTOptions('icon')" />
-                    <span class="p-menuitem-text" v-bind="getPTOptions('label')">{{ label() }}</span>
+                <a v-else v-ripple :href="item.url" :class="cx('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                    <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
+                    <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
             </template>
-            <component v-else :is="templates.item" :item="item"></component>
+            <component v-else-if="templates.item" :is="templates.item" :item="item" :label="label()" :props="getMenuItemProps(item)"></component>
         </div>
     </li>
 </template>
@@ -24,9 +35,11 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'Menuitem',
+    hostName: 'Menu',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['item-click'],
@@ -35,7 +48,8 @@ export default {
         templates: null,
         exact: null,
         id: null,
-        focusedOptionId: null
+        focusedOptionId: null,
+        index: null
     },
     methods: {
         getItemProp(processedItem, name) {
@@ -44,6 +58,8 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
+                    item: this.item,
+                    index: this.index,
                     focused: this.isItemFocused()
                 }
             });
@@ -60,18 +76,6 @@ export default {
             command && command({ originalEvent: event, item: this.item.item });
             this.$emit('item-click', { originalEvent: event, item: this.item, id: this.id });
         },
-        containerClass() {
-            return ['p-menuitem', this.item.class, { 'p-focus': this.id === this.focusedOptionId, 'p-disabled': this.disabled() }];
-        },
-        linkClass(routerProps) {
-            return [
-                'p-menuitem-link',
-                {
-                    'router-link-active': routerProps && routerProps.isActive,
-                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-                }
-            ];
-        },
         visible() {
             return typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false;
         },
@@ -80,11 +84,30 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
-        }
-    },
-    computed: {
-        iconClass() {
-            return ['p-menuitem-icon', this.item.icon];
+        },
+        getMenuItemProps(item) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: '-1',
+                        'aria-hidden': true
+                    },
+                    this.getPTOptions('action')
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), item.icon]
+                    },
+                    this.getPTOptions('icon')
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label')
+                )
+            };
         }
     },
     directives: {

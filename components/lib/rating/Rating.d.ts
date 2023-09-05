@@ -8,7 +8,109 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface RatingPassThroughMethodOptions {
+    instance: any;
+    props: RatingProps;
+    state: RatingState;
+    context: RatingContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RatingProps.pt}
+ */
+export interface RatingPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the cancel item's DOM element.
+     */
+    cancelItem?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the cancel icon's DOM element.
+     */
+    cancelIcon?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item's DOM element.
+     */
+    item?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the on icon's DOM element.
+     */
+    onIcon?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the off icon's DOM element.
+     */
+    offIcon?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden cancel inputW wapper's DOM element.
+     */
+    hiddenCancelInputWrapper?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden cancel input's DOM element.
+     */
+    hiddenCancelInput?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden item input wrapper's DOM element.
+     */
+    hiddenItemInputWrapper?: RatingPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden item input's DOM element.
+     */
+    hiddenItemInput?: RatingPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface RatingPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Rating component.
+ */
+export interface RatingState {
+    /**
+     * name state as a number.
+     */
+    name: string;
+    /**
+     * focusedOptionIndex state as a number.
+     */
+    focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Rating component.
+ */
+export interface RatingContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
 
 /**
  * Custom change event.
@@ -72,6 +174,16 @@ export interface RatingProps {
      * @deprecated since v3.27.0. Use 'cancelicon' slot.
      */
     cancelIcon?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {RatingPassThroughOptions}
+     */
+    pt?: PTOptions<RatingPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -80,8 +192,14 @@ export interface RatingProps {
 export interface RatingSlots {
     /**
      * Custom cancel icon template.
+     * @param {Object} scope - cancelicon slot's params.
      */
-    cancelicon(): VNode[];
+    cancelicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom on icon template.
      * @param {Object} scope - on icon slot's params.
@@ -91,6 +209,10 @@ export interface RatingSlots {
          * Item value
          */
         value: number;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom off icon template.
@@ -101,6 +223,10 @@ export interface RatingSlots {
          * Item value
          */
         value: number;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
 }
 

@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Checkbox Component" header="Checkbox" description="Checkbox is an extension to standard checkbox element with theming." :componentDocs="docs" :apiDocs="['Checkbox']" />
+    <DocComponent
+        title="Vue Checkbox Component"
+        header="Checkbox"
+        description="Checkbox is an extension to standard checkbox element with theming."
+        :componentDocs="docs"
+        :apiDocs="['Checkbox']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -7,11 +15,12 @@ import AccessibilityDoc from '@/doc/checkbox/AccessibilityDoc';
 import BasicDoc from '@/doc/checkbox/BasicDoc';
 import DisabledDoc from '@/doc/checkbox/DisabledDoc';
 import DynamicDoc from '@/doc/checkbox/DynamicDoc';
-import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc';
 import GroupDoc from '@/doc/checkbox/GroupDoc';
 import ImportDoc from '@/doc/checkbox/ImportDoc';
 import InvalidDoc from '@/doc/checkbox/InvalidDoc';
-import StyleDoc from '@/doc/checkbox/StyleDoc';
+import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc';
+import PTComponent from '@/doc/checkbox/pt/index.vue';
+import ThemingDoc from '@/doc/checkbox/theming/index.vue';
 
 export default {
     data() {
@@ -60,16 +69,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

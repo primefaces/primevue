@@ -15,12 +15,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button icon="pi pi-check" aria-label="Submit" />
+                basic: `<Button icon="pi pi-check" aria-label="Submit" />
 <Button label="Submit" icon="pi pi-check" />
 <Button label="Submit" icon="pi pi-check" iconPos="right" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap gap-3  justify-content-center">
         <Button icon="pi pi-check" aria-label="Submit" />
         <Button label="Submit" icon="pi pi-check" />
@@ -30,8 +28,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap gap-3  justify-content-center">
         <Button icon="pi pi-check" aria-label="Submit" />
         <Button label="Submit" icon="pi pi-check" />

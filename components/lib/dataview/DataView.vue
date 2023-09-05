@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="$slots.header" class="p-dataview-header">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="dataview">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <DVPaginator
@@ -12,9 +12,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="{ 'p-paginator-top': paginatorTop }"
+            :class="cx('paginator')"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
+            :unstyled="unstyled"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -23,14 +25,14 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
-        <div class="p-dataview-content">
-            <div class="p-grid p-nogutter grid grid-nogutter">
+        <div :class="cx('content')" v-bind="ptm('content')">
+            <div :class="cx('grid')" v-bind="ptm('grid')">
                 <template v-for="(item, index) of items" :key="getKey(item, index)">
                     <slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
                     <slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
                 </template>
-                <div v-if="empty" class="p-col col">
-                    <div class="p-dataview-emptymessage">
+                <div v-if="empty" :class="cx('column')" v-bind="ptm('column')">
+                    <div :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
                         <slot name="empty"></slot>
                     </div>
                 </div>
@@ -45,9 +47,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="{ 'p-paginator-bottom': paginatorBottom }"
+            :class="cx('paginator')"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
+            :unstyled="unstyled"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -56,84 +60,21 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
-        <div v-if="$slots.footer" class="p-dataview-footer">
+        <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
     </div>
 </template>
+
 <script>
-import { ObjectUtils } from 'primevue/utils';
 import Paginator from 'primevue/paginator';
+import { ObjectUtils } from 'primevue/utils';
+import BaseDataView from './BaseDataView.vue';
 
 export default {
     name: 'DataView',
+    extends: BaseDataView,
     emits: ['update:first', 'update:rows', 'page'],
-    props: {
-        value: {
-            type: Array,
-            default: null
-        },
-        layout: {
-            type: String,
-            default: 'list'
-        },
-        rows: {
-            type: Number,
-            default: 0
-        },
-        first: {
-            type: Number,
-            default: 0
-        },
-        totalRecords: {
-            type: Number,
-            default: 0
-        },
-        paginator: {
-            type: Boolean,
-            default: false
-        },
-        paginatorPosition: {
-            type: String,
-            default: 'bottom'
-        },
-        alwaysShowPaginator: {
-            type: Boolean,
-            default: true
-        },
-        paginatorTemplate: {
-            type: String,
-            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
-        },
-        pageLinkSize: {
-            type: Number,
-            default: 5
-        },
-        rowsPerPageOptions: {
-            type: Array,
-            default: null
-        },
-        currentPageReportTemplate: {
-            type: String,
-            default: '({currentPage} of {totalPages})'
-        },
-        sortField: {
-            type: [String, Function],
-            default: null
-        },
-        sortOrder: {
-            type: Number,
-            default: null
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        dataKey: {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             d_first: this.first,
@@ -169,6 +110,7 @@ export default {
         sort() {
             if (this.value) {
                 const value = [...this.value];
+                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
                 value.sort((data1, data2) => {
                     let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);
@@ -178,7 +120,7 @@ export default {
                     if (value1 == null && value2 != null) result = -1;
                     else if (value1 != null && value2 == null) result = 1;
                     else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                     else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                     return this.sortOrder * result;
@@ -195,15 +137,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-dataview p-component',
-                {
-                    'p-dataview-list': this.layout === 'list',
-                    'p-dataview-grid': this.layout === 'grid'
-                }
-            ];
-        },
         getTotalRecords() {
             if (this.totalRecords) return this.totalRecords;
             else return this.value ? this.value.length : 0;

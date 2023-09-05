@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>ProgressBar Pass Through</h1>
+            <h1>ProgressSpinner Pass Through</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -25,9 +25,9 @@ export default {
                 },
                 {
                     id: 'pt.doc.progressspinner',
-                    label: 'ProgressBar PT Options',
+                    label: 'ProgressSpinner PT Options',
                     component: DocApiTable,
-                    data: getPTOption('ProgressBar')
+                    data: getPTOption('ProgressSpinner')
                 },
                 {
                     id: 'pt.demo',

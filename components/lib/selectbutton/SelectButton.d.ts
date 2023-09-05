@@ -8,7 +8,51 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SelectButtonPassThroughMethodOptions {
+    instance: any;
+    props: SelectButtonProps;
+    state: SelectButtonState;
+    context: SelectButtonContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SelectButtonProps.pt}
+ */
+export interface SelectButtonPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: SelectButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the button's DOM element.
+     */
+    button?: SelectButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    label?: SelectButtonPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SelectButtonPassThroughAttributes {
+    [key: string]: any;
+}
 
 /**
  * Custom change event.
@@ -23,6 +67,36 @@ export interface SelectButtonChangeEvent {
      * Single value or an array of values that are selected.
      */
     value: any;
+}
+
+/**
+ * Defines current inline state in SelectButton component.
+ */
+export interface SelectButtonState {
+    /**
+     * FocusedIndex state as a number.
+     */
+    focusedIndex: number;
+}
+
+/**
+ * Defines current options in SelectButton component.
+ */
+export interface SelectButtonContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Available option.
+     */
+    option: any;
 }
 
 /**
@@ -72,6 +146,16 @@ export interface SelectButtonProps {
      * Identifier of the underlying element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {SelectButtonPassThroughOptions}
+     */
+    pt?: PTOptions<SelectButtonPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -7,7 +7,22 @@
  * @module colorpicker
  *
  */
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { TransitionProps } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ColorPickerPassThroughTransitionType = TransitionProps | ((options: ColorPickerPassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ColorPickerPassThroughMethodOptions {
+    instance: any;
+    props: ColorPickerProps;
+    state: ColorPickerState;
+}
 
 /**
  * Custom change event.
@@ -22,6 +37,76 @@ export interface ColorPickerChangeEvent {
      * Selected color value.
      */
     value: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ColorPickerProps.pt}
+ */
+export interface ColorPickerPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the input's DOM element.
+     */
+    input?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the panel's DOM element.
+     */
+    panel?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the content's DOM element.
+     */
+    content?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the selector's DOM element.
+     */
+    selector?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the color's DOM element.
+     */
+    color?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the color handler's DOM element.
+     */
+    colorHandle?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hue's DOM element.
+     */
+    hue?: ColorPickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hue handler's DOM element.
+     */
+    hueHandle: ColorPickerPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ColorPickerPassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ColorPickerPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ColorPicker component.
+ */
+export interface ColorPickerState {
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
 }
 
 /**
@@ -75,6 +160,16 @@ export interface ColorPickerProps {
      * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ColorPickerPassThroughOptions}
+     */
+    pt?: PTOptions<ColorPickerPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface ColorPickerSlots {}

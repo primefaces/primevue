@@ -7,8 +7,124 @@
  * @module password
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptionType } from '../inputtext';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
+
+export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PasswordPassThroughTransitionType = TransitionProps | ((options: PasswordPassThroughMethodOptions) => TransitionProps) | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface PasswordPassThroughMethodOptions {
+    instance: any;
+    props: PasswordProps;
+    state: PasswordState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PasswordProps.pt}
+ */
+export interface PasswordPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptionType}
+     */
+    input?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hide icon's DOM element.
+     */
+    hideIcon?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the show icon's DOM element.
+     */
+    showIcon?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the panel's DOM element.
+     */
+    panel?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the meter's DOM element.
+     */
+    meter?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the meter label's DOM element.
+     */
+    meterLabel?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the info's DOM element.
+     */
+    info?: PasswordPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden accessible DOM element.
+     */
+    hiddenAccesible?: PasswordPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PasswordPassThroughTransitionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface PasswordPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Password component.
+ */
+export interface PasswordState {
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current overlay visible state as a boolean.
+     * @see {@link PasswordMeterStateOptions}
+     */
+    meter: PasswordMeterStateOptions;
+    /**
+     * Current info test state as a string.
+     */
+    infoText: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current unmasked state as a boolean.
+     * @defaultValue false
+     */
+    unmasked: boolean;
+}
+
+export interface PasswordMeterStateOptions {
+    /**
+     * Current strength of the meter state as a string.
+     */
+    strength: string;
+    /**
+     * Current width of the meter state as a string.
+     */
+    width: string;
+}
 
 /**
  * Defines valid properties in Password component.
@@ -96,7 +212,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -112,7 +228,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     panelStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -123,6 +239,16 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {PasswordPassThroughOptions}
+     */
+    pt?: PTOptions<PasswordPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -143,21 +269,23 @@ export interface PasswordSlots {
     content(): VNode[];
     /**
      * Custom hide icon template.
+     * @param {Object} scope - hideicon slot's params.
      */
     hideicon(scope: {
         /**
          * Hide icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
     /**
      * Custom show icon template.
+     * @param {Object} scope - showicon slot's params.
      */
     showicon(scope: {
         /**
          * Show icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
 }
 
@@ -170,6 +298,11 @@ export interface PasswordEmits {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string): void;
+    /**
+     * Callback to invoke on value change.
+     * @param {Event} event - Browser event.
+     */
+    change(event: Event): void;
 }
 
 /**

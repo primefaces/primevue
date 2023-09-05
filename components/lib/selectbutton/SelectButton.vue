@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="containerClass" role="group" :aria-labelledby="ariaLabelledby">
+    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')" data-pc-name="selectbutton">
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
@@ -9,14 +9,17 @@
             :role="multiple ? 'checkbox' : 'radio'"
             :aria-checked="isSelected(option)"
             :aria-disabled="optionDisabled"
-            :class="getButtonClass(option, i)"
+            :class="cx('button', { option })"
             @click="onOptionSelect($event, option, i)"
             @keydown="onKeydown($event, option, i)"
             @focus="onFocus($event)"
             @blur="onBlur($event, option)"
+            v-bind="getPTOptions(option, 'button')"
+            :data-p-highlight="isSelected(option)"
+            :data-p-disabled="isOptionDisabled(option)"
         >
-            <slot name="option" :option="option" :index="i">
-                <span class="p-button-label">{{ getOptionLabel(option) }}</span>
+            <slot name="option" :option="option" :index="i" :class="cx('label')">
+                <span :class="cx('label')" v-bind="getPTOptions(option, 'label')">{{ getOptionLabel(option) }}</span>
             </slot>
         </div>
     </div>
@@ -25,28 +28,12 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import BaseSelectButton from './BaseSelectButton.vue';
 
 export default {
     name: 'SelectButton',
+    extends: BaseSelectButton,
     emits: ['update:modelValue', 'focus', 'blur', 'change'],
-    props: {
-        modelValue: null,
-        options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        multiple: Boolean,
-        unselectable: {
-            type: Boolean,
-            default: false
-        },
-        disabled: Boolean,
-        dataKey: null,
-        'aria-labelledby': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             focusedIndex: 0
@@ -57,11 +44,11 @@ export default {
     },
     methods: {
         defaultTabIndexes() {
-            let opts = DomHandler.find(this.$refs.container, '.p-button');
-            let firstHighlight = DomHandler.findSingle(this.$refs.container, '.p-highlight');
+            let opts = DomHandler.find(this.$refs.container, '[data-pc-section="button"]');
+            let firstHighlight = DomHandler.findSingle(this.$refs.container, '[data-p-highlight="true"]');
 
             for (let i = 0; i < opts.length; i++) {
-                if ((DomHandler.hasClass(opts[i], 'p-highlight') && ObjectUtils.equals(opts[i], firstHighlight)) || (firstHighlight === null && i == 0)) {
+                if ((DomHandler.getAttribute(opts[i], 'data-p-highlight') === true && ObjectUtils.equals(opts[i], firstHighlight)) || (firstHighlight === null && i == 0)) {
                     this.focusedIndex = i;
                 }
             }
@@ -74,6 +61,15 @@ export default {
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        },
+        getPTOptions(option, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(option),
+                    disabled: this.isOptionDisabled(option),
+                    option
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
@@ -178,26 +174,9 @@ export default {
             }
 
             this.$emit('blur', event, option);
-        },
-        getButtonClass(option) {
-            return [
-                'p-button p-component',
-                {
-                    'p-highlight': this.isSelected(option),
-                    'p-disabled': this.isOptionDisabled(option)
-                }
-            ];
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-selectbutton p-buttonset p-component',
-                {
-                    'p-disabled': this.disabled
-                }
-            ];
-        },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }

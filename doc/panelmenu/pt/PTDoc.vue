@@ -132,15 +132,13 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<PanelMenu
+                basic: `<PanelMenu
     :model="items"
     :pt="{
         root: { class: 'w-full md:w-25rem' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <PanelMenu
             :model="items"
@@ -275,8 +273,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <PanelMenu
             :model="items"

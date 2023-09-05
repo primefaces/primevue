@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Accordion Component" header="Accordion" description="Accordion groups a collection of contents in tabs." :componentDocs="docs" :apiDocs="['Accordion', 'AccordionTab']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Accordion Component"
+        header="Accordion"
+        description="Accordion groups a collection of contents in tabs."
+        :componentDocs="docs"
+        :apiDocs="['Accordion', 'AccordionTab']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -10,9 +18,9 @@ import Disabled from '@/doc/accordion/DisabledDoc.vue';
 import DynamicDoc from '@/doc/accordion/DynamicDoc';
 import ImportDoc from '@/doc/accordion/ImportDoc';
 import MultipleDoc from '@/doc/accordion/MultipleDoc.vue';
-import StyleDoc from '@/doc/accordion/StyleDoc';
 import TemplateDoc from '@/doc/accordion/TemplateDoc.vue';
 import PTComponent from '@/doc/accordion/pt/index.vue';
+import ThemingDoc from '@/doc/accordion/theming/index.vue';
 
 export default {
     data() {
@@ -54,17 +62,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

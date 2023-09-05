@@ -8,15 +8,17 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes) | null | undefined;
+export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TabMenuPassThroughMethodOptions {
+    instance: any;
     props: TabMenuProps;
     state: TabMenuState;
     context: TabMenuContext;
@@ -28,33 +30,38 @@ export interface TabMenuPassThroughMethodOptions {
  */
 export interface TabMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: TabMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the inkbar's DOM element.
+     * Used to pass attributes to the inkbar's DOM element.
      */
     inkbar?: TabMenuPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -80,9 +87,13 @@ export interface TabMenuState {
  */
 export interface TabMenuContext {
     /**
-     * Order of the menuitem
+     * Current menuitem
      */
-    order: number;
+    item: any;
+    /**
+     * Index of the menuitem
+     */
+    index: number;
 }
 
 /**
@@ -98,6 +109,24 @@ export interface TabMenuChangeEvent {
      * Index of the selected tab
      */
     index: number;
+}
+
+/**
+ * Defines valid router binding props in TabMenu component.
+ */
+export interface TabMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
 }
 
 /**
@@ -127,10 +156,15 @@ export interface TabMenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TabMenuPassThroughOptions}
      */
-    pt?: TabMenuPassThroughOptions;
+    pt?: PTOptions<TabMenuPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -146,6 +180,14 @@ export interface TabMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: TabMenuRouterBindProps;
     }): VNode[];
     /**
      * Custom item icon template.

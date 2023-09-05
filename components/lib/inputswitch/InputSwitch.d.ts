@@ -8,7 +8,65 @@
  *
  */
 import { InputHTMLAttributes } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InputSwitchPassThroughMethodOptions {
+    instance: any;
+    props: InputSwitchProps;
+    state: InputSwitchState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputSwitchProps.pt}
+ */
+export interface InputSwitchPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: InputSwitchPassThroughOptionType;
+    /**
+     * Used to pass attributes to the slider's DOM element.
+     */
+    slider?: InputSwitchPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: InputSwitchPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: InputSwitchPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InputSwitchPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in InputSwitch component.
+ */
+export interface InputSwitchState {
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
 
 /**
  * Defines valid properties in InputSwitch component.
@@ -42,7 +100,7 @@ export interface InputSwitchProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -53,6 +111,16 @@ export interface InputSwitchProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {InputSwitchPassThroughOptions}
+     */
+    pt?: PTOptions<InputSwitchPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface InputSwitchSlots {}

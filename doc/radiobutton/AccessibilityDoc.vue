@@ -54,8 +54,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<label for="rb1">One</label>
+                basic: `<label for="rb1">One</label>
 <RadioButton inputId="rb1" />
 
 <span id="rb2">Two</span>

@@ -1,14 +1,23 @@
 <template>
-    <DocComponent title="Vue TabMenu Component" header="TabMenu" description="TabMenu is a navigation/command component that displays items as tab headers." :componentDocs="docs" :apiDocs="['TabMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue TabMenu Component"
+        header="TabMenu"
+        description="TabMenu is a navigation/command component that displays items as tab headers."
+        :componentDocs="docs"
+        :apiDocs="['TabMenu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import PTComponent from '@/doc/tabmenu/pt/index.vue';
+import ThemingDoc from '@/doc/tabmenu/theming/index.vue';
 import AccessibilityDoc from '../doc/tabmenu/AccessibilityDoc.vue';
 import BasicDoc from '../doc/tabmenu/BasicDoc.vue';
 import ControlledDoc from '../doc/tabmenu/ControlledDoc.vue';
 import ImportDoc from '../doc/tabmenu/ImportDoc.vue';
-import StyleDoc from '../doc/tabmenu/StyleDoc.vue';
+import RouterDoc from '../doc/tabmenu/RouterDoc.vue';
 
 export default {
     data() {
@@ -30,9 +39,9 @@ export default {
                     component: ControlledDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
@@ -40,14 +49,9 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
 </script>
-
-<style scoped lang="scss">
-::v-deep(.tabmenudemo-content) {
-    padding: 2rem 1rem;
-}
-</style>

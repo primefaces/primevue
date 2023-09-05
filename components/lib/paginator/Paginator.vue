@@ -1,15 +1,15 @@
 <template>
-    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1">
-        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" class="p-paginator p-component" :class="getPaginatorClasses(key)">
-            <div v-if="$slots.start" class="p-paginator-left-content">
+    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('paginatorWrapper')">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')" data-pc-name="paginator">
+            <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
-                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" :template="$slots.firstpagelinkicon" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" :template="$slots.prevpagelinkicon" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" :template="$slots.nextpagelinkicon" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" :template="$slots.lastpagelinkicon" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-                <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" :template="$slots.firstpagelinkicon" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :pt="pt" />
+                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" :template="$slots.prevpagelinkicon" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" :pt="pt" />
+                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" :template="$slots.nextpagelinkicon" @click="changePageToNext($event)" :disabled="isLastPage || empty" :pt="pt" />
+                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" :template="$slots.lastpagelinkicon" @click="changePageToLast($event)" :disabled="isLastPage || empty" :pt="pt" />
+                <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
                 <CurrentPageReport
                     v-else-if="item === 'CurrentPageReport'"
                     aria-live="polite"
@@ -20,12 +20,31 @@
                     :first="d_first"
                     :rows="d_rows"
                     :totalRecords="totalRecords"
+                    :pt="pt"
                 />
-                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :aria-label="getAriaLabel('rowsPerPageLabel')" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
-                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+                <RowsPerPageDropdown
+                    v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions"
+                    :aria-label="getAriaLabel('rowsPerPageLabel')"
+                    :rows="d_rows"
+                    :options="rowsPerPageOptions"
+                    @rows-change="onRowChange($event)"
+                    :disabled="empty"
+                    :unstyled="unstyled"
+                    :pt="pt"
+                />
+                <JumpToPageDropdown
+                    v-else-if="item === 'JumpToPageDropdown'"
+                    :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
+                    :page="page"
+                    :pageCount="pageCount"
+                    @page-change="changePage($event)"
+                    :disabled="empty"
+                    :unstyled="unstyled"
+                    :pt="pt"
+                />
+                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
             </template>
-            <div v-if="$slots.end" class="p-paginator-right-content">
+            <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                 <slot name="end" :state="currentState"></slot>
             </div>
         </div>
@@ -33,7 +52,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BasePaginator from './BasePaginator.vue';
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
 import JumpToPageDropdown from './JumpToPageDropdown.vue';
@@ -46,41 +66,8 @@ import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 
 export default {
     name: 'Paginator',
+    extends: BasePaginator,
     emits: ['update:first', 'update:rows', 'page'],
-    props: {
-        totalRecords: {
-            type: Number,
-            default: 0
-        },
-        rows: {
-            type: Number,
-            default: 0
-        },
-        first: {
-            type: Number,
-            default: 0
-        },
-        pageLinkSize: {
-            type: Number,
-            default: 5
-        },
-        rowsPerPageOptions: {
-            type: Array,
-            default: null
-        },
-        template: {
-            type: [Object, String],
-            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
-        },
-        currentPageReportTemplate: {
-            type: null,
-            default: '({currentPage} of {totalPages})'
-        },
-        alwaysShow: {
-            type: Boolean,
-            default: true
-        }
-    },
     data() {
         return {
             d_first: this.first,
@@ -154,9 +141,10 @@ export default {
             this.changePage(this.page);
         },
         createStyle() {
-            if (this.hasBreakpoints()) {
+            if (this.hasBreakpoints() && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
@@ -203,14 +191,6 @@ export default {
         },
         hasBreakpoints() {
             return typeof this.template === 'object';
-        },
-        getPaginatorClasses(key) {
-            return [
-                {
-                    'p-paginator-default': !this.hasBreakpoints(),
-                    [`p-paginator-${key}`]: this.hasBreakpoints()
-                }
-            ];
         },
         setPaginatorAttribute() {
             if (this.$refs.paginator && this.$refs.paginator.length >= 0) {
@@ -318,45 +298,3 @@ export default {
     }
 };
 </script>
-
-<style lang="css">
-.p-paginator-default {
-    display: flex;
-}
-
-.p-paginator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.p-paginator-left-content {
-    margin-right: auto;
-}
-
-.p-paginator-right-content {
-    margin-left: auto;
-}
-
-.p-paginator-page,
-.p-paginator-next,
-.p-paginator-last,
-.p-paginator-first,
-.p-paginator-prev,
-.p-paginator-current {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    user-select: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-paginator-element:focus {
-    z-index: 1;
-    position: relative;
-}
-</style>

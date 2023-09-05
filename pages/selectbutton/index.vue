@@ -1,16 +1,27 @@
 <template>
-    <DocComponent title="Vue SelectButton Component" header="SelectButton" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['SelectButton']" />
+    <DocComponent
+        title="Vue SelectButton Component"
+        header="SelectButton"
+        description="Slider is a component to provide input with a drag handle."
+        :componentDocs="docs"
+        :apiDocs="['SelectButton']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc';
 import BasicDoc from '@/doc/selectbutton/BasicDoc';
 import DisabledDoc from '@/doc/selectbutton/DisabledDoc';
-import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
 import ImportDoc from '@/doc/selectbutton/ImportDoc';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
+import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
+import PTComponent from '@/doc/selectbutton/pt/index.vue';
+import ThemingDoc from '@/doc/selectbutton/theming/index.vue';
+
 export default {
     data() {
         return {
@@ -62,7 +73,9 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

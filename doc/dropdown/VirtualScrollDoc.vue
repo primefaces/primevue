@@ -18,11 +18,9 @@ export default {
             selectedItem: null,
             items: Array.from({ length: 100000 }, (_, i) => ({ label: `Item #${i}`, value: i })),
             code: {
-                basic: `
-<Dropdown v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+                basic: `<Dropdown v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Dropdown v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
             :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />
@@ -39,8 +37,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Dropdown v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
             :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />

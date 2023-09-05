@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Two slots named "start" and "end" are provided to embed content before or after the menu. In additon Menu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <p>
+            Menu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. When item templating is used, it is suggested to bind the <i>action</i> prop from the slot props to handle
+            accessibility and pass through attributes. Additionally, two slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
+        </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items">
@@ -12,6 +15,13 @@
                         <span class="text-sm">Agent</span>
                     </div>
                 </button>
+            </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
             </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
@@ -28,10 +38,21 @@
 export default {
     data() {
         return {
-            items: [{ separator: true }, { label: 'Profile', icon: 'pi pi-fw pi-user' }, { label: 'Settings', icon: 'pi pi-fw pi-cog' }, { separator: true }],
+            items: [
+                { separator: true },
+                {
+                    label: 'Profile',
+                    icon: 'pi pi-fw pi-user'
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog',
+                    badge: 2
+                },
+                { separator: true }
+            ],
             code: {
-                basic: `
-<Menu :model="items">
+                basic: `<Menu :model="items">
     <template #start>
         <button @click="profileClick" class="w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
@@ -41,6 +62,13 @@ export default {
             </div>
         </button>
     </template>
+    <template #item="{ item, label, props }">
+        <a class="flex" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+        </a>
+    </template>
     <template #end>
         <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
             <i class="pi pi-sign-out" />
@@ -48,8 +76,7 @@ export default {
         </button>
     </template>
 </Menu>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #start>
@@ -60,6 +87,13 @@ export default {
                         <span class="text-sm">Agent</span>
                     </div>
                 </button>
+            </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
             </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
@@ -78,8 +112,15 @@ export default {
         return {
             items: [
                 { separator: true },
-                { label: 'Profile', icon: 'pi pi-fw pi-user' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+                {
+                    label: 'Profile',
+                    icon: 'pi pi-fw pi-user'
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog',
+                    badge: 2
+                },
                 { separator: true }
             ]
         };
@@ -91,8 +132,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #start>
@@ -103,6 +143,13 @@ export default {
                         <span class="text-sm">Agent</span>
                     </div>
                 </button>
+            </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
             </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
@@ -121,8 +168,15 @@ import { useToast } from "primevue/usetoast";
 
 const items = ref([
     { separator: true },
-    { label: 'Profile', icon: 'pi pi-fw pi-user' },
-    { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+    {
+        label: 'Profile',
+        icon: 'pi pi-fw pi-user'
+    },
+    {
+        label: 'Settings',
+        icon: 'pi pi-fw pi-cog',
+        badge: 2
+    },
     { separator: true }
 ]);
 

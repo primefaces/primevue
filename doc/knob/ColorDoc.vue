@@ -17,10 +17,8 @@ export default {
         return {
             value: 50,
             code: {
-                basic: `
-<Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />`,
-                options: `
-<template>
+                basic: `<Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />`,
+                options: `<template>
   <div class="card flex justify-content-center">
       <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
   </div>
@@ -35,8 +33,7 @@ export default {
   }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
   <div class="card flex justify-content-center">
       <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
   </div>

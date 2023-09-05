@@ -7,7 +7,87 @@
  * @module knob
  *
  */
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface KnobPassThroughMethodOptions {
+    instance: any;
+    props: KnobProps;
+    state: KnobState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link KnobProps.pt}
+ */
+export interface KnobPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: KnobPassThroughOptionType;
+    /**
+     * Used to pass attributes to the svg's DOM element.
+     */
+    svg?: KnobPassThroughOptionType;
+    /**
+     * Used to pass attributes to the range's DOM element.
+     */
+    range?: KnobPassThroughOptionType;
+    /**
+     * Used to pass attributes to the value' DOM element.
+     */
+    value?: KnobPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    label?: KnobPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface KnobPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Knob component.
+ */
+export interface KnobState {
+    /**
+     * Current radius state as a number.
+     * @defaultValue 40
+     */
+    radius: number;
+    /**
+     * Current middle x axis state as a number.
+     * @defaultValue 50
+     */
+    midX: number;
+    /**
+     * Current middle y axis state as a number.
+     * @defaultValue 50
+     */
+    midY: number;
+    /**
+     * Current minimum radian state as a number.
+     */
+    minRadians: number;
+    /**
+     * Current maximum radian state as a number.
+     */
+    maxRadians: number;
+}
 
 /**
  * Defines valid properties in Knob component.
@@ -90,6 +170,16 @@ export interface KnobProps {
      * Used to define a string that labels the element.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {KnobPassThroughOptions}
+     */
+    pt?: PTOptions<KnobPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

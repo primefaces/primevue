@@ -8,8 +8,23 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ColumnPassThroughOptionType } from '../column';
+import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TreeTablePassThroughMethodOptions {
+    instance: any;
+    props: TreeTableProps;
+    state: TreeTableState;
+    context: TreeTableContext;
+}
 
 /**
  * Custom treetable filter metadata.
@@ -151,6 +166,186 @@ export interface TreeTableSelectionKeys {
      * Optional
      */
     [key: string]: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TreeTableProps.pt}
+ */
+export interface TreeTablePassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the loading wrapper's DOM element.
+     */
+    loadingWrapper?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the loading overlay's DOM element.
+     */
+    loadingOverlay?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the header's DOM element.
+     */
+    header?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the Paginator component.
+     * @see {@link PaginatorPassThroughOptionType}
+     */
+    paginator?: PaginatorPassThroughOptionType;
+    /**
+     * Used to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the table's DOM element.
+     */
+    table?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the thead's DOM element.
+     */
+    thead?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the header row's DOM element.
+     */
+    headerRow?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the tbody's DOM element.
+     */
+    tbody?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the row's DOM element.
+     */
+    row?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message cell's DOM element.
+     */
+    emptyMessageCell?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the tfoot's DOM element.
+     */
+    tfoot?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the footer row's DOM element.
+     */
+    footerRow?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the footer's DOM element.
+     */
+    footer?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the resize helper's DOM element.
+     */
+    resizeHelper?: TreeTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TreeTablePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in TreeTable component.
+ */
+export interface TreeTableState {
+    /**
+     * Current index of first record as a number.
+     */
+    d_first: number;
+    /**
+     * Current number of rows to display in new page as a number.
+     */
+    d_rows: number;
+    /**
+     * Current sort field.
+     */
+    d_sortField: string | ((item: any) => string) | undefined;
+    /**
+     * Current order to sort the data by default.
+     */
+    d_sortOrder: number;
+    /**
+     * Current sortmeta objects to sort the data.
+     */
+    d_multiSortMeta: TreeTableSortMeta[];
+    /**
+     * Current group sortmeta objects to sort the data.
+     */
+    d_groupRowsSortMeta: TreeTableSortMeta;
+    /**
+     * Current keys of selected rows.
+     */
+    d_selectionKeys: any[];
+    /**
+     * Current keys of rows in expanded state.
+     */
+    d_expandedRowKeys: any[];
+    /**
+     * Current order of the columns.
+     */
+    d_columnOrder: string[];
+    /**
+     * Current keys of editing rows.
+     */
+    d_editingRowKeys: any;
+    /**
+     * Current editing meta data.
+     */
+    d_editingMeta: object;
+    /**
+     * Current filters object.
+     */
+    d_filters: TreeTableFilterMeta;
+    /**
+     * Current editing as a boolean.
+     * @defaultValue false
+     */
+    d_editing: boolean;
+}
+
+/**
+ * Defines current options in TreeTable component.
+ */
+export interface TreeTableContext {
+    /**
+     * Current index state of the item.
+     */
+    index: number;
+    /**
+     * Current frozen state of the row as a boolean.
+     * @defaultValue false
+     */
+    frozen: boolean;
+    /**
+     * Current selectable state of the row as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selected state of the row as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
 }
 
 /**
@@ -353,9 +548,23 @@ export interface TreeTableProps {
      */
     responsiveLayout?: 'stack' | 'scroll' | undefined;
     /**
+     * Defines the size of the table.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Props to pass to the table element.
      */
     tableProps?: any | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {TreeTablePassThroughOptions}
+     */
+    pt?: PTOptions<TreeTablePassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -396,6 +605,7 @@ export interface TreeTableSlots {
     checkboxicon(): VNode[];
     /**
      * Custom sort icon template.
+     * @param {Object} scope - sorticon slot's params.
      */
     sorticon(scope: {
         /**

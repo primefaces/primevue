@@ -16,16 +16,16 @@ export default {
             nodes: null,
             selectedValue: null,
             code: {
-                basic: `
-<TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />`,
-                options: `
-<template>
+                basic: `<TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
     data() {
         return {
@@ -34,12 +34,11 @@ export default {
         }
     },
     mounted() {
-        NodeService.getTreeNodes().then((data) => (this.nodes     = data));
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
@@ -47,6 +46,7 @@ export default {
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);

@@ -1,12 +1,12 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="autocomplete">
         <input
             v-if="!multiple"
             ref="focusInput"
             :id="inputId"
             type="text"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
-            :class="inputStyleClass"
             :value="inputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
@@ -25,12 +25,12 @@
             @keydown="onKeyDown"
             @input="onInput"
             @change="onChange"
-            v-bind="inputProps"
+            v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <ul
             v-if="multiple"
             ref="multiContainer"
-            :class="multiContainerClass"
+            :class="cx('container')"
             tabindex="-1"
             role="listbox"
             aria-orientation="horizontal"
@@ -38,26 +38,28 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
+            v-bind="ptm('container')"
         >
             <li
                 v-for="(option, i) of modelValue"
                 :key="i"
                 :id="id + '_multiple_option_' + i"
-                :class="['p-autocomplete-token', { 'p-focus': focusedMultipleOptionIndex === i }]"
+                :class="cx('token', { i })"
                 role="option"
                 :aria-label="getOptionLabel(option)"
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
+                v-bind="ptm('token')"
             >
                 <slot name="chip" :value="option">
-                    <span class="p-autocomplete-token-label">{{ getOptionLabel(option) }}</span>
+                    <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <slot name="removetokenicon" class="p-autocomplete-token-icon" :onClick="(event) => removeOption(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" />
+                <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :onClick="(event) => removeOption(event, i)">
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
-            <li class="p-autocomplete-input-token" role="option">
+            <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
                 <input
                     ref="focusInput"
                     :id="inputId"
@@ -81,33 +83,53 @@
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    v-bind="inputProps"
+                    v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
         </ul>
-        <slot v-if="searching" name="loadingicon">
-            <i v-if="loadingIcon" :class="['p-autocomplete-loader pi-spin', loadingIcon]" aria-hidden="true" />
-            <SpinnerIcon v-else class="p-autocomplete-loader" spin aria-hidden="true" />
+        <slot v-if="searching || loading" :class="cx('loadingIcon')" name="loadingicon">
+            <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+            <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick">
+        <Button
+            v-if="dropdown"
+            ref="dropdownButton"
+            type="button"
+            tabindex="-1"
+            :class="[cx('dropdownButton'), dropdownClass]"
+            :disabled="disabled"
+            aria-hidden="true"
+            @click="onDropdownClick"
+            :unstyled="unstyled"
+            :pt="ptm('dropdownButton')"
+            data-pc-section="dropdownbutton"
+        >
             <template #icon>
-                <slot name="dropdownicon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" />
+                <slot name="dropdownicon" :class="dropdownIcon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" />
                 </slot>
             </template>
         </Button>
-        <span role="status" aria-live="polite" class="p-hidden-accessible">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="panelStyleClass" :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :class="[cx('panel'), panelClass]"
+                    :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
+                    @click="onOverlayClick"
+                    @keydown="onOverlayKeyDown"
+                    v-bind="{ ...panelProps, ...ptm('panel') }"
+                >
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
+                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-autocomplete-items', styleClass]" :style="contentStyle" role="listbox">
+                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                 <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" class="p-autocomplete-item-group" role="option">
+                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
                                         <slot name="optiongroup" :option="option.optionGroup" :item="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                     </li>
                                     <li
@@ -115,7 +137,7 @@
                                         :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                         v-ripple
                                         :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                        :class="['p-autocomplete-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
+                                        :class="cx('item', { option, i, getItemOptions })"
                                         role="option"
                                         :aria-label="getOptionLabel(option)"
                                         :aria-selected="isSelected(option)"
@@ -124,13 +146,17 @@
                                         :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                         @click="onOptionSelect($event, option)"
                                         @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                        :data-p-highlight="isSelected(option)"
+                                        :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                        :data-p-disabled="isOptionDisabled(option)"
+                                        v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                     >
                                         <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <slot v-else name="item" :item="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
-                                <li v-if="!items || (items && items.length === 0)" class="p-autocomplete-empty-message" role="option">
+                                <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                     <slot name="empty">{{ searchResultMessageText }}</slot>
                                 </li>
                             </ul>
@@ -140,7 +166,7 @@
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                 </div>
@@ -159,167 +185,12 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import BaseAutoComplete from './BaseAutoComplete.vue';
 
 export default {
     name: 'AutoComplete',
+    extends: BaseAutoComplete,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
-    props: {
-        modelValue: null,
-        suggestions: {
-            type: Array,
-            default: null
-        },
-        field: {
-            // TODO: Deprecated since v3.16.0
-            type: [String, Function],
-            default: null
-        },
-        optionLabel: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
-        scrollHeight: {
-            type: String,
-            default: '200px'
-        },
-        dropdown: {
-            type: Boolean,
-            default: false
-        },
-        dropdownMode: {
-            type: String,
-            default: 'blank'
-        },
-        autoHighlight: {
-            // TODO: Deprecated since v3.16.0. Use selectOnFocus property instead.
-            type: Boolean,
-            default: false
-        },
-        multiple: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        dataKey: {
-            type: String,
-            default: null
-        },
-        minLength: {
-            type: Number,
-            default: 1
-        },
-        delay: {
-            type: Number,
-            default: 300
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        forceSelection: {
-            type: Boolean,
-            default: false
-        },
-        completeOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelStyle: {
-            type: Object,
-            default: null
-        },
-        panelClass: {
-            type: [String, Object],
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        dropdownIcon: {
-            type: String,
-            default: undefined
-        },
-        dropdownClass: {
-            type: [String, Object],
-            default: null
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        removeTokenIcon: {
-            type: String,
-            default: undefined
-        },
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
-        autoOptionFocus: {
-            type: Boolean,
-            default: true
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        searchLocale: {
-            type: String,
-            default: undefined
-        },
-        searchMessage: {
-            type: String,
-            default: null
-        },
-        selectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySelectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySearchMessage: {
-            type: String,
-            default: null
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
@@ -344,7 +215,7 @@ export default {
         },
         suggestions() {
             if (this.searching) {
-                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : !!this.$slots.empty ? this.show() : this.hide();
+                this.show();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
@@ -388,6 +259,15 @@ export default {
         },
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
+        },
+        getPTOptions(option, itemOptions, index, key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.isSelected(option),
+                    focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
@@ -597,7 +477,7 @@ export default {
             }
         },
         onContainerClick(event) {
-            if (this.disabled || this.searching || this.isInputClicked(event) || this.isDropdownClicked(event)) {
+            if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
 
@@ -789,6 +669,8 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
         },
         onOverlayAfterEnter() {
@@ -998,42 +880,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-autocomplete p-component p-inputwrapper',
-                {
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-autocomplete-dd': this.dropdown,
-                    'p-autocomplete-multiple': this.multiple,
-                    'p-inputwrapper-filled': this.modelValue || ObjectUtils.isNotEmpty(this.inputValue),
-                    'p-inputwrapper-focus': this.focused,
-                    'p-overlay-open': this.overlayVisible
-                }
-            ];
-        },
-        inputStyleClass() {
-            return [
-                'p-autocomplete-input p-inputtext p-component',
-                this.inputClass,
-                {
-                    'p-autocomplete-dd-input': this.dropdown
-                }
-            ];
-        },
-        multiContainerClass() {
-            return ['p-autocomplete-multiple-container p-component p-inputtext'];
-        },
-        panelStyleClass() {
-            return [
-                'p-autocomplete-panel p-component',
-                this.panelClass,
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         visibleOptions() {
             return this.optionGroupLabel ? this.flatOptions(this.suggestions) : this.suggestions || [];
         },
@@ -1100,102 +946,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-autocomplete {
-    display: inline-flex;
-    position: relative;
-}
-
-.p-autocomplete-loader {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-autocomplete-dd .p-autocomplete-input {
-    flex: 1 1 auto;
-    width: 1%;
-}
-
-.p-autocomplete-dd .p-autocomplete-input,
-.p-autocomplete-dd .p-autocomplete-multiple-container {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-autocomplete-dd .p-autocomplete-dropdown {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0px;
-}
-
-.p-autocomplete .p-autocomplete-panel {
-    min-width: 100%;
-}
-
-.p-autocomplete-panel {
-    position: absolute;
-    overflow: auto;
-    top: 0;
-    left: 0;
-}
-
-.p-autocomplete-items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.p-autocomplete-item {
-    cursor: pointer;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-autocomplete-multiple-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    cursor: text;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-autocomplete-token {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.p-autocomplete-token-icon {
-    cursor: pointer;
-}
-
-.p-autocomplete-input-token {
-    flex: 1 1 auto;
-    display: inline-flex;
-}
-
-.p-autocomplete-input-token input {
-    border: 0 none;
-    outline: 0 none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
-    width: 100%;
-}
-
-.p-fluid .p-autocomplete {
-    display: flex;
-}
-
-.p-fluid .p-autocomplete-dd .p-autocomplete-input {
-    width: 1%;
-}
-</style>

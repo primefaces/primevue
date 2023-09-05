@@ -1,71 +1,22 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input
-                ref="input"
-                :id="inputId"
-                type="radio"
-                :class="inputClass"
-                :style="inputStyle"
-                :name="name"
-                :checked="checked"
-                :disabled="disabled"
-                :value="value"
-                :aria-labelledby="ariaLabelledby"
-                :aria-label="ariaLabel"
-                @focus="onFocus"
-                @blur="onBlur"
-                v-bind="inputProps"
-            />
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="radiobutton">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+            <input ref="input" :id="inputId" type="radio" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @focus="onFocus" @blur="onBlur" v-bind="ptm('hiddenInput')" />
         </div>
-        <div ref="box" :class="['p-radiobutton-box', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]">
-            <div class="p-radiobutton-icon"></div>
+        <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">
+            <div :class="cx('icon')" v-bind="ptm('icon')"></div>
         </div>
     </div>
 </template>
 
 <script>
 import { ObjectUtils } from 'primevue/utils';
+import BaseRadioButton from './BaseRadioButton.vue';
 
 export default {
     name: 'RadioButton',
+    extends: BaseRadioButton,
     emits: ['click', 'update:modelValue', 'change', 'focus', 'blur'],
-    props: {
-        value: null,
-        modelValue: null,
-        name: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             focused: false
@@ -95,16 +46,6 @@ export default {
     computed: {
         checked() {
             return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
-        },
-        containerClass() {
-            return [
-                'p-radiobutton p-component',
-                {
-                    'p-radiobutton-checked': this.checked,
-                    'p-radiobutton-disabled': this.disabled,
-                    'p-radiobutton-focused': this.focused
-                }
-            ];
         }
     }
 };

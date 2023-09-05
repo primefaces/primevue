@@ -8,14 +8,17 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { AccordionTabPassThroughOptionType } from '../accordiontab';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes) | null | undefined;
+export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface AccordionPassThroughMethodOptions {
+    instance: any;
     props: AccordionProps;
     state: AccordionState;
 }
@@ -55,9 +58,23 @@ export interface AccordionClickEvent extends AccordionTabOpenEvent {}
  */
 export interface AccordionPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionPassThroughOptionType;
+    /**
+     * Used to pass attributes to AccordionTab helper components.
+     * @deprecated since v3.30.1. Use 'accordiontab' property instead.
+     */
+    tab?: AccordionTabPassThroughOptionType;
+    /**
+     * Used to pass attributes to AccordionTab helper components.
+     */
+    accordiontab?: AccordionTabPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -119,10 +136,15 @@ export interface AccordionProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionPassThroughOptions}
      */
-    pt?: AccordionPassThroughOptions;
+    pt?: PTOptions<AccordionPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

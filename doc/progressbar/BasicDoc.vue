@@ -13,10 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ProgressBar :value="50"></ProgressBar>`,
-                options: `
-<template>
+                basic: `<ProgressBar :value="50"></ProgressBar>`,
+                options: `<template>
     <div class="card">
         <ProgressBar :value="50"></ProgressBar>
     </div>
@@ -25,8 +23,7 @@ export default {
 <script >
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <ProgressBar :value="50"></ProgressBar>
     </div>

@@ -8,14 +8,16 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes) | null | undefined;
+export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ScrollPanelPassThroughMethodOptions {
+    instance: any;
     props: ScrollPanelProps;
     state: ScrollPanelState;
 }
@@ -26,25 +28,30 @@ export interface ScrollPanelPassThroughMethodOptions {
  */
 export interface ScrollPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the horizontal panel's DOM element.
+     * Used to pass attributes to the horizontal panel's DOM element.
      */
     barX?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the vertical panel's DOM element.
+     * Used to pass attributes to the vertical panel's DOM element.
      */
     barY?: ScrollPanelPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -89,10 +96,15 @@ export interface ScrollPanelProps {
      */
     step?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollPanelPassThroughOptions}
      */
-    pt?: ScrollPanelPassThroughOptions;
+    pt?: PTOptions<ScrollPanelPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

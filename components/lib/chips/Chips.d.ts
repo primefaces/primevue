@@ -8,7 +8,19 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ChipsPassThroughMethodOptions {
+    instance: any;
+    props: ChipsProps;
+    state: ChipsState;
+}
 
 /**
  * Custom add event.
@@ -31,6 +43,76 @@ export interface ChipsAddEvent {
  * @extends ChipsAddEvent
  */
 export interface ChipsRemoveEvent extends ChipsAddEvent {}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ChipsProps.pt}
+ */
+export interface ChipsPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the container's DOM element.
+     */
+    container?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the token's DOM element.
+     */
+    token?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    label?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the remove token icon's DOM element.
+     */
+    removeTokenIcon?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the input token's DOM element.
+     */
+    inputToken?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the input's DOM element.
+     */
+    input?: ChipsPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ChipsPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Chips component.
+ */
+export interface ChipsState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current input value as a string.
+     */
+    inputValue: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index state as a number.
+     */
+    focusedIndex: number;
+}
 
 /**
  * Defines valid properties in Chips component.
@@ -71,7 +153,7 @@ export interface ChipsProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     inputProps?: InputHTMLAttributes | undefined;
@@ -96,6 +178,16 @@ export interface ChipsProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ChipsPassThroughOptions}
+     */
+    pt?: PTOptions<ChipsPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 /**
  * Defines valid slots in Chips slots.
@@ -117,9 +209,18 @@ export interface ChipsSlots {
      */
     removetokenicon(scope: {
         /**
-         * Remove icon click event
+         * Style class of the icon.
          */
-        onClick(): void;
+        class: string;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        onClick: (event: Event, index: number) => void;
     }): VNode[];
 }
 /**

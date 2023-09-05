@@ -128,24 +128,12 @@ export default {
 
     addMultipleClasses(element, className) {
         if (element && className) {
-            if (element.classList) {
-                let styles = className.split(' ');
-
-                for (let i = 0; i < styles.length; i++) {
-                    element.classList.add(styles[i]);
-                }
-            } else {
-                let styles = className.split(' ');
-
-                for (let i = 0; i < styles.length; i++) {
-                    element.className += ' ' + styles[i];
-                }
-            }
+            className.split(' ').forEach((style) => this.addClass(element, style));
         }
     },
 
     addClass(element, className) {
-        if (element && className) {
+        if (element && className && !this.hasClass(element, className)) {
             if (element.classList) element.classList.add(className);
             else element.className += ' ' + className;
         }
@@ -167,12 +155,105 @@ export default {
         return false;
     },
 
+    addStyles(element, styles = {}) {
+        if (element) {
+            Object.entries(styles).forEach(([key, value]) => (element.style[key] = value));
+        }
+    },
+
     find(element, selector) {
         return this.isElement(element) ? element.querySelectorAll(selector) : [];
     },
 
     findSingle(element, selector) {
         return this.isElement(element) ? element.querySelector(selector) : null;
+    },
+
+    createElement(type, attributes = {}, ...children) {
+        if (type) {
+            const element = document.createElement(type);
+
+            this.setAttributes(element, attributes);
+            element.append(...children);
+
+            return element;
+        }
+
+        return undefined;
+    },
+
+    setAttribute(element, attribute = '', value) {
+        if (this.isElement(element) && value !== null && value !== undefined) {
+            element.setAttribute(attribute, value);
+        }
+    },
+
+    setAttributes(element, attributes = {}) {
+        if (this.isElement(element)) {
+            const computedStyles = (rule, value) => {
+                const styles = element?.$attrs?.[rule] ? [element?.$attrs?.[rule]] : [];
+
+                return [value].flat().reduce((cv, v) => {
+                    if (v !== null && v !== undefined) {
+                        const type = typeof v;
+
+                        if (type === 'string' || type === 'number') {
+                            cv.push(v);
+                        } else if (type === 'object') {
+                            const _cv = Array.isArray(v)
+                                ? computedStyles(rule, v)
+                                : Object.entries(v).map(([_k, _v]) => (rule === 'style' && (!!_v || _v === 0) ? `${_k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}:${_v}` : !!_v ? _k : undefined));
+
+                            cv = _cv.length ? cv.concat(_cv.filter((c) => !!c)) : cv;
+                        }
+                    }
+
+                    return cv;
+                }, styles);
+            };
+
+            Object.entries(attributes).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    const matchedEvent = key.match(/^on(.+)/);
+
+                    if (matchedEvent) {
+                        element.addEventListener(matchedEvent[1].toLowerCase(), value);
+                    } else if (key === 'p-bind') {
+                        this.setAttributes(element, value);
+                    } else {
+                        value = key === 'class' ? [...new Set(computedStyles('class', value))].join(' ').trim() : key === 'style' ? computedStyles('style', value).join(';').trim() : value;
+                        (element.$attrs = element.$attrs || {}) && (element.$attrs[key] = value);
+                        element.setAttribute(key, value);
+                    }
+                }
+            });
+        }
+    },
+
+    getAttribute(element, name) {
+        if (this.isElement(element)) {
+            const value = element.getAttribute(name);
+
+            if (!isNaN(value)) {
+                return +value;
+            }
+
+            if (value === 'true' || value === 'false') {
+                return value === 'true';
+            }
+
+            return value;
+        }
+
+        return undefined;
+    },
+
+    isAttributeEquals(element, name, value) {
+        return this.isElement(element) ? this.getAttribute(element, name) === value : false;
+    },
+
+    isAttributeNotEquals(element, name, value) {
+        return !this.isAttributeEquals(element, name, value);
     },
 
     getHeight(el) {
@@ -203,15 +284,15 @@ export default {
 
     absolutePosition(element, target) {
         if (element) {
-            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
-            let elementOuterHeight = elementDimensions.height;
-            let elementOuterWidth = elementDimensions.width;
-            let targetOuterHeight = target.offsetHeight;
-            let targetOuterWidth = target.offsetWidth;
-            let targetOffset = target.getBoundingClientRect();
-            let windowScrollTop = this.getWindowScrollTop();
-            let windowScrollLeft = this.getWindowScrollLeft();
-            let viewport = this.getViewport();
+            const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+            const elementOuterHeight = elementDimensions.height;
+            const elementOuterWidth = elementDimensions.width;
+            const targetOuterHeight = target.offsetHeight;
+            const targetOuterWidth = target.offsetWidth;
+            const targetOffset = target.getBoundingClientRect();
+            const windowScrollTop = this.getWindowScrollTop();
+            const windowScrollLeft = this.getWindowScrollLeft();
+            const viewport = this.getViewport();
             let top, left;
 
             if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
@@ -236,7 +317,7 @@ export default {
 
     relativePosition(element, target) {
         if (element) {
-            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+            const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;
             const targetOffset = target.getBoundingClientRect();
             const viewport = this.getViewport();
@@ -282,9 +363,13 @@ export default {
             const overflowRegex = /(auto|scroll)/;
 
             const overflowCheck = (node) => {
-                let styleDeclaration = window['getComputedStyle'](node, null);
+                try {
+                    let styleDeclaration = window['getComputedStyle'](node, null);
 
-                return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                    return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                } catch (err) {
+                    return false;
+                }
             };
 
             for (let parent of parents) {
@@ -461,7 +546,13 @@ export default {
 
         let scrollDiv = document.createElement('div');
 
-        scrollDiv.className = 'p-scrollbar-measure';
+        this.addStyles(scrollDiv, {
+            width: '100px',
+            height: '100px',
+            overflow: 'scroll',
+            position: 'absolute',
+            top: '-9999px'
+        });
         document.body.appendChild(scrollDiv);
 
         let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
@@ -591,7 +682,7 @@ export default {
                 parentNode === 'TEXTAREA' ||
                 parentNode === 'BUTTON' ||
                 parentNode === 'A' ||
-                !!element.closest('.p-button, .p-checkbox, .p-radiobutton')
+                !!element.closest('.p-button, .p-checkbox, .p-radiobutton') // @todo Add [data-pc-section="button"]
             );
         }
 
@@ -618,6 +709,28 @@ export default {
 
     isTouchDevice() {
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    },
+
+    hasCSSAnimation(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const animationDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+
+            return animationDuration > 0;
+        }
+
+        return false;
+    },
+
+    hasCSSTransition(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const transitionDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+
+            return transitionDuration > 0;
+        }
+
+        return false;
     },
 
     exportCSV(csv, filename) {

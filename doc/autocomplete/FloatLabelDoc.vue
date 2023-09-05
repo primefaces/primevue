@@ -18,13 +18,11 @@ export default {
             value: '',
             items: [],
             code: {
-                basic: `
-<span class="p-float-label">
+                basic: `<span class="p-float-label">
     <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
     <label for="ac">Float Label</label>
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
@@ -48,8 +46,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />

@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue SplitButton Component" header="SplitButton" description="SplitButton groups a set of commands in an overlay with a default command." :componentDocs="docs" :apiDocs="['SplitButton']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue SplitButton Component"
+        header="SplitButton"
+        description="SplitButton groups a set of commands in an overlay with a default command."
+        :componentDocs="docs"
+        :apiDocs="['SplitButton']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -13,10 +21,10 @@ import RaisedTextDoc from '@/doc/splitbutton/RaisedTextDoc.vue';
 import RoundedDoc from '@/doc/splitbutton/RoundedDoc.vue';
 import SeverityDoc from '@/doc/splitbutton/SeverityDoc.vue';
 import SizesDoc from '@/doc/splitbutton/SizesDoc.vue';
-import StyleDoc from '@/doc/splitbutton/StyleDoc.vue';
 import TemplateDoc from '@/doc/splitbutton/TemplateDoc.vue';
 import TextDoc from '@/doc/splitbutton/TextDoc.vue';
 import PTComponent from '@/doc/splitbutton/pt/index.vue';
+import ThemingDoc from '@/doc/splitbutton/theming/index.vue';
 
 export default {
     data() {
@@ -78,17 +86,13 @@ export default {
                     component: DisabledDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -27,7 +27,6 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
-primevue/resources/themes/tailwind-light/theme.css
 primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/lara-light-blue/theme.css
 primevue/resources/themes/lara-light-indigo/theme.css

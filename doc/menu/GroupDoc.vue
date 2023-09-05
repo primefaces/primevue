@@ -31,29 +31,12 @@ export default {
                             }
                         }
                     ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
                 }
             ],
             code: {
-                basic: `
-<Menu :model="items" />
+                basic: `<Menu :model="items" />
 <Toast />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
         <Toast />
@@ -83,29 +66,13 @@ export default {
                             }
                         }
                     ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
                 }
             ]
         };
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
         <Toast />
@@ -134,21 +101,6 @@ const items = ref([
                 command: () => {
                     toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                 }
-            }
-        ]
-    },
-    {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'Vue Website',
-                icon: 'pi pi-external-link',
-                url: 'https://vuejs.org/'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload',
-                to: '/fileupload'
             }
         ]
     }

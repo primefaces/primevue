@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue ToggleButton Component" header="ToggleButton" description="ToggleButton is used to select a boolean value using a button." :componentDocs="docs" :apiDocs="['ToggleButton']" />
+    <DocComponent
+        title="Vue ToggleButton Component"
+        header="ToggleButton"
+        description="ToggleButton is used to select a boolean value using a button."
+        :componentDocs="docs"
+        :apiDocs="['ToggleButton']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -7,9 +15,10 @@ import AccessibilityDoc from '@/doc/togglebutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
-import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
-import StyleDoc from '@/doc/togglebutton/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/togglebutton/pt/index.vue';
+import ThemingDoc from '@/doc/togglebutton/theming/index.vue';
 
 export default {
     data() {
@@ -48,16 +57,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

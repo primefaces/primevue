@@ -40,8 +40,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<TabMenu
+                basic: `<TabMenu
     :model="items"
     :pt="{
         action: ({ props, state, context }) => ({
@@ -49,8 +48,7 @@ export default {
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TabMenu
             :model="items"
@@ -93,8 +91,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TabMenu
             :model="items"

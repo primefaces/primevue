@@ -32,30 +32,13 @@ export default {
                             }
                         }
                     ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
                 }
             ],
             code: {
-                basic: `
-<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+                basic: `<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
 <Toast />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
@@ -86,21 +69,6 @@ export default {
                             }
                         }
                     ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
                 }
             ]
         };
@@ -115,8 +83,7 @@ export default {
     },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
@@ -147,21 +114,6 @@ const items = ref([
                 command: () => {
                     toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                 }
-            }
-        ]
-    },
-    {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'Vue Website',
-                icon: 'pi pi-external-link',
-                url: 'https://vuejs.org/'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload',
-                to: '/fileupload'
             }
         ]
     }

@@ -1,14 +1,14 @@
 <template>
-    <div class="relative doc-section-code">
-        <div class="flex surface-card align-items-center justify-content-end absolute z-2" :style="{ right: '.75rem', top: '.75rem', gap: '.75rem' }">
+    <div v-if="!embedded" class="surface-card mb-4" style="border-radius: 10px">
+        <div class="flex doc-section-code-buttons surface-card align-items-center justify-content-end sticky z-1 top-0 mr-3">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
                     label="Composition API"
                     @click="codeLang = 'composition'"
                 ></Button>
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'javascript' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'options' }]"
                     label="Options API"
                     @click="codeLang = 'options'"
                 ></Button>
@@ -42,11 +42,13 @@
                     class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
                     @click="showCodesandbox"
                 >
-                    <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
-                        <path
-                            d="M2 6l10.455-6L22.91 6 23 17.95 12.455 24 2 18V6zm2.088 2.481v4.757l3.345 1.86v3.516l3.972 2.296v-8.272L4.088 8.481zm16.739 0l-7.317 4.157v8.272l3.972-2.296V15.1l3.345-1.861V8.48zM5.134 6.601l7.303 4.144 7.32-4.18-3.871-2.197-3.41 1.945-3.43-1.968L5.133 6.6z"
-                        />
-                    </svg>
+                    <template #icon="slotProps">
+                        <svg role="img" :class="slotProps.class" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
+                            <path
+                                d="M2 6l10.455-6L22.91 6 23 17.95 12.455 24 2 18V6zm2.088 2.481v4.757l3.345 1.86v3.516l3.972 2.296v-8.272L4.088 8.481zm16.739 0l-7.317 4.157v8.272l3.972-2.296V15.1l3.345-1.861V8.48zM5.134 6.601l7.303 4.144 7.32-4.18-3.871-2.197-3.41 1.945-3.43-1.968L5.133 6.6z"
+                            />
+                        </svg>
+                    </template>
                 </Button>
             </template>
 
@@ -57,9 +59,11 @@
                     class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
                     @click="showStackblitz"
                 >
-                    <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
-                        <path d="M0 15.98H8.15844L3.40299 27.26L19 11.1945H10.7979L15.5098 0L0 15.98Z" />
-                    </svg>
+                    <template #icon="slotProps">
+                        <svg role="img" :class="slotProps.class" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
+                            <path d="M0 15.98H8.15844L3.40299 27.26L19 11.1945H10.7979L15.5098 0L0 15.98Z" />
+                        </svg>
+                    </template>
                 </Button>
             </template>
 
@@ -72,41 +76,35 @@
             ></Button>
         </div>
 
-        <template v-if="codeMode === 'basic' && importCode">
-            <pre v-code.script><code>
-{{ code.basic }}
-
+        <div class="relative doc-section-code overflow-auto" style="max-height: 40rem">
+            <template v-if="codeMode === 'basic' && importCode">
+                <pre v-code.script><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode === 'basic' && !importCode">
-            <pre v-code><code>
-{{ code.basic }}
-
+            <template v-if="codeMode === 'basic' && !importCode">
+                <pre v-code><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'options'">
-            <pre v-code><code>
-{{ code.options }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'options'">
+                <pre v-code><code>{{ code.options }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
-            <pre v-code><code>
-{{ code.composition }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
+                <pre v-code><code>{{ code.composition }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'data'">
-            <pre v-code.json><code>
-{{ code.data }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'data'">
+                <pre v-code.json><code>{{ code.data }}
 </code></pre>
-        </template>
+            </template>
+        </div>
+        <div class="h-1rem"></div>
     </div>
+    <div v-else id="embed"></div>
 </template>
 
 <script>
@@ -150,6 +148,10 @@ export default {
         importCode: {
             type: Boolean,
             default: false
+        },
+        embedded: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -157,6 +159,9 @@ export default {
             codeMode: 'basic',
             codeLang: this.code['options'] ? 'composition' : 'basic'
         };
+    },
+    mounted() {
+        this.embedded && useStackBlitz(this.codeLang, this.code['composition'], this.service, this.code.pages, this.dependencies, this.component, this.extFiles, this.embedded);
     },
     methods: {
         toggleCodeMode(content) {

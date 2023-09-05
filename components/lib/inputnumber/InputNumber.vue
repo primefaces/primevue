@@ -1,11 +1,10 @@
 <template>
-    <span :class="containerClass">
+    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="inputnumber">
         <INInputText
             ref="input"
             :id="inputId"
-            class="p-inputnumber-input"
             role="spinbutton"
-            :class="inputClass"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="formattedValue"
             :aria-valuemin="min"
@@ -23,35 +22,75 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            v-bind="inputProps"
+            v-bind="{ ...inputProps, ...ptm('input') }"
+            :unstyled="unstyled"
+            data-pc-section="input"
         />
-        <span v-if="showButtons && buttonLayout === 'stacked'" class="p-inputnumber-button-group">
-            <INButton :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+        <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
+            <INButton
+                :class="[cx('incrementButton'), incrementButtonClass]"
+                v-on="upButtonListeners"
+                :disabled="disabled"
+                :tabindex="-1"
+                aria-hidden="true"
+                v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+                :unstyled="unstyled"
+                data-pc-section="incrementbutton"
+            >
                 <template #icon>
                     <slot name="incrementbuttonicon">
-                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
                     </slot>
                 </template>
             </INButton>
-            <INButton :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+            <INButton
+                :class="[cx('decrementButton'), decrementButtonClass]"
+                v-on="downButtonListeners"
+                :disabled="disabled"
+                :tabindex="-1"
+                aria-hidden="true"
+                v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+                :unstyled="unstyled"
+                data-pc-section="decrementbutton"
+            >
                 <template #icon>
                     <slot name="decrementbuttonicon">
-                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
                     </slot>
                 </template>
             </INButton>
         </span>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+        <INButton
+            v-if="showButtons && buttonLayout !== 'stacked'"
+            :class="[cx('incrementButton'), incrementButtonClass]"
+            v-on="upButtonListeners"
+            :disabled="disabled"
+            :tabindex="-1"
+            aria-hidden="true"
+            v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+            :unstyled="unstyled"
+            data-pc-section="incrementbutton"
+        >
             <template #icon>
                 <slot name="incrementbuttonicon">
-                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
                 </slot>
             </template>
         </INButton>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+        <INButton
+            v-if="showButtons && buttonLayout !== 'stacked'"
+            :class="[cx('decrementButton'), decrementButtonClass]"
+            v-on="downButtonListeners"
+            :disabled="disabled"
+            :tabindex="-1"
+            aria-hidden="true"
+            v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+            :unstyled="unstyled"
+            data-pc-section="decrementbutton"
+        >
             <template #icon>
                 <slot name="decrementbuttonicon">
-                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
                 </slot>
             </template>
         </INButton>
@@ -64,148 +103,12 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
 import { DomHandler } from 'primevue/utils';
+import BaseInputNumber from './BaseInputNumber.vue';
 
 export default {
     name: 'InputNumber',
+    extends: BaseInputNumber,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
-    props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
-        format: {
-            type: Boolean,
-            default: true
-        },
-        showButtons: {
-            type: Boolean,
-            default: false
-        },
-        buttonLayout: {
-            type: String,
-            default: 'stacked'
-        },
-        incrementButtonClass: {
-            type: String,
-            default: null
-        },
-        decrementButtonClass: {
-            type: String,
-            default: null
-        },
-        incrementButtonIcon: {
-            type: String,
-            default: undefined
-        },
-        decrementButtonIcon: {
-            type: String,
-            default: undefined
-        },
-        locale: {
-            type: String,
-            default: undefined
-        },
-        localeMatcher: {
-            type: String,
-            default: undefined
-        },
-        mode: {
-            type: String,
-            default: 'decimal'
-        },
-        prefix: {
-            type: String,
-            default: null
-        },
-        suffix: {
-            type: String,
-            default: null
-        },
-        currency: {
-            type: String,
-            default: undefined
-        },
-        currencyDisplay: {
-            type: String,
-            default: undefined
-        },
-        useGrouping: {
-            type: Boolean,
-            default: true
-        },
-        minFractionDigits: {
-            type: Number,
-            default: undefined
-        },
-        maxFractionDigits: {
-            type: Number,
-            default: undefined
-        },
-        min: {
-            type: Number,
-            default: null
-        },
-        max: {
-            type: Number,
-            default: null
-        },
-        step: {
-            type: Number,
-            default: 1
-        },
-        allowEmpty: {
-            type: Boolean,
-            default: true
-        },
-        highlightOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        incrementButtonProps: {
-            type: null,
-            default: null
-        },
-        decrementButtonProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     numberFormat: null,
     _numeral: null,
     _decimal: null,
@@ -533,6 +436,7 @@ export default {
 
                 case 'Tab':
                 case 'Enter':
+                case 'NumpadEnter':
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
                     this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
@@ -1003,7 +907,7 @@ export default {
                 this._decimal.lastIndex = 0;
 
                 if (this.suffixChar) {
-                    return val1.replace(this.suffixChar, '').split(this._decimal)[0] + val2.replace(this.suffixChar, '').slice(decimalCharIndex) + this.suffixChar;
+                    return decimalCharIndex !== -1 ? val1.replace(this.suffixChar, '').split(this._decimal)[0] + val2.replace(this.suffixChar, '').slice(decimalCharIndex) + this.suffixChar : val1;
                 } else {
                     return decimalCharIndex !== -1 ? val1.split(this._decimal)[0] + val2.slice(decimalCharIndex) : val1;
                 }
@@ -1060,37 +964,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-inputnumber p-component p-inputwrapper',
-                {
-                    'p-inputwrapper-filled': this.filled,
-                    'p-inputwrapper-focus': this.focused,
-                    'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',
-                    'p-inputnumber-buttons-horizontal': this.showButtons && this.buttonLayout === 'horizontal',
-                    'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
-                }
-            ];
-        },
-
-        upButtonClass() {
-            return [
-                'p-inputnumber-button p-inputnumber-button-up',
-                this.incrementButtonClass,
-                {
-                    'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
-                }
-            ];
-        },
-        downButtonClass() {
-            return [
-                'p-inputnumber-button p-inputnumber-button-down',
-                this.decrementButtonClass,
-                {
-                    'p-disabled': this.showButtons && this.min !== null && this.minBoundry()
-                }
-            ];
-        },
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
         },
@@ -1129,106 +1002,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-inputnumber {
-    display: inline-flex;
-}
-
-.p-inputnumber-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-}
-
-.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button .p-button-label,
-.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button .p-button-label {
-    display: none;
-}
-
-.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-up {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    padding: 0;
-}
-
-.p-inputnumber-buttons-stacked .p-inputnumber-input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-down {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 0;
-}
-
-.p-inputnumber-buttons-stacked .p-inputnumber-button-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
-    flex: 1 1 auto;
-}
-
-.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up {
-    order: 3;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.p-inputnumber-buttons-horizontal .p-inputnumber-input {
-    order: 2;
-    border-radius: 0;
-}
-
-.p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-down {
-    order: 1;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-inputnumber-buttons-vertical {
-    flex-direction: column;
-}
-
-.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-up {
-    order: 1;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    width: 100%;
-}
-
-.p-inputnumber-buttons-vertical .p-inputnumber-input {
-    order: 2;
-    border-radius: 0;
-    text-align: center;
-}
-
-.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-down {
-    order: 3;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    width: 100%;
-}
-
-.p-inputnumber-input {
-    flex: 1 1 auto;
-}
-
-.p-fluid .p-inputnumber {
-    width: 100%;
-}
-
-.p-fluid .p-inputnumber .p-inputnumber-input {
-    width: 1%;
-}
-
-.p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-input {
-    width: 100%;
-}
-</style>

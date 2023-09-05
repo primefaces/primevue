@@ -8,16 +8,19 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
-export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes) | null | undefined;
+export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface BreadcrumbPassThroughMethodOptions {
+    instance: any;
     props: BreadcrumbProps;
+    context: BreadcrumbContext;
 }
 
 /**
@@ -26,37 +29,42 @@ export interface BreadcrumbPassThroughMethodOptions {
  */
 export interface BreadcrumbPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: BreadcrumbPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator icon's DOM element.
+     * Used to pass attributes to the separator icon's DOM element.
      */
     separatorIcon?: BreadcrumbPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -64,6 +72,38 @@ export interface BreadcrumbPassThroughOptions {
  */
 export interface BreadcrumbPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Breadcrumb component.
+ */
+export interface BreadcrumbContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem
+     */
+    index: number;
+}
+
+/**
+ * Defines valid router binding props in Breadcrumb component.
+ */
+export interface BreadcrumbRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
 }
 
 /**
@@ -92,10 +132,15 @@ export interface BreadcrumbProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {BreadcrumbPassThroughOptions}
      */
-    pt?: BreadcrumbPassThroughOptions;
+    pt?: PTOptions<BreadcrumbPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -111,6 +156,14 @@ export interface BreadcrumbSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: BreadcrumbRouterBindProps;
     }): VNode[];
     /**
      * Custom separator template.

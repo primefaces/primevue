@@ -47,6 +47,18 @@ const OrderListProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether to displays rows with alternating colors.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

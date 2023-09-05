@@ -16,8 +16,7 @@ export default {
             value: null,
             code: {
                 basic: `<TriStateCheckbox v-model="value" class="p-invalid" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <TriStateCheckbox v-model="value" class="p-invalid" />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
@@ -33,8 +32,7 @@ export default {
   }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column align-items-center gap-3">
         <TriStateCheckbox v-model="value" class="p-invalid" />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>

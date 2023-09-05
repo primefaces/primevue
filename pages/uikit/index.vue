@@ -37,9 +37,13 @@
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Interactive Components</span>
                             </li>
-                            <li class="flex align-items-center w-12 p-3">
+                            <li class="flex align-items-center w-6 p-3">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Boolean, Instance Swap and Text Properties</span>
+                            </li>
+                            <li class="flex align-items-center w-6 p-3">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Nested Instances</span>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +77,7 @@
                         <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png" class="w-full" />
                     </div>
                 </div>
-                <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8">
+                <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8 mb-8">
                     <div class="w-full md:w-6">
                         <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-themes.png" class="w-full" />
                     </div>
@@ -94,24 +98,49 @@
                         </ul>
                     </div>
                 </div>
+                <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8">
+                    <div class="w-full md:w-6">
+                        <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
+                        <div class="text-900 text-5xl font-bold mb-3">Tokens Support</div>
+                        <p class="mb-3 text-lg">Empower yourself with unprecedented control over your designs. Tokens Studio integration unlocks a whole new level of flexibility, allowing you to create and manage design tokens seamlessly.</p>
+
+                        <ul class="flex flex-wrap m-0 p-0 text-lg">
+                            <li class="flex align-items-center w-6 p-3">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Countless Design Tokens</span>
+                            </li>
+                            <li class="flex align-items-center w-6 p-3">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Light and Dark Sets</span>
+                            </li>
+                            <li class="flex align-items-center w-12 p-3">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Well Documented</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-6">
+                        <img alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
+                    </div>
+                </div>
             </div>
 
             <div class="flex flex-column md:flex-row gap-4 md:gap-8 mb-5">
                 <a
-                    href="https://www.figma.com/file/1rMJ9BAiZovyQYNUG06T0j/Preview-%7C-PrimeOne-%7C-2.0?node-id=806%3A36648&t=MnxlHT9snz8Y6DwL-1"
+                    href="https://www.figma.com/file/Q7lwa8MLIcA0ts9bd9wiw2/Preview-%7C-PrimeOne-%7C-2.1.1?type=design&node-id=806%3A36648&mode=design&t=yXUcTsp5wucRdpXy-1"
                     class="p-5 w-full md:w-6 bg-white flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
                     style="border-radius: 50px"
                 >
                     <span class="text-gray-900 text-4xl font-bold mb-5">Preview Light</span>
-                    <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-4rem" />
+                    <img alt="Figma Light" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-4rem" />
                 </a>
                 <a
-                    href="https://www.figma.com/file/lwsadx20eWq3UWS4eAxCYo/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.0?node-id=806%3A36648&t=Qw2Pi6W4Q4rtbnZ5-1"
+                    href="https://www.figma.com/file/Br6Z9SxeYKGZWwKXUcUkGA/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.1.1?type=design&node-id=806%3A36648&mode=design&t=GhlXi6oKNtsPtiS6-1"
                     class="p-5 w-6 bg-gray-900 flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
                     style="border-radius: 50px"
                 >
                     <span class="text-white text-4xl font-bold mb-5">Preview Dark</span>
-                    <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-dark.svg" class="w-4rem" />
+                    <img alt="Figma Dark" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-dark.svg" class="w-4rem" />
                 </a>
             </div>
 
@@ -127,9 +156,8 @@
                                 <div class="text-900 font-medium text-xl mb-2">Single Designer</div>
                                 <div class="text-600 font-medium">For individual designers</div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <div v-if="pricing && pricing.single" class="flex flex-wrap gap-3">
-                                    <span v-if="pricing.single.old" :class="pricing.single.old.class ? pricing.single.old.class : ''">{{ pricing.single.old.value || '' }}</span>
-                                    <span v-if="pricing.single.new" :class="pricing.single.new.class ? pricing.single.new.class : ''">{{ pricing.single.new.value || '' }}</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="text-2xl font-bold text-900">$99</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -144,6 +172,10 @@
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Interactive Components</span>
+                                    </li>
+                                    <li class="flex align-items-center mb-3">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Tokens Studio Support</span>
                                     </li>
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -168,9 +200,8 @@
                                 <div class="text-900 font-medium text-xl mb-2">Team</div>
                                 <div class="text-600 font-medium">For small teams</div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <div v-if="pricing && pricing.team" class="flex flex-wrap gap-3">
-                                    <span v-if="pricing.team.old" :class="pricing.team.old.class ? pricing.team.old.class : ''">{{ pricing.team.old.value || '' }}</span>
-                                    <span v-if="pricing.team.new" :class="pricing.team.new.class ? pricing.team.new.class : ''">{{ pricing.team.new.value || '' }}</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="text-2xl font-bold text-900">$249</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -185,6 +216,10 @@
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Interactive Components</span>
+                                    </li>
+                                    <li class="flex align-items-center mb-3">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Tokens Studio Support</span>
                                     </li>
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -209,8 +244,8 @@
                                 <div class="text-900 font-medium text-xl mb-2">Enterprise</div>
                                 <div class="text-600 font-medium">For large teams</div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <div v-if="pricing && pricing.enterprise" class="flex flex-wrap gap-3">
-                                    <span v-if="pricing.enterprise.new" :class="pricing.enterprise.new.class ? pricing.enterprise.new.class : ''">{{ pricing.enterprise.new.value || '' }}</span>
+                                <div class="flex gap-3 flex-wrap">
+                                    <span class="text-2xl font-bold text-900">EXCLUSIVE DEALS</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -225,6 +260,10 @@
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Interactive Components</span>
+                                    </li>
+                                    <li class="flex align-items-center mb-3">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Tokens Studio Support</span>
                                     </li>
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -293,19 +332,7 @@
 </template>
 
 <script>
-import FetchPricing from '@/service/PricingService';
-
 export default {
-    data() {
-        return {
-            pricing: null
-        };
-    },
-    mounted() {
-        FetchPricing().then((data) => {
-            this.pricing = data;
-        });
-    },
     methods: {
         isDarkTheme() {
             return this.$appState.darkTheme === true;
@@ -313,7 +340,7 @@ export default {
     },
     computed: {
         coverImage() {
-            const image = this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpg' : 'images/uikit/primeone-cover-light.jpg';
+            const image = this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpeg' : 'images/uikit/primeone-cover-light.jpeg';
 
             return 'https://primefaces.org/cdn/primevue/' + image;
         }

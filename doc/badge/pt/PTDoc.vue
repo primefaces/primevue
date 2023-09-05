@@ -1,7 +1,21 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Badge value="2" :pt="{ root: { class: 'bg-primary border-round-sm' } }" />
+    <div class="card flex justify-content-center align-items-center gap-2">
+        <Badge
+            value="2"
+            :pt="{
+                root: 'bg-primary border-round-xl'
+            }"
+        />
+        <i
+            v-badge.danger="{
+                value: '5+',
+                pt: {
+                    root: 'bg-primary'
+                }
+            }"
+            class="pi pi-calendar text-4xl"
+        />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,26 +26,67 @@ export default {
         return {
             code: {
                 basic: `
-<Badge value="2"
+// component
+<Badge
+    value="2"
     :pt="{
-        root: { class: 'bg-primary border-round-sm' }
+        root: 'bg-primary border-round-xl'
     }"
+/>
+
+// directive
+<i
+    v-badge.danger="{
+        value: '5+',
+        pt: {
+            root: 'bg-primary'
+        }
+    }"
+    class="pi pi-calendar text-4xl"
 />`,
-                options: `
-<template>
-    <Badge value="2"
-        :pt="{
-            root: { class: 'bg-primary border-round-sm' }
-        }"
-    />
+                options: `<template>
+    <div class="card flex justify-content-center align-items-center gap-2">
+        // component
+        <Badge
+            value="2"
+            :pt="{
+                root: 'bg-primary border-round-xl'
+            }"
+        />
+
+        // directive
+        <i
+            v-badge.danger="{
+                value: '5+',
+                pt: {
+                    root: 'bg-primary'
+                }
+            }"
+            class="pi pi-calendar text-4xl"
+        />
+    </div>
 </template>`,
-                composition: `
-<template>
-    <Badge value="2"
-        :pt="{
-            root: { class: 'bg-primary border-round-sm' }
-        }"
-    />
+                composition: `<template>
+    <div class="card flex justify-content-center align-items-center gap-2">
+        // component
+        <Badge
+            value="2"
+            :pt="{
+                root: 'bg-primary border-round-xl'
+            }"
+        />
+
+        // directive
+        <i
+            v-badge.danger="{
+                value: '5+',
+                pt: {
+                    root: 'bg-primary'
+                }
+            }"
+            class="pi pi-calendar text-4xl"
+        />
+    </div>
 </template>`
             }
         };

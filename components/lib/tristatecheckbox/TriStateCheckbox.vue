@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="tristatecheckbox">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 :id="inputId"
@@ -13,19 +13,19 @@
                 @keydown="onKeyDown($event)"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <span class="p-sr-only" aria-live="polite">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]">
-            <slot v-if="modelValue === true" name="checkicon">
-                <component :is="'CheckIcon'" class="p-checkbox-icon" />
+        <span role="status" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
+        <div ref="box" :class="cx('checkbox')" v-bind="getPTOptions('checkbox')" :data-p-highlight="modelValue != null" :data-p-disabled="disabled" :data-p-focused="focused">
+            <slot v-if="modelValue === true" name="checkicon" :class="cx('checkIcon')">
+                <component :is="'CheckIcon'" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
             </slot>
-            <slot v-else-if="modelValue === false" name="uncheckicon">
-                <component :is="'TimesIcon'" class="p-checkbox-icon" />
+            <slot v-else-if="modelValue === false" name="uncheckicon" :class="cx('uncheckIcon')">
+                <component :is="'TimesIcon'" :class="cx('uncheckIcon')" v-bind="ptm('uncheckIcon')" />
             </slot>
-            <slot v-else name="nullableicon">
-                <span class="p-checkbox-icon"></span>
+            <slot v-else name="nullableicon" :class="cx('nullableIcon')">
+                <span :class="cx('nullableIcon')" v-bind="ptm('nullableIcon')"></span>
             </slot>
         </div>
     </div>
@@ -34,43 +34,27 @@
 <script>
 import CheckIcon from 'primevue/icons/check';
 import TimesIcon from 'primevue/icons/times';
+import BaseTriStateCheckbox from './BaseTriStateCheckbox.vue';
 
 export default {
     name: 'TriStateCheckbox',
+    extends: BaseTriStateCheckbox,
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
-    props: {
-        modelValue: null,
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             focused: false
         };
     },
     methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.modelValue !== null,
+                    focused: this.focused,
+                    disabled: this.disabled
+                }
+            });
+        },
         updateModel() {
             if (!this.disabled) {
                 let newValue;
@@ -115,16 +99,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-checkbox p-component',
-                {
-                    'p-checkbox-checked': this.modelValue === true,
-                    'p-checkbox-disabled': this.disabled,
-                    'p-checkbox-focused': this.focused
-                }
-            ];
-        },
         ariaValueLabel() {
             return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel;
         }

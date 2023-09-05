@@ -654,7 +654,13 @@ describe('DomHandler', () => {
         it('When getSelection is not empty', () => {
             const scrollDiv = document.createElement('div');
 
-            scrollDiv.className = 'p-scrollbar-measure';
+            DomHandler.addStyles(scrollDiv, {
+                width: '100px',
+                height: '100px',
+                overflow: 'scroll',
+                position: 'absolute',
+                top: '-9999px'
+            });
             document.body.appendChild(scrollDiv);
             const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
 

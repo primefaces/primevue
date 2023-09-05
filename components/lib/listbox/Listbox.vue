@@ -1,14 +1,24 @@
 <template>
-    <div :id="id" :class="containerClass" @focusout="onFocusout">
-        <span ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onFirstHiddenFocus"></span>
+    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptm('root')" data-pc-name="listbox">
+        <span
+            ref="firstHiddenFocusableElement"
+            role="presentation"
+            aria-hidden="true"
+            class="p-hidden-accessible p-hidden-focusable"
+            :tabindex="!disabled ? tabindex : -1"
+            @focus="onFirstHiddenFocus"
+            v-bind="ptm('hiddenFirstFocusableEl')"
+            :data-p-hidden-accessible="true"
+            :data-p-hidden-focusable="true"
+        ></span>
         <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-        <div v-if="filter" class="p-listbox-header">
-            <div class="p-listbox-filter-container">
+        <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
+            <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
                 <input
                     ref="filterInput"
                     v-model="filterValue"
                     type="text"
-                    class="p-listbox-filter p-inputtext p-component"
+                    :class="cx('filterInput')"
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
@@ -18,24 +28,24 @@
                     @input="onFilterChange"
                     @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
-                    v-bind="filterInputProps"
+                    v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
                 />
 
-                <slot name="filtericon">
-                    <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-listbox-filter-icon', filterIcon]" />
+                <slot name="filtericon" :class="cx('filterIcon')">
+                    <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
                 </slot>
             </div>
-            <span role="status" aria-live="polite" class="p-hidden-accessible">
+            <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                 {{ filterResultMessageText }}
             </span>
         </div>
-        <div ref="listWrapper" class="p-listbox-list-wrapper" :style="listStyle">
-            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
+        <div ref="listWrapper" :class="cx('wrapper')" :style="listStyle" v-bind="ptm('wrapper')">
+            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                     <ul
                         :ref="(el) => listRef(el, contentRef)"
                         :id="id + '_list'"
-                        :class="['p-listbox-list', styleClass]"
+                        :class="[cx('list'), styleClass]"
                         :style="contentStyle"
                         :tabindex="-1"
                         role="listbox"
@@ -47,9 +57,10 @@
                         @focus="onListFocus"
                         @blur="onListBlur"
                         @keydown="onListKeyDown"
+                        v-bind="ptm('list')"
                     >
                         <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                            <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" class="p-listbox-item-group" role="option">
+                            <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
                                 <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                             </li>
                             <li
@@ -57,7 +68,7 @@
                                 :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                 v-ripple
                                 :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                :class="['p-listbox-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
+                                :class="cx('item', { option, index: i, getItemOptions })"
                                 role="option"
                                 :aria-label="getOptionLabel(option)"
                                 :aria-selected="isSelected(option)"
@@ -68,14 +79,18 @@
                                 @mousedown="onOptionMouseDown($event, getOptionIndex(i, getItemOptions))"
                                 @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                 @touchend="onOptionTouchEnd()"
+                                v-bind="getPTOptions(option, getItemOptions, i, 'item')"
+                                :data-p-highlight="isSelected(option)"
+                                :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                :data-p-disabled="isOptionDisabled(option)"
                             >
                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                             </li>
                         </template>
-                        <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-listbox-empty-message" role="option">
+                        <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                             <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                         </li>
-                        <li v-else-if="!options || (options && options.length === 0)" class="p-listbox-empty-message" role="option">
+                        <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </li>
                     </ul>
@@ -86,13 +101,23 @@
             </VirtualScroller>
         </div>
         <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-        <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
+        <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenEmptyMessage')" :data-p-hidden-accessible="true">
             {{ emptyMessageText }}
         </span>
-        <span role="status" aria-live="polite" class="p-hidden-accessible">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
             {{ selectedMessageText }}
         </span>
-        <span ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></span>
+        <span
+            ref="lastHiddenFocusableElement"
+            role="presentation"
+            aria-hidden="true"
+            class="p-hidden-accessible p-hidden-focusable"
+            :tabindex="!disabled ? tabindex : -1"
+            @focus="onLastHiddenFocus"
+            v-bind="ptm('hiddenLastFocusableEl')"
+            :data-p-hidden-accessible="true"
+            :data-p-hidden-focusable="true"
+        ></span>
     </div>
 </template>
 
@@ -102,84 +127,12 @@ import SearchIcon from 'primevue/icons/search';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import BaseListbox from './BaseListbox.vue';
 
 export default {
     name: 'Listbox',
+    extends: BaseListbox,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter'],
-    props: {
-        modelValue: null,
-        options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
-        listStyle: null,
-        disabled: Boolean,
-        dataKey: null,
-        multiple: Boolean,
-        metaKeySelection: Boolean,
-        filter: Boolean,
-        filterPlaceholder: String,
-        filterLocale: String,
-        filterMatchMode: {
-            type: String,
-            default: 'contains'
-        },
-        filterFields: {
-            type: Array,
-            default: null
-        },
-        filterInputProps: null,
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
-        autoOptionFocus: {
-            type: Boolean,
-            default: true
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        filterMessage: {
-            type: String,
-            default: null
-        },
-        selectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySelectionMessage: {
-            type: String,
-            default: null
-        },
-        emptyFilterMessage: {
-            type: String,
-            default: null
-        },
-        emptyMessage: {
-            type: String,
-            default: null
-        },
-        filterIcon: {
-            type: String,
-            default: undefined
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        }
-    },
     list: null,
     virtualScroller: null,
     optionTouched: false,
@@ -221,6 +174,15 @@ export default {
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
         },
+        getPTOptions(option, itemOptions, index, key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.isSelected(option),
+                    focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
+        },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
@@ -239,7 +201,7 @@ export default {
         onFirstHiddenFocus() {
             DomHandler.focus(this.list);
 
-            const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+            const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
             this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
             this.$refs.firstHiddenFocusableElement.tabIndex = -1;
@@ -248,7 +210,7 @@ export default {
             const relatedTarget = event.relatedTarget;
 
             if (relatedTarget === this.list) {
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
                 DomHandler.focus(firstFocusableEl);
                 this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
@@ -699,15 +661,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-listbox p-component',
-                {
-                    'p-focus': this.focused,
-                    'p-disabled': this.disabled
-                }
-            ];
-        },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
@@ -762,39 +715,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-listbox-list-wrapper {
-    overflow: auto;
-}
-
-.p-listbox-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.p-listbox-item {
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-listbox-item-group {
-    cursor: auto;
-}
-
-.p-listbox-filter-container {
-    position: relative;
-}
-
-.p-listbox-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-listbox-filter {
-    width: 100%;
-}
-</style>

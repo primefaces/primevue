@@ -8,7 +8,58 @@
  *
  */
 import { TextareaHTMLAttributes } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TextareaPassThroughMethodOptions {
+    instance: any;
+    props: TextareaProps;
+    context: TextareaContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TextareaProps.pt}
+ */
+export interface TextareaPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: TextareaPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TextareaPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current options in Textarea component.
+ */
+export interface TextareaContext {
+    /**
+     * Current filled state of the component as a boolean.
+     * @defaultValue false
+     */
+    filled: boolean;
+    /**
+     * Current disabled state of the component as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
 
 /**
  * Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.
@@ -24,6 +75,16 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * @defaultValue false
      */
     autoResize?: boolean | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {TextareaPassThroughOptions}
+     */
+    pt?: PTOptions<TextareaPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -8,7 +8,20 @@
  *
  */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ComponentHooks } from '../basecomponent';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
+
+export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface OrganizationChartPassThroughMethodOptions {
+    instance: any;
+    props: OrganizationChartProps;
+    state: OrganizationChartState;
+    context: OrganizationChartContext;
+}
 
 /**
  * Defines valid properties in OrganizationChartNode.
@@ -65,6 +78,124 @@ export interface OrganizationChartCollapsedKeys {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link OrganizationChartProps.pt}
+ */
+export interface OrganizationChartPassThroughOptions {
+    /**
+     * Used to pass attributes to the root's DOM element.
+     */
+    root?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the table's DOM element.
+     */
+    table?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the body's DOM element.
+     */
+    body?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the row' DOM element.
+     */
+    row?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the cell's DOM element.
+     */
+    cell?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the node's DOM element.
+     */
+    node?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the nodeToggler's DOM element.
+     */
+    nodeToggler?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the nodeTogglerIcon's DOM element.
+     */
+    nodeTogglerIcon?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the lines's DOM element.
+     */
+    lines?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the lineCell's DOM element.
+     */
+    lineCell?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the lineDown's DOM element.
+     */
+    lineDown?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the nodes's DOM element.
+     */
+    nodes?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the nodeCell's DOM element.
+     */
+    nodeCell?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface OrganizationChartPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in OrganizationChart component.
+ */
+export interface OrganizationChartState {
+    /**
+     * Current collapsed keys' state.
+     * @defaultValue false
+     */
+    d_collapsedKeys: OrganizationChartCollapsedKeys;
+}
+
+/**
+ * Defines current options in OrganizationChart component.
+ */
+export interface OrganizationChartContext {
+    /**
+     * Current focus expanded of the node as a boolean.
+     * @defaultValue false
+     */
+    expanded: boolean;
+    /**
+     * Current selectable state of the node as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selection state of the node as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current toggleable state of the node as a boolean.
+     * @defaultValue false
+     */
+    toggleable: boolean;
+    /**
+     * Current active state of the node as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current being top line state of the node as a boolean.
+     * @defaultValue false
+     */
+    lineTop: boolean;
+}
+
+/**
  * Defines valid properties in OrganizationChart component.
  */
 export interface OrganizationChartProps {
@@ -89,6 +220,16 @@ export interface OrganizationChartProps {
      * @defaultValue false
      */
     collapsible?: boolean;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {OrganizationChartPassThroughOptions}
+     */
+    pt?: PTOptions<OrganizationChartPassThroughOptions>;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
