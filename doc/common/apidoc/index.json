@@ -689,7 +689,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n \t <b>isTabActive</b>: (index: number) &rArr; void, // Whether the tab is active\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">index</span>: number, // Index of the tab\n \t <span class=\"font-medium\">isTabActive</span>: (index: number) &rArr; void, // Whether the tab is active\n}",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -3542,7 +3542,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // A value in the selection\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // A value in the selection\n }",
                                     "description": "chip slot's params."
                                 }
                             ],
@@ -3555,7 +3555,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>suggestions</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">suggestions</span>: any, // Displayed options\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -3568,7 +3568,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>suggestions</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">suggestions</span>: any, // Displayed options\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -3581,7 +3581,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -3595,7 +3595,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -3608,7 +3608,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // undefined\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // undefined\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option group slot's params."
                                 }
                             ],
@@ -3621,7 +3621,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">items</span>: any, // An array of objects to display for virtualscroller\n  \t <span class=\"font-medium\">styleClass</span>: string, // Style class of the component\n \t <span class=\"font-medium\">contentRef</span>: (el: any) &rArr; void, // Referance of the content\n\t <span class=\"font-medium\">getItemOptions</span>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n}",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -3634,7 +3634,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>options</b>: any, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">options</span>: any, // Options of the loader items for virtualscroller\n }",
                                     "description": "loader slot's params."
                                 }
                             ],
@@ -3653,7 +3653,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -3665,7 +3665,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n \t <b>onClick</b>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n }"
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n  \t <span class=\"font-medium\">index</span>: number, // Index of the token.\n \t <span class=\"font-medium\">onClick</span>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n}"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -3677,7 +3677,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -5370,7 +5370,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: BreadcrumbRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: BreadcrumbRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -5389,7 +5389,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -5755,7 +5755,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -5768,7 +5768,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "loading icon slot's params."
                                 }
                             ],
@@ -7068,7 +7068,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>date</b>: undefined, // Value of the component.\n  }"
+                                    "type": "{\n  \t <span class=\"font-medium\">date</span>: undefined, // Value of the component.\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -7080,7 +7080,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>years</b>: undefined, // An array containing the start and and year of a decade to display at header of the year picker.\n  }"
+                                    "type": "{\n  \t <span class=\"font-medium\">years</span>: undefined, // An array containing the start and and year of a decade to display at header of the year picker.\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -7098,7 +7098,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
                                     "description": "previous icon slot's params."
                                 }
                             ],
@@ -7111,7 +7111,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
                                     "description": "next icon slot's params."
                                 }
                             ],
@@ -7124,7 +7124,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
                                     "description": "increment icon slot's params."
                                 }
                             ],
@@ -7137,7 +7137,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
                                     "description": "decrement icon slot's params."
                                 }
                             ],
@@ -8024,7 +8024,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Data of the component\n  \t <b>index</b>: number, // Index of the item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Data of the component\n  \t <span class=\"font-medium\">index</span>: number, // Index of the item\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -8727,7 +8727,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -8740,7 +8740,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>placeholder</b>: string, // Placeholder text to show\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">placeholder</span>: string, // Placeholder text to show\n }",
                                     "description": "value slot's params."
                                 }
                             ],
@@ -9529,7 +9529,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // State of the checkbox.\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">checked</span>: boolean, // State of the checkbox.\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -9843,7 +9843,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <b>onClick</b>: (event: Event) &rArr; void, // Remove icon click event\n\t <b>onKeydown</b>: (event: Event) &rArr; void, // Remove icon keydown event\n }",
+                                    "type": "{\n \t <span class=\"font-medium\">onClick</span>: (event: Event) &rArr; void, // Remove icon click event\n\t <span class=\"font-medium\">onKeydown</span>: (event: Event) &rArr; void, // Remove icon keydown event\n}",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -10266,7 +10266,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n }",
                                     "description": "chip slot's params."
                                 }
                             ],
@@ -10279,7 +10279,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n \t <b>onClick</b>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n  \t <span class=\"font-medium\">index</span>: number, // Index of the token.\n \t <span class=\"font-medium\">onClick</span>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n}",
                                     "description": "remove token icon slot's params."
                                 }
                             ],
@@ -11978,7 +11978,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>node</b>: any, // Row node data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n \t <b>editorInitCallback</b>: (event: Event) &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data.\n  \t <span class=\"font-medium\">node</span>: any, // Row node data.\n  \t <span class=\"font-medium\">column</span>: Column, // Column node.\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">index</span>: number, // Row index.\n  \t <span class=\"font-medium\">frozenRow</span>: boolean, // Whether the row is frozen.\n \t <span class=\"font-medium\">editorInitCallback</span>: (event: Event) &rArr; void, // Callback function\n}",
                                     "description": "body slot's params."
                                 }
                             ],
@@ -11991,7 +11991,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>column</b>: Column, // Column node.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">column</span>: Column, // Column node.\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -12004,7 +12004,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>column</b>: Column, // Column node.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">column</span>: Column, // Column node.\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -12017,7 +12017,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n \t <b>editorSaveCallback</b>: (event: Event) &rArr; void, // Callback function\n\t <b>editorCancelCallback</b>: (event: Event) &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data.\n  \t <span class=\"font-medium\">column</span>: Column, // Column node.\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">index</span>: number, // Row index.\n  \t <span class=\"font-medium\">frozenRow</span>: boolean, // Whether the row is frozen.\n \t <span class=\"font-medium\">editorSaveCallback</span>: (event: Event) &rArr; void, // Callback function\n\t <span class=\"font-medium\">editorCancelCallback</span>: (event: Event) &rArr; void, // Callback function\n}",
                                     "description": "editor slot's params."
                                 }
                             ],
@@ -12030,7 +12030,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">filterModel</span>: ColumnFilterModelType, // Filter metadata\n \t <span class=\"font-medium\">filterCallback</span>: () &rArr; void, // Callback function\n}",
                                     "description": "filter slot's params."
                                 }
                             ],
@@ -12043,7 +12043,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">filterModel</span>: ColumnFilterModelType, // Filter metadata\n \t <span class=\"font-medium\">filterCallback</span>: () &rArr; void, // Callback function\n}",
                                     "description": "filter header slot's params."
                                 }
                             ],
@@ -12056,7 +12056,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">filterModel</span>: ColumnFilterModelType, // Filter metadata\n \t <span class=\"font-medium\">filterCallback</span>: () &rArr; void, // Callback function\n}",
                                     "description": "filter footer slot's params."
                                 }
                             ],
@@ -12069,7 +12069,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">filterModel</span>: ColumnFilterModelType, // Filter metadata\n \t <span class=\"font-medium\">filterCallback</span>: () &rArr; void, // Callback function\n}",
                                     "description": "filter clear slot's params."
                                 }
                             ],
@@ -12082,7 +12082,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">filterModel</span>: ColumnFilterModelType, // Filter metadata\n \t <span class=\"font-medium\">filterCallback</span>: () &rArr; void, // Callback function\n}",
                                     "description": "filter apply slot's params."
                                 }
                             ],
@@ -12095,7 +12095,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n  \t <b>loadingOptions</b>: ColumnLoadingOptions, // Loading options.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data.\n  \t <span class=\"font-medium\">column</span>: Column, // Column node.\n  \t <span class=\"font-medium\">field</span>: string, // Column field.\n  \t <span class=\"font-medium\">index</span>: number, // Row index.\n  \t <span class=\"font-medium\">frozenRow</span>: boolean, // Whether the row is frozen.\n  \t <span class=\"font-medium\">loadingOptions</span>: ColumnLoadingOptions, // Loading options.\n }",
                                     "description": "loading slot's params."
                                 }
                             ],
@@ -12108,7 +12108,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>rowExpanded</b>: boolean, // Current row expanded state.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">rowExpanded</span>: boolean, // Current row expanded state.\n }",
                                     "description": "row toggler icon slot's params."
                                 }
                             ],
@@ -12121,7 +12121,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // Current check state.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">checked</span>: boolean, // Current check state.\n }",
                                     "description": "header row icon slot's params."
                                 }
                             ],
@@ -12176,7 +12176,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>sorted</b>: boolean, // Current sort state.\n  \t <b>sortOrder</b>: number, // Current sort order state.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">sorted</span>: boolean, // Current sort state.\n  \t <span class=\"font-medium\">sortOrder</span>: number, // Current sort order state.\n }",
                                     "description": "sort icon slot's params."
                                 }
                             ],
@@ -12189,7 +12189,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // Current check state.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">checked</span>: boolean, // Current check state.\n }",
                                     "description": "header checkbox icon slot's params."
                                 }
                             ],
@@ -14471,7 +14471,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // Message of the component\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: ConfirmationOptions, // Message of the component\n }",
                                     "description": "message slot's params."
                                 }
                             ],
@@ -14484,7 +14484,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the icon template\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -14743,7 +14743,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // Message of the component\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: ConfirmationOptions, // Message of the component\n }",
                                     "description": "message slot's params."
                                 }
                             ],
@@ -14756,7 +14756,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the icon template\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -15286,7 +15286,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: ContextMenuRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: ContextMenuRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -15299,7 +15299,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -15312,7 +15312,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">active</span>: boolean, // Whether item is active\n }",
                                     "description": "submenuicon slot's params."
                                 }
                             ],
@@ -17654,7 +17654,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data\n  \t <b>index</b>: number, // Row index\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data\n  \t <span class=\"font-medium\">index</span>: number, // Row index\n }",
                                     "description": "group header slot's params."
                                 }
                             ],
@@ -17667,7 +17667,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data\n  \t <b>index</b>: number, // Row index\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data\n  \t <span class=\"font-medium\">index</span>: number, // Row index\n }",
                                     "description": "group footer slot's params."
                                 }
                             ],
@@ -17686,7 +17686,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data\n  \t <b>index</b>: number, // Row index\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Row data\n  \t <span class=\"font-medium\">index</span>: number, // Row index\n }",
                                     "description": "expansion slot's params."
                                 }
                             ],
@@ -17717,7 +17717,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>expanded</b>: boolean, // Current rowgroup's expanded state.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">expanded</span>: boolean, // Current rowgroup's expanded state.\n }",
                                     "description": "rowgroup toggler icon slot's params."
                                 }
                             ],
@@ -18674,7 +18674,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Value of the component\n  \t <b>index</b>: number, // Index of the grid\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Value of the component\n  \t <span class=\"font-medium\">index</span>: number, // Index of the grid\n }",
                                     "description": "list slot's params."
                                 }
                             ],
@@ -18687,7 +18687,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Value of the component\n  \t <b>index</b>: number, // Index of the grid\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">data</span>: any, // Value of the component\n  \t <span class=\"font-medium\">index</span>: number, // Index of the grid\n }",
                                     "description": "list slot's params."
                                 }
                             ],
@@ -19651,7 +19651,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the close icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the close icon\n }",
                                     "description": "close icon slot's params."
                                 }
                             ],
@@ -19664,7 +19664,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>maximized</b>: boolean, // Maximized state as a boolean\n  \t <b>class</b>: any, // Style class of the maximize icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">maximized</span>: boolean, // Maximized state as a boolean\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the maximize icon\n }",
                                     "description": "maximize icon slot's params."
                                 }
                             ],
@@ -20368,7 +20368,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for item.\n  \t <b>index</b>: number, // Index of the menuitem\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: DockRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Custom content for item.\n  \t <span class=\"font-medium\">index</span>: number, // Index of the menuitem\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: DockRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -20381,7 +20381,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Custom content for icon.\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -21241,7 +21241,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>placeholder</b>: string, // Placeholder prop value\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">placeholder</span>: string, // Placeholder prop value\n }",
                                     "description": "value slot's params."
                                 }
                             ],
@@ -21261,7 +21261,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -21274,7 +21274,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -21287,7 +21287,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -21300,7 +21300,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option group slot's params."
                                 }
                             ],
@@ -21325,7 +21325,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">items</span>: any, // An array of objects to display for virtualscroller\n  \t <span class=\"font-medium\">styleClass</span>: string, // Style class of the component\n \t <span class=\"font-medium\">contentRef</span>: (el: any) &rArr; void, // Referance of the content\n\t <span class=\"font-medium\">getItemOptions</span>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n}",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -21338,7 +21338,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>options</b>: any, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">options</span>: any, // Options of the loader items for virtualscroller\n }",
                                     "description": "loader slot's params."
                                 }
                             ],
@@ -21351,7 +21351,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the clear icon\n \t <b>onClick</b>: (event: Event) &rArr; void, // Clear icon click function.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the clear icon\n \t <span class=\"font-medium\">onClick</span>: (event: Event) &rArr; void, // Clear icon click function.\n}",
                                     "description": "clear icon slot's params."
                                 }
                             ],
@@ -21364,7 +21364,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
                                     "description": "dropdown icon slot's params."
                                 }
                             ],
@@ -21377,7 +21377,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the loading icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the loading icon\n }",
                                     "description": "loading icon slot's params."
                                 }
                             ],
@@ -21390,7 +21390,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the filter icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the filter icon\n }",
                                     "description": "filter icon slot's params."
                                 }
                             ],
@@ -23292,7 +23292,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n \t <b>chooseCallback</b>: () &rArr; void, // Choose function\n\t <b>uploadCallback</b>: () &rArr; void, // Upload function\n\t <b>clearCallback</b>: () &rArr; void, // Clear function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">files</span>: File, // Files to upload.\n  \t <span class=\"font-medium\">uploadedFiles</span>: File, // Uploaded files.\n \t <span class=\"font-medium\">chooseCallback</span>: () &rArr; void, // Choose function\n\t <span class=\"font-medium\">uploadCallback</span>: () &rArr; void, // Upload function\n\t <span class=\"font-medium\">clearCallback</span>: () &rArr; void, // Clear function\n}",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -23305,7 +23305,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n \t <b>removeUploadedFileCallback</b>: (index: number) &rArr; void, // Function to remove an uploaded file.\n\t <b>removeFileCallback</b>: (index: number) &rArr; void, // Function to remove a file.\n \t <b>progress</b>: number, // Uploaded progress as number.\n  \t <b>messages</b>: undefined, // Status messages about upload process.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">files</span>: File, // Files to upload.\n  \t <span class=\"font-medium\">uploadedFiles</span>: File, // Uploaded files.\n \t <span class=\"font-medium\">removeUploadedFileCallback</span>: (index: number) &rArr; void, // Function to remove an uploaded file.\n\t <span class=\"font-medium\">removeFileCallback</span>: (index: number) &rArr; void, // Function to remove a file.\n \t <span class=\"font-medium\">progress</span>: number, // Uploaded progress as number.\n  \t <span class=\"font-medium\">messages</span>: undefined, // Status messages about upload process.\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -23342,7 +23342,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>file</b>: File, // File to upload.\n  \t <b>index</b>: number, // The index of file\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">file</span>: File, // File to upload.\n  \t <span class=\"font-medium\">index</span>: number, // The index of file\n }",
                                     "description": "fileremoveicon slot's params."
                                 }
                             ],
@@ -24343,7 +24343,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item instance\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item instance\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -24356,7 +24356,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item instance\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item instance\n }",
                                     "description": "caption slot's params."
                                 }
                             ],
@@ -24369,7 +24369,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>index</b>: number, // Index of the indicator item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">index</span>: number, // Index of the indicator item\n }",
                                     "description": "indicator slot's params."
                                 }
                             ],
@@ -24382,7 +24382,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item instance\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item instance\n }",
                                     "description": "thumbnail slot's params."
                                 }
                             ],
@@ -24974,7 +24974,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n \t <b>onError</b>: () &rArr; void, // Image error function.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the image element.\n  \t <span class=\"font-medium\">style</span>: any, // Style of the image element.\n \t <span class=\"font-medium\">onError</span>: () &rArr; void, // Image error function.\n}",
                                     "description": "image slot's params."
                                 }
                             ],
@@ -24987,7 +24987,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n \t <b>onClick</b>: () &rArr; void, // Preview click function.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the preview image element.\n  \t <span class=\"font-medium\">style</span>: any, // Style of the preview image element.\n \t <span class=\"font-medium\">onClick</span>: () &rArr; void, // Preview click function.\n}",
                                     "description": "preview slot's params."
                                 }
                             ],
@@ -27879,7 +27879,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -27892,7 +27892,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -27905,7 +27905,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -27918,7 +27918,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "optiongroup slot's params."
                                 }
                             ],
@@ -27943,7 +27943,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">items</span>: any, // An array of objects to display for virtualscroller\n  \t <span class=\"font-medium\">styleClass</span>: string, // Style class of the component\n \t <span class=\"font-medium\">contentRef</span>: (el: any) &rArr; void, // Referance of the content\n\t <span class=\"font-medium\">getItemOptions</span>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n}",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -27956,7 +27956,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>options</b>: any, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">options</span>: any, // Options of the loader items for virtualscroller\n }",
                                     "description": "loader slot's params."
                                 }
                             ],
@@ -27969,7 +27969,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the filter icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the filter icon\n }",
                                     "description": "filter icon slot's params."
                                 }
                             ],
@@ -28539,7 +28539,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MegaMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: MegaMenuRouterBindProps, // Binding properties of the menuitem\n  \t <span class=\"font-medium\">hasSubmenu</span>: boolean, // Whether or not there is a submenu\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -28552,7 +28552,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">active</span>: boolean, // Whether item is active\n }",
                                     "description": "submenuicon slot's params."
                                 }
                             ],
@@ -28565,7 +28565,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -29077,7 +29077,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MenuRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: MenuRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -29090,7 +29090,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -29103,7 +29103,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>submenuheader</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">submenuheader</span>: MenuItem, // Menuitem instance\n }",
                                     "description": "submenuheader slot's params."
                                 }
                             ],
@@ -29621,7 +29621,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MenubarRouterBindProps, // Binding properties of the menuitem\n  \t <b>root</b>: boolean, // State of the root\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: MenubarRouterBindProps, // Binding properties of the menuitem\n  \t <span class=\"font-medium\">root</span>: boolean, // State of the root\n  \t <span class=\"font-medium\">hasSubmenu</span>: boolean, // Whether or not there is a submenu\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -29640,7 +29640,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>root</b>: boolean, // Whether item is root\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">root</span>: boolean, // Whether item is root\n  \t <span class=\"font-medium\">active</span>: boolean, // Whether item is active\n }",
                                     "description": "submenuicon slot's params."
                                 }
                             ],
@@ -29653,7 +29653,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -30114,7 +30114,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "messageicon slot's params."
                                 }
                             ],
@@ -30127,7 +30127,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "closeicon slot's params."
                                 }
                             ],
@@ -31154,7 +31154,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>placeholder</b>: string, // Placeholder prop value\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">placeholder</span>: string, // Placeholder prop value\n }",
                                     "description": "value slot's params."
                                 }
                             ],
@@ -31167,7 +31167,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // A value in the selection\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // A value in the selection\n }",
                                     "description": "chip slot's params."
                                 }
                             ],
@@ -31187,7 +31187,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -31200,7 +31200,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Value of the component\n  \t <b>options</b>: any, // Displayed options\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Value of the component\n  \t <span class=\"font-medium\">options</span>: any, // Displayed options\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -31213,7 +31213,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -31226,7 +31226,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option group slot's params."
                                 }
                             ],
@@ -31251,7 +31251,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">items</span>: any, // An array of objects to display for virtualscroller\n  \t <span class=\"font-medium\">styleClass</span>: string, // Style class of the component\n \t <span class=\"font-medium\">contentRef</span>: (el: any) &rArr; void, // Referance of the content\n\t <span class=\"font-medium\">getItemOptions</span>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n}",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -31264,7 +31264,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>options</b>: any, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">options</span>: any, // Options of the loader items for virtualscroller\n }",
                                     "description": "loader slot's params."
                                 }
                             ],
@@ -31277,7 +31277,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>item</b>: any, // Item of the token.\n \t <b>onClick</b>: (event: Event, item: any) &rArr; void, // Remove token icon function.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n  \t <span class=\"font-medium\">item</span>: any, // Item of the token.\n \t <span class=\"font-medium\">onClick</span>: (event: Event, item: any) &rArr; void, // Remove token icon function.\n}",
                                     "description": "removetokenicon slot's params."
                                 }
                             ],
@@ -31290,7 +31290,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>allSelected</b>: boolean, // Options of the loader items for virtualscroller\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">allSelected</span>: boolean, // Options of the loader items for virtualscroller\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "header checkbox icon slot's params."
                                 }
                             ],
@@ -31303,7 +31303,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "filtericon slot's params."
                                 }
                             ],
@@ -31316,7 +31316,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "closeicon slot's params."
                                 }
                             ],
@@ -31329,7 +31329,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>selected</b>: boolean, // Options of the loader items for virtualscroller\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">selected</span>: boolean, // Options of the loader items for virtualscroller\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "itemcheckboxicon slot's params."
                                 }
                             ],
@@ -31342,7 +31342,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "loading icon slot's params."
                                 }
                             ],
@@ -31355,7 +31355,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the loading icon.\n }",
                                     "description": "dropdownicon slot's params."
                                 }
                             ],
@@ -31959,7 +31959,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item of the component\n  \t <b>index</b>: number, // Index of the item.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item of the component\n  \t <span class=\"font-medium\">index</span>: number, // Index of the item.\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -32537,7 +32537,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>expanded</b>: boolean, // Curent state of the node\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">expanded</span>: boolean, // Curent state of the node\n }",
                                     "description": "togglericon slot's params."
                                 }
                             ],
@@ -33394,7 +33394,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>state</b>: PageState, // Current state\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">state</span>: PageState, // Current state\n }",
                                     "description": "start slot's params."
                                 }
                             ],
@@ -33407,7 +33407,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>state</b>: PageState, // Current state\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">state</span>: PageState, // Current state\n }",
                                     "description": "end slot's params."
                                 }
                             ],
@@ -33780,7 +33780,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>id</b>: string, // Current id state as a string\n  \t <b>class</b>: string, // Style class of the icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">id</span>: string, // Current id state as a string\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -33799,7 +33799,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>collapsed</b>: boolean, // Collapsed state as a boolean\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">collapsed</span>: boolean, // Collapsed state as a boolean\n }",
                                     "description": "toggler icon slot's params."
                                 }
                             ],
@@ -34341,7 +34341,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: PanelMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: PanelMenuRouterBindProps, // Binding properties of the menuitem\n  \t <span class=\"font-medium\">hasSubmenu</span>: boolean, // Whether or not there is a submenu\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -34354,7 +34354,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">active</span>: boolean, // Whether item is active\n }",
                                     "description": "submenuicon slot's params."
                                 }
                             ],
@@ -34367,7 +34367,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "header icon slot's params."
                                 }
                             ],
@@ -34380,7 +34380,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -34999,7 +34999,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <b>onClick</b>: () &rArr; void, // Hide icon click event\n }",
+                                    "type": "{\n \t <span class=\"font-medium\">onClick</span>: () &rArr; void, // Hide icon click event\n}",
                                     "description": "hideicon slot's params."
                                 }
                             ],
@@ -35012,7 +35012,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <b>onClick</b>: () &rArr; void, // Show icon click event\n }",
+                                    "type": "{\n \t <span class=\"font-medium\">onClick</span>: () &rArr; void, // Show icon click event\n}",
                                     "description": "showicon slot's params."
                                 }
                             ],
@@ -35818,7 +35818,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item of the component\n  \t <b>index</b>: number, // Index of the item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item of the component\n  \t <span class=\"font-medium\">index</span>: number, // Index of the item\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -35903,7 +35903,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">viewChanged</span>: boolean, // Whether view change.\n }",
                                     "description": "movetotargeticon slot's params."
                                 }
                             ],
@@ -35916,7 +35916,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">viewChanged</span>: boolean, // Whether view change.\n }",
                                     "description": "movealltotargeticon slot's params."
                                 }
                             ],
@@ -35929,7 +35929,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">viewChanged</span>: boolean, // Whether view change.\n }",
                                     "description": "movetosourceicon slot's params."
                                 }
                             ],
@@ -35942,7 +35942,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">viewChanged</span>: boolean, // Whether view change.\n }",
                                     "description": "movealltosourceicon slot's params."
                                 }
                             ],
@@ -37162,7 +37162,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "cancelicon slot's params."
                                 }
                             ],
@@ -37175,7 +37175,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: number, // Item value\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "on icon slot's params."
                                 }
                             ],
@@ -37188,7 +37188,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: number, // Item value\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "off icon slot's params."
                                 }
                             ],
@@ -38281,7 +38281,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>option</b>: any, // Option instance\n  \t <b>index</b>: number, // Index of the option\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">option</span>: any, // Option instance\n  \t <span class=\"font-medium\">index</span>: number, // Index of the option\n }",
                                     "description": "option slot's params."
                                 }
                             ],
@@ -38649,7 +38649,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the close icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the close icon\n }",
                                     "description": "close icon slot's params."
                                 }
                             ],
@@ -39654,7 +39654,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n \t <b>onClick</b>: (event: Event) &rArr; void, // Item click function\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n \t <span class=\"font-medium\">onClick</span>: (event: Event) &rArr; void, // Item click function\n}",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -39667,7 +39667,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <b>onClick</b>: (event: Event) &rArr; void, // Button click function\n }",
+                                    "type": "{\n \t <span class=\"font-medium\">onClick</span>: (event: Event) &rArr; void, // Button click function\n}",
                                     "description": "button slot's params."
                                 }
                             ],
@@ -39680,7 +39680,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>visible</b>: boolean, // Visible state of the item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">visible</span>: boolean, // Visible state of the item\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -40091,7 +40091,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -40104,7 +40104,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "menubuttonicon slot's params."
                                 }
                             ],
@@ -40117,7 +40117,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "menuitemicon slot's params."
                                 }
                             ],
@@ -40937,7 +40937,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>index</b>: number, // Order of the menuitem\n  \t <b>props</b>: StepsRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">index</span>: number, // Order of the menuitem\n  \t <span class=\"font-medium\">props</span>: StepsRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -41422,7 +41422,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: TabMenuRouterBindProps, // Binding properties of the menuitem\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: TabMenuRouterBindProps, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -41435,7 +41435,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -43380,7 +43380,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: TabMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">label</span>: undefined, // Label property of the menuitem\n  \t <span class=\"font-medium\">props</span>: TabMenuRouterBindProps, // Binding properties of the menuitem\n  \t <span class=\"font-medium\">hasSubmenu</span>: boolean, // Whether or not there is a submenu\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -43393,7 +43393,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">active</span>: boolean, // Whether item is active\n }",
                                     "description": "submenuicon slot's params."
                                 }
                             ],
@@ -43406,7 +43406,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: MenuItem, // Menuitem instance\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the item icon element.\n }",
                                     "description": "item icon slot's params."
                                 }
                             ],
@@ -43715,7 +43715,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item data\n  \t <b>index</b>: number, // Index of item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item data\n  \t <span class=\"font-medium\">index</span>: number, // Index of item\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -43728,7 +43728,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item data\n  \t <b>index</b>: number, // Index of item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item data\n  \t <span class=\"font-medium\">index</span>: number, // Index of item\n }",
                                     "description": "opposite slot's params."
                                 }
                             ],
@@ -43741,7 +43741,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item data\n  \t <b>index</b>: number, // Index of item\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item data\n  \t <span class=\"font-medium\">index</span>: number, // Index of item\n }",
                                     "description": "marker slot's params."
                                 }
                             ],
@@ -43754,7 +43754,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item data\n  \t <b>index</b>: number, // Index of item\n  }"
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item data\n  \t <span class=\"font-medium\">index</span>: number, // Index of item\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44212,7 +44212,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>message</b>: any, // Message of the component\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: any, // Message of the component\n }",
                                     "description": "message slot's params."
                                 }
                             ],
@@ -44225,7 +44225,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the icon\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -44238,7 +44238,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the close icon\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the close icon\n }",
                                     "description": "close icon slot's params."
                                 }
                             ],
@@ -44677,7 +44677,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Current value\n  \t <b>class</b>: any, // Icon style class\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Current value\n  \t <span class=\"font-medium\">class</span>: any, // Icon style class\n }",
                                     "description": "icon slot's params."
                                 }
                             ],
@@ -45854,7 +45854,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "loadingicon slot's params."
                                 }
                             ],
@@ -45867,7 +45867,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "searchicon slot's params."
                                 }
                             ],
@@ -45880,7 +45880,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>node</b>: TreeNode, // Tree node instance\n  \t <b>expanded</b>: boolean, // Expanded state of the node\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">node</span>: TreeNode, // Tree node instance\n  \t <span class=\"font-medium\">expanded</span>: boolean, // Expanded state of the node\n }",
                                     "description": "togglericon slot's params."
                                 }
                             ],
@@ -45893,7 +45893,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">checked</span>: boolean, // Check state of the node\n  \t <span class=\"font-medium\">partialChecked</span>: boolean, // Partial check state of the node\n }",
                                     "description": "checkboxicon slot's params."
                                 }
                             ],
@@ -46410,7 +46410,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Selected value\n  \t <b>placeholder</b>: string, // Placeholder\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Selected value\n  \t <span class=\"font-medium\">placeholder</span>: string, // Placeholder\n }",
                                     "description": "value slot's params."
                                 }
                             ],
@@ -46423,7 +46423,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Selected value\n  \t <b>options</b>: TreeNode, // An array of treenodes.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Selected value\n  \t <span class=\"font-medium\">options</span>: TreeNode, // An array of treenodes.\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -46436,7 +46436,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Selected value\n  \t <b>options</b>: TreeNode, // An array of treenodes.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">value</span>: any, // Selected value\n  \t <span class=\"font-medium\">options</span>: TreeNode, // An array of treenodes.\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -46462,7 +46462,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "triggericon slot's params."
                                 }
                             ],
@@ -46475,7 +46475,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>node</b>: any, // Node instance\n  \t <b>expanded</b>: TreeNode, // Expanded state of the node\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">node</span>: any, // Node instance\n  \t <span class=\"font-medium\">expanded</span>: TreeNode, // Expanded state of the node\n }",
                                     "description": "item toggler icon slot's params."
                                 }
                             ],
@@ -46488,7 +46488,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">checked</span>: boolean, // Check state of the node\n  \t <span class=\"font-medium\">partialChecked</span>: boolean, // Partial check state of the node\n }",
                                     "description": "item checkbox icon slot's params."
                                 }
                             ],
@@ -47765,7 +47765,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>sorted</b>: TreeNode, // Whether or not column is sorted\n  \t <b>sortOrder</b>: boolean, // Current sort order\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">sorted</span>: TreeNode, // Whether or not column is sorted\n  \t <span class=\"font-medium\">sortOrder</span>: boolean, // Current sort order\n }",
                                     "description": "sorticon slot's params."
                                 }
                             ],
@@ -48311,7 +48311,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "checkicon slot's params."
                                 }
                             ],
@@ -48324,7 +48324,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "uncheckicon slot's params."
                                 }
                             ],
@@ -48337,7 +48337,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "nullableicon slot's params."
                                 }
                             ],
@@ -49277,7 +49277,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the content\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n \t <b>loading</b>: boolean, // Whether the data is loaded.\n \t <b>getLoaderOptions</b>: (index: number, ext: any) &rArr; VirtualScrollerLoaderOptions, // Loader options of the items while the data is loading.\n \t <b>itemSize</b>: undefined, // The height/width of item according to orientation.\n  \t <b>rows</b>: undefined, // The number of the rendered rows.\n  \t <b>columns</b>: undefined, // The number of the rendered columns.\n  \t <b>spacerStyle</b>: any, // The style of spacer element.\n  \t <b>contentStyle</b>: any, // The style of content element.\n  \t <b>vertical</b>: boolean, // Whether the orientation is vertical.\n  \t <b>horizontal</b>: boolean, // Whether the orientation is horizontal.\n  \t <b>both</b>: boolean, // Whether the orientation is both.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">items</span>: any, // An array of objects to display for virtualscroller\n  \t <span class=\"font-medium\">styleClass</span>: string, // Style class of the content\n \t <span class=\"font-medium\">contentRef</span>: (el: any) &rArr; void, // Referance of the content\n\t <span class=\"font-medium\">getItemOptions</span>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n \t <span class=\"font-medium\">loading</span>: boolean, // Whether the data is loaded.\n \t <span class=\"font-medium\">getLoaderOptions</span>: (index: number, ext: any) &rArr; VirtualScrollerLoaderOptions, // Loader options of the items while the data is loading.\n \t <span class=\"font-medium\">itemSize</span>: undefined, // The height/width of item according to orientation.\n  \t <span class=\"font-medium\">rows</span>: undefined, // The number of the rendered rows.\n  \t <span class=\"font-medium\">columns</span>: undefined, // The number of the rendered columns.\n  \t <span class=\"font-medium\">spacerStyle</span>: any, // The style of spacer element.\n  \t <span class=\"font-medium\">contentStyle</span>: any, // The style of content element.\n  \t <span class=\"font-medium\">vertical</span>: boolean, // Whether the orientation is vertical.\n  \t <span class=\"font-medium\">horizontal</span>: boolean, // Whether the orientation is horizontal.\n  \t <span class=\"font-medium\">both</span>: boolean, // Whether the orientation is both.\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -49290,7 +49290,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: any, // Item data.\n  \t <b>options</b>: VirtualScrollerItemOptions, // Item options.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">item</span>: any, // Item data.\n  \t <span class=\"font-medium\">options</span>: VirtualScrollerItemOptions, // Item options.\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -49303,7 +49303,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>options</b>: VirtualScrollerLoaderOptions, // Loader options.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">options</span>: VirtualScrollerLoaderOptions, // Loader options.\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -49316,7 +49316,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the icon.\n }",
                                     "description": "loadingicon slot's params."
                                 }
                             ],
