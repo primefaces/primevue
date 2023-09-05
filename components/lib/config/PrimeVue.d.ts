@@ -326,6 +326,7 @@ export interface PrimeVueLocaleOptions {
     today?: string;
     weekHeader?: string;
     firstDayOfWeek?: number;
+    showMonthAfterYear?: boolean;
     dateFormat?: string;
     weak?: string;
     medium?: string;
