@@ -16,8 +16,17 @@ export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface InputMaskPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: InputMaskProps;
+    /**
+     * Defines current options.
+     */
     context: InputMaskContext;
 }
 

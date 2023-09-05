@@ -21,8 +21,17 @@ export declare type ConfirmPopupPassThroughTransitionType = TransitionProps | ((
  * Custom passthrough(pt) option method.
  */
 export interface ConfirmPopupPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ConfirmPopupProps;
+    /**
+     * Defines current inline state.
+     */
     state: ConfirmPopupState;
 }
 

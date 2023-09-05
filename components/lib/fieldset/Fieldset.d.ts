@@ -19,8 +19,17 @@ export declare type FieldsetPassThroughTransitionType = TransitionProps | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface FieldsetPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: FieldsetProps;
+    /**
+     * Defines current inline state.
+     */
     state: FieldsetState;
 }
 

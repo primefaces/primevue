@@ -20,9 +20,21 @@ export declare type TieredMenuPassThroughTransitionType = TransitionProps | ((op
  * Custom passthrough(pt) option method.
  */
 export interface TieredMenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TieredMenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: TieredMenuState;
+    /**
+     * Defines current options.
+     */
     context: TieredMenuContext;
 }
 

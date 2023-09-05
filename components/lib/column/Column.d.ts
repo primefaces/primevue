@@ -23,9 +23,21 @@ export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface ColumnPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ColumnProps;
+    /**
+     * Defines parent instance.
+     */
     parent: DataTablePassThroughOptions;
+    /**
+     * Defines current options.
+     */
     context: ColumnContext;
 }
 

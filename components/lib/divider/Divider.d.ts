@@ -17,7 +17,13 @@ export declare type DividerPassThroughOptionType = DividerPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface DividerPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DividerProps;
 }
 

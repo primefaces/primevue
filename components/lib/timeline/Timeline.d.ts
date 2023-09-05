@@ -16,8 +16,17 @@ export declare type TimelinePassThroughOptionType = TimelinePassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface TimelinePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TimelineProps;
+    /**
+     * Defines current options.
+     */
     context: TimelineContext;
 }
 

@@ -18,8 +18,17 @@ export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttri
  * Custom passthrough(pt) option method.
  */
 export interface BreadcrumbPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: BreadcrumbProps;
+    /**
+     * Defines current options.
+     */
     context: BreadcrumbContext;
 }
 

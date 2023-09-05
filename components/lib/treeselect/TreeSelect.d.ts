@@ -20,8 +20,17 @@ export declare type TreeSelectPassThroughTransitionType = TransitionProps | ((op
  * Custom passthrough(pt) option method.
  */
 export interface TreeSelectPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TreeSelectProps;
+    /**
+     * Defines current inline state.
+     */
     state: TreeSelectState;
 }
 

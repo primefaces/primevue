@@ -18,9 +18,21 @@ export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface MenubarPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MenubarProps;
+    /**
+     * Defines current inline state.
+     */
     state: MenubarState;
+    /**
+     * Defines current options.
+     */
     context: MenubarContext;
 }
 

@@ -19,9 +19,21 @@ export declare type AccordionTabPassThroughTransitionType = TransitionProps | ((
  * Custom passthrough(pt) option method.
  */
 export interface AccordionTabPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: AccordionTabProps;
+    /**
+     * Defines parent instance.
+     */
     parent: AccordionPassThroughOptions;
+    /**
+     * Defines current options.
+     */
     context: AccordionTabContext;
 }
 

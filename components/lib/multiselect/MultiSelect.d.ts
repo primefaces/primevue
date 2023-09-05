@@ -20,9 +20,21 @@ export declare type MultiSelectPassThroughTransitionType = TransitionProps | ((o
  * Custom passthrough(pt) option method.
  */
 export interface MultiSelectPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MultiSelectProps;
+    /**
+     * Defines current inline state.
+     */
     state: MultiSelectState;
+    /**
+     * Defines current options.
+     */
     context: MultiSelectContext;
 }
 

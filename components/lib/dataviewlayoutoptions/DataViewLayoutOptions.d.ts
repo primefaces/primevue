@@ -22,8 +22,17 @@ export declare type DataViewLayoutOptionsPassThroughOptionType =
  * Custom passthrough(pt) option method.
  */
 export interface DataViewLayoutOptionsPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DataViewLayoutOptionsProps;
+    /**
+     * Defines current inline state.
+     */
     state: DataViewLayoutOptionsState;
 }
 

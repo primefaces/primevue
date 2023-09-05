@@ -16,8 +16,17 @@ export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface EditorPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: EditorProps;
+    /**
+     * Defines current inline state.
+     */
     state: EditorState;
 }
 

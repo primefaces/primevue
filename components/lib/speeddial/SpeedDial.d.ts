@@ -19,9 +19,21 @@ export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface SpeedDialPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: SpeedDialProps;
+    /**
+     * Defines current inline state.
+     */
     state: SpeedDialState;
+    /**
+     * Defines current options.
+     */
     context: SpeedDialContext;
 }
 

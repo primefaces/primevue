@@ -18,9 +18,21 @@ export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface MegaMenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MegaMenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: MegaMenuState;
+    /**
+     * Defines current options.
+     */
     context: MegaMenuContext;
 }
 

@@ -19,8 +19,17 @@ export declare type ColorPickerPassThroughTransitionType = TransitionProps | ((o
  * Custom passthrough(pt) option method.
  */
 export interface ColorPickerPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ColorPickerProps;
+    /**
+     * Defines current inline state.
+     */
     state: ColorPickerState;
 }
 

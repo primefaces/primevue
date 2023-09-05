@@ -16,8 +16,17 @@ export declare type TerminalPassThroughOptionType = TerminalPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface TerminalPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TerminalProps;
+    /**
+     * Defines current inline state.
+     */
     state: TerminalState;
 }
 

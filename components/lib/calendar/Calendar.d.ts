@@ -20,9 +20,21 @@ export declare type CalendarPassThroughTransitionType = TransitionProps | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface CalendarPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: CalendarProps;
+    /**
+     * Defines current inline state.
+     */
     state: CalendarState;
+    /**
+     * Defines current options.
+     */
     context: CalendarContext;
 }
 

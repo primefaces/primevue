@@ -17,8 +17,17 @@ export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface RadioButtonPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: RadioButtonProps;
+    /**
+     * Defines current inline state.
+     */
     state: RadioButtonState;
 }
 

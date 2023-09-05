@@ -18,8 +18,17 @@ export declare type AccordionPassThroughOptionType = AccordionPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface AccordionPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: AccordionProps;
+    /**
+     * Defines current inline state.
+     */
     state: AccordionState;
 }
 /**

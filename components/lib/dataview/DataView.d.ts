@@ -18,8 +18,17 @@ export declare type DataViewPassThroughOptionType = DataViewPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface DataViewPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DataViewProps;
+    /**
+     * Defines current inline state.
+     */
     state: DataViewState;
 }
 /**

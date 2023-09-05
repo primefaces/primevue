@@ -19,8 +19,17 @@ export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface InputNumberPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: InputNumberProps;
+    /**
+     * Defines current inline state.
+     */
     state: InputNumberState;
 }
 

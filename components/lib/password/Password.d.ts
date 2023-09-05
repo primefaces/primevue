@@ -20,8 +20,17 @@ export declare type PasswordPassThroughTransitionType = TransitionProps | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface PasswordPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PasswordProps;
+    /**
+     * Defines current inline state.
+     */
     state: PasswordState;
 }
 

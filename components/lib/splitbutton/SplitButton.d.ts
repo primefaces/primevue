@@ -20,8 +20,17 @@ export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface SplitButtonPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: SplitButtonProps;
+    /**
+     * Defines current inline state.
+     */
     state: SplitButtonState;
 }
 

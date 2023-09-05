@@ -15,9 +15,21 @@ export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ColumnGroupPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ColumnGroupProps;
+    /**
+     * Defines parent instance.
+     */
     parent: DataTablePassThroughOptions;
+    /**
+     * Defines current options.
+     */
     context: ColumnGroupContext;
 }
 

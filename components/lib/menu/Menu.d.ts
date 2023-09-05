@@ -20,9 +20,21 @@ export declare type MenuPassThroughTransitionType = TransitionProps | ((options:
  * Custom passthrough(pt) option method.
  */
 export interface MenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: MenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: MenuState;
+    /**
+     * Defines current options.
+     */
     context: MenuContext;
 }
 

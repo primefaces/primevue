@@ -17,8 +17,17 @@ export declare type InlineMessagePassThroughOptionType = InlineMessagePassThroug
  * Custom passthrough(pt) option method.
  */
 export interface InlineMessagePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: InlineMessageProps;
+    /**
+     * Defines current inline state.
+     */
     state: InlineMessageState;
 }
 

@@ -17,9 +17,21 @@ export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughA
  * Custom passthrough(pt) option method.
  */
 export interface ToggleButtonPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ToggleButtonProps;
+    /**
+     * Defines current inline state.
+     */
     state: ToggleButtonState;
+    /**
+     * Defines current options.
+     */
     context: ToggleButtonContext;
 }
 

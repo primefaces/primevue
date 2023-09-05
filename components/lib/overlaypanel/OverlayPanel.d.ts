@@ -19,8 +19,17 @@ export declare type OverlayPanelPassThroughTransitionType = TransitionProps | ((
  * Custom passthrough(pt) option method.
  */
 export interface OverlayPanelPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: OverlayPanelProps;
+    /**
+     * Defines current inline state.
+     */
     state: OverlayPanelState;
 }
 

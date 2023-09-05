@@ -17,8 +17,17 @@ export declare type TextareaPassThroughOptionType = TextareaPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface TextareaPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TextareaProps;
+    /**
+     * Defines current options.
+     */
     context: TextareaContext;
 }
 

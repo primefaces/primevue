@@ -17,8 +17,17 @@ export declare type BlockUIPassThroughOptionType = BlockUIPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface BlockUIPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: BlockUIProps;
+    /**
+     * Defines current inline state.
+     */
     state: BlockUIState;
 }
 

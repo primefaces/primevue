@@ -17,7 +17,13 @@ export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface ToolbarPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ToolbarProps;
 }
 

@@ -19,8 +19,17 @@ export declare type ImagePassThroughTransitionType = TransitionProps | ((options
  * Custom passthrough(pt) option method.
  */
 export interface ImagePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**ˆ
+     * Defines valid properties.
+     */
     props: ImageProps;
+    /**
+     * Defines current inline state.
+     */
     state: ImageState;
 }
 

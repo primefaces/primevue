@@ -17,9 +17,21 @@ export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((op
  * Custom passthrough(pt) option method.
  */
 export interface TreePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TreeProps;
+    /**
+     * Defines current inline state.
+     */
     state: TreeState;
+    /**
+     * Defines current options.
+     */
     context: TreeContext;
 }
 

@@ -19,8 +19,17 @@ export declare type InplacePassThroughOptionType = InplacePassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface InplacePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: InplaceProps;
+    /**
+     * Defines current inline state.
+     */
     state: InplaceState;
 }
 

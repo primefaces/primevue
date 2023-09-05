@@ -21,9 +21,21 @@ export declare type AutoCompletePassThroughTransitionType = TransitionProps | ((
  * Custom passthrough(pt) option method.
  */
 export interface AutoCompletePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: AutoCompleteProps;
+    /**
+     * Defines current inline state.
+     */
     state: AutoCompleteState;
+    /**
+     * Defines current options.
+     */
     context: AutoCompleteContext;
 }
 

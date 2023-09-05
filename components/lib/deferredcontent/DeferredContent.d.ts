@@ -17,8 +17,17 @@ export declare type DeferredContentPassThroughOptionType = DeferredContentPassTh
  * Custom passthrough(pt) option method.
  */
 export interface DeferredContentPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DeferredContentProps;
+    /**
+     * Defines current inline state.
+     */
     state: DeferredContentState;
 }
 

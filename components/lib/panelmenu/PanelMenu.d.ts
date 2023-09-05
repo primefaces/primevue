@@ -20,9 +20,21 @@ export declare type PanelMenuPassThroughTransitionType = TransitionProps | ((opt
  * Custom passthrough(pt) option method.
  */
 export interface PanelMenuPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PanelMenuProps;
+    /**
+     * Defines current inline state.
+     */
     state: PanelMenuState;
+    /**
+     * Defines current options.
+     */
     context: PanelMenuContext;
 }
 

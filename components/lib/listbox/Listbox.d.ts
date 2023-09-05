@@ -18,9 +18,21 @@ export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface ListboxPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ListboxProps;
+    /**
+     * Defines current inline state.
+     */
     state: ListboxState;
+    /**
+     * Defines current options.
+     */
     context: ListboxContext;
 }
 

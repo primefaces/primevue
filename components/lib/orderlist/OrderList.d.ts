@@ -20,9 +20,21 @@ export declare type OrderListPassThroughTransitionType = TransitionProps | ((opt
  * Custom passthrough(pt) option method.
  */
 export interface OrderListPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: OrderListProps;
+    /**
+     * Defines current inline state.
+     */
     state: OrderListState;
+    /**
+     * Defines current options.
+     */
     context: OrderListContext;
 }
 

@@ -19,8 +19,17 @@ export declare type DialogPassThroughTransitionType = TransitionProps | ((option
  * Custom passthrough(pt) option method.
  */
 export interface DialogPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DialogProps;
+    /**
+     * Defines current inline state.
+     */
     state: DialogState;
 }
 

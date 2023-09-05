@@ -15,9 +15,21 @@ export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface RowPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: RowProps;
+    /**
+     * Defines parent instance.
+     */
     parent: ColumnGroupPassThroughOptions;
+    /**
+     * Defines current options.
+     */
     context: RowContext;
 }
 

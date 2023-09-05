@@ -19,8 +19,17 @@ export declare type CascadeSelectPassThroughTransitionType = TransitionProps | (
  * Custom passthrough(pt) option method.
  */
 export interface CascadeSelectPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: CascadeSelectProps;
+    /**
+     * Defines current inline state.
+     */
     state: CascadeSelectState;
 }
 

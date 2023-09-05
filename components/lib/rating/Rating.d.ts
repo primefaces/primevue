@@ -17,9 +17,21 @@ export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface RatingPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: RatingProps;
+    /**
+     * Defines current inline state.
+     */
     state: RatingState;
+    /**
+     * Defines current options.
+     */
     context: RatingContext;
 }
 

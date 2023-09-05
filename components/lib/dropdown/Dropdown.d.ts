@@ -20,9 +20,21 @@ export declare type DropdownPassThroughTransitionType = TransitionProps | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface DropdownPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: DropdownProps;
+    /**
+     * Defines current inline state.
+     */
     state: DropdownState;
+    /**
+     * Defines current options.
+     */
     context: DropdownContext;
 }
 

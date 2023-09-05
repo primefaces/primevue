@@ -19,8 +19,17 @@ export declare type ScrollTopPassThroughTransitionType = TransitionProps | ((opt
  * Custom passthrough(pt) option method.
  */
 export interface ScrollTopPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ScrollTopProps;
+    /**
+     * Defines current inline state.
+     */
     state: ScrollTopState;
 }
 

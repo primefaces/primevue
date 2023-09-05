@@ -19,8 +19,17 @@ export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttri
  * Custom passthrough(pt) option method.
  */
 export interface FileUploadPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: FileUploadProps;
+    /**
+     * Defines current inline state.
+     */
     state: FileUploadState;
 }
 

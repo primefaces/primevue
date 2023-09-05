@@ -17,7 +17,13 @@ export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface TagPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: TagProps;
 }
 

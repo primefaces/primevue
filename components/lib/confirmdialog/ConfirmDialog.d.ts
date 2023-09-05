@@ -19,8 +19,17 @@ export declare type ConfirmDialogPassThroughOptionType = ConfirmDialogPassThroug
  * Custom passthrough(pt) option method.
  */
 export interface ConfirmDialogPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ConfirmDialogProps;
+    /**
+     * Defines current inline state.
+     */
     state: ConfirmDialogState;
 }
 

@@ -20,9 +20,21 @@ export declare type PickListPassThroughTransitionType = TransitionProps | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface PickListPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: PickListProps;
+    /**
+     * Defines current inline state.
+     */
     state: PickListState;
+    /**
+     * Defines current options.
+     */
     context: PickListContext;
 }
 

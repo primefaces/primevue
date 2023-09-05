@@ -17,7 +17,13 @@ export declare type BadgePassThroughOptionType = BadgePassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface BadgePassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: BadgeProps;
 }
 

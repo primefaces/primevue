@@ -17,9 +17,21 @@ export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface CheckboxPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: CheckboxProps;
+    /**
+     * Defines current inline state.
+     */
     state: CheckboxState;
+    /**
+     * Defines current options.
+     */
     context: CheckboxContext;
 }
 

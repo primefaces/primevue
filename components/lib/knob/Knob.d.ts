@@ -16,8 +16,17 @@ export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((op
  * Custom passthrough(pt) option method.
  */
 export interface KnobPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: KnobProps;
+    /**
+     * Defines current inline state.
+     */
     state: KnobState;
 }
 

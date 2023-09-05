@@ -17,9 +17,21 @@ export declare type SplitterPassThroughOptionType = SplitterPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface SplitterPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: SplitterProps;
+    /**
+     * Defines current inline state.
+     */
     state: SplitterState;
+    /**
+     * Defines current options.
+     */
     context: SplitterContext;
 }
 

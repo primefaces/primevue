@@ -17,7 +17,13 @@ export declare type ChartPassThroughOptionType = ChartPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ChartPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: ChartProps;
 }
 

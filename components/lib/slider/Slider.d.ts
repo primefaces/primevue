@@ -16,7 +16,13 @@ export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface SliderPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
     instance: any;
+    /**
+     * Defines valid properties.
+     */
     props: SliderProps;
 }
 
