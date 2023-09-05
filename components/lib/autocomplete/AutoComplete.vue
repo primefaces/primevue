@@ -215,7 +215,7 @@ export default {
         },
         suggestions() {
             if (this.searching) {
-                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : !!this.$slots.empty ? this.show() : this.hide();
+                this.show();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
