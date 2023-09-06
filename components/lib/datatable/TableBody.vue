@@ -190,7 +190,7 @@ export default {
             default: 0
         },
         dataKey: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         expandedRowIcon: {
