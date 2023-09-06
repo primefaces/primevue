@@ -17740,25 +17740,49 @@
                         },
                         {
                             "name": "paginatorfirstpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator first page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator first page link icon template."
                         },
                         {
                             "name": "paginatorprevpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator prev page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator previous page link icon template."
                         },
                         {
                             "name": "paginatornextpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator next page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator next page link icon template."
                         },
                         {
                             "name": "paginatorlastpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator last page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator last page link icon template."
                         },
@@ -17768,8 +17792,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rowsperpagedropdown icon.\n }",
-                                    "description": "paginator rowsperpagedropdownicon's params."
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rows per page dropdown icon.\n }",
+                                    "description": "paginatorrowsperpagedropdownicon's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -17781,8 +17805,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jumptopagedropdown icon.\n }",
-                                    "description": "paginator jumptopagedropdownicon's params."
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jump to page dropdown icon.\n }",
+                                    "description": "paginatorjumptopagedropdownicon's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -47840,25 +47864,49 @@
                         },
                         {
                             "name": "paginatorfirstpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator first page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator first page link icon template."
                         },
                         {
                             "name": "paginatorprevpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator prev page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator previous page link icon template."
                         },
                         {
                             "name": "paginatornextpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator next page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator next page link icon template."
                         },
                         {
                             "name": "paginatorlastpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator last page link icon.\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator last page link icon template."
                         },
@@ -47868,8 +47916,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rowsperpagedropdown icon.\n }",
-                                    "description": "paginator rowsperpagedropdownicon's params."
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rows per page dropdown icon.\n }",
+                                    "description": "paginatorrowsperpagedropdownicon's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -47881,8 +47929,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jumptopagedropdown icon.\n }",
-                                    "description": "paginator jumptopagedropdownicon's params."
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jump to page dropdown icon.\n }",
+                                    "description": "paginatorjumptopagedropdownicon's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
