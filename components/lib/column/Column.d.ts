@@ -893,6 +893,10 @@ export interface ColumnSlots {
      */
     rowtogglericon(scope: {
         /**
+         * Style class of the row toggler icon.
+         */
+        class: string;
+        /**
          * Current row expanded state.
          */
         rowExpanded: boolean;

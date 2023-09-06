@@ -63,7 +63,7 @@
                 v-bind="getColumnPT('rowToggler')"
                 data-pc-group-section="rowactionbutton"
             >
-                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
+                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :class="cx('rowTogglerIcon')" :rowExpanded="isRowExpanded" />
                 <template v-else>
                     <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowTogglerIcon'), expandedRowIcon]" />
                     <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
