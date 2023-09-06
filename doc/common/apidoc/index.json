@@ -17761,6 +17761,32 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator last page link icon template."
+                        },
+                        {
+                            "name": "paginatorrowsperpagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rowsperpagedropdown icon.\n }",
+                                    "description": "paginator rowsperpagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginatorrowsperpagedropdownicon template."
+                        },
+                        {
+                            "name": "paginatorjumptopagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jumptopagedropdown icon.\n }",
+                                    "description": "paginator jumptopagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginatorjumptopagedropdownicon template."
                         }
                     ]
                 },
@@ -33451,6 +33477,32 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom last page link icon template."
+                        },
+                        {
+                            "name": "rowsperpagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the rowsperpagedropdown icon.\n }",
+                                    "description": "rowsperpagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom rowsperpagedropdownicon template."
+                        },
+                        {
+                            "name": "jumptopagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the jumptopagedropdown icon.\n }",
+                                    "description": "jumptopagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom jumptopagedropdownicon template."
                         }
                     ]
                 },
@@ -47809,6 +47861,32 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom paginator last page link icon template."
+                        },
+                        {
+                            "name": "paginatorrowsperpagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator rowsperpagedropdown icon.\n }",
+                                    "description": "paginator rowsperpagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginatorrowsperpagedropdownicon template."
+                        },
+                        {
+                            "name": "paginatorjumptopagedropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the paginator jumptopagedropdown icon.\n }",
+                                    "description": "paginator jumptopagedropdownicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginatorjumptopagedropdownicon template."
                         }
                     ]
                 },
