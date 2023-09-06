@@ -122,8 +122,12 @@ const FilterService = {
                 return false;
             }
 
-            if (value.getTime) return filter[0].getTime() <= value.getTime() && value.getTime() <= filter[1].getTime();
-            else return filter[0] <= value && value <= filter[1];
+            let valueData = new Date(value);
+            if(valueData.toString() === 'Invalid Date') {
+                return filter[0] <= value && value <= filter[1];
+            } else {
+                return filter[0].getTime() <= value.getTime() && value.getTime() <= filter[1].getTime();
+            }
         },
         lt(value, filter) {
             if (filter === undefined || filter === null) {
