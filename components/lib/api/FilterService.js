@@ -203,8 +203,8 @@ const FilterService = {
             if (value === undefined || value === null) {
                 return false;
             }
-
-            return value.getTime() < filter.getTime();
+            let date = new Date(value)
+            return date.getTime() < filter.getTime();
         },
         dateAfter(value, filter) {
             if (filter === undefined || filter === null) {
@@ -214,8 +214,8 @@ const FilterService = {
             if (value === undefined || value === null) {
                 return false;
             }
-
-            return value.getTime() > filter.getTime();
+            let date = new Date(value)
+            return date.getTime() > filter.getTime();
         }
     },
     register(rule, fn) {
