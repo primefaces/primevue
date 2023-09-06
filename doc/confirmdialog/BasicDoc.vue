@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ConfirmDialog></ConfirmDialog>>
+                basic: `<ConfirmDialog></ConfirmDialog>
 <Button @click="confirm1()" icon="pi pi-check" label="Confirm"></Button>
 <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>`,
                 options: `<template>
