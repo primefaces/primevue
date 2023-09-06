@@ -753,15 +753,21 @@ export interface CalendarSlots {
     }): VNode[];
     /**
      * Custom dropdown icon template.
+     * @param {Object} scope - dropdown icon slot's params.
      */
-    dropdownicon(): VNode[];
+    dropdownicon(scope: {
+        /**
+         * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom previous icon template.
      * @param {Object} scope - previous icon slot's params.
      */
     previousicon(scope: {
         /**
-         * Style class of the dropdown icon
+         * Style class of the previous icon
          */
         class: any;
     }): VNode[];
@@ -771,7 +777,7 @@ export interface CalendarSlots {
      */
     nexticon(scope: {
         /**
-         * Style class of the dropdown icon
+         * Style class of the next icon
          */
         class: any;
     }): VNode[];
@@ -781,7 +787,7 @@ export interface CalendarSlots {
      */
     incrementicon(scope: {
         /**
-         * Style class of the dropdown icon
+         * Style class of the increment icon
          */
         class: any;
     }): VNode[];
@@ -791,7 +797,7 @@ export interface CalendarSlots {
      */
     decrementicon(scope: {
         /**
-         * Style class of the dropdown icon
+         * Style class of the decrement icon
          */
         class: any;
     }): VNode[];

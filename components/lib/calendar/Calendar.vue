@@ -42,7 +42,7 @@
             data-pc-section="dropdownbutton"
         >
             <template #icon>
-                <slot name="dropdownicon">
+                <slot name="dropdownicon" :class="icon">
                     <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="icon" />
                 </slot>
             </template>
