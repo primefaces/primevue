@@ -163,6 +163,7 @@ export default {
             !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onLeave() {
+            DomHandler.removeClass(document.body, 'p-overflow-hidden');
             this.$emit('hide');
         },
         onAfterLeave(el) {
