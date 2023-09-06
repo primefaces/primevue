@@ -642,36 +642,60 @@ export interface TreeTableSlots {
     /**
      * Custom paginator first page link icon template.
      */
-    paginatorfirstpagelinkicon(): VNode[];
+    paginatorfirstpagelinkicon(scope: {
+        /**
+         * Style class of the paginator first page link icon.
+         * @param {Object} scope - paginatorfirstpagelinkicon's params.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom paginator previous page link icon template.
      */
-    paginatorprevpagelinkicon(): VNode[];
+    paginatorprevpagelinkicon(scope: {
+        /**
+         * Style class of the paginator prev page link icon.
+         * @param {Object} scope - paginatorprevpagelinkicon's params.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom paginator next page link icon template.
      */
-    paginatornextpagelinkicon(): VNode[];
+    paginatornextpagelinkicon(scope: {
+        /**
+         * Style class of the paginator next page link icon.
+         * @param {Object} scope - paginatornextpagelinkicon's params.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom paginator last page link icon template.
      */
-    paginatorlastpagelinkicon(): VNode[];
+    paginatorlastpagelinkicon(scope: {
+        /**
+         * Style class of the paginator last page link icon.
+         * @param {Object} scope - paginatorlastpagelinkicon's params.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom paginatorrowsperpagedropdownicon template.
-     * @param {Object} scope - paginator rowsperpagedropdownicon's params.
+     * @param {Object} scope - paginatorrowsperpagedropdownicon's params.
      */
     paginatorrowsperpagedropdownicon(scope: {
         /**
-         * Style class of the paginator rowsperpagedropdown icon.
+         * Style class of the paginator rows per page dropdown icon.
          */
         class: string;
     }): VNode[];
     /**
      * Custom paginatorjumptopagedropdownicon template.
-     * @param {Object} scope - paginator jumptopagedropdownicon's params.
+     * @param {Object} scope - paginatorjumptopagedropdownicon's params.
      */
     paginatorjumptopagedropdownicon(scope: {
         /**
-         * Style class of the paginator jumptopagedropdown icon.
+         * Style class of the paginator jump to page dropdown icon.
          */
         class: string;
     }): VNode[];
