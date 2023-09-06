@@ -106,7 +106,7 @@
         >
             <template #icon>
                 <slot name="dropdownicon" :class="dropdownIcon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" />
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
                 </slot>
             </template>
         </Button>

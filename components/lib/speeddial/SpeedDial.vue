@@ -17,8 +17,8 @@
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" />
-                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
             </SDButton>

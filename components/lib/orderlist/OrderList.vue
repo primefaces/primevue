@@ -5,28 +5,28 @@
             <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
-                        <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />
+                        <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" data-pc-section="moveupicon" />
                     </slot>
                 </template>
             </OLButton>
             <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="ptm('moveTopButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
-                        <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" />
+                        <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" data-pc-section="movetopicon" />
                     </slot>
                 </template>
             </OLButton>
             <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveDownButton')" v-bind="moveDownButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
-                        <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" />
+                        <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" data-pc-section="movedownicon" />
                     </slot>
                 </template>
             </OLButton>
             <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveBottomButton')" v-bind="moveBottomButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
-                        <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" />
+                        <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" data-pc-section="movebottomicon" />
                     </slot>
                 </template>
             </OLButton>

@@ -39,7 +39,7 @@
             >
                 <template #icon>
                     <slot name="incrementbuttonicon">
-                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
+                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
@@ -55,7 +55,7 @@
             >
                 <template #icon>
                     <slot name="decrementbuttonicon">
-                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
+                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
@@ -73,7 +73,7 @@
         >
             <template #icon>
                 <slot name="incrementbuttonicon">
-                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
+                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                 </slot>
             </template>
         </INButton>
@@ -90,7 +90,7 @@
         >
             <template #icon>
                 <slot name="decrementbuttonicon">
-                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
+                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
                 </slot>
             </template>
         </INButton>
