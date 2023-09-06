@@ -87,7 +87,7 @@
                                     :pt="getColumnPT('filterMatchModeDropdown')"
                                     data-pc-section="filtermatchmodedropdown"
                                 ></CFDropdown>
-                                <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
+                                <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" :applyFilter="applyFilter" />
                                 <div v-bind="getColumnPT('filterRemove')">
                                     <CFButton
                                         v-if="showRemoveIcon"
