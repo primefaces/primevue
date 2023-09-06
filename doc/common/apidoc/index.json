@@ -12115,7 +12115,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">rowExpanded</span>: boolean, // Current row expanded state.\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: string, // Style class of the row toggler icon.\n  \t <span class=\"font-medium\">rowExpanded</span>: boolean, // Current row expanded state.\n }",
                                     "description": "row toggler icon slot's params."
                                 }
                             ],
