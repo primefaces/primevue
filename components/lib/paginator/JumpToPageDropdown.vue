@@ -11,7 +11,11 @@
         :pt="ptm('jumpToPageDropdown')"
         data-pc-section="jumptopagedropdown"
         data-pc-group-section="pagedropdown"
-    ></JTPDropdown>
+    >
+        <template v-if="templates['jumptopagedropdownicon']" #dropdownicon="slotProps">
+            <component :is="templates['jumptopagedropdownicon']" :class="slotProps.class" />
+        </template>
+    </JTPDropdown>
 </template>
 
 <script>
@@ -26,7 +30,8 @@ export default {
     props: {
         page: Number,
         pageCount: Number,
-        disabled: Boolean
+        disabled: Boolean,
+        templates: null
     },
     methods: {
         onChange(value) {

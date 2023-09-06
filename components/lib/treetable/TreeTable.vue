@@ -44,6 +44,12 @@
             <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
+            <template v-if="$slots.paginatorjumptopagedropdownicon" #jumptopagedropdownicon>
+                <slot name="paginatorjumptopagedropdownicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorrowsperpagedropdownicon" #rowsperpagedropdownicon="slotProps">
+                <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
+            </template>
         </TTPaginator>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
             <table ref="table" role="table" v-bind="{ ...tableProps, ...ptm('table') }">
@@ -143,6 +149,12 @@
             </template>
             <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
                 <slot name="paginatorlastpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorjumptopagedropdownicon" #jumptopagedropdownicon>
+                <slot name="paginatorjumptopagedropdownicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorrowsperpagedropdownicon" #rowsperpagedropdownicon="slotProps">
+                <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </TTPaginator>
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">

@@ -655,6 +655,26 @@ export interface TreeTableSlots {
      * Custom paginator last page link icon template.
      */
     paginatorlastpagelinkicon(): VNode[];
+    /**
+     * Custom paginatorrowsperpagedropdownicon template.
+     * @param {Object} scope - paginator rowsperpagedropdownicon's params.
+     */
+    paginatorrowsperpagedropdownicon(scope: {
+        /**
+         * Style class of the paginator rowsperpagedropdown icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom paginatorjumptopagedropdownicon template.
+     * @param {Object} scope - paginator jumptopagedropdownicon's params.
+     */
+    paginatorjumptopagedropdownicon(scope: {
+        /**
+         * Style class of the paginator jumptopagedropdown icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

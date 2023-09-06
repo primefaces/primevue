@@ -30,6 +30,7 @@
                     :options="rowsPerPageOptions"
                     @rows-change="onRowChange($event)"
                     :disabled="empty"
+                    :templates="$slots"
                     :unstyled="unstyled"
                     :pt="pt"
                 />
@@ -40,6 +41,7 @@
                     :pageCount="pageCount"
                     @page-change="changePage($event)"
                     :disabled="empty"
+                    :templates="$slots"
                     :unstyled="unstyled"
                     :pt="pt"
                 />

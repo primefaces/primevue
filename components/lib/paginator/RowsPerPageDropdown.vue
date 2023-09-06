@@ -11,7 +11,11 @@
         :pt="ptm('rowPerPageDropdown')"
         data-pc-section="rowperpagedropdown"
         data-pc-group-section="pagedropdown"
-    ></RPPDropdown>
+    >
+        <template v-if="templates['rowsperpagedropdownicon']" #dropdownicon="slotProps">
+            <component :is="templates['rowsperpagedropdownicon']" :class="slotProps.class" />
+        </template>
+    </RPPDropdown>
 </template>
 
 <script>
@@ -26,7 +30,8 @@ export default {
     props: {
         options: Array,
         rows: Number,
-        disabled: Boolean
+        disabled: Boolean,
+        templates: null
     },
     methods: {
         onChange(value) {

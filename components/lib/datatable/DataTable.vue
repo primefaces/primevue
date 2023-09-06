@@ -45,6 +45,12 @@
             <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
+            <template v-if="$slots.paginatorjumptopagedropdownicon" #jumptopagedropdownicon>
+                <slot name="paginatorjumptopagedropdownicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorrowsperpagedropdownicon" #rowsperpagedropdownicon="slotProps">
+                <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
+            </template>
         </DTPaginator>
         <div :class="cx('wrapper')" :style="[sx('wrapper'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('wrapper')">
             <DTVirtualScroller
@@ -256,6 +262,12 @@
             </template>
             <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
                 <slot name="paginatorlastpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorjumptopagedropdownicon" #jumptopagedropdownicon="slotProps">
+                <slot name="paginatorjumptopagedropdownicon" :class="slotProps.class"></slot>
+            </template>
+            <template v-if="$slots.paginatorrowsperpagedropdownicon" #rowsperpagedropdownicon="slotProps">
+                <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </DTPaginator>
         <div ref="resizeHelper" :class="cx('resizeHelper')" style="display: none" v-bind="ptm('resizeHelper')"></div>

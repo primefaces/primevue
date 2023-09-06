@@ -302,6 +302,26 @@ export interface PaginatorSlots {
      * Custom last page link icon template.
      */
     lastpagelinkicon(): VNode[];
+    /**
+     * Custom rowsperpagedropdownicon template.
+     * @param {Object} scope - rowsperpagedropdownicon's params.
+     */
+    rowsperpagedropdownicon(scope: {
+        /**
+         * Style class of the rowsperpagedropdown icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom jumptopagedropdownicon template.
+     * @param {Object} scope - jumptopagedropdownicon's params.
+     */
+    jumptopagedropdownicon(scope: {
+        /**
+         * Style class of the jumptopagedropdown icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**
