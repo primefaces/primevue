@@ -7088,7 +7088,14 @@
                         },
                         {
                             "name": "dropdownicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
+                                    "description": "dropdown icon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom dropdown icon template."
                         },
@@ -7098,7 +7105,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the previous icon\n }",
                                     "description": "previous icon slot's params."
                                 }
                             ],
@@ -7111,7 +7118,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the next icon\n }",
                                     "description": "next icon slot's params."
                                 }
                             ],
@@ -7124,7 +7131,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the increment icon\n }",
                                     "description": "increment icon slot's params."
                                 }
                             ],
@@ -7137,7 +7144,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the dropdown icon\n }",
+                                    "type": "{\n  \t <span class=\"font-medium\">class</span>: any, // Style class of the decrement icon\n }",
                                     "description": "decrement icon slot's params."
                                 }
                             ],
