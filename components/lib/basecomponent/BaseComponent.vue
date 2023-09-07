@@ -455,6 +455,9 @@ export default {
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
         },
+        _getPropValue(name) {
+            return this[name] || this._getHostInstance(this)?.[name];
+        },
         _getOptionValue(options, key = '', params = {}) {
             const fKeys = ObjectUtils.toFlatCase(key).split('.');
             const fKey = fKeys.shift();
@@ -468,7 +471,7 @@ export default {
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
-            const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
             const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
             const datasets = key !== 'transition' && {
