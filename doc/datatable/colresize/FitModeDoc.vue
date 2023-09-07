@@ -71,7 +71,7 @@ import { ref, onMounted } from 'vue';
 import { ProductService } from '@/service/ProductService';
 
 onMounted(() => {
-    productService.value.getProductsMini().then(data => products.value = data);
+    ProductService.getProductsMini().then(data => products.value = data);
 });
 
 const products = ref();
