@@ -423,8 +423,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.menubar !== event.target && !this.menubar.contains(event.target);
-                    const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target);
+                    const isOutsideContainer = this.menubar && !this.menubar.contains(event.target);
+                    const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton ? this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target) : true;
 
                     if (isOutsideMenuButton && isOutsideContainer) {
                         this.hide();
