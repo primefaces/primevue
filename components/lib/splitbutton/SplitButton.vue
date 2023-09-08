@@ -91,8 +91,6 @@ export default {
             }
         },
         onDefaultButtonClick(event) {
-            event.preventDefault()
-
             if (this.isExpanded) {
                 this.$refs.menu.hide(event);
             }
