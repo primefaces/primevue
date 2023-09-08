@@ -79,7 +79,8 @@ export default {
         });
     },
     methods: {
-        onDropdownButtonClick() {
+        onDropdownButtonClick(event) {
+            event.preventDefault();
             this.$refs.menu.toggle({ currentTarget: this.$el, relatedTarget: this.$refs.button.$el });
             this.isExpanded = this.$refs.menu.visible;
         },
@@ -90,6 +91,8 @@ export default {
             }
         },
         onDefaultButtonClick(event) {
+            event.preventDefault()
+
             if (this.isExpanded) {
                 this.$refs.menu.hide(event);
             }
