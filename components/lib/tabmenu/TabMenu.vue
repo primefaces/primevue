@@ -85,6 +85,11 @@ export default {
             this.d_activeIndex = newValue;
         }
     },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.updateInkBar();
 
