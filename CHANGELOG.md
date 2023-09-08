@@ -1,5 +1,31 @@
 # Changelog
 
+## [3.34.1](https://github.com/primefaces/primevue/tree/3.34.1) (2023-09-08)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.34.0...3.34.1)
+
+**Implemented New Features and Enhancements:**
+
+-   DataTable: \(unstyled + Tailwind\) stripedRows styling applies in dark mode but not light mode [\#4406](https://github.com/primefaces/primevue/issues/4406)
+-   DataTable: Icon slots issues [\#4366](https://github.com/primefaces/primevue/issues/4366)
+-   Calendar: showMonthAfterYear IL8N setting \(from PrimeReact/PrimeFaces\) [\#4113](https://github.com/primefaces/primevue/issues/4113)
+-   DataTable and TreeTable: new Paginator dropdown icon slots [\#3921](https://github.com/primefaces/primevue/issues/3921)
+-   Column Filter: Expose 'applyFilter' method [\#3519](https://github.com/primefaces/primevue/issues/3519)
+
+**Fixed bugs:**
+
+-   ConfirmDialog: acceptClass and rejectClass is not working on unstyled mode [\#4412](https://github.com/primefaces/primevue/issues/4412)
+-   Menubar - clicking outside of submenu should hide it [\#4405](https://github.com/primefaces/primevue/issues/4405)
+-   Image: Closing fullscreen image \(from preview\) breaks scrolling [\#4401](https://github.com/primefaces/primevue/issues/4401)
+-   The `ptOptions` property is not working with nested components [\#4400](https://github.com/primefaces/primevue/issues/4400)
+-   Breadcrumb: duplicate key warning [\#4399](https://github.com/primefaces/primevue/issues/4399)
+-   Column: rowtogglericon slot does not expose p-row-toggler-icon class [\#4398](https://github.com/primefaces/primevue/issues/4398)
+-   Calendar: dropdownicon class not being exposed [\#4370](https://github.com/primefaces/primevue/issues/4370)
+-   SplitButton: some preventDefault are missing [\#4223](https://github.com/primefaces/primevue/issues/4223)
+-   TreeTable: Custom Column's Toggler Icon [\#4170](https://github.com/primefaces/primevue/issues/4170)
+-   DataTable \(Virtual Scroll\): Cannot set properties of undefined \(setting 'tabIndex'\) [\#3888](https://github.com/primefaces/primevue/issues/3888)
+-   Tree: keyboard keys don't work in InputElement [\#3831](https://github.com/primefaces/primevue/issues/3831)
+
 ## [3.34.0](https://github.com/primefaces/primevue/tree/3.34.0) (2023-09-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.33.0...3.34.0)
