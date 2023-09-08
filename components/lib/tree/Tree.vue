@@ -163,7 +163,7 @@ export default {
             return node.leaf === false ? false : !(node.children && node.children.length);
         },
         onFilterKeydown(event) {
-            if (event.which === 13) {
+            if (event.code === 'Enter') {
                 event.preventDefault();
             }
         },
