@@ -9,7 +9,11 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Tailwind CSS</h1>
-                    <p>Tailwind is a popular utility-first CSS library that fits perfectly to the unstyled mode of PrimeVue. A <b>built-in Tailwind theme</b> is even available to get started in no time.</p>
+                    <p>
+                        The exclusive Tailwind integration of PrimeVue is a great choice for developers who want the flexibility of Tailwind with the convenience of a UI Component library. Tailwind simply fits perfectly to the unstyled mode of
+                        PrimeVue to implement design systems. A <b>built-in Tailwind theme</b> based on <PrimeVueNuxtLink to="/uikit" class="text-primary hover:underline font-semibold">PrimeOne Design</PrimeVueNuxtLink> is even available to get
+                        started in no time. In the upcoming iterations, PrimeVue will provide more presets to implement various design systems.
+                    </p>
                 </div>
                 <DocSections :docs="docs" />
             </div>

@@ -456,10 +456,6 @@
                             "to": "/unstyled"
                         },
                         {
-                            "name": "Tailwind",
-                            "to": "/tailwind"
-                        },
-                        {
                             "name": "Bootstrap",
                             "to": "/bootstrap"
                         },
@@ -475,6 +471,12 @@
             "name": "Pass Through",
             "icon": "pi pi-directions",
             "to": "/passthrough"
+        },
+        {
+            "name": "Tailwind",
+            "icon": "pi pi-heart",
+            "to": "/tailwind",
+            "badge": "NEW"
         },
         {
             "name": "Figma UI Kit",

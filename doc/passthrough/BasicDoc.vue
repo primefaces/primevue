@@ -7,7 +7,7 @@
         </p>
         <p>
             Most common usage of <i>pt</i> is styling and customization. The <i>class</i> and <i>style</i> properties support the exact syntax of the corresponding
-            <a href="https://vuejs.org/guide/essentials/class-and-style.html">Vue bindings</a> like arrays, objects and conditionals. example below styles a Panel component with PrimeFlex CSS library.
+            <a href="https://vuejs.org/guide/essentials/class-and-style.html">Vue bindings</a> like arrays, objects and conditionals. Example below styles a Panel component with PrimeFlex CSS library.
         </p>
     </DocSectionText>
 

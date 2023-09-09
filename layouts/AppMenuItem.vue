@@ -1,24 +1,26 @@
 <template>
     <li v-for="(menuitem, index) in menu" :key="`_root${index}`">
         <button v-if="menuitem.children && root" v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'slidedown', leaveToClass: 'hidden', leaveActiveClass: 'slideup' }" type="button" class="px-link">
-            <div class="menu-icon">
+            <span class="menu-icon">
                 <i :class="menuitem.icon"></i>
-            </div>
+            </span>
             <span>{{ menuitem.name }}</span>
             <i class="menu-toggle-icon pi pi-angle-down"></i>
         </button>
 
         <a v-if="menuitem.href" :href="menuitem.href" target="_blank" rel="noopener noreferrer">
-            <div v-if="menuitem.icon && root" class="menu-icon">
+            <span v-if="menuitem.icon && root" class="menu-icon">
                 <i :class="menuitem.icon"></i>
-            </div>
-            {{ menuitem.name }}
+            </span>
+            <span>{{ menuitem.name }}</span>
+            <Badge v-if="menuitem.badge" :value="menuitem.badge" class="ml-auto"></Badge>
         </a>
         <PrimeVueNuxtLink v-if="menuitem.to" :to="menuitem.to" :class="{ 'router-link-active': menuitem.to === $route.fullPath }">
-            <div v-if="menuitem.icon && root" class="menu-icon">
+            <span v-if="menuitem.icon && root" class="menu-icon">
                 <i :class="menuitem.icon"></i>
-            </div>
-            {{ menuitem.name }}
+            </span>
+            <span>{{ menuitem.name }}</span>
+            <Badge v-if="menuitem.badge" :value="menuitem.badge" class="ml-auto"></Badge>
         </PrimeVueNuxtLink>
 
         <span v-if="!root && menuitem.children" class="menu-child-category">{{ menuitem.name }}</span>
