@@ -769,9 +769,9 @@ export default {
                 },
                 { 'shadow-lg': props.raised && props.text },
                 {
-                    'text-gray-500 hover:bg-gray-300/20': props.plain & props.text,
-                    'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.plain & props.outlined,
-                    'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.plain & !props.outlined & !props.text
+                    'text-gray-500 hover:bg-gray-300/20': props.plain && props.text,
+                    'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.plain && props.outlined,
+                    'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.plain && !props.outlined && !props.text
                 },
                 {
                     'bg-transparent border': props.outlined && !props.plain,
