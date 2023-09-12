@@ -529,7 +529,9 @@ export default {
             return this._usePT(this.defaultPT, callback, key, params);
         },
         pto(key = '') {
-            return this._getPropValue('ptOptions')[key] || {};
+            const ptOptions = this._getPropValue('ptOptions') || {};
+            
+            return ptOptions[key] || ptOptions;
         },
         ptm(key = '', params = {}) {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
