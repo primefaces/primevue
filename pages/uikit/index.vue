@@ -316,7 +316,8 @@
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
                         <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">How can I get support?</div>
                         <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">
-                            Support is provided by PrimeTek via <a href="https://forum.primefaces.org/viewforum.php?f=159" class="text-primary-500 no-underline hover:underline">a dedicated forum channel monitored</a> by PrimeTek support staff.
+                            Support is provided by PrimeTek via <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="text-primary-500 no-underline hover:underline">a dedicated forum channel monitored</a> by PrimeTek
+                            support staff.
                         </p>
 
                         <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">What does lifetime support mean?</div>
