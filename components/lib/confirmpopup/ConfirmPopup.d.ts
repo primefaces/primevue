@@ -41,6 +41,15 @@ export interface ConfirmPopupPassThroughMethodOptions {
 }
 
 /**
+ * Custom passthroughoptions options.
+ * @see {@link ConfirmPopupProps.ptOptions}
+ */
+export interface ConfirmPopupPassThroughOptionsOptions extends PassThroughOptions {
+    rejectButton?: PassThroughOptions;
+    acceptButton?: PassThroughOptions;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link ConfirmPopupProps.pt}
  */

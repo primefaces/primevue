@@ -528,6 +528,9 @@ export default {
         _useDefaultPT(callback, key, params) {
             return this._usePT(this.defaultPT, callback, key, params);
         },
+        pto(key = '') {
+            return this._getPropValue('ptOptions')[key] || {};
+        },
         ptm(key = '', params = {}) {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
