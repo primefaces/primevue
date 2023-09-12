@@ -125,7 +125,7 @@ import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 
-const actvie = ref(0);
+const active = ref(0);
 const items = ref([
     {
         label: 'Home',
