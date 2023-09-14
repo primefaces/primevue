@@ -6,6 +6,7 @@ declare class Editor extends Vue {
     readonly?: boolean;
     formats?: any[];
     editorStyle?: string;
+    modules?: any;
     $emit(eventName: 'input', event: string): this;
     $emit(eventName: 'text-change', e: { htmlValue: string, textValue: any, delta: any, source: string}): this;
     $slot: {
