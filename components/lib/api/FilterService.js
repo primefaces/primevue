@@ -3,11 +3,20 @@ import { ObjectUtils } from 'primevue/utils';
 const FilterService = {
     filter(value, fields, filterValue, filterMatchMode, filterLocale) {
         let filteredItems = [];
+        if (!value) {
+            return filteredItems;
+        }
 
-        if (value) {
-            for (let item of value) {
-                for (let field of fields) {
-                    let fieldValue = ObjectUtils.resolveFieldData(item, field);
+        for (const item of value) {
+            if (typeof item === 'string') {
+                if (this.filters[filterMatchMode](item, filterValue, filterLocale)) {
+                    filteredItems.push(item);
+                    continue;
+                }
+            } else {
+                for (const field of fields) {
+                    const fieldValue = ObjectUtils.resolveFieldData(item, field);
+
 
                     if (this.filters[filterMatchMode](fieldValue, filterValue, filterLocale)) {
                         filteredItems.push(item);
