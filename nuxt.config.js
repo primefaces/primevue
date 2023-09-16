@@ -42,6 +42,10 @@ export default defineNuxtConfig({
                     rel: 'stylesheet',
                     href: baseUrl + 'themes/lara-light-blue/theme.css'
                 },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.cdnfonts.com/css/dm-sans'
+                },
                 { rel: 'icon', href: baseUrl + 'favicon.ico' }
             ],
             script: [
