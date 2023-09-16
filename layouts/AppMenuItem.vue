@@ -24,7 +24,7 @@
         </PrimeVueNuxtLink>
 
         <span v-if="!root && menuitem.children" class="menu-child-category">{{ menuitem.name }}</span>
-        <div class="overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out" :class="{ hidden: menuitem.children && root && isActiveRootmenuItem(menuitem) }">
+        <div v-if="menuitem.children" class="overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out" :class="{ hidden: menuitem.children && root && isActiveRootmenuItem(menuitem) }">
             <ol>
                 <AppMenuItem :root="false" :menu="menuitem.children"></AppMenuItem>
             </ol>

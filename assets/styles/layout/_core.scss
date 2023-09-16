@@ -88,7 +88,7 @@ input[type="number"] {
     user-select: none;
 }
 
-.px-link:focus {
+.px-link:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: var(--focus-ring);

@@ -17,19 +17,19 @@
             padding: 1rem 2rem;
             min-width: 12rem;
             text-align: center;
-            color: var(--text-color-secondary);
+            color: var(--surface-700);
             font-size: 1.125rem;
             letter-spacing: 2px;
             cursor: pointer;
             margin: 0;
-            transition: all 0.3s;
+            transition: all 0.2s;
             border-bottom: 1px solid transparent;
             border-top-right-radius: var(--border-round);
             border-top-left-radius: var(--border-round);
             white-space: nowrap;
 
             &:hover {
-                border-bottom-color: var(--text-color);
+                border-bottom-color: var(--surface-500);
             }
 
             &:focus {
@@ -159,6 +159,11 @@
         .navbar-item-content {
             border-left: 1px solid var(--surface-border);
             padding-left: .25rem;
+            transition: all .2s;
+
+            &:hover {
+                border-left-color: var(--surface-500);
+            }
         }
     }
 
@@ -168,14 +173,17 @@
 
             .px-link {
                 padding: 0.25rem 1rem 0.25rem 1rem;
-                color: var(--text-color);
+                color: var(--surface-800);
                 white-space: nowrap;
                 min-width: 0;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                transition: all .2s;
+            }
 
-                &:hover {
-                    color: var(--primary-color);
+            &:hover {
+                .px-link {
+                    color: var(--surface-900);
                 }
             }
         }
@@ -185,7 +193,6 @@
                 border-color: var(--primary-color);
 
                 .px-link {
-                    font-weight: 700;
                     color: var(--primary-color);
                 }
             }
