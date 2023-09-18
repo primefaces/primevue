@@ -159,7 +159,7 @@ export default {
             ],
             code: {
                 basic: `<Menubar :model="items">
-    <template #item="{ label, item, props, root }">
+    <template #item="{ label, item, props, root, hasSubmenu }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
                 <span v-bind="props.icon" />
@@ -169,14 +169,14 @@ export default {
         <a v-else :href="item.url" :target="item.target" v-bind="props.action">
             <span v-bind="props.icon" />
             <span v-bind="props.label">{{ label }}</span>
-            <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+            <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
         </a>
     </template>
 </Menubar>`,
                 options: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
-            <template #item="{ label, item, props, root }">
+            <template #item="{ label, item, props, root, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
@@ -186,7 +186,7 @@ export default {
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
                     <span v-bind="props.icon" />
                     <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                    <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
                 </a>
             </template>
         </Menubar>
@@ -332,7 +332,7 @@ export default {
                 composition: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
-            <template #item="{ label, item, props, root }">
+            <template #item="{ label, item, props, root, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
@@ -342,7 +342,7 @@ export default {
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
                     <span v-bind="props.icon" />
                     <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                    <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
                 </a>
             </template>
         </Menubar>
