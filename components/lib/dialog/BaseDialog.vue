@@ -247,6 +247,10 @@ export default {
             type: Boolean,
             default: true
         },
+        blockScroll: {
+            type: Boolean,
+            default: false
+        },
         baseZIndex: {
             type: Number,
             default: 0

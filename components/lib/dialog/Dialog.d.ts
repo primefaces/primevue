@@ -203,6 +203,11 @@ export interface DialogProps {
      */
     showHeader?: boolean | undefined;
     /**
+     * Whether background scroll should be blocked when dialog is visible.
+     * @defaultValue false
+     */
+    blockScroll?: boolean | undefined;
+    /**
      * Base zIndex value to use in layering.
      * @defaultValue 0
      */

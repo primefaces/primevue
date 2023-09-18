@@ -208,12 +208,12 @@ export default {
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (this.maximizable && this.maximized)) {
+            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         unbindDocumentState() {
-            if (this.modal || (this.maximizable && this.maximized)) {
+            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
