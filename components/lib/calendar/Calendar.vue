@@ -2489,7 +2489,7 @@ export default {
                 cell.tabIndex = '0';
 
                 if (!this.inline && (!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
-                    cell.focus();
+                    if (!this.manualInput) cell.focus();
                 }
 
                 this.preventFocus = false;
