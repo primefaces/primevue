@@ -19545,6 +19545,14 @@
                             "description": "Whether to show the header or not."
                         },
                         {
+                            "name": "blockScroll",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether background scroll should be blocked when dialog is visible."
+                        },
+                        {
                             "name": "baseZIndex",
                             "optional": true,
                             "readonly": false,
