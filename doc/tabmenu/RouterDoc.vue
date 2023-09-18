@@ -29,15 +29,15 @@
 export default {
     data() {
         return {
-            active: 0,
-            items: [
-                { label: 'Home', icon: 'pi pi-fw pi-home', route: '/tabmenu' },
-                { label: 'Calendar', icon: 'pi pi-fw pi-calendar', route: '/tabmenu/calendar' },
-                { label: 'Edit', icon: 'pi pi-fw pi-pencil', route: '/tabmenu/edit' },
-                { label: 'Documentation', icon: 'pi pi-fw pi-file', route: '/tabmenu/documentation' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog', route: '/tabmenu/settings' },
-                { label: 'FileUpload', icon: 'pi pi-fw pi-upload', url: '/fileupload' }
-            ],
+            // active: 0,
+            // items: [
+            //     { label: 'Home', icon: 'pi pi-fw pi-home', route: '/tabmenu/' },
+            //     { label: 'Calendar', icon: 'pi pi-fw pi-calendar', route: '/tabmenu/calendar' },
+            //     { label: 'Edit', icon: 'pi pi-fw pi-pencil', route: '/tabmenu/edit' },
+            //     { label: 'Documentation', icon: 'pi pi-fw pi-file', route: '/tabmenu/documentation' },
+            //     { label: 'Settings', icon: 'pi pi-fw pi-cog', route: '/tabmenu/settings' },
+            //     { label: 'FileUpload', icon: 'pi pi-fw pi-upload', url: '/fileupload' }
+            // ],
             code: {
                 basic: `<TabMenu v-model:activeIndex="active" :model="items">
     <template #item="{ label, item, props }">

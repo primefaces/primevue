@@ -39,7 +39,7 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    route: '/steps'
+                    route: '/steps/'
                 },
                 {
                     label: 'Seat',

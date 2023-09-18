@@ -37,28 +37,28 @@
 export default {
     data() {
         return {
-            items: [
-                {
-                    label: 'Personal',
-                    route: '/steps'
-                },
-                {
-                    label: 'Seat',
-                    route: '/steps/seat'
-                },
-                {
-                    label: 'Payment',
-                    route: '/steps/payment'
-                },
-                {
-                    label: 'Confirmation',
-                    route: '/steps/confirmation'
-                },
-                {
-                    label: 'File Upload',
-                    url: '/fileupload'
-                }
-            ],
+            // items: [
+            //     {
+            //         label: 'Personal',
+            //         route: '/steps/'
+            //     },
+            //     {
+            //         label: 'Seat',
+            //         route: '/steps/seat'
+            //     },
+            //     {
+            //         label: 'Payment',
+            //         route: '/steps/payment'
+            //     },
+            //     {
+            //         label: 'Confirmation',
+            //         route: '/steps/confirmation'
+            //     },
+            //     {
+            //         label: 'File Upload',
+            //         url: '/fileupload'
+            //     }
+            // ],
             code: {
                 basic: `<Steps :model="items" aria-label="Form Steps" :readonly="false"
     :pt="{
@@ -112,19 +112,19 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    route: '/steps'
+                    route: '/'
                 },
                 {
                     label: 'Seat',
-                    route: '/steps/seat'
+                    route: '/seat'
                 },
                 {
                     label: 'Payment',
-                    route: '/steps/payment'
+                    route: '/payment'
                 },
                 {
                     label: 'Confirmation',
-                    route: '/steps/confirmation'
+                    route: '/confirmation'
                 },
                 {
                     label: 'File Upload',
