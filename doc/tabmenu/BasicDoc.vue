@@ -24,7 +24,7 @@ export default {
         return {
             active: 0,
             items: [
-                { label: 'Home', icon: 'pi pi-fw pi-home', route: '/tabmenu' },
+                { label: 'Home', icon: 'pi pi-fw pi-home', route: '/tabmenu/' },
                 { label: 'Calendar', icon: 'pi pi-fw pi-calendar', route: '/tabmenu/calendar' },
                 { label: 'Edit', icon: 'pi pi-fw pi-pencil', route: '/tabmenu/edit' },
                 { label: 'Documentation', icon: 'pi pi-fw pi-file', route: '/tabmenu/documentation' },

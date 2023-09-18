@@ -33,7 +33,7 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    route: '/steps'
+                    route: '/steps/'
                 },
                 {
                     label: 'Seat',
@@ -101,19 +101,19 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    route: '/steps'
+                    route: '/'
                 },
                 {
                     label: 'Seat',
-                    route: '/steps/seat'
+                    route: '/seat'
                 },
                 {
                     label: 'Payment',
-                    route: '/steps/payment'
+                    route: '/payment'
                 },
                 {
                     label: 'Confirmation',
-                    route: '/steps/confirmation'
+                    route: '/confirmation'
                 }
             ]
         }
