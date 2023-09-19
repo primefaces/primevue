@@ -30244,6 +30244,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "container",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"font-medium\">onClose</span>: () &rArr; void, // Close message function.\n}",
+                                    "description": "container slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom container slot."
                         }
                     ]
                 },
