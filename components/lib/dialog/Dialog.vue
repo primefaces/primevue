@@ -391,9 +391,6 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
-        },
-        contentStyleClass() {
-            return ['p-dialog-content', this.contentClass];
         }
     },
     directives: {
