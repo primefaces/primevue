@@ -19742,6 +19742,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom maximize icon template of dialog."
+                        },
+                        {
+                            "name": "container",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"font-medium\">onClose</span>: () &rArr; void, // Close dialog function.\n\t <span class=\"font-medium\">onMaximize</span>: (event: Event) &rArr; void, // Maximize/minimize dialog function.\n}",
+                                    "description": "container slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom container slot."
                         }
                     ]
                 },
@@ -44342,6 +44355,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "container",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: any, // Message of the component\n \t <span class=\"font-medium\">onClose</span>: () &rArr; void, // Close toast function\n}",
+                                    "description": "container slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom container slot."
                         }
                     ]
                 },
