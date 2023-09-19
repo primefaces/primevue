@@ -47,6 +47,10 @@ const ConfirmDialogSlots = [
     {
         name: 'rejecticon',
         description: 'Custom reject icon template.'
+    },
+    {
+        name: 'container',
+        description: 'Custom container template.'
     }
 ];
 

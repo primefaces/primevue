@@ -14,15 +14,20 @@
         :pt="pt"
         :unstyled="unstyled"
     >
-        <template v-if="!$slots.message">
-            <slot name="icon">
-                <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />
-                <span v-else-if="confirmation.icon" :class="cx('icon')" v-bind="ptm('icon')" />
-            </slot>
-            <span :class="cx('message')" v-bind="ptm('message')">{{ message }}</span>
+        <template v-if="$slots.container" #container="slotProps">
+            <slot name="container" :message="confirmation" :onClose="slotProps.onClose" />
         </template>
-        <component v-else :is="$slots.message" :message="confirmation"></component>
-        <template #footer>
+        <template v-if="!$slots.container">
+            <template v-if="!$slots.message">
+                <slot name="icon">
+                    <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />
+                    <span v-else-if="confirmation.icon" :class="cx('icon')" v-bind="ptm('icon')" />
+                </slot>
+                <span :class="cx('message')" v-bind="ptm('message')">{{ message }}</span>
+            </template>
+            <component v-else :is="$slots.message" :message="confirmation"></component>
+        </template>
+        <template v-if="!$slots.container" #footer>
             <CDButton :label="rejectLabel" :class="[cx('rejectButton'), confirmation.rejectClass]" @click="reject()" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')" data-pc-name="rejectbutton">
                 <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                     <slot name="rejecticon">

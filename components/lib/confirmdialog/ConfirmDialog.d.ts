@@ -211,6 +211,20 @@ export interface ConfirmDialogSlots {
      * Custom icon template.
      */
     rejecticon(): VNode[];
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Message of the component
+         */
+        message: any;
+        /**
+         * Close dialog function.
+         */
+        onClose: () => void;
+    }): VNode[];
 }
 
 /**
