@@ -188,6 +188,16 @@ export interface SidebarSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Close sidebar function.
+         */
+        onClose: () => void;
+    }): VNode[];
 }
 
 /**

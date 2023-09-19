@@ -96,6 +96,10 @@ const SidebarSlots = [
     {
         name: 'closeicon',
         description: 'Custom close icon template.'
+    },
+    {
+        name: 'container',
+        description: 'Custom container template.'
     }
 ];
 
