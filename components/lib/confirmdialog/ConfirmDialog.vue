@@ -15,7 +15,7 @@
         :unstyled="unstyled"
     >
         <template v-if="$slots.container" #container="slotProps">
-            <slot name="container" :message="confirmation" :onClose="slotProps.onClose" />
+            <slot name="container" :message="confirmation" :onClose="slotProps.onClose" :onAccept="accept" :onReject="reject" />
         </template>
         <template v-if="!$slots.container">
             <template v-if="!$slots.message">

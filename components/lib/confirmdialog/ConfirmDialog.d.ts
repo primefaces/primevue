@@ -224,6 +224,14 @@ export interface ConfirmDialogSlots {
          * Close dialog function.
          */
         onClose: () => void;
+        /**
+         * Accept function of the component
+         */
+        onAccept: () => void;
+        /**
+         * Reject function of the component
+         */
+        onReject: () => void;
     }): VNode[];
 }
 
