@@ -191,6 +191,21 @@ export interface OverlayPanelEmits {
      * Callback to invoke when the overlay is hidden.
      */
     hide(): void;
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Close overlay panel function.
+         */
+        onClose: () => void;
+        /**
+         * Close button keydown function.
+         * @param {Event} event - Browser event
+         */
+        onKeydown: (event: Event) => void;
+    }): VNode[];
 }
 
 /**

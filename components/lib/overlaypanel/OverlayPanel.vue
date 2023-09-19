@@ -2,14 +2,17 @@
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }">
-                <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
-                    <slot></slot>
-                </div>
-                <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
-                    <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
-                    </slot>
-                </button>
+                <slot v-if="$slots.container" name="container" :onClose="hide" :onKeydown="(event) => onButtonKeydown(event)"></slot>
+                <template v-else>
+                    <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
+                        <slot></slot>
+                    </div>
+                    <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
+                        <slot name="closeicon">
+                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
+                        </slot>
+                    </button>
+                </template>
             </div>
         </transition>
     </Portal>

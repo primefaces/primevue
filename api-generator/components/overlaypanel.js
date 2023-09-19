@@ -76,6 +76,10 @@ const OverlayPanelEvents = [
     {
         name: 'hide',
         description: 'Callback to invoke before the overlay is hidden.'
+    },
+    {
+        name: 'container',
+        description: 'Custom container template.'
     }
 ];
 
