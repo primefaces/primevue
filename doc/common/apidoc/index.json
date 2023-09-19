@@ -14523,7 +14523,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: any, // Message of the component\n \t <span class=\"font-medium\">onClose</span>: () &rArr; void, // Close dialog function.\n}",
+                                    "type": "{\n  \t <span class=\"font-medium\">message</span>: any, // Message of the component\n \t <span class=\"font-medium\">onClose</span>: () &rArr; void, // Close dialog function.\n\t <span class=\"font-medium\">onAccept</span>: () &rArr; void, // Accept function of the component\n\t <span class=\"font-medium\">onReject</span>: () &rArr; void, // Reject function of the component\n}",
                                     "description": "container slot's params."
                                 }
                             ],
