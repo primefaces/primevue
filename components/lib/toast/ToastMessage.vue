@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('container')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
+    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
         <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" />
         <div v-else :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
             <template v-if="!templates.message">
