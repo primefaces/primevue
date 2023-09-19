@@ -188,6 +188,16 @@ export interface MessageSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Close message function.
+         */
+        onClose: () => void;
+    }): VNode[];
 }
 
 /**
