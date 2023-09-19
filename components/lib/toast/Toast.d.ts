@@ -289,6 +289,20 @@ export interface ToastSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Message of the component
+         */
+        message: any;
+        /**
+         * Close toast function
+         */
+        onClose: () => void;
+    }): VNode[];
 }
 
 /**

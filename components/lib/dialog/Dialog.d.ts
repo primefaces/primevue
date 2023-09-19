@@ -332,6 +332,21 @@ export interface DialogSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom container slot.
+     * @param {Object} scope - container slot's params.
+     */
+    container(scope: {
+        /**
+         * Close dialog function.
+         */
+        onClose: () => void;
+        /**
+         * Maximize/minimize dialog function.
+         * @param {Event} event - Browser event
+         */
+        onMaximize: (event: Event) => void;
+    }): VNode[];
 }
 
 /**

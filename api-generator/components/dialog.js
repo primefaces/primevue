@@ -215,6 +215,10 @@ const DialogSlots = [
     {
         name: 'maximizeicon',
         description: 'Custom maximizeicon icon template of dialog.'
+    },
+    {
+        name: 'container',
+        description: 'Custom container template.'
     }
 ];
 

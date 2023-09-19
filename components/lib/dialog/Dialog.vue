@@ -3,51 +3,54 @@
         <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @click="onMaskClick" v-bind="ptm('mask')">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="{ ...$attrs, ...ptm('root') }">
-                    <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
-                        <slot name="header" :class="cx('headerTitle')">
-                            <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
-                        </slot>
-                        <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
-                            <button
-                                v-if="maximizable"
-                                :ref="maximizableRef"
-                                v-ripple
-                                :autofocus="focusableMax"
-                                :class="cx('maximizableButton')"
-                                @click="maximize"
-                                type="button"
-                                :tabindex="maximizable ? '0' : '-1'"
-                                v-bind="ptm('maximizableButton')"
-                                data-pc-group-section="headericon"
-                            >
-                                <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
-                                    <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
-                                </slot>
-                            </button>
-                            <button
-                                v-if="closable"
-                                :ref="closeButtonRef"
-                                v-ripple
-                                :autofocus="focusableClose"
-                                :class="cx('closeButton')"
-                                @click="close"
-                                :aria-label="closeAriaLabel"
-                                type="button"
-                                v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
-                                data-pc-group-section="headericon"
-                            >
-                                <slot name="closeicon" :class="cx('closeButtonIcon')">
-                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
-                                </slot>
-                            </button>
+                    <slot v-if="$slots.container" name="container" :onClose="close" :onMaximize="(event) => maximize(event)"></slot>
+                    <template v-else>
+                        <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
+                            <slot name="header" :class="cx('headerTitle')">
+                                <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
+                            </slot>
+                            <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
+                                <button
+                                    v-if="maximizable"
+                                    :ref="maximizableRef"
+                                    v-ripple
+                                    :autofocus="focusableMax"
+                                    :class="cx('maximizableButton')"
+                                    @click="maximize"
+                                    type="button"
+                                    :tabindex="maximizable ? '0' : '-1'"
+                                    v-bind="ptm('maximizableButton')"
+                                    data-pc-group-section="headericon"
+                                >
+                                    <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
+                                        <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
+                                    </slot>
+                                </button>
+                                <button
+                                    v-if="closable"
+                                    :ref="closeButtonRef"
+                                    v-ripple
+                                    :autofocus="focusableClose"
+                                    :class="cx('closeButton')"
+                                    @click="close"
+                                    :aria-label="closeAriaLabel"
+                                    type="button"
+                                    v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
+                                    data-pc-group-section="headericon"
+                                >
+                                    <slot name="closeicon" :class="cx('closeButtonIcon')">
+                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
+                                    </slot>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
-                        <slot></slot>
-                    </div>
-                    <div v-if="footer || $slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
-                        <slot name="footer">{{ footer }}</slot>
-                    </div>
+                        <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
+                            <slot></slot>
+                        </div>
+                        <div v-if="footer || $slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
+                            <slot name="footer">{{ footer }}</slot>
+                        </div>
+                    </template>
                 </div>
             </transition>
         </div>
