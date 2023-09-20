@@ -11,6 +11,7 @@ import LongContentDoc from '@/doc/dialog/LongContentDoc';
 import MaximizableDoc from '@/doc/dialog/MaximizableDoc';
 import PositionDoc from '@/doc/dialog/PositionDoc';
 import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc';
+import TemplateDoc from '@/doc/dialog/TemplateDoc';
 import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc';
 import PTComponent from '@/doc/dialog/pt/index.vue';
 import ThemingDoc from '@/doc/dialog/theming/index.vue';
@@ -43,6 +44,11 @@ export default {
                     id: 'modal',
                     label: 'Without Modal',
                     component: WithoutModalDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'responsive',
