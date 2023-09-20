@@ -487,8 +487,6 @@ export default {
             return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
         },
         _getPT(pt, key = '', callback) {
-            const _usept = pt?.['_usept'];
-
             const getValue = (value, checkSameKey = false) => {
                 const computedValue = callback ? callback(value) : value;
                 const _key = ObjectUtils.toFlatCase(key);
@@ -497,9 +495,9 @@ export default {
                 return (checkSameKey ? (_key !== _cKey ? computedValue?.[_key] : undefined) : computedValue?.[_key]) ?? computedValue;
             };
 
-            return ObjectUtils.isNotEmpty(_usept)
+            return pt?.hasOwnProperty('_usept')
                 ? {
-                      _usept,
+                      _usept: pt['_usept'],
                       originalValue: getValue(pt.originalValue),
                       value: getValue(pt.value)
                   }

@@ -33,8 +33,6 @@ const BaseDirective = {
         return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
     },
     _getPT: (pt, key = '', callback) => {
-        const _usept = pt?.['_usept'];
-
         const getValue = (value) => {
             const computedValue = callback ? callback(value) : value;
             const _key = ObjectUtils.toFlatCase(key);
@@ -42,9 +40,9 @@ const BaseDirective = {
             return computedValue?.[_key] ?? computedValue;
         };
 
-        return ObjectUtils.isNotEmpty(_usept)
+        return pt?.hasOwnProperty('_usept')
             ? {
-                  _usept,
+                  _usept: pt['_usept'],
                   originalValue: getValue(pt.originalValue),
                   value: getValue(pt.value)
               }
