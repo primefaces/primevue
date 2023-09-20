@@ -162,7 +162,8 @@ const classes = {
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-inputwrapper-filled': props.modelValue,
-            'p-inputwrapper-focus': state.focused
+            'p-inputwrapper-focus': state.focused,
+            'p-focus': state.focused || state.overlayVisible
         }
     ],
     input: 'p-inputtext p-component',

@@ -357,6 +357,12 @@
 .p-calendar.p-invalid.p-component > .p-inputtext {
   border-color: #f44435;
 }
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #9FA8DA;
+}
 
 .p-datepicker {
   padding: 0.5rem;
