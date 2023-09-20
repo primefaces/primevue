@@ -2031,31 +2031,37 @@ export default {
 
                 case 'ArrowUp': {
                     cellContent.tabIndex = '-1';
-                    let prevRow = cell.parentElement.previousElementSibling;
 
-                    if (prevRow) {
-                        let tableRowIndex = DomHandler.index(cell.parentElement);
-                        const tableRows = Array.from(cell.parentElement.parentElement.children);
-                        const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
+                    if (event.altKey) {
+                        this.overlayVisible = false;
+                        this.focused = true;
+                    } else {
+                        let prevRow = cell.parentElement.previousElementSibling;
 
-                        let hasNextFocusableDate = prevTableRows.find((el) => {
-                            let focusCell = el.children[cellIndex].children[0];
+                        if (prevRow) {
+                            let tableRowIndex = DomHandler.index(cell.parentElement);
+                            const tableRows = Array.from(cell.parentElement.parentElement.children);
+                            const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
 
-                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
-                        });
+                            let hasNextFocusableDate = prevTableRows.find((el) => {
+                                let focusCell = el.children[cellIndex].children[0];
 
-                        if (hasNextFocusableDate) {
-                            let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+                                return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
+                            });
 
-                            focusCell.tabIndex = '0';
-                            focusCell.focus();
+                            if (hasNextFocusableDate) {
+                                let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+
+                                focusCell.tabIndex = '0';
+                                focusCell.focus();
+                            } else {
+                                this.navigationState = { backward: true };
+                                this.navBackward(event);
+                            }
                         } else {
                             this.navigationState = { backward: true };
                             this.navBackward(event);
                         }
-                    } else {
-                        this.navigationState = { backward: true };
-                        this.navBackward(event);
                     }
 
                     event.preventDefault();

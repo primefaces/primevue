@@ -116,11 +116,15 @@
                     </tr>
                     <tr>
                         <td><i>space</i></td>
-                        <td>Selects the date, closes the popup and moves focus to the input element.</td>
+                        <td>Closes the popup and moves focus to the input element.</td>
                     </tr>
                     <tr>
                         <td><i>up arrow</i></td>
                         <td>Moves focus to the same day of the previous week.</td>
+                    </tr>
+                    <tr>
+                        <td><i>alt</i> + <i>up arrow</i></td>
+                        <td>Closes the popup and moves focus to the input element.</td>
                     </tr>
                     <tr>
                         <td><i>down arrow</i></td>
@@ -148,7 +152,7 @@
                     </tr>
                     <tr>
                         <td><i>shift</i> + <i>page up</i></td>
-                        <td>Changes the date to previous year in date picker mode. Has no effect in month or year picker</td>
+                        <td>Changes the date to previous year in date picker mode. Has no effect in month or year picker.</td>
                     </tr>
                     <tr>
                         <td><i>page down</i></td>
@@ -156,7 +160,7 @@
                     </tr>
                     <tr>
                         <td><i>shift</i> + <i>page down</i></td>
-                        <td>Changes the date to next year in date picker mode. Has no effect in month or year picker</td>
+                        <td>Changes the date to next year in date picker mode. Has no effect in month or year picker.</td>
                     </tr>
                 </tbody>
             </table>
