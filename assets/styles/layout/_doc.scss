@@ -276,6 +276,7 @@
             &.doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 color: var(--primary-500);
+                font-weight: 500;
 
                 > a {
                     color: var(--primary-500);
@@ -294,11 +295,6 @@
                 }
             }
 
-            &.doc-option-default {
-                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-color);
-            }
-
             &:first-child {
                 color: var(--primary-color);
                 font-weight: 700;
@@ -307,7 +303,7 @@
 
             .doc-option-name,
             > i:not(.pi) {
-                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                font-family: Inter, sans-serif;;
                 position: relative;
                 scroll-margin-top: 6.5rem;
                 background-color: var(--highlight-bg);
@@ -328,6 +324,16 @@
                 }
             }
 
+            .doc-option-props {
+                display: flex;
+                background: var(--bluegray-50);
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 6px;
+                padding: 2px 6px;
+                max-width: min-content;
+            }
+
             &:hover {
                 .doc-option-name {
                     .doc-option-link {
@@ -338,10 +344,6 @@
                         }
                     }
                 }
-            }
-
-            .doc-option-link {
-                color: var(--primary-color);
             }
         }
     }
