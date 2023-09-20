@@ -83,6 +83,11 @@
                     <span class="mb-2 text-xl font-bold">Burak Sağlam</span>
                     <span>Front-End Developer</span>
                 </div>
+                <div class="flex flex-column align-items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/umit.jpg" class="border-circle mb-4" alt="Ümit Çelik" />
+                    <span class="mb-2 text-xl font-bold">Ümit Çelik</span>
+                    <span>UI/UX Designer</span>
+                </div>
             </div>
         </div>
     </div>
