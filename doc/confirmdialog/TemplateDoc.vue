@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
     </DocSectionText>
-    <ConfirmDialog group="templating">
+    <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
         <template #message="slotProps">
             <div class="flex p-4">
                 <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ConfirmDialog group="templating">
+                basic: `<ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
     <template #message="slotProps">
         <div class="flex p-4">
             <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -31,8 +31,7 @@ export default {
 </ConfirmDialog>
 <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>`,
                 options: `<template>
-    <Toast />
-    <ConfirmDialog group="templating">
+    <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
         <template #message="slotProps">
             <div class="flex p-4">
                 <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -43,6 +42,7 @@ export default {
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
     </div>
+    <Toast />
 </template>
 
 <script>
@@ -68,8 +68,7 @@ export default {
 };
 <\/script>`,
                 composition: `<template>
-    <Toast />
-    <ConfirmDialog group="templating">
+    <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
         <template #message="slotProps">
             <div class="flex p-4">
                 <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -80,6 +79,7 @@ export default {
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
     </div>
+    <Toast />
 </template>
 
 <script setup>
