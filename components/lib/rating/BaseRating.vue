@@ -46,7 +46,7 @@ const classes = {
     offIcon: 'p-rating-icon'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'rating', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'rating', manual: true });
 
 export default {
     name: 'BaseRating',

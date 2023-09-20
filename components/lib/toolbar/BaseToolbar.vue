@@ -31,7 +31,7 @@ const classes = {
     end: 'p-toolbar-group-end p-toolbar-group-right'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'toolbar', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'toolbar', manual: true });
 
 export default {
     name: 'BaseToolbar',
