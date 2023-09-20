@@ -19,6 +19,7 @@
 import ImportDoc from '@/doc/configuration/ImportDoc';
 import InputStyleDoc from '@/doc/configuration/InputStyleDoc';
 import PTDoc from '@/doc/configuration/PTDoc.vue';
+import PTOptionsDoc from '@/doc/configuration/PTOptionsDoc.vue';
 import RippleDoc from '@/doc/configuration/RippleDoc';
 import UnstyledDoc from '@/doc/configuration/UnstyledDoc';
 import ZIndexDoc from '@/doc/configuration/ZIndexDoc';
@@ -45,6 +46,11 @@ export default {
                     id: 'pt',
                     label: 'Pass Through',
                     component: PTDoc
+                },
+                {
+                    id: 'ptoptions',
+                    label: 'Pass Through Options',
+                    component: PTOptionsDoc
                 },
                 {
                     id: 'ripple',
