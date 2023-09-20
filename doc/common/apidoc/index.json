@@ -12475,6 +12475,13 @@
                             "default": ""
                         },
                         {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": ""
+                        },
+                        {
                             "name": "unstyled",
                             "optional": true,
                             "readonly": false,
