@@ -60,12 +60,12 @@ const buttonStyles = `
     border-radius: 0;
 }
 
-.p-buttonset .p-button:first-of-type {
+.p-buttonset .p-button:first-of-type:not(:only-of-type) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.p-buttonset .p-button:last-of-type {
+.p-buttonset .p-button:last-of-type:not(:only-of-type) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
