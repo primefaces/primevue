@@ -22,7 +22,7 @@ const BaseDirective = {
         };
 
         const datasetPrefix = 'data-pc-';
-        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || {};
+        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$config?.ptOptions || {};
         const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT, getValue, key, params) : undefined;
         const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global: global || {} });
         const datasets = {
@@ -54,7 +54,7 @@ const BaseDirective = {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$config?.ptOptions || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 

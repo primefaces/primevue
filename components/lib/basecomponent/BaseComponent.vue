@@ -471,7 +471,7 @@ export default {
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
-            const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || this.$config?.ptOptions || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
             const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
             const datasets = key !== 'transition' && {
@@ -509,7 +509,7 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
+                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || this.$config?.ptOptions || {};
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 

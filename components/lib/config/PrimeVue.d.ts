@@ -56,6 +56,7 @@ import { OverlayPanelPassThroughOptions } from '../overlaypanel';
 import { PaginatorPassThroughOptions } from '../paginator';
 import { PanelPassThroughOptions } from '../panel';
 import { PanelMenuPassThroughOptions } from '../panelmenu';
+import { PassThroughOptions } from '../passthrough';
 import { PasswordPassThroughOptions } from '../password';
 import { PickListPassThroughOptions } from '../picklist';
 import { ProgressBarPassThroughOptions } from '../progressbar';
@@ -102,6 +103,7 @@ export interface PrimeVueConfiguration {
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
     pt?: PassThrough<PrimeVuePTOptions>;
+    ptOptions?: PassThroughOptions;
     unstyled?: boolean;
     csp?: PrimeVueCSPOptions;
 }

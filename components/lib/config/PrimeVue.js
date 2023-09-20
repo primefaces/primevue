@@ -134,6 +134,10 @@ export const defaultOptions = {
         tooltip: 1100
     },
     pt: undefined,
+    ptOptions: {
+        mergeSections: true,
+        mergeProps: false
+    },
     unstyled: false,
     csp: {
         nonce: undefined
