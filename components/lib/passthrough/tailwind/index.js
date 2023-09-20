@@ -2724,7 +2724,7 @@ export default {
                     'text-blue-600 hover:bg-white/30': context.selected
                 },
                 {
-                    hidden: context.leaf
+                    invisible: context.leaf
                 }
             ]
         }),
