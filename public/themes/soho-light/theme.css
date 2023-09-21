@@ -1,4 +1,6 @@
 :root {
+  font-family: Lato, Helvetica, sans-serif;
+  --font-family:Lato, Helvetica, sans-serif;
   --surface-a:#ffffff;
   --surface-b:#eff3f8;
   --surface-c:#f6f9fc;
@@ -9,7 +11,6 @@
   --text-color-secondary:#708da9;
   --primary-color:#7254f3;
   --primary-color-text:#ffffff;
-  --font-family:Lato, Helvetica, sans-serif;
   --surface-0: #ffffff;
   --surface-50: #f1f4f6;
   --surface-100: #e2e8ee;

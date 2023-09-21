@@ -1,4 +1,6 @@
 :root {
+  font-family: Inter, sans-serif;
+  --font-family:Inter, sans-serif;
   --surface-a:#ffffff;
   --surface-b:#ECEFF4;
   --surface-c:#D8DEE9;
@@ -9,7 +11,6 @@
   --text-color-secondary:#81A1C1;
   --primary-color:#5E81AC;
   --primary-color-text:#ffffff;
-  --font-family:Inter, sans-serif;
   --surface-0: #ffffff;
   --surface-50: #edeef0;
   --surface-100: #dbdde1;

@@ -1,4 +1,6 @@
 :root {
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   --surface-a:#1e1e1e;
   --surface-b:#121212;
   --surface-c:hsla(0,0%,100%,.04);
@@ -9,7 +11,6 @@
   --text-color-secondary:rgba(255, 255, 255, 0.6);
   --primary-color:#9FA8DA;
   --primary-color-text:#121212;
-  --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   --surface-0: #121212;
   --surface-50: #2a2a2a;
   --surface-100: #414141;

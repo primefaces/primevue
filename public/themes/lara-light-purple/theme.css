@@ -1,4 +1,8 @@
 :root {
+  font-family: Inter var, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variation-settings: normal;
+  --font-family:Inter var, sans-serif;
   --surface-a:#ffffff;
   --surface-b:#f8f9fa;
   --surface-c:#e9ecef;
@@ -9,7 +13,6 @@
   --text-color-secondary:#6c757d;
   --primary-color:#8B5CF6;
   --primary-color-text:#ffffff;
-  --font-family:'DM Sans', sans-serif;
   --surface-0: #ffffff;
   --surface-50: #FAFAFA;
   --surface-100: #F5F5F5;
@@ -47,12 +50,28 @@
   color-scheme: light;
 }
 
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("./fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url("./fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
+}
 * {
   box-sizing: border-box;
 }
 
 .p-component {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -85,7 +104,7 @@
 
 .p-link {
   font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
   border-radius: 6px;
 }
 .p-link:focus {
@@ -265,7 +284,7 @@
   padding: 0.375rem 0;
 }
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -728,7 +747,7 @@
   padding: 0.375rem 0;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -1093,7 +1112,7 @@
 }
 
 .p-inputtext {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
   font-size: 1rem;
   color: #495057;
   background: #ffffff;
@@ -5900,7 +5919,7 @@
 }
 .p-terminal .p-terminal-input {
   font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter var", sans-serif;
 }
 
 .p-button-label {

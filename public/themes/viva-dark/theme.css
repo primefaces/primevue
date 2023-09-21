@@ -1,4 +1,6 @@
 :root {
+  font-family: Poppins, sans-serif;
+  --font-family:Poppins, sans-serif;
   --surface-a:#161d21;
   --surface-b:#0e1315;
   --surface-c:rgba(158, 173, 230, 0.08);
@@ -9,7 +11,6 @@
   --text-color-secondary:rgba(255, 255, 255, 0.6);
   --primary-color:#9eade6;
   --primary-color-text:#121212;
-  --font-family:Poppins, sans-serif;
   --surface-0: #0e1315;
   --surface-50: #262b2c;
   --surface-100: #3e4244;

@@ -1,4 +1,6 @@
 :root {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-a:#1f2d40;
   --surface-b:#17212f;
   --surface-c:rgba(255, 255, 255, 0.03);
@@ -9,7 +11,6 @@
   --text-color-secondary:rgba(255, 255, 255, 0.6);
   --primary-color:#81C784;
   --primary-color-text:#212529;
-  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-0: #17212f;
   --surface-50: #2e3744;
   --surface-100: #454d59;
