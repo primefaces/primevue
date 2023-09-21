@@ -77,7 +77,8 @@
 }
 
 .p-component {
-  font-family: Lato, Helvetica, sans-serif;
+  font-family: inherit;
+  font-feature-settings: inherit;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -110,7 +111,8 @@
 
 .p-link {
   font-size: 1rem;
-  font-family: Lato, Helvetica, sans-serif;
+  font-family: inherit;
+  font-feature-settings: inherit;
   border-radius: 6px;
 }
 .p-link:focus {
@@ -290,8 +292,9 @@
   padding: 0.375rem 0;
 }
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: Lato, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
   margin: 0;
@@ -753,8 +756,9 @@
   padding: 0.375rem 0;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: Lato, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
   margin: 0;
@@ -1118,7 +1122,8 @@
 }
 
 .p-inputtext {
-  font-family: Lato, Helvetica, sans-serif;
+  font-family: inherit;
+  font-feature-settings: inherit;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
   background: #1d1e27;
@@ -5924,8 +5929,9 @@
   padding: 1.25rem;
 }
 .p-terminal .p-terminal-input {
-  font-size: 1rem;
-  font-family: Lato, Helvetica, sans-serif;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
 }
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {

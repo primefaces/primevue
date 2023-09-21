@@ -53,7 +53,8 @@
 }
 
 .p-component {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit;
+  font-feature-settings: inherit;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -86,7 +87,8 @@
 
 .p-link {
   font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit;
+  font-feature-settings: inherit;
   border-radius: 2px;
 }
 .p-link:focus {
@@ -266,8 +268,9 @@
   padding: 0.2145rem 0;
 }
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
   color: #666666;
   padding: 0;
   margin: 0;
@@ -729,8 +732,9 @@
   padding: 0.2145rem 0;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
   color: #666666;
   padding: 0;
   margin: 0;
@@ -1094,7 +1098,8 @@
 }
 
 .p-inputtext {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit;
+  font-feature-settings: inherit;
   font-size: 1rem;
   color: #666666;
   background: #ffffff;
@@ -5900,8 +5905,9 @@
   padding: 0.571rem 1rem;
 }
 .p-terminal .p-terminal-input {
-  font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: inherit;
 }
 
 .p-panel .p-panel-header .p-panel-header-icon {
