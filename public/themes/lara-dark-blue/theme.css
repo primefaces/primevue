@@ -1,8 +1,8 @@
 :root {
-  font-family: Inter var, sans-serif;
+  font-family: "Inter var", sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   font-variation-settings: normal;
-  --font-family:Inter var, sans-serif;
+  --font-family:"Inter var", sans-serif;
   --surface-a:#071426;
   --surface-b:#040d19;
   --surface-c:rgba(255, 255, 255, 0.03);

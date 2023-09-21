@@ -1,6 +1,6 @@
 :root {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-  --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  --font-family:Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   --surface-a:#1e1e1e;
   --surface-b:#121212;
   --surface-c:hsla(0,0%,100%,.04);
@@ -77,7 +77,7 @@
 }
 
 .p-component {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -110,7 +110,7 @@
 
 .p-link {
   font-size: 1rem;
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   border-radius: 4px;
 }
 .p-link:focus {
@@ -290,7 +290,7 @@
   padding: 0.375rem 0;
 }
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
@@ -753,7 +753,7 @@
   padding: 0.375rem 0;
 }
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
@@ -1118,7 +1118,7 @@
 }
 
 .p-inputtext {
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.87);
   background: #1e1e1e;
@@ -5974,7 +5974,7 @@
 }
 .p-terminal .p-terminal-input {
   font-size: 1rem;
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .p-accordion .p-accordion-tab {
