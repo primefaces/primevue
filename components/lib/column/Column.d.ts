@@ -779,6 +779,10 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
+        /**
+         * Callback function (closes the overlay)
+         */
+        applyFilter: () => void;
     }): VNode[];
     /**
      * Custom filter header template.
