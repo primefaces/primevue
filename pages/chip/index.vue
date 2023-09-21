@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/chip/AccessibilityDoc';
-import BasicDoc from '@/doc/chip/BasicDoc';
-import IconDoc from '@/doc/chip/IconDoc';
-import ImageDoc from '@/doc/chip/ImageDoc';
-import ImportDoc from '@/doc/chip/ImportDoc';
-import TemplateDoc from '@/doc/chip/TemplateDoc';
+import AccessibilityDoc from '@/doc/chip/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/chip/BasicDoc.vue';
+import IconDoc from '@/doc/chip/IconDoc.vue';
+import ImageDoc from '@/doc/chip/ImageDoc.vue';
+import ImportDoc from '@/doc/chip/ImportDoc.vue';
+import TemplateDoc from '@/doc/chip/TemplateDoc.vue';
 import PTComponent from '@/doc/chip/pt/index.vue';
 import ThemingDoc from '@/doc/chip/theming/index.vue';
 

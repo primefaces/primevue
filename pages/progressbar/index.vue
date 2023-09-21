@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/progressbar/AccessibilityDoc';
-import BasicDoc from '@/doc/progressbar/BasicDoc';
-import DynamicDoc from '@/doc/progressbar/DynamicDoc';
-import ImportDoc from '@/doc/progressbar/ImportDoc';
-import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc';
-import TemplateDoc from '@/doc/progressbar/TemplateDoc';
+import AccessibilityDoc from '@/doc/progressbar/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/progressbar/BasicDoc.vue';
+import DynamicDoc from '@/doc/progressbar/DynamicDoc.vue';
+import ImportDoc from '@/doc/progressbar/ImportDoc.vue';
+import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc.vue';
+import TemplateDoc from '@/doc/progressbar/TemplateDoc.vue';
 import PTComponent from '@/doc/progressbar/pt/index.vue';
 import ThemingDoc from '@/doc/progressbar/theming/index.vue';
 

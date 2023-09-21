@@ -11,19 +11,19 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/autocomplete/AccessibilityDoc';
-import BasicDoc from '@/doc/autocomplete/BasicDoc';
-import DisabledDoc from '@/doc/autocomplete/DisabledDoc';
-import DropdownDoc from '@/doc/autocomplete/DropdownDoc';
-import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc';
-import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc';
-import GroupDoc from '@/doc/autocomplete/GroupDoc';
-import ImportDoc from '@/doc/autocomplete/ImportDoc';
-import InvalidDoc from '@/doc/autocomplete/InvalidDoc';
-import MultipleDoc from '@/doc/autocomplete/MultipleDoc';
-import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc';
-import TemplateDoc from '@/doc/autocomplete/TemplateDoc';
-import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc';
+import AccessibilityDoc from '@/doc/autocomplete/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/autocomplete/BasicDoc.vue';
+import DisabledDoc from '@/doc/autocomplete/DisabledDoc.vue';
+import DropdownDoc from '@/doc/autocomplete/DropdownDoc.vue';
+import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc.vue';
+import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
+import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
+import ImportDoc from '@/doc/autocomplete/ImportDoc.vue';
+import InvalidDoc from '@/doc/autocomplete/InvalidDoc.vue';
+import MultipleDoc from '@/doc/autocomplete/MultipleDoc.vue';
+import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc.vue';
+import TemplateDoc from '@/doc/autocomplete/TemplateDoc.vue';
+import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc.vue';
 import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/autocomplete/pt/index.vue';
 import ThemingDoc from '@/doc/autocomplete/theming/index.vue';

@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/dynamicdialog/AccessibilityDoc';
-import CloseDialogDoc from '@/doc/dynamicdialog/CloseDialogDoc';
-import CustomizationDoc from '@/doc/dynamicdialog/CustomizationDoc';
-import DialogServiceDoc from '@/doc/dynamicdialog/DialogServiceDoc';
-import EmitsDoc from '@/doc/dynamicdialog/EmitsDoc';
-import ImportDoc from '@/doc/dynamicdialog/ImportDoc';
-import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc';
-import PassingDataDoc from '@/doc/dynamicdialog/PassingDataDoc';
-import UsageDoc from '@/doc/dynamicdialog/UsageDoc';
+import AccessibilityDoc from '@/doc/dynamicdialog/AccessibilityDoc.vue';
+import CloseDialogDoc from '@/doc/dynamicdialog/CloseDialogDoc.vue';
+import CustomizationDoc from '@/doc/dynamicdialog/CustomizationDoc.vue';
+import DialogServiceDoc from '@/doc/dynamicdialog/DialogServiceDoc.vue';
+import EmitsDoc from '@/doc/dynamicdialog/EmitsDoc.vue';
+import ImportDoc from '@/doc/dynamicdialog/ImportDoc.vue';
+import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc.vue';
+import PassingDataDoc from '@/doc/dynamicdialog/PassingDataDoc.vue';
+import UsageDoc from '@/doc/dynamicdialog/UsageDoc.vue';
 import PTComponent from '@/doc/dynamicdialog/pt/index.vue';
 import ThemingDoc from '@/doc/dynamicdialog/theming/index.vue';
 

@@ -3,26 +3,26 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/galleria/AccessibilityDoc';
-import AdvancedDoc from '@/doc/galleria/AdvancedDoc';
-import AutoPlayDoc from '@/doc/galleria/AutoPlayDoc';
-import BasicDoc from '@/doc/galleria/BasicDoc';
-import CaptionDoc from '@/doc/galleria/CaptionDoc';
-import ControlledDoc from '@/doc/galleria/ControlledDoc';
-import ImportDoc from '@/doc/galleria/ImportDoc';
-import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc';
-import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc';
-import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc';
-import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc';
-import WithoutThumbnailsDoc from '@/doc/galleria/fullscreen/WithoutThumbnailsDoc';
-import ClickEventDoc from '@/doc/galleria/indicator/ClickEventDoc';
-import HoverEventDoc from '@/doc/galleria/indicator/HoverEventDoc';
-import PositionDoc from '@/doc/galleria/indicator/PositionDoc';
-import TemplateDoc from '@/doc/galleria/indicator/TemplateDoc';
-import HoverDoc from '@/doc/galleria/navigator/HoverDoc';
-import IndicatorsDoc from '@/doc/galleria/navigator/IndicatorsDoc';
-import ItemThumbnailsDoc from '@/doc/galleria/navigator/ItemThumbnailsDoc';
-import ItemWithoutThumbnailsDoc from '@/doc/galleria/navigator/ItemWithoutThumbnailsDoc';
+import AccessibilityDoc from '@/doc/galleria/AccessibilityDoc.vue';
+import AdvancedDoc from '@/doc/galleria/AdvancedDoc.vue';
+import AutoPlayDoc from '@/doc/galleria/AutoPlayDoc.vue';
+import BasicDoc from '@/doc/galleria/BasicDoc.vue';
+import CaptionDoc from '@/doc/galleria/CaptionDoc.vue';
+import ControlledDoc from '@/doc/galleria/ControlledDoc.vue';
+import ImportDoc from '@/doc/galleria/ImportDoc.vue';
+import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc.vue';
+import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc.vue';
+import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc.vue';
+import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc.vue';
+import WithoutThumbnailsDoc from '@/doc/galleria/fullscreen/WithoutThumbnailsDoc.vue';
+import ClickEventDoc from '@/doc/galleria/indicator/ClickEventDoc.vue';
+import HoverEventDoc from '@/doc/galleria/indicator/HoverEventDoc.vue';
+import PositionDoc from '@/doc/galleria/indicator/PositionDoc.vue';
+import TemplateDoc from '@/doc/galleria/indicator/TemplateDoc.vue';
+import HoverDoc from '@/doc/galleria/navigator/HoverDoc.vue';
+import IndicatorsDoc from '@/doc/galleria/navigator/IndicatorsDoc.vue';
+import ItemThumbnailsDoc from '@/doc/galleria/navigator/ItemThumbnailsDoc.vue';
+import ItemWithoutThumbnailsDoc from '@/doc/galleria/navigator/ItemWithoutThumbnailsDoc.vue';
 import PTComponent from '@/doc/galleria/pt/index.vue';
 import ThemingDoc from '@/doc/galleria/theming/index.vue';
 

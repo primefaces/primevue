@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/textarea/AccessibilityDoc';
-import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc';
-import BasicDoc from '@/doc/textarea/BasicDoc';
-import DisabledDoc from '@/doc/textarea/DisabledDoc';
-import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
-import ImportDoc from '@/doc/textarea/ImportDoc';
-import InvalidDoc from '@/doc/textarea/InvalidDoc';
+import AccessibilityDoc from '@/doc/textarea/AccessibilityDoc.vue';
+import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc.vue';
+import BasicDoc from '@/doc/textarea/BasicDoc.vue';
+import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/textarea/ImportDoc.vue';
+import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
 import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
 import ThemingDoc from '@/doc/textarea/theming/index.vue';

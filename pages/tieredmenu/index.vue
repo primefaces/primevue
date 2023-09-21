@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/tieredmenu/AccessibilityDoc';
-import BasicDoc from '@/doc/tieredmenu/BasicDoc';
-import ImportDoc from '@/doc/tieredmenu/ImportDoc';
-import PopupDoc from '@/doc/tieredmenu/PopupDoc';
-import RouterDoc from '@/doc/tieredmenu/RouterDoc';
+import AccessibilityDoc from '@/doc/tieredmenu/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/tieredmenu/BasicDoc.vue';
+import ImportDoc from '@/doc/tieredmenu/ImportDoc.vue';
+import PopupDoc from '@/doc/tieredmenu/PopupDoc.vue';
+import RouterDoc from '@/doc/tieredmenu/RouterDoc.vue';
 import PTComponent from '@/doc/tieredmenu/pt/index.vue';
 import ThemingDoc from '@/doc/tieredmenu/theming/index.vue';
 

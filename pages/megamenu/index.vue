@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/megamenu/AccessibilityDoc';
-import BasicDoc from '@/doc/megamenu/BasicDoc';
-import ImportDoc from '@/doc/megamenu/ImportDoc';
-import RouterDoc from '@/doc/megamenu/RouterDoc';
-import TemplateDoc from '@/doc/megamenu/TemplateDoc';
-import VerticalDoc from '@/doc/megamenu/VerticalDoc';
+import AccessibilityDoc from '@/doc/megamenu/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/megamenu/BasicDoc.vue';
+import ImportDoc from '@/doc/megamenu/ImportDoc.vue';
+import RouterDoc from '@/doc/megamenu/RouterDoc.vue';
+import TemplateDoc from '@/doc/megamenu/TemplateDoc.vue';
+import VerticalDoc from '@/doc/megamenu/VerticalDoc.vue';
 import PTComponent from '@/doc/megamenu/pt/index.vue';
 import ThemingDoc from '@/doc/megamenu/theming/index.vue';
 

@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/virtualscroller/AccessibilityDoc';
-import BasicDoc from '@/doc/virtualscroller/BasicDoc';
-import DelayDoc from '@/doc/virtualscroller/DelayDoc';
-import GridDoc from '@/doc/virtualscroller/GridDoc';
-import HorizontalDoc from '@/doc/virtualscroller/HorizontalDoc';
-import ImportDoc from '@/doc/virtualscroller/ImportDoc';
-import LazyDoc from '@/doc/virtualscroller/LazyDoc';
-import LoadingDoc from '@/doc/virtualscroller/LoadingDoc';
+import AccessibilityDoc from '@/doc/virtualscroller/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/virtualscroller/BasicDoc.vue';
+import DelayDoc from '@/doc/virtualscroller/DelayDoc.vue';
+import GridDoc from '@/doc/virtualscroller/GridDoc.vue';
+import HorizontalDoc from '@/doc/virtualscroller/HorizontalDoc.vue';
+import ImportDoc from '@/doc/virtualscroller/ImportDoc.vue';
+import LazyDoc from '@/doc/virtualscroller/LazyDoc.vue';
+import LoadingDoc from '@/doc/virtualscroller/LoadingDoc.vue';
 import PTComponent from '@/doc/virtualscroller/pt/index.vue';
 import ThemingDoc from '@/doc/virtualscroller/theming/index.vue';
 

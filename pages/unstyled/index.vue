@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import ArchitectureDoc from '@/doc/unstyled/ArchitectureDoc';
-import ExampleDoc from '@/doc/unstyled/ExampleDoc';
-import SetupDoc from '@/doc/unstyled/SetupDoc';
-import ThemeDoc from '@/doc/unstyled/ThemeDoc';
+import ArchitectureDoc from '@/doc/unstyled/ArchitectureDoc.vue';
+import ExampleDoc from '@/doc/unstyled/ExampleDoc.vue';
+import SetupDoc from '@/doc/unstyled/SetupDoc.vue';
+import ThemeDoc from '@/doc/unstyled/ThemeDoc.vue';
 
 export default {
     data() {

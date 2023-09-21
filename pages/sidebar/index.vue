@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/sidebar/AccessibilityDoc';
-import BasicDoc from '@/doc/sidebar/BasicDoc';
-import FullScreenDoc from '@/doc/sidebar/FullScreenDoc';
-import ImportDoc from '@/doc/sidebar/ImportDoc';
-import PositionDoc from '@/doc/sidebar/PositionDoc';
-import SizeDoc from '@/doc/sidebar/SizeDoc';
-import TemplateDoc from '@/doc/sidebar/TemplateDoc';
+import AccessibilityDoc from '@/doc/sidebar/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/sidebar/BasicDoc.vue';
+import FullScreenDoc from '@/doc/sidebar/FullScreenDoc.vue';
+import ImportDoc from '@/doc/sidebar/ImportDoc.vue';
+import PositionDoc from '@/doc/sidebar/PositionDoc.vue';
+import SizeDoc from '@/doc/sidebar/SizeDoc.vue';
+import TemplateDoc from '@/doc/sidebar/TemplateDoc.vue';
 import PTComponent from '@/doc/sidebar/pt/index.vue';
 import ThemingDoc from '@/doc/sidebar/theming/index.vue';
 

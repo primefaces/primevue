@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/organizationchart/AccessibilityDoc';
-import BasicDoc from '@/doc/organizationchart/BasicDoc';
-import ColoredDoc from '@/doc/organizationchart/ColoredDoc';
-import ImportDoc from '@/doc/organizationchart/ImportDoc';
-import SelectionDoc from '@/doc/organizationchart/SelectionDoc';
-import TemplateDoc from '@/doc/organizationchart/TemplateDoc';
+import AccessibilityDoc from '@/doc/organizationchart/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/organizationchart/BasicDoc.vue';
+import ColoredDoc from '@/doc/organizationchart/ColoredDoc.vue';
+import ImportDoc from '@/doc/organizationchart/ImportDoc.vue';
+import SelectionDoc from '@/doc/organizationchart/SelectionDoc.vue';
+import TemplateDoc from '@/doc/organizationchart/TemplateDoc.vue';
 import PTComponent from '@/doc/organizationchart/pt/index.vue';
 import ThemingDoc from '@/doc/organizationchart/theming/index.vue';
 

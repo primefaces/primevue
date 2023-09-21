@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import ExampleDoc from '@/doc/unocss/ExampleDoc';
-import SetupDoc from '@/doc/unocss/SetupDoc';
+import ExampleDoc from '@/doc/unocss/ExampleDoc.vue';
+import SetupDoc from '@/doc/unocss/SetupDoc.vue';
 
 export default {
     data() {

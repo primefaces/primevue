@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/breadcrumb/AccessibilityDoc';
-import BasicDoc from '@/doc/breadcrumb/BasicDoc';
-import ImportDoc from '@/doc/breadcrumb/ImportDoc';
-import RouterDoc from '@/doc/breadcrumb/RouterDoc';
+import AccessibilityDoc from '@/doc/breadcrumb/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/breadcrumb/BasicDoc.vue';
+import ImportDoc from '@/doc/breadcrumb/ImportDoc.vue';
+import RouterDoc from '@/doc/breadcrumb/RouterDoc.vue';
 import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
 import PTComponent from '@/doc/breadcrumb/pt/index.vue';
 import ThemingDoc from '@/doc/breadcrumb/theming/index.vue';

@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/checkbox/AccessibilityDoc';
-import BasicDoc from '@/doc/checkbox/BasicDoc';
-import DisabledDoc from '@/doc/checkbox/DisabledDoc';
-import DynamicDoc from '@/doc/checkbox/DynamicDoc';
-import GroupDoc from '@/doc/checkbox/GroupDoc';
-import ImportDoc from '@/doc/checkbox/ImportDoc';
-import InvalidDoc from '@/doc/checkbox/InvalidDoc';
-import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/checkbox/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/checkbox/BasicDoc.vue';
+import DisabledDoc from '@/doc/checkbox/DisabledDoc.vue';
+import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
+import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
+import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
+import InvalidDoc from '@/doc/checkbox/InvalidDoc.vue';
+import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/checkbox/pt/index.vue';
 import ThemingDoc from '@/doc/checkbox/theming/index.vue';
 

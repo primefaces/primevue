@@ -11,21 +11,21 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/chart/AccessibilityDoc';
-import BasicDoc from '@/doc/chart/BasicDoc';
-import ChartJSDoc from '@/doc/chart/ChartJSDoc';
-import ComboDoc from '@/doc/chart/ComboDoc';
-import DoughnutDoc from '@/doc/chart/DoughnutDoc';
-import HorizontalBarDoc from '@/doc/chart/HorizontalBarDoc';
-import ImportDoc from '@/doc/chart/ImportDoc';
-import LineDoc from '@/doc/chart/LineDoc';
-import LineStylesDoc from '@/doc/chart/LineStylesDoc';
-import MultiAxisDoc from '@/doc/chart/MultiAxisDoc';
-import PieChartDoc from '@/doc/chart/PieChartDoc';
-import PolarAreaDoc from '@/doc/chart/PolarAreaDoc';
-import RadarDoc from '@/doc/chart/RadarDoc';
-import StackedBarDoc from '@/doc/chart/StackedBarDoc';
-import VerticalBarDoc from '@/doc/chart/VerticalBarDoc';
+import AccessibilityDoc from '@/doc/chart/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/chart/BasicDoc.vue';
+import ChartJSDoc from '@/doc/chart/ChartJSDoc.vue';
+import ComboDoc from '@/doc/chart/ComboDoc.vue';
+import DoughnutDoc from '@/doc/chart/DoughnutDoc.vue';
+import HorizontalBarDoc from '@/doc/chart/HorizontalBarDoc.vue';
+import ImportDoc from '@/doc/chart/ImportDoc.vue';
+import LineDoc from '@/doc/chart/LineDoc.vue';
+import LineStylesDoc from '@/doc/chart/LineStylesDoc.vue';
+import MultiAxisDoc from '@/doc/chart/MultiAxisDoc.vue';
+import PieChartDoc from '@/doc/chart/PieChartDoc.vue';
+import PolarAreaDoc from '@/doc/chart/PolarAreaDoc.vue';
+import RadarDoc from '@/doc/chart/RadarDoc.vue';
+import StackedBarDoc from '@/doc/chart/StackedBarDoc.vue';
+import VerticalBarDoc from '@/doc/chart/VerticalBarDoc.vue';
 import PTComponent from '@/doc/chart/pt/index.vue';
 import ThemingDoc from '@/doc/chart/theming/index.vue';
 

@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/tristatecheckbox/AccessibilityDoc';
-import BasicDoc from '@/doc/tristatecheckbox/BasicDoc';
-import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc';
-import ImportDoc from '@/doc/tristatecheckbox/ImportDoc';
-import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc';
+import AccessibilityDoc from '@/doc/tristatecheckbox/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/tristatecheckbox/BasicDoc.vue';
+import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc.vue';
+import ImportDoc from '@/doc/tristatecheckbox/ImportDoc.vue';
+import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc.vue';
 import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/tristatecheckbox/pt/index.vue';
 import ThemingDoc from '@/doc/tristatecheckbox/theming/index.vue';

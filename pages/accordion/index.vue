@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/accordion/AccessibilityDoc';
-import BasicDoc from '@/doc/accordion/BasicDoc';
+import AccessibilityDoc from '@/doc/accordion/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/accordion/BasicDoc.vue';
 import ControlledDoc from '@/doc/accordion/ControlledDoc.vue';
 import Disabled from '@/doc/accordion/DisabledDoc.vue';
-import DynamicDoc from '@/doc/accordion/DynamicDoc';
-import ImportDoc from '@/doc/accordion/ImportDoc';
+import DynamicDoc from '@/doc/accordion/DynamicDoc.vue';
+import ImportDoc from '@/doc/accordion/ImportDoc.vue';
 import MultipleDoc from '@/doc/accordion/MultipleDoc.vue';
 import TemplateDoc from '@/doc/accordion/TemplateDoc.vue';
 import PTComponent from '@/doc/accordion/pt/index.vue';

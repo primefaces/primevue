@@ -24,8 +24,8 @@
 
 <script>
 import CustomizationDoc from '@/doc/tailwind/CustomizationDoc.vue';
-import ExampleDoc from '@/doc/tailwind/ExampleDoc';
-import SetupDoc from '@/doc/tailwind/SetupDoc';
+import ExampleDoc from '@/doc/tailwind/ExampleDoc.vue';
+import SetupDoc from '@/doc/tailwind/SetupDoc.vue';
 
 export default {
     data() {

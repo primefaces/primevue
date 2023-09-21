@@ -3,16 +3,16 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/dialog/AccessibilityDoc';
-import BasicDoc from '@/doc/dialog/BasicDoc';
-import FooterDoc from '@/doc/dialog/FooterDoc';
-import ImportDoc from '@/doc/dialog/ImportDoc';
-import LongContentDoc from '@/doc/dialog/LongContentDoc';
-import MaximizableDoc from '@/doc/dialog/MaximizableDoc';
-import PositionDoc from '@/doc/dialog/PositionDoc';
-import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc';
-import TemplateDoc from '@/doc/dialog/TemplateDoc';
-import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc';
+import AccessibilityDoc from '@/doc/dialog/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/dialog/BasicDoc.vue';
+import FooterDoc from '@/doc/dialog/FooterDoc.vue';
+import ImportDoc from '@/doc/dialog/ImportDoc.vue';
+import LongContentDoc from '@/doc/dialog/LongContentDoc.vue';
+import MaximizableDoc from '@/doc/dialog/MaximizableDoc.vue';
+import PositionDoc from '@/doc/dialog/PositionDoc.vue';
+import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc.vue';
+import TemplateDoc from '@/doc/dialog/TemplateDoc.vue';
+import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc.vue';
 import PTComponent from '@/doc/dialog/pt/index.vue';
 import ThemingDoc from '@/doc/dialog/theming/index.vue';
 

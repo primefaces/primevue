@@ -22,14 +22,14 @@
 </template>
 
 <script>
-import BasicDoc from '@/doc/icons/BasicDoc';
-import ColorDoc from '@/doc/icons/ColorDoc';
-import ConstantsDoc from '@/doc/icons/ConstantsDoc';
-import DownloadDoc from '@/doc/icons/DownloadDoc';
-import ImportDoc from '@/doc/icons/ImportDoc';
-import ListDoc from '@/doc/icons/ListDoc';
-import SizeDoc from '@/doc/icons/SizeDoc';
-import SpinDoc from '@/doc/icons/SpinDoc';
+import BasicDoc from '@/doc/icons/BasicDoc.vue';
+import ColorDoc from '@/doc/icons/ColorDoc.vue';
+import ConstantsDoc from '@/doc/icons/ConstantsDoc.vue';
+import DownloadDoc from '@/doc/icons/DownloadDoc.vue';
+import ImportDoc from '@/doc/icons/ImportDoc.vue';
+import ListDoc from '@/doc/icons/ListDoc.vue';
+import SizeDoc from '@/doc/icons/SizeDoc.vue';
+import SpinDoc from '@/doc/icons/SpinDoc.vue';
 
 export default {
     data() {

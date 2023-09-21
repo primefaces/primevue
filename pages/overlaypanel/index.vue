@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/overlaypanel/AccessibilityDoc';
-import BasicDoc from '@/doc/overlaypanel/BasicDoc';
-import DataTableDoc from '@/doc/overlaypanel/DataTableDoc';
-import ImportDoc from '@/doc/overlaypanel/ImportDoc';
+import AccessibilityDoc from '@/doc/overlaypanel/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/overlaypanel/BasicDoc.vue';
+import DataTableDoc from '@/doc/overlaypanel/DataTableDoc.vue';
+import ImportDoc from '@/doc/overlaypanel/ImportDoc.vue';
 import PTComponent from '@/doc/overlaypanel/pt/index.vue';
 import ThemingDoc from '@/doc/overlaypanel/theming/index.vue';
 

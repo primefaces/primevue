@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/timeline/AccessibilityDoc';
-import AlignmentDoc from '@/doc/timeline/AlignmentDoc';
-import BasicDoc from '@/doc/timeline/BasicDoc';
-import HorizontalDoc from '@/doc/timeline/HorizontalDoc';
-import ImportDoc from '@/doc/timeline/ImportDoc';
-import OppositeDoc from '@/doc/timeline/OppositeDoc';
-import TemplateDoc from '@/doc/timeline/TemplateDoc';
+import AccessibilityDoc from '@/doc/timeline/AccessibilityDoc.vue';
+import AlignmentDoc from '@/doc/timeline/AlignmentDoc.vue';
+import BasicDoc from '@/doc/timeline/BasicDoc.vue';
+import HorizontalDoc from '@/doc/timeline/HorizontalDoc.vue';
+import ImportDoc from '@/doc/timeline/ImportDoc.vue';
+import OppositeDoc from '@/doc/timeline/OppositeDoc.vue';
+import TemplateDoc from '@/doc/timeline/TemplateDoc.vue';
 import PTComponent from '@/doc/timeline/pt/index.vue';
 import ThemingDoc from '@/doc/timeline/theming/index.vue';
 

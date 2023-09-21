@@ -10,10 +10,10 @@
     />
 </template>
 <script>
-import AccessibilityDoc from '@/doc/scrollpanel/AccessibilityDoc';
-import BasicDoc from '@/doc/scrollpanel/BasicDoc';
-import CustomDoc from '@/doc/scrollpanel/CustomDoc';
-import ImportDoc from '@/doc/scrollpanel/ImportDoc';
+import AccessibilityDoc from '@/doc/scrollpanel/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/scrollpanel/BasicDoc.vue';
+import CustomDoc from '@/doc/scrollpanel/CustomDoc.vue';
+import ImportDoc from '@/doc/scrollpanel/ImportDoc.vue';
 import PTComponent from '@/doc/scrollpanel/pt/index.vue';
 import ThemingDoc from '@/doc/scrollpanel/theming/index.vue';
 

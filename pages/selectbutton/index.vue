@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc';
-import BasicDoc from '@/doc/selectbutton/BasicDoc';
-import DisabledDoc from '@/doc/selectbutton/DisabledDoc';
-import ImportDoc from '@/doc/selectbutton/ImportDoc';
-import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
-import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
-import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
-import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/selectbutton/BasicDoc.vue';
+import DisabledDoc from '@/doc/selectbutton/DisabledDoc.vue';
+import ImportDoc from '@/doc/selectbutton/ImportDoc.vue';
+import InvalidDoc from '@/doc/selectbutton/InvalidDoc.vue';
+import MultipleDoc from '@/doc/selectbutton/MultipleDoc.vue';
+import TemplateDoc from '@/doc/selectbutton/TemplateDoc.vue';
+import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/selectbutton/pt/index.vue';
 import ThemingDoc from '@/doc/selectbutton/theming/index.vue';
 

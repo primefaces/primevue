@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/ripple/AccessibilityDoc';
+import AccessibilityDoc from '@/doc/ripple/AccessibilityDoc.vue';
 import ConfigurationDoc from '@/doc/ripple/ConfigurationDoc.vue';
-import CustomDoc from '@/doc/ripple/CustomDoc';
-import DefaultDoc from '@/doc/ripple/DefaultDoc';
-import ImportDoc from '@/doc/ripple/ImportDoc';
+import CustomDoc from '@/doc/ripple/CustomDoc.vue';
+import DefaultDoc from '@/doc/ripple/DefaultDoc.vue';
+import ImportDoc from '@/doc/ripple/ImportDoc.vue';
 import PTComponent from '@/doc/ripple/pt/index.vue';
 import ThemingDoc from '@/doc/ripple/theming/index.vue';
 

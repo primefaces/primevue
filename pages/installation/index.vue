@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import DownloadDoc from '@/doc/installation/DownloadDoc';
-import ExamplesDoc from '@/doc/installation/ExamplesDoc';
-import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc';
-import PluginDoc from '@/doc/installation/PluginDoc';
-import PropCasesDoc from '@/doc/installation/PropCasesDoc';
-import StyledModeDoc from '@/doc/installation/StyledModeDoc';
-import UnstyledModeDoc from '@/doc/installation/UnstyledModeDoc';
-import UsageDoc from '@/doc/installation/UsageDoc';
-import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc';
-import NuxtDoc from '@/doc/installation/videos/NuxtDoc';
+import DownloadDoc from '@/doc/installation/DownloadDoc.vue';
+import ExamplesDoc from '@/doc/installation/ExamplesDoc.vue';
+import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc.vue';
+import PluginDoc from '@/doc/installation/PluginDoc.vue';
+import PropCasesDoc from '@/doc/installation/PropCasesDoc.vue';
+import StyledModeDoc from '@/doc/installation/StyledModeDoc.vue';
+import UnstyledModeDoc from '@/doc/installation/UnstyledModeDoc.vue';
+import UsageDoc from '@/doc/installation/UsageDoc.vue';
+import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc.vue';
+import NuxtDoc from '@/doc/installation/videos/NuxtDoc.vue';
 
 export default {
     data() {

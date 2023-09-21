@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import ColorsDoc from '@/doc/accessibility/ColorsDoc';
-import FormControlsDoc from '@/doc/accessibility/FormControlsDoc';
-import IntroductionDoc from '@/doc/accessibility/IntroductionDoc';
-import SemanticHTMLDoc from '@/doc/accessibility/SemanticHTMLDoc';
-import WAIAriaDoc from '@/doc/accessibility/WAIAriaDoc';
-import WCAGDoc from '@/doc/accessibility/WCAGDoc';
+import ColorsDoc from '@/doc/accessibility/ColorsDoc.vue';
+import FormControlsDoc from '@/doc/accessibility/FormControlsDoc.vue';
+import IntroductionDoc from '@/doc/accessibility/IntroductionDoc.vue';
+import SemanticHTMLDoc from '@/doc/accessibility/SemanticHTMLDoc.vue';
+import WAIAriaDoc from '@/doc/accessibility/WAIAriaDoc.vue';
+import WCAGDoc from '@/doc/accessibility/WCAGDoc.vue';
 
 export default {
     data() {

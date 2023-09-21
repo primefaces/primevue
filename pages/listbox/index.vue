@@ -3,17 +3,17 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/listbox/AccessibilityDoc';
-import BasicDoc from '@/doc/listbox/BasicDoc';
-import DisabledDoc from '@/doc/listbox/DisabledDoc';
-import FilterDoc from '@/doc/listbox/FilterDoc';
-import GroupDoc from '@/doc/listbox/GroupDoc';
-import ImportDoc from '@/doc/listbox/ImportDoc';
-import InvalidDoc from '@/doc/listbox/InvalidDoc';
-import MultipleDoc from '@/doc/listbox/MultipleDoc';
-import TemplateDoc from '@/doc/listbox/TemplateDoc';
-import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc';
-import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/listbox/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/listbox/BasicDoc.vue';
+import DisabledDoc from '@/doc/listbox/DisabledDoc.vue';
+import FilterDoc from '@/doc/listbox/FilterDoc.vue';
+import GroupDoc from '@/doc/listbox/GroupDoc.vue';
+import ImportDoc from '@/doc/listbox/ImportDoc.vue';
+import InvalidDoc from '@/doc/listbox/InvalidDoc.vue';
+import MultipleDoc from '@/doc/listbox/MultipleDoc.vue';
+import TemplateDoc from '@/doc/listbox/TemplateDoc.vue';
+import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc.vue';
+import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/listbox/pt/index.vue';
 import ThemingDoc from '@/doc/listbox/theming/index.vue';
 

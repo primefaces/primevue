@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/dock/AccessibilityDoc';
-import AdvancedDoc from '@/doc/dock/AdvancedDoc';
-import BasicDoc from '@/doc/dock/BasicDoc';
-import ImportDoc from '@/doc/dock/ImportDoc';
-import RouterDoc from '@/doc/dock/RouterDoc';
+import AccessibilityDoc from '@/doc/dock/AccessibilityDoc.vue';
+import AdvancedDoc from '@/doc/dock/AdvancedDoc.vue';
+import BasicDoc from '@/doc/dock/BasicDoc.vue';
+import ImportDoc from '@/doc/dock/ImportDoc.vue';
+import RouterDoc from '@/doc/dock/RouterDoc.vue';
 import PTComponent from '@/doc/dock/pt/index.vue';
 import ThemingDoc from '@/doc/dock/theming/index.vue';
 

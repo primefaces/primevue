@@ -11,19 +11,19 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/multiselect/AccessibilityDoc';
-import BasicDoc from '@/doc/multiselect/BasicDoc';
-import ChipsDoc from '@/doc/multiselect/ChipsDoc';
-import DisabledDoc from '@/doc/multiselect/DisabledDoc';
-import FilterDoc from '@/doc/multiselect/FilterDoc';
-import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc';
-import GroupDoc from '@/doc/multiselect/GroupDoc';
-import ImportDoc from '@/doc/multiselect/ImportDoc';
-import InvalidDoc from '@/doc/multiselect/InvalidDoc';
-import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc';
-import TemplateDoc from '@/doc/multiselect/TemplateDoc';
-import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc';
-import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/multiselect/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/multiselect/BasicDoc.vue';
+import ChipsDoc from '@/doc/multiselect/ChipsDoc.vue';
+import DisabledDoc from '@/doc/multiselect/DisabledDoc.vue';
+import FilterDoc from '@/doc/multiselect/FilterDoc.vue';
+import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
+import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
+import ImportDoc from '@/doc/multiselect/ImportDoc.vue';
+import InvalidDoc from '@/doc/multiselect/InvalidDoc.vue';
+import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc.vue';
+import TemplateDoc from '@/doc/multiselect/TemplateDoc.vue';
+import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc.vue';
+import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/multiselect/pt/index.vue';
 import ThemingDoc from '@/doc/multiselect/theming/index.vue';
 

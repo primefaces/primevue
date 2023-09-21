@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ExampleDoc from '@/doc/bulma/ExampleDoc';
-import SetupDoc from '@/doc/bulma/SetupDoc';
+import ExampleDoc from '@/doc/bulma/ExampleDoc.vue';
+import SetupDoc from '@/doc/bulma/SetupDoc.vue';
 
 export default {
     data() {

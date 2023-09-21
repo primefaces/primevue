@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc';
-import BasicDoc from '@/doc/colorpicker/BasicDoc';
-import DisabledDoc from '@/doc/colorpicker/DisabledDoc';
-import FormatDoc from '@/doc/colorpicker/FormatDoc';
-import ImportDoc from '@/doc/colorpicker/ImportDoc';
-import InlineDoc from '@/doc/colorpicker/InlineDoc';
-import VeeValidateDoc from '@/doc/colorpicker/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/colorpicker/BasicDoc.vue';
+import DisabledDoc from '@/doc/colorpicker/DisabledDoc.vue';
+import FormatDoc from '@/doc/colorpicker/FormatDoc.vue';
+import ImportDoc from '@/doc/colorpicker/ImportDoc.vue';
+import InlineDoc from '@/doc/colorpicker/InlineDoc.vue';
+import VeeValidateDoc from '@/doc/colorpicker/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/colorpicker/pt/index.vue';
 import ThemingDoc from '@/doc/colorpicker/theming/index.vue';
 

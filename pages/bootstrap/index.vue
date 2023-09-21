@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ExampleDoc from '@/doc/bootstrap/ExampleDoc';
-import SetupDoc from '@/doc/bootstrap/SetupDoc';
+import ExampleDoc from '@/doc/bootstrap/ExampleDoc.vue';
+import SetupDoc from '@/doc/bootstrap/SetupDoc.vue';
 
 export default {
     data() {

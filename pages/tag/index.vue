@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/tag/AccessibilityDoc';
-import BasicDoc from '@/doc/tag/BasicDoc';
-import IconDoc from '@/doc/tag/IconDoc';
-import ImportDoc from '@/doc/tag/ImportDoc';
-import PillDoc from '@/doc/tag/PillDoc';
-import SeverityDoc from '@/doc/tag/SeverityDoc';
-import TemplateDoc from '@/doc/tag/TemplateDoc';
+import AccessibilityDoc from '@/doc/tag/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/tag/BasicDoc.vue';
+import IconDoc from '@/doc/tag/IconDoc.vue';
+import ImportDoc from '@/doc/tag/ImportDoc.vue';
+import PillDoc from '@/doc/tag/PillDoc.vue';
+import SeverityDoc from '@/doc/tag/SeverityDoc.vue';
+import TemplateDoc from '@/doc/tag/TemplateDoc.vue';
 import PTComponent from '@/doc/tag/pt/index.vue';
 import ThemingDoc from '@/doc/tag/theming/index.vue';
 

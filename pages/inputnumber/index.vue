@@ -11,18 +11,18 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/inputnumber/AccessibilityDoc';
-import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc';
-import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc';
-import DisabledDoc from '@/doc/inputnumber/DisabledDoc';
-import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc';
-import ImportDoc from '@/doc/inputnumber/ImportDoc';
-import InvalidDoc from '@/doc/inputnumber/InvalidDoc';
-import LocaleDoc from '@/doc/inputnumber/LocaleDoc';
-import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc';
-import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc';
-import VerticalDoc from '@/doc/inputnumber/VerticalDoc';
-import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/inputnumber/AccessibilityDoc.vue';
+import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc.vue';
+import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
+import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
+import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
+import LocaleDoc from '@/doc/inputnumber/LocaleDoc.vue';
+import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc.vue';
+import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc.vue';
+import VerticalDoc from '@/doc/inputnumber/VerticalDoc.vue';
+import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/inputnumber/pt/index.vue';
 import ThemingDoc from '@/doc/inputnumber/theming/index.vue';
 

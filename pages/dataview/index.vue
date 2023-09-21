@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/dataview/AccessibilityDoc';
-import BasicDoc from '@/doc/dataview/BasicDoc';
-import ImportDoc from '@/doc/dataview/ImportDoc';
-import LayoutDoc from '@/doc/dataview/LayoutDoc';
-import LoadingDoc from '@/doc/dataview/LoadingDoc';
-import PaginationDoc from '@/doc/dataview/PaginationDoc';
-import PrimeFlexDoc from '@/doc/dataview/PrimeFlexDoc';
-import SortingDoc from '@/doc/dataview/SortingDoc';
+import AccessibilityDoc from '@/doc/dataview/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/dataview/BasicDoc.vue';
+import ImportDoc from '@/doc/dataview/ImportDoc.vue';
+import LayoutDoc from '@/doc/dataview/LayoutDoc.vue';
+import LoadingDoc from '@/doc/dataview/LoadingDoc.vue';
+import PaginationDoc from '@/doc/dataview/PaginationDoc.vue';
+import PrimeFlexDoc from '@/doc/dataview/PrimeFlexDoc.vue';
+import SortingDoc from '@/doc/dataview/SortingDoc.vue';
 import PTComponent from '@/doc/dataview/pt/index.vue';
 import ThemingDoc from '@/doc/dataview/theming/index.vue';
 

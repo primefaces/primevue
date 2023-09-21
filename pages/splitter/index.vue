@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/splitter/AccessibilityDoc';
+import AccessibilityDoc from '@/doc/splitter/AccessibilityDoc.vue';
 import HorizontalDoc from '@/doc/splitter/HorizontalDoc.vue';
-import ImportDoc from '@/doc/splitter/ImportDoc';
+import ImportDoc from '@/doc/splitter/ImportDoc.vue';
 import NestedDoc from '@/doc/splitter/NestedDoc.vue';
 import SizeDoc from '@/doc/splitter/SizeDoc.vue';
 import VerticalDoc from '@/doc/splitter/VerticalDoc.vue';

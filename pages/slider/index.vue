@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/slider/AccessibilityDoc';
-import BasicDoc from '@/doc/slider/BasicDoc';
-import ImportDoc from '@/doc/slider/ImportDoc';
-import InputDoc from '@/doc/slider/InputDoc';
-import RangeDoc from '@/doc/slider/RangeDoc';
-import StepDoc from '@/doc/slider/StepDoc';
-import VerticalDoc from '@/doc/slider/VerticalDoc';
+import AccessibilityDoc from '@/doc/slider/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/slider/BasicDoc.vue';
+import ImportDoc from '@/doc/slider/ImportDoc.vue';
+import InputDoc from '@/doc/slider/InputDoc.vue';
+import RangeDoc from '@/doc/slider/RangeDoc.vue';
+import StepDoc from '@/doc/slider/StepDoc.vue';
+import VerticalDoc from '@/doc/slider/VerticalDoc.vue';
 import PTComponent from '@/doc/slider/pt/index.vue';
 import ThemingDoc from '@/doc/slider/theming/index.vue';
 

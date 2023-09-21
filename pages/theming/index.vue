@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import ArchitectureDoc from '@/doc/theming/ArchitectureDoc';
-import BuiltInThemesDoc from '@/doc/theming/BuiltInThemesDoc';
-import CSSModulesDoc from '@/doc/theming/CSSModulesDoc';
-import CustomThemeDoc from '@/doc/theming/CustomThemeDoc';
-import PrimeFlexDoc from '@/doc/theming/PrimeFlexDoc';
-import ScaleDoc from '@/doc/theming/ScaleDoc';
-import ScopedCSSDoc from '@/doc/theming/ScopedCSSDoc';
-import UtilsDoc from '@/doc/theming/UtilsDoc';
-import CSSVariablesDoc from '../../doc/theming/CSSVariablesDoc';
-import SwitchThemesDoc from '../../doc/theming/SwitchThemesDoc';
+import ArchitectureDoc from '@/doc/theming/ArchitectureDoc.vue';
+import BuiltInThemesDoc from '@/doc/theming/BuiltInThemesDoc.vue';
+import CSSModulesDoc from '@/doc/theming/CSSModulesDoc.vue';
+import CSSVariablesDoc from '@/doc/theming/CSSVariablesDoc.vue';
+import CustomThemeDoc from '@/doc/theming/CustomThemeDoc.vue';
+import PrimeFlexDoc from '@/doc/theming/PrimeFlexDoc.vue';
+import ScaleDoc from '@/doc/theming/ScaleDoc.vue';
+import ScopedCSSDoc from '@/doc/theming/ScopedCSSDoc.vue';
+import SwitchThemesDoc from '@/doc/theming/SwitchThemesDoc.vue';
+import UtilsDoc from '@/doc/theming/UtilsDoc.vue';
 
 export default {
     data() {

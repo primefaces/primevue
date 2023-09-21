@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/progressspinner/AccessibilityDoc';
-import BasicDoc from '@/doc/progressspinner/BasicDoc';
-import CustomDoc from '@/doc/progressspinner/CustomDoc';
-import ImportDoc from '@/doc/progressspinner/ImportDoc';
+import AccessibilityDoc from '@/doc/progressspinner/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/progressspinner/BasicDoc.vue';
+import CustomDoc from '@/doc/progressspinner/CustomDoc.vue';
+import ImportDoc from '@/doc/progressspinner/ImportDoc.vue';
 import PTComponent from '@/doc/progressspinner/pt/index.vue';
 import ThemingDoc from '@/doc/progressspinner/theming/index.vue';
 export default {

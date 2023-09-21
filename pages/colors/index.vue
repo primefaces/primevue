@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import OverviewDoc from '@/doc/colors/OverviewDoc';
-import PaletteDoc from '@/doc/colors/PaletteDoc';
-import SurfacesDoc from '@/doc/colors/SurfacesDoc';
+import OverviewDoc from '@/doc/colors/OverviewDoc.vue';
+import PaletteDoc from '@/doc/colors/PaletteDoc.vue';
+import SurfacesDoc from '@/doc/colors/SurfacesDoc.vue';
 
 export default {
     data() {

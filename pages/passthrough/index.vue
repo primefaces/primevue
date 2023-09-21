@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import BasicDoc from '@/doc/passthrough/BasicDoc';
-import CustomCSSDoc from '@/doc/passthrough/CustomCSSDoc';
-import GlobalDoc from '@/doc/passthrough/GlobalDoc';
-import LifecycleDoc from '@/doc/passthrough/LifecycleDoc';
-import UsePassThroughDoc from '../../doc/passthrough/UsePassThroughDoc.vue';
+import BasicDoc from '@/doc/passthrough/BasicDoc.vue';
+import CustomCSSDoc from '@/doc/passthrough/CustomCSSDoc.vue';
+import GlobalDoc from '@/doc/passthrough/GlobalDoc.vue';
+import LifecycleDoc from '@/doc/passthrough/LifecycleDoc.vue';
+import UsePassThroughDoc from '@/doc/passthrough/UsePassThroughDoc.vue';
 
 export default {
     data() {

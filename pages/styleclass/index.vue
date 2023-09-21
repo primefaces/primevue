@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import AnimationDoc from '@/doc/styleclass/AnimationDoc';
-import ImportDoc from '@/doc/styleclass/ImportDoc';
-import ToggleClass from '@/doc/styleclass/ToggleClassDoc';
+import AnimationDoc from '@/doc/styleclass/AnimationDoc.vue';
+import ImportDoc from '@/doc/styleclass/ImportDoc.vue';
+import ToggleClass from '@/doc/styleclass/ToggleClassDoc.vue';
 
 export default {
     data() {

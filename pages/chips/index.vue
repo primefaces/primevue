@@ -3,15 +3,15 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/chips/AccessibilityDoc';
-import BasicDoc from '@/doc/chips/BasicDoc';
-import DisabledDoc from '@/doc/chips/DisabledDoc';
-import FloatLabelDoc from '@/doc/chips/FloatLabelDoc';
-import ImportDoc from '@/doc/chips/ImportDoc';
-import InvalidDoc from '@/doc/chips/InvalidDoc';
-import SeparatorDoc from '@/doc/chips/SeparatorDoc';
-import TemplateDoc from '@/doc/chips/TemplateDoc';
-import VeeValidateDoc from '@/doc/chips/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/chips/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/chips/BasicDoc.vue';
+import DisabledDoc from '@/doc/chips/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/chips/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/chips/ImportDoc.vue';
+import InvalidDoc from '@/doc/chips/InvalidDoc.vue';
+import SeparatorDoc from '@/doc/chips/SeparatorDoc.vue';
+import TemplateDoc from '@/doc/chips/TemplateDoc.vue';
+import VeeValidateDoc from '@/doc/chips/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/chips/pt/index.vue';
 import ThemingDoc from '@/doc/chips/theming/index.vue';
 

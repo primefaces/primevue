@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc';
-import BasicDoc from '@/doc/cascadeselect/BasicDoc';
-import DisabledDoc from '@/doc/cascadeselect/DisabledDoc';
-import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc';
-import ImportDoc from '@/doc/cascadeselect/ImportDoc';
-import InvalidDoc from '@/doc/cascadeselect/InvalidDoc';
-import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc';
-import TemplateDoc from '@/doc/cascadeselect/TemplateDoc';
-import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc';
+import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/cascadeselect/BasicDoc.vue';
+import DisabledDoc from '@/doc/cascadeselect/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
+import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
+import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
+import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc.vue';
+import TemplateDoc from '@/doc/cascadeselect/TemplateDoc.vue';
+import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/cascadeselect/pt/index.vue';
 import ThemingDoc from '@/doc/cascadeselect/theming/index.vue';
 

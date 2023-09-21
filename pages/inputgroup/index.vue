@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import BasicDoc from '@/doc/inputgroup/BasicDoc';
-import ButtonDoc from '@/doc/inputgroup/ButtonDoc';
-import CheckboxDoc from '@/doc/inputgroup/CheckboxDoc';
-import MultipleDoc from '@/doc/inputgroup/MultipleDoc';
+import BasicDoc from '@/doc/inputgroup/BasicDoc.vue';
+import ButtonDoc from '@/doc/inputgroup/ButtonDoc.vue';
+import CheckboxDoc from '@/doc/inputgroup/CheckboxDoc.vue';
+import MultipleDoc from '@/doc/inputgroup/MultipleDoc.vue';
 
 export default {
     data() {

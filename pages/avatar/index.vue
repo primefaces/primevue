@@ -12,11 +12,11 @@
 
 <script>
 import AccessibilityDoc from '@/doc/avatar/AccessibilityDoc';
-import AvatarGroupDoc from '@/doc/avatar/AvatarGroupDoc';
-import IconDoc from '@/doc/avatar/IconDoc';
-import ImageDoc from '@/doc/avatar/ImageDoc';
-import ImportDoc from '@/doc/avatar/ImportDoc';
-import LabelDoc from '@/doc/avatar/LabelDoc';
+import AvatarGroupDoc from '@/doc/avatar/AvatarGroupDoc.vue';
+import IconDoc from '@/doc/avatar/IconDoc.vue';
+import ImageDoc from '@/doc/avatar/ImageDoc.vue';
+import ImportDoc from '@/doc/avatar/ImportDoc.vue';
+import LabelDoc from '@/doc/avatar/LabelDoc.vue';
 import PTComponent from '@/doc/avatar/pt/index.vue';
 import ThemingDoc from '@/doc/avatar/theming/index.vue';
 
