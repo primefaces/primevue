@@ -1479,7 +1479,7 @@ export default {
             return null;
         },
         onRowMouseDown(event) {
-            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowreordericon') event.currentTarget.draggable = true;
+            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowreordericon' || DomHandler.getAttribute(event.target.parentElement, 'data-pc-section') === 'rowreordericon') event.currentTarget.draggable = true;
             else event.currentTarget.draggable = false;
         },
         onRowDragStart(e) {
