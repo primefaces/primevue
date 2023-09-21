@@ -6,7 +6,6 @@
     transition: border-color .3s;
     height: 3rem;
     padding: 0 .75rem;
-    font-family: var(--font-family);
 
     &:hover {
         border-color: var(--primary-color);
@@ -39,7 +38,6 @@
             top: 0;
             border-radius: 0;
             height: auto;
-            font-family: var(--font-family);
             width: auto;
 
             &:first-child {
