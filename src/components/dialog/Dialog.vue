@@ -226,28 +226,22 @@ export default {
             }
         },
         alignOverlay() {
-            if (this.appendTo) {
-                DomHandler.absolutePosition(this.$refs.dialog, this.$refs.mask);
-                this.$refs.dialog.style.minWidth = DomHandler.getOuterWidth(this.$refs.mask) + 'px';
-            }
-            else {
-                DomHandler.relativePosition(this.$refs.dialog, this.$refs.mask);
-            }
+            DomHandler.relativePosition(this.$refs.dialog, this.$refs.mask);
         },
         appendContainer() {
             if (this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.appendChild(this.$refs.dialog);
+                    document.body.appendChild(this.$refs.mask);
                 else
-                    document.getElementById(this.appendTo).appendChild(this.$refs.dialog);
+                    document.getElementById(this.appendTo).appendChild(this.$refs.mask);
             }
         },
         restoreAppend() {
             if (this.$refs.overlay && this.appendTo) {
                 if (this.appendTo === 'body')
-                    document.body.removeChild(this.$refs.dialog);
+                    document.body.removeChild(this.$refs.mask);
                 else
-                    document.getElementById(this.appendTo).removeChild(this.$refs.dialog);
+                    document.getElementById(this.appendTo).removeChild(this.$refs.mask);
             }
         }
     },

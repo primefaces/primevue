@@ -55,6 +55,14 @@
                         <Button label="Yes" icon="pi pi-check" @click="closeModal" autofocus />
                     </template>
                 </Dialog>
+                <Button label="Show append to body" icon="pi pi-external-link" @click="openModal2" />
+                <Dialog header="Header" :visible.sync="displayModal2" :containerStyle="{width: '20vw'}" :modal="true" append-to="body">
+                    <p class="m-0">Lorem ipsum dolor sit amet</p>
+                    <template #footer>
+                        <Button label="No" icon="pi pi-times" @click="closeModal2" class="p-button-text"/>
+                        <Button label="Yes" icon="pi pi-check" @click="closeModal2" autofocus />
+                    </template>
+                </Dialog>
 
                 <h5>Confirmation</h5>
                 <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
@@ -124,6 +132,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayModal: false,
+            displayModal2: false,
             displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
@@ -148,6 +157,12 @@ export default {
         },
         closeModal() {
             this.displayModal = false;
+        },
+        openModal2() {
+            this.displayModal2 = true;
+        },
+        closeModal2() {
+            this.displayModal2 = false;
         },
         openConfirmation() {
             this.displayConfirmation = true;
