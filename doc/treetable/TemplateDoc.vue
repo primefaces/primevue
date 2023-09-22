@@ -36,7 +36,8 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<TreeTable :value="nodes">
+                basic: `
+<TreeTable :value="nodes">
     <template #header>
         <div class="text-xl font-bold">File Viewer</div>
     </template>
@@ -57,7 +58,8 @@ export default {
         </div>
     </template>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes">
             <template #header>
@@ -97,7 +99,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable :value="nodes">
             <template #header>

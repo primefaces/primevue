@@ -16,10 +16,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `<i class="pi pi-check"></i>
+                basic: `
+<i class="pi pi-check"></i>
 <i class="pi pi-times"></i>
 <span class="pi pi-search"></span>
-<span class="pi pi-user"></span>`
+<span class="pi pi-user"></span>
+`
             }
         };
     }

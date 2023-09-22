@@ -21,8 +21,10 @@ export default {
             selectedCountry: null,
             filteredCountries: null,
             code: {
-                basic: `<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />`,
-                options: `<template>
+                basic: `
+<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
     </div>
@@ -57,7 +59,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
     </div>

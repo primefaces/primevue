@@ -123,7 +123,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<span id="dd1"></span>Options</span>
+                basic: `
+<span id="dd1"></span>Options</span>
 <CascadeSelect aria-labelledby="dd1" />
 
 <CascadeSelect aria-label="Options" />`

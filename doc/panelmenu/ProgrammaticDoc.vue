@@ -161,8 +161,10 @@ export default {
                 }
             ],
             code: {
-                basic: `<PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />`,
-                options: `<template>
+                basic: `
+<PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />`,
+                options: `
+<template>
     <div class="card flex flex-column align-items-center">
         <div class="mb-3">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
@@ -344,7 +346,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column align-items-center">
         <div class="mb-3">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />

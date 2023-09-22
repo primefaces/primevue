@@ -79,7 +79,8 @@ export default {
             products: null,
             expandedRows: [],
             code: {
-                basic: `<DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
+                basic: `
+<DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
     <template #header>
         <div class="flex flex-wrap justify-content-end gap-2">
@@ -136,7 +137,8 @@ export default {
         </div>
     </template>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
@@ -264,7 +266,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">

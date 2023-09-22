@@ -15,8 +15,10 @@ export default {
             chartData: null,
             chartOptions: null,
             code: {
-                basic: `<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />`,
-                options: `<template>
+                basic: `
+<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
     </div>
@@ -88,7 +90,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
     </div>

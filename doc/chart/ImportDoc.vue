@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Chart from 'primevue/chart';`
+                basic: `
+import Chart from 'primevue/chart';
+`
             }
         };
     }

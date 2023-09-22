@@ -141,7 +141,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Menubar
+                basic: `
+<Menubar
     :model="items"
     :pt="{
         action: ({ props, state, context }) => ({
@@ -149,7 +150,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card relative z-2">
         <Menubar
             :model="items"
@@ -293,7 +295,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card relative z-2">
         <Menubar
             :model="items"

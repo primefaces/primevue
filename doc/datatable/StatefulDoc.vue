@@ -103,7 +103,8 @@ export default {
             ],
             statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'],
             code: {
-                basic: `<DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
+                basic: `
+<DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
     stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
     selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
     <template #header>
@@ -160,7 +161,8 @@ export default {
     </Column>
     <template #empty> No customers found. </template>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
@@ -284,7 +286,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"

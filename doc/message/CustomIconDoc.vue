@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Message severity="info" icon="pi pi-send">Info Message Content</Message>`,
-                options: `<template>
+                basic: `
+<Message severity="info" icon="pi pi-send">Info Message Content</Message>`,
+                options: `
+<template>
     <div class="card">
         <Message severity="info" icon="pi pi-send">Info Message Content</Message>
     </div>
@@ -22,7 +24,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Message severity="info" icon="pi pi-send">Info Message Content</Message>
     </div>

@@ -17,12 +17,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Tag icon="pi pi-user" value="Primary"></Tag>
+                basic: `
+<Tag icon="pi pi-user" value="Primary"></Tag>
 <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
 <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
 <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
 <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Tag icon="pi pi-user" value="Primary"></Tag>
         <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
@@ -35,7 +37,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Tag icon="pi pi-user" value="Primary"></Tag>
         <Tag icon="pi pi-check" severity="success" value="Success"></Tag>

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import FileUpload from 'primevue/fileupload';`
+                basic: `
+import FileUpload from 'primevue/fileupload';
+`
             }
         };
     }

@@ -140,9 +140,11 @@ export default {
                 }
             ],
             code: {
-                basic: `<p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
+                basic: `
+<p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
 <ContextMenu global :model="items" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card text-center">
         <p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
         <ContextMenu global :model="items" />
@@ -283,7 +285,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card text-center">
         <p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
         <ContextMenu global :model="items" />

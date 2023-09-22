@@ -44,7 +44,8 @@ export default {
                 { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
             ],
             code: {
-                basic: `<SplitButton label="Save"
+                basic: `
+<SplitButton label="Save"
     @click="save"
     :model="items"
     :pt="{
@@ -53,7 +54,8 @@ export default {
         }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <SplitButton
             label="Save"
@@ -107,7 +109,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <SplitButton
             label="Save"

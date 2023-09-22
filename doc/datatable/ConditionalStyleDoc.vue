@@ -27,7 +27,8 @@ export default {
         return {
             products: null,
             code: {
-                basic: `<DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
+                basic: `
+<DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
@@ -39,7 +40,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
@@ -90,7 +92,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>

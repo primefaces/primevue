@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<div class="p-inputgroup flex-1">
+                basic: `
+<div class="p-inputgroup flex-1">
     <Button label="Search" />
     <InputText placeholder="Keyword" />
 </div>
@@ -42,7 +43,8 @@ export default {
     <InputText placeholder="Vote" />
     <Button icon="pi pi-times" severity="danger" />
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <Button label="Search" />
@@ -61,7 +63,8 @@ export default {
         </div>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column md:flex-row gap-3">
         <div class="p-inputgroup flex-1">
             <Button label="Search" />

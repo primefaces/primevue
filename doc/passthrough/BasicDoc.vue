@@ -48,7 +48,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Panel header="Header" toggleable
+                basic: `
+<Panel header="Header" toggleable
     :pt="{
         header: (options) => ({
             id: 'myPanelHeader',
@@ -72,7 +73,8 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 </Panel>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Panel header="Header" toggleable
             :pt="{
@@ -103,7 +105,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Panel header="Header" toggleable
             :pt="{

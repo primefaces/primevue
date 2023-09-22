@@ -14,8 +14,10 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />`,
-                options: `<template>
+                basic: `
+<InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
     </div>

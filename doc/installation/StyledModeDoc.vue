@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `//theme
-import "primevue/resources/themes/lara-light-indigo/theme.css";`
+                basic: `
+//theme
+import "primevue/resources/themes/lara-light-indigo/theme.css";
+`
             }
         };
     }

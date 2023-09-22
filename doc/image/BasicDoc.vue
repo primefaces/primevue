@@ -13,13 +13,16 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg" alt="Image" width="250" />`,
-                options: `<template>
+                basic: `
+<Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg" alt="Image" width="250" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg" alt="Image" width="250" />
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg" alt="Image" width="250" />
     </div>

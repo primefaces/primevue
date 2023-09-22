@@ -31,7 +31,8 @@ export default {
                 { label: 'Settings', icon: 'pi pi-fw pi-cog', route: '/tabmenu/settings' }
             ],
             code: {
-                basic: `<TabMenu v-model:activeIndex="active" :model="items">
+                basic: `
+<TabMenu v-model:activeIndex="active" :model="items">
     <template #item="{ label, item, props }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter.space="($event) => routerProps.navigate($event)">
@@ -42,7 +43,8 @@ export default {
     </template>
 </TabMenu>
 <router-view />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TabMenu v-model:activeIndex="active" :model="items">
             <template #item="{ label, item, props }">
@@ -102,7 +104,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TabMenu v-model:activeIndex="active" :model="items">
             <template #item="{ label, item, props }">

@@ -21,9 +21,11 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
+                basic: `
+<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
     :maxSelectedLabels="3" class="p-invalid w-full md:w-20rem" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"  
             :maxSelectedLabels="3" class="p-invalid w-full md:w-20rem" />
@@ -46,7 +48,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
             :maxSelectedLabels="3" class="p-invalid w-full md:w-20rem" />

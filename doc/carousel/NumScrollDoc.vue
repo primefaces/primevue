@@ -52,7 +52,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
+                basic: `
+<Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
     <template #item="slotProps">
         <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
             <div class="mb-3">
@@ -71,7 +72,8 @@ export default {
         </div>
     </template>
 </Carousel>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
             <template #item="slotProps">
@@ -143,7 +145,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
             <template #item="slotProps">

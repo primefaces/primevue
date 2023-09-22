@@ -49,7 +49,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Steps :model="items" aria-label="Form Steps" :readonly="false"
+                basic: `
+<Steps :model="items" aria-label="Form Steps" :readonly="false"
     :pt="{
         menuitem: ({ context }) => ({
             class: isActive(context.item) && 'p-highlight p-steps-current'
@@ -68,7 +69,8 @@ export default {
         </span>
     </template>
 </Steps>`,
-                options: `<template>
+                options: `
+<template>
     <div>        
         <div class="card">
             <Steps :model="items" aria-label="Form Steps" :readonly="false"
@@ -125,7 +127,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div>
         <div class="card">
             <Steps :model="items" aria-label="Form Steps" :readonly="false"

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Timeline from 'primevue/timeline';`
+                basic: `
+import Timeline from 'primevue/timeline';
+`
             }
         };
     }

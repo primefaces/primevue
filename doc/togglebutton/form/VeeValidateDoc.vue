@@ -42,14 +42,16 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<div class="card flex justify-content-center">
+                basic: `
+<div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column gap-2">
         <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
         <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Submit" />
     </form>
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
@@ -89,7 +91,8 @@ export default {
     },
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />

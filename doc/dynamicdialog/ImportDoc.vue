@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import DynamicDialog from 'primevue/dynamicdialog';`
+                basic: `
+import DynamicDialog from 'primevue/dynamicdialog';
+`
             }
         };
     }

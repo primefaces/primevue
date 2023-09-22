@@ -8,8 +8,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Accordion from 'primevue/accordion';
-import AccordionTab from 'primevue/accordiontab';`
+                basic: `
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
+`
             }
         };
     }

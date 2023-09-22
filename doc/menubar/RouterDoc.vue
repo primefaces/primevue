@@ -158,7 +158,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Menubar :model="items">
+                basic: `
+<Menubar :model="items">
     <template #item="{ label, item, props, root, hasSubmenu }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -173,7 +174,8 @@ export default {
         </a>
     </template>
 </Menubar>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #item="{ label, item, props, root, hasSubmenu }">
@@ -329,7 +331,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #item="{ label, item, props, root, hasSubmenu }">

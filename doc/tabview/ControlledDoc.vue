@@ -39,7 +39,8 @@ export default {
         return {
             active: 0,
             code: {
-                basic: `<div class="py-2">
+                basic: `
+<div class="py-2">
     <Button @click="active = 0" text label="Activate 1st" />
     <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
     <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
@@ -65,7 +66,8 @@ export default {
         </p>
     </TabPanel>
 </TabView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <div class="py-2">
             <Button @click="active = 0" text label="Activate 1st" />
@@ -105,7 +107,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div class="py-2">
             <Button @click="active = 0" text label="Activate 1st" />

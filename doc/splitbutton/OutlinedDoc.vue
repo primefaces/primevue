@@ -43,14 +43,16 @@ export default {
                 { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
             ],
             code: {
-                basic: `<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
+                basic: `
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="secondary" class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="success" class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="info" class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="warning" class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="help" class="mb-2"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="danger" class="mb-2"></SplitButton>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
@@ -100,7 +102,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>

@@ -8,8 +8,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Avatar from 'primevue/avatar';
-import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping`
+                basic: `
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping
+`
             }
         };
     }

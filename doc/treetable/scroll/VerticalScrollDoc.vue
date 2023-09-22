@@ -20,12 +20,14 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<TreeTable :value="nodes" scrollable scrollHeight="200px">
+                basic: `
+<TreeTable :value="nodes" scrollable scrollHeight="200px">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" scrollable scrollHeight="200px">
             <Column field="name" header="Name" expander></Column>
@@ -49,7 +51,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" scrollable scrollHeight="200px">
             <Column field="name" header="Name" expander></Column>

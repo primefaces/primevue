@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Dock from 'primevue/dock';`
+                basic: `
+import Dock from 'primevue/dock';
+`
             }
         };
     }

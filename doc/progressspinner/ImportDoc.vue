@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ProgressSpinner from 'primevue/progressspinner';`
+                basic: `
+import ProgressSpinner from 'primevue/progressspinner';
+`
             }
         };
     }

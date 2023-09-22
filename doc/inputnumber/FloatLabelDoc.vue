@@ -17,11 +17,13 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<span class="p-float-label">
+                basic: `
+<span class="p-float-label">
     <InputNumber id="number-input" v-model="value" />
     <label for="number-input">Number</label>
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <InputNumber id="number-input" v-model="value" />
@@ -39,7 +41,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <InputNumber id="number-input" v-model="value" />

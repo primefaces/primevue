@@ -24,12 +24,14 @@ export default {
                 { icon: 'pi pi-align-justify', value: 'Justify' }
             ],
             code: {
-                basic: `<SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
+                basic: `
+<SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
     <template #option="slotProps">
         <i :class="slotProps.option.icon"></i>
     </template>
 </SelectButton>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
@@ -54,7 +56,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">

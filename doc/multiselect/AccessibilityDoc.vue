@@ -251,7 +251,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<span id="dd1"></span>Options</span>
+                basic: `
+<span id="dd1"></span>Options</span>
 <MultiSelect aria-labelledby="dd1" />
 
 <MultiSelect aria-label="Options" />`

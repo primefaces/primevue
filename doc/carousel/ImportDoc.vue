@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Carousel from 'primevue/carousel';`
+                basic: `
+import Carousel from 'primevue/carousel';
+`
             }
         };
     }

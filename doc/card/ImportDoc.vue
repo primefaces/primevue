@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Card from 'primevue/card';`
+                basic: `
+import Card from 'primevue/card';
+`
             }
         };
     }

@@ -25,7 +25,8 @@ export default {
         return {
             blocked: false,
             code: {
-                basic: `<div class="mb-3">
+                basic: `
+<div class="mb-3">
     <Button label="Block" @click="blocked = true" class="mr-2"></Button>
     <Button label="Unblock" @click="blocked = false"></Button>
 </div>
@@ -37,7 +38,8 @@ export default {
         </p>
     </Panel>
 </BlockUI>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <div class="mb-3">
             <Button label="Block" @click="blocked = true" class="mr-2"></Button>
@@ -63,7 +65,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div class="mb-3">
             <Button label="Block" @click="blocked = true" class="mr-2"></Button>

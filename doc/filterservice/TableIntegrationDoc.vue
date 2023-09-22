@@ -48,7 +48,8 @@ export default {
             ],
             loading: true,
             code: {
-                basic: `<DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading">
+                basic: `
+<DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading">
     <template #empty> No customers found. </template>
     <template #loading> Loading customers data. Please wait. </template>
     <Column field="name" header="Name" :filterMatchModeOptions="matchModeOptions">
@@ -69,7 +70,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading">
             <template #empty> No customers found. </template>
@@ -136,7 +138,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading">
             <template #empty> No customers found. </template>

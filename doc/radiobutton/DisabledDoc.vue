@@ -14,8 +14,10 @@ export default {
         return {
             checked: true,
             code: {
-                basic: `<RadioButton v-model="checked" disabled :value="checked" />`,
-                options: `<template>
+                basic: `
+<RadioButton v-model="checked" disabled :value="checked" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <RadioButton v-model="checked" disabled :value="checked" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <RadioButton v-model="checked" disabled :value="checked" />
     </div>

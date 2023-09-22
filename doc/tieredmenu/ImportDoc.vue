@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import TieredMenu from 'primevue/tieredmenu';`
+                basic: `
+import TieredMenu from 'primevue/tieredmenu';
+`
             }
         };
     }

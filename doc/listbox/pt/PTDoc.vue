@@ -29,7 +29,8 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `<Listbox
+                basic: `
+<Listbox
     v-model="selectedCity"
     :options="cities"
     optionLabel="name"
@@ -40,7 +41,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Listbox
             v-model="selectedCity"
@@ -72,7 +74,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Listbox
             v-model="selectedCity"

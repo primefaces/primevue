@@ -14,8 +14,10 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `<RadioButton class="p-invalid" />`,
-                options: `<template>
+                basic: `
+<RadioButton class="p-invalid" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <RadioButton class="p-invalid" />
     </div>
@@ -23,7 +25,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <RadioButton class="p-invalid" />
     </div>

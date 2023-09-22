@@ -4,7 +4,7 @@
             PrimeVue offers a built-in Tailwind theme to get you started quickly. The default values related to the component are displayed below. The component can easily be styled with your own design based on Tailwind utilities, see the
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
@@ -15,8 +15,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export default {
+                basic: `export default {
     radiobutton: {
         root: {
             class: ['relative inline-flex cursor-pointer select-none align-bottom', 'w-6 h-6']
@@ -50,7 +49,8 @@ export default {
 `
             },
             code2: {
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">

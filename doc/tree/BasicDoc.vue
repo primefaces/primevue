@@ -15,8 +15,10 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<Tree :value="nodes" class="w-full md:w-30rem"></Tree>`,
-                options: `<template>
+                basic: `
+<Tree :value="nodes" class="w-full md:w-30rem"></Tree>`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" class="w-full md:w-30rem"></Tree>
     </div>
@@ -36,7 +38,8 @@ export default {
     } 
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" class="w-full md:w-30rem"></Tree>
     </div>

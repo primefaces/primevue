@@ -49,7 +49,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<label for="price">Price</label>
+                basic: `
+<label for="price">Price</label>
 <InputNumber inputId="price" />
 
 <span id="label_number">Number</span>

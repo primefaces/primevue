@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Chips from 'primevue/chips';`
+                basic: `
+import Chips from 'primevue/chips';
+`
             }
         };
     }

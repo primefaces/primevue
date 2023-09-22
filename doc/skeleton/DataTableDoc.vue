@@ -34,7 +34,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<DataTable :value="products">
+                basic: `
+<DataTable :value="products">
     <Column field="code" header="Code">
         <template #body>
             <Skeleton></Skeleton>
@@ -56,7 +57,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable :value="products">
             <Column field="code" header="Code">
@@ -92,7 +94,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable :value="products">
             <Column field="code" header="Code">

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Toast from 'primevue/toast';`
+                basic: `
+import Toast from 'primevue/toast';
+`
             }
         };
     }

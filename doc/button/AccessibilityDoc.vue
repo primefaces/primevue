@@ -40,7 +40,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Button icon="pi pi-check" aria-label="Submit" />
+                basic: `
+<Button icon="pi pi-check" aria-label="Submit" />
 
 <Button icon="pi pi-check" label="Submit" />
 

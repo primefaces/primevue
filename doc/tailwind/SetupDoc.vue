@@ -20,16 +20,19 @@ export default {
     data() {
         return {
             code1: {
-                basic: `import {createApp} from "vue";
+                basic: `
+import {createApp} from "vue";
 import PrimeVue from "primevue/config";
 import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 
-app.use(PrimeVue, { unstyled: true, pt: Tailwind });`
+app.use(PrimeVue, { unstyled: true, pt: Tailwind });
+`
             },
             code2: {
-                basic: `export default {
+                basic: `
+export default {
     ...
     content: [
         "./index.html",
@@ -37,7 +40,8 @@ app.use(PrimeVue, { unstyled: true, pt: Tailwind });`
         "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
     ],
     ...
-}`
+}
+`
             }
         };
     }

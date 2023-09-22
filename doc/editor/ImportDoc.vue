@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Editor from 'primevue/editor';`
+                basic: `
+import Editor from 'primevue/editor';
+`
             }
         };
     }

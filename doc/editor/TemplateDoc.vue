@@ -22,7 +22,8 @@ export default {
         return {
             value: '<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>',
             code: {
-                basic: `<Editor v-model="value" editorStyle="height: 320px">
+                basic: `
+<Editor v-model="value" editorStyle="height: 320px">
     <template v-slot:toolbar>
         <span class="ql-formats">
             <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
@@ -31,7 +32,8 @@ export default {
         </span>
     </template>
 </Editor>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px">
             <template v-slot:toolbar>
@@ -54,7 +56,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px">
             <template v-slot:toolbar>

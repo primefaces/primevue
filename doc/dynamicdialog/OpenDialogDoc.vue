@@ -10,7 +10,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ProductListDemo from './ProductListDemo';
+                basic: `
+import ProductListDemo from './ProductListDemo';
 
 export default {
     methods:{

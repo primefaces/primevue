@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<AutoComplete disabled placeholder="Disabled" />`,
-                options: `<template>
+                basic: `
+<AutoComplete disabled placeholder="Disabled" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <AutoComplete disabled placeholder="Disabled" />
     </div>
@@ -23,7 +25,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <AutoComplete disabled placeholder="Disabled" />
     </div>

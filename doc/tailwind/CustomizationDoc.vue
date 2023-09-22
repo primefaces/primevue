@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `import {createApp} from "vue";
+                basic: `
+import {createApp} from "vue";
 import PrimeVue from "primevue/config";
 import Tailwind from "primevue/passthrough/tailwind";
 
@@ -60,10 +61,12 @@ const MyDesignSystem = {
     }
 }
 
-app.use(PrimeVue, { unstyled: true, pt: MyDesignSystem });`
+app.use(PrimeVue, { unstyled: true, pt: MyDesignSystem });
+`
             },
             code2: {
-                basic: `import {createApp} from "vue";
+                basic: `
+import {createApp} from "vue";
 import PrimeVue from "primevue/config";
 import { usePassThrough } from "primevue/passthrough";
 import Tailwind from "primevue/passthrough/tailwind";
@@ -86,7 +89,8 @@ const CustomTailwind = usePassThrough(
     }
 );
 
-app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
+app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });
+`
             }
         };
     }

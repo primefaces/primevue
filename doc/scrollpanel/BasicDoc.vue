@@ -26,13 +26,15 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ScrollPanel style="width: 100%; height: 200px">
+                basic: `
+<ScrollPanel style="width: 100%; height: 200px">
     <p>
         Lorem ipsum dolor ...
     </p>
 </ScrollPanel>
                 `,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <ScrollPanel style="width: 100%; height: 200px">
             <p>
@@ -53,7 +55,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <ScrollPanel style="width: 100%; height: 200px">
             <p>

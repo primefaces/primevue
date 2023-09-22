@@ -39,10 +39,12 @@ export default {
                 { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
             ],
             code: {
-                basic: `<SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+                basic: `
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
@@ -88,7 +90,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>

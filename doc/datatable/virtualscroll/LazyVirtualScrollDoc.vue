@@ -62,7 +62,8 @@ export default {
             lazyLoading: false,
             loadLazyTimeout: null,
             code: {
-                basic: `<DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
+                basic: `
+<DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
         :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
     <Column field="id" header="Id" style="width: 20%">
         <template #loading>
@@ -100,7 +101,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
                 :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
@@ -184,7 +186,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
                 :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">

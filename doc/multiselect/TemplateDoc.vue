@@ -41,7 +41,8 @@ export default {
                 { name: 'United States', code: 'US' }
             ],
             code: {
-                basic: `<MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
+                basic: `
+<MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
     <template #option="slotProps">
         <div class="flex align-items-center">
             <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
@@ -54,7 +55,8 @@ export default {
         </div>
     </template>
 </MultiSelect>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
             <template #option="slotProps">
@@ -93,7 +95,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
             <template #option="slotProps">

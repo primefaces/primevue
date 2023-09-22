@@ -8,10 +8,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `import DataTable from 'primevue/datatable';
+                basic: `
+import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
-import Row from 'primevue/row';                   // optional`
+import Row from 'primevue/row';                   // optional
+`
             }
         };
     }

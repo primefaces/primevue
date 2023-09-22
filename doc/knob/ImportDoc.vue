@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Knob from 'primevue/knob';`
+                basic: `
+import Knob from 'primevue/knob';
+`
             }
         };
     }

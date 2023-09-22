@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Toast position="bottom-center" group="bc">
+                basic: `
+<Toast position="bottom-center" group="bc">
     <template #message="slotProps">
         <div class="flex flex-column align-items-center" style="flex: 1">
             <div class="text-center">
@@ -42,7 +43,8 @@ export default {
     </template>
 </Toast>
 <Button @click="showTemplate" label="Confirm" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc">
             <template #message="slotProps">
@@ -71,7 +73,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc">
             <template #message="slotProps">

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ContextMenu from 'primevue/contextmenu';`
+                basic: `
+import ContextMenu from 'primevue/contextmenu';
+`
             }
         };
     }

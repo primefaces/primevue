@@ -26,7 +26,8 @@ export default {
         return {
             products: null,
             code: {
-                basic: `<Inplace @open="loadData">
+                basic: `
+<Inplace @open="loadData">
     <template #display> View Data </template>
     <template #content>
         <DataTable :value="products">
@@ -37,7 +38,8 @@ export default {
         </DataTable>
     </template>
 </Inplace>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Inplace @open="loadData">
             <template #display> View Data </template>
@@ -69,7 +71,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Inplace @open="loadData">
             <template #display> View Data </template>

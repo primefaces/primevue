@@ -30,7 +30,8 @@ export default {
             selectedProduct: null,
             metaKey: true,
             code: {
-                basic: `<InputSwitch v-model="metaKey" inputId="input-metakey" />
+                basic: `
+<InputSwitch v-model="metaKey" inputId="input-metakey" />
 
 <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
@@ -38,7 +39,8 @@ export default {
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
             <InputSwitch v-model="metaKey" inputId="input-metakey" />
@@ -69,7 +71,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
             <InputSwitch v-model="metaKey" inputId="input-metakey" />

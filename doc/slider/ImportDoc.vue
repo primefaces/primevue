@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Slider from 'primevue/slider';`
+                basic: `
+import Slider from 'primevue/slider';
+`
             }
         };
     }

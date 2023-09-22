@@ -19,10 +19,12 @@ export default {
             products: null,
             columns: null,
             code: {
-                basic: `<DataTable :value="products" tableStyle="min-width: 50rem">
+                basic: `
+<DataTable :value="products" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
@@ -53,7 +55,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>

@@ -10,10 +10,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `import PrimeVue from 'primevue/config';
+                basic: `
+import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
-app.use(PrimeVue, { /* options */ });`
+app.use(PrimeVue, { /* options */ });
+`
             }
         };
     }

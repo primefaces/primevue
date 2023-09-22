@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import RadioButton from 'primevue/radiobutton';`
+                basic: `
+import RadioButton from 'primevue/radiobutton';
+`
             }
         };
     }

@@ -44,7 +44,8 @@ export default {
     }"
     class="pi pi-calendar text-4xl"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center align-items-center gap-2">
         // component
         <Badge
@@ -66,7 +67,8 @@ export default {
         />
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center align-items-center gap-2">
         // component
         <Badge

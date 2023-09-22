@@ -42,7 +42,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Galleria
+                basic: `
+<Galleria
     :value="images"
     :responsiveOptions="responsiveOptions"
     :numVisible="5"
@@ -57,7 +58,8 @@ export default {
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
     </template>
 </Galleria>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card md:flex md:justify-content-center">
         <Galleria
             :value="images"
@@ -105,7 +107,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card md:flex md:justify-content-center">
         <Galleria
             :value="images"

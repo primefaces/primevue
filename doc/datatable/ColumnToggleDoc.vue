@@ -26,7 +26,8 @@ export default {
             columns: null,
             products: null,
             code: {
-                basic: `<DataTable :value="products" tableStyle="min-width: 50rem">
+                basic: `
+<DataTable :value="products" tableStyle="min-width: 50rem">
     <template #header>
         <div style="text-align:left">
             <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"    
@@ -36,7 +37,8 @@ export default {
     <Column field="code" header="Code" />
     <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div>
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>
@@ -81,7 +83,8 @@ export default {
 }
 <\/script>
 `,
-                composition: `<template>
+                composition: `
+<template>
     <div>
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>

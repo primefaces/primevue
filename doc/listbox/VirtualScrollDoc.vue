@@ -18,9 +18,11 @@ export default {
             selectedItem: null,
             items: Array.from({ length: 100000 }, (_, i) => ({ label: `Item #${i}`, value: i })),
             code: {
-                basic: `<Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+                basic: `
+<Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"    
             :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
@@ -37,7 +39,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
             :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />

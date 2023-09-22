@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />`,
-                options: `<template>
+                basic: `
+<MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />`,
+                options: `
+<template>
     <div class="flex justify-content-center">
         <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />
     </div>
@@ -23,7 +25,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="flex justify-content-center">
         <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />
     </div>

@@ -136,8 +136,10 @@ export default {
                 }
             ],
             code: {
-                basic: `<Menubar :model="items" />`,
-                options: `<template>
+                basic: `
+<Menubar :model="items" />`,
+                options: `
+<template>
     <div class="card relative z-2">
         <Menubar :model="items" />
     </div>
@@ -274,7 +276,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card relative z-2">
         <Menubar :model="items" />
     </div>

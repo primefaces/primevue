@@ -14,8 +14,10 @@ export default {
         return {
             value: [20, 80],
             code: {
-                basic: `<Slider v-model="value" range class="w-14rem" />`,
-                options: `<template>
+                basic: `
+<Slider v-model="value" range class="w-14rem" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Slider v-model="value" range class="w-14rem" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Slider v-model="value" range class="w-14rem" />
     </div>

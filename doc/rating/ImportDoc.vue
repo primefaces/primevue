@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Rating from 'primevue/rating';`
+                basic: `
+import Rating from 'primevue/rating';
+`
             }
         };
     }

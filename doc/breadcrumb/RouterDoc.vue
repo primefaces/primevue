@@ -34,7 +34,8 @@ export default {
             },
             items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }],
             code: {
-                basic: `<Breadcrumb :home="home" :model="items">
+                basic: `
+<Breadcrumb :home="home" :model="items">
     <template #item="{ label, item, props }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -48,7 +49,8 @@ export default {
         </a>
     </template>
 </Breadcrumb>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ label, item, props }">
@@ -86,7 +88,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ label, item, props }">

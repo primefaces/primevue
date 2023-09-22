@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import PanelMenu from 'primevue/panelmenu';`
+                basic: `
+import PanelMenu from 'primevue/panelmenu';
+`
             }
         };
     }

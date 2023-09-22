@@ -48,7 +48,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `<Message
+                basic: `
+<Message
     :style="{
         border: 'solid #696cff',
         borderWidth: '0 0 0 6px',
@@ -62,7 +63,8 @@ export default {
         <div class="ml-2">Always bet on Prime.</div>
     </div>
 </Message>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Message
             :style="{
@@ -80,7 +82,8 @@ export default {
         </Message>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Message
             :style="{
@@ -100,7 +103,8 @@ export default {
 </template>`
             },
             code2: {
-                basic: `<Message style="border: none">
+                basic: `
+<Message style="border: none">
     <template #container>
         <div class="flex lg:align-items-start flex-column lg:flex-row p-4 bg-blue-100 border-round border-1 border-blue-300">
             <div class="flex align-items-start">
@@ -117,7 +121,8 @@ export default {
         </div>
     </template>
 </Message>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Message style="border: none">
             <template #container>
@@ -138,7 +143,8 @@ export default {
         </Message>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Message style="border: none">
             <template #container>

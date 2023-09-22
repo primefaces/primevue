@@ -36,7 +36,8 @@ export default {
                 { field: 'price', header: 'Price' }
             ],
             code: {
-                basic: `<DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+                basic: `
+<DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
         <template #body="{ data, field }">
             {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
@@ -51,7 +52,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card p-fluid">
         <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
@@ -133,7 +135,8 @@ export default {
     padding-bottom: 0;
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card p-fluid">
         <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">

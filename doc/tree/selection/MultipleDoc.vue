@@ -26,9 +26,11 @@ export default {
             nodes: null,
             selectedKey: null,
             code: {
-                basic: `<Tree v-model:selectionKeys="selectedKey" :value="nodes" class="w-full md:w-30rem" 
+                basic: `
+<Tree v-model:selectionKeys="selectedKey" :value="nodes" class="w-full md:w-30rem" 
     selectionMode="multiple" :metaKeySelection="checked"></Tree>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-column align-items-center justify-content-center">
         <div class="flex align-items-center mb-4 gap-2">
             <InputSwitch v-model="checked" inputId="input-metakey" />
@@ -54,7 +56,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column align-items-center justify-content-center">
         <div class="flex align-items-center mb-4 gap-2">
             <InputSwitch v-model="checked" inputId="input-metakey" />

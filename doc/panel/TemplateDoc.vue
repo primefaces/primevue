@@ -60,7 +60,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Panel header="Header" toggleable>
+                basic: `
+<Panel header="Header" toggleable>
     <template #icons>
         <button class="p-panel-header-icon p-link mr-2" @click="toggle">
             <span class="pi pi-cog"></span>
@@ -72,7 +73,8 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 </Panel>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Toast />
         <Panel header="Header" toggleable>
@@ -142,7 +144,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Toast />
         <Panel header="Header" toggleable>

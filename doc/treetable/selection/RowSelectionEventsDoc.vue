@@ -21,13 +21,15 @@ export default {
             nodes: null,
             selectedKey: null,
             code: {
-                basic: `<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
+                basic: `
+<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
     @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
             @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect">
@@ -62,7 +64,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
             @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect">

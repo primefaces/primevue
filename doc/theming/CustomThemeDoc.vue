@@ -59,7 +59,8 @@ sass --update themes/mytheme/theme.scss:themes/mytheme/theme.css
         `
             },
             code2: {
-                basic: `import './assets/theme.css';
+                basic: `
+import './assets/theme.css';
         `
             }
         };

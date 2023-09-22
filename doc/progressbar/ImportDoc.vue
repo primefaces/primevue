@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ProgressBar from 'primevue/progressbar';`
+                basic: `
+import ProgressBar from 'primevue/progressbar';
+`
             }
         };
     }

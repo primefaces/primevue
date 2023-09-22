@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ScrollPanel from 'primevue/scrollpanel';`
+                basic: `
+import ScrollPanel from 'primevue/scrollpanel';
+`
             }
         };
     }

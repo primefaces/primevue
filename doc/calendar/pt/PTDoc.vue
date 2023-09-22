@@ -21,7 +21,8 @@ export default {
         return {
             date: null,
             code: {
-                basic: `<Calendar
+                basic: `
+<Calendar
     v-model="date"
     showIcon
     :pt="{
@@ -31,7 +32,8 @@ export default {
         }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Calendar
             v-model="date"
@@ -55,7 +57,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Calendar
             v-model="date"

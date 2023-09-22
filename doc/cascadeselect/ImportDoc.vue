@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import CascadeSelect from 'primevue/cascadeselect';`
+                basic: `
+import CascadeSelect from 'primevue/cascadeselect';
+`
             }
         };
     }

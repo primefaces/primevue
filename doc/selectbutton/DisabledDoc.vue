@@ -21,9 +21,11 @@ export default {
                 { name: 'Option 2', value: 2, constant: true }
             ],
             code: {
-                basic: `<SelectButton v-model="value" :options="options" disabled />
+                basic: `
+<SelectButton v-model="value" :options="options" disabled />
 <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
         <SelectButton v-model="value" :options="options" disabled />
         <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
@@ -45,7 +47,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
         <SelectButton v-model="value" :options="options" disabled />
         <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />

@@ -21,7 +21,8 @@ export default {
         return {
             text: null,
             code: {
-                basic: `<Inplace :closable="true">
+                basic: `
+<Inplace :closable="true">
     <template #display>
         {{ text || 'Click to Edit' }}
     </template>
@@ -29,7 +30,8 @@ export default {
         <InputText v-model="text" autofocus />
     </template>
 </Inplace>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Inplace :closable="true">
             <template #display>
@@ -51,7 +53,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Inplace :closable="true">
             <template #display>

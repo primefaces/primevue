@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import InputText from 'primevue/inputtext';`
+                basic: `
+import InputText from 'primevue/inputtext';
+`
             }
         };
     }

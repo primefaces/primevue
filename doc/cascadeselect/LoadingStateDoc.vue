@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />`,
-                options: `<template>
+                basic: `
+<CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />
     </div>
@@ -23,7 +25,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />
     </div>

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Menu from 'primevue/menu';`
+                basic: `
+import Menu from 'primevue/menu';
+`
             }
         };
     }

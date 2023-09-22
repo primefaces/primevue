@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <div class="overflow-auto" style="max-height: 40rem">
-            <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+            <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         </div>
         <p class="mt-6">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
@@ -17,8 +17,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export default {
+                basic: `export default {
     speeddial: {
         root: 'absolute flex',
         button: {
@@ -138,7 +137,8 @@ export default {
 `
             },
             code2: {
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
             <SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />

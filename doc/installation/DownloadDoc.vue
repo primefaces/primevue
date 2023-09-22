@@ -10,11 +10,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `// with npm
+                basic: `
+// with npm
 npm install primevue
 
 // with yarn
-yarn add primevue`
+yarn add primevue
+`
             }
         };
     }

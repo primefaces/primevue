@@ -11,11 +11,13 @@ export default {
     data() {
         return {
             code1: {
-                basic: `app.use(PrimeVue, {
+                basic: `
+app.use(PrimeVue, {
     csp: {
         nonce: '...'
     }
-});`
+});
+`
             }
         };
     }

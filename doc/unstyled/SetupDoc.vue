@@ -15,15 +15,17 @@ export default {
     data() {
         return {
             code1: {
-                basic: `import { createApp } from "vue";
+                basic: `
+import { createApp } from "vue";
 import PrimeVue from "primevue/config";
 const app = createApp(App);
 
-app.use(PrimeVue, { unstyled: true });`
+app.use(PrimeVue, { unstyled: true });
+`
             },
             code2: {
-                basic: `<Button label="Check" icon="pi pi-check" unstyled></Button>
-`
+                basic: `
+<Button label="Check" icon="pi pi-check" unstyled></Button>`
             }
         };
     }

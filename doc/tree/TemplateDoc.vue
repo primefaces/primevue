@@ -42,7 +42,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Tree :value="nodes" class="w-full md:w-30rem">
+                basic: `
+<Tree :value="nodes" class="w-full md:w-30rem">
     <template #default="slotProps">
         <b>{{ slotProps.node.label }}</b>
     </template>
@@ -50,7 +51,8 @@ export default {
         <a :href="slotProps.node.data">{{ slotProps.node.label }}</a>
     </template>
 </Tree>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" class="w-full md:w-30rem">
             <template #default="slotProps">
@@ -93,7 +95,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Tree :value="nodes" class="w-full md:w-30rem">
             <template #default="slotProps">

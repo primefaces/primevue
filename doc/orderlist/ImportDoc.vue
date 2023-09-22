@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import OrderList from 'primevue/orderlist';`
+                basic: `
+import OrderList from 'primevue/orderlist';
+`
             }
         };
     }

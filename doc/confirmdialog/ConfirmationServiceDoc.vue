@@ -14,14 +14,16 @@ export default {
     data() {
         return {
             code1: {
-                basic: `import {createApp} from 'vue';
+                basic: `
+import {createApp} from 'vue';
 import ConfirmationService from 'primevue/confirmationservice';
 
 const app = createApp(App);
 app.use(ConfirmationService);`
             },
             code2: {
-                basic: `import { useConfirm } from "primevue/useconfirm";
+                basic: `
+import { useConfirm } from "primevue/useconfirm";
 
 const confirm = useConfirm();`
             }

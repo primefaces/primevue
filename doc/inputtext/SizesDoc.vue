@@ -18,10 +18,12 @@ export default {
             value2: null,
             value3: null,
             code: {
-                basic: `<InputText v-model="value1" type="text" size="small" placeholder="Small" />
+                basic: `
+<InputText v-model="value1" type="text" size="small" placeholder="Small" />
 <InputText v-model="value2" type="text" placeholder="Normal" />
 <InputText v-model="value3" type="text" size="large" placeholder="Large" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-column align-items-center gap-3">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
@@ -40,7 +42,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column align-items-center gap-3">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />

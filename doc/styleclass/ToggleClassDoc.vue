@@ -14,9 +14,11 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
+                basic: `
+<Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
 <InputText />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-column align-items-center gap-3">
         <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
         <InputText />
@@ -25,7 +27,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column align-items-center gap-3">
         <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
         <InputText />

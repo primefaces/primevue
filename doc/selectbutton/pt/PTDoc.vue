@@ -22,7 +22,8 @@ export default {
             value: 'Off',
             options: ['Off', 'On'],
             code: {
-                basic: `<SelectButton
+                basic: `
+<SelectButton
     v-model="value"
     :options="options"
     aria-labelledby="basic"
@@ -32,7 +33,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <SelectButton
             v-model="value"
@@ -57,7 +59,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <SelectButton
             v-model="value"

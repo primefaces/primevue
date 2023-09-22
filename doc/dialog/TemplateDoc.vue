@@ -38,7 +38,8 @@ export default {
         return {
             visible: false,
             code: {
-                basic: `<Button label="Reservation" icon="pi pi-external-link" @click="visible = true" />
+                basic: `
+<Button label="Reservation" icon="pi pi-external-link" @click="visible = true" />
 
 <Dialog v-model:visible="visible" modal header="Header" :style="{ width: '40vw' }">
     <template #container="slotProps">
@@ -63,7 +64,8 @@ export default {
         </div>
     </template>
 </Dialog>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Button label="Reservation" icon="pi pi-external-link" @click="visible = true" />
 
@@ -102,7 +104,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Button label="Reservation" icon="pi pi-external-link" @click="visible = true" />
 

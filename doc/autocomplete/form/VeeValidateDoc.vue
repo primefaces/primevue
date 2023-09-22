@@ -44,7 +44,8 @@ export default {
         return {
             items: [],
             code: {
-                basic: `<template>
+                basic: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <label for="ac">Value</label>
@@ -54,7 +55,8 @@ export default {
         </form>
     </div>
 </template>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <label for="ac">Value</label>
@@ -105,7 +107,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <label for="ac">Value</label>

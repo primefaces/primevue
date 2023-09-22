@@ -14,8 +14,10 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<Password v-model="value" toggleMask />`,
-                options: `<template>
+                basic: `
+<Password v-model="value" toggleMask />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Password v-model="value" toggleMask />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Password v-model="value" toggleMask />
     </div>

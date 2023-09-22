@@ -17,8 +17,10 @@ export default {
                 cutout: '60%'
             },
             code: {
-                basic: `<Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />`,
-                options: `<template>
+                basic: `
+<Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
     </div>
@@ -55,7 +57,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
     </div>

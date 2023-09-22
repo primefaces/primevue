@@ -11,12 +11,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Tag icon="pi pi-user" value="Waiting"
+                basic: `
+<Tag icon="pi pi-user" value="Waiting"
     :pt="{
         root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Tag icon="pi pi-user" value="Waiting"
             :pt="{
@@ -25,7 +27,8 @@ export default {
         />
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Tag icon="pi pi-user" value="Waiting"
             :pt="{

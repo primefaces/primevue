@@ -25,7 +25,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<FileUpload
+                basic: `
+<FileUpload
     name="demo[]"
     url="./upload.php"
     @upload="onAdvancedUpload($event)"
@@ -40,7 +41,8 @@ export default {
         <p>Drag and drop files to here to upload.</p>
     </template>
 </FileUpload>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <FileUpload
             name="demo[]"
@@ -70,7 +72,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <FileUpload
             name="demo[]"

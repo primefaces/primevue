@@ -45,7 +45,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Accordion class="accordion-custom" :activeIndex="0">
+                basic: `
+<Accordion class="accordion-custom" :activeIndex="0">
     <AccordionTab>
         <template #header>
             <i class="pi pi-calendar"></i>
@@ -78,7 +79,8 @@ export default {
         </p>
     </AccordionTab>
 </Accordion>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Accordion class="accordion-custom" :activeIndex="0">
             <AccordionTab>
@@ -133,7 +135,8 @@ export default {
     margin: 0;
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Accordion class="accordion-custom" :activeIndex="0">
             <AccordionTab>

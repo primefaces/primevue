@@ -14,8 +14,10 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<Chips v-model="value" separator=","  />`,
-                options: `<template>
+                basic: `
+<Chips v-model="value" separator=","  />`,
+                options: `
+<template>
     <div class="card p-fluid">
         <Chips v-model="value" separator="," />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card p-fluid">
         <Chips v-model="value" separator=","  />
     </div>

@@ -29,13 +29,15 @@ export default {
             loading: false,
             totalRecords: 0,
             code: {
-                basic: `<TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+                basic: `
+<TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
     @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
             @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
@@ -134,7 +136,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div>
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
             @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">

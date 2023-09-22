@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import SelectButton from 'primevue/selectbutton';`
+                basic: `
+import SelectButton from 'primevue/selectbutton';
+`
             }
         };
     }

@@ -19,7 +19,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<Chips
+                basic: `
+<Chips
     v-model="value"
     :pt="{
         root: { class: 'flex' },
@@ -27,7 +28,8 @@ export default {
         token: { class: 'bg-primary' }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Chips
             v-model="value"
@@ -49,7 +51,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Chips
             v-model="value"

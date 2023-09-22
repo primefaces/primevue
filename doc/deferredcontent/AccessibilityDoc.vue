@@ -17,7 +17,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+                basic: `
+<DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
     Content
 </DeferredContent>`
             }

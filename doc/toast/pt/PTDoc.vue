@@ -17,14 +17,16 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Toast
+                basic: `
+<Toast
     group="pt"
     :pt="{
         container: { class: 'bg-yellow-100' }
     }"
 />
 <Button label="Show" @click="show()" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Toast
             group="pt"
@@ -45,7 +47,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Toast
             group="pt"

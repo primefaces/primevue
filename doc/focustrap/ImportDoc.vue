@@ -8,7 +8,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `import FocusTrap from 'primevue/focustrap';
+                basic: `
+import FocusTrap from 'primevue/focustrap';
 
 app.directive('focustrap', FocusTrap);`
             }

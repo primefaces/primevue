@@ -14,8 +14,10 @@ export default {
         return {
             value: '',
             code: {
-                basic: `<Editor v-model="value" editorStyle="height: 320px" />`,
-                options: `<template>
+                basic: `
+<Editor v-model="value" editorStyle="height: 320px" />`,
+                options: `
+<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Editor v-model="value" editorStyle="height: 320px" />
     </div>

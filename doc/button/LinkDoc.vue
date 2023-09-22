@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Button label="Link" link />`,
-                options: `<template>
+                basic: `
+<Button label="Link" link />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Button label="Link" link />
     </div>
@@ -22,7 +24,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Button label="Link" link />
     </div>

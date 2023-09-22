@@ -18,14 +18,16 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Toast />
+                basic: `
+<Toast />
 <div class="flex flex-wrap gap-2">
     <Button label="Success" severity="success" @click="showSuccess" />
     <Button label="Info" severity="info" @click="showInfo" />
     <Button label="Warn" severity="warning" @click="showWarn" />
     <Button label="Error" severity="danger" @click="showError" />
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
@@ -55,7 +57,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">

@@ -30,7 +30,8 @@ export default {
         return {
             customers: null,
             code: {
-                basic: `<DataTable :value="customers" scrollable scrollHeight="400px">
+                basic: `
+<DataTable :value="customers" scrollable scrollHeight="400px">
     <Column field="id" header="Id" footer="Id" style="min-width: 100px"></Column>
     <Column field="name" header="Name" footer="Name" style="min-width: 200px"></Column>
     <Column field="country.name" header="Country" footer="Country" style="min-width: 200px"></Column>
@@ -45,7 +46,8 @@ export default {
     <Column field="activity" header="Activity" footer="Activity" style="min-width: 200px"></Column>
     <Column field="representative.name" header="Representative" footer="Representative" style="min-width: 200px"></Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataTable :value="customers" scrollable scrollHeight="400px">
             <Column field="id" header="Id" footer="Id" style="min-width: 100px"></Column>
@@ -86,7 +88,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataTable :value="customers" scrollable scrollHeight="400px">
             <Column field="id" header="Id" footer="Id" style="min-width: 100px"></Column>

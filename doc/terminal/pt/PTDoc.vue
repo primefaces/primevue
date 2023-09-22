@@ -23,7 +23,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Terminal
+                basic: `
+<Terminal
     welcomeMessage="Welcome to PrimeVue"
     prompt="primevue $"
     :pt="{
@@ -33,7 +34,8 @@ export default {
         response: { class: 'text-purple-500' }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
         <Terminal
@@ -87,7 +89,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
         <Terminal

@@ -134,7 +134,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<MegaMenu
+                basic: `
+<MegaMenu
     :model="items"
     :pt="{
         action: ({ props, state, context }) => ({
@@ -142,7 +143,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <MegaMenu
             :model="items"
@@ -279,7 +281,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <MegaMenu
             :model="items"

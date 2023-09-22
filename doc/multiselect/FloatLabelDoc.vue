@@ -24,11 +24,13 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `<span class="p-float-label">
+                basic: `
+<span class="p-float-label">
     <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-20rem" />
     <label for="ms-cities">MultiSelect</label>
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-20rem" />
@@ -53,7 +55,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-20rem" />

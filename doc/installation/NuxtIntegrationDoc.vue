@@ -19,17 +19,20 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default defineNuxtConfig({
+                basic: `
+export default defineNuxtConfig({
     css: [
         "primevue/resources/themes/lara-light-blue/theme.css"
     ],
 	build: {
 		transpile: ["primevue"]
 	}
-})`
+})
+`
             },
             code2: {
-                basic: `import { defineNuxtPlugin } from "#app";
+                basic: `
+import { defineNuxtPlugin } from "#app";
 import PrimeVue from "primevue/config";
 import Button from "primevue/button";
 
@@ -37,7 +40,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
     nuxtApp.vueApp.component("Button", Button);
     //other components that you need
-});`
+});
+`
             }
         };
     }

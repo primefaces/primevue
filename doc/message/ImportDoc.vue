@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Message from 'primevue/message';`
+                basic: `
+import Message from 'primevue/message';
+`
             }
         };
     }

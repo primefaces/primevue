@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ToggleButton from 'primevue/togglebutton';`
+                basic: `
+import ToggleButton from 'primevue/togglebutton';
+`
             }
         };
     }

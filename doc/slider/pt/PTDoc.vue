@@ -19,7 +19,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<Slider
+                basic: `
+<Slider
     v-model="value"
     :pt="{
         root: { class: 'w-14rem' },
@@ -27,7 +28,8 @@ export default {
         range: { class: 'bg-orange-400' }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Slider
             v-model="value"
@@ -49,7 +51,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Slider
             v-model="value"

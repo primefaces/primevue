@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ConfirmPopup from 'primevue/confirmpopup';`
+                basic: `
+import ConfirmPopup from 'primevue/confirmpopup';
+`
             }
         };
     }

@@ -14,8 +14,10 @@ export default {
         return {
             value: 50,
             code: {
-                basic: `<InputNumber v-model="value" disabled prefix="%" />`,
-                options: `<template>
+                basic: `
+<InputNumber v-model="value" disabled prefix="%" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" disabled prefix="%" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" disabled prefix="%" />
     </div>

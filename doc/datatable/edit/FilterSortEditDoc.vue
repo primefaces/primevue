@@ -33,7 +33,8 @@ export default {
                 price: { value: null, matchMode: FilterMatchMode.STARTS_WITH }
             },
             code: {
-                basic: `<DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
+                basic: `
+<DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
         @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
         <template #filter="{ filterModel, filterCallback }">
@@ -44,7 +45,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card p-fluid">
         <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
                 @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
@@ -119,7 +121,8 @@ export default {
     padding-bottom: 0;
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card p-fluid">
         <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
                 @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">

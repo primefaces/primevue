@@ -10,7 +10,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `npm install primeicons`
+                basic: `
+npm install primeicons
+`
             }
         };
     }

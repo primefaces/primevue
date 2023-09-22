@@ -22,12 +22,14 @@ export default {
                 { title: 'Title 3', content: 'Content 3' }
             ],
             code: {
-                basic: `<Accordion :activeIndex="0">
+                basic: `
+<Accordion :activeIndex="0">
     <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </AccordionTab>
 </Accordion>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Accordion :activeIndex="0">
             <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
@@ -50,7 +52,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Accordion :activeIndex="0">
             <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">

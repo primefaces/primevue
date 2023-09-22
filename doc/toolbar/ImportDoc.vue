@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Toolbar from 'primevue/toolbar';`
+                basic: `
+import Toolbar from 'primevue/toolbar';
+`
             }
         };
     }

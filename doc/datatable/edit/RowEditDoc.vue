@@ -57,7 +57,8 @@ export default {
                 { label: 'Out of Stock', value: 'OUTOFSTOCK' }
             ],
             code: {
-                basic: `<DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
+                basic: `
+<DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
         @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
     <Column field="code" header="Code" style="width: 20%">
         <template #editor="{ data, field }">
@@ -91,7 +92,8 @@ export default {
     </Column>
     <Column :rowEditor="true" style="width: 10%; min-width: 8rem" bodyStyle="text-align:center"></Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card p-fluid">
         <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
                 @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
@@ -182,7 +184,8 @@ export default {
     padding-bottom: 0.6rem;
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card p-fluid">
         <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
                 @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">

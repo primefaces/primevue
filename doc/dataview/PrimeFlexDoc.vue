@@ -14,7 +14,9 @@ export default {
                 basic: `npm install primeflex`
             },
             code2: {
-                basic: `import 'primeflex/primeflex.css';`
+                basic: `
+import 'primeflex/primeflex.css';
+`
             }
         };
     }

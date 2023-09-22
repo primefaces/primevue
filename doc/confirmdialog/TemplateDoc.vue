@@ -21,7 +21,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
+                basic: `
+<ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
     <template #message="slotProps">
         <div class="flex p-4">
             <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -30,7 +31,8 @@ export default {
     </template>
 </ConfirmDialog>
 <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>`,
-                options: `<template>
+                options: `
+<template>
     <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
         <template #message="slotProps">
             <div class="flex p-4">
@@ -67,7 +69,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
         <template #message="slotProps">
             <div class="flex p-4">

@@ -37,9 +37,11 @@ export default {
                 }
             ],
             code: {
-                basic: `<Button @click="active = 0" text outlined label="Activate 1st" />
+                basic: `
+<Button @click="active = 0" text outlined label="Activate 1st" />
 <TabMenu v-model:activeIndex="active" :model="items" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Button @click="active = 0" text outlined label="Activate 1st" />
         <TabMenu v-model:activeIndex="active" :model="items" />
@@ -77,7 +79,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Button @click="active = 0" text outlined label="Activate 1st" />
         <TabMenu v-model:activeIndex="active" :model="items" />

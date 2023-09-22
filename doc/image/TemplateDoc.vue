@@ -23,7 +23,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Image alt="Image" preview>
+                basic: `
+<Image alt="Image" preview>
     <template #indicatoricon>
         <i class="pi pi-check"></i>
     </template>
@@ -34,7 +35,8 @@ export default {
         <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
     </template>
 </Image>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Image alt="Image" preview>
             <template #indicatoricon>
@@ -49,7 +51,8 @@ export default {
         </Image>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Image alt="Image" preview>
             <template #indicatoricon>

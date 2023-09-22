@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import PickList from 'primevue/picklist';`
+                basic: `
+import PickList from 'primevue/picklist';
+`
             }
         };
     }

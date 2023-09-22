@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Breadcrumb from 'primevue/breadcrumb';`
+                basic: `
+import Breadcrumb from 'primevue/breadcrumb';
+`
             }
         };
     }

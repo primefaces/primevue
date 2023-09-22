@@ -52,7 +52,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px"
+                basic: `
+<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px"
     :responsiveOptions="responsiveOptions" containerClass="w-30rem" contentClass="flex align-items-center">
     <template #item="slotProps">
         <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
@@ -72,7 +73,8 @@ export default {
         </div>
     </template>
 </Carousel>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px"
             :responsiveOptions="responsiveOptions" containerClass="w-30rem" contentClass="flex align-items-center">
@@ -145,7 +147,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px"
             :responsiveOptions="responsiveOptions" containerClass="w-30rem" contentClass="flex align-items-center">

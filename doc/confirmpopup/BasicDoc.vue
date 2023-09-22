@@ -15,12 +15,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ConfirmPopup></ConfirmPopup>
+                basic: `
+<ConfirmPopup></ConfirmPopup>
 <div class="card flex flex-wrap gap-2 justify-content-center">
     <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
     <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <Toast />
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
@@ -62,7 +64,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <Toast />
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">

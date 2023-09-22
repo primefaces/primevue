@@ -20,7 +20,8 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `<Checkbox
+                basic: `
+<Checkbox
     v-model="checked"
     binary
     :pt="{
@@ -29,7 +30,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Checkbox
             v-model="checked"
@@ -52,7 +54,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Checkbox
             v-model="checked"

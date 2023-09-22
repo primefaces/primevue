@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Tag from 'primevue/tag';`
+                basic: `
+import Tag from 'primevue/tag';
+`
             }
         };
     }

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Sidebar from 'primevue/sidebar';`
+                basic: `
+import Sidebar from 'primevue/sidebar';
+`
             }
         };
     }

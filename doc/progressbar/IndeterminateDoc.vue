@@ -13,8 +13,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>`,
-                options: `<template>
+                basic: `
+<ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>`,
+                options: `
+<template>
     <div class="card">
         <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
     </div>
@@ -23,7 +25,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
     </div>

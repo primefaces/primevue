@@ -139,8 +139,10 @@ export default {
                 }
             ],
             code: {
-                basic: `<TieredMenu :model="items" />`,
-                options: `<template>
+                basic: `
+<TieredMenu :model="items" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <TieredMenu :model="items" />
     </div>
@@ -280,7 +282,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <TieredMenu :model="items" />
     </div>

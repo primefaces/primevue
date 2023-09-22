@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ScrollTop from 'primevue/scrolltop';`
+                basic: `
+import ScrollTop from 'primevue/scrolltop';
+`
             }
         };
     }

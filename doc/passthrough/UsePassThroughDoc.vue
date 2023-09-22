@@ -21,7 +21,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `import {createApp} from "vue";
+                basic: `
+import {createApp} from "vue";
 import PrimeVue from "primevue/config";
 import { usePassThrough } from "primevue/passthrough";
 import Tailwind from "primevue/passthrough/tailwind";
@@ -43,10 +44,12 @@ const CustomTailwind = usePassThrough(
     }
 );
 
-app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
+app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });
+`
             },
             code2: {
-                basic: `const CustomTailwind = usePassThrough(
+                basic: `
+const CustomTailwind = usePassThrough(
     Tailwind,
     {
         panel: {
@@ -58,10 +61,12 @@ app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
 
 // Output: 
 // panel.header.class => 'my_panel_header'
-// panel.title.class => Tailwind.panel.title.class`
+// panel.title.class => Tailwind.panel.title.class
+`
             },
             code3: {
-                basic: `const CustomTailwind = usePassThrough(
+                basic: `
+const CustomTailwind = usePassThrough(
     Tailwind,
     {
         panel: {
@@ -73,10 +78,12 @@ app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
 
 // Output: 
 // panel.header.class => [Tailwind.panel.header.class, 'my_panel_header']
-// panel.title.class => Tailwind.panel.title.class`
+// panel.title.class => Tailwind.panel.title.class
+`
             },
             code4: {
-                basic: `const CustomTailwind = usePassThrough(
+                basic: `
+const CustomTailwind = usePassThrough(
     Tailwind,
     {
         panel: {
@@ -88,7 +95,8 @@ app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
 
 // Output: 
 // panel.header.class => [Tailwind.panel.header.class, 'my_panel_header']
-// panel.title.class => undefined`
+// panel.title.class => undefined
+`
             },
             code5: {
                 basic: `const CustomTailwind = usePassThrough(
@@ -103,7 +111,8 @@ app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
 
 // Output: 
 // panel.header.class => 'my_panel_header'
-// panel.title.class => undefined`
+// panel.title.class => undefined
+`
             }
         };
     }

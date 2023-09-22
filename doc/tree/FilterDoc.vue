@@ -21,9 +21,11 @@ export default {
             nodes: null,
             expandedKeys: {},
             code: {
-                basic: `<Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-30rem"></Tree>
+                basic: `
+<Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-30rem"></Tree>
 <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-30rem"></Tree>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-5">
         <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-30rem"></Tree>
         <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-30rem"></Tree>
@@ -65,7 +67,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-5">
         <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-30rem"></Tree>
         <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-30rem"></Tree>

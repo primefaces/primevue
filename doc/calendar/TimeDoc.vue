@@ -27,10 +27,12 @@ export default {
             datetime24h: null,
             time: null,
             code: {
-                basic: `<Calendar id="calendar-12h" v-model="datetime12h" showTime hourFormat="12" />
+                basic: `
+<Calendar id="calendar-12h" v-model="datetime12h" showTime hourFormat="12" />
 <Calendar id="calendar-24h" v-model="datetime24h" showTime hourFormat="24" />
 <Calendar id="calendar-timeonly" v-model="time" timeOnly />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
             <label for="calendar-12h" class="font-bold block mb-2"> 12h Format </label>
@@ -58,7 +60,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
             <label for="calendar-12h" class="font-bold block mb-2"> 12h Format </label>

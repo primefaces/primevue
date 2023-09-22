@@ -22,12 +22,14 @@ export default {
                 { title: 'Tab 3', content: 'Tab 3 Content' }
             ],
             code: {
-                basic: `<TabView>
+                basic: `
+<TabView>
     <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </TabPanel>
 </TabView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TabView>
             <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
@@ -50,7 +52,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TabView>
             <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">

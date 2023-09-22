@@ -17,11 +17,13 @@ export default {
         return {
             value: '',
             code: {
-                basic: `<span class="p-float-label">
+                basic: `
+<span class="p-float-label">
     <Textarea v-model="value" rows="5" cols="30" />
     <label>Username</label>
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Textarea v-model="value" rows="5" cols="30" />
@@ -39,7 +41,8 @@ export default {
   }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Textarea v-model="value" rows="5" cols="30" />

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Fieldset from 'primevue/fieldset';`
+                basic: `
+import Fieldset from 'primevue/fieldset';
+`
             }
         };
     }

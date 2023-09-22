@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import TreeSelect from 'primevue/treeselect';`
+                basic: `
+import TreeSelect from 'primevue/treeselect';
+`
             }
         };
     }

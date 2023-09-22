@@ -4,7 +4,7 @@
             PrimeVue offers a built-in Tailwind theme to get you started quickly. The default values related to the component are displayed below. The component can easily be styled with your own design based on Tailwind utilities, see the
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
@@ -15,8 +15,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export default {
+                basic: `export default {
     scrollpanel: {
         wrapper: 'overflow-hidden relative float-left h-full w-full z-[1]',
         content: 'box-border h-[calc(100%+18px)] overflow-scroll pr-[18px] pb-[18px] pl-0 pt-0 relative scrollbar-none w-[calc(100%+18px)] [&::-webkit-scrollbar]:hidden',
@@ -31,7 +30,8 @@ export default {
 `
             },
             code2: {
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <ScrollPanel style="width: 100%; height: 200px">
             <p class="text-gray-700 dark:text-white/80">

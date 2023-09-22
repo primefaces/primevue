@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Dialog from 'primevue/dialog';`
+                basic: `
+import Dialog from 'primevue/dialog';
+`
             }
         };
     }

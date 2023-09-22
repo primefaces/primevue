@@ -14,8 +14,10 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `<ToggleButton v-model="checked" />`,
-                options: `<template>
+                basic: `
+<ToggleButton v-model="checked" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <ToggleButton v-model="checked" class="w-8rem" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <ToggleButton v-model="checked" class="w-8rem" />
     </div>

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import TabMenu from 'primevue/tabmenu';`
+                basic: `
+import TabMenu from 'primevue/tabmenu';
+`
             }
         };
     }

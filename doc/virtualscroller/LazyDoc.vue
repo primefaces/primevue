@@ -23,12 +23,14 @@ export default {
             lazyLoading: false,
             loadLazyTimeout: null,
             code: {
-                basic: `<VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+                basic: `
+<VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
         <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
 </VirtualScroller>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
             <template v-slot:item="{ item, options }">
@@ -75,7 +77,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
             <template v-slot:item="{ item, options }">

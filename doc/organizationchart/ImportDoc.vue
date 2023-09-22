@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import OrganizationChart from 'primevue/organizationchart';`
+                basic: `
+import OrganizationChart from 'primevue/organizationchart';
+`
             }
         };
     }

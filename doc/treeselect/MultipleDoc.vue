@@ -28,8 +28,10 @@ export default {
 }`
             },
             code: {
-                basic: `<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />`,
-                options: `<template>
+                basic: `
+<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
@@ -50,7 +52,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>

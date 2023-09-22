@@ -17,8 +17,10 @@ export default {
                 { label: 'Delete', icon: 'pi pi-fw pi-trash' }
             ],
             code: {
-                basic: `<Menu :model="items" />`,
-                options: `<template>
+                basic: `
+<Menu :model="items" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
     </div>
@@ -36,7 +38,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
     </div>

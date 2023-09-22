@@ -24,7 +24,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Fieldset>
+                basic: `
+<Fieldset>
     <template #legend>
         <div class="flex align-items-center text-primary">
             <span class="pi pi-user mr-2"></span>
@@ -36,7 +37,8 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 </Fieldset>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Fieldset>
             <template #legend>
@@ -55,7 +57,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Fieldset>
             <template #legend>

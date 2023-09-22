@@ -52,8 +52,10 @@ export default {
                 }
             ],
             code: {
-                basic: `<SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />`,
-                options: `<template>
+                basic: `
+<SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />`,
+                options: `
+<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />
@@ -107,7 +109,8 @@ data() {
 }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />

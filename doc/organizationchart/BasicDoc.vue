@@ -44,12 +44,14 @@ export default {
                 ]
             },
             code: {
-                basic: `<OrganizationChart :value="data">
+                basic: `
+<OrganizationChart :value="data">
     <template #default="slotProps">
         <span>{{ slotProps.node.label }}</span>
     </template>
 </OrganizationChart>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data">
             <template #default="slotProps">
@@ -94,7 +96,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data">
             <template #default="slotProps">

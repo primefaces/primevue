@@ -24,7 +24,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<template>
+                basic: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
     </div>

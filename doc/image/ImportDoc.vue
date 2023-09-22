@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Image from 'primevue/image';`
+                basic: `
+import Image from 'primevue/image';
+`
             }
         };
     }

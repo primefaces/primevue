@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import MegaMenu from 'primevue/megamenu';`
+                basic: `
+import MegaMenu from 'primevue/megamenu';
+`
             }
         };
     }

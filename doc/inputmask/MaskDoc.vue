@@ -32,7 +32,8 @@ export default {
             value2: '',
             value3: '',
             code: {
-                basic: `<div class="flex-auto">
+                basic: `
+<div class="flex-auto">
     <label for="ssn">SSN</label>
     <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" />
 </div>
@@ -46,7 +47,8 @@ export default {
     <label for="serial">Serial</label>
     <InputMask id="serial" v-model="value3" mask="a*-999-a999" placeholder="a*-999-a999" />
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card p-fluid flex flex-wrap gap-3">
         <div class="flex-auto">
             <label for="ssn">SSN</label>
@@ -77,7 +79,8 @@ export default {
 }
 <\/script>
         `,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card p-fluid flex flex-wrap gap-3">
         <div class="flex-auto">
             <label for="ssn">SSN</label>

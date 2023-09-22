@@ -15,10 +15,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `<i v-badge="2" class="pi pi-bell p-overlay-badge" style="font-size: 2rem" />
+                basic: `
+<i v-badge="2" class="pi pi-bell p-overlay-badge" style="font-size: 2rem" />
 <i v-badge.danger="'5+'" class="pi pi-calendar p-overlay-badge" style="font-size: 2rem" />
 <i v-badge.danger class="pi pi-envelope p-overlay-badge" style="font-size: 2rem" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-4">
         <i v-badge="2" class="pi pi-bell p-overlay-badge" style="font-size: 2rem" />
         <i v-badge.danger="'5+'" class="pi pi-calendar p-overlay-badge" style="font-size: 2rem" />
@@ -29,7 +31,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-4">
         <i v-badge="2" class="pi pi-bell p-overlay-badge" style="font-size: 2rem" />
         <i v-badge.danger="'5+'" class="pi pi-calendar p-overlay-badge" style="font-size: 2rem" />

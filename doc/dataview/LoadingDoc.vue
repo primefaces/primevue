@@ -65,7 +65,8 @@ export default {
             products: null,
             layout: 'grid',
             code: {
-                basic: `<DataView :value="products" :layout="layout">
+                basic: `
+<DataView :value="products" :layout="layout">
     <template #header>
         <div class="flex justify-content-end">
             <DataViewLayoutOptions v-model="layout" />
@@ -114,7 +115,8 @@ export default {
         </div>
     </template>
 </DataView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataView :value="products" :layout="layout">
             <template #header>
@@ -200,7 +202,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataView :value="products" :layout="layout">
             <template #header>

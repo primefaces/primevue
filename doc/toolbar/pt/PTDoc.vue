@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<TabView>
+                basic: `
+<TabView>
     <Toolbar
         :pt="{
             root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
@@ -35,7 +36,8 @@ export default {
         </template>
     </Toolbar>
 </TabView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Toolbar
             :pt="{
@@ -52,7 +54,8 @@ export default {
         </Toolbar>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Toolbar
             :pt="{

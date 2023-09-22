@@ -14,8 +14,10 @@ export default {
         return {
             value: 10,
             code: {
-                basic: `<Knob v-model="value" :min="-50" :max="10" />`,
-                options: `<template>
+                basic: `
+<Knob v-model="value" :min="-50" :max="10" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Knob v-model="value" :min="-50" :max="50" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Knob v-model="value" :min="-50" :max="50" />
     </div>

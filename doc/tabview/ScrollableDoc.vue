@@ -18,12 +18,14 @@ export default {
         return {
             scrollableTabs: Array.from({ length: 50 }, (_, i) => ({ title: `Tab ${i + 1}`, content: `Tab ${i + 1} Content` })),
             code: {
-                basic: `<TabView :scrollable="true">
+                basic: `
+<TabView :scrollable="true">
     <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </TabPanel>
 </TabView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
@@ -42,7 +44,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">

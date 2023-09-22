@@ -15,8 +15,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ScrollTop />`,
-                options: `<template>
+                basic: `
+<ScrollTop />`,
+                options: `
+<template>
     <div class="card flex flex-column align-items-center" style="height: 2000px">
         <p>Scroll down the page to display the ScrollTop component.</p>
         <i class="pi pi-angle-down fadeout animation-duration-1000 animation-iteration-infinite" style="fontsize: 2rem"></i>
@@ -26,7 +28,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column align-items-center" style="height: 2000px">
         <p>Scroll down the page to display the ScrollTop component.</p>
         <i class="pi pi-angle-down fadeout animation-duration-1000 animation-iteration-infinite" style="fontsize: 2rem"></i>

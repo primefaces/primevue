@@ -18,13 +18,14 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<div class="flex flex-column gap-2">
+                basic: `
+<div class="flex flex-column gap-2">
     <label for="username">Username</label>
     <InputText id="username" v-model="value" aria-describedby="username-help" />
     <small id="username-help">Enter your username to reset your password.</small>
-</div>
-                `,
-                options: `<template>
+</div>`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-2">
             <label for="username">Username</label>
@@ -42,9 +43,9 @@ export default {
         }
     }
 }
-<\/script>
-                `,
-                composition: `<template>
+<\/script>`,
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-2">
             <label for="username">Username</label>
@@ -58,8 +59,7 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>
-                `
+<\/script>`
             }
         };
     }

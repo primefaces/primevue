@@ -11,7 +11,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Dialog :showHeader="false"></Dialog>
+                basic: `
+<Dialog :showHeader="false"></Dialog>
 
 <!-- can be written as -->
 

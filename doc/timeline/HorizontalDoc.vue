@@ -31,7 +31,8 @@ export default {
         return {
             events: ['2020', '2021', '2022', '2023'],
             code: {
-                basic: `<Timeline :value="events" layout="horizontal" align="top">
+                basic: `
+<Timeline :value="events" layout="horizontal" align="top">
     <template #content="slotProps">
         {{ slotProps.item }}
     </template>
@@ -49,7 +50,8 @@ export default {
         {{ slotProps.item }}
     </template>
 </Timeline>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-column gap-3">
         <Timeline :value="events" layout="horizontal" align="top">
             <template #content="slotProps">
@@ -81,7 +83,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-column gap-3">
         <Timeline :value="events" layout="horizontal" align="top">
             <template #content="slotProps">

@@ -24,8 +24,7 @@ this.$dialog.open(ProductListDemo, {
 };`
             },
             code2: {
-                basic: `
-export default {
+                basic: `export default {
     inject: ['dialogRef'],
     mounted:{
         const params = this.dialogRef.data; // {user: 'primetime'}
@@ -41,8 +40,7 @@ this.$dialog.open(ProductListDemo, {
 );`
             },
             code4: {
-                basic: `
-export default {
+                basic: `export default {
     inject: ['dialogRef'],
     methods:{
         closeDialog() {

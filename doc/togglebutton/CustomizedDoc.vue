@@ -14,9 +14,11 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `<ToggleButton v-model="checked1" onLabel="I confirm" offLabel="I reject"
+                basic: `
+<ToggleButton v-model="checked1" onLabel="I confirm" offLabel="I reject"
     onIcon="pi pi-check" offIcon="pi pi-times" class="w-9rem" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject"
             onIcon="pi pi-check" offIcon="pi pi-times" class="w-9rem" />
@@ -32,7 +34,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject"
             onIcon="pi pi-check" offIcon="pi pi-times" class="w-9rem" />

@@ -19,8 +19,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />`,
-                options: `<template>
+                basic: `
+<Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />`,
+                options: `
+<template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
         <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
@@ -86,7 +88,8 @@ p {
     color: #9fa8da;
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
         <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />

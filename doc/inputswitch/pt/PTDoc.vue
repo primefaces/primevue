@@ -19,7 +19,8 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `<InputSwitch
+                basic: `
+<InputSwitch
     v-model="checked"
     :pt="{
         slider: ({ props }) => ({
@@ -27,7 +28,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <InputSwitch
             v-model="checked"
@@ -49,7 +51,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <InputSwitch
             v-model="checked"

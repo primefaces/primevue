@@ -8,8 +8,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `import TabView from 'primevue/tabview';
-import TabPanel from 'primevue/tabpanel';`
+                basic: `
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+`
             }
         };
     }

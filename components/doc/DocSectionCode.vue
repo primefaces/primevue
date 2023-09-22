@@ -1,6 +1,6 @@
 <template>
-    <div v-if="!embedded" class="surface-card mb-4" style="border-radius: 10px">
-        <div class="flex doc-section-code-buttons surface-card align-items-center justify-content-end sticky z-1 top-0 mr-3">
+    <div v-if="!embedded" class="surface-card mb-4" :class="scrollable ? '' : 'relative'" style="border-radius: 10px">
+        <div class="flex doc-section-code-buttons surface-card align-items-center justify-content-end z-1" :style="scrollable ? { position: 'sticky', padding: '0.75rem 0.75rem 0 0' } : { position: 'absolute', top: '0.75rem', right: '0.75rem' }">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
                     :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
@@ -76,33 +76,41 @@
             ></Button>
         </div>
 
-        <div class="relative doc-section-code overflow-auto" style="max-height: 40rem">
+        <div class="relative doc-section-code overflow-auto" :style="scrollable ? { 'max-height': '40rem' } : undefined" style="border-radius: 10px">
             <template v-if="codeMode === 'basic' && importCode">
                 <pre v-code.script><code>{{ code.basic }}
 </code></pre>
             </template>
 
             <template v-if="codeMode === 'basic' && !importCode">
-                <pre v-code><code>{{ code.basic }}
+                <pre v-code><code>
+{{ code.basic }}
+
 </code></pre>
             </template>
 
             <template v-if="codeMode !== 'basic' && codeLang === 'options'">
-                <pre v-code><code>{{ code.options }}
+                <pre v-code><code>
+{{ code.options }}
+
 </code></pre>
             </template>
 
             <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
-                <pre v-code><code>{{ code.composition }}
+                <pre v-code><code>
+{{ code.composition }}
+
 </code></pre>
             </template>
 
             <template v-if="codeMode !== 'basic' && codeLang === 'data'">
-                <pre v-code.json><code>{{ code.data }}
+                <pre v-code.json><code>
+{{ code.data }}
+
 </code></pre>
             </template>
         </div>
-        <div class="h-1rem"></div>
+        <div v-if="scrollable" class="h-1rem"></div>
     </div>
     <div v-else id="embed"></div>
 </template>
@@ -150,6 +158,10 @@ export default {
             default: false
         },
         embedded: {
+            type: Boolean,
+            default: false
+        },
+        scrollable: {
             type: Boolean,
             default: false
         }

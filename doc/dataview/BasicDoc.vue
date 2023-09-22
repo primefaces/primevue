@@ -43,7 +43,8 @@ export default {
         return {
             products: null,
             code: {
-                basic: `<DataView :value="products">
+                basic: `
+<DataView :value="products">
     <template #list="slotProps">
         <div class="col-12">
             <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
@@ -69,7 +70,8 @@ export default {
         </div>
     </template>
 </DataView>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <DataView :value="products">
             <template #list="slotProps">
@@ -131,7 +133,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <DataView :value="products">
             <template #list="slotProps">

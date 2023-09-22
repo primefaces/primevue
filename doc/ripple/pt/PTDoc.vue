@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<div
+                basic: `
+<div
     v-ripple="{
         pt: {
             root: 'bg-yellow-400'
@@ -30,7 +31,8 @@ export default {
 >
     Default
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card card-container flex justify-content-center align-items-center">
         <div
             v-ripple="{
@@ -47,7 +49,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card card-container flex justify-content-center align-items-center">
         <div
             v-ripple="{

@@ -32,7 +32,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+                basic: `
+<Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
 <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
 <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" />
 
@@ -41,7 +42,8 @@ export default {
 <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
 
 <Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <div class="flex flex-wrap gap-5">
             <div class="flex-auto">
@@ -69,7 +71,8 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div class="flex flex-wrap gap-5">
             <div class="flex-auto">

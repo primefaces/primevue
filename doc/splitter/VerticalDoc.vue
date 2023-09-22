@@ -16,11 +16,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Splitter style="height: 300px" layout="vertical">
+                basic: `
+<Splitter style="height: 300px" layout="vertical">
     <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
     <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
 </Splitter>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Splitter style="height: 300px" layout="vertical">
             <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
@@ -31,7 +33,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Splitter style="height: 300px" layout="vertical">
             <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>

@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Tree from 'primevue/tree';`
+                basic: `
+import Tree from 'primevue/tree';
+`
             }
         };
     }

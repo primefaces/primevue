@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Skeleton from 'primevue/skeleton';`
+                basic: `
+import Skeleton from 'primevue/skeleton';
+`
             }
         };
     }

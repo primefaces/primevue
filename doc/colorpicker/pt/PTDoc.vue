@@ -18,14 +18,16 @@ export default {
         return {
             color: null,
             code: {
-                basic: `<ColorPicker
+                basic: `
+<ColorPicker
     v-model="color"
     inline
     :pt="{
         colorHandler: { class: 'w-1rem h-1rem' }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <ColorPicker
             v-model="color"
@@ -46,7 +48,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <ColorPicker
             v-model="color"

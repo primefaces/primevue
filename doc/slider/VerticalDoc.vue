@@ -14,8 +14,10 @@ export default {
         return {
             value: 50,
             code: {
-                basic: `<Slider v-model="value" orientation="vertical" class="h-14rem" />`,
-                options: `<template>
+                basic: `
+<Slider v-model="value" orientation="vertical" class="h-14rem" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Slider v-model="value" orientation="vertical" class="h-14rem" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Slider v-model="value" orientation="vertical" class="h-14rem" />
     </div>

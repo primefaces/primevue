@@ -25,7 +25,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Paginator
+                basic: `
+<Paginator
     :template="{
         '640px': 'PrevPageLink CurrentPageReport NextPageLink',
         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
@@ -35,7 +36,8 @@ export default {
     :rows="10"
     :totalRecords="120">
 </Paginator>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Paginator
             :template="{
@@ -52,7 +54,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Paginator
             :template="{

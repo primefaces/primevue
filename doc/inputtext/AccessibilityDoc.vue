@@ -35,7 +35,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<label for="firstname">Firstname</label>
+                basic: `
+<label for="firstname">Firstname</label>
 <InputText id="firstname" />
 
 <span id="lastname">Lastname</span>

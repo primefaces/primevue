@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import SpeedDial from 'primevue/speeddial';`
+                basic: `
+import SpeedDial from 'primevue/speeddial';
+`
             }
         };
     }

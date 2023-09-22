@@ -26,7 +26,8 @@ export default {
             selectedColumns: null,
             columns: null,
             code: {
-                basic: `<TreeTable :value="nodes">
+                basic: `
+<TreeTable :value="nodes">
     <template #header>
         <div style="text-align:left">
             <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
@@ -35,7 +36,8 @@ export default {
     <Column field="name" header="Name" :expander="true"></Column>
     <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes">
             <template #header>
@@ -78,7 +80,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable :value="nodes">
             <template #header>

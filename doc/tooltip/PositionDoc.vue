@@ -16,11 +16,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `<InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
+                basic: `
+<InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
 <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
 <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
 <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
         <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
@@ -28,7 +30,8 @@ export default {
         <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
         <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />

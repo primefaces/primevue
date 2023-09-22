@@ -8,8 +8,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `import TreeTable from 'primevue/treetable';
-import Column from 'primevue/column';`
+                basic: `
+import TreeTable from 'primevue/treetable';
+import Column from 'primevue/column';
+`
             }
         };
     }

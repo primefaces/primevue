@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Paginator from 'primevue/paginator';`
+                basic: `
+import Paginator from 'primevue/paginator';
+`
             }
         };
     }

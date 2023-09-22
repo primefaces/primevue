@@ -22,7 +22,8 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<Tree
+                basic: `
+<Tree
     :value="nodes"
     :pt="{
         root: { class: 'w-full md:w-30rem' },
@@ -31,7 +32,8 @@ export default {
         })
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Tree
             :value="nodes"
@@ -59,7 +61,8 @@ export default {
     } 
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Tree
             :value="nodes"

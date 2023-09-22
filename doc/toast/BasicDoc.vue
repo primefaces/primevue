@@ -16,9 +16,11 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Toast />
+                basic: `
+<Toast />
 <Button label="Show" @click="show()" />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <Button label="Show" @click="show()" />
@@ -34,7 +36,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <Button label="Show" @click="show()" />

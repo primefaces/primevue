@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Inplace from 'primevue/inplace';`
+                basic: `
+import Inplace from 'primevue/inplace';
+`
             }
         };
     }

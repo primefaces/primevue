@@ -40,7 +40,8 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<TreeTable :value="nodes" sortMode="multiple">
+                basic: `
+<TreeTable :value="nodes" sortMode="multiple">
     <Column
         field="name"
         header="Name"
@@ -67,7 +68,8 @@ export default {
         }"
     />
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" sortMode="multiple">
             <Column
@@ -113,7 +115,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" sortMode="multiple">
             <Column

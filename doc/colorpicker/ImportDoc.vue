@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import ColorPicker from 'primevue/colorpicker';`
+                basic: `
+import ColorPicker from 'primevue/colorpicker';
+`
             }
         };
     }

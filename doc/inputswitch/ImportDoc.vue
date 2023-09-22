@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import InputSwitch from 'primevue/inputswitch';`
+                basic: `
+import InputSwitch from 'primevue/inputswitch';
+`
             }
         };
     }

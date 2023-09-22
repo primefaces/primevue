@@ -10,8 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-export default {
+                basic: `export default {
     inject: ['dialogRef'],
     methods:{
         closeDialog() {

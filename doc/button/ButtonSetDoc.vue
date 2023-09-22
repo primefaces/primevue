@@ -17,12 +17,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `<span class="p-buttonset">
+                basic: `
+<span class="p-buttonset">
     <Button label="Save" icon="pi pi-check" />
     <Button label="Delete" icon="pi pi-trash" />
     <Button label="Cancel" icon="pi pi-times" />
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-buttonset">
             <Button label="Save" icon="pi pi-check" />
@@ -34,7 +36,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-buttonset">
             <Button label="Save" icon="pi pi-check" />

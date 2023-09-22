@@ -151,7 +151,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<MegaMenu :model="items">
+                basic: `
+<MegaMenu :model="items">
     <template #item="{ label, item, props, hasSubmenu }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -166,7 +167,8 @@ export default {
         </a>
     </template>
 </MegaMenu>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <MegaMenu :model="items">
             <template #item="{ label, item, props, hasSubmenu }">
@@ -315,7 +317,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <MegaMenu :model="items">
             <template #item="{ label, item, props, hasSubmenu }">

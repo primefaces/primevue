@@ -25,7 +25,8 @@ export default {
         return {
             items: null,
             code: {
-                basic: `<VirtualScroller
+                basic: `
+<VirtualScroller
     :items="items"
     :itemSize="50"
     :pt="{
@@ -35,7 +36,8 @@ export default {
         }
     }"
 >`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <VirtualScroller
             :items="items"
@@ -62,7 +64,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <VirtualScroller
             :items="items"

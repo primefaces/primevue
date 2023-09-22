@@ -20,11 +20,13 @@ export default {
             nodes: null,
             selectedValue: null,
             code: {
-                basic: `<span class="p-float-label">
+                basic: `
+<span class="p-float-label">
     <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
     <label>Tree Select</label>
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
@@ -48,7 +50,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />

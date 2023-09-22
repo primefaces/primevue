@@ -22,8 +22,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `<ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />`,
-                options: `<template>
+                basic: `
+<ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />`,
+                options: `
+<template>
     <div class="card">
         <ScrollPanel style="width: 250px; height: 200px">
             <p>
@@ -58,7 +60,8 @@ export default {
     color: var(--primary-color-text);
 }
 </style>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <ScrollPanel style="width: 250px; height: 200px">
             <p>

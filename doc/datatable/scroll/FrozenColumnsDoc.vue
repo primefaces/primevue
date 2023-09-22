@@ -34,7 +34,8 @@ export default {
             customers: null,
             balanceFrozen: false,
             code: {
-                basic: `<ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
+                basic: `
+<ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-4">
     <Column field="name" header="Name" style="min-width: 200px" frozen class="font-bold"></Column>
     <Column field="id" header="Id" style="min-width: 100px"></Column>
@@ -51,7 +52,8 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 
@@ -96,7 +98,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 

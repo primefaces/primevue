@@ -66,7 +66,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<Menu :model="items">
+                basic: `
+<Menu :model="items">
     <template #item="{ label, item, props }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -80,7 +81,8 @@ export default {
         </a>
     </template>
 </Menu>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
@@ -146,7 +148,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">

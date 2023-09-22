@@ -96,7 +96,8 @@ export default {
                 }
             ],
             code: {
-                basic: `<CascadeSelect
+                basic: `
+<CascadeSelect
     v-model="selectedCity"
     :options="countries"
     optionLabel="cname"
@@ -107,7 +108,8 @@ export default {
         root: { style: { minWidth: '14rem' } }
     }"
 />`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <CascadeSelect
             v-model="selectedCity"
@@ -206,7 +208,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <CascadeSelect
             v-model="selectedCity"

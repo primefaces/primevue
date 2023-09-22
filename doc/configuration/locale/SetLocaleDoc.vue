@@ -15,16 +15,19 @@ export default {
     data() {
         return {
             code1: {
-                basic: `app.use(PrimeVue, {
+                basic: `
+app.use(PrimeVue, {
     locale: {
         accept: 'Aceptar',
         reject: 'Rechazar',
         //...
     }
-});`
+});
+`
             },
             code2: {
-                basic: `import { defineComponent, onMounted } from "vue";
+                basic: `
+import { defineComponent, onMounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 
 export default defineComponent({
@@ -39,7 +42,8 @@ export default defineComponent({
             changeToSpanish();
         })
     }
-});`
+});
+`
             }
         };
     }

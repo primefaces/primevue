@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<div class="border-round border-1 surface-border p-4 surface-card">
+                basic: `
+<div class="border-round border-1 surface-border p-4 surface-card">
     <div class="flex mb-3">
         <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
         <div>
@@ -42,7 +43,8 @@ export default {
         <Skeleton width="4rem" height="2rem"></Skeleton>
     </div>
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <div class="border-round border-1 surface-border p-4 surface-card">
             <div class="flex mb-3">
@@ -64,7 +66,8 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <div class="border-round border-1 surface-border p-4 surface-card">
             <div class="flex mb-3">

@@ -16,8 +16,10 @@ export default {
             nodes: null,
             selectedKey: null,
             code: {
-                basic: `<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" class="w-full md:w-30rem"></Tree>`,
-                options: `<template>
+                basic: `
+<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" class="w-full md:w-30rem"></Tree>`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" class="w-full md:w-30rem"></Tree>
@@ -46,7 +48,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" class="w-full md:w-30rem"></Tree>

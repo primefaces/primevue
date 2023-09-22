@@ -14,8 +14,10 @@ export default {
         return {
             checked: true,
             code: {
-                basic: `<InputSwitch v-model="checked" />`,
-                options: `<template>
+                basic: `
+<InputSwitch v-model="checked" />`,
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <InputSwitch v-model="checked" />
     </div>
@@ -30,7 +32,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <InputSwitch v-model="checked" />
     </div>

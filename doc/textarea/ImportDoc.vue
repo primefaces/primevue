@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import Textarea from 'primevue/textarea';`
+                basic: `
+import Textarea from 'primevue/textarea';
+`
             }
         };
     }

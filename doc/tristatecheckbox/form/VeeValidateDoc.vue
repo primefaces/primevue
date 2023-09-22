@@ -43,7 +43,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<div class="card flex justify-content-center">
+                basic: `
+<div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
         <TriStateCheckbox v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
         <div>* I've read and accept the terms & conditions.</div>
@@ -51,7 +52,8 @@ export default {
         <Button type="submit" label="Submit" />
     </form>
 </div>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <TriStateCheckbox v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
@@ -91,7 +93,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <TriStateCheckbox v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />

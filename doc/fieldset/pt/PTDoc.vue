@@ -16,7 +16,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Fieldset
+                basic: `
+<Fieldset
     legend="Header"
     :toggleable="true"
     :pt="{
@@ -29,7 +30,8 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 </Fieldset>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Fieldset
             legend="Header"
@@ -46,7 +48,8 @@ export default {
         </Fieldset>
     </div>
 </template>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Fieldset
             legend="Header"

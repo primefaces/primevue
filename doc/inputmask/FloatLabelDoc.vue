@@ -17,11 +17,13 @@ export default {
         return {
             value: '',
             code: {
-                basic: `<span class="p-float-label">
+                basic: `
+<span class="p-float-label">
     <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
     <label for="ssn">SSN</label>
 </span>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
@@ -40,7 +42,8 @@ export default {
 }
 <\/script>
         `,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <InputMask id="ssn" v-model="val2" mask="999-99-9999" placeholder="999-99-9999" />

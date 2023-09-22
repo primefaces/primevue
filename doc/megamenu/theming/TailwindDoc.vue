@@ -4,7 +4,7 @@
             PrimeVue offers a built-in Tailwind theme to get you started quickly. The default values related to the component are displayed below. The component can easily be styled with your own design based on Tailwind utilities, see the
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
@@ -15,8 +15,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export default {
+                basic: `export default {
     megamenu: {
         root: ({ props }) => ({
             class: ['bg-gray-100 dark:bg-gray-900  border border-gray-300 dark:border-blue-900/40  rounded-md', 'flex relative', { 'p-2 items-center': props.orientation == 'horizontal', 'flex-col w-48 p-0 py-1': props.orientation !== 'horizontal' }]
@@ -85,7 +84,8 @@ export default {
 `
             },
             code2: {
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <MegaMenu :model="items" />
     </div>

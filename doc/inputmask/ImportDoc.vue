@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `import InputMask from 'primevue/inputmask';`
+                basic: `
+import InputMask from 'primevue/inputmask';
+`
             }
         };
     }

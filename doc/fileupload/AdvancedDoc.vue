@@ -17,12 +17,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `<FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+                basic: `
+<FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
     <template #empty>
         <p>Drag and drop files to here to upload.</p>
     </template>
 </FileUpload>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
@@ -42,7 +44,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">

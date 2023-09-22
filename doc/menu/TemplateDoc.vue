@@ -52,7 +52,8 @@ export default {
                 { separator: true }
             ],
             code: {
-                basic: `<Menu :model="items">
+                basic: `
+<Menu :model="items">
     <template #start>
         <button @click="profileClick" class="w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
@@ -76,7 +77,8 @@ export default {
         </button>
     </template>
 </Menu>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #start>
@@ -132,7 +134,8 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #start>

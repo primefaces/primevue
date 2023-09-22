@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `<InputText
+                basic: `
+<InputText
     v-tooltip.right="{
         value: \`PrimeVue Rocks!\`,
         pt: {

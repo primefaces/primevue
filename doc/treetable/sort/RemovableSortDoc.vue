@@ -20,12 +20,14 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `<TreeTable :value="nodes" sortMode="multiple" removableSort>
+                basic: `
+<TreeTable :value="nodes" sortMode="multiple" removableSort>
     <Column field="name" header="Name" sortable expander></Column>
     <Column field="size" header="Size" sortable></Column>
     <Column field="type" header="Type" sortable></Column>
 </TreeTable>`,
-                options: `<template>
+                options: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" sortMode="multiple" removableSort>
             <Column field="name" header="Name" sortable expander></Column>
@@ -49,7 +51,8 @@ export default {
     }
 }
 <\/script>`,
-                composition: `<template>
+                composition: `
+<template>
     <div class="card">
         <TreeTable :value="nodes" sortMode="multiple" removableSort>
             <Column field="name" header="Name" sortable expander></Column>
