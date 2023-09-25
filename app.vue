@@ -62,8 +62,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '@docsearch/css';
-@import '@/assets/styles/layout/landing/landing.scss';
-@import '@/assets/styles/layout/layout.scss';
-</style>
+<style lang="scss"></style>
