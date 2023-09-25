@@ -31,7 +31,7 @@ const classes = {
     cancelItem: ({ instance }) => [
         'p-rating-item p-rating-cancel-item',
         {
-            'p-focus': instance.focusedOptionIndex === 0
+            'p-focus': instance.focusedOptionIndex === 0 && instance.isFocusVisibleItem
         }
     ],
     cancelIcon: 'p-rating-icon p-rating-cancel',
@@ -39,7 +39,7 @@ const classes = {
         'p-rating-item',
         {
             'p-rating-item-active': value <= props.modelValue,
-            'p-focus': value === instance.focusedOptionIndex
+            'p-focus': value === instance.focusedOptionIndex && instance.isFocusVisibleItem
         }
     ],
     onIcon: 'p-rating-icon',

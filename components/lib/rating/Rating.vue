@@ -62,7 +62,8 @@ export default {
     data() {
         return {
             name: this.$attrs.name,
-            focusedOptionIndex: -1
+            focusedOptionIndex: -1,
+            isFocusVisibleItem: true
         };
     },
     watch: {
@@ -85,6 +86,7 @@ export default {
         onOptionClick(event, value) {
             if (!this.readonly && !this.disabled) {
                 this.onOptionSelect(event, value);
+                this.isFocusVisibleItem = false;
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(event.currentTarget);
 
                 firstFocusableEl && DomHandler.focus(firstFocusableEl);
@@ -100,6 +102,7 @@ export default {
         },
         onChange(event, value) {
             this.onOptionSelect(event, value);
+            this.isFocusVisibleItem = true;
         },
         onOptionSelect(event, value) {
             this.focusedOptionIndex = value;
