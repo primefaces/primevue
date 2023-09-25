@@ -3,24 +3,26 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.p-toolbar-group-start,
-.p-toolbar-group-center,
-.p-toolbar-group-end {
-    display: flex;
-    align-items: center;
-}
-
-.p-toolbar-group-left,
-.p-toolbar-group-right {
-    display: flex;
-    align-items: center;
+@layer primevue {
+    .p-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .p-toolbar-group-start,
+    .p-toolbar-group-center,
+    .p-toolbar-group-end {
+        display: flex;
+        align-items: center;
+    }
+    
+    .p-toolbar-group-left,
+    .p-toolbar-group-right {
+        display: flex;
+        align-items: center;
+    }
 }
 `;
 

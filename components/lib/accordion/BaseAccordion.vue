@@ -3,21 +3,23 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-accordion-header-action {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    position: relative;
-    text-decoration: none;
-}
-
-.p-accordion-header-action:focus {
-    z-index: 1;
-}
-
-.p-accordion-header-text {
-    line-height: 1;
+@layer primevue {
+    .p-accordion-header-action {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    .p-accordion-header-action:focus {
+        z-index: 1;
+    }
+    
+    .p-accordion-header-text {
+        line-height: 1;
+    }
 }
 `;
 

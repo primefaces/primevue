@@ -3,31 +3,33 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-password {
-    display: inline-flex;
-}
-
-.p-password .p-password-panel {
-    min-width: 100%;
-}
-
-.p-password-meter {
-    height: 10px;
-}
-
-.p-password-strength {
-    height: 100%;
-    width: 0;
-    transition: width 1s ease-in-out;
-}
-
-.p-fluid .p-password {
-    display: flex;
-}
-
-.p-password-input::-ms-reveal,
-.p-password-input::-ms-clear {
-    display: none;
+@layer primevue {
+    .p-password {
+        display: inline-flex;
+    }
+    
+    .p-password .p-password-panel {
+        min-width: 100%;
+    }
+    
+    .p-password-meter {
+        height: 10px;
+    }
+    
+    .p-password-strength {
+        height: 100%;
+        width: 0;
+        transition: width 1s ease-in-out;
+    }
+    
+    .p-fluid .p-password {
+        display: flex;
+    }
+    
+    .p-password-input::-ms-reveal,
+    .p-password-input::-ms-clear {
+        display: none;
+    }
 }
 `;
 

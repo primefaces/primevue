@@ -3,37 +3,39 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-panelmenu .p-panelmenu-header-action {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-}
-
-.p-panelmenu .p-panelmenu-header-action:focus {
-    z-index: 1;
-}
-
-.p-panelmenu .p-submenu-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-panelmenu .p-menuitem-link {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-panelmenu .p-menuitem-text {
-    line-height: 1;
+@layer primevue {
+    .p-panelmenu .p-panelmenu-header-action {
+        display: flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    .p-panelmenu .p-panelmenu-header-action:focus {
+        z-index: 1;
+    }
+    
+    .p-panelmenu .p-submenu-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .p-panelmenu .p-menuitem-link {
+        display: flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .p-panelmenu .p-menuitem-text {
+        line-height: 1;
+    }
 }
 `;
 

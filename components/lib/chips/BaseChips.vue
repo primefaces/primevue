@@ -3,50 +3,52 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-chips {
-    display: inline-flex;
-}
-
-.p-chips-multiple-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    cursor: text;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-chips-token {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.p-chips-input-token {
-    flex: 1 1 auto;
-    display: inline-flex;
-}
-
-.p-chips-token-icon {
-    cursor: pointer;
-}
-
-.p-chips-input-token input {
-    border: 0 none;
-    outline: 0 none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
-    width: 100%;
-}
-
-.p-fluid .p-chips {
-    display: flex;
+@layer primevue {
+    .p-chips {
+        display: inline-flex;
+    }
+    
+    .p-chips-multiple-container {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        cursor: text;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .p-chips-token {
+        cursor: default;
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+    
+    .p-chips-input-token {
+        flex: 1 1 auto;
+        display: inline-flex;
+    }
+    
+    .p-chips-token-icon {
+        cursor: pointer;
+    }
+    
+    .p-chips-input-token input {
+        border: 0 none;
+        outline: 0 none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .p-fluid .p-chips {
+        display: flex;
+    }
 }
 `;
 

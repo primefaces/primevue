@@ -3,12 +3,14 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-colorpicker-panel .p-colorpicker-color {
-    background: linear-gradient(to top, #000 0%, rgb(0 0 0 / 0) 100%), linear-gradient(to right, #fff 0%, rgb(255 255 255 / 0) 100%)
-}
-
-.p-colorpicker-panel .p-colorpicker-hue {
-    background: linear-gradient(0deg, red 0, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, red)
+@layer primevue {
+    .p-colorpicker-panel .p-colorpicker-color {
+        background: linear-gradient(to top, #000 0%, rgb(0 0 0 / 0) 100%), linear-gradient(to right, #fff 0%, rgb(255 255 255 / 0) 100%)
+    }
+    
+    .p-colorpicker-panel .p-colorpicker-hue {
+        background: linear-gradient(0deg, red 0, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, red)
+    }
 }
 `;
 

@@ -8,18 +8,20 @@ const styles = `
         stroke-dashoffset: 0;
     }
 }
-.p-knob-range {
-    fill: none;
-    transition: stroke 0.1s ease-in;
-}
-.p-knob-value {
-    animation-name: dash-frame;
-    animation-fill-mode: forwards;
-    fill: none;
-}
-.p-knob-text {
-    font-size: 1.3rem;
-    text-align: center;
+@layer primevue {
+    .p-knob-range {
+        fill: none;
+        transition: stroke 0.1s ease-in;
+    }
+    .p-knob-value {
+        animation-name: dash-frame;
+        animation-fill-mode: forwards;
+        fill: none;
+    }
+    .p-knob-text {
+        font-size: 1.3rem;
+        text-align: center;
+    }
 }
 `;
 

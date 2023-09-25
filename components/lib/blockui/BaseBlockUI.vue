@@ -3,16 +3,18 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-blockui-container {
-    position: relative;
-}
-
-.p-blockui.p-component-overlay {
-    position: absolute;
-}
-
-.p-blockui-document.p-component-overlay {
-    position: fixed;
+@layer primevue {
+    .p-blockui-container {
+        position: relative;
+    }
+    
+    .p-blockui.p-component-overlay {
+        position: absolute;
+    }
+    
+    .p-blockui-document.p-component-overlay {
+        position: fixed;
+    }
 }
 `;
 

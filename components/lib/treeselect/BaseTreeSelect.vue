@@ -3,55 +3,57 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-treeselect {
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-}
-
-.p-treeselect-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.p-treeselect-label-container {
-    overflow: hidden;
-    flex: 1 1 auto;
-    cursor: pointer;
-}
-
-.p-treeselect-label {
-    display: block;
-    white-space: nowrap;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.p-treeselect-label-empty {
-    overflow: hidden;
-    visibility: hidden;
-}
-
-.p-treeselect-token {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.p-treeselect .p-treeselect-panel {
-    min-width: 100%;
-}
-
-.p-treeselect-items-wrapper {
-    overflow: auto;
-}
-
-.p-fluid .p-treeselect {
-    display: flex;
+@layer primevue {
+    .p-treeselect {
+        display: inline-flex;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .p-treeselect-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .p-treeselect-label-container {
+        overflow: hidden;
+        flex: 1 1 auto;
+        cursor: pointer;
+    }
+    
+    .p-treeselect-label {
+        display: block;
+        white-space: nowrap;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .p-treeselect-label-empty {
+        overflow: hidden;
+        visibility: hidden;
+    }
+    
+    .p-treeselect-token {
+        cursor: default;
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+    
+    .p-treeselect .p-treeselect-panel {
+        min-width: 100%;
+    }
+    
+    .p-treeselect-items-wrapper {
+        overflow: auto;
+    }
+    
+    .p-fluid .p-treeselect {
+        display: flex;
+    }
 }
 `;
 

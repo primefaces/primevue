@@ -3,13 +3,15 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-inputtextarea-resizable {
-    overflow: hidden;
-    resize: none;
-}
-
-.p-fluid .p-inputtextarea {
-    width: 100%;
+@layer primevue {
+    .p-inputtextarea-resizable {
+        overflow: hidden;
+        resize: none;
+    }
+    
+    .p-fluid .p-inputtextarea {
+        width: 100%;
+    }
 }
 `;
 

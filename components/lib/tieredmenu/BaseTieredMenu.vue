@@ -3,44 +3,46 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-tieredmenu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-tieredmenu .p-submenu-list {
-    position: absolute;
-    min-width: 100%;
-    z-index: 1;
-    display: none;
-}
-
-.p-tieredmenu .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-tieredmenu .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-tieredmenu .p-menuitem {
-    position: relative;
-}
-
-.p-tieredmenu .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-tieredmenu .p-menuitem-active > .p-submenu-list {
-    display: block;
-    left: 100%;
-    top: 0;
+@layer primevue {
+    .p-tieredmenu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .p-tieredmenu .p-submenu-list {
+        position: absolute;
+        min-width: 100%;
+        z-index: 1;
+        display: none;
+    }
+    
+    .p-tieredmenu .p-menuitem-link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .p-tieredmenu .p-menuitem-text {
+        line-height: 1;
+    }
+    
+    .p-tieredmenu .p-menuitem {
+        position: relative;
+    }
+    
+    .p-tieredmenu .p-menuitem-link .p-submenu-icon {
+        margin-left: auto;
+    }
+    
+    .p-tieredmenu .p-menuitem-active > .p-submenu-list {
+        display: block;
+        left: 100%;
+        top: 0;
+    }
 }
 `;
 

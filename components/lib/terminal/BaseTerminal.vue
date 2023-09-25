@@ -3,27 +3,29 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-terminal {
-    height: 18rem;
-    overflow: auto;
-}
-
-.p-terminal-prompt-container {
-    display: flex;
-    align-items: center;
-}
-
-.p-terminal-input {
-    flex: 1 1 auto;
-    border: 0 none;
-    background-color: transparent;
-    color: inherit;
-    padding: 0;
-    outline: 0 none;
-}
-
-.p-terminal-input::-ms-clear {
-    display: none;
+@layer primevue {
+    .p-terminal {
+        height: 18rem;
+        overflow: auto;
+    }
+    
+    .p-terminal-prompt-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .p-terminal-input {
+        flex: 1 1 auto;
+        border: 0 none;
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+        outline: 0 none;
+    }
+    
+    .p-terminal-input::-ms-clear {
+        display: none;
+    }
 }
 `;
 

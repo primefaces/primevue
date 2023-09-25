@@ -3,24 +3,26 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-inputswitch {
-    display: inline-block;
-}
-
-.p-inputswitch-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid transparent;
-}
-
-.p-inputswitch-slider:before {
-    position: absolute;
-    content: '';
-    top: 50%;
+@layer primevue {
+    .p-inputswitch {
+        display: inline-block;
+    }
+    
+    .p-inputswitch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid transparent;
+    }
+    
+    .p-inputswitch-slider:before {
+        position: absolute;
+        content: '';
+        top: 50%;
+    }
 }
 `;
 

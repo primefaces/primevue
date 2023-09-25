@@ -3,38 +3,40 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-listbox-list-wrapper {
-    overflow: auto;
-}
-
-.p-listbox-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.p-listbox-item {
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-listbox-item-group {
-    cursor: auto;
-}
-
-.p-listbox-filter-container {
-    position: relative;
-}
-
-.p-listbox-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-listbox-filter {
-    width: 100%;
+@layer primevue {
+    .p-listbox-list-wrapper {
+        overflow: auto;
+    }
+    
+    .p-listbox-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .p-listbox-item {
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .p-listbox-item-group {
+        cursor: auto;
+    }
+    
+    .p-listbox-filter-container {
+        position: relative;
+    }
+    
+    .p-listbox-filter-icon {
+        position: absolute;
+        top: 50%;
+        margin-top: -0.5rem;
+    }
+    
+    .p-listbox-filter {
+        width: 100%;
+    }
 }
 `;
 

@@ -3,26 +3,28 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-chip {
-    display: inline-flex;
-    align-items: center;
-}
-
-.p-chip-text {
-    line-height: 1.5;
-}
-
-.p-chip-icon.pi {
-    line-height: 1.5;
-}
-
-.p-chip-remove-icon {
-    line-height: 1.5;
-    cursor: pointer;
-}
-
-.p-chip img {
-    border-radius: 50%;
+@layer primevue {
+    .p-chip {
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .p-chip-text {
+        line-height: 1.5;
+    }
+    
+    .p-chip-icon.pi {
+        line-height: 1.5;
+    }
+    
+    .p-chip-remove-icon {
+        line-height: 1.5;
+        cursor: pointer;
+    }
+    
+    .p-chip img {
+        border-radius: 50%;
+    }
 }
 `;
 

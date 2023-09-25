@@ -3,17 +3,19 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-splitter-panel {
-    flex-grow: 1;
-}
-
-.p-splitter-panel-nested {
-    display: flex;
-}
-
-.p-splitter-panel .p-splitter {
-    flex-grow: 1;
-    border: 0 none;
+@layer primevue {
+    .p-splitter-panel {
+        flex-grow: 1;
+    }
+    
+    .p-splitter-panel-nested {
+        display: flex;
+    }
+    
+    .p-splitter-panel .p-splitter {
+        flex-grow: 1;
+        border: 0 none;
+    }
 }
 `;
 

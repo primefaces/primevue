@@ -3,50 +3,52 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-splitter {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.p-splitter-vertical {
-    flex-direction: column;
-}
-
-.p-splitter-gutter {
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: col-resize;
-}
-
-.p-splitter-horizontal.p-splitter-resizing {
-    cursor: col-resize;
-    user-select: none;
-}
-
-.p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
-    height: 24px;
-    width: 100%;
-}
-
-.p-splitter-horizontal > .p-splitter-gutter {
-    cursor: col-resize;
-}
-
-.p-splitter-vertical.p-splitter-resizing {
-    cursor: row-resize;
-    user-select: none;
-}
-
-.p-splitter-vertical > .p-splitter-gutter {
-    cursor: row-resize;
-}
-
-.p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
-    width: 24px;
-    height: 100%;
+@layer primevue {
+    .p-splitter {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .p-splitter-vertical {
+        flex-direction: column;
+    }
+    
+    .p-splitter-gutter {
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: col-resize;
+    }
+    
+    .p-splitter-horizontal.p-splitter-resizing {
+        cursor: col-resize;
+        user-select: none;
+    }
+    
+    .p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
+        height: 24px;
+        width: 100%;
+    }
+    
+    .p-splitter-horizontal > .p-splitter-gutter {
+        cursor: col-resize;
+    }
+    
+    .p-splitter-vertical.p-splitter-resizing {
+        cursor: row-resize;
+        user-select: none;
+    }
+    
+    .p-splitter-vertical > .p-splitter-gutter {
+        cursor: row-resize;
+    }
+    
+    .p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
+        width: 24px;
+        height: 100%;
+    }
 }
 `;
 

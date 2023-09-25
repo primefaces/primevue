@@ -3,76 +3,78 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-menubar {
-    display: flex;
-    align-items: center;
-}
-
-.p-menubar ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-menubar .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-menubar .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-menubar .p-menuitem {
-    position: relative;
-}
-
-.p-menubar-root-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-menubar-root-list > li ul {
-    display: none;
-    z-index: 1;
-}
-
-.p-menubar-root-list > .p-menuitem-active > .p-submenu-list {
-    display: block;
-}
-
-.p-menubar .p-submenu-list {
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-
-.p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list {
-    display: block;
-    left: 100%;
-    top: 0;
-}
-
-.p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-menubar .p-menubar-end {
-    margin-left: auto;
-    align-self: center;
-}
-
-.p-menubar-button {
-    display: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+@layer primevue {
+    .p-menubar {
+        display: flex;
+        align-items: center;
+    }
+    
+    .p-menubar ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .p-menubar .p-menuitem-link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .p-menubar .p-menuitem-text {
+        line-height: 1;
+    }
+    
+    .p-menubar .p-menuitem {
+        position: relative;
+    }
+    
+    .p-menubar-root-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .p-menubar-root-list > li ul {
+        display: none;
+        z-index: 1;
+    }
+    
+    .p-menubar-root-list > .p-menuitem-active > .p-submenu-list {
+        display: block;
+    }
+    
+    .p-menubar .p-submenu-list {
+        display: none;
+        position: absolute;
+        z-index: 1;
+    }
+    
+    .p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list {
+        display: block;
+        left: 100%;
+        top: 0;
+    }
+    
+    .p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+        margin-left: auto;
+    }
+    
+    .p-menubar .p-menubar-end {
+        margin-left: auto;
+        align-self: center;
+    }
+    
+    .p-menubar-button {
+        display: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
 }
 `;
 

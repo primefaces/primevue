@@ -3,20 +3,22 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-rating {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.p-rating-item {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.p-rating.p-readonly .p-rating-item {
-    cursor: default;
+@layer primevue {
+    .p-rating {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    
+    .p-rating-item {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .p-rating.p-readonly .p-rating-item {
+        cursor: default;
+    }
 }
 `;
 

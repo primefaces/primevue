@@ -3,38 +3,40 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-picklist {
-    display: flex;
-}
-
-.p-picklist-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.p-picklist-list-wrapper {
-    flex: 1 1 50%;
-}
-
-.p-picklist-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    min-height: 12rem;
-    max-height: 24rem;
-}
-
-.p-picklist-item {
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
-.p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
-    transition: none !important;
+@layer primevue {
+    .p-picklist {
+        display: flex;
+    }
+    
+    .p-picklist-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .p-picklist-list-wrapper {
+        flex: 1 1 50%;
+    }
+    
+    .p-picklist-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        min-height: 12rem;
+        max-height: 24rem;
+    }
+    
+    .p-picklist-item {
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
+    .p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
+        transition: none !important;
+    }
 }
 `;
 

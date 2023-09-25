@@ -231,6 +231,7 @@ const radioButtonStyles = `
 }
 `;
 const styles = `
+@layer primevue {
 .p-component, .p-component * {
     box-sizing: border-box;
 }
@@ -354,6 +355,7 @@ ${buttonStyles}
 ${checkboxStyles}
 ${inputTextStyles}
 ${radioButtonStyles}
+}
 `;
 
 const { load: loadStyle } = useStyle(styles, { name: 'common', manual: true });

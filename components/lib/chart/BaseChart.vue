@@ -3,8 +3,10 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-chart {
-    position: relative;
+@layer primevue {
+    .p-chart {
+        position: relative;
+    }
 }
 `;
 

@@ -3,42 +3,44 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-orderlist {
-    display: flex;
-}
-
-.p-orderlist-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.p-orderlist-list-container {
-    flex: 1 1 auto;
-}
-
-.p-orderlist-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    min-height: 12rem;
-    max-height: 24rem;
-}
-
-.p-orderlist-item {
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-orderlist.p-state-disabled .p-orderlist-item,
-.p-orderlist.p-state-disabled .p-button {
-    cursor: default;
-}
-
-.p-orderlist.p-state-disabled .p-orderlist-list {
-    overflow: hidden;
+@layer primevue {
+    .p-orderlist {
+        display: flex;
+    }
+    
+    .p-orderlist-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .p-orderlist-list-container {
+        flex: 1 1 auto;
+    }
+    
+    .p-orderlist-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        min-height: 12rem;
+        max-height: 24rem;
+    }
+    
+    .p-orderlist-item {
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .p-orderlist.p-state-disabled .p-orderlist-item,
+    .p-orderlist.p-state-disabled .p-button {
+        cursor: default;
+    }
+    
+    .p-orderlist.p-state-disabled .p-orderlist-list {
+        overflow: hidden;
+    }
 }
 `;
 
