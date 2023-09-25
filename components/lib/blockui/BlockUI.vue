@@ -51,6 +51,7 @@ export default {
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
                 document.activeElement.blur();
             } else {
                 this.mask = DomHandler.createElement('div', {
@@ -92,6 +93,7 @@ export default {
             if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                document.body.style.removeProperty('--scrollbar-width');
             } else {
                 this.$refs.container.removeChild(this.mask);
             }

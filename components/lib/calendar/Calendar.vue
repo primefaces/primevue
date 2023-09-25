@@ -1649,6 +1649,7 @@ export default {
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
             }
         },
         disableModality() {
@@ -1683,6 +1684,7 @@ export default {
 
             if (!hasBlockerMasks) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                document.body.style.removeProperty('--scrollbar-width');
             }
         },
         updateCurrentMetaData() {

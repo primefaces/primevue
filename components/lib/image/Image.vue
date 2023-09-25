@@ -94,6 +94,7 @@ export default {
         onImageClick() {
             if (this.preview) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
+                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
                 this.maskVisible = true;
                 setTimeout(() => {
                     this.previewVisible = true;
@@ -164,6 +165,7 @@ export default {
         },
         onLeave() {
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            document.body.style.removeProperty('--scrollbar-width');
             this.$emit('hide');
         },
         onAfterLeave(el) {
@@ -182,6 +184,7 @@ export default {
             this.rotate = 0;
             this.scale = 1;
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            document.body.style.removeProperty('--scrollbar-width');
         }
     },
     computed: {

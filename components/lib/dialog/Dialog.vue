@@ -205,8 +205,10 @@ export default {
             if (!this.modal) {
                 if (this.maximized) {
                     DomHandler.addClass(document.body, 'p-overflow-hidden');
+                    document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
                 } else {
                     DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    document.body.style.removeProperty('--scrollbar-width');
                 }
             }
         },

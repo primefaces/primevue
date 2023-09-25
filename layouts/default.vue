@@ -43,6 +43,7 @@ export default {
 
                 this.sidebarActive = false;
                 DomHandler.removeClass(document.body, 'blocked-scroll');
+                document.body.style.removeProperty('--scrollbar-width');
                 this.$toast.removeAllGroups();
             }
         }
@@ -61,14 +62,17 @@ export default {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
                 DomHandler.removeClass(document.body, 'blocked-scroll');
+                document.body.style.removeProperty('--scrollbar-width');
             } else {
                 this.sidebarActive = true;
                 DomHandler.addClass(document.body, 'blocked-scroll');
+                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
             }
         },
         onMaskClick() {
             this.sidebarActive = false;
             DomHandler.removeClass(document.body, 'blocked-scroll');
+            document.body.style.removeProperty('--scrollbar-width');
         },
         hideNews(event) {
             this.$appState.newsActive = false;

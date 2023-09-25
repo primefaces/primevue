@@ -4,11 +4,16 @@
     left: 0;
     z-index: 1100;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 2rem;
     padding: 0 2rem;
+
+    .layout-news-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - var(--scrollbar-width, 0px));
+        height: 100%;
+    }
 
     .layout-news-content {
         flex: 1;
