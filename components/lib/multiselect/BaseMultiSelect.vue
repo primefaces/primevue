@@ -83,6 +83,10 @@ export default {
             type: Boolean,
             default: true
         },
+        toggleAllLabel: {
+            type: String,
+            default: ''
+        },
         loading: {
             type: Boolean,
             default: false

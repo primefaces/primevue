@@ -427,6 +427,11 @@ export interface MultiSelectProps {
      */
     showToggleAll?: boolean | undefined;
     /**
+     * Label to show next to the toggle all checkbox
+     * @defaultValue ''
+     */
+    toggleAllLabel?: string | undefined;
+    /**
      * Whether the multiselect is in loading state.
      * @defaultValue false
      */

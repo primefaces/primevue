@@ -174,6 +174,12 @@ const MultiSelectProps = [
         description: 'Whether to show the header checkbox to toggle the selection of all items at once.'
     },
     {
+        name: 'toggleAllLabel',
+        type: 'string',
+        default: '',
+        description: 'Label to show next to the toggle all checkbox.'
+    },
+    {
         name: 'loading',
         type: 'boolean',
         default: 'false',

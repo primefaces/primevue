@@ -75,6 +75,7 @@
                             <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
                                 <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
                                     <component v-show="allSelected" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
+                                    <span class="p-multiselect-toggle-all-label">{{ toggleAllLabel }}</span>
                                 </slot>
                             </div>
                         </div>
