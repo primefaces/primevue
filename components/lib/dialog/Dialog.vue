@@ -190,7 +190,7 @@ export default {
             }
 
             if (focusTarget) {
-                DomHandler.focus(focusTarget);
+                DomHandler.focus(focusTarget, { focusVisible: true });
             }
         },
         maximize(event) {

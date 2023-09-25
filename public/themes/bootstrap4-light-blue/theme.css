@@ -5667,7 +5667,7 @@
     background: rgba(255, 255, 255, 0.1);
     color: #efefef;
   }
-  .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {
+  .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
