@@ -19,6 +19,7 @@ const styles = `
 
 .p-overflow-hidden {
     overflow: hidden;
+    padding-right: var(--scrollbar-width);
 }
 `;
 
