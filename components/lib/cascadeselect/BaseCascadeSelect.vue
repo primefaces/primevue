@@ -3,7 +3,7 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue {
+@layer primevue.core {
     .p-cascadeselect {
         display: inline-flex;
         cursor: pointer;

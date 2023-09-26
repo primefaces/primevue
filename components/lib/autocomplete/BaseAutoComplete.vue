@@ -4,7 +4,7 @@ import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
 const styles = `
-@layer primevue {
+@layer primevue.core {
     .p-autocomplete {
         display: inline-flex;
     }

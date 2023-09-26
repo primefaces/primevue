@@ -3,7 +3,7 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue {
+@layer primevue.core {
     .p-toast {
         width: 25rem;
         white-space: pre-line;

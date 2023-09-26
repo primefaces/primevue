@@ -3,7 +3,7 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue {
+@layer primevue.core {
     .p-galleria-content {
         display: flex;
         flex-direction: column;
