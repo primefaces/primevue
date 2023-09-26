@@ -201,7 +201,7 @@ const classes = {
     weekNumber: 'p-datepicker-weeknumber',
     weekLabelContainer: 'p-disabled',
     day: ({ date }) => [{ 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }],
-    dayLabel: ({ instance, date }) => [{ 'p-highlight': instance.isSelected(date), 'p-disabled': !date.selectable }],
+    dayLabel: ({ instance, date }) => [{ 'p-highlight': instance.isSelected(date) && date.selectable, 'p-disabled': !date.selectable }],
     monthPicker: 'p-monthpicker',
     month: ({ instance, month, index }) => ['p-monthpicker-month', { 'p-highlight': instance.isMonthSelected(index), 'p-disabled': !month.selectable }],
     yearPicker: 'p-yearpicker',
