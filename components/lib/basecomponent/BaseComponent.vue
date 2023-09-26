@@ -231,7 +231,7 @@ const radioButtonStyles = `
 }
 `;
 const styles = `
-@layer primevue.core {
+@layer primevue {
 .p-component, .p-component * {
     box-sizing: border-box;
 }

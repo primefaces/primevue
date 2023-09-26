@@ -9,7 +9,7 @@ const styles = `
     }
 }
 
-@layer primevue.core {
+@layer primevue {
     .p-ripple {
         overflow: hidden;
         position: relative;

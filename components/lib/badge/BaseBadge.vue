@@ -4,7 +4,7 @@ import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
 const styles = `
-@layer primevue.core {
+@layer primevue {
     .p-badge {
         display: inline-block;
         border-radius: 10px;

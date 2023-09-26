@@ -3,7 +3,7 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue.core {
+@layer primevue {
     .p-toolbar {
         display: flex;
         align-items: center;

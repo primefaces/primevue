@@ -3,7 +3,7 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue.core {
+@layer primevue {
     .p-organizationchart-table {
         border-spacing: 0;
         border-collapse: separate;

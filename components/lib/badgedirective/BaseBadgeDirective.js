@@ -2,7 +2,7 @@ import BaseDirective from 'primevue/basedirective';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-@layer primevue.core {
+@layer primevue {
     .p-badge {
         display: inline-block;
         border-radius: 10px;

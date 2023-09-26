@@ -8,7 +8,7 @@ const styles = `
         stroke-dashoffset: 0;
     }
 }
-@layer primevue.core {
+@layer primevue {
     .p-knob-range {
         fill: none;
         transition: stroke 0.1s ease-in;
