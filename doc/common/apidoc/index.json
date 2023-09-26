@@ -12037,7 +12037,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">filterModel</span>: <span class=\"text-600\">ColumnFilterModelType</span>, <span class=\"text-500\">// Filter metadata</span>\n \t <span class=\"text-900\">filterCallback</span>: <span class=\"text-600\">() &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n}",
+                                    "type": "{\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">filterModel</span>: <span class=\"text-600\">ColumnFilterModelType</span>, <span class=\"text-500\">// Filter metadata</span>\n \t <span class=\"text-900\">filterCallback</span>: <span class=\"text-600\">() &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n\t <span class=\"text-900\">applyFilter</span>: <span class=\"text-600\">() &rArr; void</span>, <span class=\"text-500\">// Callback function (closes the overlay)</span>\n}",
                                     "description": "filter slot's params."
                                 }
                             ],
