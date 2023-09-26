@@ -2928,7 +2928,7 @@
     background: rgba(63, 81, 181, 0.12);
     color: #3F51B5;
   }
-  .p-column-filter-menu-button:focus {
+  .p-column-filter-menu-button:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: none;
@@ -2948,7 +2948,7 @@
     border-color: transparent;
     background: rgba(0, 0, 0, 0.04);
   }
-  .p-column-filter-clear-button:focus {
+  .p-column-filter-clear-button:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: none;
@@ -2982,7 +2982,7 @@
     color: rgba(0, 0, 0, 0.87);
     background: rgba(0, 0, 0, 0.04);
   }
-  .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus {
+  .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: none;

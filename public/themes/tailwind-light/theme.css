@@ -2939,7 +2939,7 @@
     background: #EEF2FF;
     color: #312E81;
   }
-  .p-column-filter-menu-button:focus {
+  .p-column-filter-menu-button:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 1px #6366F1;
@@ -2959,7 +2959,7 @@
     border-color: transparent;
     background: #f4f4f5;
   }
-  .p-column-filter-clear-button:focus {
+  .p-column-filter-clear-button:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 1px #6366F1;
@@ -2993,7 +2993,7 @@
     color: #18181B;
     background: #f4f4f5;
   }
-  .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus {
+  .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: inset 0 0 0 0.15rem #6366F1;
