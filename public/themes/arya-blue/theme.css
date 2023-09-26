@@ -5404,7 +5404,7 @@
   .p-message .p-message-close:hover {
     background: rgba(255, 255, 255, 0.3);
   }
-  .p-message .p-message-close:focus {
+  .p-message .p-message-close:focus-visible {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 1px #93cbf9;
