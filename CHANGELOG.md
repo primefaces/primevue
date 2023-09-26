@@ -1,5 +1,36 @@
 # Changelog
 
+## [3.35.0](https://github.com/primefaces/primevue/tree/3.35.0) (2023-09-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.34.1...3.35.0)
+
+**Breaking Changes:**
+
+-   New `@layer` implementation [\#4504](https://github.com/primefaces/primevue/issues/4504)
+-   Theme updates: change `:focus` to `focus-visible` [\#4500](https://github.com/primefaces/primevue/issues/4500)
+
+**Implemented New Features and Enhancements:**
+
+-   usePassThrough support for Bootstrap [\#4496](https://github.com/primefaces/primevue/issues/4496)
+-   Use Inter Var for Lara as the default theme [\#4483](https://github.com/primefaces/primevue/issues/4483)
+-   Calendar: focus state update [\#4474](https://github.com/primefaces/primevue/issues/4474)
+-   Add `ptOptions` option to PrimeVue config [\#4473](https://github.com/primefaces/primevue/issues/4473)
+-   Dialog: new `blockScroll` property [\#4463](https://github.com/primefaces/primevue/issues/4463)
+-   Container Slots for Overlay Components [\#4433](https://github.com/primefaces/primevue/issues/4433)
+-   Dialog component scrollbar shift [\#882](https://github.com/primefaces/primevue/issues/882)
+
+**Fixed bugs:**
+
+-   Calendar | Disabled date is highlighted when it's in the range [\#4508](https://github.com/primefaces/primevue/issues/4508)
+-   ConfirmPopup: acceptClass and rejectClass is not working on unstyled mode [\#4506](https://github.com/primefaces/primevue/issues/4506)
+-   Column Filter: Missing type for new `applyFilter` method [\#4484](https://github.com/primefaces/primevue/issues/4484)
+-   Button: Buttonset with single button has wrong border radius [\#4467](https://github.com/primefaces/primevue/issues/4467)
+-   \[DataTable\] Reorder feature and rowreordericon slot problem. [\#4459](https://github.com/primefaces/primevue/issues/4459)
+-   ToastMessage: styleClass property is ignored [\#4454](https://github.com/primefaces/primevue/issues/4454)
+-   Bitwise operator used in passthorugh/tailwind/index.js instead of logical operator [\#4415](https://github.com/primefaces/primevue/issues/4415)
+-   Textarea autoResize with max-height doesn't show scrollbar [\#4269](https://github.com/primefaces/primevue/issues/4269)
+-   Calendar: manualInput property ignored [\#3523](https://github.com/primefaces/primevue/issues/3523)
+
 ## [3.34.1](https://github.com/primefaces/primevue/tree/3.34.1) (2023-09-08)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.34.0...3.34.1)
