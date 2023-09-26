@@ -19,7 +19,7 @@
         </div>
         <DocSectionCode :code="code1" />
 
-        <p><i>container</i> templating allows customizing the Dialog component.</p>
+        <p><i>container</i> templating allows customizing the Message component.</p>
         <div class="card">
             <Message style="border: none">
                 <template #container>

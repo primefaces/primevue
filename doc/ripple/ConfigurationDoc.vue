@@ -13,7 +13,8 @@ export default {
                 basic: `
 mounted() {
     this.$primevue.config.ripple = true;
-}`,
+}
+`,
                 options: `
 mounted() {
     this.$primevue.config.ripple = true;

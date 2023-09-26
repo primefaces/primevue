@@ -11,7 +11,8 @@ export default {
                 basic: `
 import StyleClass from 'primevue/styleclass';
                 
-app.directive('styleclass', StyleClass);`
+app.directive('styleclass', StyleClass);
+`
             }
         };
     }

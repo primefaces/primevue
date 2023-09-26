@@ -22,7 +22,8 @@ this.$dialog.open(ProductListDemo, {
             console.log(e);  // {user: 'primetime'}
         }
     },
-};`
+};
+`
             },
             code2: {
                 basic: `

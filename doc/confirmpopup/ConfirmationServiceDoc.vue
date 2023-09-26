@@ -19,13 +19,15 @@ import {createApp} from 'vue';
 import ConfirmationService from 'primevue/confirmationservice';
 
 const app = createApp(App);
-app.use(ConfirmationService);`
+app.use(ConfirmationService);
+`
             },
             code2: {
                 basic: `
 import { useConfirm } from "primevue/useconfirm";
 
-const confirm = useConfirm();`
+const confirm = useConfirm();
+`
             }
         };
     }

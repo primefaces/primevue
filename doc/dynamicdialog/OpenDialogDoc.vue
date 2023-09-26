@@ -19,7 +19,8 @@ export default {
             this.$dialog.open(ProductListDemo, {});
         }
     }
-}`,
+}
+`,
                 options: `
 import ProductListDemo from './ProductListDemo';
 

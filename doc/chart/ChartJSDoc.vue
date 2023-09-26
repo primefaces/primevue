@@ -11,7 +11,8 @@ export default {
         return {
             code: {
                 basic: `
-npm install chart.js`
+npm install chart.js
+`
             }
         };
     }

@@ -20,13 +20,15 @@ import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
-app.use(PrimeVue, { ripple: true });`
+app.use(PrimeVue, { ripple: true });
+`
             },
             code2: {
                 basic: `
 import Ripple from 'primevue/ripple';
 
-app.directive('ripple', Ripple);`
+app.directive('ripple', Ripple);
+`
             }
         };
     }
