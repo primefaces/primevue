@@ -88,8 +88,8 @@ const classes = {
     icon: ({ instance }) => ['p-confirm-popup-icon', instance.confirmation ? instance.confirmation.icon : null],
     message: 'p-confirm-popup-message',
     footer: 'p-confirm-popup-footer',
-    rejectButton: ({ instance }) => ['p-confirm-dialog-reject', instance.confirmation ? instance.confirmation.rejectClass || 'p-button-text' : null],
-    acceptButton: ({ instance }) => ['p-confirm-dialog-accept', instance.confirmation ? instance.confirmation.acceptClass : null]
+    rejectButton: ({ instance }) => ['p-confirm-dialog-reject', instance.confirmation && !instance.confirmation.rejectClass ? 'p-button-text' : null],
+    acceptButton: 'p-confirm-dialog-accept'
 };
 
 const { load: loadStyle } = useStyle(styles, { name: 'confirmpopup', manual: true });
