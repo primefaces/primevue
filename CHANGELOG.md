@@ -8,7 +8,6 @@
 
 -   New `@layer` implementation [\#4504](https://github.com/primefaces/primevue/issues/4504)
 -   Theme updates: change `:focus` to `focus-visible` [\#4500](https://github.com/primefaces/primevue/issues/4500)
--   usePassThrough support for Bootstrap [\#4496](https://github.com/primefaces/primevue/issues/4496)
 -   Use Inter Var for Lara as the default theme [\#4483](https://github.com/primefaces/primevue/issues/4483)
 -   Calendar: focus state update [\#4474](https://github.com/primefaces/primevue/issues/4474)
 -   Add `ptOptions` option to PrimeVue config [\#4473](https://github.com/primefaces/primevue/issues/4473)
