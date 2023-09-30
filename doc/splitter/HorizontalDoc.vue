@@ -3,7 +3,7 @@
         <p>Splitter requires two SplitterPanel components as children which are displayed horizontally by default.</p>
     </DocSectionText>
     <div class="card">
-        <Splitter style="height: 300px" class="mb-5" @resizing="console.log">
+        <Splitter style="height: 300px" class="mb-5">
             <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
             <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
         </Splitter>
