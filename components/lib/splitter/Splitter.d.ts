@@ -56,6 +56,21 @@ export interface SplitterResizeStartEvent {
 }
 
 /**
+ * Custom resizing event.
+ * @see {@link SplitterEmits.resizing}
+ */
+export interface SplitterResizingEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Sizes of the panels
+     */
+    sizes: number[];
+}
+
+/**
  * Custom resize end event.
  * @see {@link SplitterEmits.resizeend}
  */
@@ -185,6 +200,11 @@ export interface SplitterEmits {
      * @param {SplitterResizeStartEvent} event - Custom resize start event.
      */
     resizestart(event: SplitterResizeStartEvent): void;
+    /**
+     * Callback to invoke when resizing.
+     * @param {SplitterResizingEvent} event - Custom resizing event.
+     */
+    resizing(event: SplitterResizingEvent): void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.

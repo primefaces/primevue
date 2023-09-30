@@ -40427,9 +40427,9 @@
                     ],
                     "methods": []
                 },
-                "SplitterResizeEndEvent": {
-                    "description": "Custom resize end event.",
-                    "relatedProp": "SplitterEmits.resizeend",
+                "SplitterResizingEvent": {
+                    "description": "Custom resizing event.",
+                    "relatedProp": "SplitterEmits.resizing",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -40445,7 +40445,7 @@
                             "readonly": false,
                             "type": "number[]",
                             "default": "",
-                            "description": "Sizes of the panels"
+                            "description": "Sizes of the panels during resizing"
                         }
                     ],
                     "methods": []
@@ -40633,6 +40633,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when resize starts."
+                        },
+                        {
+                            "name": "resizing",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "SplitterResizingEvent",
+                                    "description": "Custom resizing event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when resizing."
                         },
                         {
                             "name": "resizeend",
