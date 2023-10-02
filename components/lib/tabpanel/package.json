@@ -1,9 +1,9 @@
 {
-  "main": "./tabpanel.cjs.js",
-  "module": "./tabpanel.esm.js",
-  "unpkg": "./tabpanel.min.js",
-  "types": "./TabPanel.d.ts",
-  "browser": {
-    "./sfc": "./TabPanel.vue"
-  }
+    "main": "./tabpanel.cjs.js",
+    "module": "./tabpanel.esm.js",
+    "unpkg": "./tabpanel.min.js",
+    "types": "./TabPanel.d.ts",
+    "browser": {
+        "./sfc": "./TabPanel.vue"
+    }
 }

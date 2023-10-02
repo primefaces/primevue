@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Dialog from 'primevue/dialog';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
 import { UniqueComponentId } from 'primevue/utils';
+import BaseDynamicDialog from './BaseDynamicDialog.vue';
 
 export default {
     name: 'DynamicDialog',
-    extends: BaseComponent,
+    extends: BaseDynamicDialog,
     inheritAttrs: false,
     data() {
         return {

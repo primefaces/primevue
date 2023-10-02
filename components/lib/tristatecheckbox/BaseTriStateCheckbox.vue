@@ -1,27 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: ({ instance, props }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-checked': props.modelValue === true,
-            'p-checkbox-disabled': props.disabled,
-            'p-checkbox-focused': instance.focused
-        }
-    ],
-    checkbox: ({ instance, props }) => [
-        'p-checkbox-box',
-        {
-            'p-highlight': props.modelValue != null,
-            'p-disabled': props.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    checkIcon: 'p-checkbox-icon',
-    uncheckIcon: 'p-checkbox-icon',
-    nullableIcon: 'p-checkbox-icon'
-};
+import TriStateCheckboxStyle from 'primevue/tristatecheckbox/style';
 
 export default {
     name: 'BaseTriStateCheckbox',
@@ -53,9 +32,7 @@ export default {
             default: null
         }
     },
-    css: {
-        classes
-    },
+    style: TriStateCheckboxStyle,
     provide() {
         return {
             $parentInstance: this

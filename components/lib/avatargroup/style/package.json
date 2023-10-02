@@ -1,0 +1,5 @@
+{
+    "main": "./avatargroupstyle.cjs.js",
+    "module": "./avatargroupstyle.esm.js",
+    "unpkg": "./avatargroupstyle.min.js"
+}

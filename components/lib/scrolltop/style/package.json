@@ -1,0 +1,5 @@
+{
+    "main": "./scrolltopstyle.cjs.js",
+    "module": "./scrolltopstyle.esm.js",
+    "unpkg": "./scrolltopstyle.min.js"
+}

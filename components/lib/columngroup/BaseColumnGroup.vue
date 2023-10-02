@@ -1,5 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import ColumnGroupStyle from 'primevue/columngroup/style';
 
 export default {
     name: 'BaseColumnGroup',
@@ -10,6 +11,7 @@ export default {
             default: null
         }
     },
+    style: ColumnGroupStyle,
     provide() {
         return {
             $parentInstance: this

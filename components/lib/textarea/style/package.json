@@ -1,0 +1,5 @@
+{
+    "main": "./textareastyle.cjs.js",
+    "module": "./textareastyle.esm.js",
+    "unpkg": "./textareastyle.min.js"
+}

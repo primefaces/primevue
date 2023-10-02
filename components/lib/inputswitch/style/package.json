@@ -1,0 +1,5 @@
+{
+    "main": "./inputswitchstyle.cjs.js",
+    "module": "./inputswitchstyle.esm.js",
+    "unpkg": "./inputswitchstyle.min.js"
+}

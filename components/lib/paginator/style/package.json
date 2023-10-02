@@ -1,0 +1,5 @@
+{
+    "main": "./paginatorstyle.cjs.js",
+    "module": "./paginatorstyle.esm.js",
+    "unpkg": "./paginatorstyle.min.js"
+}

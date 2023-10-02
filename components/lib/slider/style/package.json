@@ -1,0 +1,5 @@
+{
+    "main": "./sliderstyle.cjs.js",
+    "module": "./sliderstyle.esm.js",
+    "unpkg": "./sliderstyle.min.js"
+}

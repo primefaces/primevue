@@ -1,0 +1,5 @@
+{
+    "main": "./radiobuttonstyle.cjs.js",
+    "module": "./radiobuttonstyle.esm.js",
+    "unpkg": "./radiobuttonstyle.min.js"
+}

@@ -1,0 +1,5 @@
+{
+    "main": "./orderliststyle.cjs.js",
+    "module": "./orderliststyle.esm.js",
+    "unpkg": "./orderliststyle.min.js"
+}

@@ -1,0 +1,5 @@
+{
+    "main": "./menubarstyle.cjs.js",
+    "module": "./menubarstyle.esm.js",
+    "unpkg": "./menubarstyle.min.js"
+}

@@ -6,11 +6,13 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import DeferredContentStyle from 'primevue/deferredcontent/style';
 
 export default {
     name: 'DeferredContent',
     extends: BaseComponent,
     emits: ['load'],
+    style: DeferredContentStyle,
     data() {
         return {
             loaded: false

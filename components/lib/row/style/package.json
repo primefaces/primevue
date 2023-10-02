@@ -1,0 +1,5 @@
+{
+    "main": "./rowstyle.cjs.js",
+    "module": "./rowstyle.esm.js",
+    "unpkg": "./rowstyle.min.js"
+}

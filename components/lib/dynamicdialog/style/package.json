@@ -1,0 +1,5 @@
+{
+    "main": "./dynamicdialogstyle.cjs.js",
+    "module": "./dynamicdialogstyle.esm.js",
+    "unpkg": "./dynamicdialogstyle.min.js"
+}

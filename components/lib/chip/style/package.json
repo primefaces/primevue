@@ -1,0 +1,5 @@
+{
+    "main": "./chipstyle.cjs.js",
+    "module": "./chipstyle.esm.js",
+    "unpkg": "./chipstyle.min.js"
+}

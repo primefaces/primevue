@@ -1,0 +1,5 @@
+{
+    "main": "./chartstyle.cjs.js",
+    "module": "./chartstyle.esm.js",
+    "unpkg": "./chartstyle.min.js"
+}

@@ -4,6 +4,6 @@
     "unpkg": "./speeddial.min.js",
     "types": "./SpeedDial.d.ts",
     "browser": {
-      "./sfc": "./SpeedDial.vue"
+        "./sfc": "./SpeedDial.vue"
     }
-  }
+}

@@ -1,0 +1,5 @@
+{
+    "main": "./imagestyle.cjs.js",
+    "module": "./imagestyle.esm.js",
+    "unpkg": "./imagestyle.min.js"
+}

@@ -4,6 +4,6 @@
     "unpkg": "./dock.min.js",
     "types": "./Dock.d.ts",
     "browser": {
-      "./sfc": "./Dock.vue"
+        "./sfc": "./Dock.vue"
     }
-  }
+}

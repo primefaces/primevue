@@ -4,6 +4,6 @@
     "unpkg": "./index.min.js",
     "types": "./index.d.ts",
     "browser": {
-      "./sfc": "./index.vue"
+        "./sfc": "./index.vue"
     }
 }

@@ -1,0 +1,5 @@
+{
+    "main": "./dataviewlayoutoptionsstyle.cjs.js",
+    "module": "./dataviewlayoutoptionsstyle.esm.js",
+    "unpkg": "./dataviewlayoutoptionsstyle.min.js"
+}

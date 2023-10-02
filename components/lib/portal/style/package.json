@@ -1,0 +1,5 @@
+{
+    "main": "./portalstyle.cjs.js",
+    "module": "./portalstyle.esm.js",
+    "unpkg": "./portalstyle.min.js"
+}

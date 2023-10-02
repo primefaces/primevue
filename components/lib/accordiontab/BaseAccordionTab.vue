@@ -1,4 +1,5 @@
 <script>
+import AccordionTabStyle from 'primevue/accordiontab/style';
 import BaseComponent from 'primevue/basecomponent';
 
 export default {
@@ -15,6 +16,7 @@ export default {
         contentProps: null,
         disabled: Boolean
     },
+    style: AccordionTabStyle,
     provide() {
         return {
             $parentInstance: this

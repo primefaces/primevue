@@ -1,0 +1,5 @@
+{
+    "main": "./badgedirectivestyle.cjs.js",
+    "module": "./badgedirectivestyle.esm.js",
+    "unpkg": "./badgedirectivestyle.min.js"
+}

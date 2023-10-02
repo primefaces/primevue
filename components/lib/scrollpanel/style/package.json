@@ -1,0 +1,5 @@
+{
+    "main": "./scrollpanelstyle.cjs.js",
+    "module": "./scrollpanelstyle.esm.js",
+    "unpkg": "./scrollpanelstyle.min.js"
+}

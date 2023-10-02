@@ -1,0 +1,5 @@
+{
+    "main": "./calendarstyle.cjs.js",
+    "module": "./calendarstyle.esm.js",
+    "unpkg": "./calendarstyle.min.js"
+}

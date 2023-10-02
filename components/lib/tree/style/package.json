@@ -1,0 +1,5 @@
+{
+    "main": "./treestyle.cjs.js",
+    "module": "./treestyle.esm.js",
+    "unpkg": "./treestyle.min.js"
+}

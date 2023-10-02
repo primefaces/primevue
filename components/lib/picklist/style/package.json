@@ -1,0 +1,5 @@
+{
+    "main": "./pickliststyle.cjs.js",
+    "module": "./pickliststyle.esm.js",
+    "unpkg": "./pickliststyle.min.js"
+}

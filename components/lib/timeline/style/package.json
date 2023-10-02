@@ -1,0 +1,5 @@
+{
+    "main": "./timelinestyle.cjs.js",
+    "module": "./timelinestyle.esm.js",
+    "unpkg": "./timelinestyle.min.js"
+}

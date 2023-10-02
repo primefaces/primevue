@@ -1,0 +1,5 @@
+{
+    "main": "./fieldsetstyle.cjs.js",
+    "module": "./fieldsetstyle.esm.js",
+    "unpkg": "./fieldsetstyle.min.js"
+}

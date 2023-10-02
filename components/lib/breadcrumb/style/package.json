@@ -1,0 +1,5 @@
+{
+    "main": "./breadcrumbstyle.cjs.js",
+    "module": "./breadcrumbstyle.esm.js",
+    "unpkg": "./breadcrumbstyle.min.js"
+}

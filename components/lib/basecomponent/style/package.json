@@ -1,0 +1,5 @@
+{
+    "main": "./basecomponentstyle.cjs.js",
+    "module": "./basecomponentstyle.esm.js",
+    "unpkg": "./basecomponentstyle.min.js"
+}

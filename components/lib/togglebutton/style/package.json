@@ -1,0 +1,5 @@
+{
+    "main": "./togglebuttonstyle.cjs.js",
+    "module": "./togglebuttonstyle.esm.js",
+    "unpkg": "./togglebuttonstyle.min.js"
+}

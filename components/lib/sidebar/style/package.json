@@ -1,0 +1,5 @@
+{
+    "main": "./sidebarstyle.cjs.js",
+    "module": "./sidebarstyle.esm.js",
+    "unpkg": "./sidebarstyle.min.js"
+}

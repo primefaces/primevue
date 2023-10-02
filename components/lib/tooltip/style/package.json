@@ -1,0 +1,5 @@
+{
+    "main": "./tooltipstyle.cjs.js",
+    "module": "./tooltipstyle.esm.js",
+    "unpkg": "./tooltipstyle.min.js"
+}

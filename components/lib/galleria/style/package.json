@@ -1,0 +1,5 @@
+{
+    "main": "./galleriastyle.cjs.js",
+    "module": "./galleriastyle.esm.js",
+    "unpkg": "./galleriastyle.min.js"
+}

@@ -1,0 +1,5 @@
+{
+    "main": "./panelstyle.cjs.js",
+    "module": "./panelstyle.esm.js",
+    "unpkg": "./panelstyle.min.js"
+}

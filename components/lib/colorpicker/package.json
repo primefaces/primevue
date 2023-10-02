@@ -1,9 +1,9 @@
 {
-  "main": "./colorpicker.cjs.js",
-  "module": "./colorpicker.esm.js",
-  "unpkg": "./colorpicker.min.js",
-  "types": "./ColorPicker.d.ts",
-  "browser": {
-    "./sfc": "./ColorPicker.vue"
-  }
+    "main": "./colorpicker.cjs.js",
+    "module": "./colorpicker.esm.js",
+    "unpkg": "./colorpicker.min.js",
+    "types": "./ColorPicker.d.ts",
+    "browser": {
+        "./sfc": "./ColorPicker.vue"
+    }
 }

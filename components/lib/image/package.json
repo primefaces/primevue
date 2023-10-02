@@ -4,6 +4,6 @@
     "unpkg": "./image.min.js",
     "types": "./Image.d.ts",
     "browser": {
-      "./sfc": "./Image.vue"
+        "./sfc": "./Image.vue"
     }
-  }
+}

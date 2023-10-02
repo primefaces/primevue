@@ -1,0 +1,5 @@
+{
+    "main": "./passwordstyle.cjs.js",
+    "module": "./passwordstyle.esm.js",
+    "unpkg": "./passwordstyle.min.js"
+}

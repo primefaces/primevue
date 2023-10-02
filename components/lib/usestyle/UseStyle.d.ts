@@ -6,6 +6,7 @@ export interface StyleOptions {
     id?: string;
     media?: string;
     nonce?: string;
+    props?: any;
 }
 
 export declare function useStyle(
@@ -16,6 +17,6 @@ export declare function useStyle(
     name: string;
     css: any;
     unload: () => void;
-    load: (css?: string, options?: any) => void;
+    load: (css?: string, props?: any) => void;
     isLoaded: boolean;
 };

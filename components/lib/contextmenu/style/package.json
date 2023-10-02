@@ -1,0 +1,5 @@
+{
+    "main": "./contextmenustyle.cjs.js",
+    "module": "./contextmenustyle.esm.js",
+    "unpkg": "./contextmenustyle.min.js"
+}

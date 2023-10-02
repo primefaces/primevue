@@ -1,0 +1,5 @@
+{
+    "main": "./styleclassstyle.cjs.js",
+    "module": "./styleclassstyle.esm.js",
+    "unpkg": "./styleclassstyle.min.js"
+}

@@ -1,0 +1,5 @@
+{
+    "main": "./focustrapstyle.cjs.js",
+    "module": "./focustrapstyle.esm.js",
+    "unpkg": "./focustrapstyle.min.js"
+}

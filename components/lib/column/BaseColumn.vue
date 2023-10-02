@@ -1,5 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import ColumnStyle from 'primevue/column/style';
 
 export default {
     name: 'BaseColumn',
@@ -182,6 +183,7 @@ export default {
             default: false
         }
     },
+    style: ColumnStyle,
     provide() {
         return {
             $parentInstance: this

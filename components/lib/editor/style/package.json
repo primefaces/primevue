@@ -1,0 +1,5 @@
+{
+    "main": "./editorstyle.cjs.js",
+    "module": "./editorstyle.esm.js",
+    "unpkg": "./editorstyle.min.js"
+}

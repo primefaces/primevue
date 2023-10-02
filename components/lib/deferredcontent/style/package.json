@@ -1,0 +1,5 @@
+{
+    "main": "./deferredcontentstyle.cjs.js",
+    "module": "./deferredcontentstyle.esm.js",
+    "unpkg": "./deferredcontentstyle.min.js"
+}
