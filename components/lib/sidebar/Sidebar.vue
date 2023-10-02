@@ -9,7 +9,7 @@
                             <div v-if="$slots.header" :class="cx('headerContent')" v-bind="ptm('headerContent')">
                                 <slot name="header"></slot>
                             </div>
-                            <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
+                            <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
                                 <slot name="closeicon" :class="cx('closeIcon')">
                                     <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
                                 </slot>
@@ -106,17 +106,17 @@ export default {
                 return container && container.querySelector('[autofocus]');
             };
 
-            let focusTarget = this.$slots.default && findFocusableElement(this.content);
+            let focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
 
             if (!focusTarget) {
-                focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+                focusTarget = this.$slots.default && findFocusableElement(this.container);
 
                 if (!focusTarget) {
-                    focusTarget = findFocusableElement(this.container);
+                    focusTarget = this.closeButton;
                 }
             }
 
-            focusTarget && focusTarget.focus();
+            focusTarget && DomHandler.focus(focusTarget);
         },
         enableDocumentSettings() {
             if (this.dismissable && !this.modal) {
