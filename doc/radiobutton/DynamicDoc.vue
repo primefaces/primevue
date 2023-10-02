@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="category in categories" :key="category.key" class="flex align-items-center">
-                <RadioButton v-model="selectedCategory" :inputId="category.key" name="pizza2" :value="category.name" />
+                <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
                 <label :for="category.key" class="ml-2">{{ category.name }}</label>
             </div>
         </div>
@@ -27,7 +27,7 @@ export default {
             code: {
                 basic: `
 <div v-for="category in categories" :key="category.key" class="flex align-items-center">
-    <RadioButton v-model="selectedCategory" :inputId="category.key" name="pizza" :value="category.name" />
+    <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
     <label :for="category.key" class="ml-2">{{ category.name }}</label>
 </div>
 `,
@@ -36,7 +36,7 @@ export default {
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="category in categories" :key="category.key" class="flex align-items-center">
-                <RadioButton v-model="selectedCategory" :inputId="category.key" name="pizza" :value="category.name" />
+                <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
                 <label :for="category.key" class="ml-2">{{ category.name }}</label>
             </div>
         </div>
@@ -63,7 +63,7 @@ export default {
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="category in categories" :key="category.key" class="flex align-items-center">
-                <RadioButton v-model="selectedCategory" :inputId="category.key" name="pizza" :value="category.name" />
+                <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
                 <label :for="category.key" class="ml-2">{{ category.name }}</label>
             </div>
         </div>
