@@ -9,14 +9,13 @@ export interface StyleOptions {
     props?: any;
 }
 
-export declare function useStyle(
-    css: string,
-    options?: StyleOptions
-): {
+export interface Style {
     id: string;
     name: string;
     css: any;
     unload: () => void;
     load: (css?: string, props?: any) => void;
     isLoaded: boolean;
-};
+}
+
+export declare function useStyle(css: string, options?: StyleOptions): Style;
