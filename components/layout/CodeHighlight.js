@@ -9,7 +9,10 @@ const CodeHighlight = {
         else if (modifiers.css || value === 'css') el.className = 'language-css';
         else el.className = 'language-markup';
 
-        DomHandler.isClient() && window.Prism.highlightElement(el.children[0]);
+        if (DomHandler.isClient()) {
+            window.Prism.highlightElement(el.children[0]);
+            el.children[0].parentElement.setAttribute('tabindex', '-1');
+        }
     }
 };
 
