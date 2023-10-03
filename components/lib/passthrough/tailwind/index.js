@@ -3398,7 +3398,7 @@ export default {
             }),
             input: {
                 class: [
-                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md apperance-none',
+                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md appearance-none',
                     'block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border-0 pr-0',
                     'focus:outline-none focus:outline-offset-0',
                     'dark:text-white' //Dark Mode
@@ -3439,7 +3439,7 @@ export default {
             },
             input: {
                 class: [
-                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md apperance-none',
+                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md appearance-none',
                     'block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border border-gray-300 pr-0',
                     'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] focus:border-blue-300',
                     'dark:text-white dark:bg-gray-950 dark:border-blue-900/40', //Dark Mode
@@ -3464,7 +3464,7 @@ export default {
             }),
             input: {
                 class: [
-                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md apperance-none',
+                    'font-sans text-base text-gray-600 p-3 m-0 rounded-md appearance-none',
                     'block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border-0 pr-0',
                     'focus:outline-none focus:outline-offset-0',
                     'dark:text-white' //Dark Mode
