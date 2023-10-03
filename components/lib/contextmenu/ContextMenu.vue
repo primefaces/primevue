@@ -71,11 +71,9 @@ export default {
             if (ObjectUtils.isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
                 this.bindResizeListener();
-                this.bindDocumentContextMenuListener();
             } else if (!this.visible) {
                 this.unbindOutsideClickListener();
                 this.unbindResizeListener();
-                this.unbindDocumentContextMenuListener();
             }
         }
     },
@@ -358,7 +356,6 @@ export default {
         onAfterEnter() {
             this.bindOutsideClickListener();
             this.bindResizeListener();
-            this.bindDocumentContextMenuListener();
 
             this.$emit('show');
             DomHandler.focus(this.list);
@@ -374,7 +371,6 @@ export default {
 
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
-            this.unbindDocumentContextMenuListener();
         },
         position() {
             let left = this.pageX + 1;
@@ -446,7 +442,7 @@ export default {
         bindDocumentContextMenuListener() {
             if (!this.documentContextMenuListener) {
                 this.documentContextMenuListener = (event) => {
-                    event.button !== 2 ? this.show(event) : this.hide();
+                    event.button === 2 && this.show(event);
                 };
 
                 document.addEventListener('contextmenu', this.documentContextMenuListener);
