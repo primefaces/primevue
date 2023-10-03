@@ -10,6 +10,10 @@
     </div>
     <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     <DocSectionCode :code="code2" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <p>An in-depth video tutorial is available to cover advanced uses cases with Pass Through props.</p>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/n5zvMo7ykgw?si=lw1dGEHclmhIfZTr" frameborder="0" allowfullscreen></iframe>
+    </div>
 </template>
 
 <script>
@@ -29,8 +33,7 @@ export default {
             },
 
             code2: {
-                basic: `
-<template>
+                basic: `<template>
     <InputText :class="$style.myinput" placeholder="Search" />
 </template>`
             }
