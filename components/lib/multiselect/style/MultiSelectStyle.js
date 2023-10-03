@@ -107,6 +107,12 @@ const css = `
     .p-fluid .p-multiselect {
         display: flex;
     }
+
+    .p-multiselect-toggle-all-label {
+        position: relative;
+        left: 50px;
+        white-space: nowrap;
+    }
 }
 `;
 
