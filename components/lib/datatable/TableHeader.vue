@@ -36,7 +36,6 @@
                         @constraint-add="$emit('constraint-add', $event)"
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
-                        :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
                         :pt="pt"
                     />
                 </template>
@@ -119,7 +118,6 @@
                         @constraint-add="$emit('constraint-add', $event)"
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
-                        :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
                         :pt="pt"
                     />
                 </template>
@@ -225,10 +223,6 @@ export default {
         },
         filterInputProps: {
             type: null,
-            default: null
-        },
-        headerCheckboxIconTemplate: {
-            type: Function,
             default: null
         }
     },
