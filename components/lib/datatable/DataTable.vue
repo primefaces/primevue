@@ -87,7 +87,6 @@
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
                             :filterInputProps="filterInputProps"
-                            :headerCheckboxIconTemplate="$slots.headercheckboxicon"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
                             @filter-change="onFilterChange"
