@@ -5832,6 +5832,9 @@
     outline-offset: 0;
     box-shadow: none;
   }
+  .p-chip .p-chip-remove-icon:focus {
+    outline: 0 none;
+  }
 
   .p-inplace .p-inplace-display {
     padding: 1rem 1rem;
