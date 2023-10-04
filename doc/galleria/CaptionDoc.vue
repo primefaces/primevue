@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Description of an image is specified with the <i>caption</i> property that takes the displayed object and returns content.</p>
     </DocSectionText>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -56,7 +56,7 @@ export default {
 </Galleria>`,
                 options: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -102,7 +102,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
