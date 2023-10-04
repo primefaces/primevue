@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Advanced Galleria implementation with a custom UI.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center galleria demo">
+    <div class="card">
         <Galleria
             ref="galleria"
             v-model:activeIndex="activeIndex"
@@ -81,7 +81,7 @@ export default {
 </Galleria>`,
                 options: `
 <template>
-    <div class="card flex justify-content-center galleria demo">
+    <div class="card">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
             :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
             <template #item="slotProps">
@@ -260,7 +260,7 @@ export default {
 </style>`,
                 composition: `
 <template>
-    <div class="card flex justify-content-center galleria demo">
+    <div class="card">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
             :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
             <template #item="slotProps">
