@@ -172,7 +172,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const items = ref(items: [
+const items = ref([
     {
         label: 'Options',
         items: [
