@@ -1,6 +1,6 @@
 <template>
     <DocSectionText :id="id" :label="label" :level="componentLevel">
-        {{ description || null }}
+        <p>{{ description || null }}</p>
         <p v-if="relatedProp" class="inline-block">
             See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedPropValue(relatedProp) }} </NuxtLink>
         </p>

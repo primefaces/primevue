@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Indicator content can be customized with the <i>indicator</i> property that takes an index as a parameter and expects content.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -49,7 +49,7 @@ export default {
 </Galleria>`,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false"
             :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
             <template #item="slotProps">
@@ -78,7 +78,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false"
             :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
             <template #item="slotProps">
