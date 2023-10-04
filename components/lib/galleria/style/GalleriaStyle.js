@@ -199,6 +199,7 @@ const css = `
     .p-galleria-indicator-onitem .p-galleria-indicators {
         position: absolute;
         display: flex;
+        z-index: 1;
     }
 
     .p-galleria-indicator-onitem.p-galleria-indicators-top .p-galleria-indicators {
