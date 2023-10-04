@@ -12,6 +12,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'card',
-    classes,
-    loadStyle: () => {}
+    classes
 });

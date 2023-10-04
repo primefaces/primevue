@@ -13,6 +13,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'inputtext',
-    classes,
-    loadStyle: () => {}
+    classes
 });

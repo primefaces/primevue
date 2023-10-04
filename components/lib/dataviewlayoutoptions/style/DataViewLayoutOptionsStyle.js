@@ -18,6 +18,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'dataviewlayoutoptions',
-    classes,
-    loadStyle: () => {}
+    classes
 });

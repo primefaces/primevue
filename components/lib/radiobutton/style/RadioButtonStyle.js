@@ -22,6 +22,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'radiobutton',
-    classes,
-    loadStyle: () => {}
+    classes
 });

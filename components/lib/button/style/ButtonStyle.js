@@ -35,6 +35,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'button',
-    classes,
-    loadStyle: () => {}
+    classes
 });
