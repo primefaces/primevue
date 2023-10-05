@@ -1803,6 +1803,8 @@ export default {
             } else {
                 if (this.hourFormat == '12' && h !== 12 && this.pm) {
                     h += 12;
+                } else if (this.hourFormat == '12' && h == 12 && !this.pm) {
+                    h = 0;
                 }
 
                 return { hour: h, minute: m, second: s };
