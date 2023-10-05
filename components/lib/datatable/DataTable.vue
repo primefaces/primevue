@@ -580,6 +580,19 @@ export default {
         multisortField(data1, data2, index) {
             const value1 = ObjectUtils.resolveFieldData(data1, this.d_multiSortMeta[index].field);
             const value2 = ObjectUtils.resolveFieldData(data2, this.d_multiSortMeta[index].field);
+
+            if (value1 === value2) {
+                return this.d_multiSortMeta.length - 1 > index ? this.multisortField(data1, data2, index + 1) : 0;
+            }
+
+            if (value1 == null) {
+                return this.d_multiSortMeta[index].order * -1;
+            }
+
+            if (value2 == null) {
+                return this.d_multiSortMeta[index].order;
+            }
+
             let result = null;
 
             if (typeof value1 === 'string' || value1 instanceof String) {
@@ -590,10 +603,6 @@ export default {
                 }
             } else {
                 result = value1 < value2 ? -1 : 1;
-            }
-
-            if (value1 === value2) {
-                return this.d_multiSortMeta.length - 1 > index ? this.multisortField(data1, data2, index + 1) : 0;
             }
 
             return this.d_multiSortMeta[index].order * result;
