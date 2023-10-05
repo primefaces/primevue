@@ -59,7 +59,7 @@ export interface SplitterResizeStartEvent {
  * Custom resizing event.
  * @see {@link SplitterEmits.resizing}
  */
-export interface SplitterResizingEvent {
+export interface SplitterResizeEvent {
     /**
      * Browser event
      */
@@ -202,9 +202,9 @@ export interface SplitterEmits {
     resizestart(event: SplitterResizeStartEvent): void;
     /**
      * Callback to invoke when resizing.
-     * @param {SplitterResizingEvent} event - Custom resizing event.
+     * @param {SplitterResizeEvent} event - Custom resizing event.
      */
-    resizing(event: SplitterResizingEvent): void;
+    resizing(event: SplitterResizeEvent): void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.
