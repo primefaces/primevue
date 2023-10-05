@@ -29385,6 +29385,14 @@
                             "description": "Value in unchecked state."
                         },
                         {
+                            "name": "disabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
                             "name": "inputId",
                             "optional": true,
                             "readonly": false,
