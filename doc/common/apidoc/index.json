@@ -12175,7 +12175,7 @@
                             "name": "column",
                             "optional": false,
                             "readonly": false,
-                            "type": "default",
+                            "type": "ColumnNode",
                             "default": "",
                             "description": "Column instance"
                         },
@@ -13283,7 +13283,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">node</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row node data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">Column</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n \t <span class=\"text-900\">editorInitCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n}",
+                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">node</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row node data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">ColumnNode</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n \t <span class=\"text-900\">editorInitCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n}",
                                     "description": "body slot's params."
                                 }
                             ],
@@ -13296,7 +13296,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">Column</span>, <span class=\"text-500\">// Column node.</span>\n }",
+                                    "type": "{\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">ColumnNode</span>, <span class=\"text-500\">// Column node.</span>\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -13309,7 +13309,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">Column</span>, <span class=\"text-500\">// Column node.</span>\n }",
+                                    "type": "{\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">ColumnNode</span>, <span class=\"text-500\">// Column node.</span>\n }",
                                     "description": "footer slot's params."
                                 }
                             ],
@@ -13322,7 +13322,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">Column</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n \t <span class=\"text-900\">editorSaveCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n\t <span class=\"text-900\">editorCancelCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n}",
+                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">ColumnNode</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n \t <span class=\"text-900\">editorSaveCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n\t <span class=\"text-900\">editorCancelCallback</span>: <span class=\"text-600\">(<span class=\"text-800\">event</span>: Event) &rArr; void</span>, <span class=\"text-500\">// Callback function</span>\n}",
                                     "description": "editor slot's params."
                                 }
                             ],
@@ -13400,7 +13400,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">Column</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n  \t <span class=\"text-900\">loadingOptions</span>: <span class=\"text-600\">ColumnLoadingOptions</span>, <span class=\"text-500\">// Loading options.</span>\n }",
+                                    "type": "{\n  \t <span class=\"text-900\">data</span>: <span class=\"text-600\">any</span>, <span class=\"text-500\">// Row data.</span>\n  \t <span class=\"text-900\">column</span>: <span class=\"text-600\">ColumnNode</span>, <span class=\"text-500\">// Column node.</span>\n  \t <span class=\"text-900\">field</span>: <span class=\"text-600\">string</span>, <span class=\"text-500\">// Column field.</span>\n  \t <span class=\"text-900\">index</span>: <span class=\"text-600\">number</span>, <span class=\"text-500\">// Row index.</span>\n  \t <span class=\"text-900\">frozenRow</span>: <span class=\"text-600\">boolean</span>, <span class=\"text-500\">// Whether the row is frozen.</span>\n  \t <span class=\"text-900\">loadingOptions</span>: <span class=\"text-600\">ColumnLoadingOptions</span>, <span class=\"text-500\">// Loading options.</span>\n }",
                                     "description": "loading slot's params."
                                 }
                             ],
@@ -13521,6 +13521,9 @@
             "values": {
                 "ColumnPassThroughOptionType": {
                     "values": "ColumnPassThroughAttributes | (options: ColumnPassThroughMethodOptions) => undefined | string | null | undefined"
+                },
+                "ColumnNode": {
+                    "values": "default & Object"
                 }
             }
         }
