@@ -49888,6 +49888,19 @@
                             "description": "Displays the message in a suitable Toast component."
                         },
                         {
+                            "name": "remove",
+                            "parameters": [
+                                {
+                                    "name": "message",
+                                    "optional": false,
+                                    "type": "ToastMessageOptions",
+                                    "description": "Message instance."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Clears the message."
+                        },
+                        {
                             "name": "removeGroup",
                             "parameters": [
                                 {
