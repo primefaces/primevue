@@ -293,9 +293,9 @@ export default {
                 }
             }
         },
-        onBasicUploaderClick() {
+        onBasicUploaderClick(event) {
             if (this.hasFiles) this.upload();
-            else this.$refs.fileInput.click();
+            if (event.button === 0) this.$refs.fileInput.click();
         },
         remove(index) {
             this.clearInputElement();
