@@ -2,6 +2,7 @@
     <th :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown"
         :tabindex="columnProp('sortable') ? '0' : null"  :aria-sort="ariaSort">
         <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
+        <TTColumnSlot :column="column" type="header" v-if="column.$scopedSlots.header"/>
         <TTColumnSlot :column="column" v-if="column.children && column.children.header" />
         <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
         <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
