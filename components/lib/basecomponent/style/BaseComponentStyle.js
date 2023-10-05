@@ -145,6 +145,7 @@ const inputTextCSS = `
 
 .p-float-label input:focus ~ label,
 .p-float-label input.p-filled ~ label,
+.p-float-label input:-webkit-autofill ~ label,
 .p-float-label textarea:focus ~ label,
 .p-float-label textarea.p-filled ~ label,
 .p-float-label .p-inputwrapper-focus ~ label,
@@ -153,10 +154,6 @@ const inputTextCSS = `
     font-size: 12px;
 }
 
-.p-float-label .input:-webkit-autofill ~ label {
-    top: -20px;
-    font-size: 12px;
-}
 
 .p-float-label .p-placeholder,
 .p-float-label input::placeholder,
