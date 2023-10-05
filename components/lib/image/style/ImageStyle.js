@@ -11,6 +11,7 @@ const css = `
     .p-image-preview-container {
         position: relative;
         display: inline-block;
+        line-height: 0;
     }
 
     .p-image-preview-indicator {
@@ -24,6 +25,8 @@ const css = `
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s;
+        border: none;
+        padding: 0;
     }
 
     .p-image-preview-container:hover > .p-image-preview-indicator {
