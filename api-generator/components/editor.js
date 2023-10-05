@@ -28,6 +28,12 @@ const EditorProps = [
         type: "any",
         default: "null",
         description: "Inline style of the container."
+    },
+    {
+        name: "modules",
+        type: "object",
+        default: "null",
+        description: "Modules configuration, see <a href=\"https://quilljs.com/docs/modules/\">here</a> for available options."
     }
 ];
 

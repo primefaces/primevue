@@ -56,7 +56,8 @@ export default {
         placeholder: String,
         readonly: Boolean,
         formats: Array,
-        editorStyle: null
+        editorStyle: null,
+        modules: null
     },
     quill: null,
     watch: {
@@ -69,7 +70,8 @@ export default {
     mounted() {
         this.quill = new Quill(this.$refs.editorElement, {
             modules: {
-                toolbar: this.$refs.toolbarElement
+                toolbar: this.$refs.toolbarElement,
+                ...this.modules
             },
             readOnly: this.readonly,
             theme: 'snow',
