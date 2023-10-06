@@ -19,12 +19,7 @@
             </thead>
             <tbody>
                 <tr v-for="prop in data" :key="prop">
-                    <td
-                        v-for="[k, v] in Object.entries(prop)"
-                        :key="k"
-                        :class="{ 'doc-option-type': k === 'type' || k === 'options', 'doc-option-parameter': k === 'parameters' }"
-                        :style="{ 'max-width': k === 'default' || k === 'returnType' ? '200px' : undefined }"
-                    >
+                    <td v-for="[k, v] in Object.entries(prop)" :key="k" :style="{ 'max-width': k === 'default' || k === 'returnType' ? '200px' : undefined }">
                         <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
                             <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name" :class="{ 'line-through cursor-pointer': !!prop.deprecated }" :title="prop.deprecated">
                                 {{ v }}<NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link"> <i class="pi pi-link"></i> </NuxtLink>
@@ -32,24 +27,25 @@
 
                             <template v-else-if="k === 'type'">
                                 <template v-for="(value, i) in getType(v)" :key="value">
-                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link">{{ value }}</NuxtLink
-                                    ><span v-else>{{ value }}</span>
+                                    <span v-if="i !== 0" class="doc-option-type">{{ ' | ' }}</span>
+                                    <NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-type doc-option-link">{{ value }}</NuxtLink
+                                    ><span v-else class="doc-option-type">{{ value }}</span>
                                 </template>
                             </template>
 
                             <template v-else-if="k === 'options'">
                                 <template v-for="val in v" :key="val.name">
                                     <div class="doc-option-type-options-container">
-                                        {{ val.name }}: <span class="doc-option-type-options">{{ val.type }}</span>
+                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type }}</span>
                                     </div>
                                 </template>
                             </template>
 
                             <template v-else-if="k === 'parameters'">
-                                <span v-if="v.name" :class="{ 'doc-option-parameter-scope': label === 'Slots', 'doc-option-parameter-type': label === 'Emits' }"> {{ v.name }} : </span>
+                                <span v-if="v.name" :class="{ 'font-medium text-600': label === 'Slots', 'doc-option-parameter-name': label === 'Emits' }"> {{ v.name }} : </span>
                                 <template v-for="(value, i) in getType(v.type)" :key="value">
-                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link doc-option-parameter-name"> {{ value }} </NuxtLink>
-                                    <span v-else v-html="value"> </span>
+                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link doc-option-parameter-type"> {{ value }} </NuxtLink>
+                                    <span v-else :class="{ 'doc-option-parameter-type': label === 'Emits' }" v-html="value"> </span>
                                 </template>
                             </template>
 

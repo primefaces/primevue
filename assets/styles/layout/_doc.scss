@@ -271,7 +271,7 @@
             line-height: 1.5;
             scroll-margin-top: 6.5rem;
 
-            &.doc-option-type {
+            .doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 color: var(--primary-500);
                 font-weight: 500;
@@ -290,13 +290,6 @@
                 }
                 span.doc-option-type-options {
                     color: var(--primary-700);
-                }
-            }
-
-            &.doc-option-parameter {
-                > .doc-option-parameter-scope {
-                    font-weight: 500;
-                    color: var(--surface-600);
                 }
             }
 
