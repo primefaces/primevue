@@ -110,7 +110,7 @@ export default {
         sort() {
             if (this.value) {
                 const value = [...this.value];
-                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+                const comparer = ObjectUtils.localeComparator();
 
                 value.sort((data1, data2) => {
                     let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);

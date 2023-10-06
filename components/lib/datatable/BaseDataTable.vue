@@ -78,6 +78,10 @@ export default {
             type: Number,
             default: 1
         },
+        nullSortOrder: {
+            type: Number,
+            default: 1
+        },
         multiSortMeta: {
             type: Array,
             default: null
