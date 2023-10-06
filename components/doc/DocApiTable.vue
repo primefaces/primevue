@@ -42,11 +42,13 @@
                             </template>
 
                             <template v-else-if="k === 'parameters'">
-                                <span v-if="v.name" :class="{ 'font-medium text-600': label === 'Slots', 'doc-option-parameter-name': label === 'Emits' }"> {{ v.name }} : </span>
-                                <template v-for="(value, i) in getType(v.type)" :key="value">
-                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link doc-option-parameter-type"> {{ value }} </NuxtLink>
-                                    <span v-else :class="{ 'doc-option-parameter-type': label === 'Emits' }" v-html="value"> </span>
-                                </template>
+                                <div class="doc-option-params">
+                                    <span v-if="v.name" :class="{ 'text-primary-700': label === 'Slots', 'doc-option-parameter-name': label === 'Emits' }"> {{ v.name }} : </span>
+                                    <template v-for="(value, i) in getType(v.type)" :key="value">
+                                        {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link doc-option-parameter-type"> {{ value }} </NuxtLink>
+                                        <span v-else :class="{ 'doc-option-parameter-type': label === 'Emits' }" v-html="value"> </span>
+                                    </template>
+                                </div>
                             </template>
 
                             <div v-else-if="k === 'default'" :id="id + '.' + k" :class="['doc-option-default', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
