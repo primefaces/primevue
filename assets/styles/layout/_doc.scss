@@ -293,6 +293,13 @@
                 }
             }
 
+            &.doc-option-parameter {
+                > .doc-option-parameter-scope {
+                    font-weight: 500;
+                    color: var(--surface-600);
+                }
+            }
+
             &:first-child {
                 color: var(--primary-color);
                 font-weight: 700;
@@ -322,9 +329,9 @@
                 }
             }
 
-            .doc-option-props {
+            .doc-option-default,
+            .doc-option-returnType {
                 display: flex;
-                background: var(--bluegray-50);
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 6px;
@@ -342,6 +349,16 @@
                         }
                     }
                 }
+            }
+
+            .doc-option-light {
+                background: var(--bluegray-50);
+                border-color: var(--bluegray-100);
+            }
+
+            .doc-option-dark {
+                background: var(--bluegray-800);
+                border-color: var(--bluegray-800);
             }
         }
     }
