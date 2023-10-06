@@ -56,8 +56,8 @@ export interface SplitterResizeStartEvent {
 }
 
 /**
- * Custom resizing event.
- * @see {@link SplitterEmits.resizing}
+ * Custom resize event.
+ * @see {@link SplitterEmits.resize}
  */
 export interface SplitterResizeEvent {
     /**
@@ -201,10 +201,10 @@ export interface SplitterEmits {
      */
     resizestart(event: SplitterResizeStartEvent): void;
     /**
-     * Callback to invoke when resizing.
-     * @param {SplitterResizeEvent} event - Custom resizing event.
+     * Callback to invoke during the resizing process.
+     * @param {SplitterResizeEvent} event - Custom resize event.
      */
-    resizing(event: SplitterResizeEvent): void;
+    resize(event: SplitterResizeEvent): void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.
