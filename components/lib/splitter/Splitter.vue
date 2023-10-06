@@ -28,7 +28,7 @@ import BaseSplitter from './BaseSplitter.vue';
 export default {
     name: 'Splitter',
     extends: BaseSplitter,
-    emits: ['resizestart', 'resizeend'],
+    emits: ['resizestart', 'resizeend', 'resize'],
     dragging: false,
     mouseMoveListener: null,
     mouseUpListener: null,
@@ -141,6 +141,8 @@ export default {
                 this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
                 this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
             }
+
+            this.$emit('resize', { originalEvent: event, sizes: this.panelSizes });
         },
         onResizeEnd(event) {
             if (this.isStateful()) {
