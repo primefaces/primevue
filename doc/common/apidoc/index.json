@@ -18855,6 +18855,14 @@
                             "description": "Order to sort the data by default."
                         },
                         {
+                            "name": "nullSortOrder",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "1",
+                            "description": "Determines how null values are sorted."
+                        },
+                        {
                             "name": "defaultSortOrder",
                             "optional": true,
                             "readonly": false,

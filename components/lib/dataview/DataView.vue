@@ -115,15 +115,8 @@ export default {
                 value.sort((data1, data2) => {
                     let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);
                     let value2 = ObjectUtils.resolveFieldData(data2, this.sortField);
-                    let result = null;
 
-                    if (value1 == null && value2 != null) result = -1;
-                    else if (value1 != null && value2 == null) result = 1;
-                    else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
-                    else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
-                    return this.sortOrder * result;
+                    return ObjectUtils.sort(value1, value2, this.sortOrder, comparer);
                 });
 
                 return value;
