@@ -1,13 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: 'p-confirm-dialog',
-    icon: ({ instance }) => ['p-confirm-dialog-icon', instance.confirmation ? instance.confirmation.icon : null],
-    message: 'p-confirm-dialog-message',
-    rejectButton: ({ instance }) => ['p-confirm-dialog-reject', instance.confirmation && !instance.confirmation.rejectClass ? 'p-button-text' : null],
-    acceptButton: 'p-confirm-dialog-accept'
-};
+import ConfirmDialogStyle from 'primevue/confirmdialog/style';
 
 export default {
     name: 'BaseConfirmDialog',
@@ -23,9 +16,7 @@ export default {
             default: true
         }
     },
-    css: {
-        classes
-    },
+    style: ConfirmDialogStyle,
     provide() {
         return {
             $parentInstance: this

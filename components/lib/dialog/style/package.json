@@ -1,0 +1,6 @@
+{
+    "main": "./dialogstyle.cjs.js",
+    "module": "./dialogstyle.esm.js",
+    "unpkg": "./dialogstyle.min.js",
+    "types": "./DialogStyle.d.ts"
+}

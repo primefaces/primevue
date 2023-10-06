@@ -1,0 +1,6 @@
+{
+    "main": "./dividerstyle.cjs.js",
+    "module": "./dividerstyle.esm.js",
+    "unpkg": "./dividerstyle.min.js",
+    "types": "./DividerStyle.d.ts"
+}

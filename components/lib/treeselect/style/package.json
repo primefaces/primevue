@@ -1,0 +1,6 @@
+{
+    "main": "./treeselectstyle.cjs.js",
+    "module": "./treeselectstyle.esm.js",
+    "unpkg": "./treeselectstyle.min.js",
+    "types": "./TreeSelectStyle.d.ts"
+}

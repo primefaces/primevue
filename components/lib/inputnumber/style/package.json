@@ -1,0 +1,6 @@
+{
+    "main": "./inputnumberstyle.cjs.js",
+    "module": "./inputnumberstyle.esm.js",
+    "unpkg": "./inputnumberstyle.min.js",
+    "types": "./InputNumberStyle.d.ts"
+}

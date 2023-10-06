@@ -1,0 +1,6 @@
+{
+    "main": "./selectbuttonstyle.cjs.js",
+    "module": "./selectbuttonstyle.esm.js",
+    "unpkg": "./selectbuttonstyle.min.js",
+    "types": "./SelectButtonStyle.d.ts"
+}

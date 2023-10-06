@@ -1,20 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = `
-@layer primevue {
-    .p-chart {
-        position: relative;
-    }
-}
-`;
-
-const classes = {
-    root: 'p-chart'
-};
-
-const { load: loadStyle } = useStyle(styles, { name: 'chart', manual: true });
+import ChartStyle from 'primevue/chart/style';
 
 export default {
     name: 'BaseChart',
@@ -37,10 +23,7 @@ export default {
             default: null
         }
     },
-    css: {
-        classes,
-        loadStyle
-    },
+    style: ChartStyle,
     provide() {
         return {
             $parentInstance: this

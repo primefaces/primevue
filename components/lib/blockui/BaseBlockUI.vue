@@ -1,28 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = `
-@layer primevue {
-    .p-blockui-container {
-        position: relative;
-    }
-    
-    .p-blockui.p-component-overlay {
-        position: absolute;
-    }
-    
-    .p-blockui-document.p-component-overlay {
-        position: fixed;
-    }
-}
-`;
-
-const classes = {
-    root: 'p-blockui-container'
-};
-
-const { load: loadStyle } = useStyle(styles, { name: 'blockui', manual: true });
+import BlockUIStyle from 'primevue/blockui/style';
 
 export default {
     name: 'BaseBlockUI',
@@ -45,10 +23,7 @@ export default {
             default: true
         }
     },
-    css: {
-        classes,
-        loadStyle
-    },
+    style: BlockUIStyle,
     provide() {
         return {
             $parentInstance: this

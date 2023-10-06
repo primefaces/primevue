@@ -1,0 +1,6 @@
+{
+    "main": "./confirmpopupstyle.cjs.js",
+    "module": "./confirmpopupstyle.esm.js",
+    "unpkg": "./confirmpopupstyle.min.js",
+    "types": "./ConfirmPopupStyle.d.ts"
+}

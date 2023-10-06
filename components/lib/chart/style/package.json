@@ -1,0 +1,6 @@
+{
+    "main": "./chartstyle.cjs.js",
+    "module": "./chartstyle.esm.js",
+    "unpkg": "./chartstyle.min.js",
+    "types": "./ChartStyle.d.ts"
+}

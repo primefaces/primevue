@@ -1,16 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: ({ instance, props }) => [
-        'p-inputtext p-component',
-        {
-            'p-filled': instance.filled,
-            'p-inputtext-sm': props.size === 'small',
-            'p-inputtext-lg': props.size === 'large'
-        }
-    ]
-};
+import InputTextStyle from 'primevue/inputtext/style';
 
 export default {
     name: 'BaseInputText',
@@ -22,9 +12,7 @@ export default {
             default: null
         }
     },
-    css: {
-        classes
-    },
+    style: InputTextStyle,
     provide() {
         return {
             $parentInstance: this

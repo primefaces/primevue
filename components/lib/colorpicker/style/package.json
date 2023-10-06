@@ -1,0 +1,6 @@
+{
+    "main": "./colorpickerstyle.cjs.js",
+    "module": "./colorpickerstyle.esm.js",
+    "unpkg": "./colorpickerstyle.min.js",
+    "types": "./ColorPickerStyle.d.ts"
+}

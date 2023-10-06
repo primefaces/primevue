@@ -1,5 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import TabPanelStyle from 'primevue/tabpanel/style';
 
 export default {
     name: 'BaseTabPanel',
@@ -14,6 +15,7 @@ export default {
         contentClass: null,
         contentProps: null,
         disabled: Boolean
-    }
+    },
+    style: TabPanelStyle
 };
 </script>

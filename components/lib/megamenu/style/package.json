@@ -1,0 +1,6 @@
+{
+    "main": "./megamenustyle.cjs.js",
+    "module": "./megamenustyle.esm.js",
+    "unpkg": "./megamenustyle.min.js",
+    "types": "./MegaMenuStyle.d.ts"
+}

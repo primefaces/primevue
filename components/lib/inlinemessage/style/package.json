@@ -1,0 +1,6 @@
+{
+    "main": "./inlinemessagestyle.cjs.js",
+    "module": "./inlinemessagestyle.esm.js",
+    "unpkg": "./inlinemessagestyle.min.js",
+    "types": "./InlineMessageStyle.d.ts"
+}

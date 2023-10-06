@@ -1,22 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: ({ props }) => [
-        'p-dataview p-component',
-        {
-            'p-dataview-list': props.layout === 'list',
-            'p-dataview-grid': props.layout === 'grid'
-        }
-    ],
-    header: 'p-dataview-header',
-    paginator: ({ instance }) => (instance.paginatorTop ? 'p-paginator-top' : instance.paginatorBottom ? 'p-paginator-bottom' : ''),
-    content: 'p-dataview-content',
-    grid: 'p-grid p-nogutter grid grid-nogutter',
-    column: 'p-col col',
-    emptyMessage: 'p-dataview-emptymessage',
-    footer: 'p-dataview-footer'
-};
+import DataViewStyle from 'primevue/dataview/style';
 
 export default {
     name: 'BaseDataView',
@@ -87,9 +71,7 @@ export default {
             default: null
         }
     },
-    css: {
-        classes
-    },
+    style: DataViewStyle,
     provide() {
         return {
             $parentInstance: this

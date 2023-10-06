@@ -1,0 +1,6 @@
+{
+    "main": "./panelmenustyle.cjs.js",
+    "module": "./panelmenustyle.esm.js",
+    "unpkg": "./panelmenustyle.min.js",
+    "types": "./PanelMenuStyle.d.ts"
+}

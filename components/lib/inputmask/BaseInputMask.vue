@@ -1,14 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: ({ instance }) => [
-        'p-inputmask p-inputtext p-component',
-        {
-            'p-filled': instance.filled
-        }
-    ]
-};
+import InputMaskStyle from 'primevue/inputmask/style';
 
 export default {
     name: 'BaseInputMask',
@@ -36,8 +28,6 @@ export default {
             default: false
         }
     },
-    css: {
-        classes
-    }
+    style: InputMaskStyle
 };
 </script>

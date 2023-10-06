@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Indicators can be placed at four different sides using the <i>indicatorsPosition</i> property. In addition, enabling <i>showIndicatorsOnItem</i> moves the indicators inside the image section.</p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
                 <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
@@ -59,7 +59,7 @@ export default {
 </Galleria>`,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
                 <RadioButton :value="option.value" />
@@ -114,7 +114,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
                 <RadioButton :value="option.value" />

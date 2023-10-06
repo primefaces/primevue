@@ -1,0 +1,6 @@
+{
+    "main": "./carouselstyle.cjs.js",
+    "module": "./carouselstyle.esm.js",
+    "unpkg": "./carouselstyle.min.js",
+    "types": "./CarouselStyle.d.ts"
+}

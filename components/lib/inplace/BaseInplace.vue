@@ -1,36 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = `
-@layer primevue {
-    .p-inplace .p-inplace-display {
-        display: inline;
-        cursor: pointer;
-    }
-    
-    .p-inplace .p-inplace-content {
-        display: inline;
-    }
-    
-    .p-fluid .p-inplace.p-inplace-closable .p-inplace-content {
-        display: flex;
-    }
-    
-    .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > .p-inputtext {
-        flex: 1 1 auto;
-        width: 1%;
-    }
-}
-`;
-
-const classes = {
-    root: ({ props }) => ['p-inplace p-component', { 'p-inplace-closable': props.closable }],
-    display: ({ props }) => ['p-inplace-display', { 'p-disabled': props.disabled }],
-    content: 'p-inplace-content'
-};
-
-const { load: loadStyle } = useStyle(styles, { name: 'inplace', manual: true });
+import InplaceStyle from 'primevue/inplace/style';
 
 export default {
     name: 'BaseInplace',
@@ -61,10 +31,7 @@ export default {
             default: null
         }
     },
-    css: {
-        classes,
-        loadStyle
-    },
+    style: InplaceStyle,
     provide() {
         return {
             $parentInstance: this

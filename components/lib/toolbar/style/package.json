@@ -1,0 +1,6 @@
+{
+    "main": "./toolbarstyle.cjs.js",
+    "module": "./toolbarstyle.esm.js",
+    "unpkg": "./toolbarstyle.min.js",
+    "types": "./ToolbarStyle.d.ts"
+}

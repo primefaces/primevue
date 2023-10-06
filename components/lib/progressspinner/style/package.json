@@ -1,0 +1,6 @@
+{
+    "main": "./progressspinnerstyle.cjs.js",
+    "module": "./progressspinnerstyle.esm.js",
+    "unpkg": "./progressspinnerstyle.min.js",
+    "types": "./ProgressSpinnerStyle.d.ts"
+}

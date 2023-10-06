@@ -1,0 +1,6 @@
+{
+    "main": "./datatablestyle.cjs.js",
+    "module": "./datatablestyle.esm.js",
+    "unpkg": "./datatablestyle.min.js",
+    "types": "./DataTableStyle.d.ts"
+}

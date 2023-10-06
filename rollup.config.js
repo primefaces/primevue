@@ -64,10 +64,112 @@ const CORE_PASSTHROUGH_DEPENDENCIES = {
     'primevue/passthrough/tailwind': 'primevue.passthrough.tailwind'
 };
 
+const CORE_STYLE_DEPENDENCIES = {
+    'primevue/base/style': 'primevue.base.style',
+    'primevue/basecomponent/style': 'primevue.basecomponent.style',
+    'primevue/accordion/style': 'primevue.accordion.style',
+    'primevue/accordiontab/style': 'primevue.accordiontab.style',
+    'primevue/autocomplete/style': 'primevue.autocomplete.style',
+    'primevue/avatar/style': 'primevue.avatar.style',
+    'primevue/avatargroup/style': 'primevue.avatargroup.style',
+    'primevue/badge/style': 'primevue.badge.style',
+    'primevue/badgedirective/style': 'primevue.badgedirective.style',
+    'primevue/baseicon/style': 'primevue.baseicon.style',
+    'primevue/blockui/style': 'primevue.blockui.style',
+    'primevue/breadcrumb/style': 'primevue.breadcrumb.style',
+    'primevue/button/style': 'primevue.button.style',
+    'primevue/calendar/style': 'primevue.calendar.style',
+    'primevue/card/style': 'primevue.card.style',
+    'primevue/carousel/style': 'primevue.carousel.style',
+    'primevue/cascadeselect/style': 'primevue.cascadeselect.style',
+    'primevue/chart/style': 'primevue.chart.style',
+    'primevue/checkbox/style': 'primevue.checkbox.style',
+    'primevue/chip/style': 'primevue.chip.style',
+    'primevue/chips/style': 'primevue.chips.style',
+    'primevue/colorpicker/style': 'primevue.colorpicker.style',
+    'primevue/column/style': 'primevue.column.style',
+    'primevue/columngroup/style': 'primevue.columngroup.style',
+    'primevue/confirmdialog/style': 'primevue.confirmdialog.style',
+    'primevue/confirmpopup/style': 'primevue.confirmpopup.style',
+    'primevue/contextmenu/style': 'primevue.contextmenu.style',
+    'primevue/datatable/style': 'primevue.datatable.style',
+    'primevue/dataview/style': 'primevue.dataview.style',
+    'primevue/dataviewlayoutoptions/style': 'primevue.dataviewlayoutoptions.style',
+    'primevue/deferredcontent/style': 'primevue.deferredcontent.style',
+    'primevue/dialog/style': 'primevue.dialog.style',
+    'primevue/divider/style': 'primevue.divider.style',
+    'primevue/dock/style': 'primevue.dock.style',
+    'primevue/dropdown/style': 'primevue.dropdown.style',
+    'primevue/dynamicdialog/style': 'primevue.dynamicdialog.style',
+    'primevue/editor/style': 'primevue.editor.style',
+    'primevue/fieldset/style': 'primevue.fieldset.style',
+    'primevue/fileupload/style': 'primevue.fileupload.style',
+    'primevue/focustrap/style': 'primevue.focustrap.style',
+    'primevue/galleria/style': 'primevue.galleria.style',
+    'primevue/image/style': 'primevue.image.style',
+    'primevue/inlinemessage/style': 'primevue.inlinemessage.style',
+    'primevue/inplace/style': 'primevue.inplace.style',
+    'primevue/inputmask/style': 'primevue.inputmask.style',
+    'primevue/inputnumber/style': 'primevue.inputnumber.style',
+    'primevue/inputswitch/style': 'primevue.inputswitch.style',
+    'primevue/inputtext/style': 'primevue.inputtext.style',
+    'primevue/knob/style': 'primevue.knob.style',
+    'primevue/listbox/style': 'primevue.listbox.style',
+    'primevue/megamenu/style': 'primevue.megamenu.style',
+    'primevue/menu/style': 'primevue.menu.style',
+    'primevue/menubar/style': 'primevue.menubar.style',
+    'primevue/message/style': 'primevue.message.style',
+    'primevue/multiselect/style': 'primevue.multiselect.style',
+    'primevue/orderlist/style': 'primevue.orderlist.style',
+    'primevue/organizationchart/style': 'primevue.organizationchart.style',
+    'primevue/overlaypanel/style': 'primevue.overlaypanel.style',
+    'primevue/paginator/style': 'primevue.paginator.style',
+    'primevue/panel/style': 'primevue.panel.style',
+    'primevue/panelmenu/style': 'primevue.panelmenu.style',
+    'primevue/password/style': 'primevue.password.style',
+    'primevue/picklist/style': 'primevue.picklist.style',
+    'primevue/portal/style': 'primevue.portal.style',
+    'primevue/progressbar/style': 'primevue.progressbar.style',
+    'primevue/progressspinner/style': 'primevue.progressspinner.style',
+    'primevue/radiobutton/style': 'primevue.radiobutton.style',
+    'primevue/rating/style': 'primevue.rating.style',
+    'primevue/ripple/style': 'primevue.ripple.style',
+    'primevue/row/style': 'primevue.row.style',
+    'primevue/scrollpanel/style': 'primevue.scrollpanel.style',
+    'primevue/scrolltop/style': 'primevue.scrolltop.style',
+    'primevue/selectbutton/style': 'primevue.selectbutton.style',
+    'primevue/sidebar/style': 'primevue.sidebar.style',
+    'primevue/skeleton/style': 'primevue.skeleton.style',
+    'primevue/slider/style': 'primevue.slider.style',
+    'primevue/speeddial/style': 'primevue.speeddial.style',
+    'primevue/splitbutton/style': 'primevue.splitbutton.style',
+    'primevue/splitter/style': 'primevue.splitter.style',
+    'primevue/splitterpanel/style': 'primevue.splitterpanel.style',
+    'primevue/steps/style': 'primevue.steps.style',
+    'primevue/tabmenu/style': 'primevue.tabmenu.style',
+    'primevue/tabpanel/style': 'primevue.tabpanel.style',
+    'primevue/tabview/style': 'primevue.tabview.style',
+    'primevue/tag/style': 'primevue.tag.style',
+    'primevue/terminal/style': 'primevue.terminal.style',
+    'primevue/textarea/style': 'primevue.textarea.style',
+    'primevue/tieredmenu/style': 'primevue.tieredmenu.style',
+    'primevue/timeline/style': 'primevue.timeline.style',
+    'primevue/toast/style': 'primevue.toast.style',
+    'primevue/togglebutton/style': 'primevue.togglebutton.style',
+    'primevue/toolbar/style': 'primevue.toolbar.style',
+    'primevue/tooltip/style': 'primevue.tooltip.style',
+    'primevue/tree/style': 'primevue.tree.style',
+    'primevue/treeselect/style': 'primevue.treeselect.style',
+    'primevue/treetable/style': 'primevue.treetable.style',
+    'primevue/tristatecheckbox/style': 'primevue.tristatecheckbox.style',
+    'primevue/virtualscroller/style': 'primevue.virtualscroller.style'
+};
+
 const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    ...CORE_STYLE_DEPENDENCIES,
     'primevue/usestyle': 'primevue.usestyle',
     'primevue/base': 'primevue.base',
     'primevue/basedirective': 'primevue.basedirective',
@@ -142,7 +244,7 @@ const TERSER_PLUGIN_OPTIONS = {
 const PLUGINS = [vue(), postcss(POSTCSS_PLUGIN_OPTIONS), babel(BABEL_PLUGIN_OPTIONS)];
 
 function addEntry(folder, inFile, outFile) {
-    const exports = inFile === 'PrimeVue.js' ? 'named' : 'auto';
+    const exports = inFile === 'PrimeVue.js' || folder === 'passthrough/tailwind' ? 'named' : 'auto';
     const useCorePlugin = Object.keys(GLOBAL_COMPONENT_DEPENDENCIES).some((d) => d.replace('primevue/', '') === folder);
     const plugins = PLUGINS;
     const external = EXTERNAL_COMPONENT;
@@ -275,6 +377,22 @@ function addIcon() {
         });
 }
 
+function addStyle() {
+    fs.readdirSync(path.resolve(__dirname, './components/lib'), { withFileTypes: true })
+        .filter((dir) => dir.isDirectory())
+        .forEach(({ name: folderName }) => {
+            try {
+                fs.readdirSync(path.resolve(__dirname, './components/lib/' + folderName + '/style')).forEach((file) => {
+                    if (/\.js$/.test(file)) {
+                        let name = file.split(/(.js)$/)[0].toLowerCase();
+
+                        addEntry(folderName + '/style', file, name);
+                    }
+                });
+            } catch {}
+        });
+}
+
 function addDirectives() {
     addEntry('basedirective', 'BaseDirective.js', 'basedirective');
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
@@ -321,6 +439,7 @@ function addServices() {
 }
 
 addUtils();
+addStyle();
 addBase();
 addApi();
 addConfig();

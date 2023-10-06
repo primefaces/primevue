@@ -1,0 +1,6 @@
+{
+    "main": "./inplacestyle.cjs.js",
+    "module": "./inplacestyle.esm.js",
+    "unpkg": "./inplacestyle.min.js",
+    "types": "./InplaceStyle.d.ts"
+}

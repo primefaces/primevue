@@ -35,7 +35,7 @@
                 :checked="allRowsSelected"
                 @change="onHeaderCheckboxChange"
                 :disabled="empty"
-                :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
+                :headerCheckboxIconTemplate="column.children && column.children.headercheckboxicon"
                 :column="column"
                 :pt="pt"
             />
@@ -180,10 +180,6 @@ export default {
         },
         filterInputProps: {
             type: null,
-            default: null
-        },
-        headerCheckboxIconTemplate: {
-            type: Function,
             default: null
         }
     },

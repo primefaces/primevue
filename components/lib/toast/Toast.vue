@@ -43,6 +43,7 @@ export default {
     styleElement: null,
     mounted() {
         ToastEventBus.on('add', this.onAdd);
+        ToastEventBus.on('remove', this.onRemove);
         ToastEventBus.on('remove-group', this.onRemoveGroup);
         ToastEventBus.on('remove-all-groups', this.onRemoveAllGroups);
 
@@ -58,6 +59,7 @@ export default {
         }
 
         ToastEventBus.off('add', this.onAdd);
+        ToastEventBus.off('remove', this.onRemove);
         ToastEventBus.off('remove-group', this.onRemoveGroup);
         ToastEventBus.off('remove-all-groups', this.onRemoveAllGroups);
     },
@@ -86,6 +88,9 @@ export default {
             if (this.group == message.group) {
                 this.add(message);
             }
+        },
+        onRemove(message) {
+            this.remove({ message, type: 'close' });
         },
         onRemoveGroup(group) {
             if (this.group === group) {

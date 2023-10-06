@@ -674,7 +674,11 @@ export default {
             if (this.isComparable()) {
                 let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
 
-                return !this.isMultipleSelection() ? value.getMonth() === month && value.getFullYear() === this.currentYear : false;
+                if (this.isMultipleSelection()) {
+                    return value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === currentYear);
+                } else {
+                    return value.getMonth() === month && value.getFullYear() === currentYear;
+                }
             }
 
             return false;
@@ -683,7 +687,11 @@ export default {
             if (this.isComparable()) {
                 let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
 
-                return !this.isMultipleSelection() && this.isComparable() ? value.getFullYear() === year : false;
+                if (this.isMultipleSelection()) {
+                    return value.some((currentValue) => currentValue.getFullYear() === year);
+                } else {
+                    return value.getFullYear() === year;
+                }
             }
 
             return false;
@@ -1795,6 +1803,8 @@ export default {
             } else {
                 if (this.hourFormat == '12' && h !== 12 && this.pm) {
                     h += 12;
+                } else if (this.hourFormat == '12' && h == 12 && !this.pm) {
+                    h = 0;
                 }
 
                 return { hour: h, minute: m, second: s };

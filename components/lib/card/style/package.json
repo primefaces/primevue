@@ -1,0 +1,6 @@
+{
+    "main": "./cardstyle.cjs.js",
+    "module": "./cardstyle.esm.js",
+    "unpkg": "./cardstyle.min.js",
+    "types": "./CardStyle.d.ts"
+}

@@ -1,0 +1,6 @@
+{
+    "main": "./accordiontabstyle.cjs.js",
+    "module": "./accordiontabstyle.esm.js",
+    "unpkg": "./accordiontabstyle.min.js",
+    "types": "./AccordionTabStyle.d.ts"
+}

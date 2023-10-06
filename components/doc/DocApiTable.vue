@@ -1,6 +1,6 @@
 <template>
     <DocSectionText :id="id" :label="label" :level="componentLevel">
-        {{ description || null }}
+        <p>{{ description || null }}</p>
         <p v-if="relatedProp" class="inline-block">
             See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedPropValue(relatedProp) }} </NuxtLink>
         </p>
@@ -53,8 +53,8 @@
                                 </template>
                             </template>
 
-                            <div v-else-if="(k === 'default' && v !== '') || k === 'returnType'" :id="id + '.' + k" :class="['doc-option-props', optionPropClass]">
-                                {{ v }}
+                            <div v-else-if="k === 'default' || k === 'returnType'" :id="id + '.' + k" :class="['doc-option-props', optionPropClass]">
+                                {{ v === '' || v === undefined ? 'null' : v }}
                             </div>
 
                             <span v-else :id="id + '.' + k"> {{ v }} </span>

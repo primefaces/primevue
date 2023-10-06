@@ -1,0 +1,6 @@
+{
+    "main": "./confirmdialogstyle.cjs.js",
+    "module": "./confirmdialogstyle.esm.js",
+    "unpkg": "./confirmdialogstyle.min.js",
+    "types": "./ConfirmDialogStyle.d.ts"
+}

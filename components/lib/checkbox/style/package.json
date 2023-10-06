@@ -1,0 +1,6 @@
+{
+    "main": "./checkboxstyle.cjs.js",
+    "module": "./checkboxstyle.esm.js",
+    "unpkg": "./checkboxstyle.min.js",
+    "types": "./CheckboxStyle.d.ts"
+}

@@ -1,0 +1,6 @@
+{
+    "main": "./avatargroupstyle.cjs.js",
+    "module": "./avatargroupstyle.esm.js",
+    "unpkg": "./avatargroupstyle.min.js",
+    "types": "./AvatarGroupStyle.d.ts"
+}

@@ -1,4 +1,4 @@
-import { loadBaseStyle } from 'primevue/base';
+import BaseStyle from 'primevue/base/style';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -94,7 +94,7 @@ const BaseDirective = {
                 $host: el,
                 $binding: binding,
                 $el: $prevInstance['$el'] || undefined,
-                $css: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.css },
+                $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.style },
                 $config: config,
                 /* computed instance variables */
                 defaultPT: BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
@@ -102,8 +102,8 @@ const BaseDirective = {
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),
-                cx: (key = '', params = {}) => (!el.$instance?.isUnstyled ? BaseDirective._getOptionValue(el.$instance?.$css?.classes, key, { ...params }) : undefined),
-                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el.$instance?.$css?.inlineStyles, key, { ...params }) : undefined),
+                cx: (key = '', params = {}) => (!el.$instance?.isUnstyled ? BaseDirective._getOptionValue(el.$instance?.$style?.classes, key, { ...params }) : undefined),
+                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el.$instance?.$style?.inlineStyles, key, { ...params }) : undefined),
                 ...$options
             };
 
@@ -119,8 +119,8 @@ const BaseDirective = {
             beforeMount: (el, binding, vnode, prevVnode) => {
                 const config = binding?.instance?.$primevue?.config;
 
-                loadBaseStyle(undefined, { nonce: config?.csp?.nonce });
-                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle(undefined, { nonce: config?.csp?.nonce });
+                BaseStyle.loadStyle(undefined, { nonce: config?.csp?.nonce });
+                !el.$instance?.isUnstyled && el.$instance?.$style?.loadStyle(undefined, { nonce: config?.csp?.nonce });
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {

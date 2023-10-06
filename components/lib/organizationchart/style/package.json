@@ -1,0 +1,6 @@
+{
+    "main": "./organizationchartstyle.cjs.js",
+    "module": "./organizationchartstyle.esm.js",
+    "unpkg": "./organizationchartstyle.min.js",
+    "types": "./OrganizationChartStyle.d.ts"
+}

@@ -1,0 +1,6 @@
+{
+    "main": "./breadcrumbstyle.cjs.js",
+    "module": "./breadcrumbstyle.esm.js",
+    "unpkg": "./breadcrumbstyle.min.js",
+    "types": "./BreadcrumbStyle.d.ts"
+}

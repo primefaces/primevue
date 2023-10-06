@@ -1,0 +1,6 @@
+{
+    "main": "./ripplestyle.cjs.js",
+    "module": "./ripplestyle.esm.js",
+    "unpkg": "./ripplestyle.min.js",
+    "types": "./RippleStyle.d.ts"
+}

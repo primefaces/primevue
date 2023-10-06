@@ -1,0 +1,6 @@
+{
+    "main": "./stepsstyle.cjs.js",
+    "module": "./stepsstyle.esm.js",
+    "unpkg": "./stepsstyle.min.js",
+    "types": "./StepsStyle.d.ts"
+}

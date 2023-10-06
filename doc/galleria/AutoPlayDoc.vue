@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A slideshow implementation is defined by adding <i>circular</i> and <i>autoPlay</i> properties.</p>
     </DocSectionText>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -49,7 +49,7 @@ export default {
 </Galleria>`,
                 options: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">
@@ -92,7 +92,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">

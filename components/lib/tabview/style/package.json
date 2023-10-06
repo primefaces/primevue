@@ -1,0 +1,6 @@
+{
+    "main": "./tabviewstyle.cjs.js",
+    "module": "./tabviewstyle.esm.js",
+    "unpkg": "./tabviewstyle.min.js",
+    "types": "./TabViewStyle.d.ts"
+}

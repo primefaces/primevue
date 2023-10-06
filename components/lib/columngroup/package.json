@@ -1,9 +1,9 @@
 {
-  "main": "./columngroup.cjs.js",
-  "module": "./columngroup.esm.js",
-  "unpkg": "./columngroup.min.js",
-  "types": "./ColumnGroup.d.ts",
-  "browser": {
-    "./sfc": "./ColumnGroup.vue"
-  }
+    "main": "./columngroup.cjs.js",
+    "module": "./columngroup.esm.js",
+    "unpkg": "./columngroup.min.js",
+    "types": "./ColumnGroup.d.ts",
+    "browser": {
+        "./sfc": "./ColumnGroup.vue"
+    }
 }

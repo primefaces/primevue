@@ -1,0 +1,6 @@
+{
+    "main": "./tagstyle.cjs.js",
+    "module": "./tagstyle.esm.js",
+    "unpkg": "./tagstyle.min.js",
+    "types": "./TagStyle.d.ts"
+}

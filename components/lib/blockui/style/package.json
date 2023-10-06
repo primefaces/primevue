@@ -1,0 +1,6 @@
+{
+    "main": "./blockuistyle.cjs.js",
+    "module": "./blockuistyle.esm.js",
+    "unpkg": "./blockuistyle.min.js",
+    "types": "./BlockUIStyle.d.ts"
+}

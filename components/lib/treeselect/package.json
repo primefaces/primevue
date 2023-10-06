@@ -4,6 +4,6 @@
     "unpkg": "./treeselect.min.js",
     "types": "./TreeSelect.d.ts",
     "browser": {
-      "./sfc": "./TreeSelect.vue"
+        "./sfc": "./TreeSelect.vue"
     }
-  }
+}

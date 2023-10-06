@@ -4,6 +4,6 @@
     "unpkg": "./virtualscroller.min.js",
     "types": "./VirtualScroller.d.ts",
     "browser": {
-      "./sfc": "./VirtualScroller.vue"
+        "./sfc": "./VirtualScroller.vue"
     }
-  }
+}

@@ -1,21 +1,6 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-
-const classes = {
-    root: 'p-dataview-layout-options p-selectbutton p-buttonset',
-    listButton: ({ props }) => [
-        'p-button p-button-icon-only',
-        {
-            'p-highlight': props.modelValue === 'list'
-        }
-    ],
-    gridButton: ({ props }) => [
-        'p-button p-button-icon-only',
-        {
-            'p-highlight': props.modelValue === 'grid'
-        }
-    ]
-};
+import DataViewLayoutOptionsStyle from 'primevue/dataviewlayoutoptions/style';
 
 export default {
     name: 'BaseDataViewLayoutOptions',
@@ -23,9 +8,7 @@ export default {
     props: {
         modelValue: String
     },
-    css: {
-        classes
-    },
+    style: DataViewLayoutOptionsStyle,
     provide() {
         return {
             $parentInstance: this

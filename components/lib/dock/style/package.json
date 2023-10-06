@@ -1,0 +1,6 @@
+{
+    "main": "./dockstyle.cjs.js",
+    "module": "./dockstyle.esm.js",
+    "unpkg": "./dockstyle.min.js",
+    "types": "./DockStyle.d.ts"
+}
