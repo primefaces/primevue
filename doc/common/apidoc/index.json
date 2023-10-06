@@ -45058,7 +45058,30 @@
                             "readonly": false,
                             "type": "number[]",
                             "default": "",
-                            "description": "Sizes of the panels during resize"
+                            "description": "Sizes of the panels"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterResizeEndEvent": {
+                    "description": "Custom resize end event.",
+                    "relatedProp": "SplitterEmits.resizeend",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "sizes",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number[]",
+                            "default": "",
+                            "description": "Sizes of the panels"
                         }
                     ],
                     "methods": []
