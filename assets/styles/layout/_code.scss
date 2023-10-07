@@ -286,8 +286,6 @@ pre[class*="language-"] {
     code {
         border-left: 1rem solid transparent !important;
         box-shadow: none !important;
-        background: #505b67
-        !important;
         margin: 0;
         color: var(--gray-0);
         font-size: 14px;
@@ -345,4 +343,20 @@ pre[class*="language-"] {
 
 .copy-to-clipboard-button {
     display: none;
+}
+
+.layout-wrapper-dark {
+    pre[class*="language-"] {    
+        code {
+            background: var(--surface-card) !important;
+        }
+    }
+}
+
+.layout-wrapper-light {
+    pre[class*="language-"] {    
+        code {
+            background: #505b67 !important;
+        }
+    }
 }

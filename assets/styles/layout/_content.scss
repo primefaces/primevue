@@ -6,8 +6,24 @@
         display: flex;
         gap: 4rem;
     }
+}
 
+.layout-wrapper-light {
     .card {
-        @include card;
+        background: var(--surface-ground);
+        border: 1px solid var(--surface-border);
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+}
+
+.layout-wrapper-dark {
+    .card {
+        background: var(--surface-card);
+        border: 0 none;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
     }
 }
