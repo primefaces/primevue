@@ -39,9 +39,9 @@ export default {
         }
     },
     mounted() {
-        //this.scrollCurrentUrl();
+        this.scrollCurrentUrl();
 
-        //window.addEventListener('scroll', this.onScroll, { passive: true });
+        window.addEventListener('scroll', this.onScroll, { passive: true });
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.onScroll, { passive: true });
