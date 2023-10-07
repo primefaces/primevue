@@ -3,16 +3,30 @@
     height: 5rem;
     position: fixed;
     top: 0;
-    left: 250px;
-    width: calc(100% - 250px);
+    left: 0;
+    width: 100%;
     z-index: 1100;
     transition: background-color 1s;
+    border-bottom: 1px solid var(--surface-border);
+
+    .layout-topbar-start {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        .layout-topbar-logo-container {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 
     .layout-topbar-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 4rem;
+        padding: 0 4rem 0 0;
         height: 100%;
         width: calc(100% - var(--scrollbar-width, 0px));
     }

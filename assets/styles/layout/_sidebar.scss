@@ -1,15 +1,14 @@
 .layout-sidebar {
     position: fixed;
     left: 0;
-    top: 0;
+    top: 5rem;
     height: 100%;
-    background-color: var(--surface-overlay);
     width: 250px;
     user-select: none;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 1.5rem 0 1rem 0;
 
     .logo {
         display: flex;
@@ -17,8 +16,8 @@
     }
 
     nav {
-        padding: .5rem 1rem 2rem 1rem;
-        margin-top: 2rem;
+        padding: 0 0 2rem 2rem;
+        margin: 0;
         flex-grow: 1;
         overflow-y: auto;
     }

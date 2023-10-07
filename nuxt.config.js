@@ -40,7 +40,7 @@ export default defineNuxtConfig({
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-blue/theme.css'
+                    href: baseUrl + 'themes/lara-light-teal/theme.css'
                 },
                 { rel: 'icon', href: baseUrl + 'favicon.ico' }
             ],

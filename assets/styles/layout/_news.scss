@@ -73,10 +73,13 @@
 }
 
 .layout-news-active {
-    .layout-sidebar,
     .layout-topbar,
     .layout-config {
         top: 2rem;
+    }
+
+    .layout-sidebar {
+        top: 7rem;
     }
 
     .layout-content {

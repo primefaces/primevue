@@ -1,7 +1,7 @@
 <template>
     <div v-if="!embedded" :class="scrollable ? 'doc-section-code' : 'relative doc-section-code'">
         <div
-            class="flex doc-section-code-buttons surface-card align-items-center justify-content-end z-1"
+            class="flex doc-section-code-buttons align-items-center justify-content-end z-1"
             :style="scrollable ? { position: 'sticky', padding: '0.75rem 0.75rem 0 0' } : { position: 'absolute', top: '0.75rem', right: '0.75rem' }"
             style="gap: 0.75rem"
         >

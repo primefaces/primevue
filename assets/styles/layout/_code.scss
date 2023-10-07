@@ -10,11 +10,9 @@ pre[class*="language-"] {
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
@@ -277,116 +275,6 @@ div.code-toolbar > .toolbar > .toolbar-item > span:focus {
     text-decoration: none;
 }
 
-.layout-wrapper-dark {
-    pre[class*="language-"] {
-        code {
-            color: var(--text-color) !important;
-
-            .token {
-                &.tag {
-                    color: rgb(141,219,140) !important;
-                }
-                &.keyword {
-                    color: rgb(244,112,103) !important;
-                }
-    
-                &.property {
-                    color: rgb(150,208,255) !important;
-                }
-    
-                &.attr-name,
-                &.attr-string {
-                    color: rgb(108,182,255) !important;
-                }
-    
-                &.string {
-                    color: var(--text-color) !important;
-                }
-    
-                &.attr-value {
-                    color: var(--text-color) !important;
-    
-                    .punctuation {
-                        color: rgb(108,182,255) !important;
-                    }
-                }
-    
-                &.punctuation {
-                    color: var(--text-color) !important;
-                }
-    
-                &.operator,
-                &.string {
-                    background: transparent;
-                }
-    
-                &.function {
-                    color: rgb(220,189,251) !important;
-                }
-    
-                &.operator {
-                    color: rgb(150,208,255) !important;
-                }
-            }
-        }
-    }
-}
-
-.layout-wrapper-light {
-    pre[class*="language-"] {
-        code {
-            color: rgb(10,48,105) !important;
-
-            .token {
-                &.tag {
-                    color: rgb(17,99,41) !important;
-                }
-                &.keyword {
-                    color: rgb(207,34,46) !important;
-                }
-    
-                &.property {
-                    color: rgb(5,80,174) !important;
-                }
-    
-                &.attr-name,
-                &.attr-string {
-                    color: rgb(5,80,174) !important;
-                }
-    
-                &.string {
-                    color: rgb(10,48,105) !important;
-                }
-    
-                &.attr-value {
-                    color: rgb(10,48,105) !important;
-    
-                    .punctuation {
-                        color: rgb(10,48,105) !important;
-                    }
-                }
-    
-                &.punctuation {
-                    color: rgb(5,80,174) !important;
-                }
-    
-                &.operator,
-                &.string {
-                    background: transparent;
-                }
-    
-                &.function {
-                    color: rgb(130,80,223) !important;
-                }
-    
-                &.operator {
-                    color: rgb(5,80,174) !important;
-                }
-            }
-        }
-    }
-}
-
 pre[class*="language-"] {
     position: relative;
     background: transparent !important;
@@ -398,13 +286,62 @@ pre[class*="language-"] {
     code {
         border-left: 1rem solid transparent !important;
         box-shadow: none !important;
-        background: var(--surface-card) !important;
+        background: #505b67
+        !important;
         margin: 0;
-        color: var(--surface-900);
+        color: var(--gray-0);
         font-size: 14px;
         border-radius: 10px;
+        color: #ffffff !important;
+
+        .token {
+            &.tag {
+                color: rgb(162, 228, 161) !important;
+            }
+            &.keyword {
+                color: rgb(244,112,103) !important;
+            }
+
+            &.property {
+                color: rgb(150,208,255) !important;
+            }
+
+            &.attr-name,
+            &.attr-string {
+                color: rgb(146, 198, 249) !important;
+            }
+
+            &.string {
+                color: #ffffff !important;
+            }
+
+            &.attr-value {
+                color: #ffffff !important;
+
+                .punctuation {
+                    color: rgb(131, 190, 248) !important;
+                }
+            }
+
+            &.punctuation {
+                color: #ffffff !important;
+            }
+
+            &.operator,
+            &.string {
+                background: transparent;
+            }
+
+            &.function {
+                color: rgb(220,189,251) !important;
+            }
+
+            &.operator {
+                color: rgb(150,208,255) !important;
+            }
+        }
     }
-    }
+}
 
 .copy-to-clipboard-button {
     display: none;
