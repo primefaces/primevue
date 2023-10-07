@@ -1,10 +1,10 @@
 .layout-content {
-    padding-top: 5rem;
+    padding: 7rem 4rem 0 4rem;
+    display: flex;
 
-    .layout-content-inner {
-        padding: 2rem 4rem;
-        display: flex;
-        gap: 4rem;
+    .layout-content-slot {
+        flex: 1 1 auto;
+        width: 1%;
     }
 }
 

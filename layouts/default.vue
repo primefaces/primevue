@@ -5,8 +5,8 @@
         <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
-            <div class="layout-content-inner">
-                <app-menu :active="sidebarActive" />
+            <app-menu :active="sidebarActive" />
+            <div class="layout-content-slot">
                 <slot></slot>
             </div>
         </div>

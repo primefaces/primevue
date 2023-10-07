@@ -10,17 +10,12 @@
     transition: background-color 1s;
     border-bottom: 1px solid var(--surface-border);
 
-    .layout-topbar-start {
+    .layout-topbar-logo-container {
+        width: 250px;
         display: flex;
         align-items: center;
-        gap: 4rem;
-
-        .layout-topbar-logo-container {
-            width: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        justify-content: center;
+        margin-right: 4rem;
     }
 
     .layout-topbar-inner {

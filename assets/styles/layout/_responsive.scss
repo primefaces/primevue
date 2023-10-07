@@ -1,5 +1,5 @@
 @media screen and (min-width: 1729px) {
-    .layout-content-inner {
+    .layout-content {
         max-width: 1478px;
         margin: 0 auto;
     }
@@ -16,12 +16,19 @@
 
 @media screen and (max-width: 991px) {
     .layout-wrapper {    
-        .layout-topbar {
-            left: 0;
-            width: 100%;
-    
+        .layout-topbar {    
             .menu-button {
                 display: flex;
+                margin-right: 1rem;
+            }
+
+            .layout-topbar-logo-container {
+                width: auto;
+                margin-right: 0;
+
+                svg {
+                    height: 2rem;
+                }
             }
 
             #docsearch {
@@ -51,19 +58,19 @@
     
         .layout-sidebar {
             top: 0;
+            left: 0;
+            position: fixed;
             z-index: 1102;
             height: 100%;
             transform: translateX(-100%);
+            background-color: var(--surface-overlay);
+            width: 250px;
     
             &.active {
                 transform: translateX(0);
             }
         }
-    
-        .layout-content {
-            margin-left: 0;            
-        }
-    
+     
         .layout-mask {
             background-color: rgba(0, 0, 0, 0.1);
     
