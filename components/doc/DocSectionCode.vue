@@ -7,12 +7,12 @@
         >
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain py-0 px-1 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
                     label="Composition API"
                     @click="codeLang = 'composition'"
                 ></Button>
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'options' }]"
+                    :class="['p-button-rounded p-button-text p-button-plain py-0 px-1 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'options' }]"
                     label="Options API"
                     @click="codeLang = 'options'"
                 ></Button>
@@ -30,7 +30,7 @@
 
             <template v-if="!hideToggleCode && code.data">
                 <Button
-                    v-tooltip.bottom="{ value: 'View Code', class: 'doc-section-code-tooltip' }"
+                    v-tooltip.bottom="{ value: 'View Data', class: 'doc-section-code-tooltip' }"
                     type="button"
                     @click="onToggleData"
                     class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
