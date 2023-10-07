@@ -5,15 +5,15 @@
     <div class="card">
         <div class="flex flex-column md:flex-row">
             <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
-                <div class="flex align-items-center gap-2">
-                    <label>Username</label>
-                    <InputText id="username" type="text" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Username</label>
+                    <InputText id="username" type="text" class="w-12rem" />
                 </div>
-                <div class="flex align-items-center gap-2">
-                    <label>Password</label>
-                    <InputText id="password" type="password" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Password</label>
+                    <InputText id="password" type="password" class="w-12rem" />
                 </div>
-                <Button label="Login" icon="pi pi-user" class="w-10rem"></Button>
+                <Button label="Login" icon="pi pi-user" class="w-10rem mx-auto"></Button>
             </div>
             <div class="w-full md:w-2">
                 <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -35,15 +35,15 @@ export default {
                 basic: `
 <div class="flex flex-column md:flex-row">
     <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
-        <div class="flex align-items-center gap-2">
-            <label>Username</label>
-            <InputText id="username" type="text" class="w-full" />
+        <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+            <label class="w-6rem">Username</label>
+            <InputText id="username" type="text" class="w-12rem" />
         </div>
-        <div class="flex align-items-center gap-2">
-            <label>Password</label>
-            <InputText id="password" type="password" class="w-full" />
+        <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+            <label class="w-6rem">Password</label>
+            <InputText id="password" type="password" class="w-12rem" />
         </div>
-        <Button label="Login" icon="pi pi-user" class="w-10rem"></Button>
+        <Button label="Login" icon="pi pi-user" class="w-10rem mx-auto"></Button>
     </div>
     <div class="w-full md:w-2">
         <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -58,15 +58,15 @@ export default {
     <div class="card">
         <div class="flex flex-column md:flex-row">
             <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
-                <div class="flex align-items-center gap-2">
-                    <label>Username</label>
-                    <InputText id="username" type="text" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Username</label>
+                    <InputText id="username" type="text" class="w-12rem" />
                 </div>
-                <div class="flex align-items-center gap-2">
-                    <label>Password</label>
-                    <InputText id="password" type="password" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Password</label>
+                    <InputText id="password" type="password" class="w-12rem" />
                 </div>
-                <Button label="Login" icon="pi pi-user" class="w-10rem"></Button>
+                <Button label="Login" icon="pi pi-user" class="w-10rem mx-auto"></Button>
             </div>
             <div class="w-full md:w-2">
                 <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -86,15 +86,15 @@ export default {
     <div class="card">
         <div class="flex flex-column md:flex-row">
             <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
-                <div class="flex align-items-center gap-2">
-                    <label>Username</label>
-                    <InputText id="username" type="text" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Username</label>
+                    <InputText id="username" type="text" class="w-12rem" />
                 </div>
-                <div class="flex align-items-center gap-2">
-                    <label>Password</label>
-                    <InputText id="password" type="password" class="w-full" />
+                <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+                    <label class="w-6rem">Password</label>
+                    <InputText id="password" type="password" class="w-12rem" />
                 </div>
-                <Button label="Login" icon="pi pi-user" class="w-10rem"></Button>
+                <Button label="Login" icon="pi pi-user" class="w-10rem mx-auto"></Button>
             </div>
             <div class="w-full md:w-2">
                 <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
