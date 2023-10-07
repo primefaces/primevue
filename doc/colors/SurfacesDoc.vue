@@ -4,7 +4,12 @@
     </DocSectionText>
     <div class="card">
         <div class="flex flex-column">
-            <div v-for="shade in shades" :key="shade" class="w-18rem flex align-items-center p-3 font-bold" :style="{ backgroundColor: `var(--surface-${shade})`, color: $appState.darkTheme ? '#fff' : shade > 500 ? '#fff' : '#000' }">
+            <div
+                v-for="shade in shades"
+                :key="shade"
+                class="w-18rem flex align-items-center p-3 font-bold"
+                :style="{ backgroundColor: `var(--surface-${shade})`, color: $appState.darkTheme ? (shade > 500 ? '#000' : '#fff') : shade > 500 ? '#fff' : '#000' }"
+            >
                 surface-{{ shade }}
             </div>
         </div>
