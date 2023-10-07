@@ -61,6 +61,10 @@
             display: none;
         }
 
+        .landing-header-logo {
+            height: 2rem;
+        }
+
         &.landing-header-active {
             background-color: var(--home-header-bg);
             backdrop-filter: blur(12px);
