@@ -187,6 +187,7 @@ export default {
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
+    labelClickListener: null,
     overlay: null,
     list: null,
     virtualScroller: null,
@@ -218,6 +219,7 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         this.autoUpdateModel();
+        this.bindLabelClickListener();
     },
     updated() {
         if (this.overlayVisible && this.isModelValueChanged) {
@@ -229,6 +231,7 @@ export default {
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindLabelClickListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -702,6 +705,29 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindLabelClickListener() {
+            if (!this.editable && !this.labelClickListener) {
+                const label = document.querySelector(`label[for="${this.inputId}"]`);
+
+                if (label && DomHandler.isVisible(label)) {
+
+                    this.labelClickListener = () => {
+                        DomHandler.focus(this.$refs.focusInput);
+                    }
+
+                    label.addEventListener("click", this.labelClickListener);
+                }
+            }
+        },
+        unbindLabelClickListener() {
+            if (this.labelClickListener) {
+                const label = document.querySelector(`label[for="${this.inputId}"]`);
+
+                if (label && DomHandler.isVisible(label)) {
+                    label.removeEventListener('click', this.labelClickListener);
+                }
             }
         },
         hasFocusableElements() {
