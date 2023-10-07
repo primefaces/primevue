@@ -80,7 +80,7 @@
             ></Button>
         </div>
 
-        <div :style="scrollable ? { 'max-height': '40rem' } : undefined">
+        <div :style="scrollable ? { 'max-height': '40rem', overflow: 'auto' } : undefined">
             <template v-if="codeMode === 'basic' && importCode">
                 <pre v-code.script><code>{{ code.basic }}
 </code></pre>

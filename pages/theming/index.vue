@@ -28,7 +28,6 @@ import PrimeFlexDoc from '@/doc/theming/PrimeFlexDoc.vue';
 import ScaleDoc from '@/doc/theming/ScaleDoc.vue';
 import ScopedCSSDoc from '@/doc/theming/ScopedCSSDoc.vue';
 import SwitchThemesDoc from '@/doc/theming/SwitchThemesDoc.vue';
-import TailwindDoc from '@/doc/theming/TailwindDoc.vue';
 import UtilsDoc from '@/doc/theming/UtilsDoc.vue';
 
 export default {
@@ -74,11 +73,6 @@ export default {
                     id: 'primeflex',
                     label: 'PrimeFlex',
                     component: PrimeFlexDoc
-                },
-                {
-                    id: 'tailwind',
-                    label: 'Tailwind',
-                    component: TailwindDoc
                 },
                 {
                     id: 'utils',
