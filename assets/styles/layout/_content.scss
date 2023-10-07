@@ -1,9 +1,10 @@
 .layout-content {
-    margin-left: 250px;
     padding-top: 5rem;
 
     .layout-content-inner {
         padding: 2rem 4rem;
+        display: flex;
+        gap: 4rem;
     }
 
     .card {

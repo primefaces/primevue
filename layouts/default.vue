@@ -2,15 +2,15 @@
     <div class="layout-wrapper" :class="containerClass">
         <app-news v-if="$appState.newsActive" />
         <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
-        <app-menu :active="sidebarActive" />
         <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
+                <app-menu :active="sidebarActive" />
                 <slot></slot>
-                <app-footer />
             </div>
         </div>
+        <app-footer />
         <Toast />
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />

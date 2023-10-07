@@ -1,5 +1,5 @@
 .layout-sidebar {
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 5rem;
     height: 100%;
@@ -8,7 +8,8 @@
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 0 1rem 0;
+    padding: 0;
+    flex-shrink: 0;
 
     .logo {
         display: flex;
@@ -16,7 +17,7 @@
     }
 
     nav {
-        padding: 0 0 2rem 2rem;
+        padding: 0;
         margin: 0;
         flex-grow: 1;
         overflow-y: auto;
