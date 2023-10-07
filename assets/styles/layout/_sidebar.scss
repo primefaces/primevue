@@ -2,14 +2,15 @@
     position: sticky;
     left: 0;
     top: 7rem;
-    height: 100%;
+    height: calc(100vh - 9rem);
     user-select: none;
-    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99), opacity .3s;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0 0 0 0;
     flex: 0 0 250px;
     margin-right: 4rem;
+    overflow: auto;
 
     .logo {
         display: flex;
@@ -20,7 +21,6 @@
         padding: 0;
         margin: 0;
         flex-grow: 1;
-        overflow-y: auto;
     }
 
     .layout-menu {

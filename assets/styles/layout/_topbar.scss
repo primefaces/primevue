@@ -1,5 +1,4 @@
 .layout-topbar {
-    padding: 0;
     height: 5rem;
     position: fixed;
     top: 0;
@@ -9,50 +8,32 @@
     z-index: 1100;
     transition: background-color 1s;
     border-bottom: 1px solid var(--surface-border);
-
-    .layout-topbar-logo-container {
-        width: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 4rem;
-    }
-
-    .layout-topbar-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 4rem 0 0;
-        height: 100%;
-        width: calc(100% - var(--scrollbar-width, 0px));
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     &.layout-topbar-sticky {
         backdrop-filter: blur(8px);
     }
 
-    .menu-button {
-        display: none;
-        color: var(--text-color);
-        width: 3rem;
-        height: 3rem;
-        background-color: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        align-items: center;
-        justify-content: center;
-        transition: border-color .3s;
-        cursor: pointer;
+    .layout-topbar-logo-container {
+        width: 250px;
+        text-align: center;
+        margin-right: 4rem;
 
-        &:hover {
-            border-color: var(--primary-color);
-        }
-
-        i {
-            font-size: 1.5rem;
+        .layout-topbar-icon {
+            display: none;
         }
     }
-}
 
+    #docsearch {
+        margin-right: auto;
+    }
+
+    .menu-button {
+        display: none;
+    }
+}
 
 .layout-wrapper-light {
     .layout-topbar {

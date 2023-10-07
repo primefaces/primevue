@@ -16,19 +16,17 @@
 
 @media screen and (max-width: 991px) {
     .layout-wrapper {    
-        .layout-topbar {    
+        .layout-topbar {   
+            padding-left: 2rem;
+            padding-right: 2rem;
+
             .menu-button {
-                display: flex;
-                margin-right: 1rem;
+                display: block;
             }
 
             .layout-topbar-logo-container {
                 width: auto;
                 margin-right: 0;
-
-                svg {
-                    height: 2rem;
-                }
             }
 
             #docsearch {
@@ -64,9 +62,15 @@
             height: 100%;
             transform: translateX(-100%);
             background-color: var(--surface-overlay);
-            width: 250px;
+            width: 300px;
+            opacity: 0;
+
+            nav {
+                padding: 1rem 1rem;
+            }
     
             &.active {
+                opacity: 1;
                 transform: translateX(0);
             }
         }
@@ -110,6 +114,11 @@
         }
     }
 
+    .layout-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
     .blocked-scroll {
         overflow: hidden;
         padding-right: var(--scrollbar-width);
@@ -118,16 +127,22 @@
 
 @media screen and (max-width: 575px) {
     .layout-wrapper {
-        .layout-topbar-inner {
+        .layout-topbar {
             padding-left: 1rem;
             padding-right: 1rem;
+
+            .layout-topbar-logo {
+                display: none;
+            }
+
+            .layout-topbar-icon {
+                display: block;
+            }
         }
 
         .layout-content {
-            .layout-content-inner {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         .layout-footer {
