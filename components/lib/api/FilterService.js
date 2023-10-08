@@ -17,7 +17,6 @@ const FilterService = {
                 for (const field of fields) {
                     const fieldValue = ObjectUtils.resolveFieldData(item, field);
 
-
                     if (this.filters[filterMatchMode](fieldValue, filterValue, filterLocale)) {
                         filteredItems.push(item);
                         break;
