@@ -49715,6 +49715,14 @@
                             "deprecated": "since v3.26.0. Use 'pt' property."
                         },
                         {
+                            "name": "message",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToastMessageOptions",
+                            "default": "",
+                            "description": "Used to access message options."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
