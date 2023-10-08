@@ -3,6 +3,7 @@ import { ObjectUtils } from 'primevue/utils';
 const FilterService = {
     filter(value, fields, filterValue, filterMatchMode, filterLocale) {
         let filteredItems = [];
+
         if (!value) {
             return filteredItems;
         }
