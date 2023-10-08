@@ -369,11 +369,6 @@ export default {
                 }
             ]
         }),
-        splitterpanel: {
-            root: {
-                class: 'flex grow'
-            }
-        },
         gutter: ({ props }) => ({
             class: [
                 'flex items-center justify-center shrink-0',
@@ -393,6 +388,11 @@ export default {
                 }
             ]
         })
+    },
+    splitterpanel: {
+        root: {
+            class: 'flex grow'
+        }
     },
     dialog: {
         root: ({ state }) => ({
