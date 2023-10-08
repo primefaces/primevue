@@ -902,12 +902,13 @@ export default {
         },
         input: ({ props }) => ({
             class: [
-                { 
-                    'rounded-tr-none rounded-br-none': props.showButtons && props.buttonLayout == 'stacked' 
+                {
+                    'rounded-tr-none rounded-br-none': props.showButtons && props.buttonLayout == 'stacked'
                 },
-                { 
-                    'order-2': props.buttonLayout == 'horizontal' 
-                }]
+                {
+                    'order-2': props.buttonLayout == 'horizontal'
+                }
+            ]
         }),
         buttongroup: ({ props }) => ({
             class: [{ 'flex flex-col': props.showButtons && props.buttonLayout == 'stacked' }]
@@ -918,8 +919,8 @@ export default {
                 {
                     'rounded-br-none rounded-bl-none rounded-bl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
                 },
-                { 
-                    'order-3': props.buttonLayout == 'horizontal' 
+                {
+                    'order-3': props.buttonLayout == 'horizontal'
                 }
             ]
         }),
@@ -931,9 +932,9 @@ export default {
                 'flex !items-center !justify-center',
                 {
                     'rounded-tr-none rounded-tl-none rounded-tl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
-                },              
-                { 
-                    'order-1': props.buttonLayout == 'horizontal' 
+                },
+                {
+                    'order-1': props.buttonLayout == 'horizontal'
                 }
             ]
         })
