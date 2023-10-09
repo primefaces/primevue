@@ -6430,51 +6430,6 @@
     box-shadow: inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020;
   }
 
-  .fc {
-    /* FullCalendar 4 */
-    /* FullCalendar 5 */
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button:focus {
-    background: rgba(103, 58, 183, 0.76);
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button:active {
-    background: rgba(103, 58, 183, 0.68);
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:focus {
-    background: rgba(103, 58, 183, 0.76);
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:active {
-    background: rgba(103, 58, 183, 0.68);
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-dayGridMonth-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-timeGridWeek-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-timeGridDay-button:focus {
-    background: #e0e0e1;
-    border-color: #e0e0e1;
-  }
-  .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-dayGridMonth-button:focus.p-highlight, .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-timeGridWeek-button:focus.p-highlight, .fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button.fc-timeGridDay-button:focus.p-highlight {
-    background: #d9d8d9;
-    border-color: #d9d8d9;
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button:focus {
-    background: rgba(103, 58, 183, 0.76);
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button:active {
-    background: rgba(103, 58, 183, 0.68);
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:focus {
-    background: rgba(103, 58, 183, 0.76);
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:active {
-    background: rgba(103, 58, 183, 0.68);
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-dayGridMonth-button:focus, .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-timeGridWeek-button:focus, .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-timeGridDay-button:focus {
-    background: #e0e0e1;
-    border-color: #e0e0e1;
-  }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-dayGridMonth-button:focus.p-highlight, .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-timeGridWeek-button:focus.p-highlight, .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button.fc-timeGridDay-button:focus.p-highlight {
-    background: #d9d8d9;
-    border-color: #d9d8d9;
-  }
-
   .p-galleria .p-galleria-indicators {
     padding: 1rem;
   }
