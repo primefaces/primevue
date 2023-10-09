@@ -219,7 +219,7 @@ export interface EditorProps {
      */
     readonly?: boolean | undefined;
     /**
-     * Whitelist of formats to display, see [here](https://quilljs.com/docs/formats/) for available options.
+     * Whitelist of formats to display.
      */
     formats?: any[];
     /**
@@ -227,7 +227,7 @@ export interface EditorProps {
      */
     editorStyle?: any;
     /**
-     * Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options.
+     * Modules configuration.
      */
     modules?: any;
     /**
