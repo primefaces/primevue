@@ -10,8 +10,8 @@
 
 .layout-wrapper-light {
     .card {
-        background: #f3f4f6;
-        border: 1px solid #e2e8f0;
+        background: var(--surface-ground);
+        border: 1px solid var(--surface-border);
         padding: 2rem;
         border-radius: 10px;
         margin-bottom: 1rem;
