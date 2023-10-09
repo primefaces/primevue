@@ -3747,7 +3747,7 @@ export default {
                     context.sorted ? 'bg-blue-50 text-blue-700' : 'bg-slate-50 text-slate-700', // Sort
                     context.sorted ? 'dark:text-white/80 dark:bg-blue-300' : 'dark:text-white/80 dark:bg-gray-900', // Dark Mode
                     {
-                        'sticky z-[1]': props.frozen || props.frozen === '', // Frozen Columns
+                        'sticky z-[1]': context.frozen || context.frozen === '', // Frozen Columns
                         'border-x border-y': context?.showGridlines,
                         'overflow-hidden space-nowrap border-y relative bg-clip-padding': context.resizable // Resizable
                     }
