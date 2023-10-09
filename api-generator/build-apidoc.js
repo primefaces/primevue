@@ -385,14 +385,14 @@ if (project) {
 
                                                         child.type?.declaration?.signatures[0]?.parameters.map((param, index) => {
                                                             if (index !== 0) functionParameters += `, `;
-                                                            functionParameters += `<span class="text-800">${param.name}</span>: ${param.type?.name}`;
+                                                            functionParameters += `<span class="text-primary-700">${param.name}</span>: ${param.type?.name}`;
                                                         });
 
-                                                        type += `\t <span class="text-900">${child.name}</span>: <span class="text-600">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-500">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                        type += `\t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
                                                     } else {
                                                         const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 
-                                                        type += ` \t <span class="text-900">${child.name}</span>: <span class="text-600">${childType}</span>, <span class="text-500">// ${child.comment?.summary[0]?.text}</span>\n `;
+                                                        type += ` \t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">${childType}</span>, <span class="text-primary-300">// ${child.comment?.summary[0]?.text}</span>\n `;
                                                     }
                                                 }
                                             });

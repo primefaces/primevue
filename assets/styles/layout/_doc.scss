@@ -63,11 +63,12 @@
 }
 
 .doc-intro {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     p {
         font-size: 1.125rem;
         color: var(--surface-900);
+        margin: 0;
     }
 }
 
@@ -238,6 +239,10 @@
     pre {
         margin: 0;
     }
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }
 
 .doc-tablewrapper {
@@ -254,7 +259,7 @@
 
     th {
         border-bottom: 1px solid var(--surface-border);
-        padding: 1rem;
+        padding: .75rem 1rem;
         text-align: left;
         text-transform: capitalize;
     }
@@ -265,38 +270,36 @@
         }
 
         td {
-            padding: 1rem;
+            padding: .75rem 1rem;
             border-bottom: 1px solid var(--surface-border);
-            white-space: pre-wrap;
+            white-space: pre-line;
             line-height: 1.5;
             scroll-margin-top: 6.5rem;
 
-            &.doc-option-type {
+            &:first-child {
+                color: var(--primary-color);
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            }
+
+            .doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 color: var(--primary-500);
                 font-weight: 500;
-
-                > a {
-                    color: var(--primary-500);
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
 
                 .doc-option-type-options-container {
                     display: flex;
                     align-items: center;
                 }
+
                 span.doc-option-type-options {
                     color: var(--primary-700);
                 }
-            }
 
-            &:first-child {
-                color: var(--primary-color);
-                font-weight: 700;
-                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                &.doc-option-link {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
 
             .doc-option-name,
@@ -308,8 +311,9 @@
                 color: var(--highlight-text-color);
                 border-radius: 6px;
                 padding: 2px 6px;
-                font-weight: 400;
+                font-weight: 600;
                 font-style: normal;
+                white-space: nowrap;
 
                 .doc-option-link {
                     position: absolute;
@@ -322,16 +326,6 @@
                 }
             }
 
-            .doc-option-props {
-                display: flex;
-                background: var(--bluegray-50);
-                border-width: 1px;
-                border-style: solid;
-                border-radius: 6px;
-                padding: 2px 6px;
-                max-width: min-content;
-            }
-
             &:hover {
                 .doc-option-name {
                     .doc-option-link {
@@ -342,6 +336,43 @@
                         }
                     }
                 }
+            }
+
+            .doc-option-default,
+            .doc-option-returnType {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                font-weight: 400;
+                font-style: normal;
+                display: flex;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 6px;
+                padding: 2px 6px;
+                max-width: min-content;
+            }
+
+            .doc-option-parameter-name {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                color: var(--primary-700);
+            }
+
+            .doc-option-parameter-type {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                color: var(--primary-500);
+            }
+
+            .doc-option-params {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            }
+
+            .doc-option-light {
+                background: var(--bluegray-50);
+                border-color: var(--bluegray-100);
+            }
+
+            .doc-option-dark {
+                background: var(--bluegray-800);
+                border-color: var(--bluegray-800);
             }
         }
     }

@@ -239,6 +239,11 @@ export interface ToastProps {
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
+     * Used to access message options.
+     * @type {ToastMessageOptions}
+     */
+    message?: ToastMessageOptions;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ToastPassThroughOptions}
      */

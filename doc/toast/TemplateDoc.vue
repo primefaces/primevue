@@ -3,7 +3,7 @@
         <p>Custom content inside a message is defined with the <i>content</i> option.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Toast position="bottom-center" group="bc">
+        <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
@@ -26,9 +26,10 @@
 export default {
     data() {
         return {
+            visible: false,
             code: {
                 basic: `
-<Toast position="bottom-center" group="bc">
+<Toast position="bottom-center" group="bc" @close="onClose">
     <template #message="slotProps">
         <div class="flex flex-column align-items-center" style="flex: 1">
             <div class="text-center">
@@ -46,7 +47,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Toast position="bottom-center" group="bc">
+        <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
@@ -66,9 +67,28 @@ export default {
 
 <script>
 export default {
+    data() {
+        return {
+            visible: false
+        }
+    },
     methods: {
         showTemplate() {
-            this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+            if (!this.visible) {
+                this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+                this.visible = true;
+            }
+        },
+        onConfirm() {
+            this.$toast.removeGroup('bc');
+            this.visible = false;
+        },
+        onReject() {
+            this.$toast.removeGroup('bc');
+            this.visible = false;
+        },
+        onClose() {
+            this.visible = false;
         }
     }
 };
@@ -76,7 +96,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Toast position="bottom-center" group="bc">
+        <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
@@ -96,24 +116,51 @@ export default {
 
 <script setup>
 import { useToast } from "primevue/usetoast";
+import { ref } from 'vue';
 const toast = useToast();
+const visible = ref(false);
 
 const showTemplate = () => {
-    toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+    if (!visible.value) {
+        toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+        visible.value = true;
+    } 
 };
+
+const onConfirm = () => {
+    toast.removeGroup('bc');
+    visible.value = false;
+}
+
+const onReject = () => {
+    toast.removeGroup('bc');
+    visible.value = false;
+}
+
+const onClose = () => {
+    visible.value = false;
+}
 <\/script>`
             }
         };
     },
     methods: {
         showTemplate() {
-            this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+            if (!this.visible) {
+                this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+                this.visible = true;
+            }
         },
         onConfirm() {
             this.$toast.removeGroup('bc');
+            this.visible = false;
         },
         onReject() {
             this.$toast.removeGroup('bc');
+            this.visible = false;
+        },
+        onClose() {
+            this.visible = false;
         }
     }
 };

@@ -210,8 +210,6 @@ const classes = {
     decrementButton: 'p-link',
     separatorContainer: 'p-separator',
     minutePicker: 'p-minute-picker',
-    incrementButton: 'p-link',
-    decrementButton: 'p-link',
     secondPicker: 'p-second-picker',
     ampmPicker: 'p-ampm-picker',
     buttonbar: 'p-datepicker-buttonbar',

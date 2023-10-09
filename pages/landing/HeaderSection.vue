@@ -40,16 +40,19 @@
                         </li>
                     </ol>
                 </nav>
-                <a href="https://github.com/primefaces/primevue" rel="noopener noreferrer" class="linkbox p-0 header-button mr-2 flex align-items-center justify-content-center flex-shrink-0">
+                <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox p-0 header-button mr-1 md:mr-2 flex align-items-center justify-content-center flex-shrink-0">
                     <i class="pi pi-github"></i>
                 </a>
-                <a href="https://discord.gg/gzKFYnpmCY" rel="noopener noreferrer" class="linkbox p-0 header-button mr-2 flex align-items-center justify-content-center flex-shrink-0">
+                <a href="https://discord.gg/gzKFYnpmCY" target="_blank" rel="noopener noreferrer" class="linkbox p-0 header-button mr-1 md:mr-2 flex align-items-center justify-content-center flex-shrink-0">
                     <i class="pi pi-discord"></i>
+                </a>
+                <a href="https://github.com/orgs/primefaces/discussions" target="_blank" rel="noopener noreferrer" class="linkbox p-0 header-button mr-1 md:mr-2 flex align-items-center justify-content-center flex-shrink-0">
+                    <i class="pi pi-comments"></i>
                 </a>
                 <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center" @click="toggleTheme">
                     <i :class="['pi', { 'pi-sun': isDarkTheme(), 'pi-moon': !isDarkTheme() }]"></i>
                 </button>
-                <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center lg:hidden ml-2 menu-button" @click="toggleMenuActive">
+                <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center lg:hidden ml-1 md:ml-2 menu-button" @click="toggleMenuActive">
                     <i class="pi pi-bars"></i>
                 </button>
             </div>

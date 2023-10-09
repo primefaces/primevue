@@ -155,10 +155,16 @@ export interface SelectButtonProps {
      */
     dataKey?: string | undefined;
     /**
-     * Whether selection can be cleared.
+     * Whether selection can not be cleared.
      * @defaultValue false
+     * @deprecated Use 'allowEmpty' property instead.
      */
     unselectable?: boolean | undefined;
+    /**
+     * Whether selection can be cleared.
+     * @defaultValue true
+     */
+    allowEmpty?: boolean | undefined;
     /**
      * Identifier of the underlying element.
      */
