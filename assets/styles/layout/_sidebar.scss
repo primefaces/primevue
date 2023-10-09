@@ -1,7 +1,7 @@
 .layout-sidebar {
     position: sticky;
     left: 0;
-    top: 7rem;
+    top: 6rem;
     height: calc(100vh - 9rem);
     user-select: none;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99), opacity .3s;
@@ -19,7 +19,7 @@
 
     nav {
         padding: 0;
-        margin: 0;
+        margin: -.5rem 0 0 0;
         flex-grow: 1;
     }
 
@@ -35,7 +35,7 @@
                 display: flex;
                 width: 100%;
                 align-items: center;
-                padding: .5rem;
+                padding: .5rem 0;
                 color: var(--surface-900);
                 font-weight: 600;
                 transition: all .2s;

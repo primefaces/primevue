@@ -1,5 +1,5 @@
 .layout-topbar {
-    height: 5rem;
+    height: 4rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,11 +18,20 @@
 
     .layout-topbar-logo-container {
         width: 250px;
-        text-align: center;
         margin-right: 4rem;
+
+        .layout-topbar-logo {
+            svg {
+                width: 120px;
+            }
+        }
 
         .layout-topbar-icon {
             display: none;
+
+            svg {
+                width: 25px;
+            }
         }
     }
 

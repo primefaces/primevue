@@ -1,5 +1,5 @@
 .layout-content {
-    padding: 7rem 4rem 0 4rem;
+    padding: 6rem 4rem 0 4rem;
     display: flex;
 
     .layout-content-slot {
@@ -10,8 +10,8 @@
 
 .layout-wrapper-light {
     .card {
-        background: var(--surface-ground);
-        border: 1px solid var(--surface-border);
+        background: #f3f4f6;
+        border: 1px solid #e2e8f0;
         padding: 2rem;
         border-radius: 10px;
         margin-bottom: 1rem;
