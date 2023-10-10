@@ -102,8 +102,8 @@ export default {
                 const oldValue = this.range ? this.modelValue[this.handleIndex] : this.modelValue;
                 const diff = newValue - oldValue;
 
-                if (diff < 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
-                else if (diff > 0) newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
+                if (diff < 0) newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
+                else if (diff > 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
             } else {
                 newValue = Math.floor(newValue);
             }
