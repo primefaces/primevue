@@ -108,6 +108,8 @@ export interface PrimeVueConfiguration {
     csp?: PrimeVueCSPOptions;
 }
 
+export declare const defaultOptions: PrimeVueConfiguration;
+
 export interface PrimeVueZIndexOptions {
     modal?: number;
     overlay?: number;
