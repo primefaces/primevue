@@ -1,7 +1,7 @@
 <template>
     <div :class="landingClass">
         <AppNews v-if="$appState.newsActive" />
-        <AppTopBar :showConfigurator="false" showDarkSwitch @darkswitch-click="onThemeToggle"/>
+        <AppTopBar :showConfigurator="false" showDarkSwitch @darkswitch-click="onThemeToggle" />
         <HeroSection />
         <UsersSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
@@ -14,16 +14,16 @@
 
 <script>
 definePageMeta({
-    layout: "custom",
+    layout: 'custom'
 });
 
 import EventBus from '@/layouts/AppEventBus';
 import AppNews from '@/layouts/AppNews';
-import HeroSection from './landing/HeroSection';
 import AppTopBar from '@/layouts/AppTopBar.vue';
 import BlockSection from './landing/BlockSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
+import HeroSection from './landing/HeroSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
@@ -90,7 +90,7 @@ export default {
     },
     computed: {
         landingClass() {
-            return ['landing', { 'layout-dark': this.$appState?.darkTheme, 'layout-light': !this.$appState?.darkTheme, 'landing-news-active': this.$appState?.newsActive }];
+            return ['landing', { 'layout-dark': this.$appState?.darkTheme, 'layout-light': !this.$appState?.darkTheme, 'layout-news-active': this.$appState?.newsActive }];
         }
     },
     components: {

@@ -66,24 +66,19 @@
     }
 }
 
-.landing-news-active {
-    .landing-header {
-        top: 2rem;
-    }
-}
 
 .layout-news-active {
-    .layout-topbar,
-    .layout-config {
+    .layout-topbar {
         top: 2rem;
     }
 
-    .layout-sidebar {
-        top: 7rem;
+    .layout-sidebar,
+    .doc-section-nav {
+        top: 8rem;
     }
 
     .layout-content {
-        padding-top: 7rem;
+        padding-top: 8rem;
     }
 
     .doc-section-label,
