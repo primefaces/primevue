@@ -133,9 +133,9 @@ export default {
                         label: 'Income',
                         data: [40, 59, 40, 50, 56, 40, 70],
                         fill: true,
-                        borderColor: '#14B8A6',
+                        borderColor: '#10b981',
                         tension: 0.4,
-                        backgroundColor: 'rgba(20, 184, 166, .2)'
+                        backgroundColor: 'rgba(16, 185, 129, .2)'
                     }
                 ]
             },

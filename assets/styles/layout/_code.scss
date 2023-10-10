@@ -356,7 +356,7 @@ pre[class*="language-"] {
 .layout-light {
     pre[class*="language-"] {    
         code {
-            background: #475569 !important;
+            background: var(--surface-700) !important;
         }
     }
 }
