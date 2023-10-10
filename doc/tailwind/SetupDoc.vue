@@ -55,7 +55,6 @@ export default {
                 basic: `
 import {createApp} from "vue";
 import PrimeVue from "primevue/config";
-import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 
@@ -66,7 +65,6 @@ app.use(PrimeVue, { unstyled: true, pt: {} });
                 basic: `
 import {createApp} from "vue";
 import PrimeVue from "primevue/config";
-import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 
