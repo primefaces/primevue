@@ -68,7 +68,7 @@ import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'GalleriaThumbnails',
@@ -438,20 +438,13 @@ export default {
 
             if (this.responsiveOptions && !this.isUnstyled) {
                 this.sortedResponsiveOptions = [...this.responsiveOptions];
-                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+                const comparer = ObjectUtils.localeComparator();
 
                 this.sortedResponsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;
                     const value2 = data2.breakpoint;
-                    let result = null;
 
-                    if (value1 == null && value2 != null) result = -1;
-                    else if (value1 != null && value2 == null) result = 1;
-                    else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
-                    else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
-                    return -1 * result;
+                    return ObjectUtils.sort(value1, value2, -1, comparer);
                 });
 
                 for (let i = 0; i < this.sortedResponsiveOptions.length; i++) {

@@ -888,6 +888,11 @@ export interface DataTableProps {
      */
     sortOrder?: number | undefined;
     /**
+     * Determines how null values are sorted.
+     * @defaultValue 1
+     */
+    nullSortOrder?: number;
+    /**
      * Default sort order of an unsorted column.
      * @defaultValue 1
      */

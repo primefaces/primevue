@@ -302,6 +302,37 @@ export default {
         return index;
     },
 
+    sort(value1, value2, order = 1, comparator, nullSortOrder = 1) {
+        const result = this.compare(value1, value2, comparator, order);
+        let finalSortOrder = order;
+
+        // nullSortOrder == 1 means Excel like sort nulls at bottom
+        if (this.isEmpty(value1) || this.isEmpty(value2)) {
+            finalSortOrder = nullSortOrder === 1 ? order : nullSortOrder;
+        }
+
+        return finalSortOrder * result;
+    },
+
+    compare(value1, value2, comparator, order = 1) {
+        let result = -1;
+        const emptyValue1 = this.isEmpty(value1);
+        const emptyValue2 = this.isEmpty(value2);
+
+        if (emptyValue1 && emptyValue2) result = 0;
+        else if (emptyValue1) result = order;
+        else if (emptyValue2) result = -order;
+        else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparator(value1, value2);
+        else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
+
+        return result;
+    },
+
+    localeComparator() {
+        //performance gain using Int.Collator. It is not recommended to use localeCompare against large arrays.
+        return new Intl.Collator(undefined, { numeric: true }).compare;
+    },
+
     nestedKeys(obj = {}, parentKey = '') {
         return Object.entries(obj).reduce((o, [key, value]) => {
             const currentKey = parentKey ? `${parentKey}.${key}` : key;

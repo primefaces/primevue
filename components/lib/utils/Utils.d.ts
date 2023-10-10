@@ -89,6 +89,8 @@ export declare class ObjectUtils {
     static isPrintableCharacter(char: string): boolean;
     static findLast(value: any[], callback: () => any): any;
     static findLastIndex(value: any[], callback: () => any): number;
+    static sort(value1: any, value2: any, order: number, comparator: (a: any, b: any) => any, nullSortOrder: number): number;
+    static compare(value1: any, value2: any, comparator: (a: any, b: any) => any, order: number): number;
     static nestedKeys(obj: object, parentKey?: string): string[];
 }
 
