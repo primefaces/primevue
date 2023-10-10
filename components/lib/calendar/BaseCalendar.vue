@@ -212,11 +212,11 @@ export default {
             type: null,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

@@ -699,11 +699,11 @@ export interface CalendarProps {
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {CalendarPassThroughOptions}

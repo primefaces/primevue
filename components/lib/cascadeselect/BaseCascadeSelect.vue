@@ -100,11 +100,11 @@ export default {
             type: Number,
             default: 0
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

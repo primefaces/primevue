@@ -391,7 +391,7 @@ export default {
             return UniqueComponentId();
         },
         ariaLabelledById() {
-            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.ariaId + '_header' : null;
+            return this.header != null || this.$attrs['ariaLabelledby'] !== null ? this.ariaId + '_header' : null;
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;

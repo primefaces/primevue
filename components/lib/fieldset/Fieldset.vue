@@ -77,7 +77,7 @@ export default {
             return UniqueComponentId();
         },
         buttonAriaLabel() {
-            return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.legend;
+            return this.toggleButtonProps && this.toggleButtonProps['ariaLabel'] ? this.toggleButtonProps['ariaLabel'] : this.legend;
         }
     },
     directives: {

@@ -41,7 +41,7 @@ export default {
             return this.$attrs.disabled || this.$attrs.disabled === '' || this.loading;
         },
         defaultAriaLabel() {
-            return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label'];
+            return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['ariaLabel'];
         },
         hasIcon() {
             return this.icon || this.$slots.icon;
