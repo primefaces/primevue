@@ -156,12 +156,6 @@
                     transform: scale(1);
                 }
 
-                &.logo {
-                    &::before {
-                        box-shadow: var(--home-herobox-logo-shadow);
-                    }
-                }
-
                 .name {
                     opacity: 1;
                 }

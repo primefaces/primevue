@@ -2,7 +2,7 @@
     <section class="landing-features py-8">
         <div class="section-header">Features</div>
         <p class="section-detail">PrimeVue is the most complete solution for your UI requirements.</p>
-        <div class="mt-7 px-3 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
+        <div class="mt-7 px-3 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }">
             <div class="features-container">
                 <div class="grid">
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">

@@ -13,6 +13,10 @@
 </template>
 
 <script>
+definePageMeta({
+  layout: "custom",
+});
+
 import EventBus from '@/layouts/AppEventBus';
 import BlockSection from './landing/BlockSection';
 import ComponentSection from './landing/ComponentSection';
@@ -24,6 +28,7 @@ import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
 
 const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
+
 
 export default {
     props: {
