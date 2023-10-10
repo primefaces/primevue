@@ -3,14 +3,6 @@
     scroll-behavior: smooth;
     padding-top: 4rem;
 
-    .landing-intro {
-        background: var(--home-intro-bg);
-        display: flex;
-        flex-direction: column;
-        padding-top: 5rem;
-        min-height: 100vh;
-    }
-
     .box {
         border: 1px solid var(--home-border-color);
         border-radius: 10px;

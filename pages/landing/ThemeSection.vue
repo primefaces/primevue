@@ -10,7 +10,7 @@
         </div>
         <div
             class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
-            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }"
+            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt-gray' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }"
         >
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
