@@ -30,7 +30,7 @@
         </p>
         <DocSectionCode :code="code3" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 
-        <p>Voilà 💚, you now have access to 90+ awesome Vue UI components styled with Tailwind that will work in harmony with the rest of your application.</p>
+        <p>Voilà 💚, you now have access to 80+ awesome Vue UI components styled with Tailwind that will work in harmony with the rest of your application.</p>
     </DocSectionText>
 </template>
 
