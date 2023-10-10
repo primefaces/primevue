@@ -9,7 +9,7 @@
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="ptm('moveTopButton')" :unstyled="unstyled">
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="moveTopButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" data-pc-section="movetopicon" />
