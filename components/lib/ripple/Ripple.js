@@ -8,9 +8,9 @@ const Ripple = BaseRipple.extend('ripple', {
         if (config && config.ripple) {
             this.create(el);
             this.bindEvents(el);
-        }
 
-        el.setAttribute('data-pd-ripple', true);
+            el.setAttribute('data-pd-ripple', true);
+        }
     },
     unmounted(el) {
         this.remove(el);
