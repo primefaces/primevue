@@ -30,7 +30,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 'data-p-ink': true,
                 'data-p-ink-active': false,
                 class: !this.isUnstyled() && this.cx('root'),
-                onAnimationEnd: this.onAnimationEnd,
+                onAnimationEnd: this.onAnimationEnd.bind(this),
                 'p-bind': this.ptm('root')
             });
 
