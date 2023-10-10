@@ -10,31 +10,31 @@
     &.layout-topbar-sticky {
         backdrop-filter: blur(8px);
     }
+}
 
-    .layout-topbar-inner {
-        height: 4rem;
-        padding: 0 4rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.layout-topbar-inner {
+    height: 4rem;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     .layout-topbar-logo-container {
         width: 250px;
         margin-right: 4rem;
+    }
 
-        .layout-topbar-logo {
-            svg {
-                width: 120px;
-            }
+    .layout-topbar-logo {
+        svg {
+            width: 120px;
         }
+    }
 
-        .layout-topbar-icon {
-            display: none;
+    .layout-topbar-icon {
+        display: none;
 
-            svg {
-                width: 25px;
-            }
+        svg {
+            width: 25px;
         }
     }
 

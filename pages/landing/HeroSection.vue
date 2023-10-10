@@ -1,7 +1,7 @@
 <template>
     <section class="landing-hero py-8 px-5 lg:px-8">
-       <div class="flex flex-wrap">
-            <div class="w-full xl:w-6 flex flex-column justify-content-center px-8 align-items-center xl:align-items-stretch">
+        <div class="flex flex-wrap">
+            <div class="w-full xl:w-6 flex flex-column justify-content-center lg:px-8 align-items-center xl:align-items-stretch">
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Most Complete UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-       </div>
+        </div>
     </section>
 </template>
 
@@ -193,4 +193,3 @@ export default {
     }
 };
 </script>
-
