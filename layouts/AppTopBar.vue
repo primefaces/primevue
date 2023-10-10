@@ -1,7 +1,6 @@
 <template>
     <div :ref="containerRef" class="layout-topbar">
         <div class="layout-topbar-inner">
-
             <div class="layout-topbar-logo-container">
                 <PrimeVueNuxtLink to="/" class="layout-topbar-logo" aria-label="PrimeVue logo"> 
                     <svg width="165" height="40" viewBox="0 0 165 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,9 +61,14 @@
                         <i class="pi pi-comments text-700"></i>
                     </a>
                 </li>
-                <li>
+                <li v-if="showConfigurator">
                     <button type="button" class="p-button flex-shrink-0 flex border-1 w-2rem h-2rem p-0 align-items-center justify-content-center transition-all transition-duration-300 min-w-0" @click="onConfigButtonClick">
                         <i class="pi pi-palette"></i>
+                    </button>
+                </li>
+                <li v-if="showDarkSwitch">
+                    <button type="button" class="flex flex-shrink-0 px-link border-1 border-solid w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary" @click="toggleDarkMode">
+                        <i :class="['pi', {'pi-moon': $appState.darkTheme, 'pi-sun': !$appState.darkTheme}]"></i>
                     </button>
                 </li>
                 <li class="relative">
@@ -103,8 +107,18 @@ import pkg from '@/package.json';
 import docsearch from '@docsearch/js';
 
 export default {
-    emits: ['menubutton-click', 'configbutton-click'],
+    emits: ['menubutton-click', 'configbutton-click', 'darkswitch-click'],
     outsideClickListener: null,
+    props: {
+        showConfigurator: {
+            type: Boolean,
+            default: true
+        },
+        showDarkSwitch: {
+            type: Boolean,
+            default: false
+        },
+    },
     data() {
         return {
             versions: [
@@ -144,6 +158,9 @@ export default {
         },
         onMenuButtonClick(event) {
             this.$emit('menubutton-click', event);
+        },
+        toggleDarkMode(event) {
+            this.$emit('darkswitch-click', event);
         },
         bindScrollListener() {
             if (!this.scrollListener) {

@@ -5,7 +5,7 @@
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Most Complete UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div>
-                    <PrimeVueNuxtLink to="/installation" class="linkbox active font-semibold py-3 px-4 fadeinleft animation-duration-2000 animation-ease-out"> Get Started <i class="pi pi-arrow-right ml-3"></i> </PrimeVueNuxtLink>
+                    <PrimeVueNuxtLink to="/installation" class="linkbox active font-semibold py-3 px-4"> Get Started <i class="pi pi-arrow-right ml-3"></i> </PrimeVueNuxtLink>
                 </div>
             </div>
             <div class="w-full xl:w-6 pt-7 xl:pt-0 hidden md:block">
@@ -133,9 +133,9 @@ export default {
                         label: 'Income',
                         data: [40, 59, 40, 50, 56, 40, 70],
                         fill: true,
-                        borderColor: '#03C4E8',
+                        borderColor: '#14B8A6',
                         tension: 0.4,
-                        backgroundColor: 'rgba(3, 196, 232, .2)'
+                        backgroundColor: 'rgba(20, 184, 166, .2)'
                     }
                 ]
             },
