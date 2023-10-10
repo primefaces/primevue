@@ -82,3 +82,21 @@ describe('Button.vue', () => {
         expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root" data-pd-ripple="true"><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
     });
 });
+
+describe('Button.vue', () => {
+    it('aria label should have a default based on label', () => {
+        const wrapper = mount(Button, {
+            props: {
+                label: 'bob'
+            }
+        });
+
+        expect(wrapper.find('.p-button').attributes()['aria-label']).toBe('bob');
+    });
+
+    it('aria label can by set without setting a label', () => {
+        const wrapper = mount(Button, { props: { ariaLabel: 'arialabel' } });
+
+        expect(wrapper.find('.p-button').attributes()['aria-label']).toBe('arialabel');
+    });
+});

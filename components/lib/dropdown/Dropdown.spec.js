@@ -367,3 +367,34 @@ describe('filter checks', () => {
         expect(wrapper.findAll('.p-dropdown-item').length).toBe(2);
     });
 });
+
+describe('accessibility checks', () => {
+    let wrapper;
+
+    beforeEach(async () => {
+        wrapper = mount(Dropdown, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                options: [
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' }
+                ],
+                optionLabel: 'name',
+                ariaLabel: 'Custom Label',
+                ariaLabelledby: 'Custom Labelledby'
+            }
+        });
+
+        await wrapper.trigger('click');
+    });
+
+    it('accessibility attributes like aria-label should be pass to the input', () => {
+        expect(wrapper.find('.p-dropdown-label.p-inputtext').attributes()['aria-label']).toBe('Custom Label');
+        expect(wrapper.find('.p-dropdown-label.p-inputtext').attributes()['aria-labelledby']).toBe('Custom Labelledby');
+    });
+});
