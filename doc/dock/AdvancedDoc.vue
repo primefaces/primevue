@@ -6,15 +6,15 @@
         <Toast position="top-center" group="tc" />
         <Menubar :model="menubarItems">
             <template #start>
-                <i class="pi pi-apple px-3"></i>
+                <i class="pi pi-apple px-2"></i>
             </template>
             <template #end>
-                <i class="pi pi-video px-3" />
-                <i class="pi pi-wifi px-3" />
-                <i class="pi pi-volume-up px-3" />
-                <span class="px-3">Fri 13:07</span>
-                <i class="pi pi-search px-3" />
-                <i class="pi pi-bars px-3" />
+                <i class="pi pi-video px-2" />
+                <i class="pi pi-wifi px-2" />
+                <i class="pi pi-volume-up px-2" />
+                <span class="px-2">Fri 13:07</span>
+                <i class="pi pi-search px-2" />
+                <i class="pi pi-bars px-2" />
             </template>
         </Menubar>
 
@@ -257,15 +257,15 @@ export default {
         <Toast position="top-center" group="tc" />
         <Menubar :model="menubarItems">
             <template #start>
-                <i class="pi pi-apple px-3"></i>
+                <i class="pi pi-apple px-2"></i>
             </template>
             <template #end>
-                <i class="pi pi-video px-3" />
-                <i class="pi pi-wifi px-3" />
-                <i class="pi pi-volume-up px-3" />
-                <span class="px-3">Fri 13:07</span>
-                <i class="pi pi-search px-3" />
-                <i class="pi pi-bars px-3" />
+                <i class="pi pi-video px-2" />
+                <i class="pi pi-wifi px-2" />
+                <i class="pi pi-volume-up px-2" />
+                <span class="px-2">Fri 13:07</span>
+                <i class="pi pi-search px-2" />
+                <i class="pi pi-bars px-2" />
             </template>
         </Menubar>
     
@@ -546,12 +546,10 @@ export default {
     background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+   
 }
 
-.dock-demo > .p-dock {
-    z-index: 1000;
-}
+
 
 .dock-demo .p-menubar {
     padding: 0;
@@ -845,12 +843,10 @@ const commandHandler = (text) => {
     background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    
 }
 
-.dock-demo > .p-dock {
-    z-index: 1000;
-}
+
 
 .dock-demo .p-menubar {
     padding: 0;
@@ -912,12 +908,9 @@ const commandHandler = (text) => {
     background-image: url('https://primefaces.org/cdn/primevue/images/dock/window.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+  
 }
 
-.dock-demo > .p-dock {
-    z-index: 1000;
-}
 
 .dock-demo .p-menubar {
     padding: 0;
