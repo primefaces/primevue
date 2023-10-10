@@ -35,8 +35,7 @@ export default {
     },
     beforeUnmount() {
         if (this.fullScreen) {
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll();
         }
 
         this.mask = null;
@@ -52,8 +51,7 @@ export default {
         },
         onEnter(el) {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
-            DomHandler.addClass(document.body, 'p-overflow-hidden');
-            document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+            DomHandler.blockBodyScroll();
             this.focus();
         },
         onBeforeLeave() {
@@ -62,8 +60,7 @@ export default {
         onAfterLeave(el) {
             ZIndexUtils.clear(el);
             this.containerVisible = false;
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll();
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {

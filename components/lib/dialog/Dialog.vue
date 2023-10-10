@@ -203,25 +203,17 @@ export default {
             }
 
             if (!this.modal) {
-                if (this.maximized) {
-                    DomHandler.addClass(document.body, 'p-overflow-hidden');
-                    document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
-                } else {
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                    document.body.style.removeProperty('--scrollbar-width');
-                }
+                this.maximized ? DomHandler.blockBodyScroll() : DomHandler.unblockBodyScroll();
             }
         },
         enableDocumentSettings() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll();
             }
         },
         unbindDocumentState() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll();
             }
         },
         onKeyDown(event) {

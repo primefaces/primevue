@@ -1656,8 +1656,7 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
 
                 document.body.appendChild(this.mask);
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll();
             }
         },
         disableModality() {
@@ -1691,8 +1690,7 @@ export default {
             }
 
             if (!hasBlockerMasks) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll();
             }
         },
         updateCurrentMetaData() {

@@ -46,6 +46,7 @@ export declare class DomHandler {
     static clearSelection(): void;
     static getSelection(): string | null;
     static calculateScrollbarWidth(): number;
+    static calculateBodyScrollbarWidth(): number;
     static getBrowser(): object;
     static resolveUserAgent(): { browser: string; version: string };
     static isVisible(el: HTMLElement): boolean;
@@ -64,6 +65,8 @@ export declare class DomHandler {
     static hasCSSAnimation(el: HTMLElement): boolean;
     static hasCSSTransition(el: HTMLElement): boolean;
     static exportCSV(csv: any, filename: string): void;
+    static blockBodyScroll(className?: string): void;
+    static unblockBodyScroll(className?: string): void;
 }
 
 export declare class ObjectUtils {
