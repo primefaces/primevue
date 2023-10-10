@@ -82,7 +82,6 @@ export interface TagProps {
     rounded?: boolean | undefined;
     /**
      * Icon of the tag to display next to the value.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**
