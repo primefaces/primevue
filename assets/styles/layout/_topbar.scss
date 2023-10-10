@@ -1,19 +1,22 @@
 .layout-topbar {
-    height: 4rem;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0 4rem;
     width: 100%;
     z-index: 1100;
     transition: background-color 1s;
     border-bottom: 1px solid var(--surface-border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+   
     &.layout-topbar-sticky {
         backdrop-filter: blur(8px);
+    }
+
+    .layout-topbar-inner {
+        height: 4rem;
+        padding: 0 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .layout-topbar-logo-container {
@@ -44,7 +47,7 @@
     }
 }
 
-.layout-wrapper-light {
+.layout-light {
     .layout-topbar {
         &.layout-topbar-sticky {
             background-color: rgba(255,255,255,.7);
@@ -52,7 +55,7 @@
     }
 }
 
-.layout-wrapper-dark {
+.layout-dark {
     .layout-topbar {
         &.layout-topbar-sticky {
             background-color: rgba(0,0,0,.3);

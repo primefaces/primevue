@@ -1,8 +1,9 @@
 <template>
     <div :class="landingClass">
-        <Intro @change:theme="onThemeToggle"></Intro>
+        <AppNews v-if="$appState.newsActive" />
+        <AppTopBar />
+        <HeroSection />
         <UsersSection />
-        <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
         <DesignerSection />
@@ -14,21 +15,20 @@
 
 <script>
 definePageMeta({
-  layout: "custom",
+    layout: "custom",
 });
 
 import EventBus from '@/layouts/AppEventBus';
+import AppNews from '@/layouts/AppNews';
+import HeroSection from './landing/HeroSection';
+import AppTopBar from '@/layouts/AppTopBar.vue';
 import BlockSection from './landing/BlockSection';
-import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
-
-const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
-
 
 export default {
     props: {
@@ -92,12 +92,13 @@ export default {
     },
     computed: {
         landingClass() {
-            return ['landing', { 'landing-dark': this.$appState?.darkTheme, 'landing-light': !this.$appState?.darkTheme, 'landing-news-active': this.$appState?.newsActive }];
+            return ['landing', { 'layout-dark': this.$appState?.darkTheme, 'layout-light': !this.$appState?.darkTheme, 'landing-news-active': this.$appState?.newsActive }];
         }
     },
     components: {
-        Intro,
-        ComponentSection,
+        AppNews,
+        AppTopBar,
+        HeroSection,
         ThemeSection,
         BlockSection,
         DesignerSection,

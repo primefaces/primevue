@@ -345,7 +345,7 @@ pre[class*="language-"] {
     display: none;
 }
 
-.layout-wrapper-dark {
+.layout-dark {
     pre[class*="language-"] {    
         code {
             background: var(--surface-card) !important;
@@ -353,7 +353,7 @@ pre[class*="language-"] {
     }
 }
 
-.layout-wrapper-light {
+.layout-light {
     pre[class*="language-"] {    
         code {
             background: #475569 !important;
