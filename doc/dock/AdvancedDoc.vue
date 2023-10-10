@@ -908,9 +908,7 @@ const commandHandler = (text) => {
     background-image: url('https://primefaces.org/cdn/primevue/images/dock/window.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-  
 }
-
 
 .dock-demo .p-menubar {
     padding: 0;
