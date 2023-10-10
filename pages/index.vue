@@ -6,7 +6,6 @@
         <UsersSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
-        <DesignerSection />
         <TemplateSection />
         <FeaturesSection />
         <FooterSection />
@@ -23,7 +22,6 @@ import AppNews from '@/layouts/AppNews';
 import HeroSection from './landing/HeroSection';
 import AppTopBar from '@/layouts/AppTopBar.vue';
 import BlockSection from './landing/BlockSection';
-import DesignerSection from './landing/DesignerSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
 import TemplateSection from './landing/TemplateSection';
@@ -101,7 +99,6 @@ export default {
         HeroSection,
         ThemeSection,
         BlockSection,
-        DesignerSection,
         TemplateSection,
         UsersSection,
         FeaturesSection,
