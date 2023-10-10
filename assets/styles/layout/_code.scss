@@ -346,6 +346,22 @@ pre[class*="language-"] {
 }
 
 .layout-dark {
+    .doc-section-code-buttons {
+        button {
+            outline: 0 none;
+            outline-offset: 0;
+            background-color: transparent;
+            transition: background-color .2s, box-shadow .2s;
+            border: 0 none;
+            color: var(--surface-400);
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(255,255,255,.1);
+                color: var(--surface-500);
+            }
+        }
+    }
     pre[class*="language-"] {    
         code {
             background: var(--surface-card) !important;
@@ -354,6 +370,22 @@ pre[class*="language-"] {
 }
 
 .layout-light {
+    .doc-section-code-buttons {
+        button {
+            outline: 0 none;
+            outline-offset: 0;
+            background-color: transparent;
+            transition: background-color .2s, box-shadow .2s;
+            border: 0 none;
+            color: var(--surface-400);
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(255,255,255,.1);
+                color: var(--surface-300);
+            }
+        }
+    }
     pre[class*="language-"] {    
         code {
             background: var(--surface-700) !important;
