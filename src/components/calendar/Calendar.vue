@@ -2245,7 +2245,9 @@ export default {
                         }
                     }
                     else if (event.keyCode === 9) {
-                        DomHandler.getFocusableElements($vm.$refs.overlay).forEach(el => el.tabIndex = '-1');
+                        if($vm.showOnFocus){
+                            DomHandler.getFocusableElements($vm.$refs.overlay).forEach(el => el.tabIndex = '-1');
+                        }
                         if ($vm.overlayVisible) {
                             $vm.overlayVisible = false;
                         }
