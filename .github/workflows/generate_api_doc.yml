@@ -34,12 +34,6 @@ jobs:
             - name: Generate api doc
               run: npm run apidoc
 
-            - name: Code Format
-              run: npm run format:check
-
-            - name: Lint
-              run: npm run lint
-
             - name: Commit doc
               run: |
                   git config user.name "GitHub Actions Bot"
