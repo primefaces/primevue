@@ -546,10 +546,7 @@ export default {
     background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-   
 }
-
-
 
 .dock-demo .p-menubar {
     padding: 0;
@@ -562,10 +559,24 @@ export default {
         <div class="card dock-demo">
             <Toast position="top-center" group="tc" />
             
+            <Menubar :model="menubarItems">
+                <template #start>
+                    <i class="pi pi-apple px-2"></i>
+                </template>
+                <template #end>
+                    <i class="pi pi-video px-2" />
+                    <i class="pi pi-wifi px-2" />
+                    <i class="pi pi-volume-up px-2" />
+                    <span class="px-2">Fri 13:07</span>
+                    <i class="pi pi-search px-2" />
+                    <i class="pi pi-bars px-2" />
+                </template>
+            </Menubar>
+
             <div class="dock-window dock-advanced">
                 <Dock :model="items">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a v-tooltip.top="item.label" href="#" class="p-dock-link" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" :src="item.icon" style="width: 100%" />
                         </a>
                     </template>
@@ -579,8 +590,7 @@ export default {
                     <Tree :value="nodes" />
                 </Dialog>
 
-                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
-                    :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
+                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px" :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
                     </template>
@@ -845,8 +855,6 @@ const commandHandler = (text) => {
     background-size: cover;
     
 }
-
-
 
 .dock-demo .p-menubar {
     padding: 0;
