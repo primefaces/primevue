@@ -770,12 +770,11 @@ export default {
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
-
-            if (pattern.test(this.selectedItemsLabel)) {
-                return this.selectedItemsLabel.replace(this.selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
+            const selectedItemsLabel = this.$primevue.config.locale.selectedItemsLabel || this.selectedItemsLabel
+            if (pattern.test(selectedItemsLabel)) {
+                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
             }
-
-            return this.selectedItemsLabel;
+            return selectedItemsLabel;
         },
         onToggleAll(event) {
             if (this.selectAll !== null) {
