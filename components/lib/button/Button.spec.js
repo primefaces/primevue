@@ -79,6 +79,36 @@ describe('Button.vue', () => {
             }
         });
 
-        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root" data-pd-ripple="true"><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
+        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root">
+  <!--v-if--><span class="ml-2 font-bold">Default PrimeVue Button</span>
+</button>`);
+    });
+
+    it('should render icon slot', () => {
+        const wrapper = mount(Button, {
+            slots: {
+                default: h('span', { class: 'ml-2 font-bold' }, 'Default PrimeVue Button'),
+                icon: h('i', { class: 'pi pi-check' })
+            }
+        });
+
+        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root"><i class="pi pi-check"></i><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
+    });
+
+    it('should render loadingicon slot', () => {
+        const wrapper = mount(Button, {
+            slots: {
+                default: h('span', { class: 'ml-2 font-bold' }, 'Default PrimeVue Button'),
+                icon: h('i', { class: 'pi pi-check' }),
+                loadingicon: h('i', { class: 'pi pi-spin pi-spinner' })
+            },
+            props: {
+                loading: true
+            }
+        });
+
+        expect(wrapper.html()).toBe(
+            `<button class="p-button p-component p-disabled p-button-loading" type="button" disabled="" data-pc-name="button" data-pc-section="root"><i class="pi pi-spin pi-spinner"></i><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`
+        );
     });
 });

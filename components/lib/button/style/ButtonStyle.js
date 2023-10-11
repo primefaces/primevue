@@ -4,7 +4,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-button p-component',
         {
-            'p-button-icon-only': instance.hasIcon && !props.label && !props.badge,
+            'p-button-icon-only': instance.hasIcon && !props.label && !props.badge && !instance.slots.default,
             'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
             'p-disabled': instance.$attrs.disabled || instance.$attrs.disabled === '' || props.loading,
             'p-button-loading': props.loading,
