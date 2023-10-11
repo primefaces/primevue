@@ -1,5 +1,53 @@
 # Changelog
 
+## [3.36.0](https://github.com/primefaces/primevue/tree/3.36.0) (2023-10-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.35.0...3.36.0)
+
+**Implemented New Features and Enhancements:**
+
+-   Improve block/unblockScroll architecture [\#4589](https://github.com/primefaces/primevue/issues/4589)
+-   Splitter: Add Resize event to Splitter component [\#4561](https://github.com/primefaces/primevue/issues/4561)
+-   Datatable: Sort mode multiple - undefined breaks order [\#4555](https://github.com/primefaces/primevue/issues/4555)
+-   InlineMessage: Icon shrinks as text grows larger [\#4550](https://github.com/primefaces/primevue/issues/4550)
+-   Export styles of all components [\#4530](https://github.com/primefaces/primevue/issues/4530)
+-   Add `modules` property to Editor [\#4450](https://github.com/primefaces/primevue/issues/4450)
+-   No styles injected on SSR resulting in Large Layout Shifts on load [\#4210](https://github.com/primefaces/primevue/issues/4210)
+-   MultiSelect: Filter does not work when options is an array of strings [\#4071](https://github.com/primefaces/primevue/issues/4071)
+-   Add `allowEmpty` property to SelectButton [\#3973](https://github.com/primefaces/primevue/issues/3973)
+-   Ability to close a specific toast message [\#1763](https://github.com/primefaces/primevue/issues/1763)
+
+**Fixed bugs:**
+
+-   Dock Component MenuBar z-index issue [\#4584](https://github.com/primefaces/primevue/issues/4584)
+-   OrderList: Missing moveUpButtonProps [\#4581](https://github.com/primefaces/primevue/issues/4581)
+-   Config: Missing export definition in types [\#4579](https://github.com/primefaces/primevue/issues/4579)
+-   Cannot click to select min or max value when using slider with step property [\#4577](https://github.com/primefaces/primevue/issues/4577)
+-   Editor layer defect [\#4576](https://github.com/primefaces/primevue/issues/4576)
+-   Tailwind Datatable: Uncaught \(in promise\) TypeError: Cannot read properties of undefined \(reading 'frozen'\) [\#4566](https://github.com/primefaces/primevue/issues/4566)
+-   Using Tailwind setup - the Ripple data attributes get added automatically [\#4564](https://github.com/primefaces/primevue/issues/4564)
+-   Splitter: In the tailwind theme, double-clicking on a split line causes the element to move. [\#4562](https://github.com/primefaces/primevue/issues/4562)
+-   InputNumber: Buttons are not sorted correctly in TW theme if buttonLayout is horizontal [\#4560](https://github.com/primefaces/primevue/issues/4560)
+-   The `appearance` style is not working in Tailwind preset [\#4559](https://github.com/primefaces/primevue/issues/4559)
+-   Image: preview mode button spacing fixes [\#4554](https://github.com/primefaces/primevue/issues/4554)
+-   Image: toolbar unstyled mode fixes [\#4553](https://github.com/primefaces/primevue/issues/4553)
+-   Galleria: indicator list z-index defect [\#4545](https://github.com/primefaces/primevue/issues/4545)
+-   Column: headercheckboxicon slot not working [\#4543](https://github.com/primefaces/primevue/issues/4543)
+-   ContextMenu: global property is not working [\#4536](https://github.com/primefaces/primevue/issues/4536)
+-   InputText: Float labels bug out when page loads with form auto-filled \(webkit\) [\#4533](https://github.com/primefaces/primevue/issues/4533)
+-   Sidebar: autofocus cannot with other components [\#4532](https://github.com/primefaces/primevue/issues/4532)
+-   PanelMenu | Separator is not ignored when navigating with the arrow keys. [\#4522](https://github.com/primefaces/primevue/issues/4522)
+-   V-Tooltip, TailwindCSS: Styling not working when using pinia store [\#4505](https://github.com/primefaces/primevue/issues/4505)
+-   Calendar: Timepicker changes from `12 am` to `12 pm` automatically [\#4449](https://github.com/primefaces/primevue/issues/4449)
+-   Calendar: Multiple Month/Year selection mode not highlighting selected month [\#4418](https://github.com/primefaces/primevue/issues/4418)
+-   File Upload - Chrome/Windows input is triggered during any mouse click, not just left click [\#4144](https://github.com/primefaces/primevue/issues/4144)
+-   InputSwitch: Type Definition doesn't expose `disabled` [\#3985](https://github.com/primefaces/primevue/issues/3985)
+-   DataGrid: Invalid typing of slot props [\#3395](https://github.com/primefaces/primevue/issues/3395)
+
+**Deprecated:**
+
+-   Remove FullCalendar theme support [\#4575](https://github.com/primefaces/primevue/issues/4575)
+
 ## [3.35.0](https://github.com/primefaces/primevue/tree/3.35.0) (2023-09-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.34.1...3.35.0)
