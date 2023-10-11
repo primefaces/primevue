@@ -1334,7 +1334,7 @@
 
 **Implemented New Features and Enhancements:**
 
--   Kebap-case is not supported in some components like DataTable [\#1263](https://github.com/primefaces/primevue/issues/1263)
+-   Kebab-case is not supported in some components like DataTable [\#1263](https://github.com/primefaces/primevue/issues/1263)
 -   Improve sorting performance on DataTable [\#1633](https://github.com/primefaces/primevue/issues/1633)
 -   Improve accessibility on Editable DataTable [\#1632](https://github.com/primefaces/primevue/issues/1632)
 -   Add type definition for Utils modules [\#1622](https://github.com/primefaces/primevue/issues/1622)

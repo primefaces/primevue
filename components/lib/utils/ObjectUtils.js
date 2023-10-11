@@ -206,8 +206,8 @@ export default {
         let props = vnode.props;
 
         if (props) {
-            let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-            let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;
+            let kebabProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+            let propName = Object.prototype.hasOwnProperty.call(props, kebabProp) ? kebabProp : prop;
 
             return vnode.type.extends.props[prop].type === Boolean && props[propName] === '' ? true : props[propName];
         }
