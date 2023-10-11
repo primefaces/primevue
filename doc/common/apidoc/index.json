@@ -18855,6 +18855,14 @@
                             "description": "Order to sort the data by default."
                         },
                         {
+                            "name": "nullSortOrder",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "1",
+                            "description": "Determines how null values are sorted."
+                        },
+                        {
                             "name": "defaultSortOrder",
                             "optional": true,
                             "readonly": false,
@@ -24332,7 +24340,7 @@
                             "readonly": false,
                             "type": "any[]",
                             "default": "",
-                            "description": "Whitelist of formats to display, see [here](https://quilljs.com/docs/formats/) for available options."
+                            "description": "Whitelist of formats to display, see  <a target=\"_blank\" href=\"https://quilljs.com/docs/formats/\">here</a>  for available options."
                         },
                         {
                             "name": "editorStyle",
@@ -24348,7 +24356,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options."
+                            "description": "Modules configuration, see  <a target=\"_blank\" href=\"https://quilljs.com/docs/modules/\">here</a>  for available options."
                         },
                         {
                             "name": "pt",
@@ -35969,9 +35977,9 @@
                             "name": "default",
                             "parameters": [
                                 {
-                                    "name": "node",
+                                    "name": "scope",
                                     "optional": false,
-                                    "type": "any"
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">node</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Current node</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -42662,6 +42670,15 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
+                            "description": "Whether selection can not be cleared.",
+                            "deprecated": "Use 'allowEmpty' property instead."
+                        },
+                        {
+                            "name": "allowEmpty",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
                             "description": "Whether selection can be cleared."
                         },
                         {
@@ -49715,6 +49732,14 @@
                             "deprecated": "since v3.26.0. Use 'pt' property."
                         },
                         {
+                            "name": "message",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToastMessageOptions",
+                            "default": "",
+                            "description": "Used to access message options."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
@@ -51651,6 +51676,12 @@
                     ],
                     "methods": [
                         {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default content slot."
+                        },
+                        {
                             "name": "loadingicon",
                             "parameters": [
                                 {
@@ -51705,7 +51736,7 @@
                     ]
                 },
                 "TreeEmits": {
-                    "description": "Defines valid slots in Tree component.",
+                    "description": "Defines valid emits in Tree component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [

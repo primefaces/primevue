@@ -564,6 +564,10 @@ export default {
         return scrollbarWidth;
     },
 
+    calculateBodyScrollbarWidth() {
+        return window.innerWidth - document.documentElement.offsetWidth;
+    },
+
     getBrowser() {
         if (!this.browser) {
             let matched = this.resolveUserAgent();
@@ -755,5 +759,15 @@ export default {
                 window.open(encodeURI(csv));
             }
         }
+    },
+
+    blockBodyScroll(className = 'p-overflow-hidden') {
+        document.body.style.setProperty('--scrollbar-width', this.calculateBodyScrollbarWidth() + 'px');
+        this.addClass(document.body, className);
+    },
+
+    unblockBodyScroll(className = 'p-overflow-hidden') {
+        document.body.style.removeProperty('--scrollbar-width');
+        this.removeClass(document.body, className);
     }
 };

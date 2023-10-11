@@ -42,8 +42,7 @@ export default {
                 }
 
                 this.sidebarActive = false;
-                DomHandler.removeClass(document.body, 'blocked-scroll');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll('blocked-scroll');
                 this.$toast.removeAllGroups();
             }
         }
@@ -61,18 +60,15 @@ export default {
         onMenuButtonClick() {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
-                DomHandler.removeClass(document.body, 'blocked-scroll');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll('blocked-scroll');
             } else {
                 this.sidebarActive = true;
-                DomHandler.addClass(document.body, 'blocked-scroll');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll('blocked-scroll');
             }
         },
         onMaskClick() {
             this.sidebarActive = false;
-            DomHandler.removeClass(document.body, 'blocked-scroll');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll('blocked-scroll');
         },
         hideNews(event) {
             this.$appState.newsActive = false;

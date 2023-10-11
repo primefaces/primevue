@@ -2,17 +2,15 @@ import { DomHandler } from 'primevue/utils';
 import BaseRipple from './BaseRipple';
 
 const Ripple = BaseRipple.extend('ripple', {
-    mounted(el, binding) {
-        const primevue = binding.instance.$primevue;
+    mounted(el) {
+        const config = el?.$instance?.$config;
 
-        if (primevue && primevue.config && primevue.config.ripple) {
-            el.unstyled = primevue.config.unstyled || binding.value?.unstyled || false;
-
+        if (config && config.ripple) {
             this.create(el);
             this.bindEvents(el);
-        }
 
-        el.setAttribute('data-pd-ripple', true);
+            el.setAttribute('data-pd-ripple', true);
+        }
     },
     unmounted(el) {
         this.remove(el);
@@ -31,8 +29,8 @@ const Ripple = BaseRipple.extend('ripple', {
                 'aria-hidden': true,
                 'data-p-ink': true,
                 'data-p-ink-active': false,
-                class: !el.unstyled && this.cx('root'),
-                onAnimationEnd: this.onAnimationEnd,
+                class: !this.isUnstyled() && this.cx('root'),
+                onAnimationEnd: this.onAnimationEnd.bind(this),
                 'p-bind': this.ptm('root')
             });
 
@@ -57,7 +55,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 return;
             }
 
-            !target.unstyled && DomHandler.removeClass(ink, 'p-ink-active');
+            !this.isUnstyled() && DomHandler.removeClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'false');
 
             if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
@@ -74,12 +72,12 @@ const Ripple = BaseRipple.extend('ripple', {
             ink.style.top = y + 'px';
             ink.style.left = x + 'px';
 
-            !target.unstyled && DomHandler.addClass(ink, 'p-ink-active');
+            !this.isUnstyled() && DomHandler.addClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'true');
 
             this.timeout = setTimeout(() => {
                 if (ink) {
-                    !target.unstyled && DomHandler.removeClass(ink, 'p-ink-active');
+                    !this.isUnstyled() && DomHandler.removeClass(ink, 'p-ink-active');
                     ink.setAttribute('data-p-ink-active', 'false');
                 }
             }, 401);
@@ -89,7 +87,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 clearTimeout(this.timeout);
             }
 
-            !event.currentTarget.unstyled && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+            !this.isUnstyled() && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
             event.currentTarget.setAttribute('data-p-ink-active', 'false');
         },
         getInk(el) {

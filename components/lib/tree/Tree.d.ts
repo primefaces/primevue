@@ -348,6 +348,10 @@ export interface TreeProps {
  */
 export interface TreeSlots {
     /**
+     * Default content slot.
+     */
+    default(): VNode[];
+    /**
      * Custom loading icon template.
      * @param {Object} scope - loadingicon slot's params.
      */
@@ -399,12 +403,11 @@ export interface TreeSlots {
      * Optional slots.
      * @todo
      */
-
     [key: string]: (node: any) => VNode[];
 }
 
 /**
- * Defines valid slots in Tree component.
+ * Defines valid emits in Tree component.
  */
 export interface TreeEmits {
     /**

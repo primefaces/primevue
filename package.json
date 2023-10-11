@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "3.35.1",
+    "version": "3.36.1-SNAPSHOT",
     "homepage": "https://primevue.org/",
     "repository": {
         "type": "git",
@@ -17,8 +17,8 @@
         "build:package": "NODE_ENV=production rollup -c && node build-meta && node api-generator/build-api && gulp build-styles",
         "build:check": "npm run format:check && npm run security:check",
         "security:check": "npm audit --production --audit-level high",
-        "format": "prettier --write \"**/*.{js,vue,d.ts,json}\" --cache",
-        "format:check": "prettier --check \"**/*.{js,vue,d.ts,json}\"",
+        "format": "prettier --write \"**/*.{js,vue,d.ts}\" --cache",
+        "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
         "test:unit": "vitest run",
         "test:unit:watch": "vitest watch",
         "test:coverage": "vitest run --coverage",

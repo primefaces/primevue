@@ -429,20 +429,13 @@ export default {
         },
         sortNodesSingle(nodes) {
             let _nodes = [...nodes];
-            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+            const comparer = ObjectUtils.localeComparator();
 
             _nodes.sort((node1, node2) => {
                 const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_sortField);
                 const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_sortField);
-                let result = null;
 
-                if (value1 == null && value2 != null) result = -1;
-                else if (value1 != null && value2 == null) result = 1;
-                else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
-                else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
-                return this.d_sortOrder * result;
+                return ObjectUtils.sort(value1, value2, this.d_sortOrder, comparer);
             });
 
             return _nodes;
@@ -462,22 +455,13 @@ export default {
         multisortField(node1, node2, index) {
             const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_multiSortMeta[index].field);
             const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
-            let result = null;
+            const comparer = ObjectUtils.localeComparator();
 
-            if (value1 == null && value2 != null) result = -1;
-            else if (value1 != null && value2 == null) result = 1;
-            else if (value1 == null && value2 == null) result = 0;
-            else {
-                if (value1 === value2) {
-                    return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
-                } else {
-                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String))
-                        return this.d_multiSortMeta[index].order * new Intl.Collator(undefined, { numeric: true }).compare(value1, value2);
-                    else result = value1 < value2 ? -1 : 1;
-                }
+            if (value1 === value2) {
+                return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
             }
 
-            return this.d_multiSortMeta[index].order * result;
+            return ObjectUtils.sort(value1, value2, this.d_multiSortMeta[index].order, comparer);
         },
         filter(value) {
             let filteredNodes = [];

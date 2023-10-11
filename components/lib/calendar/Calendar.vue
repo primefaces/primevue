@@ -1656,8 +1656,7 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
 
                 document.body.appendChild(this.mask);
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll();
             }
         },
         disableModality() {
@@ -1691,8 +1690,7 @@ export default {
             }
 
             if (!hasBlockerMasks) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll();
             }
         },
         updateCurrentMetaData() {
@@ -2671,7 +2669,7 @@ export default {
                 let innerHTML = '';
 
                 if (this.responsiveOptions) {
-                    const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+                    const comparer = ObjectUtils.localeComparator();
                     let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * comparer(o1.breakpoint, o2.breakpoint));
 
                     for (let i = 0; i < responsiveOptions.length; i++) {

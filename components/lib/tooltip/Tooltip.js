@@ -32,7 +32,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         }
 
         target.$_ptooltipZIndex = options.instance.$primevue?.config?.zIndex?.tooltip;
-        target.unstyled = options.instance.$primevue?.config?.unstyled || options.value?.unstyled || false;
 
         this.bindEvents(target, options);
 
@@ -76,8 +75,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 this.bindEvents(target, options);
             }
         }
-
-        target.unstyled = options.instance.$primevue?.config?.unstyled || options.value?.unstyled || false;
     },
     unmounted(el, options) {
         let target = this.getTarget(el);
@@ -186,7 +183,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let tooltipElement = this.create(el, options);
 
             this.align(el);
-            !el.unstyled && DomHandler.fadeIn(tooltipElement, 250);
+            !this.isUnstyled() && DomHandler.fadeIn(tooltipElement, 250);
 
             const $this = this;
 
@@ -228,7 +225,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const modifiers = el.$_ptooltipModifiers;
 
             const tooltipArrow = DomHandler.createElement('div', {
-                class: !el.unstyled && this.cx('arrow'),
+                class: !this.isUnstyled() && this.cx('arrow'),
                 style: {
                     top: modifiers?.bottom ? '0' : modifiers?.right || modifiers?.left || (!modifiers?.right && !modifiers?.left && !modifiers?.top && !modifiers?.bottom) ? '50%' : null,
                     bottom: modifiers?.top ? '0' : null,
@@ -241,7 +238,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             });
 
             const tooltipText = DomHandler.createElement('div', {
-                class: !el.unstyled && this.cx('text'),
+                class: !this.isUnstyled() && this.cx('text'),
                 'p-bind': this.ptm('text', {
                     context: modifiers
                 })
@@ -263,7 +260,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                         display: 'inline-block',
                         width: el.$_ptooltipFitContent ? 'fit-content' : undefined
                     },
-                    class: [!el.unstyled && this.cx('root'), el.$_ptooltipClass],
+                    class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
                     'p-bind': this.ptm('root', {
                         context: modifiers
                     })
@@ -405,8 +402,9 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             tooltipElement.style.left = -999 + 'px';
             tooltipElement.style.top = -999 + 'px';
             DomHandler.removeClass(tooltipElement, `p-tooltip-${tooltipElement.$_ptooltipPosition}`);
-            DomHandler.addClass(tooltipElement, `p-tooltip-${position}`);
+            !this.isUnstyled() && DomHandler.addClass(tooltipElement, `p-tooltip-${position}`);
             tooltipElement.$_ptooltipPosition = position;
+            tooltipElement.setAttribute('data-p-position', position);
         },
         isOutOfBounds(el) {
             let tooltipElement = this.getTooltipElement(el);

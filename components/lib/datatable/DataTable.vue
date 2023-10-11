@@ -341,6 +341,7 @@ export default {
             d_rows: this.rows,
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
+            d_nullSortOrder: this.nullSortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_groupRowsSortMeta: null,
             d_selectionKeys: null,
@@ -380,6 +381,9 @@ export default {
         },
         sortOrder(newValue) {
             this.d_sortOrder = newValue;
+        },
+        nullSortOrder(newValue) {
+            this.d_nullSortOrder = newValue;
         },
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
@@ -530,27 +534,19 @@ export default {
             }
 
             let data = [...value];
-            let resolvedFieldDatas = new Map();
+            let resolvedFieldData = new Map();
 
             for (let item of data) {
-                resolvedFieldDatas.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+                resolvedFieldData.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
             }
 
-            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+            const comparer = ObjectUtils.localeComparator();
 
             data.sort((data1, data2) => {
-                let value1 = resolvedFieldDatas.get(data1);
-                let value2 = resolvedFieldDatas.get(data2);
+                let value1 = resolvedFieldData.get(data1);
+                let value2 = resolvedFieldData.get(data2);
 
-                let result = null;
-
-                if (value1 == null && value2 != null) result = -1;
-                else if (value1 != null && value2 == null) result = 1;
-                else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
-                else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
-                return this.d_sortOrder * result;
+                return ObjectUtils.sort(value1, value2, this.d_sortOrder, comparer, this.d_nullSortOrder);
             });
 
             return data;
@@ -579,23 +575,13 @@ export default {
         multisortField(data1, data2, index) {
             const value1 = ObjectUtils.resolveFieldData(data1, this.d_multiSortMeta[index].field);
             const value2 = ObjectUtils.resolveFieldData(data2, this.d_multiSortMeta[index].field);
-            let result = null;
-
-            if (typeof value1 === 'string' || value1 instanceof String) {
-                if (value1.localeCompare && value1 !== value2) {
-                    const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
-
-                    return this.d_multiSortMeta[index].order * comparer(value1, value2);
-                }
-            } else {
-                result = value1 < value2 ? -1 : 1;
-            }
+            const comparer = ObjectUtils.localeComparator();
 
             if (value1 === value2) {
                 return this.d_multiSortMeta.length - 1 > index ? this.multisortField(data1, data2, index + 1) : 0;
             }
 
-            return this.d_multiSortMeta[index].order * result;
+            return ObjectUtils.sort(value1, value2, this.d_multiSortMeta[index].order, comparer, this.d_nullSortOrder);
         },
         addMultiSortField(field) {
             let index = this.d_multiSortMeta.findIndex((meta) => meta.field === field);
