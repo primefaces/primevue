@@ -352,7 +352,17 @@ if (project) {
                                 readonly: prop.flags.isReadonly,
                                 type: prop.type.toString(),
                                 default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
-                                description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' '),
+                                description:
+                                    prop.comment &&
+                                    prop.comment.summary
+                                        .map((s) => {
+                                            if (s.text.indexOf('[here]') > -1) {
+                                                return `${s.text.slice(0, s.text.indexOf('[here]'))} <a target="_blank" href="${s.text.slice(s.text.indexOf('(') + 1, s.text.indexOf(')'))}">here</a> ${s.text.slice(s.text.indexOf(')') + 1)}`;
+                                            }
+
+                                            return s.text || '';
+                                        })
+                                        .join(' '),
                                 deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0].text) : undefined
                             });
                         });

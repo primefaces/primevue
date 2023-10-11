@@ -59,7 +59,10 @@
                                 {{ v }}
                             </div>
 
-                            <span v-else :id="id + '.' + k" class="doc-option-description"> {{ v }} </span>
+                            <template v-else>
+                                <span v-if="v?.includes('<a')" :id="id + '.' + k" class="doc-option-description" v-html="v"> </span>
+                                <span v-else :id="id + '.' + k" class="doc-option-description">{{ v }} </span>
+                            </template>
                         </template>
                     </td>
                 </tr>
