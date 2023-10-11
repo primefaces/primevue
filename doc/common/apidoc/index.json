@@ -24340,7 +24340,7 @@
                             "readonly": false,
                             "type": "any[]",
                             "default": "",
-                            "description": "Whitelist of formats to display."
+                            "description": "Whitelist of formats to display, see [here](https://quilljs.com/docs/formats/) for available options."
                         },
                         {
                             "name": "editorStyle",
@@ -24356,7 +24356,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Modules configuration."
+                            "description": "Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options."
                         },
                         {
                             "name": "pt",
