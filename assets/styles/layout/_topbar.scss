@@ -2,11 +2,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - var(--scrollbar-width, 0px));
     z-index: 1100;
     transition: background-color 1s;
     border-bottom: 1px solid var(--surface-border);
-   
+
     &.layout-topbar-sticky {
         backdrop-filter: blur(8px);
     }
