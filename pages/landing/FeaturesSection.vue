@@ -2,14 +2,22 @@
     <section class="landing-features py-8">
         <div class="section-header">Features</div>
         <p class="section-detail">PrimeVue is the most complete solution for your UI requirements.</p>
-        <div class="mt-7 px-3 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
+        <div class="mt-7 px-3 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt-gray' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }">
             <div class="features-container">
                 <div class="grid">
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
                         <div class="box p-4 w-full">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-components.svg" alt="components icon" class="block mb-3" />
-                            <div class="font-semibold mb-3 text-lg">90+ UI Components</div>
-                            <p class="m-0 text-secondary font-medium">The ultimate set of UI Components to assist you with 90+ impressive Vue Components.</p>
+                            <div class="font-semibold mb-3 text-lg">80+ UI Components</div>
+                            <p class="m-0 text-secondary font-medium">The ultimate set of UI Components to assist you with 80+ impressive Vue Components.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
+                        <div class="box p-4 w-full">
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-theme.svg" alt="components icon" class="block mb-3" />
+                            <div class="font-semibold mb-3 text-lg">Styled or Unstyled</div>
+                            <p class="m-0 text-secondary font-medium">Choose from a variety of pre-built themes or implement your design systems
+                                with the CSS library of your choice like TailwindCSS.</p>
                         </div>
                     </div>
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
@@ -17,13 +25,6 @@
                             <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-community.svg" alt="components icon" class="block mb-3" />
                             <div class="font-semibold mb-3 text-lg">Community</div>
                             <p class="m-0 text-secondary font-medium">Connect with the other open source community members, collaborate and have a voice in the project roadmap.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
-                        <div class="box p-4 w-full">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-productivity.svg" alt="components icon" class="block mb-3" />
-                            <div class="font-semibold mb-3 text-lg">Productivity</div>
-                            <p class="m-0 text-secondary font-medium">Boost your productivity by achieving more in less time and accomplish amazing results.</p>
                         </div>
                     </div>
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
@@ -49,9 +50,9 @@
                     </div>
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
                         <div class="box p-4 w-full">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-theme.svg" alt="components icon" class="block mb-3" />
-                            <div class="font-semibold mb-3 text-lg">Themes</div>
-                            <p class="m-0 text-secondary font-medium">Built on a design-agnostic api, choose from a vast amount of themes such as material, bootstrap, custom or develop your own.</p>
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-productivity.svg" alt="components icon" class="block mb-3" />
+                            <div class="font-semibold mb-3 text-lg">Blocks</div>
+                            <p class="m-0 text-secondary font-medium">400+ pre-designed copy paste ready UI blocks to build spectacular apps in no time.</p>
                         </div>
                     </div>
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">

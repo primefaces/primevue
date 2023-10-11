@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
 }
 
 h2 {
@@ -55,7 +55,7 @@ h6 {
 }
 
 p {
-    line-height: 1.5;
+    line-height: 1.75;
     margin: 0 0 1rem 0;
 }
 
@@ -97,6 +97,6 @@ input[type="number"] {
 }
 
 button {
-    font-family: inherit;
-    font-feature-settings: inherit;
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings);
 }

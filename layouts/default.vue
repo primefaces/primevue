@@ -1,16 +1,16 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
-        <app-news v-if="$appState.newsActive" />
-        <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
-        <app-menu :active="sidebarActive" />
-        <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
+        <AppNews v-if="$appState.newsActive" />
+        <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
+        <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
-            <div class="layout-content-inner">
+            <app-menu :active="sidebarActive" />
+            <div class="layout-content-slot">
                 <slot></slot>
-                <app-footer />
             </div>
         </div>
+        <AppFooter />
         <Toast />
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
@@ -101,18 +101,18 @@ export default {
                     'layout-news-active': this.$appState.newsActive,
                     'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'p-ripple-disabled': this.$primevue.config.ripple === false,
-                    'layout-wrapper-dark': this.$appState.darkTheme,
-                    'layout-wrapper-light': !this.$appState.darkTheme
+                    'layout-dark': this.$appState.darkTheme,
+                    'layout-light': !this.$appState.darkTheme
                 }
             ];
         }
     },
     components: {
-        'app-topbar': AppTopBar,
-        'app-menu': AppMenu,
-        'app-footer': AppFooter,
-        'app-configurator': AppConfigurator,
-        'app-news': AppNews
+        AppTopBar,
+        AppMenu,
+        AppFooter,
+        AppConfigurator,
+        AppNews
     }
 };
 </script>

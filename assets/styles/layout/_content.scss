@@ -1,12 +1,29 @@
 .layout-content {
-    margin-left: 250px;
-    padding-top: 5rem;
+    padding: 6rem 4rem 0 4rem;
+    display: flex;
 
-    .layout-content-inner {
-        padding: 2rem 4rem;
+    .layout-content-slot {
+        flex: 1 1 auto;
+        width: 1%;
     }
+}
 
+.layout-light {
     .card {
-        @include card;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+}
+
+.layout-dark {
+    .card {
+        background: var(--surface-card);
+        border: 0 none;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
     }
 }

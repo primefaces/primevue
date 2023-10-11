@@ -1,11 +1,11 @@
 <template>
     <div :class="landingClass">
-        <Intro @change:theme="onThemeToggle"></Intro>
+        <AppNews v-if="$appState.newsActive" />
+        <AppTopBar :showConfigurator="false" showDarkSwitch @darkswitch-click="onThemeToggle" />
+        <HeroSection />
         <UsersSection />
-        <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
-        <DesignerSection />
         <TemplateSection />
         <FeaturesSection />
         <FooterSection />
@@ -13,17 +13,20 @@
 </template>
 
 <script>
+definePageMeta({
+    layout: 'custom'
+});
+
 import EventBus from '@/layouts/AppEventBus';
+import AppNews from '@/layouts/AppNews';
+import AppTopBar from '@/layouts/AppTopBar.vue';
 import BlockSection from './landing/BlockSection';
-import ComponentSection from './landing/ComponentSection';
-import DesignerSection from './landing/DesignerSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
+import HeroSection from './landing/HeroSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
-
-const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
 
 export default {
     props: {
@@ -34,7 +37,7 @@ export default {
     },
     data() {
         return {
-            tableTheme: 'lara-light-blue'
+            tableTheme: 'lara-light-teal'
         };
     },
     themeChangeListener: null,
@@ -49,11 +52,11 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue');
+        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal');
     },
     methods: {
         onThemeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
+            const newTheme = this.$appState.darkTheme ? 'lara-light-teal' : 'lara-dark-teal';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
@@ -87,15 +90,15 @@ export default {
     },
     computed: {
         landingClass() {
-            return ['landing', { 'landing-dark': this.$appState?.darkTheme, 'landing-light': !this.$appState?.darkTheme, 'landing-news-active': this.$appState?.newsActive }];
+            return ['landing', { 'layout-dark': this.$appState?.darkTheme, 'layout-light': !this.$appState?.darkTheme, 'layout-news-active': this.$appState?.newsActive }];
         }
     },
     components: {
-        Intro,
-        ComponentSection,
+        AppNews,
+        AppTopBar,
+        HeroSection,
         ThemeSection,
         BlockSection,
-        DesignerSection,
         TemplateSection,
         UsersSection,
         FeaturesSection,

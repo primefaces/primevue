@@ -104,7 +104,7 @@
         i {
             border-radius: 6px;
             padding: 2px 6px;
-            font-size: 0.875rem;
+            font-size: 1rem;
             font-weight: 600;
             font-style: normal;
         }
@@ -120,7 +120,7 @@
     }
 }
 
-.layout-wrapper-light {
+.layout-light {
     .doc-section-description {
         > p {
             i {
@@ -131,7 +131,7 @@
     }
 }
 
-.layout-wrapper-dark {
+.layout-dark {
     .doc-section-description {
         > p {
             i {
@@ -144,7 +144,7 @@
 
 .doc-section-nav {
     position: sticky;
-    top: 7rem;
+    top: 6rem;
     right: 0;
     width: 14rem;
     max-height: calc(100vh - 15rem);
@@ -175,6 +175,7 @@
             .px-link {
                 padding: 0.25rem 1rem 0.25rem 1rem;
                 color: var(--surface-800);
+                font-weight: 400;
                 white-space: nowrap;
                 min-width: 0;
                 overflow: hidden;
@@ -229,15 +230,11 @@
     font-size: 11px;
 }
 
-.doc-section-code {
+.doc-section-code { 
     div {
         &::-webkit-scrollbar {
             width: 5px;
         }
-    }
-
-    pre {
-        margin: 0;
     }
 
     &:not(:last-child) {
@@ -247,14 +244,12 @@
 
 .doc-tablewrapper {
     overflow: auto;
-    @include card;
 }
 
 .doc-table {
     border-collapse: collapse;
     width: 100%;
     min-width: 960px;
-    background-color: var(--surface-card);
     margin-bottom: 1.5rem;
 
     th {

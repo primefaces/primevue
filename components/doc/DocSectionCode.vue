@@ -1,86 +1,56 @@
 <template>
     <div v-if="!embedded" :class="scrollable ? 'doc-section-code' : 'relative doc-section-code'">
         <div
-            class="flex doc-section-code-buttons surface-card align-items-center justify-content-end z-1"
+            class="flex doc-section-code-buttons align-items-center justify-content-end z-1"
             :style="scrollable ? { position: 'sticky', padding: '0.75rem 0.75rem 0 0' } : { position: 'absolute', top: '0.75rem', right: '0.75rem' }"
             style="gap: 0.75rem"
         >
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
-                <Button
-                    :class="['p-button-rounded p-button-text p-button-plain py-0 px-1 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'composition' }]"
-                    label="Composition API"
-                    @click="codeLang = 'composition'"
-                ></Button>
-                <Button
-                    :class="['p-button-rounded p-button-text p-button-plain py-0 px-1 inline-flex align-items-center justify-content-center', { 'doc-section-code-buttons-active text-primary': codeLang === 'options' }]"
-                    label="Options API"
-                    @click="codeLang = 'options'"
-                ></Button>
+                <button :class="['py-0 px-2 border-round h-2rem', { 'text-primary': codeLang === 'composition' }]" @click="codeLang = 'composition'">Composition API</button>
+                <button :class="['py-0 px-2 border-round h-2rem', { 'text-primary': codeLang === 'options' }]" @click="codeLang = 'options'">Options API</button>
             </template>
 
             <template v-if="!hideToggleCode">
-                <Button
+                <button
                     v-tooltip.bottom="{ value: 'Toggle Full Code', class: 'doc-section-code-tooltip' }"
                     type="button"
                     @click="toggleCodeMode('composition')"
-                    class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
-                    icon="pi pi-code"
-                ></Button>
+                    class="border-circle h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
+                >
+                    <i class="pi pi-code"></i>
+                </button>
             </template>
 
             <template v-if="!hideToggleCode && code.data">
-                <Button
-                    v-tooltip.bottom="{ value: 'View Data', class: 'doc-section-code-tooltip' }"
-                    type="button"
-                    @click="onToggleData"
-                    class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
-                    icon="pi pi-database"
-                >
-                </Button>
+                <button v-tooltip.bottom="{ value: 'View Data', class: 'doc-section-code-tooltip' }" type="button" @click="onToggleData" class="border-circle h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center">
+                    <i class="pi pi-database"></i>
+                </button>
             </template>
 
             <template v-if="!hideCodeSandbox">
-                <Button
-                    v-tooltip.bottom="{ value: 'Edit in CodeSandbox', class: 'doc-section-code-tooltip' }"
-                    type="button"
-                    class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
-                    @click="showCodesandbox"
-                >
-                    <template #icon="slotProps">
-                        <svg role="img" :class="slotProps.class" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
-                            <path
-                                d="M2 6l10.455-6L22.91 6 23 17.95 12.455 24 2 18V6zm2.088 2.481v4.757l3.345 1.86v3.516l3.972 2.296v-8.272L4.088 8.481zm16.739 0l-7.317 4.157v8.272l3.972-2.296V15.1l3.345-1.861V8.48zM5.134 6.601l7.303 4.144 7.32-4.18-3.871-2.197-3.41 1.945-3.43-1.968L5.133 6.6z"
-                            />
-                        </svg>
-                    </template>
-                </Button>
+                <button v-tooltip.bottom="{ value: 'Edit in CodeSandbox', class: 'doc-section-code-tooltip' }" type="button" class="border-circle h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center" @click="showCodesandbox">
+                    <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display: 'block'">
+                        <path
+                            d="M2 6l10.455-6L22.91 6 23 17.95 12.455 24 2 18V6zm2.088 2.481v4.757l3.345 1.86v3.516l3.972 2.296v-8.272L4.088 8.481zm16.739 0l-7.317 4.157v8.272l3.972-2.296V15.1l3.345-1.861V8.48zM5.134 6.601l7.303 4.144 7.32-4.18-3.871-2.197-3.41 1.945-3.43-1.968L5.133 6.6z"
+                        />
+                    </svg>
+                </button>
             </template>
 
             <template v-if="!hideStackBlitz">
-                <Button
-                    v-tooltip.bottom="{ value: 'Edit in StackBlitz', class: 'doc-section-code-tooltip' }"
-                    type="button"
-                    class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
-                    @click="showStackblitz"
-                >
-                    <template #icon="slotProps">
-                        <svg role="img" :class="slotProps.class" viewBox="0 0 24 24" width="16" height="16" fill="var(--text-color-secondary)" style="display: 'block'">
-                            <path d="M0 15.98H8.15844L3.40299 27.26L19 11.1945H10.7979L15.5098 0L0 15.98Z" />
-                        </svg>
-                    </template>
-                </Button>
+                <button v-tooltip.bottom="{ value: 'Edit in StackBlitz', class: 'doc-section-code-tooltip' }" type="button" class="border-circle h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center" @click="showStackblitz">
+                    <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display: 'block'">
+                        <path d="M0 15.98H8.15844L3.40299 27.26L19 11.1945H10.7979L15.5098 0L0 15.98Z" />
+                    </svg>
+                </button>
             </template>
 
-            <Button
-                v-tooltip.bottom="{ value: 'Copy Code', class: 'doc-section-code-tooltip' }"
-                type="button"
-                @click="copyCode"
-                class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
-                icon="pi pi-copy"
-            ></Button>
+            <button v-tooltip.bottom="{ value: 'Copy Code', class: 'doc-section-code-tooltip' }" type="button" @click="copyCode" class="border-circle h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center">
+                <i class="pi pi-copy"></i>
+            </button>
         </div>
 
-        <div :style="scrollable ? { 'max-height': '40rem', overflow: 'auto' } : undefined">
+        <div :style="scrollable ? { 'max-height': '40rem' } : undefined">
             <template v-if="codeMode === 'basic' && importCode">
                 <pre v-code.script><code>{{ code.basic }}
 </code></pre>

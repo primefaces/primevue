@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout :name="layout">
+    <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
 </template>
@@ -12,23 +12,6 @@ export default {
     themeChangeListener: null,
     newsActivate: null,
     newsService: null,
-    data() {
-        return {
-            layout: 'custom'
-        };
-    },
-    watch: {
-        $route: {
-            immediate: true,
-            handler(to) {
-                if (to.name === 'index') {
-                    this.layout = 'custom';
-                } else {
-                    this.layout = 'default';
-                }
-            }
-        }
-    },
     mounted() {
         this.newsActivate = () => {
             this.$appState.announcement = News;

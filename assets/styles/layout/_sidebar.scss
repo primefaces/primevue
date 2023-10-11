@@ -1,15 +1,16 @@
 .layout-sidebar {
-    position: fixed;
+    position: sticky;
     left: 0;
-    top: 0;
-    height: 100%;
-    background-color: var(--surface-overlay);
-    width: 250px;
+    top: 6rem;
+    height: calc(100vh - 9rem);
     user-select: none;
-    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99), opacity .3s;
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 0 0 0 0;
+    flex: 0 0 250px;
+    margin-right: 4rem;
+    overflow: auto;
 
     .logo {
         display: flex;
@@ -17,10 +18,9 @@
     }
 
     nav {
-        padding: .5rem 1rem 2rem 1rem;
-        margin-top: 2rem;
+        padding: 0;
+        margin: -.5rem 0 0 0;
         flex-grow: 1;
-        overflow-y: auto;
     }
 
     .layout-menu {
@@ -35,7 +35,7 @@
                 display: flex;
                 width: 100%;
                 align-items: center;
-                padding: .5rem;
+                padding: .5rem 0;
                 color: var(--surface-900);
                 font-weight: 600;
                 transition: all .2s;
@@ -96,7 +96,7 @@
                             color: var(--surface-700);
                             border-left: 1px solid var(--surface-border);
                             transition: all .2s;
-                            font-weight: 400;
+                            font-weight: 450;
                             display: flex;
                             padding: .5rem .5rem .5rem 1rem;
                             color: var(--surface-700);
