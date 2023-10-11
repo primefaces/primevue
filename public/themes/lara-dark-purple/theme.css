@@ -191,12 +191,12 @@
 }
 
 .p-editor-container .p-editor-toolbar {
-  background: #071426;
+  background: #1f2937;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
 .p-editor-container .p-editor-toolbar.ql-snow {
-  border: 1px solid #0b213f;
+  border: 1px solid #424b57;
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {
   stroke: rgba(255, 255, 255, 0.6);
@@ -227,8 +227,8 @@
   fill: rgba(255, 255, 255, 0.87);
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
-  background: #071426;
-  border: 1px solid #0b213f;
+  background: #1f2937;
+  border: 1px solid #424b57;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   padding: 0.75rem 0;
@@ -251,10 +251,7 @@
   border: 1px solid #424b57;
 }
 .p-editor-container .p-editor-content .ql-editor {
-  border: 1px solid #0b213f;
-}
-.p-editor-container .p-editor-content .ql-editor {
-  background: #040d19;
+  background: #111827;
   color: rgba(255, 255, 255, 0.87);
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
