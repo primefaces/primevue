@@ -16,8 +16,7 @@
                         <div class="box p-4 w-full">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-theme.svg" alt="components icon" class="block mb-3" />
                             <div class="font-semibold mb-3 text-lg">Styled or Unstyled</div>
-                            <p class="m-0 text-secondary font-medium">Choose from a variety of pre-built themes or implement your design systems
-                                with the CSS library of your choice like TailwindCSS.</p>
+                            <p class="m-0 text-secondary font-medium">Choose from a variety of pre-built themes or implement your design systems with the CSS library of your choice like TailwindCSS.</p>
                         </div>
                     </div>
                     <div class="col-12 md:col-6 xl:col-3 flex justify-content-center">
