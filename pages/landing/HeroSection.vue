@@ -55,14 +55,14 @@
                     <div class="flex flex-column w-6 gap-5 pl-3">
                         <div class="box p-4">
                             <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/brown-watch.png" alt="Watch" class="w-14rem" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan.png" alt="Watch" class="w-14rem" />
                             </div>
                             <div class="flex align-items-center mb-4">
                                 <div class="flex flex-column">
-                                    <span class="block font-semibold mb-1">Brown Watch</span>
+                                    <span class="block font-semibold mb-1">Sneaker</span>
                                     <span class="text-secondary text-sm">Premium Quality</span>
                                 </div>
-                                <span class="font-medium text-xl ml-auto">$12.45</span>
+                                <span class="font-medium text-xl ml-auto">$990</span>
                             </div>
                             <Button label="Add to Cart" icon="pi pi-shopping-cart" outlined class="w-full"></Button>
                         </div>

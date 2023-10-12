@@ -3,11 +3,11 @@
         <AppNews v-if="$appState.newsActive" />
         <AppTopBar :showConfigurator="false" showDarkSwitch @darkswitch-click="onThemeToggle" />
         <HeroSection />
+        <FeaturesSection />
         <UsersSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
         <TemplateSection />
-        <FeaturesSection />
         <FooterSection />
     </div>
 </template>

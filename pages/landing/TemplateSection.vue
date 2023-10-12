@@ -10,8 +10,8 @@
         </div>
         <section :class="['templates flex justify-content-center align-items-center flex-column mt-7', { 'templates-animation': setAnimation }]">
             <div class="flex md:flex-row flex-column gap-4 lg:gap-0">
-                <div class="template-block block-1 mr-2 lg:mb-0 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('diamond') }">
-                    <a class="templates-btn" target="_blank" href="https://diamond.primevue.org">Diamond Preview</a>
+                <div class="template-block block-5 mr-2 lg:mb-0 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('verona') }">
+                    <a class="templates-btn" target="_blank" href="https://verona.primevue.org">Verona Preview</a>
                 </div>
                 <div class="template-block block-2 ml-2 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('freya') }">
                     <a class="templates-btn" target="_blank" href="https://freya.primevue.org">Freya Preview</a>
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <div class="flex md:flex-row flex-column gap-4 lg:gap-0">
-                <div class="template-block block-5 mr-2 lg:mb-0 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('serenity') }">
-                    <a class="templates-btn" target="_blank" href="https://serenity.primevue.org">Serenity Preview</a>
+                <div class="template-block block-1 mr-2 lg:mb-0 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('diamond') }">
+                    <a class="templates-btn" target="_blank" href="https://diamond.primevue.org">Diamond Preview</a>
                 </div>
                 <div class="template-block block-6 ml-2 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('ultima') }">
                     <a class="templates-btn" target="_blank" href="https://ultima.primevue.org">Ultima Preview</a>
@@ -111,12 +111,12 @@ export default {
     methods: {
         imageBg(template) {
             const isDark = this.$appState.darkTheme;
-            const url = template === 'templates-text' ? 'png' : 'jpeg';
+            const url = template === 'templates-text' ? 'png' : 'jpg';
 
             return `url('https://primefaces.org/cdn/primevue/images/landing/templates/${template}-${isDark ? 'dark' : 'light'}.${url}')`;
         },
         templateImg() {
-            return `https://primefaces.org/cdn/primevue/images/landing/templates/templates-text-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
+            return `https://primefaces.org/cdn/primevue/images/landing/templates/templates-text-new-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
         }
     }
 };

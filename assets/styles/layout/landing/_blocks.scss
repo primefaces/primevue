@@ -216,7 +216,7 @@
 
 @keyframes block-animation {
     to {
-        transform: translateY(-10px) scale(1.02);
+        transform: translateY(-10px) translateX(10px) scale(1.02);
         box-shadow: var(--home-blocks-animation-shadow);
     }
 }
