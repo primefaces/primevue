@@ -58,7 +58,7 @@ const getVueApp = (props = {}, sourceType) => {
 
     if (embedded) {
         // main.js
-        unstyled += `, unstyled: true, pt: Tailwind`;
+        unstyled += `, unstyled: true, pt: Tailwind, ptOptions: { mergeProps: true }`;
         imports += `import Tailwind from 'primevue/passthrough/tailwind';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
         element += `app.component('ThemeSwitcher', ThemeSwitcher);`;
