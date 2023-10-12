@@ -712,12 +712,11 @@ export default {
                 const label = document.querySelector(`label[for="${this.inputId}"]`);
 
                 if (label && DomHandler.isVisible(label)) {
-
                     this.labelClickListener = () => {
                         DomHandler.focus(this.$refs.focusInput);
-                    }
+                    };
 
-                    label.addEventListener("click", this.labelClickListener);
+                    label.addEventListener('click', this.labelClickListener);
                 }
             }
         },
