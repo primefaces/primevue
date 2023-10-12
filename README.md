@@ -71,7 +71,7 @@ app.component('Button', Button);
 
 ## Prop Cases
 
-Component prop names are described as camel case throughout the documentation however kebap-case is also fully supported. Events on the other hand should always be kebap-case.
+Component prop names are described as camel case throughout the documentation however kebab-case is also fully supported. Events on the other hand should always be kebab-case.
 
 ```vue
 <Dialog :showHeader="false"></Dialog>
