@@ -42,7 +42,7 @@
   --surface-section:#111827;
   --surface-card:#1f2937;
   --surface-overlay:#1f2937;
-  --surface-border:#424b57;
+  --surface-border:rgba(255,255,255,.1);
   --surface-hover:rgba(255,255,255,.03);
   --focus-ring: 0 0 0 0.2rem #ecfdf5;
   --maskbg: rgba(0, 0, 0, 0.4);
