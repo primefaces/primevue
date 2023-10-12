@@ -1889,7 +1889,7 @@ export default {
                     'w-16 h-16 text-2xl': props.size == 'xlarge'
                 },
                 {
-                    '-ml-4 border-2 border-white dark:border-gray-900': parent.instance.$css !== undefined
+                    '-ml-4 border-2 border-white dark:border-gray-900': parent.instance.$css === undefined
                 }
             ]
         }),
@@ -2394,7 +2394,7 @@ export default {
             class: 'overflow-x-auto'
         },
         menu: {
-            class: ['flex m-0 p-0 list-none flex-nowrap', 'bg-white border-solid border-gray-300 border-b-2', 'outline-none no-underline text-base list-none']
+            class: ['flex m-0 p-0 list-none flex-nowrap', 'bg-white border-solid border-gray-300 border-b-2 dark:bg-gray-900 dark:border-blue-900/40', 'outline-none no-underline text-base list-none']
         },
         menuitem: {
             class: 'mr-0'
