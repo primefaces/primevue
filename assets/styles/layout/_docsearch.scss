@@ -1,11 +1,15 @@
 .DocSearch-Button {
     border-radius: var(--border-radius);
-    border: 1px solid var(--surface-border);
-    width: 14rem;
+    width: 24rem;
     margin: 0;
     transition: border-color .3s;
+    border: 1px solid transparent;
     height: 2.5rem;
     padding: 0 .75rem;
+
+    &:hover {
+        border-color: var(--primary-color);
+    }
 
     &:hover {
         border-color: var(--primary-color);
@@ -138,4 +142,21 @@
     --docsearch-hit-color: var(--text-color);
     --docsearch-highlight-color: var(--primary-color);
     --docsearch-hit-active-color: var(--primary-color-text);
+}
+
+.DocSearch-Button-Placeholder {
+    text-align: center;
+    display: inline-block;
+}
+
+.layout-light {
+    .DocSearch-Button {
+        background: #edf0f3;
+    }
+}
+
+.layout-light {
+    .DocSearch-Dark {
+        background: var(--surface-100);
+    }
 }

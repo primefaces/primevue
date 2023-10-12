@@ -4,14 +4,15 @@
         margin: 0 auto;
     }
 
-    .layout-topbar-inner {
+    .layout-topbar-inner,
+    .layout-footer {
         max-width: 1478px;
         margin: 0 auto;
     }
 
     .layout-sidebar {
         left: 200px;
-    } 
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -49,6 +50,22 @@
             .DocSearch-Button-Placeholder,
             .DocSearch-Button-Keys {
                 display: none;
+            }
+        }
+    }
+
+    .layout-light,
+    .layout-dark {
+        .DocSearch-Button {
+            background: var(--surface-card);
+            border-color: var(--surface-border);
+
+            &:hover {
+                border-color: var(--primary-color);
+            }
+
+            .DocSearch-Search-Icon {
+                color: var(--text-700);
             }
         }
     }
@@ -113,6 +130,11 @@
     }
 
     .layout-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .layout-footer {
         padding-left: 2rem;
         padding-right: 2rem;
     }

@@ -4,8 +4,12 @@
             <div class="w-full xl:w-6 flex flex-column justify-content-center lg:px-8 align-items-center xl:align-items-stretch">
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Most Complete UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div>
+                <div class="flex align-items-center gap-3">
                     <PrimeVueNuxtLink to="/installation" class="linkbox active font-semibold py-3 px-4"> Get Started <i class="pi pi-arrow-right ml-3"></i> </PrimeVueNuxtLink>
+                    <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox font-semibold py-3 px-4">
+                        <span>Give a Star</span>
+                        <i class="pi pi-star-fill ml-3 text-yellow-500"></i>
+                    </a>
                 </div>
             </div>
             <div class="w-full xl:w-6 pt-7 xl:pt-0 hidden md:block">
@@ -18,18 +22,14 @@
                                 <InputNumber v-model="value2" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
                             </div>
                             <span class="text-secondary font-medium block mt-5 mb-3">Category</span>
-                            <div class="flex justify-content-between flex-wrap gap-3">
+                            <div class="flex flex-wrap gap-3">
                                 <div class="flex align-items-center">
                                     <RadioButton id="category1" v-model="radioValue" value="C" name="radiovalue" @change="setCategory('C')" />
                                     <label for="category1" class="ml-2 font-medium">Clothing</label>
                                 </div>
                                 <div class="flex align-items-center">
-                                    <RadioButton id="category2" v-model="radioValue" value="F" name="radiovalue" @change="setCategory('F')" />
-                                    <label for="category2" class="ml-2 font-medium">Fitness</label>
-                                </div>
-                                <div class="flex align-items-center">
-                                    <RadioButton id="category3" v-model="radioValue" value="E" name="radiovalue" @change="setCategory('E')" />
-                                    <label for="category3" class="ml-2 font-medium">Electronics</label>
+                                    <RadioButton id="category2" v-model="radioValue" value="E" name="radiovalue" @change="setCategory('E')" />
+                                    <label for="category2" class="ml-2 font-medium">Electronics</label>
                                 </div>
                             </div>
                             <span class="text-secondary font-medium block mt-5 mb-3">Order Date</span>

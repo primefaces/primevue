@@ -14,7 +14,7 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mb-5">Support</li>
                         <li class="mb-4">
-                            <a href="https://forum.primefaces.org/viewforum.php?f=57" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Forum</a>
+                            <a href="https://github.com/orgs/primefaces/discussions" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Forum</a>
                         </li>
                         <li class="mb-4">
                             <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Discord</a>
