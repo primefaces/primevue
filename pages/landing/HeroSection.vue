@@ -115,48 +115,18 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
 import { NodeService } from '@/service/NodeService';
 
 export default {
+    themeChangeListener: null,
     data() {
         return {
             value1: 240,
             value2: 356,
             category: 'C',
-            chartData: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [
-                    {
-                        label: 'Income',
-                        data: [40, 59, 40, 50, 56, 40, 70],
-                        fill: true,
-                        borderColor: '#10b981',
-                        tension: 0.4,
-                        backgroundColor: 'rgba(16, 185, 129, .2)'
-                    }
-                ]
-            },
-            chartOptions: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        ticks: {
-                            display: false
-                        },
-                        min: 0,
-                        max: 100
-                    },
-                    x: {
-                        ticks: {
-                            display: false
-                        }
-                    }
-                }
-            },
+            chartData: {},
+            chartOptions: {},
             pbValue1: 15,
             pbValue2: 85,
             pbValue3: 50,
@@ -179,12 +149,76 @@ export default {
             ]
         };
     },
+    beforeUnmount() {
+        EventBus.off('theme-change-complete', this.themeChangeListener);
+    },
     mounted() {
+        this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
+
+        this.themeChangeListener = () => {
+            this.chartOptions = this.setChartOptions();
+        };
+
+        EventBus.on('theme-change-complete', this.themeChangeListener);
+
         NodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         setCategory(category) {
             this.category = category;
+        },
+        setChartData() {
+            return {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [
+                    {
+                        label: 'Annual Income',
+                        data: [40, 59, 40, 50, 56],
+                        fill: true,
+                        borderColor: '#10b981',
+                        tension: 0.4,
+                        backgroundColor: 'rgba(16, 185, 129, .2)'
+                    }
+                ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+            return {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        min: 0,
+                        max: 100,
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    }
+                }
+            };
         }
     }
 };
