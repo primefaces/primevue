@@ -1,4 +1,4 @@
-@media screen and (min-width: 1729px) {
+@media screen and (min-width: 1920px) {
     .layout-content {
         max-width: 1728px;
         margin: 0 auto;
@@ -10,9 +10,6 @@
         margin: 0 auto;
     }
 
-    .layout-sidebar {
-        left: 200px;
-    }
 }
 
 @media screen and (max-width: 991px) {
@@ -76,7 +73,6 @@
         backdrop-filter: blur(20px);
         width: 300px;
         opacity: 0;
-        box-shadow: 0px 0px 50px 5px rgba(16, 185, 129, .2);
 
         nav {
             padding: 1rem 1rem;
