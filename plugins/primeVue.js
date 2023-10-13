@@ -8,10 +8,12 @@ import DocSections from '@/components/doc/DocSections';
 import DocSectionText from '@/components/doc/DocSectionText';
 import CodeHighlight from '@/components/layout/CodeHighlight';
 import DevelopmentSection from '@/components/layout/DevelopmentSection';
+import Animate from '@/components/lib/animate/Animate';
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
 
+    nuxtApp.vueApp.directive('animate', Animate);
     nuxtApp.vueApp.directive('code', CodeHighlight);
 
     nuxtApp.vueApp.component('DocSections', DocSections);

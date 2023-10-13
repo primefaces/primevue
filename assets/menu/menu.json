@@ -404,6 +404,10 @@
                             "to": "/progressspinner"
                         },
                         {
+                            "name": "Animate",
+                            "to": "/animate"
+                        },
+                        {
                             "name": "Ripple",
                             "to": "/ripple"
                         },
