@@ -29,10 +29,6 @@
             margin-right: 0;
         }
 
-        #docsearch {
-            margin-right: .5rem;
-        }
-
         .DocSearch-Button {
             width: 2rem;
             height: 2rem;
@@ -76,9 +72,11 @@
         z-index: 1102;
         height: 100%;
         transform: translateX(-100%);
-        background-color: var(--surface-overlay);
+        background-color: var(--mobile-menu-bg);
+        backdrop-filter: blur(20px);
         width: 300px;
         opacity: 0;
+        box-shadow: 0px 0px 50px 5px rgba(16, 185, 129, .2);
 
         nav {
             padding: 1rem 1rem;
