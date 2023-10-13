@@ -3,9 +3,15 @@
         <div class="flex flex-wrap">
             <div class="w-full xl:w-6 flex flex-column justify-content-center lg:pr-8 align-items-center xl:align-items-stretch">
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Most Complete UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
-                <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
+                    Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI ecosystem. Craft elegant interfaces effortlessly, and delight your users with smooth interactions and captivating visuals. With
+                    PrimeVue, turning your development vision into reality has never been easier.
+                </p>
                 <div class="flex align-items-center gap-3">
-                    <PrimeVueNuxtLink to="/installation" class="linkbox active font-semibold py-3 px-4"> Get Started <i class="pi pi-arrow-right ml-3"></i> </PrimeVueNuxtLink>
+                    <PrimeVueNuxtLink to="/installation" class="linkbox active font-semibold py-3 px-4">
+                        <span>Get Started</span>
+                        <i class="pi pi-arrow-right ml-3"></i>
+                    </PrimeVueNuxtLink>
                     <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox font-semibold py-3 px-4">
                         <span>Give a Star</span>
                         <i class="pi pi-star-fill ml-3 text-yellow-500"></i>
@@ -41,7 +47,7 @@
                         <div class="box p-4">
                             <div class="flex align-items-center">
                                 <Chip label="Vue" class="mr-2 font-medium" />
-                                <span class="font-medium">Typescript</span>
+                                <Chip label="Typescript" class="mr-2 font-medium" />
                                 <InputSwitch v-model="switchValue" class="ml-auto"></InputSwitch>
                             </div>
                             <div class="mt-5 flex justify-content-center">
@@ -73,12 +79,12 @@
                                         <img src="https://primefaces.org/cdn/primevue/images/landing/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
                                     </span>
                                     <div class="flex flex-column">
-                                        <span class="font-bold mb-2">Amanda Williams</span>
-                                        <p class="m-0 text-secondary">Webmaster</p>
+                                        <span class="font-bold mb-1">Amanda Williams</span>
+                                        <p class="m-0 text-secondary">Administrator</p>
                                     </div>
                                 </li>
                                 <li class="flex">
-                                    <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
+                                    <a class="flex align-items-center p-3 border-round w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
                                         <i class="pi pi-home text-xl mr-3"></i>
                                         <span class="flex flex-column">
                                             <span class="font-bold mb-1">Dashboard</span>
@@ -87,22 +93,13 @@
                                     </a>
                                 </li>
                                 <li class="flex">
-                                    <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
+                                    <a class="flex align-items-center p-3 border-round w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
                                         <i class="pi pi-envelope text-xl mr-3"></i>
                                         <span class="flex flex-column">
                                             <span class="font-bold mb-1">Inbox</span>
                                             <span class="m-0 text-secondary">View Messages</span>
                                         </span>
                                         <Badge value="3" class="ml-auto"></Badge>
-                                    </a>
-                                </li>
-                                <li class="flex">
-                                    <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
-                                        <i class="pi pi-cog text-xl mr-3"></i>
-                                        <span class="flex flex-column">
-                                            <span class="font-bold mb-1">Profile</span>
-                                            <span class="m-0 text-secondary">Account Settings</span>
-                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -174,8 +171,7 @@ export default {
             rangeValues: [20, 80],
             items: [
                 { label: 'Home', icon: 'pi pi-fw pi-home' },
-                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog' }
+                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' }
             ],
             selectButtonOptions: [
                 { name: 'Styled', value: 1 },
