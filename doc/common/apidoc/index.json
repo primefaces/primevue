@@ -46150,7 +46150,7 @@
                             "description": "Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'."
                         },
                         {
-                            "name": "enterClassName",
+                            "name": "enterClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -46158,7 +46158,7 @@
                             "description": "Style class to add when item begins to get displayed."
                         },
                         {
-                            "name": "enterActiveClassName",
+                            "name": "enterActiveClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -46166,7 +46166,7 @@
                             "description": "Style class to add during enter animation."
                         },
                         {
-                            "name": "enterToClassName",
+                            "name": "enterToClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -46174,7 +46174,7 @@
                             "description": "Style class to add when item begins to get displayed."
                         },
                         {
-                            "name": "leaveClassName",
+                            "name": "leaveClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -46182,7 +46182,7 @@
                             "description": "Style class to add when item begins to get hidden."
                         },
                         {
-                            "name": "leaveActiveClassName",
+                            "name": "leaveActiveClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -46190,7 +46190,7 @@
                             "description": "Style class to add during leave animation."
                         },
                         {
-                            "name": "leaveToClassName",
+                            "name": "leaveToClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
