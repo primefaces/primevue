@@ -1,0 +1,6 @@
+{
+    "main": "./animate.cjs.js",
+    "module": "./animate.esm.js",
+    "unpkg": "./animate.min.js",
+    "types": "./Animate.d.ts"
+}
