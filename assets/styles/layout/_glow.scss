@@ -1,15 +1,6 @@
 .landing, .layout-wrapper {
-    &:before {
-        top: 0;
-        width: 100%;
-        height: 236px;
-        content: "";
-        display: block;
-        z-index: 0;
-        background-image: var(--glow-image);
-        position: fixed;
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
+    background-image: var(--glow-image);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: auto 20rem;
 }
