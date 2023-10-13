@@ -9,7 +9,7 @@
         <Menu :model="items">
             <template #item="{ label, item, props }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
+                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
