@@ -5023,40 +5023,40 @@
     border-radius: 6px;
   }
   .p-inline-message.p-inline-message-info {
-    background: #e9e9ff;
-    border: solid #696cff;
+    background: rgba(59, 130, 246, 0.2);
+    border: solid #3b82f6;
     border-width: 1px;
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-inline-message.p-inline-message-info .p-inline-message-icon {
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-inline-message.p-inline-message-success {
-    background: #e4f8f0;
-    border: solid #1ea97c;
+    background: rgba(16, 185, 129, 0.2);
+    border: solid #10b981;
     border-width: 1px;
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-inline-message.p-inline-message-success .p-inline-message-icon {
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-inline-message.p-inline-message-warn {
-    background: #fff2e2;
-    border: solid #cc8925;
+    background: rgba(234, 179, 8, 0.2);
+    border: solid #eab308;
     border-width: 1px;
-    color: #cc8925;
+    color: #fde047;
   }
   .p-inline-message.p-inline-message-warn .p-inline-message-icon {
-    color: #cc8925;
+    color: #fde047;
   }
   .p-inline-message.p-inline-message-error {
-    background: #ffe7e6;
-    border: solid #ff5757;
+    background: rgba(239, 68, 68, 0.2);
+    border: solid #ef4444;
     border-width: 1px;
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-inline-message.p-inline-message-error .p-inline-message-icon {
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-inline-message .p-inline-message-icon {
     font-size: 1rem;
@@ -5092,52 +5092,52 @@
     box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.2);
   }
   .p-message.p-message-info {
-    background: #e9e9ff;
-    border: solid #696cff;
+    background: rgba(59, 130, 246, 0.2);
+    border: solid #3b82f6;
     border-width: 0 0 0 6px;
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-message.p-message-info .p-message-icon {
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-message.p-message-info .p-message-close {
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-message.p-message-success {
-    background: #e4f8f0;
-    border: solid #1ea97c;
+    background: rgba(16, 185, 129, 0.2);
+    border: solid #10b981;
     border-width: 0 0 0 6px;
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-message.p-message-success .p-message-icon {
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-message.p-message-success .p-message-close {
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-message.p-message-warn {
-    background: #fff2e2;
-    border: solid #cc8925;
+    background: rgba(234, 179, 8, 0.2);
+    border: solid #eab308;
     border-width: 0 0 0 6px;
-    color: #cc8925;
+    color: #fde047;
   }
   .p-message.p-message-warn .p-message-icon {
-    color: #cc8925;
+    color: #fde047;
   }
   .p-message.p-message-warn .p-message-close {
-    color: #cc8925;
+    color: #fde047;
   }
   .p-message.p-message-error {
-    background: #ffe7e6;
-    border: solid #ff5757;
+    background: rgba(239, 68, 68, 0.2);
+    border: solid #ef4444;
     border-width: 0 0 0 6px;
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-message.p-message-error .p-message-icon {
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-message.p-message-error .p-message-close {
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-message .p-message-text {
     font-size: 1rem;
@@ -5153,7 +5153,7 @@
   }
 
   .p-toast {
-    opacity: 0.9;
+    opacity: 1;
   }
   .p-toast .p-toast-message {
     margin: 0 0 1rem 0;
@@ -5196,44 +5196,44 @@
     box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.2);
   }
   .p-toast .p-toast-message.p-toast-message-info {
-    background: #e9e9ff;
-    border: solid #696cff;
+    background: rgba(59, 130, 246, 0.2);
+    border: solid #3b82f6;
     border-width: 0 0 0 6px;
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,
 .p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {
-    color: #696cff;
+    color: #93c5fd;
   }
   .p-toast .p-toast-message.p-toast-message-success {
-    background: #e4f8f0;
-    border: solid #1ea97c;
+    background: rgba(16, 185, 129, 0.2);
+    border: solid #10b981;
     border-width: 0 0 0 6px;
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,
 .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
-    color: #1ea97c;
+    color: #6ee7b7;
   }
   .p-toast .p-toast-message.p-toast-message-warn {
-    background: #fff2e2;
-    border: solid #cc8925;
+    background: rgba(234, 179, 8, 0.2);
+    border: solid #eab308;
     border-width: 0 0 0 6px;
-    color: #cc8925;
+    color: #fde047;
   }
   .p-toast .p-toast-message.p-toast-message-warn .p-toast-message-icon,
 .p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close {
-    color: #cc8925;
+    color: #fde047;
   }
   .p-toast .p-toast-message.p-toast-message-error {
-    background: #ffe7e6;
-    border: solid #ff5757;
+    background: rgba(239, 68, 68, 0.2);
+    border: solid #ef4444;
     border-width: 0 0 0 6px;
-    color: #ff5757;
+    color: #fca5a5;
   }
   .p-toast .p-toast-message.p-toast-message-error .p-toast-message-icon,
 .p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close {
-    color: #ff5757;
+    color: #fca5a5;
   }
 
   .p-galleria .p-galleria-close {
@@ -5532,7 +5532,7 @@
   .p-progress-spinner-circle {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: 0;
-    stroke: #ff5757;
+    stroke: #fca5a5;
     animation: p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite;
     stroke-linecap: round;
   }
@@ -5558,16 +5558,16 @@
   }
   @keyframes p-progress-spinner-color {
     100%, 0% {
-      stroke: #ff5757;
+      stroke: #fca5a5;
     }
     40% {
-      stroke: #696cff;
+      stroke: #93c5fd;
     }
     66% {
-      stroke: #1ea97c;
+      stroke: #6ee7b7;
     }
     80%, 90% {
-      stroke: #cc8925;
+      stroke: #fde047;
     }
   }
   .p-scrolltop {
@@ -5697,5 +5697,9 @@
 
   .p-speeddial-item.p-focus > .p-speeddial-action {
     box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(96, 165, 250, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
+  }
+
+  .p-toast-message {
+    backdrop-filter: blur(10px);
   }
 }
