@@ -22,16 +22,15 @@
     }
 
     .DocSearch-Button-Keys {
-        border-radius: var(--border-radius);
         overflow: hidden;
         min-width: auto;
-        height: 1.5rem;
+        height: auto;
         background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
         width: auto;
-        padding: .28rem .35rem;
+        padding: 0;
         gap: 2px;
 
         .DocSearch-Button-Key {
@@ -43,22 +42,19 @@
             border-radius: 0;
             height: auto;
             width: auto;
+            font-family: var(--font-family);
 
             &:first-child {
-                justify-content: end;
-                font-size: 0.8rem;
-                font-weight: 700;
+                font-size: 0.75rem;
                 line-height: normal;
-                svg{
-                    height: 14.5px;
-                }
             }
 
             &:last-child {
                 justify-content: start;
                 align-items: center;
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 position: relative;
+                
                 &::before {
                     content: "\e90d";
                     display: flex;
