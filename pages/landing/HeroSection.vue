@@ -20,7 +20,7 @@
             <div class="w-full xl:w-6 pt-7 xl:pt-0 hidden md:block">
                 <div class="flex">
                     <div class="flex flex-column w-6 gap-5 pt-8 pr-3">
-                        <div class="box p-4">
+                        <div class="box p-4 fadein animation-duration-500">
                             <span class="text-secondary font-medium block mb-3">Balance</span>
                             <div class="flex flex-wrap lg:flex-nowrap justify-content-start gap-3">
                                 <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
@@ -40,10 +40,10 @@
                             <span class="text-secondary font-medium block mt-5 mb-3">Order Date</span>
                             <Calendar v-model="dateValue" :showWeek="true" class="w-full" />
                         </div>
-                        <div class="box p-4">
+                        <div class="box p-4 fadein animation-duration-500">
                             <Chart type="line" :data="chartData" :options="chartOptions" />
                         </div>
-                        <div class="box p-4">
+                        <div class="box p-4 fadein animation-duration-500">
                             <div class="flex align-items-center">
                                 <Chip label="Vue" class="mr-2 font-medium" />
                                 <Chip label="Typescript" class="mr-2 font-medium" />
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="flex flex-column w-6 gap-5 pl-3">
-                        <div class="box p-4">
+                        <div class="box p-4 fadein animation-duration-500">
                             <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
                                 <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan.png" alt="Watch" class="w-14rem" />
                             </div>
@@ -71,7 +71,7 @@
                             </div>
                             <Button label="Add to Cart" icon="pi pi-shopping-cart" outlined class="w-full"></Button>
                         </div>
-                        <div class="box p-4 w-full">
+                        <div class="box p-4 fadein animation-duration-500">
                             <ul class="list-none p-0 m-0">
                                 <li class="flex mb-3">
                                     <span class="mr-3">
@@ -103,7 +103,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="box p-4">
+                        <div class="box p-4 fadein animation-duration-500">
                             <TabMenu v-model:activeIndex="activeTabIndex" :model="items" />
                         </div>
                     </div>
