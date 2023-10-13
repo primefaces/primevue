@@ -1,0 +1,7 @@
+@mixin focus-visible($type:null) {
+    &:focus-visible {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: $type var(--focus-ring);
+    }
+}

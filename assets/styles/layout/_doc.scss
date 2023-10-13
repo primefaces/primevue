@@ -1,15 +1,13 @@
 .doc-tabmenu {
     list-style: none;
     margin: 0 17rem 0 0;
-    padding: 0 0 1px 0;
+    padding: 0;
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--surface-border);
-    overflow: auto;
+    overflow: visible;
 
     li {
-        margin-bottom: -1px;
-
         button {
             background-color: transparent;
             border: 0 none;
@@ -21,6 +19,7 @@
             letter-spacing: 1px;
             cursor: pointer;
             margin: 0;
+            margin: 0 0 -1px 0;
             transition: all 0.2s;
             border-bottom: 1px solid transparent;
             border-top-right-radius: var(--border-round);

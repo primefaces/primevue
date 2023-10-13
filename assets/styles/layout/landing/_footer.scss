@@ -1,0 +1,5 @@
+.landing-footer {
+    a {
+        @include focus-visible();
+    }
+}

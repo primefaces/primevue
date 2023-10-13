@@ -24,7 +24,19 @@
         margin-right: 4rem;
     }
 
+    .layout-topbar-logo,
+    .layout-topbar-icon {
+        border-radius: var(--border-radius);
+        @include focus-visible();
+
+        svg {
+            width: 120px;
+        }
+    }
+
     .layout-topbar-logo {
+        display: inline-flex;
+
         svg {
             width: 120px;
         }

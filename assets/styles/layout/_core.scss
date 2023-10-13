@@ -84,12 +84,8 @@ input[type="number"] {
 	border: none;
     cursor: pointer;
     user-select: none;
-}
 
-.px-link:focus-visible {
-    outline: 0 none;
-    outline-offset: 0;
-    box-shadow: var(--focus-ring);
+    @include focus-visible();
 }
 
 .px-link:disabled {

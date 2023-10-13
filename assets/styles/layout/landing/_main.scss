@@ -10,7 +10,7 @@
     }
 
     .linkbox {
-        transition: background-color 0.3s;
+        transition: all 0.3s;
         display: inline-flex;
         align-items: center;
         color: var(--home-linkbox-text-color);
@@ -19,6 +19,8 @@
         background-color: var(--home-linkbox-bg);
         border-radius: 10px;
         cursor: pointer;
+        
+        @include focus-visible();
 
         &:hover {
             background: var(--home-linkbox-hover-bg);

@@ -4,8 +4,9 @@
     height: 2rem;
     background-color: var(--surface-card);
     margin: 0;
-    transition: border-color .3s;
+    transition: all .3s;
     padding: 0 .5rem;
+    @include focus-visible();
 
     &:hover {
         border-color: var(--primary-color);
