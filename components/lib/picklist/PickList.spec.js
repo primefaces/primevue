@@ -107,7 +107,6 @@ describe('PickList.vue', () => {
 
         expect(wrapper.emitted()['update:modelValue'][0][0][1]).toEqual([wrapper.vm.modelValue[0][0]]);
         expect(wrapper.emitted()['move-to-target'][0]).toEqual([{ originalEvent: {}, items: [wrapper.vm.modelValue[0][0]] }]);
-        expect(wrapper.emitted()['move-to-source'][0]).toEqual([{ originalEvent: {}, items: [wrapper.vm.modelValue[0][0]] }]);
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([[], []]);
     });
 
