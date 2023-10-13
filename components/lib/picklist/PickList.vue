@@ -440,7 +440,7 @@ export default {
 
                 this.$emit('move-to-target', {
                     originalEvent: event,
-                    items: selection
+                    items: [...new Set(selection)]
                 });
 
                 this.d_selection[0] = [];
@@ -500,7 +500,7 @@ export default {
 
                 this.$emit('move-to-source', {
                     originalEvent: event,
-                    items: selection
+                    items: [...new Set(selection)]
                 });
 
                 this.d_selection[1] = [];
