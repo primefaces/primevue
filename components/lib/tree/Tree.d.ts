@@ -350,7 +350,12 @@ export interface TreeSlots {
     /**
      * Default content slot.
      */
-    default(): VNode[];
+    default(scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+    }): VNode[];
     /**
      * Custom loading icon template.
      * @param {Object} scope - loadingicon slot's params.
