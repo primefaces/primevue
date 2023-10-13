@@ -59,9 +59,11 @@
                     </svg>
                 </PrimeVueNuxtLink>
             </div>
-            <div id="docsearch"></div>
 
             <ul class="flex list-none m-0 p-0 gap-2 align-items-center">
+                <li>
+                    <div id="docsearch"></div>
+                </li>
                 <li>
                     <a
                         href="https://github.com/primefaces/primevue"

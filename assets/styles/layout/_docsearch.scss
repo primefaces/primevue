@@ -1,11 +1,11 @@
 .DocSearch-Button {
     border-radius: var(--border-radius);
-    width: 24rem;
+    border: 1px solid var(--surface-border);
+    height: 2rem;
+    background-color: var(--surface-card);
     margin: 0;
     transition: border-color .3s;
-    border: 1px solid transparent;
-    height: 2.5rem;
-    padding: 0 .75rem;
+    padding: 0 .5rem;
 
     &:hover {
         border-color: var(--primary-color);
@@ -17,8 +17,8 @@
     }
 
     .DocSearch-Search-Icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .DocSearch-Button-Keys {
@@ -26,7 +26,7 @@
         overflow: hidden;
         min-width: auto;
         height: 1.5rem;
-        background: var(--docsearch-key-gradient);
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,7 +48,7 @@
                 justify-content: end;
                 font-size: 0.8rem;
                 font-weight: 700;
-                line-height: 13.5px;
+                line-height: normal;
                 svg{
                     height: 14.5px;
                 }
@@ -126,6 +126,12 @@
     color: var(--primary-color);
 }
 
+.DocSearch-Button-Placeholder {
+    text-align: center;
+    display: inline-block;
+    font-size: .875rem;
+}
+
 :root {
     --docsearch-searchbox-focus-background: var(--surface-card);
     --docsearch-text-color: var(--text-color);
@@ -144,19 +150,3 @@
     --docsearch-hit-active-color: var(--primary-color-text);
 }
 
-.DocSearch-Button-Placeholder {
-    text-align: center;
-    display: inline-block;
-}
-
-.layout-light {
-    .DocSearch-Button {
-        background: #edf0f3;
-    }
-}
-
-.layout-light {
-    .DocSearch-Dark {
-        background: var(--surface-100);
-    }
-}

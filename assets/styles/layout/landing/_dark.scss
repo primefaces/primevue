@@ -1,4 +1,6 @@
 .layout-dark {
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/top-pattern-light.png);
+    --topbar-border: var(--surface-border);
     --home-highlight-color:#10b981;
     --home-highlight-darker-color:#059669;
     --home-highlight-fore-color:#ffffff;

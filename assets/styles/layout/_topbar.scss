@@ -5,7 +5,7 @@
     width: calc(100% - var(--scrollbar-width, 0px));
     z-index: 1100;
     transition: background-color 1s;
-    border-bottom: 1px solid var(--surface-border);
+    border-bottom: 1px solid var(--topbar-border);
 
     &.layout-topbar-sticky {
         backdrop-filter: blur(8px);
@@ -37,7 +37,7 @@
             width: 25px;
         }
     }
-
+    
     .menu-button {
         display: none;
     }
