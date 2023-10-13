@@ -51817,7 +51817,13 @@
                     "methods": [
                         {
                             "name": "default",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">node</span>: <span class=\"text-primary-500\">TreeNode</span>, <span class=\"text-primary-300\">// Tree node instance</span>\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default content slot."
                         },
