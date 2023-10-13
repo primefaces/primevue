@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-wrapper" :class="containerClass">
+    <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews v-if="$appState.newsActive" />
         <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
         <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />

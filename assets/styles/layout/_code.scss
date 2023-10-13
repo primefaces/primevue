@@ -174,4 +174,12 @@ pre[class*="language-"] {
             background: var(--surface-700) !important;
         }
     }
+
+    &[data-p-theme^="md-"] {
+        pre[class*="language-"] {    
+            code {
+                background: var(--surface-900) !important;
+            }
+        }
+    }
 }
