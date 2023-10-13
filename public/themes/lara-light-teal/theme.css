@@ -5023,13 +5023,13 @@
     border-radius: 6px;
   }
   .p-inline-message.p-inline-message-info {
-    background: rgba(233, 233, 255, 0.7);
-    border: solid #696cff;
+    background: rgba(219, 234, 254, 0.7);
+    border: solid #3b82f6;
     border-width: 0px;
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-inline-message.p-inline-message-info .p-inline-message-icon {
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-inline-message.p-inline-message-success {
     background: rgba(228, 248, 240, 0.7);
@@ -5092,16 +5092,16 @@
     box-shadow: 0 0 0 0.2rem #ecfdf5;
   }
   .p-message.p-message-info {
-    background: rgba(233, 233, 255, 0.7);
-    border: solid #696cff;
+    background: rgba(219, 234, 254, 0.7);
+    border: solid #3b82f6;
     border-width: 0 0 0 6px;
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-message.p-message-info .p-message-icon {
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-message.p-message-info .p-message-close {
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-message.p-message-success {
     background: rgba(228, 248, 240, 0.7);
@@ -5196,14 +5196,14 @@
     box-shadow: 0 0 0 0.2rem #ecfdf5;
   }
   .p-toast .p-toast-message.p-toast-message-info {
-    background: rgba(233, 233, 255, 0.7);
-    border: solid #696cff;
+    background: rgba(219, 234, 254, 0.7);
+    border: solid #3b82f6;
     border-width: 0 0 0 6px;
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,
 .p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {
-    color: #696cff;
+    color: #3b82f6;
   }
   .p-toast .p-toast-message.p-toast-message-success {
     background: rgba(228, 248, 240, 0.7);
@@ -5561,7 +5561,7 @@
       stroke: #ff5757;
     }
     40% {
-      stroke: #696cff;
+      stroke: #3b82f6;
     }
     66% {
       stroke: #1ea97c;
