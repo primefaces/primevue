@@ -1,0 +1,11 @@
+.layout-wrapper.layout-dark {
+    --card-border: 0 none;
+    --card-bg: var(--surface-card);
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/top-pattern-light.png);
+    --topbar-border: var(--surface-border);
+    --mobile-menu-bg: rgba(0,0,0,.3);
+    --demo-code-bg: var(--surface-card);
+    --demo-code-button-color: var(--surface-400);
+    --demo-code-button-hover-bg: rgba(255,255,255,.1);
+    --demo-code-button-hover-color: var(--surface-500);
+}
