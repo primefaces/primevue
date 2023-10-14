@@ -128,53 +128,29 @@ pre[class*="language-"] {
     display: none;
 }
 
-.layout-dark {
-    .doc-section-code-buttons {
-        button {
-            outline: 0 none;
-            outline-offset: 0;
-            background-color: transparent;
-            transition: background-color .2s, box-shadow .2s;
-            border: 0 none;
-            color: var(--surface-400);
-            cursor: pointer;
+.doc-section-code-buttons {
+    button {
+        outline: 0 none;
+        outline-offset: 0;
+        background-color: transparent;
+        transition: background-color .2s, box-shadow .2s;
+        border: 0 none;
+        color: var(--demo-code-button-color);
+        cursor: pointer;
 
-            &:hover {
-                background-color: rgba(255,255,255,.1);
-                color: var(--surface-500);
-            }
+        &:hover {
+            background-color: var(--demo-code-button-hover-bg);
+            color: var(--demo-code-button-hover-color);
         }
     }
-    pre[class*="language-"] {    
-        code {
-            background: var(--surface-card) !important;
-        }
+}
+pre[class*="language-"] {    
+    code {
+        background: var(--demo-code-bg) !important;
     }
 }
 
 .layout-light {
-    .doc-section-code-buttons {
-        button {
-            outline: 0 none;
-            outline-offset: 0;
-            background-color: transparent;
-            transition: background-color .2s, box-shadow .2s;
-            border: 0 none;
-            color: var(--surface-400);
-            cursor: pointer;
-
-            &:hover {
-                background-color: rgba(255,255,255,.1);
-                color: var(--surface-300);
-            }
-        }
-    }
-    pre[class*="language-"] {    
-        code {
-            background: var(--surface-700) !important;
-        }
-    }
-
     &[data-p-theme^="md-"] {
         pre[class*="language-"] {    
             code {
