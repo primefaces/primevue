@@ -1,7 +1,7 @@
 <template>
     <div :class="landingClass">
         <AppNews v-if="$appState.newsActive" />
-        <AppTopBar :showConfigurator="false" showDarkSwitch @darkswitch-click="onThemeToggle" />
+        <AppTopBar :showConfigurator="false" :showMenuButton="false" @darkswitch-click="onDarkModeToggle" />
         <HeroSection />
         <FeaturesSection />
         <UsersSection />
@@ -55,7 +55,7 @@ export default {
         this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal');
     },
     methods: {
-        onThemeToggle() {
+        onDarkModeToggle() {
             const newTheme = this.$appState.darkTheme ? 'lara-light-teal' : 'lara-dark-teal';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 

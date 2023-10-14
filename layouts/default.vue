@@ -1,7 +1,7 @@
 <template>
     <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews v-if="$appState.newsActive" />
-        <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
+        <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" @darkswitch-click="onDarkModeToggle" />
         <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
@@ -20,7 +20,8 @@
 
 <script>
 import DomHandler from '@/components/lib/utils/DomHandler';
-import AppConfigurator from './AppConfigurator.vue';
+import EventBus from '@/layouts/AppEventBus';
+import AppConfigurator from './AppConfigurator';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
 import AppNews from './AppNews.vue';
@@ -92,6 +93,19 @@ export default {
         },
         onUpdateConfigActive() {
             this.appConfigActive = false;
+        },
+        onDarkModeToggle() {
+            let newTheme = null;
+            let currentTheme = this.$appState.theme;
+
+            if (this.$appState.darkTheme) {
+                newTheme = currentTheme.replace('dark', 'light');
+            } else {
+                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
+                else newTheme = 'lara-dark-teal'; //fallback
+            }
+
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
         }
     },
     computed: {
