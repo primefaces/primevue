@@ -1,4 +1,5 @@
 .layout-wrapper.layout-dark {
+    --topbar-sticky-bg:rgba(0,0,0,.3);
     --card-border: 0 none;
     --card-bg: var(--surface-card);
     --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/top-pattern-light.png);
@@ -8,4 +9,6 @@
     --demo-code-button-color: var(--surface-400);
     --demo-code-button-hover-bg: rgba(255,255,255,.1);
     --demo-code-button-hover-color: var(--surface-500);
+    --doc-highlight-text-bg: var(--highlight-bg);
+    --doc-highlight-text-color: var(--highlight-text-color);
 }

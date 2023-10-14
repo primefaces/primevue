@@ -8,6 +8,7 @@
     border-bottom: 1px solid var(--topbar-border);
 
     &.layout-topbar-sticky {
+        background-color: var(--topbar-sticky-bg);
         backdrop-filter: blur(8px);
     }
 }
@@ -52,21 +53,5 @@
     
     .menu-button {
         display: none;
-    }
-}
-
-.layout-light {
-    .layout-topbar {
-        &.layout-topbar-sticky {
-            background-color: rgba(255,255,255,.7);
-        }
-    }
-}
-
-.layout-dark {
-    .layout-topbar {
-        &.layout-topbar-sticky {
-            background-color: rgba(0,0,0,.3);
-        }
     }
 }

@@ -107,6 +107,8 @@
             font-size: 1rem;
             font-weight: 600;
             font-style: normal;
+            background-color: var(--doc-highlight-text-bg);
+            color: var(---doc-highlight-text-color);
         }
 
         a {
@@ -115,28 +117,6 @@
 
             &:hover {
                 text-decoration: underline;
-            }
-        }
-    }
-}
-
-.layout-light {
-    .doc-section-description {
-        > p {
-            i {
-                background-color: var(--primary-100);
-                color: var(--primary-900);
-            }
-        }
-    }
-}
-
-.layout-dark {
-    .doc-section-description {
-        > p {
-            i {
-                background-color: var(--highlight-bg);
-                color: var(--highlight-text-color);
             }
         }
     }

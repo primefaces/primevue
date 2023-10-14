@@ -46,22 +46,6 @@
         }
     }
 
-    .layout-light,
-    .layout-dark {
-        .DocSearch-Button {
-            background: var(--surface-card);
-            border-color: var(--surface-border);
-
-            &:hover {
-                border-color: var(--primary-color);
-            }
-
-            .DocSearch-Search-Icon {
-                color: var(--text-700);
-            }
-        }
-    }
-
     .layout-sidebar {
         top: 0;
         left: 0;
