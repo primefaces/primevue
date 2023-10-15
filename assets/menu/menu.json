@@ -11,6 +11,11 @@
                 {
                     "name": "Configuration",
                     "to": "/configuration"
+                },
+                {
+                    "name": "Nuxt",
+                    "to": "/nuxt",
+                    "badge": "NEW"
                 }
             ]
         },

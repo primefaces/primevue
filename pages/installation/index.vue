@@ -18,7 +18,6 @@
 <script>
 import DownloadDoc from '@/doc/installation/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/installation/ExamplesDoc.vue';
-import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc.vue';
 import PluginDoc from '@/doc/installation/PluginDoc.vue';
 import PropCasesDoc from '@/doc/installation/PropCasesDoc.vue';
 import StyledModeDoc from '@/doc/installation/StyledModeDoc.vue';
@@ -67,11 +66,6 @@ export default {
                     id: 'propcases',
                     label: 'Prop Cases',
                     component: PropCasesDoc
-                },
-                {
-                    id: 'nuxtintegration',
-                    label: 'Nuxt Integration',
-                    component: NuxtIntegrationDoc
                 },
                 {
                     id: 'examples',

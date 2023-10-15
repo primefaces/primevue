@@ -1,6 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue">npm Registry</a>.</p>
+        <p>
+            The <a href="https://www.npmjs.com/package/nuxt-primevue" target="_blank" rel="noopener noreferrer">nuxt-prime</a> package is the official module by PrimeTek.
+        </p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
 </template>
