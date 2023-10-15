@@ -44,7 +44,8 @@ export default {
 <span id="chkbox2">Remember Me</span>
 <Checkbox aria-labelledby="chkbox2" />
 
-<Checkbox aria-label="Remember Me" />`
+<Checkbox aria-label="Remember Me" />
+`
             }
         };
     }

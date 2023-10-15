@@ -27,7 +27,7 @@ pre[class*="language-"] {
     background: transparent;
     margin: 0;
     padding: 0;
-    max-height: 40rem;
+    max-height: 60rem;
     overflow: auto;
 
     &:before, &:after {
@@ -131,7 +131,7 @@ pre[class*="language-"] {
 
 pre[class*="language-"] {    
     code {
-        background: var(--demo-code-bg) !important;
+        background: var(--demo-code-bg);
         transition: background-color .5s, border-color .5s;
     }
 }
@@ -140,7 +140,7 @@ pre[class*="language-"] {
     &[data-p-theme^="md-"] {
         pre[class*="language-"] {    
             code {
-                background: var(--surface-900) !important;
+                background: var(--surface-900);
             }
         }
     }

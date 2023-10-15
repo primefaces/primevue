@@ -47,7 +47,8 @@ export default {
         <Checkbox v-model="pizza" inputId="ingredient4" name="pizza" value="Onion" />
         <label for="ingredient4" class="ml-2"> Onion </label>
     </div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
@@ -78,7 +79,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
@@ -105,7 +107,8 @@ export default {
 import { ref } from "vue";
 
 const pizza = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

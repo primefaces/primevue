@@ -53,7 +53,8 @@ export default {
         </form>
         <Toast />
     </div>
-</template>`,
+</template>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -94,7 +95,8 @@ export default {
         return { value, handleSubmit, onSubmit, errorMessage };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
