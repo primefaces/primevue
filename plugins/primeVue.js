@@ -1,7 +1,7 @@
 import PrimeVue from '@/components/lib/config/PrimeVue';
 import ToastService from '@/components/lib/toastservice/ToastService';
 
-import CodeHighlight from '@/components/layout/CodeHighlight';
+import CodeHighlight from '@/directives/CodeHighlight';
 import Animate from '@/components/lib/animate/Animate';
 
 export default defineNuxtPlugin((nuxtApp) => {
