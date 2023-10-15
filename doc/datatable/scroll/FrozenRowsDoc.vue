@@ -55,7 +55,8 @@ export default {
             <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" text size="small" @click="toggleLock(data, frozenRow, index)" />
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -121,7 +122,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -183,7 +185,8 @@ onMounted(() => {
     });
 });
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

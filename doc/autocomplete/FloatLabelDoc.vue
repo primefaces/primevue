@@ -22,7 +22,8 @@ export default {
 <span class="p-float-label">
     <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
     <label for="ac">Float Label</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -47,7 +48,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -67,7 +69,8 @@ const items = ref([]);
 const search = (event) => {
     items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

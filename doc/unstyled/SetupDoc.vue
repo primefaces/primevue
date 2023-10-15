@@ -25,7 +25,8 @@ app.use(PrimeVue, { unstyled: true });
             },
             code2: {
                 basic: `
-<Button label="Check" icon="pi pi-check" unstyled></Button>`
+<Button label="Check" icon="pi pi-check" unstyled></Button>
+`
             }
         };
     }

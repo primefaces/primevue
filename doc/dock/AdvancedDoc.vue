@@ -250,7 +250,8 @@ export default {
             <img :alt="item.label" :src="item.icon" style="width: 100%" />
         </a>
     </template>
-</Dock>`,
+</Dock>
+`,
                 options: `
 <template>
     <div class="card dock-demo">
@@ -552,7 +553,8 @@ export default {
     padding: 0;
     border-radius: 0;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div>

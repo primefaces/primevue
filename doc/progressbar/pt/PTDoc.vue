@@ -20,7 +20,8 @@ export default {
 <ProgressBar :value="50"
     :pt="{
         value: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)' } }
-    }" />`,
+    }" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -32,7 +33,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -44,7 +46,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

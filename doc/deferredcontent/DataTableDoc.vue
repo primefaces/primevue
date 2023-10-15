@@ -31,7 +31,8 @@ export default {
         <Column field="category" header="Category"></Column>
         <Column field="quantity" header="Quantity"></Column>
     </DataTable>
-</DeferredContent>`,
+</DeferredContent>
+`,
                 options: `
 <template>
     <div class="card">
@@ -65,7 +66,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -93,7 +95,8 @@ const onDataLoad = () => {
     ProductService.getProductsSmall().then((data) => (products.value = data));
     toast.add({ severity: 'success', summary: 'Data Initialized', detail: 'Render Completed', life: 2000 });
 };
-<\/script>`
+<\/script>
+`
             },
             products: null
         };

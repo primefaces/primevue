@@ -91,7 +91,8 @@ export default {
         </template>
     </Column>
     <Column :rowEditor="true" style="width: 10%; min-width: 8rem" bodyStyle="text-align:center"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -183,7 +184,8 @@ export default {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">

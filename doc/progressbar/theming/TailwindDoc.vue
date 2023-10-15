@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     global: {
         css: \`
         .progressbar-value-animate::after {
@@ -103,7 +104,8 @@ const endProgress = () => {
     clearInterval(interval.value);
     interval.value = null;
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -43,7 +43,8 @@ export default {
 <span id="switch2">Remember Me</span>
 <InputSwitch aria-labelledby="switch2" />
 
-<InputSwitch aria-label="Remember Me" />`
+<InputSwitch aria-label="Remember Me" />
+`
             }
         };
     }

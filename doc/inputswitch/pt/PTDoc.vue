@@ -27,7 +27,8 @@ export default {
             class: props.modelValue ? 'bg-teal-400' : 'bg-red-400'
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +51,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -69,7 +71,8 @@ export default {
 import { ref } from 'vue';
 
 const checked = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

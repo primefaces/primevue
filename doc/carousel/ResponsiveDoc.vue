@@ -74,7 +74,8 @@ export default {
             </div>
         </div>
     </template>
-</Carousel>`,
+</Carousel>
+`,
                 options: `
 <template>
     <div class="card">
@@ -147,7 +148,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -215,7 +217,8 @@ const getSeverity = (status) => {
             return null;
     }
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* ProductService */        
 {

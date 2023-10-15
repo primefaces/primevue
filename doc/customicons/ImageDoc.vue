@@ -10,11 +10,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Dropdown>
+                basic: `
+<Dropdown>
     <template #dropdownicon>
         <img alt="dropdown icon" src="/assets/icons/arrow_down.png">
     </template>
-</Dropdown>`
+</Dropdown>
+`
             }
         };
     }

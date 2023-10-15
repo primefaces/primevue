@@ -50,7 +50,8 @@ export default {
     <template #url="slotProps">
         <a :href="slotProps.node.data">{{ slotProps.node.label }}</a>
     </template>
-</Tree>`,
+</Tree>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -94,7 +95,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -134,7 +136,8 @@ const nodes = ref([
         ]
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

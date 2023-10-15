@@ -38,7 +38,8 @@ export default {
         }">
         <p>{{ tab.content }}</p>
     </TabPanel>
-</TabView>`,
+</TabView>
+`,
                 options: `
 <template>
     <div class="card">
@@ -75,7 +76,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -107,7 +109,8 @@ const panelClass = (props, parent, index) => {
         }
     ];
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

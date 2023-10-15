@@ -30,7 +30,8 @@ export default {
         </div>
     </template>
 </ConfirmDialog>
-<Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>`,
+<Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
+`,
                 options: `
 <template>
     <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
@@ -68,7 +69,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <ConfirmDialog group="templating" :pt="{ headertitle: 'mr-4' }">
@@ -108,7 +110,8 @@ const showTemplate = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

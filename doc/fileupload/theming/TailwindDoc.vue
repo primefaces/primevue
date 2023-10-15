@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     fileupload: {
         input: 'hidden',
         buttonbar: {
@@ -66,7 +67,8 @@ const toast = useToast();
 const onAdvancedUpload = () => {
     toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

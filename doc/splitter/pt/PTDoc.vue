@@ -22,7 +22,8 @@ export default {
     }">
     <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 1 </SplitterPanel>
     <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
-</Splitter>`,
+</Splitter>
+`,
                 options: `
 <template>
     <div class="card">
@@ -35,7 +36,8 @@ export default {
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
         </Splitter>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card">

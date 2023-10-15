@@ -240,7 +240,8 @@ export default {
             <Button icon="pi pi-trash" outlined rounded severity="danger" @click="confirmDeleteProduct(slotProps.data)" />
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div>
@@ -528,6 +529,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

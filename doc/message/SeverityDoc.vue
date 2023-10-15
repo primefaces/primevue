@@ -20,7 +20,8 @@ export default {
 <Message severity="success">Success Message Content</Message>
 <Message severity="info">Info Message Content</Message>
 <Message severity="warn">Warning Message Content</Message>
-<Message severity="error">Error Message Content</Message>`,
+<Message severity="error">Error Message Content</Message>
+`,
                 options: `
 <template>
     <div class="card">
@@ -32,7 +33,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -44,7 +46,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

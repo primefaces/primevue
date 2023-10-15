@@ -45,7 +45,8 @@ export default {
         </template>
     </Sidebar>
     <Button icon="pi pi-plus" @click="visible = true" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -75,7 +76,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -101,7 +103,8 @@ export default {
 import { ref } from "vue";
 
 const visible = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

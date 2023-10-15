@@ -66,7 +66,8 @@ export default {
             class: context.active ? 'bg-primary' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -127,7 +128,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -189,7 +191,8 @@ const items = ref([
         }
     }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

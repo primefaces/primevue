@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     selectbutton: {
         root: ({ props }) => ({
             class: [{ 'opacity-60 select-none pointer-events-none cursor-default': props.disabled }]
@@ -52,7 +53,8 @@ import { ref } from 'vue';
 
 const value = ref('Off');
 const options = ref(['Off', 'On']);
-<\/script>`
+<\/script>
+`
             }
         };
     }

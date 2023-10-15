@@ -14,7 +14,8 @@ export default {
         return {
             code: {
                 basic: `
-<AutoComplete disabled placeholder="Disabled" />`,
+<AutoComplete disabled placeholder="Disabled" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -24,7 +25,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -34,7 +36,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     },

@@ -43,7 +43,8 @@ export default {
         }
     }"
     class="pi pi-calendar text-4xl"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center align-items-center gap-2">
@@ -66,7 +67,8 @@ export default {
             class="pi pi-calendar text-4xl"
         />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center align-items-center gap-2">

@@ -188,7 +188,8 @@ export default {
 <span id="dd1"></span>Options</span>
 <Dropdown aria-labelledby="dd1" />
 
-<Dropdown aria-label="Options" />`
+<Dropdown aria-label="Options" />
+`
             }
         };
     }

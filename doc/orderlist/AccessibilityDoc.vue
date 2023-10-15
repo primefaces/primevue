@@ -129,7 +129,8 @@ export default {
 <span id="lb">Options</span>
 <OrderList aria-labelledby="lb" />
 
-<OrderList aria-label="City" />`
+<OrderList aria-label="City" />
+`
             }
         };
     }

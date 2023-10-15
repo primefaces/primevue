@@ -130,7 +130,8 @@ export default {
             ],
             code: {
                 basic: `
-<PanelMenu :model="items" />`,
+<PanelMenu :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -261,7 +262,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -388,7 +390,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

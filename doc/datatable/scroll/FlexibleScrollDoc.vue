@@ -44,7 +44,8 @@ export default {
     <template #footer>
         <Button label="Ok" icon="pi pi-check" @click="dialogVisible = false" />
     </template>
-</Dialog>`,
+</Dialog>
+`,
                 options: `
 <template>
     <div class="card">
@@ -80,7 +81,8 @@ export default {
         });
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -112,7 +114,8 @@ onMounted(() => {
         customers.value = data;
     });
 });
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

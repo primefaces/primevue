@@ -56,7 +56,8 @@ export default {
     <template #thumbnail="slotProps">
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -112,7 +113,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -163,7 +165,8 @@ const next = () => {
 const prev = () => {
     activeIndex.value = activeIndex.value === 0 ? 0 : activeIndex.value - 1;
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

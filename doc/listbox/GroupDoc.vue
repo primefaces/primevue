@@ -64,7 +64,8 @@ export default {
             <div>{{ slotProps.option.label }}</div>
         </div>
     </template>
-</Listbox>`,
+</Listbox>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -119,7 +120,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -170,7 +172,8 @@ const groupedCities = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

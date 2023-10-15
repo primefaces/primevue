@@ -33,7 +33,8 @@ export default {
                 basic: `
 <ColorPicker v-model="colorHEX" inputId="cp-hex" format="hex" class="mb-3" />
 <ColorPicker v-model="colorRGB" inputId="cp-rgb" format="rgb" class="mb-3" />
-<ColorPicker v-model="colorHSB" inputId="cp-hsb" format="hsb" class="mb-3" />`,
+<ColorPicker v-model="colorHSB" inputId="cp-hsb" format="hsb" class="mb-3" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3">
@@ -65,7 +66,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3">
@@ -93,7 +95,8 @@ import { ref } from "vue";
 const colorHEX = ref('6466f1');
 const colorRGB = ref({ r: 100, g: 102, b: 241 });
 const colorHSB = ref({ h: 239, s: 59, b: 95 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -41,7 +41,8 @@ export default {
 <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
 <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
 
-<Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />`,
+<Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
+`,
                 options: `
 <template>
     <div class="flex flex-wrap gap-5">
@@ -68,7 +69,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="flex flex-wrap gap-5">
@@ -95,7 +97,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

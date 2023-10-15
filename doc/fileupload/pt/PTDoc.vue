@@ -40,7 +40,8 @@ export default {
     <template #empty>
         <p>Drag and drop files to here to upload.</p>
     </template>
-</FileUpload>`,
+</FileUpload>
+`,
                 options: `
 <template>
     <div class="card">
@@ -71,7 +72,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -101,7 +103,8 @@ const toast = useToast();
 const onAdvancedUpload = () => {
     toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

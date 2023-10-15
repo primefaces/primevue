@@ -53,7 +53,8 @@ export default {
         <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
         <p class="text-white">{{ slotProps.item.alt }}</p>
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -99,7 +100,8 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -141,7 +143,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

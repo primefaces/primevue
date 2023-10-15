@@ -181,7 +181,8 @@ export default {
             <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -334,7 +335,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -483,7 +485,8 @@ const getSeverity = (status) => {
     }
 }
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

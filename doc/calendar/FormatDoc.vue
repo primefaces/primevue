@@ -34,7 +34,8 @@ export default {
             date: null,
             code: {
                 basic: `
-<Calendar v-model="date" dateFormat="dd/mm/yy" />`,
+<Calendar v-model="date" dateFormat="dd/mm/yy" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +51,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -62,7 +64,8 @@ export default {
 import { ref } from "vue";
 
 const date = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

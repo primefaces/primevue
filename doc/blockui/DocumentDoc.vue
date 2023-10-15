@@ -17,7 +17,8 @@ export default {
             code: {
                 basic: `
 <BlockUI :blocked="blocked" fullScreen />
-<Button label="Block" @click="blocked = true" />`,
+<Button label="Block" @click="blocked = true" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -43,7 +44,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -63,7 +65,8 @@ const blockDocument = () => {
         blocked.value = false;
     }, 3000);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

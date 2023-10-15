@@ -23,7 +23,8 @@ export default {
         return {
             code: {
                 basic: `
-<ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />`,
+<ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -59,7 +60,8 @@ export default {
     font-size: 1rem;
     color: var(--primary-color-text);
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card">

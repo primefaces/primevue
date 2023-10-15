@@ -16,7 +16,8 @@ export default {
         return {
             code: {
                 basic: `
-<ScrollTop />`,
+<ScrollTop />
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center" style="height: 2000px">
@@ -27,7 +28,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center" style="height: 2000px">
@@ -38,7 +40,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

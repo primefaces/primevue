@@ -38,7 +38,8 @@ export default {
             ],
             code: {
                 basic: `
-<SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />`,
+<SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -83,7 +84,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -124,7 +126,8 @@ const items = [
 const save = () => {
     toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

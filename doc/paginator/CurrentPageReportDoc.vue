@@ -24,7 +24,8 @@ export default {
             code: {
                 basic: `
 <Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />`,
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -41,7 +42,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -54,7 +56,8 @@ export default {
 import { ref } from "vue";
 
 const first = ref(0);
-<\/script>`
+<\/script>
+`
             }
         };
     }

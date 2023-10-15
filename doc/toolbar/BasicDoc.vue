@@ -64,7 +64,8 @@ export default {
         <Button icon="pi pi-calendar" severity="success" class="mr-2" />
         <Button icon="pi pi-times" severity="danger" />
     </template>
-</Toolbar>`,
+</Toolbar>
+`,
                 options: `
 <template>
     <div class="card">
@@ -116,7 +117,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -164,7 +166,8 @@ const items = ref([
         }
     }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

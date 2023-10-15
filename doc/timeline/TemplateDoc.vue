@@ -68,7 +68,8 @@ export default {
             </template>
         </Card>
     </template>
-</Timeline>`,
+</Timeline>
+`,
                 options: `
 <template>
     <div class="card">
@@ -135,7 +136,8 @@ export default {
         }
     }
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card">

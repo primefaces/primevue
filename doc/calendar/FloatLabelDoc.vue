@@ -21,7 +21,8 @@ export default {
 <span class="p-float-label">
     <Calendar v-model="date" inputId="birth_date" />
     <label for="birth_date">Birth Date</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -40,7 +41,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -55,7 +57,8 @@ export default {
 import { ref } from "vue";
 
 const date = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

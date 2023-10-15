@@ -15,7 +15,8 @@ export default {
             dates: null,
             code: {
                 basic: `
-<Calendar v-model="dates" selectionMode="range" :manualInput="false" />`,
+<Calendar v-model="dates" selectionMode="range" :manualInput="false" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -31,7 +32,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const dates = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

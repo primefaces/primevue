@@ -16,7 +16,8 @@ export default {
     :pt="{
         root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -26,7 +27,8 @@ export default {
             }"
         />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

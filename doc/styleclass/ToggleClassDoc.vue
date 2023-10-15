@@ -16,7 +16,8 @@ export default {
             code: {
                 basic: `
 <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
-<InputText />`,
+<InputText />
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -26,7 +27,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -36,7 +38,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

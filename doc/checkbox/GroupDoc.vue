@@ -48,6 +48,7 @@ export default {
         <label for="ingredient4" class="ml-2"> Onion </label>
     </div>
 </div>
+
 `,
                 options: `
 <template>
@@ -80,6 +81,7 @@ export default {
     }
 };
 <\/script>
+
 `,
                 composition: `
 <template>

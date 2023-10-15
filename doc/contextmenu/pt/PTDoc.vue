@@ -152,7 +152,8 @@ export default {
     :pt="{
         action: ({ props, state, context }) => ({ class: context.active ? 'bg-primary-200' : context.focused ? 'bg-primary-300' : undefined })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex md:justify-content-center">
@@ -305,7 +306,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -455,7 +457,8 @@ const onImageRightClick = (event) => {
     menu.value.show(event);
 };
 
-<\/script>`
+<\/script>
+`
             }
         };
     },

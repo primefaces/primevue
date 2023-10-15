@@ -25,7 +25,8 @@ export default {
     <Button label="Info" severity="info" @click="showInfo" />
     <Button label="Warn" severity="warning" @click="showWarn" />
     <Button label="Error" severity="danger" @click="showError" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -56,7 +57,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -89,7 +91,8 @@ const showWarn = () => {
 const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

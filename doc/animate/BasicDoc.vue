@@ -31,7 +31,8 @@ export default {
     <div v-animate="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
         <span class="text-900 text-3xl font-bold">flip up</span>
     </div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center">
@@ -43,7 +44,8 @@ export default {
             <span class="text-900 text-3xl font-bold">flip up</span>
         </div>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center">

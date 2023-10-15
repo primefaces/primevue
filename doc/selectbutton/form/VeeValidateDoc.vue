@@ -52,7 +52,8 @@ export default {
         <Button type="submit" label="Submit" />
     </form>
     <Toast />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -98,7 +99,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -136,7 +138,8 @@ const onSubmit = handleSubmit((values) => {
         resetForm();
     }
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

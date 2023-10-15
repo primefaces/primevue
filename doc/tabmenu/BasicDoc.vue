@@ -42,7 +42,8 @@ export default {
         </router-link>
     </template>
 </TabMenu>
-<router-view />`,
+<router-view />
+`,
                 options: `
 <template>
     <div class="card">
@@ -103,7 +104,8 @@ export default {
         this.active = this.items.findIndex((item) => this.$route.path === this.$router.resolve(item.route).path);
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -168,7 +170,8 @@ watch(
     },
     { immediate: true }
 );
-<\/script>`,
+<\/script>
+`,
                 pages: [
                     {
                         tabName: 'HomeDemo',
@@ -247,7 +250,8 @@ export default {
 export default {
 
 }
-<\/script>`
+<\/script>
+`
                     }
                 ]
             }

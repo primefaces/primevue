@@ -82,7 +82,8 @@ export default {
     <keep-alive>
         <component :is="Component" />
     </keep-alive>
-</router-view>`,
+</router-view>
+`,
                 options: `
 <template>
     <div>
@@ -170,7 +171,8 @@ export default {
 ::v-deep(.p-card-body) {
     padding: 2rem;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div>

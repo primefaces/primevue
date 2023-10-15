@@ -38,7 +38,8 @@ export default {
         <Button label="No" icon="pi pi-times" @click="visible = false" text />
         <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
     </template>
-</Dialog>`,
+</Dialog>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -64,7 +65,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -86,7 +88,8 @@ export default {
 import { ref } from "vue";
 
 const visible = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

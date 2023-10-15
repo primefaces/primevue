@@ -25,7 +25,8 @@ export default {
             ],
             code: {
                 basic: `
-<Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="w-full md:w-14rem" />`,
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="w-full md:w-14rem" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -48,7 +49,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -67,7 +69,8 @@ const cities = ref([
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

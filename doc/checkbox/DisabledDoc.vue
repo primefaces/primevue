@@ -16,6 +16,7 @@ export default {
             code: {
                 basic: `
 <Checkbox v-model="checked" disabled />
+
 `,
                 options: `
 <template>
@@ -33,6 +34,7 @@ export default {
     }
 };
 <\/script>
+
 `,
                 composition: `
 <template>

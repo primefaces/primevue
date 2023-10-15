@@ -17,7 +17,8 @@ export default {
             maxDate: null,
             code: {
                 basic: `
-<Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />`,
+<Calendar v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -51,7 +52,8 @@ export default {
         this.maxDate.setFullYear(nextYear);
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -78,7 +80,8 @@ minDate.value.setMonth(prevMonth);
 minDate.value.setFullYear(prevYear);
 maxDate.value.setMonth(nextMonth);
 maxDate.value.setFullYear(nextYear);
-<\/script>`
+<\/script>
+`
             }
         };
     },

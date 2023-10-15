@@ -39,7 +39,8 @@ export default {
         incrementButton: { class: 'bg-teal-500 border-teal-500' },
         decrementButton: { class: 'bg-orange-500 border-orange-500' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -68,7 +69,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -93,7 +95,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref(20);
-<\/script>`
+<\/script>
+`
             }
         };
     }

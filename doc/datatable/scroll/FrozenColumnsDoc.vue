@@ -51,7 +51,8 @@ export default {
             <span class="font-bold">{{ formatCurrency(data.balance) }}</span>
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -97,7 +98,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -137,7 +139,8 @@ const balanceFrozen = ref(false);
 const formatCurrency = (value) => {
     return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

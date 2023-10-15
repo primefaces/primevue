@@ -46,7 +46,8 @@ export default {
     <template #indicator="{ index }">
         <span style="color: '#ffffff', cursor: pointer">{{ index + 1 }}</span>
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -75,7 +76,8 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -100,7 +102,8 @@ onMounted(() => {
 });
 
 const images = ref();
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

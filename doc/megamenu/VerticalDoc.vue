@@ -130,7 +130,8 @@ export default {
             ],
             code: {
                 basic: `
-<MegaMenu :model="items" orientation="vertical" />`,
+<MegaMenu :model="items" orientation="vertical" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -261,7 +262,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -388,7 +390,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

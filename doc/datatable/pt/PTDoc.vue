@@ -101,7 +101,8 @@ export default {
             headerCell: { style: { width: '25%' } }
         }"
     />
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -165,7 +166,8 @@ export default {
         ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -226,7 +228,8 @@ onMounted(() => {
 
 const products = ref();
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

@@ -54,7 +54,8 @@ export default {
     </template>
 </Galleria>
 
-<Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />`,
+<Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -103,7 +104,8 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -148,7 +150,8 @@ const displayBasic = ref(false);
 onMounted(() => {
     PhotoService.getImages().then((data) => (images.value = data));
 })
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

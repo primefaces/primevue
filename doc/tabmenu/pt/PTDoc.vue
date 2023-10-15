@@ -48,7 +48,8 @@ export default {
             class: context.order === state.d_activeIndex ? 'bg-primary' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -92,7 +93,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -132,7 +134,8 @@ const items = ref([
         icon: 'pi pi-fw pi-cog'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

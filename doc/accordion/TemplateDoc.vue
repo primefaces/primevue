@@ -78,7 +78,8 @@ export default {
             officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
         </p>
     </AccordionTab>
-</Accordion>`,
+</Accordion>
+`,
                 options: `
 <template>
     <div class="card">
@@ -134,7 +135,8 @@ export default {
     line-height: 1.5;
     margin: 0;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card">

@@ -23,7 +23,8 @@ export default {
     <template v-slot:item="{ item, options }">
         <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="width: 50px; writing-mode: vertical-lr;">{{ item }}</div>
     </template>
-</VirtualScroller>`,
+</VirtualScroller>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -55,7 +56,8 @@ export default {
         flex-direction: row;
     }
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

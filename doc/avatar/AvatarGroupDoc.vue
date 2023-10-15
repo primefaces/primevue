@@ -28,7 +28,8 @@ export default {
     <Avatar image="/images/avatar/ionibowcher.png" size="large" shape="circle" />
     <Avatar image="/images/avatar/xuxuefeng.png" size="large" shape="circle" />
     <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
-</AvatarGroup>`,
+</AvatarGroup>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -45,7 +46,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -62,7 +64,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

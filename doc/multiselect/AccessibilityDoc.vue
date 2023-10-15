@@ -255,7 +255,8 @@ export default {
 <span id="dd1"></span>Options</span>
 <MultiSelect aria-labelledby="dd1" />
 
-<MultiSelect aria-label="Options" />`
+<MultiSelect aria-label="Options" />
+`
             }
         };
     }

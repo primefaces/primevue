@@ -52,7 +52,8 @@ export default {
     <div class="w-full md:w-5 flex align-items-center justify-content-center py-5">
         <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-10rem"></Button>
     </div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card">
@@ -80,7 +81,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -108,7 +110,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

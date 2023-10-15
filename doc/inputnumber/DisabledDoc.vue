@@ -15,7 +15,8 @@ export default {
             value: 50,
             code: {
                 basic: `
-<InputNumber v-model="value" disabled prefix="%" />`,
+<InputNumber v-model="value" disabled prefix="%" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -31,7 +32,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref(50);
-<\/script>`
+<\/script>
+`
             }
         };
     }

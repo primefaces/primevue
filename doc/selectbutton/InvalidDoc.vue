@@ -16,7 +16,8 @@ export default {
             options: ['Off', 'On'],
             code: {
                 basic: `
-<SelectButton v-model="value" :options="options" aria-labelledby="basic" class="p-invalid" />`,
+<SelectButton v-model="value" :options="options" aria-labelledby="basic" class="p-invalid" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -33,7 +34,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -46,7 +48,8 @@ import { ref } from 'vue';
 
 const value = ref('off');
 const options = ref(['Off', 'On']);
-<\/script>`
+<\/script>
+`
             }
         };
     }

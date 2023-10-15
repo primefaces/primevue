@@ -42,7 +42,8 @@ export default {
 <span id="lastname">Lastname</span>
 <InputText aria-labelledby="lastname" />
 
-<InputText aria-label="Age"/>`
+<InputText aria-label="Age"/>
+`
             }
         };
     }

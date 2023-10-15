@@ -29,7 +29,8 @@ export default {
     :pt="{
         image: { class: 'w-15rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -43,7 +44,8 @@ export default {
             }"
         />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

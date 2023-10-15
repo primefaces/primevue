@@ -31,7 +31,8 @@ export default {
             root: { class: 'bg-teal-500 border-teal-500' }
         }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -56,7 +57,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -77,7 +79,8 @@ export default {
 import { ref } from "vue";
 
 const date = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

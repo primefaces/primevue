@@ -28,7 +28,8 @@ export default {
 <Button label="Warning" severity="warning" text />
 <Button label="Help" severity="help" text />
 <Button label="Danger" severity="danger" text />
-<Button label="Plain" plain text />`,
+<Button label="Plain" plain text />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
@@ -44,7 +45,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
@@ -60,7 +62,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

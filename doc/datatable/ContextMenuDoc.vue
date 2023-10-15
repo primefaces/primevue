@@ -45,7 +45,8 @@ export default {
             {{ formatCurrency(slotProps.data.price) }}
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div>
@@ -100,6 +101,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

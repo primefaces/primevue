@@ -68,7 +68,8 @@ export default {
 <Sidebar v-model:visible="visibleBottom" position="bottom">
     <h2>Bottom Sidebar</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</Sidebar>`,
+</Sidebar>
+`,
                 options: `
 <template>
     <div class="card">
@@ -112,7 +113,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -152,7 +154,8 @@ const visibleLeft = ref(false);
 const visibleRight = ref(false);
 const visibleTop = ref(false);
 const visibleBottom = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

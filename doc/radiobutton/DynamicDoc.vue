@@ -30,6 +30,7 @@ export default {
     <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
     <label :for="category.key" class="ml-2">{{ category.name }}</label>
 </div>
+
 `,
                 options: `
 <template>
@@ -57,7 +58,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -80,7 +82,8 @@ const categories = ref([
     { name: 'Production', key: 'P' },
     { name: 'Research', key: 'R' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

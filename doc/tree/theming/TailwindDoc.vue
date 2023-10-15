@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     tree: {
         root: {
             class: ['max-w-[30rem] md:w-full', 'border border-solid border-gray-300 dark:border-blue-900/40 bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 p-5 rounded-md']
@@ -99,7 +100,8 @@ const nodes = ref(null);
 onMounted(() => {
     NodeService.getTreeNodes().then((data) => (nodes.value = data));
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

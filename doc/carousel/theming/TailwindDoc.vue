@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     carousel: {
         root: 'flex flex-col',
         content: 'flex flex-col overflow-auto',
@@ -136,7 +137,8 @@ const getSeverity = (status) => {
     }
 };
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

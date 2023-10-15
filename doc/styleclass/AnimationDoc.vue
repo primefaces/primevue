@@ -27,7 +27,8 @@ export default {
 <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" />
 <div class="hidden animation-duration-500 box">
     <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold shadow-2 w-8rem h-8rem">Content</div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center">
@@ -86,7 +87,8 @@ export default {
 .my-fadeout {
     animation: my-fadeout 150ms linear;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center">

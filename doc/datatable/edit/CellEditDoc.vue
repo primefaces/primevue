@@ -51,7 +51,8 @@ export default {
             </template>
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -134,7 +135,8 @@ export default {
     padding-top: 0;
     padding-bottom: 0;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">

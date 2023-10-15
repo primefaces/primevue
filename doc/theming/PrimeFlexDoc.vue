@@ -26,7 +26,8 @@ export default {
     <Button type="button" label="Button 1"></Button>
     <Button type="button" label="Button 2" severity="secondary"></Button>
     <Button type="button" label="Button 3" severity="help"></Button>
-</div>`
+</div>
+`
             }
         };
     }

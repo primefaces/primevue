@@ -28,7 +28,8 @@ export default {
             code: {
                 basic: `
 <Tree v-model:selectionKeys="selectedKey" :value="nodes" class="w-full md:w-30rem" 
-    selectionMode="multiple" :metaKeySelection="checked"></Tree>`,
+    selectionMode="multiple" :metaKeySelection="checked"></Tree>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center justify-content-center">
@@ -55,7 +56,8 @@ export default {
         NodeService.getTreeNodes().then((data) => (this.nodes = data));
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center justify-content-center">
@@ -78,7 +80,8 @@ const checked = ref(false);
 onMounted(() => {
     NodeService.getTreeNodes().then((data) => (nodes.value = data));
 });
-<\/script>`
+<\/script>
+`
             }
         };
     },

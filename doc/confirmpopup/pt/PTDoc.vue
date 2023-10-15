@@ -23,7 +23,8 @@ export default {
     :pt="{
         root: { class: 'surface-100' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <ConfirmPopup
@@ -57,7 +58,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <ConfirmPopup
@@ -93,7 +95,8 @@ const confirm = (event) => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

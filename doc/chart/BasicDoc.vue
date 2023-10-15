@@ -22,7 +22,8 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="bar" :data="chartData" :options="chartOptions" />`,
+<Chart type="bar" :data="chartData" :options="chartOptions" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -94,7 +95,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -162,7 +164,8 @@ const setChartOptions = () => {
         }
     };
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

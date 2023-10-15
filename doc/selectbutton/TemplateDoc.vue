@@ -29,7 +29,8 @@ export default {
     <template #option="slotProps">
         <i :class="slotProps.option.icon"></i>
     </template>
-</SelectButton>`,
+</SelectButton>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -55,7 +56,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -77,7 +79,8 @@ const options = ref([
                 { icon: 'pi pi-align-center', value: 'Center' },
                 { icon: 'pi pi-align-justify', value: 'Justify' }
             ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

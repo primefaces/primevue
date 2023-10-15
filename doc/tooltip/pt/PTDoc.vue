@@ -30,7 +30,8 @@ export default {
     }"
     type="text"
     placeholder="PassThrough Tooltip"
-/>`,
+/>
+`,
                 options: `<div class="card flex flex-wrap justify-content-center gap-2">
     <InputText
         v-tooltip.right="{
@@ -42,7 +43,8 @@ export default {
         type="text"
         placeholder="PassThrough Tooltip"
     />
-</div>`,
+</div>
+`,
                 composition: `
                 <div class="card flex flex-wrap justify-content-center gap-2">
     <InputText

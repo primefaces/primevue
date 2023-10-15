@@ -17,7 +17,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     speeddial: {
         root: 'absolute flex',
         button: {
@@ -195,7 +196,8 @@ const items = ref([
         }
     }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

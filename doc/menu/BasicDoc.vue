@@ -18,7 +18,8 @@ export default {
             ],
             code: {
                 basic: `
-<Menu :model="items" />`,
+<Menu :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -37,7 +38,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -52,7 +54,8 @@ const items = ref([
     { label: 'New', icon: 'pi pi-fw pi-plus' },
     { label: 'Delete', icon: 'pi pi-fw pi-trash' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

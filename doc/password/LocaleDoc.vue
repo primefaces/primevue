@@ -18,7 +18,8 @@ export default {
             value: null,
             code: {
                 basic: `
-<Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />`,
+<Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+`,
                 options: `
 <template>
   <div class="card flex justify-content-center">
@@ -34,7 +35,8 @@ export default {
       }
   }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
   <div class="card flex justify-content-center">
@@ -46,7 +48,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

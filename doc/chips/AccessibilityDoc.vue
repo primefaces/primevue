@@ -78,7 +78,8 @@ export default {
 <span id="chips2">Tags</span>
 <Chips aria-labelledby="chips2" />
 
-<Chips aria-label="Tags" />`
+<Chips aria-label="Tags" />
+`
             }
         };
     }

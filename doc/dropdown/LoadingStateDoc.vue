@@ -14,7 +14,8 @@ export default {
         return {
             code: {
                 basic: `
-<Dropdown placeholder="Loading..." loading class="w-full md:w-14rem"></Dropdown>`,
+<Dropdown placeholder="Loading..." loading class="w-full md:w-14rem"></Dropdown>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -23,7 +24,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -32,7 +34,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

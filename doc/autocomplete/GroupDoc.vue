@@ -65,7 +65,8 @@ export default {
             <div>{{ slotProps.item.label }}</div>
         </div>
     </template>
-</AutoComplete>`,
+</AutoComplete>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -140,7 +141,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -209,7 +211,8 @@ const search = (event) => {
     filteredCities.value = newFilteredCities;
 
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

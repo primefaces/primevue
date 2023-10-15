@@ -78,7 +78,8 @@ export default {
             <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
         </div>
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -257,7 +258,8 @@ export default {
         }
     }
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card">

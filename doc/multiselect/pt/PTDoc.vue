@@ -44,7 +44,8 @@ export default {
             class: context.selected ? 'bg-blue-300' : context.focused ? 'bg-blue-100' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -79,7 +80,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -110,7 +112,8 @@ const cities = ref([
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

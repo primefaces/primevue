@@ -55,7 +55,8 @@ export default {
         </p>
     </TabPanel>
     <TabPanel header="Header IV" :disabled="true"></TabPanel>
-</TabView>`,
+</TabView>
+`,
                 options: `
 <template>
     <div class="card">
@@ -84,7 +85,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -113,7 +115,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

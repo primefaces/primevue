@@ -13,7 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `@layer tailwind-base, primevue, tailwind-utilities;
+                basic: `
+@layer tailwind-base, primevue, tailwind-utilities;
 
 @layer tailwind-base {
   @tailwind base;
@@ -22,7 +23,8 @@ export default {
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
-}`
+}
+`
             }
         };
     }

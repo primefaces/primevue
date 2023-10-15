@@ -36,7 +36,8 @@ export default {
 <InputNumber v-model="value1" inputId="integeronly" />
 <InputNumber v-model="value2" inputId="withoutgrouping" :useGrouping="false" />
 <InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" />
-<InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" />`,
+<InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -70,7 +71,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -100,7 +102,8 @@ const value1 = ref(42723);
 const value2 = ref(58151);
 const value3 = ref(2351.35);
 const value4 = ref(50);
-<\/script>`
+<\/script>
+`
             }
         };
     }

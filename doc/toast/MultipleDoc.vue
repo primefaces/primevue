@@ -16,6 +16,7 @@ export default {
                 basic: `
 <Toast />
 <Button label="Multiple" severity="warning" @click="showMultiple()" />
+
 `,
                 options: `
 <template>
@@ -36,7 +37,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -55,7 +57,8 @@ const showMultiple = () => {
     toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
     toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

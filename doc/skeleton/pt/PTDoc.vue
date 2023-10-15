@@ -16,7 +16,8 @@ export default {
     :pt="{
         root: { class: 'w-3rem h-3rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <Skeleton
@@ -24,7 +25,8 @@ export default {
             root: { class: 'w-3rem h-3rem' }
         }"
     />
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <Skeleton

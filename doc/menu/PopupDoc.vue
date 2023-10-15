@@ -38,7 +38,8 @@ export default {
                 basic: `
 <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-<Toast />`,
+<Toast />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -84,7 +85,8 @@ export default {
         }
     },
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -129,7 +131,8 @@ const toggle = (event) => {
 const save = () => {
     toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

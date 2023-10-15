@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     treetable: {
         root: ({ props }) => ({
             class: [
@@ -192,7 +193,8 @@ onMounted(() => {
 });
 
 const nodes = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

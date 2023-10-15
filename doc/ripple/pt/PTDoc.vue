@@ -30,7 +30,8 @@ export default {
     class="p-ripple bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-6 font-bold"
 >
     Default
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card card-container flex justify-content-center align-items-center">
@@ -48,7 +49,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card card-container flex justify-content-center align-items-center">
@@ -66,7 +68,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

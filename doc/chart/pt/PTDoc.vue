@@ -38,7 +38,8 @@ export default {
     :pt="{
         root: { class: 'w-full md:w-30rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -89,7 +90,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -136,7 +138,8 @@ const setChartData = () => {
         ]
     };
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

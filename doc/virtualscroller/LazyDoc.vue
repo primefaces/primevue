@@ -28,7 +28,8 @@ export default {
     <template v-slot:item="{ item, options }">
         <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
-</VirtualScroller>`,
+</VirtualScroller>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -76,7 +77,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -115,7 +117,8 @@ const onLazyLoad = (event) => {
 
     }, Math.random() * 1000 + 250);
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

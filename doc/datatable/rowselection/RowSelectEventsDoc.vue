@@ -31,7 +31,8 @@ export default {
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -68,7 +69,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -102,7 +104,8 @@ const onRowUnselect = (event) => {
     toast.add({ severity: 'warn', summary: 'Product Unselected', detail: 'Name: ' + event.data.name, life: 3000 });
 }
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

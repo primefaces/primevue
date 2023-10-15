@@ -16,7 +16,8 @@ export default {
 
 <!-- can be written as -->
 
-<Dialog :show-header="false"></Dialog>`
+<Dialog :show-header="false"></Dialog>
+`
             }
         };
     }

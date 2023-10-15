@@ -39,7 +39,8 @@ export default {
             code: {
                 basic: `
 <Button @click="active = 0" text outlined label="Activate 1st" />
-<TabMenu v-model:activeIndex="active" :model="items" />`,
+<TabMenu v-model:activeIndex="active" :model="items" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -78,7 +79,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -113,7 +115,8 @@ const items = ref([
         icon: 'pi pi-fw pi-cog'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

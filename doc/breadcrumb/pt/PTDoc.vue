@@ -33,7 +33,8 @@ export default {
             class: props.index === items.length - 1 ? 'font-italic' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -66,7 +67,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -96,7 +98,8 @@ const items = ref([
     {label: 'Backpacks'},
     {label: 'Item'}
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -36,7 +36,8 @@ export default {
 <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" />
 <InputNumber v-model="value2" inputId="currency-germany" mode="currency" currency="EUR" locale="de-DE" />
 <InputNumber v-model="value3" inputId="currency-india" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN" />
-<InputNumber v-model="value4" inputId="currency-japan" mode="currency" currency="JPY" locale="jp-JP" />`,
+<InputNumber v-model="value4" inputId="currency-japan" mode="currency" currency="JPY" locale="jp-JP" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -70,7 +71,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -100,7 +102,8 @@ const value1 = ref(1500);
 const value2 = ref(2500);
 const value3 = ref(4250);
 const value4 = ref(5002);
-<\/script>`
+<\/script>
+`
             }
         };
     }

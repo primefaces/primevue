@@ -27,8 +27,10 @@ app.use(DialogService);
 import { useDialog } from 'primevue/usedialog';
 
 const dialog = useDialog();
+
 `,
-                options: `const dialogRef = this.$dialog;`,
+                options: `const dialogRef = this.$dialog;
+`,
                 composition: `
 import { useDialog } from 'primevue/usedialog';
 

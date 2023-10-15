@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     tabmenu: {
         root: 'overflow-x-auto',
         menu: {
@@ -79,7 +80,8 @@ const items = ref([
     }
 ]);
 
-<\/script>`,
+<\/script>
+`,
                 pages: [
                     {
                         tabName: 'HomeDemo',
@@ -158,7 +160,8 @@ export default {
 export default {
 
 }
-<\/script>`
+<\/script>
+`
                     }
                 ]
             }

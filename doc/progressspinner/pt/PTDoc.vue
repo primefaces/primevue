@@ -22,7 +22,8 @@ export default {
         spinner: { style: { animationDuration: '0s' } },
         circle: { style: { stroke: '#F59E0B', strokeWidth: 3, animation: 'none' } }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -36,7 +37,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +52,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -28,7 +28,8 @@ export default {
 <div class="p-float-label">
     <Dropdown v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
     <label for="dd-city">Select a City</label>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -54,7 +55,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -76,7 +78,8 @@ const cities = ref([
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

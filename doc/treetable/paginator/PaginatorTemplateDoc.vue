@@ -47,7 +47,8 @@ export default {
     <template #paginatorend>
         <Button type="button" icon="pi pi-download" text />
     </template>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -103,7 +104,8 @@ export default {
         this.nodes = files;
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -154,7 +156,8 @@ for (let i = 0; i < 50; i++) {
 
 nodes.value = files;
     
-<\/script>`
+<\/script>
+`
             }
         };
     },

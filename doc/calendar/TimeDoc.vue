@@ -30,7 +30,8 @@ export default {
                 basic: `
 <Calendar id="calendar-12h" v-model="datetime12h" showTime hourFormat="12" />
 <Calendar id="calendar-24h" v-model="datetime24h" showTime hourFormat="24" />
-<Calendar id="calendar-timeonly" v-model="time" timeOnly />`,
+<Calendar id="calendar-timeonly" v-model="time" timeOnly />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -59,7 +60,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -84,7 +86,8 @@ import { ref } from "vue";
 const datetime12h = ref();
 const datetime24h = ref();
 const time = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

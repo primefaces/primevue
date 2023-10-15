@@ -29,7 +29,8 @@ export default {
             cols: 30
         }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -53,7 +54,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -73,7 +75,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

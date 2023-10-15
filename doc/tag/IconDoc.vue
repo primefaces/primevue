@@ -22,7 +22,8 @@ export default {
 <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
 <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
 <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
-<Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>`,
+<Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -36,7 +37,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -50,7 +52,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

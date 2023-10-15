@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     editor: {
         toolbar: {
             class: ['bg-gray-100 rounded-tr-md rounded-tl-md', 'border border-gray-300 box-border font-sans px-2 py-1']
@@ -42,7 +43,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

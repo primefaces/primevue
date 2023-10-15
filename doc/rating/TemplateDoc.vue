@@ -35,7 +35,8 @@ export default {
     <template #officon>
         <img src="/images/rating/custom-officon.png" height="24" width="24" />
     </template>
-</Rating>`,
+</Rating>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -61,7 +62,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -83,7 +85,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

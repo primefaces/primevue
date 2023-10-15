@@ -19,7 +19,8 @@ export default {
                 basic: `
 <Toast />
 <Button @click="showSticky" label="Sticky" />
-<Button label="Clear" @click="clear()" />`,
+<Button label="Clear" @click="clear()" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -42,7 +43,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -65,7 +67,8 @@ const showSticky = () => {
 const clear = () => {
     toast.removeAllGroups();
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

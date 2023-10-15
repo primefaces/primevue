@@ -25,7 +25,8 @@ export default {
         content: { style: { height: '320px' } },
         toolbar: { class: 'surface-ground' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -47,7 +48,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -65,7 +67,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -37,7 +37,8 @@ export default {
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div>
@@ -74,6 +75,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

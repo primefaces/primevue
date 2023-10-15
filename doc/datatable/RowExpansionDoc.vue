@@ -136,7 +136,8 @@ export default {
             </DataTable>
         </div>
     </template>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -265,7 +266,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -392,7 +394,8 @@ const getOrderSeverity = (order) => {
     }
 };
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

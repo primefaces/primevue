@@ -35,7 +35,8 @@ export default {
             <div>{{ slotProps.option.name }}</div>
         </div>
     </template>
-</AutoComplete>`,
+</AutoComplete>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -78,7 +79,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -117,7 +119,8 @@ const search = (event) => {
         }
     }, 250);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

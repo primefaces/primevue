@@ -17,7 +17,8 @@ export default {
                 basic: `
 <Panel header="Header" :pt="panelPT">
     Content
-</Panel>`,
+</Panel>
+`,
                 options: `
 <template>
     <Panel header="Header" :pt="panelPT">
@@ -42,7 +43,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Panel header="Header" :pt="panelPT">
@@ -63,7 +65,8 @@ const panelPt = ref({
         }
     }
 );
-<\/script>`
+<\/script>
+`
             }
         };
     }

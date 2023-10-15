@@ -46,7 +46,8 @@ export default {
 <div class="flex-auto">
     <label for="serial">Serial</label>
     <InputMask id="serial" v-model="value3" mask="a*-999-a999" placeholder="a*-999-a999" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card p-fluid flex flex-wrap gap-3">
@@ -78,7 +79,8 @@ export default {
     }
 }
 <\/script>
-        `,
+        
+`,
                 composition: `
 <template>
     <div class="card p-fluid flex flex-wrap gap-3">
@@ -105,7 +107,8 @@ import { ref } from 'vue';
 const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

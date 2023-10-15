@@ -21,7 +21,8 @@ export default {
 <span class="p-float-label">
     <Textarea v-model="value" rows="5" cols="30" />
     <label>Username</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -40,7 +41,8 @@ export default {
       }
   }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -55,7 +57,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

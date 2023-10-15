@@ -45,7 +45,8 @@ export default {
 <InputNumber v-model="value2" inputId="minmax-buttons" mode="decimal" showButtons :min="0" :max="100" />
 <InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25"
     decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
-    mode="currency" currency="EUR" />`,
+    mode="currency" currency="EUR" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -77,7 +78,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
@@ -105,7 +107,8 @@ import { ref } from "vue";
 const value1 = ref(20);
 const value2 = ref(25);
 const value3 = ref(10.5);
-<\/script>`
+<\/script>
+`
             }
         };
     }

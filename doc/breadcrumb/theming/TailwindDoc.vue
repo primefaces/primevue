@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     breadcrumb: {
         root: {
             class: ['overflow-x-auto', 'bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 rounded-md p-4']
@@ -58,7 +59,8 @@ const items = ref([
     {label: 'Backpacks'},
     {label: 'Item'}
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

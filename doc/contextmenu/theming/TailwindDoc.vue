@@ -70,7 +70,8 @@ const onImageRightClick = (event) => {
     menu.value.show(event);
 };
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

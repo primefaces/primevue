@@ -73,7 +73,8 @@ export default {
             <span class="font-bold text-900">$ {{ slotProps.item.price }}</span>
         </div>
     </template>
-</PickList>`,
+</PickList>
+`,
                 options: `
 <template>
     <div class="card">
@@ -122,7 +123,8 @@ export default {
         ProductService.getProductsSmall().then((data) => (this.products = [data, []]));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -168,7 +170,8 @@ const products = ref(null);
 onMounted(() => {
     ProductService.getProductsSmall().then((data) => (products.value = [data, []]));
 });
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* ProductService */
 {

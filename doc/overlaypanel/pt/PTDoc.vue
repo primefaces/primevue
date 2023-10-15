@@ -24,7 +24,8 @@ export default {
     }"
 >
     <img src="https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg" alt="Bamboo Watch" />
-</OverlayPanel>`,
+</OverlayPanel>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -48,7 +49,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -71,7 +73,8 @@ const op = ref();
 const toggle = (event) => {
     op.value.toggle(event);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

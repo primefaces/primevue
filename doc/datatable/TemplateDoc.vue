@@ -77,7 +77,8 @@ export default {
         </template>
     </Column>
     <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -148,7 +149,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -214,7 +216,8 @@ const getSeverity = (product) => {
     }
 };
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

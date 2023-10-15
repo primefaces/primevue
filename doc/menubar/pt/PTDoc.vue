@@ -149,7 +149,8 @@ export default {
             class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card relative z-2">
@@ -294,7 +295,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card relative z-2">
@@ -435,7 +437,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

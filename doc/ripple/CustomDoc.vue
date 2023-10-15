@@ -18,7 +18,8 @@ export default {
                 basic: `
 <div v-ripple class="p-ripple box styled-box-green shadow-2">Green</div>
 <div v-ripple class="p-ripple box styled-box-orange shadow-2">Orange</div>
-<div v-ripple class="p-ripple box styled-box-purple shadow-2">Purple</div>`,
+<div v-ripple class="p-ripple box styled-box-purple shadow-2">Purple</div>
+`,
                 options: `
 <template>
     <div class="flex justify-content-center align-items-center">
@@ -47,7 +48,8 @@ export default {
     width: 110px;
     text-align: center;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="flex justify-content-center align-items-center">

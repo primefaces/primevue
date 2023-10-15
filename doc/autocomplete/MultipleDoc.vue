@@ -16,7 +16,8 @@ export default {
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />`,
+<AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -38,7 +39,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">
@@ -55,7 +57,8 @@ const items = ref([]);
 const search = (event) => {
     items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

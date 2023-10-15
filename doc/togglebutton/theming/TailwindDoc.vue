@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     togglebutton: {
         root: ({ props, context }) => ({
             class: [
@@ -59,7 +60,8 @@ export default {
 import { ref } from 'vue';
 
 const checked = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

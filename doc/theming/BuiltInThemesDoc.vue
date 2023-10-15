@@ -13,7 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `primevue/resources/themes/bootstrap4-light-blue/theme.css
+                basic: `
+primevue/resources/themes/bootstrap4-light-blue/theme.css
 primevue/resources/themes/bootstrap4-light-purple/theme.css
 primevue/resources/themes/bootstrap4-dark-blue/theme.css
 primevue/resources/themes/bootstrap4-dark-purple/theme.css
@@ -51,7 +52,8 @@ primevue/resources/themes/vela-purple/theme.css
 primevue/resources/themes/arya-blue/theme.css
 primevue/resources/themes/arya-green/theme.css
 primevue/resources/themes/arya-orange/theme.css
-primevue/resources/themes/arya-purple/theme.css`
+primevue/resources/themes/arya-purple/theme.css
+`
             }
         };
     }

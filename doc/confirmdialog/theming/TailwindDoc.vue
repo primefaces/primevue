@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     dialog: {
         root: ({ state }) => ({
             class: [
@@ -146,7 +147,8 @@ const confirm2 = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

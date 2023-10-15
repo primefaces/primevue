@@ -68,7 +68,8 @@ export default {
             <span v-bind="props.label">{{ label }}</span>
         </span>
     </template>
-</Steps>`,
+</Steps>
+`,
                 options: `
 <template>
     <div>        
@@ -126,7 +127,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div>
@@ -183,7 +185,8 @@ const items = ref([
 const isActive = (item) => {
     return item.route ? router.resolve(item.route).path === route.path : false;
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

@@ -25,7 +25,8 @@ export default {
     :pt="{
         colorHandler: { class: 'w-1rem h-1rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -47,7 +48,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -65,7 +67,8 @@ export default {
 import { ref } from "vue";
 
 const color = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

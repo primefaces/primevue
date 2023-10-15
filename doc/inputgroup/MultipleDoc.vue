@@ -34,7 +34,8 @@ export default {
     <InputNumber placeholder="Price" />
     <span class="p-inputgroup-addon">$</span>
     <span class="p-inputgroup-addon">.00</span>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +51,8 @@ export default {
             <span class="p-inputgroup-addon">.00</span>
         </div>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

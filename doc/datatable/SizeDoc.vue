@@ -37,7 +37,8 @@ export default {
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -72,7 +73,8 @@ export default {
         ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -104,7 +106,8 @@ const sizeOptions = ref([
     { label: 'Large', value: 'large', class: 'lg' }
 ]);
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

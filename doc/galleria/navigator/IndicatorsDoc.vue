@@ -46,7 +46,8 @@ export default {
     <template #thumbnail="slotProps">
             <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -89,7 +90,8 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -128,7 +130,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

@@ -20,7 +20,8 @@ export default {
             code: {
                 basic: `
 <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />`,
+    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -38,7 +39,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -52,7 +54,8 @@ import { ref } from "vue";
 
 const selectedItem = ref();
 const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
-<\/script>`
+<\/script>
+`
             }
         };
     }

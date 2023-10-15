@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     dialog: {
         root: ({ state }) => ({
             class: [
@@ -148,7 +149,8 @@ const showProducts = () => {
         }
     });
 }
-<\/script>`
+<\/script>
+`
             },
             extFiles: {
                 options: {
@@ -211,7 +213,8 @@ export default {
         }
     }
 }
-<\/script>`
+<\/script>
+`
                     },
                     'src/components/InfoDemo.vue': {
                         content: `
@@ -260,7 +263,8 @@ export default {
         }
     }
 };
-<\/script>`
+<\/script>
+`
                     }
                 },
                 composition: {
@@ -323,7 +327,8 @@ const showInfo = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
                     },
                     'src/components/InfoDemo.vue': {
                         content: `
@@ -367,7 +372,8 @@ const dialogRef = inject("dialogRef");
 const closeDialog = (e) => {
     dialogRef.value.close(e);
 };
-<\/script>`
+<\/script>
+`
                     }
                 }
             }

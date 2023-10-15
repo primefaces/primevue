@@ -16,7 +16,8 @@ export default {
         return {
             code: {
                 basic: `
-<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />`
+<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
+`
             }
         };
     }

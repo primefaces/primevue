@@ -42,7 +42,8 @@ export default {
     :pt="{
         root: { class: 'w-30rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div>        
@@ -83,7 +84,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div>
@@ -120,7 +122,8 @@ const items = ref([
         to: "/confirmation",
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

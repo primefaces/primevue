@@ -20,7 +20,8 @@ export default {
 <Chip label="Apple" icon="pi pi-apple" />
 <Chip label="Facebook" icon="pi pi-facebook" />
 <Chip label="Google" icon="pi pi-google" />
-<Chip label="Microsoft" icon="pi pi-microsoft" removable />`,
+<Chip label="Microsoft" icon="pi pi-microsoft" removable />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-2">
@@ -32,7 +33,8 @@ export default {
 </template>
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-2">
@@ -44,7 +46,8 @@ export default {
 </template>
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

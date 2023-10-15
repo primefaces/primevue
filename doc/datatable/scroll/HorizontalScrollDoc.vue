@@ -45,7 +45,8 @@ export default {
     <Column field="status" header="Status" footer="Status" style="min-width: 200px"></Column>
     <Column field="activity" header="Activity" footer="Activity" style="min-width: 200px"></Column>
     <Column field="representative.name" header="Representative" footer="Representative" style="min-width: 200px"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -87,7 +88,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -124,7 +126,8 @@ onMounted(() => {
 const formatCurrency = (value) => {
     return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

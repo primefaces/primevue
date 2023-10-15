@@ -42,7 +42,8 @@ export default {
     <template #footer>
         <Button label="Ok" icon="pi pi-check" @click="dialogVisible = false" />
     </template>
-</Dialog>`,
+</Dialog>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -74,7 +75,8 @@ export default {
         NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -103,7 +105,8 @@ onMounted(() => {
 const nodes = ref();
 const dialogVisible = ref(false);
 
-<\/script>`
+<\/script>
+`
             }
         };
     },

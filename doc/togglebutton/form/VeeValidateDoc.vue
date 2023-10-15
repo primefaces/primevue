@@ -49,7 +49,8 @@ export default {
         <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Submit" />
     </form>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -90,7 +91,8 @@ export default {
         return { value, handleSubmit, onSubmit, errorMessage };
     },
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -125,7 +127,8 @@ const onSubmit = handleSubmit((values) => {
         resetForm();
     }
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

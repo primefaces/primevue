@@ -43,7 +43,8 @@ export default {
         </div>
     </template>
 </Toast>
-<Button @click="showTemplate" label="Confirm" />`,
+<Button @click="showTemplate" label="Confirm" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -92,7 +93,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -140,7 +142,8 @@ const onReject = () => {
 const onClose = () => {
     visible.value = false;
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

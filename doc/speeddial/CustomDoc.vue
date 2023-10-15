@@ -54,7 +54,8 @@ export default {
             code: {
                 basic: `
 <Toast />
-<SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />`,
+<SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -109,7 +110,8 @@ export default {
       }
   }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -165,7 +167,8 @@ const items = ref([
       }
   }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

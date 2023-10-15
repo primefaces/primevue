@@ -23,7 +23,8 @@ export default {
 <Message severity="success" sticky>Success Message Content</Message>
 <Message severity="info" sticky>Info Message Content</Message>
 <Message severity="warn" sticky>Warning Message Content</Message>
-<Message severity="error" sticky>Error Message Content</Message>`,
+<Message severity="error" sticky>Error Message Content</Message>
+`,
                 options: `
 <template>
     <div class="card">
@@ -35,7 +36,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -47,7 +49,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

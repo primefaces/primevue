@@ -36,7 +36,8 @@ export default {
     </template>
     <Column field="code" header="Code" />
     <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div>
@@ -82,6 +83,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

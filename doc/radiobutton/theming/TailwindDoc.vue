@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     radiobutton: {
         root: {
             class: ['relative inline-flex cursor-pointer select-none align-bottom', 'w-6 h-6']
@@ -77,7 +78,8 @@ export default {
 import { ref } from 'vue';
 
 const ingredient = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

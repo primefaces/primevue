@@ -21,7 +21,8 @@ export default {
             code: {
                 basic: `
 <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
-    :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />`,
+    :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -56,7 +57,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -85,7 +87,8 @@ const searchItems = (event) => {
 
     filteredItems.value = _filteredItems;
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

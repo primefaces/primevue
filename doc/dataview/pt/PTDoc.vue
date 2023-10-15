@@ -148,7 +148,8 @@ export default {
             </div>
         </div>
     </template>
-</DataView>`,
+</DataView>
+`,
                 options: `
 <template>
     <div class="card">
@@ -253,7 +254,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -354,7 +356,8 @@ const getSeverity = (product) => {
     }
 }
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* ProductService */        
 {

@@ -166,7 +166,8 @@ export default {
             <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
         </a>
     </template>
-</MegaMenu>`,
+</MegaMenu>
+`,
                 options: `
 <template>
     <div class="card">
@@ -316,7 +317,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -462,7 +464,8 @@ const items = ref([
         route: '/fileupload'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

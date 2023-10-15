@@ -65,7 +65,8 @@ export default {
     <template #thumbnail="slotProps">
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -122,7 +123,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -174,7 +176,8 @@ const imageClick = (index) => {
     activeIndex.value = index;
     displayCustom.value = true;
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

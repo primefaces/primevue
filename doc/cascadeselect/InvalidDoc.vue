@@ -90,7 +90,8 @@ export default {
             code: {
                 basic: `
 <CascadeSelect v-model="selectedCity" class="p-invalid" :options="countries" optionLabel="cname" optionGroupLabel="name"
-    :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />`,
+    :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -181,7 +182,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -268,7 +270,8 @@ const countries = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

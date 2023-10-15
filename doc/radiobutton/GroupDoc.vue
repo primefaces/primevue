@@ -49,7 +49,8 @@ export default {
         <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
         <label for="ingredient4" class="ml-2">Onion</label>
     </div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -82,7 +83,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -111,7 +113,8 @@ export default {
 import { ref } from 'vue';
 
 const ingredient = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

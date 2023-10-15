@@ -26,7 +26,8 @@ export default {
         <span class="text-base">Italia</span>
         <i class="pi pi-times text-xs"></i>
     </div>
-</Tag>`,
+</Tag>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -42,7 +43,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +60,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

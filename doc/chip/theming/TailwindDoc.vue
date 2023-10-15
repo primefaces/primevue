@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     chip: {
         root: {
             class: ['inline-flex items-center', 'bg-gray-200 text-gray-800 rounded-[16px] px-3 dark:text-white/80 dark:bg-gray-900']
@@ -44,7 +45,8 @@ export default {
 </template>
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

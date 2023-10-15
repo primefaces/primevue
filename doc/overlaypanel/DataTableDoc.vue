@@ -73,7 +73,8 @@ export default {
             </template>
         </Column>
     </DataTable>
-</OverlayPanel>`,
+</OverlayPanel>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -134,7 +135,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -194,7 +196,8 @@ const onProductSelect = (event) => {
     op.value.hide();
     toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 });
 }
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* ProductService */
 {

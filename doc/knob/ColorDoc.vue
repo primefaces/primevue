@@ -18,7 +18,8 @@ export default {
             value: 50,
             code: {
                 basic: `
-<Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />`,
+<Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
+`,
                 options: `
 <template>
   <div class="card flex justify-content-center">
@@ -34,7 +35,8 @@ export default {
       }
   }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
   <div class="card flex justify-content-center">
@@ -46,7 +48,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(50);
-<\/script>`
+<\/script>
+`
             }
         };
     }

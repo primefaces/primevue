@@ -19,7 +19,8 @@ export default {
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" :suggestions="items" @complete="search" forceSelection />`,
+<AutoComplete v-model="value" :suggestions="items" @complete="search" forceSelection />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -41,7 +42,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +60,8 @@ const items = ref([]);
 const search = (event) => {
     items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

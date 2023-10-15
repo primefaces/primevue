@@ -40,7 +40,8 @@ export default {
     </Column>
     <Column field="category" header="Category" sortable style="width: 20%"></Column>
     <Column field="quantity" header="Quantity" sortable style="width: 20%"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -76,7 +77,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -107,7 +109,8 @@ const formatCurrency = (value) => {
     return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
 }
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

@@ -54,6 +54,7 @@ export default {
         <Toast />
     </div>
 </template>
+
 `,
                 options: `
 <template>
@@ -96,6 +97,7 @@ export default {
     }
 };
 <\/script>
+
 `,
                 composition: `
 <template>

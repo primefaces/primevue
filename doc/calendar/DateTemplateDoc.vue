@@ -25,7 +25,8 @@ export default {
         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
         <template v-else>{{ slotProps.date.day }}</template>
     </template>
-</Calendar>`,
+</Calendar>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -46,7 +47,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -63,7 +65,8 @@ export default {
 import { ref } from "vue";
 
 const date = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

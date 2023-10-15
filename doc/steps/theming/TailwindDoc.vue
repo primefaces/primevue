@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     steps: {
         root: 'relative',
         menu: 'p-0 m-0 list-none flex',
@@ -70,7 +71,8 @@ const items = ref([
         to: "/confirmation",
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -39,7 +39,8 @@ export default {
 <span id="phone">Phone</span>
 <InputMask aria-labelledby="phone" />
 
-<InputMask aria-label="Age" />`
+<InputMask aria-label="Age" />
+`
             }
         };
     }

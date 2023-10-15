@@ -20,7 +20,8 @@ export default {
 <Splitter style="height: 300px" class="mb-5">
     <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
     <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
-</Splitter>`,
+</Splitter>
+`,
                 options: `
 <template>
     <div class="card">
@@ -32,7 +33,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -44,7 +46,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

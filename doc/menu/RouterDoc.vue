@@ -80,7 +80,8 @@ export default {
             <span v-bind="props.label">{{ label }}</span>
         </a>
     </template>
-</Menu>`,
+</Menu>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -147,7 +148,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -210,7 +212,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

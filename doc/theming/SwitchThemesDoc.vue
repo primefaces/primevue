@@ -28,13 +28,13 @@ export default {
             code1: {
                 basic: `
 primevue.changeTheme(currentTheme: string, newTheme: string, linkElementId: string, callback: Function)
-        `
+`
             },
             code2: {
                 basic: `
 // Options API
 this.$primevue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
-        `
+`
             },
             code3: {
                 basic: `
@@ -43,18 +43,17 @@ import { usePrimeVue } from 'primevue/config';
 
 const PrimeVue = usePrimeVue();
 PrimeVue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
-        `
+`
             },
             code4: {
-                basic: `<link id="theme-link" rel="stylesheet" href="/themes/lara-light-teal/theme.css">`
+                basic: `
+<link id="theme-link" rel="stylesheet" href="/themes/lara-light-teal/theme.css">
+`
             },
             code5: {
                 basic: `
-const baseUrl = '/';
-
 export default defineNuxtConfig({
     app: {
-        baseURL: baseUrl,
         head: {
             link: [
                 {
@@ -62,8 +61,11 @@ export default defineNuxtConfig({
                     rel: 'stylesheet',
                     href: baseUrl + 'themes/lara-light-teal/theme.css'
                 }
-            ],
-                `
+            ]
+        }
+    }
+});
+`
             }
         };
     }

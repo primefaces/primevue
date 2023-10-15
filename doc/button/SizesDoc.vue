@@ -18,7 +18,8 @@ export default {
                 basic: `
 <Button label="Small" icon="pi pi-check" size="small" />
 <Button label="Normal" icon="pi pi-check" />
-<Button label="Large" icon="pi pi-check" size="large" />`,
+<Button label="Large" icon="pi pi-check" size="large" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
@@ -29,7 +30,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
@@ -40,7 +42,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

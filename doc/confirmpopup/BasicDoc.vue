@@ -20,7 +20,8 @@ export default {
 <div class="card flex flex-wrap gap-2 justify-content-center">
     <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
     <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <Toast />
@@ -63,7 +64,8 @@ export default {
         },
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Toast />
@@ -109,7 +111,8 @@ const confirm2 = (event) => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

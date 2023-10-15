@@ -56,7 +56,8 @@ export default {
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
     <div class="card">
@@ -111,7 +112,8 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -164,7 +166,8 @@ const positionOptions = ref([
     }
 ]);
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

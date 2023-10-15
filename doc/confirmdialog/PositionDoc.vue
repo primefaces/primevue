@@ -42,7 +42,8 @@ export default {
     <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="success" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <Toast />
@@ -85,7 +86,8 @@ export default {
         },
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Toast />
@@ -130,7 +132,8 @@ const confirmPosition = (position) => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

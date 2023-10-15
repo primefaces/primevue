@@ -21,7 +21,8 @@ export default {
 <span class="p-float-label">
     <Chips id="chips" v-model="value" />
     <label for="chips">Chips</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -40,7 +41,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">
@@ -55,7 +57,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

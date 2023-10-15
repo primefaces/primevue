@@ -177,7 +177,8 @@ export default {
     <template #end>
         <InputText placeholder="Search" type="text" />
     </template>
-</MegaMenu>`,
+</MegaMenu>
+`,
                 options: `
 <template>
     <div class="card">
@@ -335,7 +336,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `<MegaMenu :model="items" orientation="horizontal">
     <template #start>
         <span class="flex align-items-center">
@@ -484,7 +486,8 @@ const items = ref([
         route: '/fileupload'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

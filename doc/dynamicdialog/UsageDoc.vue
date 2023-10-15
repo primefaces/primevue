@@ -25,7 +25,8 @@ export default {
                 basic: `
 <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
 
-<DynamicDialog />`,
+<DynamicDialog />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -73,7 +74,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -121,7 +123,8 @@ const showProducts = () => {
         }
     });
 }
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* ProductService */        
 {
@@ -199,7 +202,8 @@ export default {
         }
     }
 }
-<\/script>`
+<\/script>
+`
                     },
                     'src/components/InfoDemo.vue': {
                         content: `
@@ -248,7 +252,8 @@ export default {
         }
     }
 };
-<\/script>`
+<\/script>
+`
                     }
                 },
                 composition: {
@@ -311,7 +316,8 @@ const showInfo = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
                     },
                     'src/components/InfoDemo.vue': {
                         content: `
@@ -355,7 +361,8 @@ const dialogRef = inject("dialogRef");
 const closeDialog = (e) => {
     dialogRef.value.close(e);
 };
-<\/script>`
+<\/script>
+`
                     }
                 }
             }

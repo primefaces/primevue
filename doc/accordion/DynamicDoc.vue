@@ -27,7 +27,8 @@ export default {
     <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </AccordionTab>
-</Accordion>`,
+</Accordion>
+`,
                 options: `
 <template>
     <div class="card">
@@ -51,7 +52,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -71,7 +73,8 @@ const tabs = ref([
     { title: 'Title 2', content: 'Content 2' },
     { title: 'Title 3', content: 'Content 3' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }
