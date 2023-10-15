@@ -14,10 +14,10 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mb-5">Support</li>
                         <li class="mb-4">
-                            <a href="https://github.com/orgs/primefaces/discussions" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Forum</a>
+                            <a href="https://github.com/orgs/primefaces/discussions" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Forum</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Discord</a>
+                            <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Discord</a>
                         </li>
                         <li class="mb-4">
                             <router-link to="/support" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">PRO Support</router-link>
@@ -28,22 +28,24 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mt-5 lg:mt-0 mb-5">Resources</li>
                         <li class="mb-4">
-                            <a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">PrimeTV</a>
+                            <a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer"
+                                >PrimeTV</a
+                            >
                         </li>
                         <li class="mb-4">
-                            <a href="https://www.primefaces.org/store/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Store</a>
+                            <a href="https://www.primefaces.org/store/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Store</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://github.com/primefaces/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Source Code</a>
+                            <a href="https://github.com/primefaces/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Source Code</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://twitter.com/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Twitter</a>
+                            <a href="https://twitter.com/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Twitter</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://www.primefaces.org/newsletter" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Newsletter</a>
+                            <a href="https://www.primefaces.org/newsletter" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Newsletter</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://gear.primefaces.org/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">PrimeGear</a>
+                            <a href="https://gear.primefaces.org/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">PrimeGear</a>
                         </li>
                         <li class="mb-4">
                             <a href="mailto:contact@primetek.com.tr" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Contact Us</a>
