@@ -43,7 +43,7 @@ Styled mode is based on pre-skinned components with opinionated themes like Mate
 
 ```javascript
 // theme
-import 'primevue/resources/themes/lara-light-blue/theme.css';
+import 'primevue/resources/themes/lara-light-teal/theme.css';
 ```
 
 **Unstyled Mode**
@@ -91,7 +91,7 @@ Open the nuxt configuration file and add the css dependencies.
 
 ```javascript
 export default defineNuxtConfig({
-    css: ['primevue/resources/themes/lara-light-blue/theme.css'],
+    css: ['primevue/resources/themes/lara-light-teal/theme.css'],
     build: {
         transpile: ['primevue']
     }

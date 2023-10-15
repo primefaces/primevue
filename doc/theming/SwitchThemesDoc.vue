@@ -46,7 +46,7 @@ PrimeVue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {}
         `
             },
             code4: {
-                basic: `<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">`
+                basic: `<link id="theme-link" rel="stylesheet" href="/themes/lara-light-teal/theme.css">`
             },
             code5: {
                 basic: `
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-blue/theme.css'
+                    href: baseUrl + 'themes/lara-light-teal/theme.css'
                 }
             ],
                 `

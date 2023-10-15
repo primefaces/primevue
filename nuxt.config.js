@@ -48,7 +48,7 @@ export default defineNuxtConfig({
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'styles/landing/themes/lara-light-blue/theme.css'
+                    href: baseUrl + 'styles/landing/themes/lara-light-teal/theme.css'
                 },
                 {
                     id: 'theme-link',

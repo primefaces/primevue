@@ -35,6 +35,12 @@
                 <h4>PrimeOne Design</h4>
                 <div class="grid">
                     <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="px-link h-2rem" @click="changeTheme('lara-light-teal')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="w-2rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap text-sm">Lara Teal</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
                         <button class="px-link h-2rem" @click="changeTheme('lara-light-indigo')">
                             <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" class="w-2rem border-round" />
                         </button>
@@ -53,8 +59,8 @@
                         <span class="white-space-nowrap text-sm">Lara Purple</span>
                     </div>
                     <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-light-teal')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="w-2rem border-round" />
+                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-teal', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" class="w-2rem border-round" />
                         </button>
                         <span class="white-space-nowrap text-sm">Lara Teal</span>
                     </div>
@@ -75,40 +81,6 @@
                             <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" class="w-2rem border-round" />
                         </button>
                         <span class="white-space-nowrap text-sm">Lara Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-teal', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Teal</span>
-                    </div>
-                </div>
-
-                <h4>Bootstrap</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-blue')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-purple')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-blue', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-purple', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Purple</span>
                     </div>
                 </div>
 
@@ -165,6 +137,34 @@
                             <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Compact Dark Deep Purple" class="w-2rem border-round" />
                         </button>
                         <span class="white-space-nowrap text-sm">Deep Purple</span>
+                    </div>
+                </div>
+
+                <h4>Bootstrap</h4>
+                <div class="grid">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-blue')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap text-sm">Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-purple')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap text-sm">Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-blue', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap text-sm">Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap text-sm">Purple</span>
                     </div>
                 </div>
 
