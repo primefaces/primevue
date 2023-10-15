@@ -10,7 +10,7 @@
         
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>On the other hand, a fancy css based button using a div has no keyboard or screen reader support.</p>
     </div>
     <pre v-code><code>
@@ -18,7 +18,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>
             <i>tabindex</i> is required to make a div element accessible in addition to use a keydown to bring the keyboard support back. To avoid the overload and implementing functionality that is already provided by the browser, native form
             controls should be preferred.
@@ -29,7 +29,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>Form components must be related to another element that describes what the form element is used for. This is usually achieved with the <i>label</i> element.</p>
     </div>
     <pre v-code><code>

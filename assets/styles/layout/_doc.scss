@@ -108,7 +108,7 @@
             font-weight: 600;
             font-style: normal;
             background-color: var(--doc-highlight-text-bg);
-            color: var(---doc-highlight-text-color);
+            color: var(--doc-highlight-text-color);
         }
 
         a {
@@ -119,6 +119,15 @@
                 text-decoration: underline;
             }
         }
+    }
+
+    .notification {
+        line-height: 1.5;
+        padding: 1rem;
+        font-weight: 500;
+        border-radius: var(--border-radius);
+        background-color: var(--doc-highlight-text-bg);
+        color: var(--doc-highlight-text-color);
     }
 }
 

@@ -18,7 +18,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>
             A fancy checkbox with css animations might look more appealing but accessibility might be lacking. Checkbox below may display a checked font icon with animations however it is not tabbable, cannot be checked with space key and cannot be
             read by a reader.
@@ -31,7 +31,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with for.</p>
     </div>
     <pre v-code><code>
@@ -43,7 +43,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>
             However the best practice is combining semantic HTML for accessibility while keeping the design for UX. This approach involves hiding a native checkbox for accessibility and using javascript events to update its state. Notice the usage of
             <i>p-sr-only</i>
@@ -60,7 +60,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description">
+    <div class="doc-section-description mt-3">
         <p>A working sample is the PrimeVue checkbox that is tabbable, keyboard accessible and is compliant with a screen reader. Instead of ARIA roles it relies on a hidden native checkbox.</p>
     </div>
 

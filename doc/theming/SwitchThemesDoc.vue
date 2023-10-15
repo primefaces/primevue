@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius: 10px">
+        <p class="notification">
             Solution below works however there is room for improvement. The upcoming styling api will greatly improve dynamic theme switching ability, eliminates the prerequisites with the introduction of CSS variables and dynamic imports.
         </p>
         <p>

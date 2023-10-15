@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius: 10px">
+        <p class="notification">
             <strong>Note</strong>: In near future, theming architecture of the styled mode will be redesigned to utilize CSS variables instead of SCSS variables in a backward compatible way for a dynamic approach.
         </p>
         <p>
