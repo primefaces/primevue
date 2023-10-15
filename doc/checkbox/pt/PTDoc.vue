@@ -30,7 +30,6 @@ export default {
         })
     }"
 />
-
 `,
                 options: `
 <template>
@@ -56,7 +55,6 @@ export default {
     }
 };
 <\/script>
-
 `,
                 composition: `
 <template>

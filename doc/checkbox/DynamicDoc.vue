@@ -30,7 +30,6 @@ export default {
     <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
     <label :for="category.key">{{ category.name }}</label>
 </div>
-
 `,
                 options: `
 <template>
@@ -59,7 +58,6 @@ export default {
     }
 };
 <\/script>
-
 `,
                 composition: `
 <template>
