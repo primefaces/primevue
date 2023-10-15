@@ -44,7 +44,6 @@ export default {
                 stroke-dasharray: 1, 200;
                 stroke-dashoffset: 0;
             }
-            
             50% {
                 stroke-dasharray: 89, 200;
                 stroke-dashoffset: -35px;
@@ -306,7 +305,7 @@ export default {
             class: 'overflow-hidden relative float-left h-full w-full z-[1]'
         },
         content: {
-            class: 'box-border h-[calc(100%+18px)] overflow-scroll pr-[18px] pb-[18px] pl-0 pt-0 relative scrollbar-none w-[calc(100%+18px)] [&::-webkit-scrollbar]:hidden'
+            class: 'box-border h-[calc(100%+18px)] overflow-scroll pr-[18px] pb-[18px] pl-0 pt-0 relative w-[calc(100%+18px)] [&::-webkit-scrollbar]:hidden'
         },
         barX: {
             class: ['relative bg-gray-100 invisible rounded cursor-pointer h-[9px] bottom-0 z-[2]', 'transition duration-[250ms] ease-linear']
@@ -336,11 +335,11 @@ export default {
         },
         tabpanel: {
             header: ({ props }) => ({
-                class: ['mr-0', { 'cursor-default pointer-events-none select-none user-select-none opacity-60': props?.disabled }] // Margin and condition-based styles.
+                class: ['mr-0', { 'cursor-default pointer-events-none select-none select-none opacity-60': props?.disabled }] // Margin and condition-based styles.
             }),
             headerAction: ({ parent, context }) => ({
                 class: [
-                    'items-center cursor-pointer flex overflow-hidden relative select-none text-decoration-none user-select-none', // Flex and overflow styles.
+                    'items-center cursor-pointer flex overflow-hidden relative select-none text-decoration-none select-none', // Flex and overflow styles.
                     'border-b-2 p-5 font-bold rounded-t-lg transition-shadow duration-200 m-0', // Border, padding, font, and transition styles.
                     'transition-colors duration-200', // Transition duration style.
                     'focus:outline-none focus:outline-offset-0 focus:shadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]', // Focus styles.
@@ -942,7 +941,7 @@ export default {
     knob: {
         root: ({ props }) => ({
             class: [
-                'focus:outline-none focus:outline-offset-0 focus:shadow-0',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-none',
                 {
                     'opacity-60 select-none pointer-events-none cursor-default': props.disabled
                 }
@@ -990,7 +989,7 @@ export default {
             ]
         }),
         label: {
-            class: ['block whitespace-nowrap overflow-hidden flex flex-1 w-1 text-overflow-ellipsis cursor-pointer', 'bg-transparent border-0 p-3 text-gray-700 dark:text-white/80', 'appearance-none rounded-md']
+            class: ['block whitespace-nowrap overflow-hidden flex flex-1 w-1 text-ellipsis cursor-pointer', 'bg-transparent border-0 p-3 text-gray-700 dark:text-white/80', 'appearance-none rounded-md']
         },
         dropdownbutton: {
             class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-600 dark:text-white/80 w-[3rem] rounded-tr-6 rounded-br-6']
@@ -1108,7 +1107,7 @@ export default {
         handle: ({ props }) => ({
             class: [
                 'h-4 w-4 bg-white dark:bg-gray-600 border-2 border-blue-500 rounded-full transition duration-200',
-                'cursor-grab touch-action-none block',
+                'cursor-grab touch-none block',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 'hover:bg-blue-500 hover:border hover:border-blue-500',
                 {
@@ -1120,7 +1119,7 @@ export default {
         starthandler: ({ props }) => ({
             class: [
                 'h-4 w-4 bg-white dark:bg-gray-600 border-2 border-blue-500 rounded-full transition duration-200',
-                'cursor-grab touch-action-none block',
+                'cursor-grab touch-none block',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 'hover:bg-blue-500 hover:border hover:border-blue-500',
                 {
@@ -1132,7 +1131,7 @@ export default {
         endhandler: ({ props }) => ({
             class: [
                 'h-4 w-4 bg-white dark:bg-gray-600 border-2 border-blue-500 rounded-full transition duration-200',
-                'cursor-grab touch-action-none block',
+                'cursor-grab touch-none block',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 'hover:bg-blue-500 hover:border hover:border-blue-500',
                 {
@@ -1289,7 +1288,7 @@ export default {
         }),
         input: ({ props }) => ({
             class: [
-                'cursor-pointer block flex flex-auto overflow-hidden overflow-ellipsis whitespace-nowrap relative',
+                'cursor-pointer block flex flex-auto overflow-hidden text-ellipsis whitespace-nowrap relative',
                 'bg-transparent border-0 text-gray-800',
                 'dark:text-white/80',
                 'p-3 transition duration-200 bg-transparent rounded appearance-none font-sans text-base',
@@ -1419,7 +1418,7 @@ export default {
                     'cursor-pointer': !context.disabled
                 },
                 {
-                    'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled,
+                    'text-gray-600 dark:text-white/70 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled,
                     'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled
                 }
             ]
@@ -1432,7 +1431,7 @@ export default {
                 'w-1/3 inline-flex items-center justify-center cursor-pointer overflow-hidden relative',
                 'p-2 transition-shadow duration-200 rounded-lg',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
-                { 'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled, 'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled }
+                { 'text-gray-600 dark:text-white/70 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled, 'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled }
             ]
         }),
         yearpicker: {
@@ -1444,7 +1443,7 @@ export default {
                 'p-2 transition-shadow duration-200 rounded-lg',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 {
-                    'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled,
+                    'text-gray-600 dark:text-white/70 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled,
                     'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled
                 }
             ]
@@ -1549,7 +1548,7 @@ export default {
         },
         label: ({ props }) => ({
             class: [
-                'block overflow-hidden whitespace-nowrap cursor-pointer overflow-ellipsis',
+                'block overflow-hidden whitespace-nowrap cursor-pointer text-ellipsis',
                 'text-gray-800 dark:text-white/80',
                 'p-3 transition duration-200',
                 {
@@ -1685,7 +1684,7 @@ export default {
             class: ['overflow-hidden flex flex-auto cursor-pointer']
         },
         label: {
-            class: ['block overflow-hidden whitespace-nowrap cursor-pointer overflow-ellipsis', 'text-gray-800 dark:text-white/80', 'p-3 transition duration-200']
+            class: ['block overflow-hidden whitespace-nowrap cursor-pointer text-ellipsis', 'text-gray-800 dark:text-white/80', 'p-3 transition duration-200']
         },
         trigger: {
             class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg']
@@ -2386,7 +2385,7 @@ export default {
             class: ['flex items-center justify-center', 'text-gray-700 dark:text-white/80 border border-gray-300 dark:border-blue-900/40  bg-white dark:bg-gray-900 w-[2rem] h-[2rem] leading-2rem text-sm z-10 rounded-full']
         },
         label: {
-            class: ['block', 'whitespace-nowrap overflow-hidden overflow-ellipsis max-w-full', 'mt-2 text-gray-500 dark:text-white/60']
+            class: ['block', 'whitespace-nowrap overflow-hidden text-ellipsis max-w-full', 'mt-2 text-gray-500 dark:text-white/60']
         }
     },
     tabmenu: {
@@ -2856,7 +2855,7 @@ export default {
     dataview: {
         content: {
             class: [
-                'bg-white blue-gray-700 border-0 p-0',
+                'bg-white text-gray-700 border-0 p-0',
                 'dark:bg-gray-900 dark:text-white/80' // Dark Mode
             ]
         },
@@ -2948,7 +2947,7 @@ export default {
         moveupbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -2966,7 +2965,7 @@ export default {
         movetopbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -2984,7 +2983,7 @@ export default {
         movedownbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3002,7 +3001,7 @@ export default {
         movebottombutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3056,7 +3055,7 @@ export default {
         sourcemoveupbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3074,7 +3073,7 @@ export default {
         sourcemovetopbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3092,7 +3091,7 @@ export default {
         sourcemovedownbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3110,7 +3109,7 @@ export default {
         sourcemovebottombutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3159,7 +3158,7 @@ export default {
         movetotargetbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3177,7 +3176,7 @@ export default {
         movealltotargetbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3195,7 +3194,7 @@ export default {
         movetosourcebutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3213,7 +3212,7 @@ export default {
         movealltosourcebutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3234,7 +3233,7 @@ export default {
         targetmoveupbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3252,7 +3251,7 @@ export default {
         targetmovetopbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3270,7 +3269,7 @@ export default {
         targetmovedownbutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3288,7 +3287,7 @@ export default {
         targetmovebottombutton: {
             root: ({ context }) => ({
                 class: [
-                    'relative inline-flex cursor-pointer user-select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
                     'text-white bg-blue-500 border border-blue-500 rounded-md',
                     'transition duration-200 ease-in-out',
                     'justify-center px-0 py-3', // icon only
@@ -3336,7 +3335,7 @@ export default {
         },
         firstpagebutton: ({ context }) => ({
             class: [
-                'relative inline-flex items-center justify-center user-none overflow-hidden leading-none',
+                'relative inline-flex items-center justify-center select-none overflow-hidden leading-none',
                 'border-0 text-gray-500  min-w-[3rem] h-12 m-[0.143rem] rounded-md',
                 'transition duration-200',
                 'dark:text-white', //Dark Mode
@@ -3348,7 +3347,7 @@ export default {
         }),
         previouspagebutton: ({ context }) => ({
             class: [
-                'relative inline-flex items-center justify-center user-none overflow-hidden leading-none',
+                'relative inline-flex items-center justify-center select-none overflow-hidden leading-none',
                 'border-0 text-gray-500 min-w-[3rem] h-12 m-[0.143rem] rounded-md',
                 'transition duration-200',
                 'dark:text-white', //Dark Mode
@@ -3360,7 +3359,7 @@ export default {
         }),
         nextpagebutton: ({ context }) => ({
             class: [
-                'relative inline-flex items-center justify-center user-none overflow-hidden leading-none',
+                'relative inline-flex items-center justify-center select-none overflow-hidden leading-none',
                 'border-0 text-gray-500 min-w-[3rem] h-12 m-[0.143rem] rounded-md',
                 'transition duration-200',
                 'dark:text-white', //Dark Mode
@@ -3372,7 +3371,7 @@ export default {
         }),
         lastpagebutton: ({ context }) => ({
             class: [
-                'relative inline-flex items-center justify-center user-none overflow-hidden leading-none',
+                'relative inline-flex items-center justify-center select-none overflow-hidden leading-none',
                 'border-0 text-gray-500 min-w-[3rem] h-12 m-[0.143rem] rounded-md',
                 'transition duration-200',
                 'dark:text-white', //Dark Mode
@@ -3384,7 +3383,7 @@ export default {
         }),
         pagebutton: ({ context }) => ({
             class: [
-                'relative inline-flex items-center justify-center user-none overflow-hidden leading-none',
+                'relative inline-flex items-center justify-center select-none overflow-hidden leading-none',
                 'border-0 text-gray-500 min-w-[3rem] h-12 m-[0.143rem] rounded-md',
                 'transition duration-200',
                 'dark:border-blue-300 dark:text-white', // Dark Mode
@@ -3434,7 +3433,7 @@ export default {
             },
             item: ({ context }) => ({
                 class: [
-                    'relative font-normal cursor-pointer space-nowrap overflow-hidden',
+                    'relative font-normal cursor-pointer whitespace-nowrap overflow-hidden',
                     'm-0 py-3 px-5 border-none text-gray-600 rounded-none',
                     'transition duration-200',
                     'dark:text-white/80', // Dark Mode
@@ -3500,7 +3499,7 @@ export default {
             },
             item: ({ context }) => ({
                 class: [
-                    'relative font-normal cursor-pointer space-nowrap overflow-hidden',
+                    'relative font-normal cursor-pointer whitespace-nowrap overflow-hidden',
                     'm-0 py-3 px-5 border-none text-gray-600 rounded-none',
                     'transition duration-200',
                     'dark:text-white/80', // Dark Mode
@@ -3629,7 +3628,7 @@ export default {
             }),
             rowtoggler: ({ context }) => ({
                 class: [
-                    'relative inline-flex items-center justify-center align-center cursor-pointer select-none overflow-hidden bg-transparent',
+                    'relative inline-flex items-center justify-center cursor-pointer select-none overflow-hidden bg-transparent',
                     'w-8 h-8 border-0 rounded mr-0.5',
                     context.selected ? 'text-blue-700' : 'text-gray-500',
                     'dark:text-white/70' //Dark Mode
@@ -3749,7 +3748,7 @@ export default {
                     {
                         'sticky z-[1]': context.frozen || context.frozen === '', // Frozen Columns
                         'border-x border-y': context?.showGridlines,
-                        'overflow-hidden space-nowrap border-y relative bg-clip-padding': context.resizable // Resizable
+                        'overflow-hidden whitespace-nowrap border-y relative bg-clip-padding': context.resizable // Resizable
                     }
                 ]
             }),
