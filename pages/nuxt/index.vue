@@ -72,7 +72,7 @@ export default {
                             id: 'composables',
                             label: 'composables',
                             component: ComposablesDoc
-                        },
+                        }
                     ]
                 },
                 {
