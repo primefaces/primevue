@@ -26,8 +26,9 @@ pre[class*="language-"] {
     position: relative;
     background: transparent;
     margin: 0;
-    overflow: visible;
     padding: 0;
+    max-height: 40rem;
+    overflow: auto;
 
     &:before, &:after {
         display: none !important;
@@ -128,22 +129,6 @@ pre[class*="language-"] {
     display: none;
 }
 
-.doc-section-code-buttons {
-    button {
-        outline: 0 none;
-        outline-offset: 0;
-        background-color: transparent;
-        transition: background-color .2s, box-shadow .2s;
-        border: 0 none;
-        color: var(--demo-code-button-color);
-        cursor: pointer;
-
-        &:hover {
-            background-color: var(--demo-code-button-hover-bg);
-            color: var(--demo-code-button-hover-color);
-        }
-    }
-}
 pre[class*="language-"] {    
     code {
         background: var(--demo-code-bg) !important;

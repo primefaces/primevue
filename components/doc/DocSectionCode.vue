@@ -1,10 +1,6 @@
 <template>
-    <div v-if="!embedded" :class="scrollable ? 'doc-section-code' : 'relative doc-section-code'">
-        <div
-            class="flex doc-section-code-buttons align-items-center justify-content-end z-1"
-            :style="scrollable ? { position: 'sticky', padding: '0.75rem 0.75rem 0 0' } : { position: 'absolute', top: '0.75rem', right: '0.75rem' }"
-            style="gap: 0.75rem"
-        >
+    <div v-if="!embedded" class="doc-section-code">
+        <div class="doc-section-code-buttons">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <button :class="['py-0 px-2 border-round h-2rem', { 'text-primary': codeLang === 'composition' }]" @click="codeLang = 'composition'">Composition API</button>
                 <button :class="['py-0 px-2 border-round h-2rem', { 'text-primary': codeLang === 'options' }]" @click="codeLang = 'options'">Options API</button>
@@ -50,7 +46,7 @@
             </button>
         </div>
 
-        <div :style="scrollable ? { 'max-height': '40rem' } : undefined">
+        <div>
             <template v-if="codeMode === 'basic' && importCode">
                 <pre v-code.script><code>{{ code.basic }}
 </code></pre>
@@ -84,7 +80,6 @@
 </code></pre>
             </template>
         </div>
-        <div v-if="scrollable" class="h-1rem"></div>
     </div>
     <div v-else id="embed"></div>
 </template>

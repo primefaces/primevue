@@ -194,14 +194,30 @@
     }
 }
 
-.doc-section-code-buttons {
-    gap: .75rem;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 
-    .p-button-label {
-        font-weight: normal;
-        font-size: 0.875rem;
+.doc-section-code-buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    z-index: 1;
+    top: .75rem;
+    right: .75rem;
+    gap: .75rem;
+    
+    button {
+        outline: 0 none;
+        outline-offset: 0;
+        background-color: transparent;
+        transition: background-color .2s, box-shadow .2s;
+        border: 0 none;
+        color: var(--demo-code-button-color);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--demo-code-button-hover-bg);
+            color: var(--demo-code-button-hover-color);
+        }
     }
 }
 
@@ -211,6 +227,8 @@
 }
 
 .doc-section-code { 
+    position: relative;
+    
     div {
         &::-webkit-scrollbar {
             width: 5px;
@@ -254,6 +272,7 @@
             &:first-child {
                 color: var(--primary-color);
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                font-weight: 600;
             }
 
             .doc-option-type {
