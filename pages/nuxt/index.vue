@@ -81,15 +81,15 @@ export default {
                     component: StyleDoc
                 },
                 {
+                    id: 'example',
+                    label: 'Example',
+                    component: ExampleDoc
+                },
+                {
                     id: 'video',
                     label: 'Video',
                     component: VideoDoc
                 },
-                {
-                    id: 'example',
-                    label: 'Example',
-                    component: ExampleDoc
-                }
             ]
         };
     }
