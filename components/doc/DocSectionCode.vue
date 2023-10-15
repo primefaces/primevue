@@ -1,6 +1,6 @@
 <template>
     <div v-if="!embedded" class="doc-section-code">
-        <div class="doc-section-code-buttons fadein animation-duration-300">
+        <div class="doc-section-code-buttons scalein animation-duration-300">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <button :class="['py-0 px-2 border-round h-2rem', { 'code-active': codeLang === 'composition' }]" @click="codeLang = 'composition'">Composition API</button>
                 <button :class="['py-0 px-2 border-round h-2rem', { 'code-active': codeLang === 'options' }]" @click="codeLang = 'options'">Options API</button>
