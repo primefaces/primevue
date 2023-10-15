@@ -89,7 +89,7 @@ export default {
                     id: 'video',
                     label: 'Video',
                     component: VideoDoc
-                },
+                }
             ]
         };
     }
