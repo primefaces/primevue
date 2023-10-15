@@ -8,6 +8,9 @@
                         <li class="mb-4">
                             <router-link to="/installation" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150">Get Started</router-link>
                         </li>
+                        <li class="mb-4">
+                            <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-150" target="_blank" rel="noopener noreferrer">Examples</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="w-6 lg:w-3 flex">
