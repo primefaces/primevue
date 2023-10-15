@@ -230,13 +230,13 @@
     z-index: 1;
     top: .75rem;
     right: .75rem;
-    gap: .75rem;
+    gap: .5rem;
     display: none;
     background: rgba(255,255,255,.05);
     border-radius: 10px;
-    padding: 4px;
+    padding: 2px;
     backdrop-filter: blur(6px);
-    box-shadow: 0 0 10px 1px rgba(187, 247, 208, .6);
+    border: 1px solid rgba(255, 255, 255, .1);
     
     button {
         outline: 0 none;
