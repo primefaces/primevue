@@ -20,7 +20,7 @@ export default {
         return {
             code1: {
                 basic: `
-primevue: { 
+primevue: {
     components: {
         include: ['Button', 'DataTable']
     }
@@ -29,7 +29,7 @@ primevue: {
             },
             code2: {
                 basic: `
-primevue: { 
+primevue: {
     components: {
         include: '*',
         exclude: ['Galleria', 'Carousel']
@@ -39,19 +39,19 @@ primevue: {
             },
             code3: {
                 basic: `
-primevue: { 
+primevue: {
     components: {
         prefix: 'Prime'
-        include: ['Button', 'DataTable']    /* Used as <PrimeButton /> and <DataTable /> */
+        include: ['Button', 'DataTable']    /* Used as <PrimeButton /> and <PrimeDataTable /> */
     }
 }
 `
             },
             code4: {
                 basic: `
-primevue: { 
+primevue: {
     components: {
-        name: ({ name: string, as: string, from: string }) => {
+        name: ({ name, as, from }) => {
             return name === 'Button' ? \`My\${name}\` : name;
         }
         include: ['Button', 'DataTable']    /* Used as <MyButton /> and <DataTable /> */

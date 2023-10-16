@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The names of the directives to import and register are provided using the <i>include</i> property. When the value is ignored or set using the * alias, all of the directives are registered.</p>
+        <p>The names of the directives to import and register are provided using the <i>include</i> property. When the value is ignored or set using the <i>*</i> alias, all of the directives are registered.</p>
         <DocSectionCode :code="code1" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
         <p>Similar to components, certain directives can be excluded and name registration can be customized.</p>
         <DocSectionCode :code="code2" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
@@ -14,7 +14,7 @@ export default {
         return {
             code1: {
                 basic: `
-primevue: { 
+primevue: {
     directives: {
         include: ['Ripple', 'Tooltip']
     }
@@ -23,7 +23,7 @@ primevue: {
             },
             code2: {
                 basic: `
-primevue: { 
+primevue: {
     directives: {
         include: '*',
         exclude: ['Ripple']
@@ -33,7 +33,7 @@ primevue: {
             },
             code3: {
                 basic: `
-primevue: { 
+primevue: {
     directives: {
         prefix: 'p'
         include: ['Ripple', 'Tooltip']    /* Used as v-pripple and v-ptooltip */
