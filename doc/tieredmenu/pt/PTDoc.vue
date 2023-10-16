@@ -152,7 +152,8 @@ export default {
             class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -300,7 +301,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -444,7 +446,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

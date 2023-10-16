@@ -54,7 +54,8 @@ export default {
     <template v-slot:item="{ item, options }">
         <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
-</VirtualScroller>`,
+</VirtualScroller>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-5">
@@ -96,7 +97,8 @@ export default {
         this.items = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-5">
@@ -131,7 +133,8 @@ export default {
 import { ref } from 'vue';
 
 const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
-<\/script>`
+<\/script>
+`
             }
         };
     },

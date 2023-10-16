@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     megamenu: {
         root: ({ props }) => ({
             class: ['bg-gray-100 dark:bg-gray-900  border border-gray-300 dark:border-blue-900/40  rounded-md', 'flex relative', { 'p-2 items-center': props.orientation == 'horizontal', 'flex-col w-48 p-0 py-1': props.orientation !== 'horizontal' }]
@@ -210,7 +211,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -62,7 +62,8 @@ export default {
         <img alt="logo" src="/images/logo.svg" width="20" />
         <div class="ml-2">Always bet on Prime.</div>
     </div>
-</Message>`,
+</Message>
+`,
                 options: `
 <template>
     <div class="card">
@@ -81,7 +82,8 @@ export default {
             </div>
         </Message>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -120,7 +122,8 @@ export default {
             </a>
         </div>
     </template>
-</Message>`,
+</Message>
+`,
                 options: `
 <template>
     <div class="card">
@@ -142,7 +145,8 @@ export default {
             </template>
         </Message>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card">

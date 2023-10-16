@@ -65,7 +65,8 @@ export default {
             officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
         </p>
     </AccordionTab>
-</Accordion>`,
+</Accordion>
+`,
                 options: `
 <template>
     <div class="card">
@@ -106,7 +107,8 @@ export default {
             }
         }
     }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -143,7 +145,8 @@ export default {
     import { ref } from 'vue';
 
     const active = ref(0);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -63,7 +63,8 @@ export default {
             <Button icon="pi pi-check" label="Confirm Reservation" @click="slotProps.onClose"></Button>
         </div>
     </template>
-</Dialog>`,
+</Dialog>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -103,7 +104,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -139,7 +141,8 @@ export default {
 import { ref } from "vue";
 
 const visible = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

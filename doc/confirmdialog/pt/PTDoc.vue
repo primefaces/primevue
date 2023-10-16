@@ -18,7 +18,8 @@ export default {
     :pt="{
         headerTitle: { class: 'text-primary' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <ConfirmDialog
@@ -51,7 +52,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <ConfirmDialog
@@ -86,7 +88,8 @@ const confirm = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

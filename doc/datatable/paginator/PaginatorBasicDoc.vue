@@ -27,7 +27,8 @@ export default {
     <Column field="country.name" header="Country" style="width: 25%"></Column>
     <Column field="company" header="Company" style="width: 25%"></Column>
     <Column field="representative.name" header="Representative" style="width: 25%"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -53,7 +54,8 @@ export default {
         CustomerService.getCustomersMedium().then((data) => (this.customers = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -76,7 +78,8 @@ onMounted(() => {
 
 const customers = ref();
 
-<\/script>`,
+<\/script>
+`,
                 data: `
                 {
     id: 1000,

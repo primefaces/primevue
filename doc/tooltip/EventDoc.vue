@@ -16,14 +16,16 @@ export default {
             code: {
                 basic: `
 <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
-<Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />`,
+<Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
         <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">

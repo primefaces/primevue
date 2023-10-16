@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout :name="layout">
+    <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
 </template>
@@ -12,19 +12,11 @@ export default {
     themeChangeListener: null,
     newsActivate: null,
     newsService: null,
-    data() {
-        return {
-            layout: 'custom'
-        };
-    },
     watch: {
         $route: {
-            immediate: true,
             handler(to) {
                 if (to.name === 'index') {
-                    this.layout = 'custom';
-                } else {
-                    this.layout = 'default';
+                    this.themeChangeListener({ theme: this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal', dark: this.$appState.darkTheme });
                 }
             }
         }
@@ -49,6 +41,7 @@ export default {
             this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
                 this.$appState.theme = event.theme;
                 this.$appState.darkTheme = event.dark;
+                EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
             });
         };
 

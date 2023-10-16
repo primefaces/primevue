@@ -53,7 +53,8 @@ export default {
         </p>
     </TabPanel>
 </TabView>
-                `,
+                
+`,
                 options: `
 <template>
     <div class="card">
@@ -82,7 +83,8 @@ export default {
 
 <script>
 <\/script>
-    `,
+    
+`,
                 composition: `
 <template>
     <div class="card">

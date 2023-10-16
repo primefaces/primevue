@@ -37,7 +37,8 @@ export default {
 
 <div class="p-3 text-center">
     <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="shadow-2 border-round w-full sm:w-30rem" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card">
@@ -57,7 +58,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -73,7 +75,8 @@ export default {
 import { ref } from 'vue';
 
 const first = ref(0);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -202,7 +202,8 @@ export default {
 <span id="date2">Date</span>
 <Calendar aria-labelledby="date2" />
 
-<Calendar aria-label="Date" />`
+<Calendar aria-label="Date" />
+`
             }
         };
     }

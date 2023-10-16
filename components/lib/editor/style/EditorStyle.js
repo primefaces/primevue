@@ -2,11 +2,11 @@ import BaseStyle from 'primevue/base/style';
 
 const quillCSS = `
 /*!
- * Quill Editor v1.3.3
- * https://quilljs.com/
- * Copyright (c) 2014, Jason Chen
- * Copyright (c) 2013, salesforce.com
- */
+* Quill Editor v1.3.3
+* https://quilljs.com/
+* Copyright (c) 2014, Jason Chen
+* Copyright (c) 2013, salesforce.com
+*/
 .ql-container {
     box-sizing: border-box;
     font-family: Helvetica, Arial, sans-serif;

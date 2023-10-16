@@ -22,7 +22,8 @@ export default {
             selectedKey: null,
             code: {
                 basic: `
-<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-30rem"></Tree>`,
+<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-30rem"></Tree>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -52,7 +53,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -81,7 +83,8 @@ const onNodeSelect = (node) => {
 const onNodeUnselect = (node) => {
     toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.label, life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

@@ -22,7 +22,8 @@ export default {
                 basic: `
 <DataTable :value="products" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -54,7 +55,8 @@ export default {
         ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -80,7 +82,8 @@ const columns = [
     { field: 'quantity', header: 'Quantity' }
 ];
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

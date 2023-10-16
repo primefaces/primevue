@@ -69,7 +69,8 @@ export default {
             <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" :placeholder="\`Search by country - \${filterModel.matchMode}\`" />
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -137,7 +138,8 @@ export default {
         });
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -202,7 +204,8 @@ const matchModeOptions = ref([
 ]);
 const loading = ref(true);
 
-<\/script>`
+<\/script>
+`
             }
         };
     },

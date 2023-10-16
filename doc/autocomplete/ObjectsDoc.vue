@@ -22,7 +22,8 @@ export default {
             filteredCountries: null,
             code: {
                 basic: `
-<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />`,
+<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +59,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -90,7 +92,8 @@ const search = (event) => {
         }
     }, 250);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

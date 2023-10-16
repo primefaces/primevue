@@ -14,11 +14,13 @@ export default {
 mounted() {
     this.$primevue.config.ripple = true;
 }
+
 `,
                 options: `
 mounted() {
     this.$primevue.config.ripple = true;
-}`,
+}
+`,
                 composition: `
 import { usePrimeVue } from 'primevue/config';
 

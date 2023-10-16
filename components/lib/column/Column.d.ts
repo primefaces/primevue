@@ -94,7 +94,7 @@ export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
     /**
      * Column instance
      */
-    column: Column;
+    column: ColumnNode;
     /**
      * Column field
      */
@@ -686,7 +686,7 @@ export interface ColumnSlots {
         /**
          * Column node.
          */
-        column: Column;
+        column: ColumnNode;
         /**
          * Column field.
          */
@@ -713,7 +713,7 @@ export interface ColumnSlots {
         /**
          * Column node.
          */
-        column: Column;
+        column: ColumnNode;
     }): VNode[];
     /**
      * Custom footer template.
@@ -723,7 +723,7 @@ export interface ColumnSlots {
         /**
          * Column node.
          */
-        column: Column;
+        column: ColumnNode;
     }): VNode[];
     /**
      * Custom editor template.
@@ -737,7 +737,7 @@ export interface ColumnSlots {
         /**
          * Column node.
          */
-        column: Column;
+        column: ColumnNode;
         /**
          * Column field.
          */
@@ -872,7 +872,7 @@ export interface ColumnSlots {
         /**
          * Column node.
          */
-        column: Column;
+        column: ColumnNode;
         /**
          * Column field.
          */
@@ -987,6 +987,8 @@ export interface ColumnEmits {}
  * @group Component
  */
 declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
+
+export type ColumnNode = Column & { props: Column['$props'] };
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

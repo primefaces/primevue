@@ -142,7 +142,8 @@ export default {
             class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -280,7 +281,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -414,7 +416,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

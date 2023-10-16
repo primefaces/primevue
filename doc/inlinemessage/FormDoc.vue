@@ -32,7 +32,8 @@ export default {
     <label for="email" class="p-sr-only">email</label>
     <InputText id="email" placeholder="Email" class="p-invalid" />
     <InlineMessage />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card">
@@ -50,7 +51,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -68,7 +70,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

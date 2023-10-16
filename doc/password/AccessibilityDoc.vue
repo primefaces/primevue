@@ -43,7 +43,8 @@ export default {
 <span id="pwd2">Password</span>
 <Password aria-labelledby="pwd2" />
 
-<Password aria-label="Password"/>`
+<Password aria-label="Password"/>
+`
             }
         };
     }

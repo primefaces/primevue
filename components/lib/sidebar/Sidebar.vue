@@ -124,16 +124,14 @@ export default {
             }
 
             if (this.blockScroll) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll();
             }
         },
         disableDocumentSettings() {
             this.unbindOutsideClickListener();
 
             if (this.blockScroll) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll();
             }
         },
         onKeydown(event) {

@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export const TRANSITIONS = {
+                basic: `
+export const TRANSITIONS = {
     toggleable: {
         enterFromClass: 'max-h-0',
         enterActiveClass: 'overflow-hidden transition-all duration-500 ease-in-out',
@@ -197,7 +198,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

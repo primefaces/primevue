@@ -18,7 +18,8 @@ export default {
                 basic: `
 <Button class="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
     <img alt="logo" src="/images/logo.svg" class="h-2rem" />
-</Button>`,
+</Button>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -29,7 +30,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -40,7 +42,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

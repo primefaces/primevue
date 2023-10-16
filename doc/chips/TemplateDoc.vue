@@ -29,7 +29,8 @@ export default {
             <i class="pi pi-user-plus" style="font-size: 14px"></i>
         </div>
     </template>
-</Chips>`,
+</Chips>
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -52,7 +53,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">
@@ -71,7 +73,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

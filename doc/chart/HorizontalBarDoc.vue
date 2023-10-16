@@ -16,7 +16,8 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />`,
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />
+`,
                 options: `
 <template>
     <div class="card">
@@ -102,7 +103,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -184,7 +186,8 @@ const setChartOptions = () => {
         }
     };
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

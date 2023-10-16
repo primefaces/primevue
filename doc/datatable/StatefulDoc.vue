@@ -160,7 +160,8 @@ export default {
         </template>
     </Column>
     <template #empty> No customers found. </template>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -285,7 +286,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -402,7 +404,8 @@ const getSeverity = (status) => {
     }
 };
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* CustomerService */
 {

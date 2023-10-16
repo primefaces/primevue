@@ -1,16 +1,16 @@
 <template>
-    <div class="layout-wrapper" :class="containerClass">
-        <app-news v-if="$appState.newsActive" />
-        <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
-        <app-menu :active="sidebarActive" />
-        <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
+    <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
+        <AppNews v-if="$appState.newsActive" />
+        <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" @darkswitch-click="onDarkModeToggle" />
+        <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
-            <div class="layout-content-inner">
+            <app-menu :active="sidebarActive" />
+            <div class="layout-content-slot">
                 <slot></slot>
-                <app-footer />
             </div>
         </div>
+        <AppFooter />
         <Toast />
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
@@ -20,7 +20,8 @@
 
 <script>
 import DomHandler from '@/components/lib/utils/DomHandler';
-import AppConfigurator from './AppConfigurator.vue';
+import EventBus from '@/layouts/AppEventBus';
+import AppConfigurator from './AppConfigurator';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
 import AppNews from './AppNews.vue';
@@ -42,8 +43,7 @@ export default {
                 }
 
                 this.sidebarActive = false;
-                DomHandler.removeClass(document.body, 'blocked-scroll');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll('blocked-scroll');
                 this.$toast.removeAllGroups();
             }
         }
@@ -61,18 +61,15 @@ export default {
         onMenuButtonClick() {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
-                DomHandler.removeClass(document.body, 'blocked-scroll');
-                document.body.style.removeProperty('--scrollbar-width');
+                DomHandler.unblockBodyScroll('blocked-scroll');
             } else {
                 this.sidebarActive = true;
-                DomHandler.addClass(document.body, 'blocked-scroll');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll('blocked-scroll');
             }
         },
         onMaskClick() {
             this.sidebarActive = false;
-            DomHandler.removeClass(document.body, 'blocked-scroll');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll('blocked-scroll');
         },
         hideNews(event) {
             this.$appState.newsActive = false;
@@ -96,6 +93,19 @@ export default {
         },
         onUpdateConfigActive() {
             this.appConfigActive = false;
+        },
+        onDarkModeToggle() {
+            let newTheme = null;
+            let currentTheme = this.$appState.theme;
+
+            if (this.$appState.darkTheme) {
+                newTheme = currentTheme.replace('dark', 'light');
+            } else {
+                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
+                else newTheme = 'lara-dark-teal'; //fallback
+            }
+
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
         }
     },
     computed: {
@@ -105,18 +115,18 @@ export default {
                     'layout-news-active': this.$appState.newsActive,
                     'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'p-ripple-disabled': this.$primevue.config.ripple === false,
-                    'layout-wrapper-dark': this.$appState.darkTheme,
-                    'layout-wrapper-light': !this.$appState.darkTheme
+                    'layout-dark': this.$appState.darkTheme,
+                    'layout-light': !this.$appState.darkTheme
                 }
             ];
         }
     },
     components: {
-        'app-topbar': AppTopBar,
-        'app-menu': AppMenu,
-        'app-footer': AppFooter,
-        'app-configurator': AppConfigurator,
-        'app-news': AppNews
+        AppTopBar,
+        AppMenu,
+        AppFooter,
+        AppConfigurator,
+        AppNews
     }
 };
 </script>

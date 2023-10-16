@@ -130,7 +130,8 @@ export default {
 <span id="lb">Options</span>
 <PickList aria-labelledby="lb" />
 
-<PickList aria-label="City" />`
+<PickList aria-label="City" />
+`
             }
         };
     }

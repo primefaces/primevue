@@ -85,7 +85,8 @@ export default {
     <template #groupfooter="slotProps">
         <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
     </template>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -174,7 +175,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -259,7 +261,8 @@ const getSeverity = (status) => {
             return null;
     }
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

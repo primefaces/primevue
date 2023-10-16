@@ -26,7 +26,8 @@ export default {
     }"
 >
     Username is required
-</InlineMessage>`,
+</InlineMessage>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -42,7 +43,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +60,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

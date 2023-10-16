@@ -36,7 +36,8 @@ export default {
             code: {
                 basic: `
 <Menu :model="items" />
-<Toast />`,
+<Toast />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -73,7 +74,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -108,7 +110,8 @@ const items = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

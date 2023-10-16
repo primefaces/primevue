@@ -24,7 +24,8 @@ export default {
             code: {
                 basic: `
 <Dropdown v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" class="w-full md:w-14rem"
-    :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />`,
+    :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -66,7 +67,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -102,7 +104,8 @@ const onLazyLoad = (event) => {
         loading.value = false;
     }, Math.random() * 1000 + 250);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

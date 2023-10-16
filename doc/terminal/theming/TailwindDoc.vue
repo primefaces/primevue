@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     terminal: {
         root: {
             class: ['border border-gray-300 p-5', 'bg-gray-900 text-white dark:border-blue-900/40 ', 'h-72 overflow-auto']
@@ -72,7 +73,8 @@ const commandHandler = (text) => {
     
     TerminalService.emit('response', response);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     }

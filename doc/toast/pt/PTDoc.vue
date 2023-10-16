@@ -24,7 +24,8 @@ export default {
         container: { class: 'bg-yellow-100' }
     }"
 />
-<Button label="Show" @click="show()" />`,
+<Button label="Show" @click="show()" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -46,7 +47,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -67,7 +69,8 @@ const toast = useToast();
 const show = () => {
     toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', group: 'pt', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

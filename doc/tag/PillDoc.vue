@@ -22,7 +22,8 @@ export default {
 <Tag severity="success" value="Success" rounded></Tag>
 <Tag severity="info" value="Info" rounded></Tag>
 <Tag severity="warning" value="Warning" rounded></Tag>
-<Tag severity="danger" value="Danger" rounded></Tag>`,
+<Tag severity="danger" value="Danger" rounded></Tag>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -36,7 +37,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -50,7 +52,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -20,7 +20,8 @@ export default {
                 basic: `
 <DeferredContent @load="onImageLoad">
     <img src="/images/nature/nature4.jpg" alt="Nature" />
-</DeferredContent>`,
+</DeferredContent>
+`,
                 options: `
 <template>
     <div class="card">
@@ -41,7 +42,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -60,7 +62,8 @@ import { ref } from 'vue';
 const onImageLoad = () => {
     toast.add({ severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable', life: 2000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

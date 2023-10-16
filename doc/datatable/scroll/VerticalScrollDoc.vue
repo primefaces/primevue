@@ -27,7 +27,8 @@ export default {
     <Column field="country.name" header="Country"></Column>
     <Column field="representative.name" header="Representative"></Column>
     <Column field="company" header="Company"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -55,7 +56,8 @@ export default {
         });
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -79,7 +81,8 @@ onMounted(() => {
         customers.value = data;
     });
 });
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1000,

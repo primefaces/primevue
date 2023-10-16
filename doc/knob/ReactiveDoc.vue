@@ -23,7 +23,8 @@ export default {
 <div class="flex gap-2">
     <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />
     <Button icon="pi pi-minus" @click="value--" :disabled="value <= 0" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-2">
@@ -43,7 +44,8 @@ export default {
       }
   }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-2">
@@ -59,7 +61,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(0);
-<\/script>`
+<\/script>
+`
             }
         };
     }

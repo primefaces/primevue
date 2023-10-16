@@ -82,7 +82,8 @@ export default {
     <keep-alive>
         <component :is="Component" />
     </keep-alive>
-</router-view>`,
+</router-view>
+`,
                 options: `
 <template>
     <div>
@@ -147,10 +148,10 @@ export default {
                 this.formObject[field] = event.formData[field];
             }
 
-            this.$router.push(this.items[event.pageIndex + 1].to);
+            this.$router.push(this.items[event.pageIndex + 1].route);
         },
         prevPage(event) {
-            this.$router.push(this.items[event.pageIndex - 1].to);
+            this.$router.push(this.items[event.pageIndex - 1].route);
         },
         complete() {
             this.$toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.'});
@@ -170,7 +171,8 @@ export default {
 ::v-deep(.p-card-body) {
     padding: 2rem;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div>
@@ -236,10 +238,10 @@ const nextPage = (event) => {
         formObject.value[field] = event.formData[field];
     }
 
-    router.push(items.value[event.pageIndex + 1].to);
+    router.push(items.value[event.pageIndex + 1].route);
 };
 const prevPage = (event) => {
-    router.push(items.value[event.pageIndex - 1].to);
+    router.push(items.value[event.pageIndex - 1].route);
 };
 const complete = () => {
     toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
@@ -572,10 +574,10 @@ export default {
                 this.formObject[field] = event.formData[field];
             }
 
-            this.$router.push(this.items[event.pageIndex + 1].to);
+            this.$router.push(this.items[event.pageIndex + 1].route);
         },
         prevPage(event) {
-            this.$router.push(this.items[event.pageIndex - 1].to);
+            this.$router.push(this.items[event.pageIndex - 1].route);
         },
         complete() {
             this.$toast.add({ severity: 'success', summary: 'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.' });

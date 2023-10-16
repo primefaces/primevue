@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     paginator: {
         root: {
             class: [
@@ -205,7 +206,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

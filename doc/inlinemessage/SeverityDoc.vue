@@ -20,7 +20,8 @@ export default {
 <InlineMessage severity="success">Success Content</InlineMessage>
 <InlineMessage severity="info">Info Content</InlineMessage>
 <InlineMessage severity="warn">Warning Content</InlineMessage>
-<InlineMessage severity="error">Error Content</InlineMessage>`,
+<InlineMessage severity="error">Error Content</InlineMessage>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
@@ -32,7 +33,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
@@ -44,7 +46,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

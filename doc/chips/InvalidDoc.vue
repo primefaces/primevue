@@ -15,7 +15,8 @@ export default {
             value: null,
             code: {
                 basic: `
-<Chips v-model="value" class="p-invalid" />`,
+<Chips v-model="value" class="p-invalid" />
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -31,7 +32,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

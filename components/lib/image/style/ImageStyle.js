@@ -11,6 +11,7 @@ const css = `
     .p-image-preview-container {
         position: relative;
         display: inline-block;
+        line-height: 0;
     }
 
     .p-image-preview-indicator {
@@ -24,6 +25,8 @@ const css = `
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s;
+        border: none;
+        padding: 0;
     }
 
     .p-image-preview-container:hover > .p-image-preview-indicator {
@@ -79,6 +82,7 @@ const classes = {
     button: 'p-image-preview-indicator',
     icon: 'p-image-preview-icon',
     mask: 'p-image-mask p-component-overlay p-component-overlay-enter',
+    toolbar: 'p-image-toolbar',
     rotateRightButton: 'p-image-action p-link',
     rotateLeftButton: 'p-image-action p-link',
     zoomOutButton: ({ instance }) => [

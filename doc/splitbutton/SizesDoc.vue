@@ -42,7 +42,8 @@ export default {
                 basic: `
 <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>`,
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
+`,
                 options: `
 <template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
@@ -89,7 +90,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
@@ -131,7 +133,8 @@ const items = [
 const save = () => {
     toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

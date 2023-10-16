@@ -117,7 +117,8 @@ export default {
             <p class="mt-4 mb-0">Drag and drop files to here to upload.</p>
         </div>
     </template>
-</FileUpload>`,
+</FileUpload>
+`,
                 options: `
 <template>
     <div class="card">
@@ -225,7 +226,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -334,7 +336,8 @@ const formatSize = (bytes) => {
 
     return \`\${formattedSize} \${sizes[i]}\`;
 },
-<\/script>`
+<\/script>
+`
             }
         };
     },

@@ -93,7 +93,8 @@ export default {
     <template #default="slotProps">
         <span>{{ slotProps.node.label }}</span>
     </template>
-</OrganizationChart>`,
+</OrganizationChart>
+`,
                 options: `
 <template>
     <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
@@ -169,7 +170,8 @@ export default {
         };
     },
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
@@ -241,7 +243,8 @@ const data = ref({
     ]
 });
 const selection = ref({});
-<\/script>`
+<\/script>
+`
             }
         };
     }

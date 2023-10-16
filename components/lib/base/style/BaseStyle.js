@@ -33,16 +33,20 @@ export default {
     classes,
     inlineStyles,
     loadStyle(options = {}) {
-        return useStyle(this.css, { name: this.name, ...options });
+        return this.css ? useStyle(this.css, { name: this.name, ...options }) : {};
     },
     getStyleSheet(extendedCSS = '', props = {}) {
-        const _props = Object.entries(props)
-            .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
-            .join(' ');
+        if (this.css) {
+            const _props = Object.entries(props)
+                .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+                .join(' ');
 
-        return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${this.css}${extendedCSS}</style>`;
+            return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${this.css}${extendedCSS}</style>`;
+        }
+
+        return '';
     },
     extend(style) {
-        return { ...this, ...style };
+        return { ...this, css: undefined, ...style };
     }
 };

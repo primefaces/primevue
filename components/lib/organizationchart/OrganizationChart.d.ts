@@ -261,7 +261,12 @@ export interface OrganizationChartSlots {
     /**
      * Custom content template.
      */
-    default(node: any): VNode[];
+    default(scope: {
+        /**
+         * Current node
+         */
+        node: any;
+    }): VNode[];
     /**
      * Dynamic content template.
      * @todo

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A slideshow implementation is defined by adding <i>circular</i> and <i>autoPlay</i> properties.</p>
     </DocSectionText>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -46,10 +46,11 @@ export default {
     <template #thumbnail="slotProps">
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">
@@ -89,10 +90,11 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :circular="true" :autoPlay="true" :transitionInterval="2000">
             <template #item="slotProps">
@@ -128,7 +130,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

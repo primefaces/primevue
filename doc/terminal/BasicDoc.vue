@@ -20,7 +20,8 @@ export default {
         return {
             code: {
                 basic: `
-<Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />`,
+<Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />
+`,
                 options: `
 <template>
     <div>
@@ -87,7 +88,8 @@ p {
 ::v-deep(.dark-demo-terminal .p-terminal-response) {
     color: #9fa8da;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div>

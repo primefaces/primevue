@@ -33,7 +33,8 @@ export default {
     <Column field="year" header="Year" style="width: 20%"></Column>
     <Column field="brand" header="Brand" style="width: 20%"></Column>
     <Column field="color" header="Color" style="width: 20%"></Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -60,7 +61,8 @@ export default {
         this.cars = Array.from({ length: 100000 }).map((_, i) => CarService.generateCar(i + 1));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -83,7 +85,8 @@ const cars = ref();
 onMounted(() => {
     cars.value = Array.from({ length: 100000 }).map((_, i) => CarService.generateCar(i + 1));
 });
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1

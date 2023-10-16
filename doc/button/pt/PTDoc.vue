@@ -16,7 +16,8 @@ export default {
     :pt="{ 
         root: { class: 'bg-indigo-600 border-indigo-600' } 
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-3 justify-content-center">
@@ -26,7 +27,8 @@ export default {
             }"
         />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-3 justify-content-center">

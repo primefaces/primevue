@@ -27,7 +27,8 @@ export default {
         container: { class: 'flex-1' },
         token: { class: 'bg-primary' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -50,7 +51,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -69,7 +71,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -100,7 +100,8 @@ export default {
             </div>
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -185,7 +186,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -265,7 +267,8 @@ const loadCarsLazy = (event) => {
         lazyLoading.value = false;
     }, Math.random() * 1000 + 250);
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: 1

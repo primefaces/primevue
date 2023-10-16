@@ -15,7 +15,8 @@ export default {
             checked: false,
             code: {
                 basic: `
-<RadioButton class="p-invalid" />`,
+<RadioButton class="p-invalid" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -24,7 +25,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -33,7 +35,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

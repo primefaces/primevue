@@ -42,7 +42,8 @@ export default {
     <Button icon="pi pi-check" severity="success" />
     <InputText placeholder="Vote" />
     <Button icon="pi pi-times" severity="danger" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
@@ -62,7 +63,8 @@ export default {
             <Button icon="pi pi-times" severity="danger" />
         </div>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">

@@ -28,7 +28,8 @@ export default {
             quas!
         </p>
     </template>
-</Card>`,
+</Card>
+`,
                 options: `
 <template>
     <div class="card">
@@ -42,7 +43,8 @@ export default {
             </template>
         </Card>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card">

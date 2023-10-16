@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Indicators can be activated on hover instead of click if <i>changeItemOnIndicatorHover</i> is added.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -40,10 +40,11 @@ export default {
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
             <template #item="slotProps">
@@ -80,10 +81,11 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
             :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
             <template #item="slotProps">
@@ -116,7 +118,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

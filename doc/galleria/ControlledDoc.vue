@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Galleria can be controlled programmatically using a binding to <i>activeIndex</i>.</p>
     </DocSectionText>
-    <div class="card flex flex-column md:align-items-center">
-        <div class="mb-3 align-self-center">
+    <div class="card">
+        <div class="mb-3">
             <Button icon="pi pi-minus" @click="prev" />
             <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
@@ -56,11 +56,12 @@ export default {
     <template #thumbnail="slotProps">
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
-    <div class="card flex flex-column md:align-items-center">
-        <div class="mb-3 align-self-center">
+    <div class="card">
+        <div class="mb-3">
             <Button icon="pi pi-minus" @click="prev" />
             <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
@@ -112,11 +113,12 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
-    <div class="card flex flex-column md:align-items-center">
-        <div class="mb-3 align-self-center">
+    <div class="card">
+        <div class="mb-3">
             <Button icon="pi pi-minus" @click="prev" />
             <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
@@ -163,7 +165,8 @@ const next = () => {
 const prev = () => {
     activeIndex.value = activeIndex.value === 0 ? 0 : activeIndex.value - 1;
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

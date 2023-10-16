@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     tristatecheckbox: {
         root: {
             class: ['cursor-pointer inline-flex relative select-none align-bottom', 'w-6 h-6']
@@ -51,7 +52,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

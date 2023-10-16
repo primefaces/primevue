@@ -162,7 +162,8 @@ export default {
             ],
             code: {
                 basic: `
-<TieredMenu :model="items" />`,
+<TieredMenu :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -308,7 +309,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -450,7 +452,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

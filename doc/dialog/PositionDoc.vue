@@ -64,7 +64,8 @@ export default {
         <Button label="No" icon="pi pi-times" @click="visible = false" text />
         <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
     </template>
-</Dialog>`,
+</Dialog>
+`,
                 options: `
 <template>
     <div class="card">
@@ -111,7 +112,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -153,7 +155,8 @@ const openPosition = (pos) => {
     position.value = pos;
     visible.value = true;
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

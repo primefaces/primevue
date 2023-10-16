@@ -142,7 +142,8 @@ export default {
             code: {
                 basic: `
 <p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
-<ContextMenu global :model="items" />`,
+<ContextMenu global :model="items" />
+`,
                 options: `
 <template>
     <div class="card text-center">
@@ -284,7 +285,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card text-center">
@@ -422,7 +424,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

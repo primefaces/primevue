@@ -15,7 +15,8 @@ export default {
             date: null,
             code: {
                 basic: `
-<Calendar v-model="date" inline showWeek />`,
+<Calendar v-model="date" inline showWeek />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -31,7 +32,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const date = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -21,7 +21,8 @@ export default {
 <span class="p-float-label">
     <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
     <label for="ssn">SSN</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -41,7 +42,8 @@ export default {
     }
 }
 <\/script>
-        `,
+        
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

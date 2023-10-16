@@ -52,7 +52,8 @@ export default {
         </form>
         <Toast />
     </div>
-</template>`,
+</template>
+`,
                 options: `
 <template>
     <div class="card p-fluid">
@@ -93,7 +94,8 @@ export default {
         return { value, handleSubmit, onSubmit, errorMessage };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card p-fluid">

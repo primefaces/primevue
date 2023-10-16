@@ -24,13 +24,21 @@ app.component('Button', Button);
     <div class="card flex justify-content-center">
         <Button label="Check" icon="pi pi-check" />
     </div>
-</template>`,
+</template>
+
+<script>
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
         <Button label="Check" icon="pi pi-check" />
     </div>
-</template>`
+</template>
+
+<script setup>
+<\/script>
+`
             }
         };
     }

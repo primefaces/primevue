@@ -19,6 +19,7 @@ export default {
         }
     }
 }
+
 `,
                 options: `
 export default {
@@ -28,7 +29,8 @@ export default {
             this.dialogRef.close();
         }
     }
-}`,
+}
+`,
                 composition: `
 import { inject } from "vue";
 

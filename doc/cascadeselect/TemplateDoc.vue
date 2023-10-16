@@ -111,7 +111,8 @@ export default {
             <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
         </div>
     </template>
-</CascadeSelect>`,
+</CascadeSelect>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -211,7 +212,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -307,7 +309,8 @@ const countries = ref([
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

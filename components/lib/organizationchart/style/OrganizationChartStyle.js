@@ -65,7 +65,6 @@ const classes = {
     nodeTogglerIcon: 'p-node-toggler-icon',
     lines: 'p-organizationchart-lines',
     lineDown: 'p-organizationchart-line-down',
-    lines: 'p-organizationchart-lines',
     lineLeft: ({ index }) => ['p-organizationchart-line-left', { 'p-organizationchart-line-top': !(index === 0) }],
     lineRight: ({ props, index }) => ['p-organizationchart-line-right', { 'p-organizationchart-line-top': !(index === props.node.children.length - 1) }],
     nodes: 'p-organizationchart-nodes'

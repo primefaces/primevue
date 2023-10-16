@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius: 10px">
+        <p class="notification">
             Solution below works however there is room for improvement. The upcoming styling api will greatly improve dynamic theme switching ability, eliminates the prerequisites with the introduction of CSS variables and dynamic imports.
         </p>
         <p>
@@ -28,13 +28,13 @@ export default {
             code1: {
                 basic: `
 primevue.changeTheme(currentTheme: string, newTheme: string, linkElementId: string, callback: Function)
-        `
+`
             },
             code2: {
                 basic: `
 // Options API
 this.$primevue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
-        `
+`
             },
             code3: {
                 basic: `
@@ -43,27 +43,29 @@ import { usePrimeVue } from 'primevue/config';
 
 const PrimeVue = usePrimeVue();
 PrimeVue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
-        `
+`
             },
             code4: {
-                basic: `<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">`
+                basic: `
+<link id="theme-link" rel="stylesheet" href="/themes/lara-light-teal/theme.css">
+`
             },
             code5: {
                 basic: `
-const baseUrl = '/';
-
 export default defineNuxtConfig({
     app: {
-        baseURL: baseUrl,
         head: {
             link: [
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-blue/theme.css'
+                    href: baseUrl + 'themes/lara-light-teal/theme.css'
                 }
-            ],
-                `
+            ]
+        }
+    }
+});
+`
             }
         };
     }

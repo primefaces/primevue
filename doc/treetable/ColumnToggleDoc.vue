@@ -35,7 +35,8 @@ export default {
     </template>
     <Column field="name" header="Name" :expander="true"></Column>
     <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -79,7 +80,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -112,7 +114,8 @@ const selectedColumns = ref(columns.value);
 const onToggle = (val) => {
     selectedColumns.value = columns.value.filter(col => val.includes(col));
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

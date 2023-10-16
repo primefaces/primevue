@@ -142,7 +142,8 @@ export default {
             code: {
                 basic: `
 <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" />
-<TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />`,
+<TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -289,7 +290,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -432,7 +434,8 @@ const items = ref([
 const toggle = (event) => {
     menu.value.toggle(event);
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

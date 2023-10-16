@@ -35,7 +35,8 @@ export default {
             style: { width: '200px', height: '200px' }
         }
     }"
->`,
+>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -63,7 +64,8 @@ export default {
         this.items = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -84,7 +86,8 @@ export default {
 import { ref } from 'vue';
 
 const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
-<\/script>`
+<\/script>
+`
             }
         };
     },

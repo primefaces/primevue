@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     chart: {
         root: 'relative'
     }
@@ -52,7 +53,8 @@ const chartOptions = ref({
         }
     }
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

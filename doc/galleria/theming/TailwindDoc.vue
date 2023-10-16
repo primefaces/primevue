@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     galleria: {
         root: 'flex flex-col',
         content: 'flex flex-col',
@@ -144,7 +145,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

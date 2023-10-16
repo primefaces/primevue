@@ -41,7 +41,8 @@ export default {
             <div>{{ slotProps.option.name }}</div>
         </div>
     </template>
-</Listbox>`,
+</Listbox>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -76,7 +77,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -107,7 +109,8 @@ const countries = ref([
     { name: 'Spain', code: 'ES' },
     { name: 'United States', code: 'US' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -55,7 +55,8 @@ export default {
             code: {
                 basic: `
 <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
-<SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />`,
+<SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -111,7 +112,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -168,7 +170,8 @@ const items = ref([
         }
     }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

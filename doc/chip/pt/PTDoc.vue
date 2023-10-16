@@ -26,7 +26,8 @@ export default {
         root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } },
         label: { class: 'text-white' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <Chip
@@ -37,7 +38,8 @@ export default {
             label: { class: 'text-white' }
         }"
     />
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <Chip

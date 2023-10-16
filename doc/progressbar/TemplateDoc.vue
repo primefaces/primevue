@@ -15,7 +15,8 @@ export default {
             value: 40,
             code: {
                 basic: `
-<ProgressBar :value="40"> {{ value }}/100 </ProgressBar>`,
+<ProgressBar :value="40"> {{ value }}/100 </ProgressBar>
+`,
                 options: `
 <template>
     <div class="card">
@@ -31,7 +32,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref(40);
-<\/script>`
+<\/script>
+`
             }
         };
     }

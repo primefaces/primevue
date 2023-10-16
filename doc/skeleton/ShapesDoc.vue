@@ -73,7 +73,8 @@ export default {
 <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
 <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-<Skeleton shape="circle" size="5rem"></Skeleton>`,
+<Skeleton shape="circle" size="5rem"></Skeleton>
+`,
                 options: `
 <template>
     <div class="card">
@@ -117,7 +118,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -161,7 +163,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

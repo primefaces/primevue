@@ -102,6 +102,11 @@ export interface InputSwitchProps {
      */
     falseValue?: any;
     /**
+     * When present, it specifies that the component should be disabled.
+     * @defaultValue false
+     */
+    disabled?: boolean | undefined;
+    /**
      * 	Identifier of the underlying input element.
      */
     inputId?: string | undefined;

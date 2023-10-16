@@ -20,6 +20,7 @@ export default {
         }
     }
 }
+
 `,
                 options: `
 import ProductListDemo from './ProductListDemo';
@@ -30,7 +31,8 @@ export default {
             this.$dialog.open(ProductListDemo, {});
         }
     }
-}`,
+}
+`,
                 composition: `
 import ProductListDemo from './ProductListDemo';
 import { useDialog } from 'primevue/usedialog';

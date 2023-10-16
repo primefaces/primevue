@@ -1,42 +1,45 @@
 name: Generate API DOC
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - '**/**/*.d.ts'
-      - '/api-generator/build-apidoc.js'
+    push:
+        branches: [master]
+        paths:
+            - '**/**/*.d.ts'
+            - '/api-generator/build-apidoc.js'
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  build:
-    if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
+    build:
+        if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
+        strategy:
+            matrix:
+                node-version: [16.x]
 
-    steps:
-    - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
 
-    - name: Install node packages
-      run: npm install
+            - name: Install node packages
+              run: npm install
 
-    - name: Generate api doc
-      run: npm run apidoc
+            - name: Generate api doc
+              run: npm run apidoc
 
-    - name: Commit doc
-      run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
-        git commit -a -m "Update API doc"
-        git push
+            - name: Code Format
+              run: npm run format
+
+            - name: Commit doc
+              run: |
+                  git config user.name "GitHub Actions Bot"
+                  git config user.email "<>"
+                  git commit -a -m "Update API doc"
+                  git push

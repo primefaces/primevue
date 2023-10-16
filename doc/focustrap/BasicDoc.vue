@@ -90,7 +90,8 @@ export default {
         </div>
         <Button type="submit" label="Submit" class="mt-2" />
     </div>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="flex justify-content-center p-fluid">
@@ -144,7 +145,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="flex justify-content-center p-fluid">
@@ -194,7 +196,8 @@ const name = ref();
 const email = ref();
 const password = ref();
 const accept = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

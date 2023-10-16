@@ -34,7 +34,8 @@ export default {
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -65,7 +66,8 @@ export default {
         NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -92,7 +94,8 @@ const sizeOptions = ref([
     { label: 'Normal', value: 'normal' },
     { label: 'Large', value: 'large', class: 'lg' }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

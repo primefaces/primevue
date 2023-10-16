@@ -140,7 +140,8 @@ export default {
         return {
             code: {
                 basic: `
-<SplitButton :buttonProps="{'aria-label': 'Default Action'}" :menuButtonProps="{'aria-label': 'More Options'}" />`
+<SplitButton :buttonProps="{'aria-label': 'Default Action'}" :menuButtonProps="{'aria-label': 'More Options'}" />
+`
             }
         };
     }

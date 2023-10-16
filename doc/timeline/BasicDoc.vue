@@ -28,7 +28,8 @@ export default {
     <template #content="slotProps">
         {{ slotProps.item.status }}
     </template>
-</Timeline>`,
+</Timeline>
+`,
                 options: `
 <template>
     <div class="card">
@@ -53,7 +54,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -75,7 +77,8 @@ const events = ref([
     { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
 ]);
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -32,7 +32,8 @@ export default {
         label: { class: 'text-white font-bold text-xl' },
         icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card">
@@ -47,7 +48,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Button label="Check" icon="pi pi-check" unstyled
@@ -60,7 +62,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -123,7 +123,8 @@ export default {
             <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
 	<div class="card p-fluid">
@@ -242,6 +243,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

@@ -16,7 +16,8 @@ export default {
             code: {
                 basic: `
 <ToggleButton v-model="checked1" onLabel="I confirm" offLabel="I reject"
-    onIcon="pi pi-check" offIcon="pi pi-times" class="w-9rem" />`,
+    onIcon="pi pi-check" offIcon="pi pi-times" class="w-9rem" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -33,7 +34,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -46,7 +48,8 @@ export default {
 import { ref } from 'vue';
 
 const checked = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -54,7 +54,8 @@ export default {
             <Button type="submit" label="Submit" />
         </form>
     </div>
-</template>`,
+</template>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -106,7 +107,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

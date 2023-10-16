@@ -173,7 +173,8 @@ export default {
             <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
         </a>
     </template>
-</Menubar>`,
+</Menubar>
+`,
                 options: `
 <template>
     <div class="card relative z-2">
@@ -330,7 +331,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card relative z-2">
@@ -483,7 +485,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

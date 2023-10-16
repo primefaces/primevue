@@ -10,7 +10,7 @@
         </button>
         <Portal>
             <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="cx('mask')" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown" v-bind="ptm('mask')">
-                <div class="p-image-toolbar" v-bind="ptm('toolbar')">
+                <div :class="cx('toolbar')" v-bind="ptm('toolbar')">
                     <button :class="cx('rotateRightButton')" @click="rotateRight" type="button" :aria-label="rightAriaLabel" v-bind="ptm('rotateRightButton')" data-pc-group-section="action">
                         <slot name="refresh">
                             <RefreshIcon v-bind="ptm('rotateRightIcon')" />
@@ -93,8 +93,7 @@ export default {
         },
         onImageClick() {
             if (this.preview) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-                document.body.style.setProperty('--scrollbar-width', DomHandler.calculateScrollbarWidth() + 'px');
+                DomHandler.blockBodyScroll();
                 this.maskVisible = true;
                 setTimeout(() => {
                     this.previewVisible = true;
@@ -164,8 +163,7 @@ export default {
             !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onLeave() {
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll();
             this.$emit('hide');
         },
         onAfterLeave(el) {
@@ -183,8 +181,7 @@ export default {
             this.previewVisible = false;
             this.rotate = 0;
             this.scale = 1;
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            document.body.style.removeProperty('--scrollbar-width');
+            DomHandler.unblockBodyScroll();
         }
     },
     computed: {

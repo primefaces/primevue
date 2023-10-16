@@ -19,7 +19,8 @@ export default {
             items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }],
             code: {
                 basic: `
-<Breadcrumb :home="home" :model="items" />`,
+<Breadcrumb :home="home" :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -45,7 +46,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -67,7 +69,8 @@ const items = ref([
     {label: 'Backpacks'},
     {label: 'Item'}
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     blockui: {
         root: 'relative',
         mask: 'bg-black/40'
@@ -46,7 +47,8 @@ export default {
 import { ref } from "vue";
 
 const blocked = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

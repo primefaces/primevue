@@ -53,7 +53,8 @@ export default {
             <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
         </div>
     </template>
-</VirtualScroller>`,
+</VirtualScroller>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-5">
@@ -92,7 +93,8 @@ export default {
         this.items = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-5">
@@ -124,7 +126,8 @@ export default {
 import { ref } from 'vue';
 
 const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
-<\/script>`
+<\/script>
+`
             }
         };
     },

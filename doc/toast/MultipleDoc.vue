@@ -3,10 +3,7 @@
         <p>Multiple messages are displayed by passing an array to the <i>show</i> method.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" severity="warning" @click="showMultiple()" />
-            <Button label="Clear" @click="clear()" />
-        </div>
+        <Button label="Multiple" severity="warning" @click="showMultiple()" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,18 +15,14 @@ export default {
             code: {
                 basic: `
 <Toast />
-<div class="flex flex-wrap gap-2">
-    <Button label="Multiple" severity="warning" @click="showMultiple()" />
-    <Button label="Clear" @click="clear()" />
-</div>`,
+<Button label="Multiple" severity="warning" @click="showMultiple()" />
+
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" severity="warning" @click="showMultiple()" />
-            <Button label="Clear" @click="clear()" />
-        </div>
+        <Button label="Multiple" severity="warning" @click="showMultiple()" />
     </div>
 </template>
 
@@ -41,21 +34,16 @@ export default {
             this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
             this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
             this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
-        },
-        clear() {
-            this.$toast.removeAllGroups();
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" severity="warning" @click="showMultiple()" />
-            <Button label="Clear" @click="clear()" />
-        </div>
+        <Button label="Multiple" severity="warning" @click="showMultiple()" />
     </div>
 </template>
 
@@ -69,11 +57,8 @@ const showMultiple = () => {
     toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
     toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
 };
-
-const clear = () => {
-    toast.removeAllGroups();
-};
-<\/script>`
+<\/script>
+`
             }
         };
     },
@@ -83,9 +68,6 @@ const clear = () => {
             this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
             this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
             this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
-        },
-        clear() {
-            this.$toast.removeAllGroups();
         }
     }
 };

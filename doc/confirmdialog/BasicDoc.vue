@@ -18,7 +18,8 @@ export default {
                 basic: `
 <ConfirmDialog></ConfirmDialog>
 <Button @click="confirm1()" icon="pi pi-check" label="Confirm"></Button>
-<Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>`,
+<Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
+`,
                 options: `
 <template>
     <Toast />
@@ -61,7 +62,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Toast />
@@ -107,7 +109,8 @@ const confirm2 = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

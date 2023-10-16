@@ -29,7 +29,8 @@ export default {
     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
 </div>
-<Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>`,
+<Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-cente">
@@ -76,7 +77,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-cente">
@@ -120,7 +122,8 @@ const expandNode = (node) => {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

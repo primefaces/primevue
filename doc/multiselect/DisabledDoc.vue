@@ -14,7 +14,8 @@ export default {
         return {
             code: {
                 basic: `
-<MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />`,
+<MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />
+`,
                 options: `
 <template>
     <div class="flex justify-content-center">
@@ -24,7 +25,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="flex justify-content-center">
@@ -34,7 +36,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

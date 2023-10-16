@@ -1,23 +1,18 @@
 .landing {
-    background: var(--home-bg);
+    background-color: var(--home-bg);
+    transition: background-color .5s;
     scroll-behavior: smooth;
-
-    .landing-intro {
-        background: var(--home-intro-bg);
-        display: flex;
-        flex-direction: column;
-        padding-top: 5rem;
-        min-height: 100vh;
-    }
+    padding-top: 4rem;
 
     .box {
         border: 1px solid var(--home-border-color);
         border-radius: 10px;
         background-color: var(--home-box-bg);
+        transition: background-color .5s, border-color .5s;
     }
 
     .linkbox {
-        transition: background-color 0.3s;
+        transition: all 0.3s;
         display: inline-flex;
         align-items: center;
         color: var(--home-linkbox-text-color);
@@ -26,6 +21,8 @@
         background-color: var(--home-linkbox-bg);
         border-radius: 10px;
         cursor: pointer;
+        
+        @include focus-visible();
 
         &:hover {
             background: var(--home-linkbox-hover-bg);
@@ -133,55 +130,5 @@
 
     100% {
         transform: translateX(calc(-100% - 3rem));
-    }
-}
-
-.landing-users {
-    .fade-right {
-        background: linear-gradient(to left, var(--home-bg), transparent);
-    }
-    .fade-left {
-        background: linear-gradient(to right, var(--home-bg), transparent);
-    }
-    .section-detail {
-        max-width: 1250px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    .users-container {
-        max-width: 1250px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-
-        .marquee-wrapper {
-            user-select: none;
-            gap: 3rem;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        .marquee {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 3rem;
-            min-width: 100%;
-            animation: scroll 30s linear infinite;
-
-            > div {
-                max-width: clamp(10rem, 1rem + 28vmin, 20rem);
-                aspect-ratio: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 8rem;
-            }
-
-            &.marquee-reverse{
-                animation-direction: reverse;
-                animation-delay: calc(30s / -2);
-            }
-        }
     }
 }

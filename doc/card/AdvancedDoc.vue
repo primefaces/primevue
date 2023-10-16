@@ -46,7 +46,8 @@ export default {
         <Button icon="pi pi-check" label="Save" />
         <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
     </template>
-</Card>`,
+</Card>
+`,
                 options: `
 <template>
     <div class="card flex align-items-center justify-content-center">
@@ -71,7 +72,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex align-items-center justify-content-center">
@@ -96,7 +98,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

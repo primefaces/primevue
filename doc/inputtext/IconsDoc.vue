@@ -32,7 +32,8 @@ export default {
 <span class="p-input-icon-right">
     <i class="pi pi-spin pi-spinner" />
     <InputText v-model="value2" />
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
@@ -57,7 +58,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
@@ -78,7 +80,8 @@ import { ref } from 'vue';
 
 const value1 = ref(null);
 const value2 = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

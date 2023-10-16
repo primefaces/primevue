@@ -15,7 +15,8 @@ export default {
             loading: false,
             code: {
                 basic: `
-<Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />`,
+<Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -39,7 +40,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +60,8 @@ const load = () => {
         loading.value = false;
     }, 2000);
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

@@ -15,7 +15,8 @@ export default {
             value: '',
             code: {
                 basic: `
-<InputMask v-model="value" mask="(999) 999-9999? x99999" placeholder="(999) 999-9999? x99999" />`,
+<InputMask v-model="value" mask="(999) 999-9999? x99999" placeholder="(999) 999-9999? x99999" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -32,7 +33,8 @@ export default {
     }
 }
 <\/script>
-        `,
+        
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

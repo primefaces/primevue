@@ -79,7 +79,8 @@ export default {
             <InputText v-model="filters['type']" type="text" class="p-column-filter" placeholder="Filter by type" />
         </template>
     </Column>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -133,7 +134,8 @@ export default {
         NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -183,7 +185,8 @@ const filterOptions = ref([
     { label: 'Lenient', value: 'lenient' },
     { label: 'Strict', value: 'strict' }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

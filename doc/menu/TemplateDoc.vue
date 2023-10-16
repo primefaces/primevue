@@ -76,7 +76,8 @@ export default {
             <span class="ml-2">Log Out</span>
         </button>
     </template>
-</Menu>`,
+</Menu>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -133,7 +134,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -188,7 +190,8 @@ const toast = useToast();
 const profileClick = () => {
     toast.add({ severity: 'info', summary: 'Info', detail: 'Item Selected', life: 3000 });
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

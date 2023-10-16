@@ -40,7 +40,8 @@ export default {
 <span id="address2">Address 2</span>
 <Textarea aria-labelledby="address2" />
 
-<Textarea aria-label="Address Details"/>`
+<Textarea aria-label="Address Details"/>
+`
             }
         };
     }

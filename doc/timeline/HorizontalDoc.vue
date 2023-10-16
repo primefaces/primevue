@@ -49,7 +49,8 @@ export default {
     <template #content="slotProps">
         {{ slotProps.item }}
     </template>
-</Timeline>`,
+</Timeline>
+`,
                 options: `
 <template>
     <div class="card flex flex-column gap-3">
@@ -82,7 +83,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column gap-3">
@@ -111,7 +113,8 @@ export default {
 import { ref } from "vue";
 
 const events = ref(['2020', '2021', '2022', '2023']);
-<\/script>`
+<\/script>
+`
             }
         };
     }

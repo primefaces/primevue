@@ -15,7 +15,8 @@ export default {
             code: {
                 basic: `
 <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="var(--surface-ground)"
-    animationDuration=".5s" aria-label="Custom ProgressSpinner" />`,
+    animationDuration=".5s" aria-label="Custom ProgressSpinner" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -25,7 +26,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -35,7 +37,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

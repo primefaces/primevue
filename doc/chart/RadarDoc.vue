@@ -16,7 +16,8 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />`,
+<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -89,7 +90,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -158,7 +160,8 @@ const setChartOptions = () => {
         }
     };
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

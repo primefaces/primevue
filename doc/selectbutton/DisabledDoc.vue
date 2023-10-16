@@ -23,7 +23,8 @@ export default {
             code: {
                 basic: `
 <SelectButton v-model="value" :options="options" disabled />
-<SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />`,
+<SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
@@ -46,7 +47,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
@@ -65,7 +67,8 @@ const options2 = ref([
                 { name: 'Option 1', value: 1 },
                 { name: 'Option 2', value: 2, constant: true }
             ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

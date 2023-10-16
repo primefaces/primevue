@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     orderlist: {
         root: 'flex',
         controls: 'flex flex-col justify-center p-5',
@@ -145,7 +146,8 @@ const products = ref(null);
 onMounted(() => {
     ProductService.getProductsSmall().then((data) => (products.value = data));
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

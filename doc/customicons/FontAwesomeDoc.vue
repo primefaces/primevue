@@ -10,11 +10,13 @@ export default {
     data() {
         return {
             code: {
-                basic: `<Dropdown>
+                basic: `
+<Dropdown>
     <template #dropdownicon>
         <i class="fa-light fa-chevron-down"></i>
     </template>
-</Dropdown>`
+</Dropdown>
+`
             }
         };
     }

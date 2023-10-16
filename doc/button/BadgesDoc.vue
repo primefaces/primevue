@@ -16,7 +16,8 @@ export default {
             code: {
                 basic: `
 <Button type="button" label="Emails" badge="8" />
-<Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />`,
+<Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
@@ -26,7 +27,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
@@ -36,7 +38,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

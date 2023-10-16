@@ -20,7 +20,8 @@ export default {
 <Chip label="Action" />
 <Chip label="Comedy" />
 <Chip label="Mystery" />
-<Chip label="Thriller" removable />`,
+<Chip label="Thriller" removable />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap gap-2">
@@ -33,7 +34,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap gap-2">
@@ -46,7 +48,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

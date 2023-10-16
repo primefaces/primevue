@@ -24,6 +24,11 @@ export interface ToastServiceMethods {
      */
     add(message: ToastMessageOptions): void;
     /**
+     * Clears the message.
+     * @param {ToastMessageOptions} message - Message instance.
+     */
+    remove(message: ToastMessageOptions): void;
+    /**
      * Clears the messages that belongs to the group.
      * @param {string} group - Name of the message group.
      */

@@ -1,5 +1,5 @@
 .layout-footer {
-    padding: 2rem 0;
+    padding: 2rem 4rem;
     margin-top: 4rem;
     display: flex;
     align-items: center;
@@ -12,9 +12,14 @@
     a {
         color: var(--primary-color);
         font-weight: 700;
+        transition: all .3s;
+        border-radius: var(--border-radius);
+
+        @include focus-visible();
 
         &:hover {
             text-decoration: underline;
         }
+        
     }
 }

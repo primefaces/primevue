@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Navigators are displayed on hover only if <i>showItemNavigatorsOnHover</i> is enabled.</p>
     </DocSectionText>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px" :showItemNavigators="true" :showItemNavigatorsOnHover="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -45,10 +45,11 @@ export default {
     <template #thumbnail="slotProps">
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px" :showItemNavigators="true" :showItemNavigatorsOnHover="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -87,10 +88,11 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px" :showItemNavigators="true" :showItemNavigatorsOnHover="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -125,7 +127,8 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

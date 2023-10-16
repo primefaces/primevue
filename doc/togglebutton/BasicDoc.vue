@@ -15,7 +15,8 @@ export default {
             checked: false,
             code: {
                 basic: `
-<ToggleButton v-model="checked" />`,
+<ToggleButton v-model="checked" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -31,7 +32,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -43,7 +45,8 @@ export default {
 import { ref } from 'vue';
 
 const checked = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     toast: {
         root: {
             class: ['w-96', 'opacity-90']
@@ -85,7 +86,8 @@ const showWarn = () => {
 const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -14,7 +14,8 @@ export default {
         return {
             code: {
                 basic: `
-<ProgressBar :value="50"></ProgressBar>`,
+<ProgressBar :value="50"></ProgressBar>
+`,
                 options: `
 <template>
     <div class="card">
@@ -24,7 +25,8 @@ export default {
 
 <script >
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -34,7 +36,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

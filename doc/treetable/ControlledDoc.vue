@@ -28,7 +28,8 @@ export default {
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -65,7 +66,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -96,7 +98,8 @@ const toggleApplications = () => {
 
     expandedKeys.value = _expandedKeys;
 }
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

@@ -2,7 +2,7 @@ import pkg from '../../../package.json';
 import { services } from './services';
 
 const PrimeVue = {
-    version: '^3.35.0',
+    version: '^3.36.0',
     description:
         'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
 };
@@ -58,7 +58,7 @@ const getVueApp = (props = {}, sourceType) => {
 
     if (embedded) {
         // main.js
-        unstyled += `, unstyled: true, pt: Tailwind`;
+        unstyled += `, unstyled: true, pt: Tailwind, ptOptions: { mergeProps: true }`;
         imports += `import Tailwind from 'primevue/passthrough/tailwind';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
         element += `app.component('ThemeSwitcher', ThemeSwitcher);`;
@@ -77,7 +77,7 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
     } else {
         // main.js
         pvTheme += `import "primeflex/primeflex.css";
-import "primevue/resources/themes/lara-light-blue/theme.css";`;
+import "primevue/resources/themes/lara-light-teal/theme.css";`;
 
         // package.json
         dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';

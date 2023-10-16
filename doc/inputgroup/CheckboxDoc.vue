@@ -62,7 +62,8 @@ export default {
     <span class="p-inputgroup-addon">
         <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
     </span>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
@@ -103,7 +104,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
@@ -140,7 +142,8 @@ const checked1 = ref(false);
 const checked2 = ref(false);
 const radioValue1 = ref('');
 const radioValue2 = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

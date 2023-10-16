@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     inputnumber: {
         root: 'w-full inline-flex',
         input: ({ props }) => ({
@@ -75,7 +76,8 @@ const value1 = ref(42723);
 const value2 = ref(58151);
 const value3 = ref(2351.35);
 const value4 = ref(50);
-<\/script>`
+<\/script>
+`
             }
         };
     }

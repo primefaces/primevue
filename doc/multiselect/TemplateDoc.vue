@@ -54,7 +54,8 @@ export default {
             <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
         </div>
     </template>
-</MultiSelect>`,
+</MultiSelect>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -94,7 +95,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -130,7 +132,8 @@ const countries = ref([
     { name: 'Spain', code: 'ES' },
     { name: 'United States', code: 'US' }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

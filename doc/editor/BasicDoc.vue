@@ -15,7 +15,8 @@ export default {
             value: '',
             code: {
                 basic: `
-<Editor v-model="value" editorStyle="height: 320px" />`,
+<Editor v-model="value" editorStyle="height: 320px" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -31,7 +32,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

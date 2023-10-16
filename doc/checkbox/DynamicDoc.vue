@@ -29,7 +29,8 @@ export default {
 <div v-for="category of categories" :key="category.key" class="flex align-items-center">
     <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
     <label :for="category.key">{{ category.name }}</label>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -56,7 +57,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -79,7 +81,8 @@ const categories = ref([
     {name: "Research", key: "R"}
 ]);
 const selectedCategories = ref(['Marketing']);
-<\/script>`
+<\/script>
+`
             }
         };
     }

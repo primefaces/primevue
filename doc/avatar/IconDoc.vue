@@ -41,7 +41,8 @@ export default {
 <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
 <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
 
-<Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />`,
+<Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -70,7 +71,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -99,7 +101,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

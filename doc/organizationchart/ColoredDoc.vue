@@ -92,7 +92,8 @@ export default {
     <template #default="slotProps">
         <span>{{ slotProps.node.label }}</span>
     </template>
-</OrganizationChart>`,
+</OrganizationChart>
+`,
                 options: `
 <template>
     <div class="card overflow-x-auto">
@@ -172,7 +173,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card overflow-x-auto">
@@ -248,7 +250,8 @@ const data = ref({
         }
     ]
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

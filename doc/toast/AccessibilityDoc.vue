@@ -66,7 +66,8 @@ const openDialog = () => {
         }
     });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

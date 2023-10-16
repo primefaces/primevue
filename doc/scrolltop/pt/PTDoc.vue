@@ -26,7 +26,8 @@ export default {
         root: { class: 'w-2rem h-2rem bg-primary' },
         icon: { class: 'w-1rem h-1rem' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -46,7 +47,8 @@ export default {
             />
         </ScrollPanel>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

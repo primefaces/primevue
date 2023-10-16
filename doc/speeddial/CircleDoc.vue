@@ -53,7 +53,8 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />`,
+<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -108,7 +109,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -164,7 +166,8 @@ const items = ref([
         }
     }
 ])
-<\/script>`
+<\/script>
+`
             }
         };
     }

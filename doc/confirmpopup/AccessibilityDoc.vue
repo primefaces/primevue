@@ -77,7 +77,8 @@ export default {
                 basic: `
 <ConfirmPopup id="confirm" aria-label="popup" />
 
-<Button @click="openPopup($event)" label="Confirm" id="confirmButton" :aria-expanded="isVisible" :aria-controls="isVisible ? 'confirm' : null" />`
+<Button @click="openPopup($event)" label="Confirm" id="confirmButton" :aria-expanded="isVisible" :aria-controls="isVisible ? 'confirm' : null" />
+`
             },
             code2: {
                 basic: `
@@ -97,7 +98,8 @@ const openPopup = (event) => {
         }
     });
 }
-<\/script>`
+<\/script>
+`
             }
         };
     }

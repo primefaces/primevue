@@ -48,7 +48,8 @@ export default {
         <img alt="logo" src="/images/logo.svg" style="width: 1rem" />
         <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
     </Button>
-</SplitButton>`,
+</SplitButton>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -98,7 +99,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -144,7 +146,8 @@ const items = [
 const save = () => {
     toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

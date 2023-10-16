@@ -31,7 +31,8 @@ export default {
             <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
         </span>
     </template>
-</Editor>`,
+</Editor>
+`,
                 options: `
 <template>
     <div class="card">
@@ -55,7 +56,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -75,7 +77,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref('<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>');
-<\/script>`
+<\/script>
+`
             }
         };
     }

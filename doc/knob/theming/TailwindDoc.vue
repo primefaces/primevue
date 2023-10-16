@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     knob: {
         root: ({ props }) => ({
             class: [
@@ -44,7 +45,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(0);
-<\/script>`
+<\/script>
+`
             }
         };
     }

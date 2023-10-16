@@ -35,7 +35,8 @@ export default defineConfig({
       "./src/**/*.{vue,js,ts,jsx,tsx}",
       "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"]
   })]
-})`
+})
+`
             }
         };
     }

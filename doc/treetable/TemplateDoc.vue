@@ -57,7 +57,8 @@ export default {
             <Button icon="pi pi-refresh" label="Reload" severity="warning" />
         </div>
     </template>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -98,7 +99,8 @@ export default {
         NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -135,7 +137,8 @@ onMounted(() => {
 });
 
 const nodes = ref();
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

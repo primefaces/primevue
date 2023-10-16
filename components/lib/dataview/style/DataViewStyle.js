@@ -19,6 +19,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'dataview',
-    classes,
-    loadStyle: () => {}
+    classes
 });

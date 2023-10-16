@@ -79,6 +79,6 @@ describe('Button.vue', () => {
             }
         });
 
-        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root" data-pd-ripple="true"><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
+        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-pc-section="root"><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
     });
 });

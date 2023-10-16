@@ -1,6 +1,5 @@
 <template>
     <aside class="layout-sidebar" :class="{ active: active }">
-        <PrimeVueNuxtLink to="/" class="logo" aria-label="PrimeVue logo"> <img alt="logo" :src="`https://primefaces.org/cdn/primevue/images/primevue-logo${darkTheme ? '-light' : '-dark'}.svg`" /></PrimeVueNuxtLink>
         <nav>
             <ol class="layout-menu">
                 <AppMenuItem :menu="menu"></AppMenuItem>

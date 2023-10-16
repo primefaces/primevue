@@ -1,6 +1,6 @@
 <template>
     <DocSectionText :id="id" :label="label" :level="componentLevel">
-        {{ description || null }}
+        <p>{{ description || null }}</p>
         <p v-if="relatedProp" class="inline-block">
             See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedPropValue(relatedProp) }} </NuxtLink>
         </p>
@@ -19,45 +19,50 @@
             </thead>
             <tbody>
                 <tr v-for="prop in data" :key="prop">
-                    <td
-                        v-for="[k, v] in Object.entries(prop)"
-                        :key="k"
-                        :class="{ 'doc-option-type': k === 'type' || k === 'options', 'doc-option-default': k === 'defaultValue' }"
-                        :style="{ 'max-width': k === 'default' || k === 'returnType' ? '200px' : undefined }"
-                    >
+                    <td v-for="[k, v] in Object.entries(prop)" :key="k" :style="{ 'max-width': k === 'default' || k === 'returnType' ? '200px' : undefined }">
                         <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
                             <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name" :class="{ 'line-through cursor-pointer': !!prop.deprecated }" :title="prop.deprecated">
-                                {{ v }}<NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" :class="['doc-option-link', optionLinkClass]"> <i class="pi pi-link"></i> </NuxtLink>
+                                {{ v }}<NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link"> <i class="pi pi-link"></i> </NuxtLink>
                             </span>
 
                             <template v-else-if="k === 'type'">
                                 <template v-for="(value, i) in getType(v)" :key="value">
-                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" :class="['doc-option-link', optionLinkClass]">{{ value }}</NuxtLink
-                                    ><span v-else>{{ value }}</span>
+                                    <span v-if="i !== 0" class="doc-option-type">{{ ' | ' }}</span>
+                                    <NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-type doc-option-link">{{ value }}</NuxtLink
+                                    ><span v-else class="doc-option-type">{{ value }}</span>
                                 </template>
                             </template>
 
                             <template v-else-if="k === 'options'">
                                 <template v-for="val in v" :key="val.name">
                                     <div class="doc-option-type-options-container">
-                                        {{ val.name }}: <span class="doc-option-type-options">{{ val.type }}</span>
+                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type }}</span>
                                     </div>
                                 </template>
                             </template>
 
                             <template v-else-if="k === 'parameters'">
-                                <span v-if="v.name" :class="{ 'font-medium text-600': label === 'Slots' }"> {{ v.name }} : </span>
-                                <template v-for="(value, i) in getType(v.type)" :key="value">
-                                    {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" :class="['doc-option-link', optionLinkClass]"> {{ value }} </NuxtLink>
-                                    <span v-else v-html="value"> </span>
-                                </template>
+                                <div class="doc-option-params">
+                                    <span v-if="v.name" :class="{ 'text-primary-700': label === 'Slots', 'doc-option-parameter-name': label === 'Emits' }"> {{ v.name }} : </span>
+                                    <template v-for="(value, i) in getType(v.type)" :key="value">
+                                        {{ i !== 0 ? ' | ' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link doc-option-parameter-type"> {{ value }} </NuxtLink>
+                                        <span v-else :class="{ 'doc-option-parameter-type': label === 'Emits' }" v-html="value"> </span>
+                                    </template>
+                                </div>
                             </template>
 
-                            <div v-else-if="(k === 'default' && v !== '') || k === 'returnType'" :id="id + '.' + k" :class="['doc-option-props', optionPropClass]">
+                            <div v-else-if="k === 'default'" :id="id + '.' + k" :class="['doc-option-default', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
+                                {{ v === '' || v === undefined ? 'null' : v }}
+                            </div>
+
+                            <div v-else-if="k === 'returnType'" :id="id + '.' + k" :class="['doc-option-returnType', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
                                 {{ v }}
                             </div>
 
-                            <span v-else :id="id + '.' + k"> {{ v }} </span>
+                            <template v-else>
+                                <span v-if="typeof v === 'string' && v?.includes('<a')" :id="id + '.' + k" class="doc-option-description" v-html="v"> </span>
+                                <span v-else :id="id + '.' + k" class="doc-option-description">{{ v }} </span>
+                            </template>
                         </template>
                     </td>
                 </tr>
@@ -165,12 +170,6 @@ export default {
             }
 
             return this.data[0].data ? 1 : 2;
-        },
-        optionLinkClass() {
-            return this.$appState.darkTheme ? 'text-primary-400' : 'text-primary-600';
-        },
-        optionPropClass() {
-            return this.$appState.darkTheme ? 'border-bluegray-800 bg-bluegray-800' : 'border-bluegray-100 bg-bluegray-50';
         }
     }
 };

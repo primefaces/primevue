@@ -21,7 +21,8 @@ export default {
 <span class="p-float-label">
     <InputText id="username" v-model="value" />
     <label for="username">Username</label>
-</span>`,
+</span>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -41,6 +42,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

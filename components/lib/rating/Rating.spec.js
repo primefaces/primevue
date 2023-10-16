@@ -37,7 +37,7 @@ describe('Rating.vue', () => {
     it('When star is clicked, onOptionClick method should triggered', async () => {
         await wrapper.find('.p-rating-item').trigger('click');
 
-        expect(wrapper.find('.p-focus').exists()).toBe(true);
+        expect(wrapper.find('[data-p-focused="true"]').exists()).toBe(true);
     });
 
     it('When input focused, focusedOptionIndex value should changed', async () => {

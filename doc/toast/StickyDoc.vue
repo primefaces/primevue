@@ -3,7 +3,10 @@
         <p>A message disappears after 3000ms defined the <i>life</i> option, set <i>sticky</i> option to display messages that do not hide automatically.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button @click="showSticky" label="Sticky" />
+        <div class="flex flex-wrap gap-2">
+            <Button @click="showSticky" label="Sticky" severity="success" />
+            <Button label="Clear" @click="clear()" />
+        </div>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +18,17 @@ export default {
             code: {
                 basic: `
 <Toast />
-<Button @click="showSticky" label="Sticky" />`,
+<Button @click="showSticky" label="Sticky" />
+<Button label="Clear" @click="clear()" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <Button @click="showSticky" label="Sticky" />
+        <div class="flex flex-wrap gap-2">
+            <Button @click="showSticky" label="Sticky" severity="success" />
+            <Button label="Clear" @click="clear()" />
+        </div>
     </div>
 </template>
 
@@ -29,15 +37,22 @@ export default {
     methods: {
         showSticky() {
             this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+        },
+        clear() {
+            this.$toast.removeAllGroups();
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <Button @click="showSticky" label="Sticky" />
+        <div class="flex flex-wrap gap-2">
+            <Button @click="showSticky" label="Sticky" severity="success" />
+            <Button label="Clear" @click="clear()" />
+        </div>
     </div>
 </template>
 
@@ -47,14 +62,22 @@ const toast = useToast();
 
 const showSticky = () => {
     toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
-};
-<\/script>`
+}
+
+const clear = () => {
+    toast.removeAllGroups();
+}
+<\/script>
+`
             }
         };
     },
     methods: {
         showSticky() {
             this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content' });
+        },
+        clear() {
+            this.$toast.removeAllGroups();
         }
     }
 };

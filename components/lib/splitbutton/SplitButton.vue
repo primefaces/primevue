@@ -80,7 +80,10 @@ export default {
     },
     methods: {
         onDropdownButtonClick(event) {
-            event.preventDefault();
+            if (event) {
+                event.preventDefault();
+            }
+
             this.$refs.menu.toggle({ currentTarget: this.$el, relatedTarget: this.$refs.button.$el });
             this.isExpanded = this.$refs.menu.visible;
         },

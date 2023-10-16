@@ -22,7 +22,8 @@ export default {
 <Badge value="8" severity="success"></Badge>
 <Badge value="4" severity="info"></Badge>
 <Badge value="12" severity="warning"></Badge>
-<Badge value="3" severity="danger"></Badge>`,
+<Badge value="3" severity="danger"></Badge>
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -36,7 +37,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
@@ -50,7 +52,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

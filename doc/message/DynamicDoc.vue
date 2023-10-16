@@ -24,7 +24,8 @@ export default {
 <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
 <transition-group name="p-message" tag="div">
     <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
-</transition-group>`,
+</transition-group>
+`,
                 options: `
 <template>
     <div class="card">
@@ -58,7 +59,8 @@ export default {
     }
 };
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -87,7 +89,8 @@ const addMessages = () => {
 const clearMessages = () => {
     messages.value = [];
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

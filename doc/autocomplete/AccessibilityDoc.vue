@@ -168,7 +168,8 @@ export default {
 <span id="ac2">Email</span>
 <AutoComplete aria-labelledby="ac2" />
 
-<AutoComplete aria-label="City" />`
+<AutoComplete aria-label="City" />
+`
             }
         };
     }

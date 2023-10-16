@@ -31,7 +31,8 @@ export default {
     <Column field="size" header="Size 2" style="width: 250px"></Column>
     <Column field="type" header="Type 3" style="width: 250px"></Column>
     <Column field="size" header="Size 3" style="width: 250px"></Column>
-</TreeTable>`,
+</TreeTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -59,7 +60,8 @@ export default {
         NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -83,7 +85,8 @@ onMounted(() => {
 });
 
 const nodes = ref();
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

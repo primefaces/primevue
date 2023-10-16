@@ -14,7 +14,8 @@ export default {
         return {
             code: {
                 basic: `
-<Dropdown disabled placeholder="Select a City" class="w-full md:w-14rem" />`,
+<Dropdown disabled placeholder="Select a City" class="w-full md:w-14rem" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -24,7 +25,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -34,7 +36,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     timeline: {
         root: ({ props }) => ({
             class: [
@@ -129,7 +130,8 @@ const events = ref([
     { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
 ]);
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

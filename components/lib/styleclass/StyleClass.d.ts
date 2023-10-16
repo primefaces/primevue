@@ -22,27 +22,27 @@ export interface StyleClassOptions {
     /**
      * Style class to add when item begins to get displayed.
      */
-    enterClassName?: string | undefined;
+    enterClass?: string | undefined;
     /**
      * Style class to add during enter animation.
      */
-    enterActiveClassName?: string | undefined;
+    enterActiveClass?: string | undefined;
     /**
      * Style class to add when item begins to get displayed.
      */
-    enterToClassName?: string | undefined;
+    enterToClass?: string | undefined;
     /**
      * Style class to add when item begins to get hidden.
      */
-    leaveClassName?: string | undefined;
+    leaveClass?: string | undefined;
     /**
      * Style class to add during leave animation.
      */
-    leaveActiveClassName?: string | undefined;
+    leaveActiveClass?: string | undefined;
     /**
      * Style class to add when leave animation is completed.
      */
-    leaveToClassName?: string | undefined;
+    leaveToClass?: string | undefined;
     /**
      * Whether to trigger leave animation when outside of the element is clicked.
      * @defaultValue false

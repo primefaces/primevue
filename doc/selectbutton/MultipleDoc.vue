@@ -20,7 +20,8 @@ export default {
             ],
             code: {
                 basic: `
-<SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />`,
+<SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -41,7 +42,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +60,8 @@ const options = ref([
                 { name: 'Option 2', value: 2 },
                 { name: 'Option 3', value: 3 }
             ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     organizationchart: {
         table: 'mx-auto my-0 border-spacing-0 border-separate',
         cell: 'text-center align-top py-0 px-3',
@@ -131,7 +132,8 @@ const data = ref({
         }
     ]
 });
-<\/script>`
+<\/script>
+`
             }
         };
     }

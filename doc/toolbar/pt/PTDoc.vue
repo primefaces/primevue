@@ -35,7 +35,8 @@ export default {
             <Button icon="pi pi-times" severity="danger" />
         </template>
     </Toolbar>
-</TabView>`,
+</TabView>
+`,
                 options: `
 <template>
     <div class="card">
@@ -53,7 +54,8 @@ export default {
             </template>
         </Toolbar>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card">

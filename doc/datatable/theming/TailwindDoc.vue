@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export const TRANSITIONS = {
+                basic: `
+export const TRANSITIONS = {
     overlay: {
         enterFromClass: 'opacity-0 scale-75',
         enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
@@ -521,7 +522,8 @@ const getSeverity = (status) => {
             return null;
     }
 };
-<\/script>`
+<\/script>
+`
             }
         };
     }

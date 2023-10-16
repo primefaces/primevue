@@ -15,7 +15,8 @@ export default {
             value: null,
             code: {
                 basic: `
-<TriStateCheckbox v-model="value" />`,
+<TriStateCheckbox v-model="value" />
+`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -31,7 +32,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
@@ -43,7 +45,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

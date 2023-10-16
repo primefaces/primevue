@@ -24,6 +24,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tristatecheckbox',
-    classes,
-    loadStyle: () => {}
+    classes
 });

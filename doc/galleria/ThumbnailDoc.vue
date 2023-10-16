@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Thumbnails represent a smaller version of the actual content.</p>
     </DocSectionText>
-    <div class="card flex flex-column md:align-items-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5 align-self-center">
             <div class="flex flex-wrap gap-3 mb-5">
                 <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
@@ -76,10 +76,11 @@ export default {
             <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
         </div>
     </template>
-</Galleria>`,
+</Galleria>
+`,
                 options: `
 <template>
-    <div class="card card flex flex-column md:align-items-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5 align-self-center">
             <div class="flex flex-wrap gap-3 mb-5">
                 <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
@@ -147,10 +148,11 @@ export default {
         PhotoService.getImages().then((data) => (this.images = data));
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
-    <div class="card flex flex-column md:align-items-center">
+    <div class="card">
         <div class="flex flex-wrap gap-3 mb-5 align-self-center">
             <div class="flex flex-wrap gap-3 mb-5">
                 <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
@@ -214,7 +216,8 @@ const responsiveOptions = ref([
 onMounted(() => {
     PhotoService.getImages().then((data) => (images.value = data));
 });
-<\/script>`,
+<\/script>
+`,
                 data: `
 /* PhotoService */
 {

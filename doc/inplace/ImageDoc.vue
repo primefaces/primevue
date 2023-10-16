@@ -30,7 +30,8 @@ export default {
     <template #content>
         <img class="w-full" alt="Nature" src="/images/nature/nature1.jpg" />
     </template>
-</Inplace>`,
+</Inplace>
+`,
                 options: `
 <template>
     <div class="card">
@@ -47,7 +48,8 @@ export default {
 </template>
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -65,7 +67,8 @@ export default {
 
 <script setup>
 
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -42,7 +42,8 @@ export default {
             code: {
                 basic: `
 <img alt="Logo" src="/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
-<ContextMenu ref="routemenu" :model="items" />`,
+<ContextMenu ref="routemenu" :model="items" />
+`,
                 options: `
 <template>
     <div class="card flex md:justify-content-center">
@@ -72,7 +73,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -99,7 +101,8 @@ const onImageRightClick = (event) => {
     routemenu.value.show(event);
 };
 
-<\/script>`
+<\/script>
+`
             }
         };
     },

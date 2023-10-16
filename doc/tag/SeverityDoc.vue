@@ -22,7 +22,8 @@ export default {
 <Tag severity="success" value="Success"></Tag>
 <Tag severity="info" value="Info"></Tag>
 <Tag severity="warning" value="Warning"></Tag>
-<Tag severity="danger" value="Danger"></Tag>`,
+<Tag severity="danger" value="Danger"></Tag>
+`,
                 options: `
 <template>
     <div class="flex flex-wrap justify-content-center gap-2">
@@ -36,7 +37,8 @@ export default {
 
 <script>
 
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="flex flex-wrap justify-content-center gap-2">

@@ -25,7 +25,8 @@ export default {
     :pt="{
         root: { class: 'border-teal-400' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -48,7 +49,8 @@ export default {
     }
 }
 <\/script>
-        `,
+        
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

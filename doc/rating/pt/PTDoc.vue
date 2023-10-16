@@ -23,7 +23,8 @@ export default {
     :pt="{
         onIcon: { class: 'text-orange-400' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -44,7 +45,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -61,7 +63,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

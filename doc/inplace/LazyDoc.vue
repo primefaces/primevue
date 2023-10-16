@@ -37,7 +37,8 @@ export default {
             <Column field="quantity" header="Quantity"></Column>
         </DataTable>
     </template>
-</Inplace>`,
+</Inplace>
+`,
                 options: `
 <template>
     <div class="card">
@@ -70,7 +71,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -97,7 +99,8 @@ const products = ref();
 const loadData = () => {
     ProductService.getProductsSmall().then((data) => (products.value = data));
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

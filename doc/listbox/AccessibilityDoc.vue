@@ -148,7 +148,8 @@ export default {
 <span id="lb"></span>Options</span>
 <Listbox aria-labelledby="lb" />
 
-<Listbox aria-label="City" />`
+<Listbox aria-label="City" />
+`
             }
         };
     }

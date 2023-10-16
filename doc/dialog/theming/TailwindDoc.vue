@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     dialog: {
         root: ({ state }) => ({
             class: [
@@ -118,7 +119,8 @@ export default {
 import { ref } from "vue";
 
 const visible = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

@@ -39,7 +39,8 @@ export default {
             </div>
         </template>
     </Column>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <div class="card">
@@ -91,7 +92,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -139,7 +141,8 @@ const stockClass = (data) => {
     ];
 };
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

@@ -33,7 +33,6 @@ const classes = {
     legend: 'p-fieldset-legend',
     legendtitle: 'p-fieldset-legend-text',
     togglericon: 'p-fieldset-toggler',
-    legendtitle: 'p-fieldset-legend-text',
     toggleablecontent: 'p-toggleable-content',
     content: 'p-fieldset-content'
 };

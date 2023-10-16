@@ -26,7 +26,8 @@ export default {
     <Button label="Top Left" class="mr-2" @click="showTopLeft" />
     <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
     <Button label="Bottom Right" severity="success" @click="showBottomRight" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -56,7 +57,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -87,7 +89,8 @@ const showBottomLeft = () => {
 const showBottomRight = () => {
     toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', group: 'br', life: 3000 });
 };
-<\/script>`
+<\/script>
+`
             }
         };
     },

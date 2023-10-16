@@ -27,7 +27,8 @@ export default {
         handle: { class: 'bg-orange-400 border-900' },
         range: { class: 'bg-orange-400' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +51,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -69,7 +71,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref(null);
-<\/script>`
+<\/script>
+`
             }
         };
     }

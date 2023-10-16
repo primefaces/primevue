@@ -33,7 +33,8 @@ export default {
         prompt: { class: 'text-yellow-500' },
         response: { class: 'text-purple-500' }
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div>
@@ -88,7 +89,8 @@ export default {
         TerminalService.off('command', this.commandHandler);
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div>
@@ -142,7 +144,8 @@ const commandHandler = (text) => {
     
     TerminalService.emit('response', response);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

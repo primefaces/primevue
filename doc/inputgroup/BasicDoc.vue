@@ -46,7 +46,8 @@ export default {
 <div class="p-inputgroup flex-1">
     <span class="p-inputgroup-addon">www</span>
     <InputText placeholder="Website" />
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
@@ -68,7 +69,8 @@ export default {
             <InputText placeholder="Website" />
         </div>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">

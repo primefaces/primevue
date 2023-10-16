@@ -137,7 +137,8 @@ export default {
             ],
             code: {
                 basic: `
-<Menubar :model="items" />`,
+<Menubar :model="items" />
+`,
                 options: `
 <template>
     <div class="card relative z-2">
@@ -275,7 +276,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card relative z-2">
@@ -409,7 +411,8 @@ const items = ref([
         icon: 'pi pi-fw pi-power-off'
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }

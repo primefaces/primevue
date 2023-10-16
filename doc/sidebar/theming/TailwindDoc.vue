@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     sidebar: {
         root: ({ props }) => ({
             class: [
@@ -120,7 +121,8 @@ const visibleLeft = ref(false);
 const visibleRight = ref(false);
 const visibleTop = ref(false);
 const visibleBottom = ref(false);
-<\/script>`
+<\/script>
+`
             }
         };
     }

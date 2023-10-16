@@ -32,7 +32,8 @@ export default {
             class: context.active ? 'bg-cyan-400 border-cyan-400' : undefined
         })
     }"
-/>`,
+/>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -58,7 +59,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -80,7 +82,8 @@ import { ref } from 'vue';
 
 const value = ref('off');
 const options = ref(['Off', 'On']);
-<\/script>`
+<\/script>
+`
             }
         };
     }

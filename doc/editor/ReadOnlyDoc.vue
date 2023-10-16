@@ -15,7 +15,8 @@ export default {
             value: 'Always bet on Prime',
             code: {
                 basic: `
-<Editor v-model="value" editorStyle="height: 320px" readonly />`,
+<Editor v-model="value" editorStyle="height: 320px" readonly />
+`,
                 options: `
 <template>
     <div class="card">
@@ -31,7 +32,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -43,7 +45,8 @@ export default {
 import { ref } from "vue";
 
 const value = ref('Always bet on Prime');
-<\/script>`
+<\/script>
+`
             }
         };
     }

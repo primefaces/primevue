@@ -67,7 +67,8 @@ export default {
     <template #icon="{ item }">
         <img :alt="item.label" :src="item.icon" style="width: 100%" />
     </template>
-</Dock>`,
+</Dock>
+`,
                 options: `
 <template>
     <div class="card dock-demo">
@@ -147,7 +148,8 @@ export default {
 .dock-demo > .p-dock {
     z-index: 1000;
 }
-</style>`,
+</style>
+`,
                 composition: `
 <template>
     <div class="card dock-demo">

@@ -1,12 +1,19 @@
 .layout-content {
-    margin-left: 250px;
-    padding-top: 5rem;
+    padding: 6rem 4rem 0 4rem;
+    display: flex;
 
-    .layout-content-inner {
-        padding: 2rem 4rem;
+    .layout-content-slot {
+        flex: 1 1 auto;
+        width: 1%;
+        padding-top: .5rem;
     }
+}
 
-    .card {
-        @include card;
-    }
+.card {
+    background: var(--surface-card);
+    border: var(--card-border);
+    transition: background-color .5s, border-color .5s;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }

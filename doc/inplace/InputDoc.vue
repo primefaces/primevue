@@ -29,7 +29,8 @@ export default {
     <template #content>
         <InputText v-model="text" autofocus />
     </template>
-</Inplace>`,
+</Inplace>
+`,
                 options: `
 <template>
     <div class="card">
@@ -52,7 +53,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -71,7 +73,8 @@ export default {
 import { ref } from "vue";
 
 const text = ref();
-<\/script>`
+<\/script>
+`
             }
         };
     }

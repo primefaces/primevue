@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             code1: {
-                basic: `export default {
+                basic: `
+export default {
     textarea: {
         root: ({ context }) => ({
             class: [
@@ -41,7 +42,8 @@ export default {
 import { ref } from 'vue';
 
 const value = ref('');
-<\/script>`
+<\/script>
+`
             }
         };
     }

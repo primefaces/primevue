@@ -16,7 +16,8 @@ export default {
             loading: false,
             code: {
                 basic: `
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>`,
+<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -86,7 +87,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -153,7 +155,8 @@ const initateNodes = () => {
         }
     ];
 };
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     key: '0',

@@ -100,7 +100,8 @@ export default {
             <Column :footer="thisYearTotal" />
         </Row>
     </ColumnGroup>
-</DataTable>`,
+</DataTable>
+`,
                 options: `
 <template>
     <DataTable :value="sales" tableStyle="min-width: 50rem">
@@ -197,6 +198,7 @@ export default {
     }
 }
 <\/script>
+
 `,
                 composition: `
 <template>

@@ -1,11 +1,16 @@
 .DocSearch-Button {
     border-radius: var(--border-radius);
     border: 1px solid var(--surface-border);
-    width: 14rem;
+    height: 2rem;
+    background-color: var(--surface-card);
     margin: 0;
-    transition: border-color .3s;
-    height: 3rem;
-    padding: 0 .75rem;
+    transition: all .3s;
+    padding: 0 .5rem;
+    @include focus-visible();
+
+    &:hover {
+        border-color: var(--primary-color);
+    }
 
     &:hover {
         border-color: var(--primary-color);
@@ -13,21 +18,20 @@
     }
 
     .DocSearch-Search-Icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .DocSearch-Button-Keys {
-        border-radius: var(--border-radius);
         overflow: hidden;
         min-width: auto;
-        height: 1.5rem;
-        background: var(--docsearch-key-gradient);
+        height: auto;
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
         width: auto;
-        padding: .28rem .35rem;
+        padding: 0;
         gap: 2px;
 
         .DocSearch-Button-Key {
@@ -39,22 +43,19 @@
             border-radius: 0;
             height: auto;
             width: auto;
+            font-family: var(--font-family);
 
             &:first-child {
-                justify-content: end;
-                font-size: 0.8rem;
-                font-weight: 700;
-                line-height: 13.5px;
-                svg{
-                    height: 14.5px;
-                }
+                font-size: 0.75rem;
+                line-height: normal;
             }
 
             &:last-child {
                 justify-content: start;
                 align-items: center;
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 position: relative;
+                
                 &::before {
                     content: "\e90d";
                     display: flex;
@@ -122,6 +123,12 @@
     color: var(--primary-color);
 }
 
+.DocSearch-Button-Placeholder {
+    text-align: center;
+    display: inline-block;
+    font-size: .875rem;
+}
+
 :root {
     --docsearch-searchbox-focus-background: var(--surface-card);
     --docsearch-text-color: var(--text-color);
@@ -139,3 +146,4 @@
     --docsearch-highlight-color: var(--primary-color);
     --docsearch-hit-active-color: var(--primary-color-text);
 }
+

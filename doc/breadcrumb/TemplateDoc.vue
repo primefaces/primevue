@@ -28,7 +28,8 @@ export default {
             <span :class="item.icon"></span>
         </a>
     </template>
-</Breadcrumb>`,
+</Breadcrumb>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -51,7 +52,8 @@ export default {
         }
     }
 }
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -71,7 +73,8 @@ import { ref } from "vue";
 const home = ref({ icon: 'pi pi-home', url: 'https://primevue.org/' });
 const items = ref([{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]);
 }
-<\/script>`
+<\/script>
+`
             }
         };
     }

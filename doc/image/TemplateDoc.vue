@@ -34,7 +34,8 @@ export default {
     <template #preview="slotProps">
         <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
     </template>
-</Image>`,
+</Image>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -50,7 +51,8 @@ export default {
             </template>
         </Image>
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">

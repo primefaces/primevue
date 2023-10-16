@@ -3,14 +3,14 @@
         <div class="section-header">Themes</div>
         <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as material, bootstrap, tailwind, primeone or develop your own.</p>
         <div class="flex flex-wrap justify-content-center">
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'teal')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
             <a type="button" class="font-medium px-link linkbox mt-4" href="https://designer.primevue.org">more...</a>
         </div>
         <div
             class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
-            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }"
+            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt-gray' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }"
         >
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable

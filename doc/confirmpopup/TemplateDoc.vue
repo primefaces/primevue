@@ -32,7 +32,8 @@ export default {
 </ConfirmPopup>
 <div class="card flex flex-wrap gap-2 justify-content-center">
     <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions"></Button>
-</div>`,
+</div>
+`,
                 options: `
 <template>
     <Toast />
@@ -70,7 +71,8 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <Toast />
@@ -110,7 +112,8 @@ const showTemplate = (event) => {
         }
     });
 }
-<\/script>`
+<\/script>
+`
             }
         };
     },

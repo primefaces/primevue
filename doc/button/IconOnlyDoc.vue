@@ -100,7 +100,8 @@ export default {
 <Button icon="pi pi-user" severity="info" text rounded aria-label="User" />
 <Button icon="pi pi-bell" severity="warning" text rounded aria-label="Notification" />
 <Button icon="pi pi-heart" severity="help" text rounded aria-label="Favorite" />
-<Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />`,
+<Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />
+`,
                 options: `
 <template>
     <div class="card">
@@ -157,7 +158,8 @@ export default {
 </template>
 
 <script>
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card">
@@ -214,7 +216,8 @@ export default {
 </template>
 
 <script setup>
-<\/script>`
+<\/script>
+`
             }
         };
     }

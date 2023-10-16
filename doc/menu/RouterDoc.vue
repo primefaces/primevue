@@ -9,7 +9,7 @@
         <Menu :model="items">
             <template #item="{ label, item, props }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
+                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
@@ -80,7 +80,8 @@ export default {
             <span v-bind="props.label">{{ label }}</span>
         </a>
     </template>
-</Menu>`,
+</Menu>
+`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -147,7 +148,8 @@ export default {
         };
     }
 };
-<\/script>`,
+<\/script>
+`,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
@@ -172,7 +174,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const items = ref(items: [
+const items = ref([
     {
         label: 'Options',
         items: [
@@ -210,7 +212,8 @@ const items = ref(items: [
         ]
     }
 ]);
-<\/script>`
+<\/script>
+`
             }
         };
     }
