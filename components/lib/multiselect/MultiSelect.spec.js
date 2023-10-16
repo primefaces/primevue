@@ -229,5 +229,36 @@ describe('MultiSelect.vue', () => {
             expect(wrapper.findAll('.p-multiselect-item-group').length).toBe(1);
             expect(wrapper.find('.p-multiselect-item-group').text()).toBe('Germany');
         });
+
+        it('should have a label for the toggle all select box', async () => {
+            await wrapper.setProps({
+                options: groupedItems,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                filter: true,
+                autoFilterFocus: true,
+                toggleAllLabel: 'Select all',
+            });
+
+            await wrapper.vm.onContainerClick();
+            const span = await wrapper.find('span.p-multiselect-toggle-all-label');
+
+            expect(span.text()).toBe("Select all")
+        });
+
+        it('should not have a label for the toggle all select box if not provided', async () => {
+            await wrapper.setProps({
+                options: groupedItems,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                filter: true,
+                autoFilterFocus: true,
+            });
+
+            await wrapper.vm.onContainerClick();
+            const span = await wrapper.find('span.p-multiselect-toggle-all-label');
+
+            expect(span.text()).toBe('');
+        });
     });
 });
