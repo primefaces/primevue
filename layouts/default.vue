@@ -71,11 +71,6 @@ export default {
             this.sidebarActive = false;
             DomHandler.unblockBodyScroll('blocked-scroll');
         },
-        hideNews(event) {
-            this.$appState.newsActive = false;
-            sessionStorage.setItem('primevue-news-hidden', 'true');
-            event.stopPropagation();
-        },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;
 
@@ -84,9 +79,6 @@ export default {
             }
 
             return false;
-        },
-        redirect() {
-            window.location.href = 'https://blocks.primevue.org';
         },
         onConfigButtonClick() {
             this.appConfigActive = true;
