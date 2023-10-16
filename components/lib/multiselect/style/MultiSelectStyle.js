@@ -188,7 +188,8 @@ const classes = {
     checkboxContainer: 'p-checkbox p-component',
     checkbox: ({ instance, option }) => ['p-checkbox-box', { 'p-highlight': instance.isSelected(option) }],
     checkboxIcon: 'p-checkbox-icon',
-    emptyMessage: 'p-multiselect-empty-message'
+    emptyMessage: 'p-multiselect-empty-message',
+    toggleAllLabel: 'p-multiselect-toggle-all-label',
 };
 
 export default BaseStyle.extend({
