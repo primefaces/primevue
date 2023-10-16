@@ -16,21 +16,24 @@ export default {
             code: {
                 basic: `
 <InputText v-tooltip="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
-<InputText v-tooltip="'Enter your username'" type="text" placeholder="autoHide: true" />`,
+<InputText v-tooltip="'Enter your username'" type="text" placeholder="autoHide: true" />
+`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="autoHide: true" />
     </div>
-</template>`,
+</template>
+`,
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="autoHide: true" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }
