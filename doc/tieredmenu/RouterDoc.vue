@@ -9,7 +9,7 @@
         <TieredMenu :model="items">
             <template #item="{ label, item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
+                    <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
@@ -162,12 +162,40 @@ export default {
             ],
             code: {
                 basic: `
-<TieredMenu :model="items" />
+<TieredMenu :model="items">
+    <template #item="{ label, item, props, hasSubmenu }">
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+            <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)">
+                <span v-bind="props.icon" />
+                <span v-bind="props.label">{{ label }}</span>
+            </a>
+        </router-link>
+        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+            <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+        </a>
+    </template>
+</TieredMenu>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+        <TieredMenu :model="items">
+            <template #item="{ label, item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+                </a>
+            </template>
+        </TieredMenu>
     </div>
 </template>
 
@@ -314,7 +342,21 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+        <TieredMenu :model="items">
+            <template #item="{ label, item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+                </a>
+            </template>
+        </TieredMenu>
     </div>
 </template>
 

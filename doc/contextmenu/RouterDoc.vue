@@ -10,7 +10,7 @@
         <ContextMenu ref="routemenu" :model="items">
             <template #item="{ label, item, props }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
+                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
@@ -42,13 +42,39 @@ export default {
             code: {
                 basic: `
 <img alt="Logo" src="/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
-<ContextMenu ref="routemenu" :model="items" />
+<ContextMenu ref="routemenu" :model="items">
+    <template #item="{ label, item, props }">
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+            <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
+                <span v-bind="props.icon" />
+                <span v-bind="props.label">{{ label }}</span>
+            </a>
+        </router-link>
+        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+        </a>
+    </template>
+</ContextMenu>
 `,
                 options: `
 <template>
     <div class="card flex md:justify-content-center">
         <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
-        <ContextMenu ref="routemenu" :model="items" />
+        <ContextMenu ref="routemenu" :model="items">
+            <template #item="{ label, item, props }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
+            </template>
+        </ContextMenu>
     </div>
 </template>
 
@@ -79,7 +105,20 @@ export default {
 <template>
     <div class="card">
         <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
-        <ContextMenu ref="routemenu" :model="items" />
+        <ContextMenu ref="routemenu" :model="items">
+            <template #item="{ label, item, props }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
+            </template>
+        </ContextMenu>
     </div>
 </template>
 
