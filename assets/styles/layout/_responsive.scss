@@ -68,6 +68,12 @@
         }
     }
 
+    .layout-news-active {
+        .layout-sidebar {
+            top: 0;
+        }
+    }
+
     .layout-mask {
         background-color: rgba(0, 0, 0, 0.1);
 
