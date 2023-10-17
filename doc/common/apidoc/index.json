@@ -42809,8 +42809,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
-                            "description": "Whether selection can not be cleared.",
+                            "default": "true",
+                            "description": "Whether selection can be cleared.",
                             "deprecated": "Use 'allowEmpty' property instead."
                         },
                         {
