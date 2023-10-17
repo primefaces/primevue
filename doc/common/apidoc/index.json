@@ -50952,12 +50952,20 @@
                             "description": "When present, it adds a custom delay to the tooltip's hiding."
                         },
                         {
+                            "name": "autoHide",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether to hide tooltip when hovering over tooltip content."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
                             "type": "PassThrough<TooltipDirectivePassThroughOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to DOM elements inside the component."
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "ptOptions",
