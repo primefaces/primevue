@@ -4,6 +4,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/tooltip/AccessibilityDoc.vue';
+import AutoHideDoc from '@/doc/tooltip/AutoHideDoc.vue';
 import DelayDoc from '@/doc/tooltip/DelayDoc.vue';
 import EventDoc from '@/doc/tooltip/EventDoc.vue';
 import ImportDoc from '@/doc/tooltip/ImportDoc.vue';
@@ -35,6 +36,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'autohide',
+                    label: 'Auto Hide',
+                    component: AutoHideDoc
                 },
                 {
                     id: 'delay',
