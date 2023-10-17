@@ -6,7 +6,7 @@
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
-        <DocSectionCode :code="code2" :extFiles="extFiles" :service="['ProductService']" embedded />
+        <DocSectionCode :code="code2" embedded />
     </DocSectionText>
 </template>
 
