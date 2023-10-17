@@ -22,13 +22,11 @@ export default {
     },
     mounted() {
         this.themeChangeListener = (event) => {
-            if (event.theme !== this.$appState.theme) {
-                this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
-                    this.$appState.theme = event.theme;
-                    this.$appState.darkTheme = event.dark;
-                    EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
-                });
-            }
+            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
+                this.$appState.theme = event.theme;
+                this.$appState.darkTheme = event.dark;
+                EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
+            });
         };
 
         EventBus.on('theme-change', this.themeChangeListener);
