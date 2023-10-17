@@ -36572,6 +36572,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, it removes component related styles in the core."
+                        },
+                        {
+                            "name": "closeOnEscape",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Specifies if pressing escape key should hide the dialog."
                         }
                     ],
                     "methods": []
