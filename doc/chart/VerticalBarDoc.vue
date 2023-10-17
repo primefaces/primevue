@@ -73,7 +73,7 @@ export default {
                 plugins: {
                     legend: {
                         labels: {
-                            fontColor: textColor
+                            color: textColor
                         }
                     }
                 },
@@ -157,7 +157,7 @@ const setChartOptions = () => {
         plugins: {
             legend: {
                 labels: {
-                    fontColor: textColor
+                    color: textColor
                 }
             }
         },
