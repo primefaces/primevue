@@ -61,6 +61,10 @@
         border-bottom: 0 none;
         overflow: hidden;
     }
+
+    &.layout-news-active {
+        padding-top: 6rem;
+    }
 }
 
 .text-secondary {
