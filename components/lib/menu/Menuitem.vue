@@ -60,7 +60,8 @@ export default {
                 context: {
                     item: this.item,
                     index: this.index,
-                    focused: this.isItemFocused()
+                    focused: this.isItemFocused(),
+                    disabled: this.isItemDisabled(processedItem)
                 }
             });
         },

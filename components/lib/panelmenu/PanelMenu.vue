@@ -103,7 +103,8 @@ export default {
                 context: {
                     index,
                     active: this.isItemActive(item),
-                    focused: this.isItemFocused(item)
+                    focused: this.isItemFocused(item),
+                    disabled: this.isItemDisabled(processedItem)
                 }
             });
         },

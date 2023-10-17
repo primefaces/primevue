@@ -135,7 +135,8 @@ export default {
                     item: processedItem,
                     index,
                     active: this.isItemActive(processedItem),
-                    focused: this.isItemFocused(processedItem)
+                    focused: this.isItemFocused(processedItem),
+                    disabled: this.isItemDisabled(processedItem)
                 }
             });
         },

@@ -176,6 +176,11 @@ export interface TieredMenuContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**

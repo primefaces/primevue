@@ -155,6 +155,11 @@ export interface MenuContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
