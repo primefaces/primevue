@@ -33,6 +33,10 @@ export default {
         closeIcon: {
             type: String,
             default: undefined
+        },
+        closeOnEscape: {
+            type: Boolean,
+            default: true
         }
     },
     style: OverlayPanelStyle,

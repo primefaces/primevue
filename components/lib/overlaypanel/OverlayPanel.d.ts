@@ -163,6 +163,11 @@ export interface OverlayPanelProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Specifies if pressing escape key should hide the dialog.
+     * @defaultValue true
+     */
+    closeOnEscape?: boolean | undefined;
 }
 
 /**

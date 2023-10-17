@@ -58,6 +58,7 @@ export default {
     container: null,
     styleElement: null,
     overlayEventListener: null,
+    documentKeydownListener: null,
     beforeUnmount() {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
@@ -129,6 +130,10 @@ export default {
             this.focus();
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
             this.$emit('show');
+
+            if (this.closeOnEscape) {
+                this.bindDocumentKeyDownListener();
+            }
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -184,6 +189,23 @@ export default {
 
             if (focusTarget) {
                 focusTarget.focus();
+            }
+        },
+        onKeyDown(event) {
+            if (event.code === 'Escape' && this.closeOnEscape) {
+                this.visible = false;
+            }
+        },
+        bindDocumentKeyDownListener() {
+            if (!this.documentKeydownListener) {
+                this.documentKeydownListener = this.onKeyDown.bind(this);
+                window.document.addEventListener('keydown', this.documentKeydownListener);
+            }
+        },
+        unbindDocumentKeyDownListener() {
+            if (this.documentKeydownListener) {
+                window.document.removeEventListener('keydown', this.documentKeydownListener);
+                this.documentKeydownListener = null;
             }
         },
         bindOutsideClickListener() {
