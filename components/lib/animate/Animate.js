@@ -32,13 +32,15 @@ const Animate = BaseAnimate.extend('animate', {
         },
         enter(el, binding) {
             el.style.visibility = 'visible';
-            DomHandler.addClass(el, binding.value.enterClass);
+            DomHandler.addMultipleClasses(el, binding.value.enterClass);
+
+            binding.modifiers.once && this.unbindIntersectionObserver(el);
         },
         leave(el, binding) {
             DomHandler.removeClass(el, binding.value.enterClass);
 
             if (binding.value.leaveClass) {
-                DomHandler.addClass(el, binding.value.leaveClass);
+                DomHandler.addMultipleClasses(el, binding.value.leaveClass);
             }
 
             const animationDuration = el.style.animationDuration || 500;

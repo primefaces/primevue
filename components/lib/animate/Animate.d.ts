@@ -47,6 +47,17 @@ export interface AnimateDirectivePassThroughOptions {
 }
 
 /**
+ * Defines modifiers of Animate.
+ */
+export interface AnimateDirectiveModifiers {
+    /**
+     * Whether the animation will be repeated
+     *  @defaultValue true
+     */
+    once?: boolean | undefined;
+}
+
+/**
  * Binding of Animate directive.
  */
 export interface AnimateDirectiveBinding extends Omit<DirectiveBinding, 'modifiers' | 'value'> {
@@ -54,6 +65,11 @@ export interface AnimateDirectiveBinding extends Omit<DirectiveBinding, 'modifie
      * Value of the Animate.
      */
     value?: AnimateOptions | undefined;
+    /**
+     * Modifiers of the tooltip.
+     * @type {AnimateDirectiveModifiers}
+     */
+    modifiers?: AnimateDirectiveModifiers | undefined;
 }
 
 /**
