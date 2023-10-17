@@ -19,8 +19,9 @@
     }
 
     button {
-        &:focus {
+        &:focus-visible {
             outline: 0 none;
+            border-color: var(--surface-500) !important;
         }
     }
 
