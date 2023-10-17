@@ -16853,6 +16853,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -31613,6 +31621,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -32202,6 +32218,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -32821,6 +32845,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         },
                         {
                             "name": "level",
@@ -38040,6 +38072,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -48818,6 +48858,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
