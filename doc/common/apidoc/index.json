@@ -898,6 +898,21 @@
                     ],
                     "methods": []
                 },
+                "AnimateDirectiveModifiers": {
+                    "description": "Defines modifiers of Animate.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "once",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether the animation will be repeated"
+                        }
+                    ],
+                    "methods": []
+                },
                 "AnimateDirectiveBinding": {
                     "description": "Binding of Animate directive.",
                     "relatedProp": "",
@@ -909,6 +924,14 @@
                             "type": "AnimateOptions",
                             "default": "",
                             "description": "Value of the Animate."
+                        },
+                        {
+                            "name": "modifiers",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AnimateDirectiveModifiers",
+                            "default": "",
+                            "description": "Modifiers of the tooltip."
                         }
                     ],
                     "methods": [],
