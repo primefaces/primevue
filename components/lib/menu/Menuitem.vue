@@ -61,7 +61,7 @@ export default {
                     item: this.item,
                     index: this.index,
                     focused: this.isItemFocused(),
-                    disabled: this.isItemDisabled(processedItem)
+                    disabled: this.disabled()
                 }
             });
         },
