@@ -35,7 +35,7 @@
                                 <span :class="cx('headerLabel')" v-bind="getPTOptions('headerLabel', item, index)">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
-                        <component v-else :is="$slots.item" :item="item"></component>
+                        <component v-else :is="$slots.item" :item="item" :hasSubmenu="getItemProp(item, 'items')" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
                     </div>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
@@ -64,6 +64,7 @@
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BasePanelMenu from './BasePanelMenu.vue';
 import PanelMenuList from './PanelMenuList.vue';
 
@@ -248,6 +249,22 @@ export default {
         },
         changeFocusedHeader(event, element) {
             element && DomHandler.focus(element);
+        },
+        getMenuItemProps(item, index) {
+            return {
+                icon: mergeProps(
+                    {
+                        class: [this.cx('headerIcon'), this.getItemProp(item, 'icon')]
+                    },
+                    this.getPTOptions('headerIcon', item, index)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('headerLabel')
+                    },
+                    this.getPTOptions('headerLabel', processedItem, index)
+                )
+            };
         }
     },
     components: {

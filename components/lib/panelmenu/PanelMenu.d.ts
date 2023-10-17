@@ -228,6 +228,14 @@ export interface PanelMenuRouterBindProps {
      * Submenuicon elemnt binding
      */
     submenuicon: object;
+    /**
+     * Header icon element binding
+     */
+    headerIcon: object;
+    /**
+     * Header label element binding
+     */
+    headerLabel: object;
 }
 
 /**
