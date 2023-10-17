@@ -81,7 +81,7 @@ export default {
 
             let selected = this.isSelected(option);
 
-            if (selected && (this.unselectable || !this.allowEmpty)) {
+            if (selected && !(this.unselectable && this.allowEmpty)) {
                 return;
             }
 

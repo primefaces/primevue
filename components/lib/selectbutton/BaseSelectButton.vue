@@ -14,7 +14,7 @@ export default {
         multiple: Boolean,
         unselectable: {
             type: Boolean,
-            default: false
+            default: true
         },
         allowEmpty: {
             type: Boolean,
