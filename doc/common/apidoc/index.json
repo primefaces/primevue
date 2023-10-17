@@ -38140,6 +38140,22 @@
                             "type": "object",
                             "default": "",
                             "description": "Submenuicon elemnt binding"
+                        },
+                        {
+                            "name": "headerIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Header icon element binding"
+                        },
+                        {
+                            "name": "headerLabel",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Header label element binding"
                         }
                     ],
                     "methods": []
