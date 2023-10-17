@@ -1,15 +1,51 @@
 .layout-config {
+    backdrop-filter: blur(20px);
+    background-color: var(--mobile-menu-bg);
+
+    .p-selectbutton {
+        .p-button {
+            padding: 0.5rem 1rem;
+
+            &:first-child {
+                border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+            }
+    
+            &:last-child {
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+        }
+    }
+
+    button {
+        &:focus {
+            outline: 0 none;
+        }
+    }
+
     .grid {
         > div {
             padding: 1rem;
         }
-
     }
-    img {
-        transition: transform .2s;
 
-        &:hover {
-            transform: scale(1.1);
+    .p-inputswitch {
+        .p-inputswitch-slider {
+            border-radius: 30px;
+            
+            &:before {
+                border-radius: 30px;
+            }
         }
+    }
+
+    &.layout-light {
+        background: var(--surface-overlay);
+    }
+
+    &.layout-dark {
+        background: var(rgba(0,0,0,.3));
+        border: 0 none;
     }
 }

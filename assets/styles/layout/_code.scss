@@ -137,7 +137,7 @@ pre[class*="language-"] {
 }
 
 .layout-light {
-    &[data-p-theme^="md-"] {
+    &[data-p-theme^="md"] {
         pre[class*="language-"] {    
             code {
                 background: var(--surface-900);

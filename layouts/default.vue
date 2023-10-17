@@ -2,7 +2,7 @@
     <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews />
         <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" @darkswitch-click="onDarkModeToggle" />
-        <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
+        <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" @darkswitch-click="onDarkModeToggle" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <app-menu :active="sidebarActive" />
@@ -93,7 +93,7 @@ export default {
             if (this.$appState.darkTheme) {
                 newTheme = currentTheme.replace('dark', 'light');
             } else {
-                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
+                if (currentTheme.includes('light') && currentTheme !== 'fluent-light') newTheme = currentTheme.replace('light', 'dark');
                 else newTheme = 'lara-dark-teal'; //fallback
             }
 

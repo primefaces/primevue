@@ -1,217 +1,194 @@
 <template>
-    <Sidebar v-model:visible="visible" @hide="onSidebarHide" class="layout-config w-full sm:w-25rem" position="right">
+    <Sidebar v-model:visible="visible" @hide="onSidebarHide" :class="containerClass" position="right">
         <div class="p-2">
-            <section class="mb-5">
-                <h3>Component Scale</h3>
-                <div class="flex align-items-center gap-2">
+            <section class="pb-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
+                <span class="text-xl font-semibold">Scale</span>
+                <div class="flex align-items-center gap-2 border-1 surface-border p-2" style="border-radius: 30px">
                     <Button icon="pi pi-minus" @click="decrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[0]" />
-                    <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-600', { 'text-lg text-primary': s === scale }]" />
+                    <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-200', { 'text-lg text-primary': s === scale }]" />
 
                     <Button icon="pi pi-plus" @click="incrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[scales.length - 1]" />
                 </div>
             </section>
 
-            <section class="mb-5">
-                <h3>Input Style</h3>
-                <div class="flex gap-5">
-                    <div class="flex align-items-center gap-2">
-                        <RadioButton :modelValue="inputStyle" name="inputStyle" value="outlined" inputId="outlined_input" @update:modelValue="onInputStyleChange"></RadioButton>
-                        <label for="outlined_input">Outlined</label>
-                    </div>
-                    <div class="flex align-items-center gap-2">
-                        <RadioButton :modelValue="inputStyle" name="inputStyle" value="filled" inputId="filled_input" @update:modelValue="onInputStyleChange"></RadioButton>
-                        <label for="filled_input">Filled</label>
-                    </div>
-                </div>
+            <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
+                <span class="text-xl font-semibold">Input Style</span>
+                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" />
             </section>
 
-            <section class="mb-5">
-                <h3>Ripple Effect</h3>
+            <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
+                <span class="text-xl font-semibold">Ripple Effect</span>
                 <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
             </section>
 
-            <section>
-                <h3>Themes</h3>
-                <h4>PrimeOne Design</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-light-teal')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Teal</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-light-indigo')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-light-blue')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-blue.png" alt="Lara Light Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-light-purple')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-purple.png" alt="Lara Light Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-teal', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Teal</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-indigo', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-blue', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('lara-dark-purple', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Lara Purple</span>
+            <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
+                <span :class="['text-xl font-semibold', { 'p-disabled': darkToggleDisabled }]">Dark Mode</span>
+                <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" :disabled="darkToggleDisabled" />
+            </section>
+
+            <section class="py-4 border-bottom-1 surface-border">
+                <div class="text-xl font-semibold mb-3">Themes</div>
+                <div class="flex align-items-center gap-2 mb-3">
+                    <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="border-circle" style="width: 1.5rem" />
+                    <span class="font-medium">Lara</span>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3">
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'teal')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'blue')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4378e6 0%, rgba(67, 120, 230, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'indigo')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #585fe0 0%, rgba(88, 95, 224, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'purple')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #7758e4 0%, rgba(119, 88, 228, 0.5) 100%)"></span>
+                    </button>
+                </div>
+            </section>
+            <section class="py-4 border-bottom-1 surface-border">
+                <div class="flex align-items-center gap-2 mb-3">
+                    <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Design" class="border-circle" style="width: 1.5rem" />
+                    <span class="font-medium">Material Design</span>
+                    <div class="ml-auto flex align-items-center gap-2">
+                        <label for="material-condensed" class="text-sm">Condensed</label>
+                        <InputSwitch inputId="material-condensed" :modelValue="compactMaterial" @update:modelValue="onCompactMaterialChange" class="ml-auto" />
                     </div>
                 </div>
-
-                <h4>Material Design</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('md-light-indigo')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Light Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('md-light-deeppurple')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Light Deep Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Deep Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('md-dark-indigo', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Dark Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('md-dark-deeppurple', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Dark Deep Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Deep Purple</span>
-                    </div>
+                <div class="flex align-items-center justify-content-between gap-3">
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('md', 'indigo')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0565f2 0%, rgba(5, 101, 242, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('md', 'deeppurple')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #702f92 0%, rgba(112, 47, 146, 0.5) 100%)"></span>
+                    </button>
+                    <div class="w-3"></div>
+                    <div class="w-3"></div>
                 </div>
-
-                <h4>Material Design Compact</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('md-light-indigo')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('mdc-light-deeppurple')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Compact Deep Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Deep Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('mdc-dark-indigo', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Compact Dark Indigo" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Indigo</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('mdc-dark-deeppurple', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Compact Dark Deep Purple" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Deep Purple</span>
-                    </div>
+            </section>
+            <section class="py-4 border-bottom-1 surface-border">
+                <div class="flex align-items-center gap-2 mb-3">
+                    <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap" class="border-circle" style="width: 1.5rem" />
+                    <span class="font-medium">Bootstrap</span>
                 </div>
-
-                <h4>Bootstrap</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-blue')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-light-purple')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Purple</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-blue', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Blue</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('bootstrap4-dark-purple', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Purple</span>
-                    </div>
+                <div class="flex align-items-center justify-content-between gap-3">
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('bootstrap4', 'blue')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #027bff 0%, rgba(2, 123, 255, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                        style="border-radius: 30px"
+                        @click="changeTheme('bootstrap4', 'purple')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #893cae 0%, rgba(137, 60, 174, 0.5) 100%)"></span>
+                    </button>
+                    <div class="w-3"></div>
+                    <div class="w-3"></div>
                 </div>
-
-                <h4>Misc</h4>
-                <div class="grid">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('soho-light')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho Light" class="w-2rem border-round" />
+            </section>
+            <section class="py-4 border-bottom-1 surface-border">
+                <div class="flex gap-3">
+                    <div class="w-3">
+                        <div class="flex align-items-center gap-2 mb-3">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho" class="border-circle" style="width: 1.5rem" />
+                            <span class="font-medium">Soho</span>
+                        </div>
+                        <button
+                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                            style="border-radius: 30px"
+                            @click="changeTheme('soho')"
+                        >
+                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #664beb 0%, rgba(102, 75, 235, 0.5) 100%)"></span>
                         </button>
-                        <span class="white-space-nowrap text-sm">Soho Light</span>
                     </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('soho-dark', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-dark.png" alt="Soho Dark" class="w-2rem border-round" />
+                    <div class="w-3">
+                        <div class="flex align-items-center gap-2 mb-3">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva" class="border-circle" style="width: 1.5rem" />
+                            <span class="font-medium">Viva</span>
+                        </div>
+                        <button
+                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                            style="border-radius: 30px"
+                            @click="changeTheme('viva')"
+                        >
+                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4a67c9 0%, rgba(74, 103, 201, 0.5) 100%)"></span>
                         </button>
-                        <span class="white-space-nowrap text-sm">Soho Dark</span>
                     </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('viva-light')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva Light" class="w-2rem border-round" />
+                    <div class="w-3"></div>
+                    <div class="w-3"></div>
+                </div>
+            </section>
+            <section class="py-4">
+                <div class="flex gap-3">
+                    <div class="w-3">
+                        <div class="flex align-items-center gap-2 mb-3">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent" class="border-circle" style="width: 1.5rem" />
+                            <span class="font-medium">Fluent</span>
+                        </div>
+                        <button
+                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                            style="border-radius: 30px"
+                            @click="changeTheme('fluent-light')"
+                        >
+                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0078d4 0%, rgba(0, 120, 212, 0.5) 100%)"></span>
                         </button>
-                        <span class="white-space-nowrap text-sm">Viva Light</span>
                     </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('viva-dark', true)">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-dark.svg" alt="Viva Dark" class="w-2rem border-round" />
+                    <div class="w-3">
+                        <div class="flex align-items-center gap-2 mb-3">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" class="border-circle" style="width: 1.5rem" />
+                            <span class="font-medium">Mira</span>
+                        </div>
+                        <button
+                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                            style="border-radius: 30px"
+                            @click="changeTheme('mira')"
+                        >
+                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #81a1c1 0%, rgba(129, 161, 193, 0.5) 100%)"></span>
                         </button>
-                        <span class="white-space-nowrap text-sm">Viva Dark</span>
                     </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('fluent-light')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent Light" class="w-2rem border-round" />
+                    <div class="w-3">
+                        <div class="flex align-items-center gap-2 mb-3">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Nano" class="border-circle" style="width: 1.5rem" />
+                            <span class="font-medium">Nano</span>
+                        </div>
+                        <button
+                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500 focus:border-500"
+                            style="border-radius: 30px"
+                            @click="changeTheme('nano')"
+                        >
+                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #1469b4 0%, rgba(20, 105, 180, 0.5) 100%)"></span>
                         </button>
-                        <span class="white-space-nowrap text-sm">Blue</span>
                     </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('mira')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Mira</span>
-                    </div>
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-2rem" @click="changeTheme('nano')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Nano" class="w-2rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap text-sm">Nano</span>
-                    </div>
+                    <div class="w-3"></div>
                 </div>
             </section>
         </div>
@@ -222,7 +199,7 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
-    emits: ['updateConfigActive'],
+    emits: ['updateConfigActive', 'darkswitch-click'],
     props: {
         configActive: {
             type: Boolean,
@@ -233,7 +210,13 @@ export default {
         return {
             visible: false,
             scale: 14,
-            scales: [12, 13, 14, 15, 16]
+            scales: [12, 13, 14, 15, 16],
+            inputStyles: [
+                { label: 'Outlined', value: 'outlined' },
+                { label: 'Filled', value: 'filled' }
+            ],
+            compactMaterial: false,
+            lightOnlyThemes: ['fluent-light', 'mira', 'nano']
         };
     },
     watch: {
@@ -261,8 +244,27 @@ export default {
             this.visible = false;
             this.$emit('updateConfigActive', false);
         },
-        changeTheme(theme, dark) {
-            EventBus.emit('theme-change', { theme: theme, dark: dark });
+        changeTheme(theme, color) {
+            let newTheme, dark;
+
+            if (this.lightOnlyThemes.includes(theme)) {
+                newTheme = theme;
+                dark = false;
+            } else {
+                newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
+
+                if (color) {
+                    newTheme += '-' + color;
+                }
+
+                if (newTheme.startsWith('md-') && this.compactMaterial) {
+                    newTheme = newTheme.replace('md-', 'mdc-');
+                }
+
+                dark = this.$appState.darkTheme;
+            }
+
+            EventBus.emit('theme-change', { theme: newTheme, dark: dark });
         },
         decrementScale() {
             this.scale--;
@@ -280,14 +282,41 @@ export default {
         },
         onRippleChange(value) {
             this.$primevue.config.ripple = value;
+        },
+        onDarkModeChange() {
+            this.$emit('darkswitch-click');
+        },
+        onCompactMaterialChange(value) {
+            this.compactMaterial = value;
+
+            if (this.$appState.theme.startsWith('md')) {
+                let tokens = this.$appState.theme.split('-');
+
+                this.changeTheme(tokens[0].substring(0, 2), tokens[2]);
+            }
         }
     },
     computed: {
         inputStyle() {
             return this.$primevue.config.inputStyle;
         },
+        darkMode() {
+            return this.$appState.darkTheme;
+        },
         rippleActive() {
             return this.$primevue.config.ripple;
+        },
+        darkToggleDisabled() {
+            return this.lightOnlyThemes.includes(this.$appState.theme);
+        },
+        containerClass() {
+            return [
+                'layout-config w-full sm:w-26rem',
+                {
+                    'layout-dark': this.$appState.darkTheme,
+                    'layout-light': !this.$appState.darkTheme
+                }
+            ];
         }
     }
 };
