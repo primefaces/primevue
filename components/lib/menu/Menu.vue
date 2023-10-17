@@ -21,7 +21,7 @@
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" :id="id + '_' + i" :class="cx('submenuHeader')" role="none" v-bind="ptm('submenuHeader')">
+                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuHeader'), item.class]" role="none" v-bind="ptm('submenuHeader')">
                                 <slot name="submenuheader" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
