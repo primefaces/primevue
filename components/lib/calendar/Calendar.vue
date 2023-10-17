@@ -2669,7 +2669,7 @@ export default {
                 let innerHTML = '';
 
                 if (this.responsiveOptions) {
-                    const comparer = ObjectUtils.localeComparator();
+                    const comparer = ObjectUtils.localeComparator(this.$primevue.config.localeCode);
                     let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * comparer(o1.breakpoint, o2.breakpoint));
 
                     for (let i = 0; i < responsiveOptions.length; i++) {

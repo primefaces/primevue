@@ -110,7 +110,7 @@ export default {
         sort() {
             if (this.value) {
                 const value = [...this.value];
-                const comparer = ObjectUtils.localeComparator();
+                const comparer = ObjectUtils.localeComparator(this.$primevue.config.localeCode);
 
                 value.sort((data1, data2) => {
                     let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);

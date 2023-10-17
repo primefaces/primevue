@@ -429,7 +429,7 @@ export default {
         },
         sortNodesSingle(nodes) {
             let _nodes = [...nodes];
-            const comparer = ObjectUtils.localeComparator();
+            const comparer = ObjectUtils.localeComparator(this.$primevue.config.localeCode);
 
             _nodes.sort((node1, node2) => {
                 const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_sortField);
@@ -455,7 +455,7 @@ export default {
         multisortField(node1, node2, index) {
             const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_multiSortMeta[index].field);
             const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
-            const comparer = ObjectUtils.localeComparator();
+            const comparer = ObjectUtils.localeComparator(this.$primevue.config.localeCode);
 
             if (value1 === value2) {
                 return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;

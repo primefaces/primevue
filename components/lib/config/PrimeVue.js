@@ -4,6 +4,7 @@ import { inject, reactive } from 'vue';
 export const defaultOptions = {
     ripple: false,
     inputStyle: 'outlined',
+    localeCode: 'en',
     locale: {
         startsWith: 'Starts with',
         contains: 'Contains',

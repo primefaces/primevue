@@ -328,9 +328,9 @@ export default {
         return result;
     },
 
-    localeComparator() {
+    localeComparator(localeCode) {
         //performance gain using Int.Collator. It is not recommended to use localeCompare against large arrays.
-        return new Intl.Collator(undefined, { numeric: true }).compare;
+        return new Intl.Collator(localeCode, { numeric: true }).compare;
     },
 
     nestedKeys(obj = {}, parentKey = '') {
