@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Animate Directive" header="Animate" description="Animate manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load." :componentDocs="docs" />
+    <DocComponent title="Vue Animate Directive" header="Animate" description="Animate manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load." :componentDocs="docs" :apiDocs="['Animate']" />
 </template>
 
 <script>
