@@ -100,7 +100,7 @@
                         class="flex flex-shrink-0 px-link border-1 border-solid w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary"
                         @click="toggleDarkMode"
                     >
-                        <i :class="['pi', { 'pi-moon': $appState.darkTheme, 'pi-sun': !$appState.darkTheme }]"></i>
+                        <i :class="['pi text-700', { 'pi-moon': $appState.darkTheme, 'pi-sun': !$appState.darkTheme }]"></i>
                     </button>
                 </li>
                 <li v-if="showConfigurator">
@@ -138,7 +138,7 @@
                         aria-haspopup
                         aria-label="Menu"
                     >
-                        <i class="pi pi-bars"></i>
+                        <i class="pi pi-bars text-700"></i>
                     </button>
                 </li>
             </ul>
