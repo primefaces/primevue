@@ -9,13 +9,13 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
+
 export default {
     data() {
         return {
             chartData: null,
-            chartOptions: {
-                cutout: '60%'
-            },
+            chartOptions: null,
             code: {
                 basic: `
 <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
@@ -99,10 +99,17 @@ const setChartData = () => {
     },
     mounted() {
         this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
+
+        this.themeChangeListener = () => {
+            this.chartOptions = this.setChartOptions();
+        };
+
+        EventBus.on('theme-change-complete', this.themeChangeListener);
     },
     methods: {
         setChartData() {
-            const documentStyle = getComputedStyle(document.body);
+            const documentStyle = getComputedStyle(document.documentElement);
 
             return {
                 labels: ['A', 'B', 'C'],
@@ -113,6 +120,21 @@ const setChartData = () => {
                         hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400')]
                     }
                 ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+
+            return {
+                plugins: {
+                    legend: {
+                        labels: {
+                            cutout: '60%',
+                            color: textColor
+                        }
+                    }
+                }
             };
         }
     }

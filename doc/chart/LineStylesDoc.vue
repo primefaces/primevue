@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
+
 export default {
     data() {
         return {
@@ -204,6 +206,12 @@ const setChartOptions = () => {
     mounted() {
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
+
+        this.themeChangeListener = () => {
+            this.chartOptions = this.setChartOptions();
+        };
+
+        EventBus.on('theme-change-complete', this.themeChangeListener);
     },
     methods: {
         setChartData() {
