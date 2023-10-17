@@ -70,7 +70,7 @@ export interface TooltipOptions {
      * Whether to hide tooltip when hovering over tooltip content.
      * @defaultValue true
      */
-     autoHide?: boolean | undefined;
+    autoHide?: boolean | undefined;
     /**
      * Uses to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
