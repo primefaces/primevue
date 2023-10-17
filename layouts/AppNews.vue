@@ -1,5 +1,5 @@
 <template>
-    <div v-if="$appState.newsActive" class="layout-news" :style="$appState.announcement.backgroundStyle" >
+    <div v-if="$appState.newsActive" class="layout-news" :style="$appState.announcement.backgroundStyle">
         <div class="layout-news-container">
             <i></i>
             <div class="layout-news-content">
