@@ -675,9 +675,9 @@ export default {
                 let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
 
                 if (this.isMultipleSelection()) {
-                    return value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === currentYear);
+                    return value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
                 } else {
-                    return value.getMonth() === month && value.getFullYear() === currentYear;
+                    return value.getMonth() === month && value.getFullYear() === this.currentYear;
                 }
             }
 
