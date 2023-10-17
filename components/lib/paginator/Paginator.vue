@@ -175,7 +175,7 @@ export default {
                             @media screen ${minValue} {
                                 .paginator[${this.attributeSelector}],
                                 .p-paginator-default{
-                                    display: flex !important;
+                                    display: flex;
                                 }
                             }
                         `;
