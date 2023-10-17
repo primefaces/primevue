@@ -152,16 +152,17 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         onMouseLeave(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
+
             const autoHide = el.$_ptooltipAutoHide;
 
             if (!autoHide) {
                 const valid =
-                    DomHandler.hasClass(event.target, 'p-tooltip') ||
-                    DomHandler.hasClass(event.target, 'p-tooltip-arrow') ||
-                    DomHandler.hasClass(event.target, 'p-tooltip-text') ||
-                    DomHandler.hasClass(event.relatedTarget, 'p-tooltip') ||
-                    DomHandler.hasClass(event.relatedTarget, 'p-tooltip-text') ||
-                    DomHandler.hasClass(event.relatedTarget, 'p-tooltip-arrow');
+                    DomHandler.getAttribute(event.target, 'data-pc-name') === 'tooltip' ||
+                    DomHandler.getAttribute(event.target, 'data-pc-section') === 'arrow' ||
+                    DomHandler.getAttribute(event.target, 'data-pc-section') === 'text' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-name') === 'tooltip' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-section') === 'arrow' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-section') === 'text';
 
                 !valid && this.hide(el, hideDelay);
             } else {
