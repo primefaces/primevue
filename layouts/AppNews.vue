@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-news" :style="$appState.announcement.backgroundStyle">
+    <div v-if="$appState.newsActive" class="layout-news" :style="$appState.announcement.backgroundStyle" >
         <div class="layout-news-container">
             <i></i>
             <div class="layout-news-content">
@@ -14,11 +14,25 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
+import News from '@/assets/data/news.json';
 
 export default {
     mounted() {
-        EventBus.emit('news-activate');
+        const itemString = localStorage.getItem(this.$appState.storageKey);
+
+        if (itemString) {
+            const item = JSON.parse(itemString);
+
+            if (!item.hiddenNews || item.hiddenNews !== News.id) {
+                this.$appState.newsActive = true;
+                this.$appState.announcement = News;
+            } else {
+                this.$appState.newsActive = false;
+            }
+        } else {
+            this.$appState.announcement = News;
+            this.$appState.newsActive = true;
+        }
     },
     methods: {
         onClose() {

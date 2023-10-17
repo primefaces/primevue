@@ -1,6 +1,6 @@
 <template>
     <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
-        <AppNews v-if="$appState.newsActive" />
+        <AppNews />
         <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" @darkswitch-click="onDarkModeToggle" />
         <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>

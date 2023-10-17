@@ -1,6 +1,6 @@
 <template>
     <div :class="landingClass">
-        <AppNews v-if="$appState.newsActive" />
+        <AppNews />
         <AppTopBar :showConfigurator="false" :showMenuButton="false" @darkswitch-click="onDarkModeToggle" />
         <HeroSection />
         <FeaturesSection />
