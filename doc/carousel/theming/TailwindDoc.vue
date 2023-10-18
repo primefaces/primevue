@@ -76,14 +76,14 @@ export default {
         <Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
             <template #item="slotProps">
                 <div class="border bg-white dark:bg-gray-900 border-gray-300 dark:border-blue-900/40 rounded-lg m-2 text-center py-5 px-3">
-                    <div class="mb-3">
+                    <div class="mb-3 flex justify-center">
                         <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-1/2 shadow-sm" />
                     </div>
                     <div>
-                        <h4 class="mb-1 text-gray-700 dark:text-white/80">{{ slotProps.data.name }}</h4>
-                        <h6 class="mt-0 mb-3 text-gray-700 dark:text-white/80">\${{ slotProps.data.price }}</h6>
+                        <h4 class="mb-1 text-gray-700 font-medium dark:text-white/80">{{ slotProps.data.name }}</h4>
+                        <h6 class="mt-0 mb-3 font-medium text-gray-700 dark:text-white/80">\${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                        <div class="mt-5">
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center align-center">
                             <Button icon="pi pi-search" rounded class="mr-2 text-gray-700 dark:text-white/80 inline-flex" />
                             <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2 text-gray-700 dark:text-white/80 inline-flex" />
                         </div>
