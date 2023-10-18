@@ -34,28 +34,40 @@
                 </div>
                 <div class="flex align-items-center justify-content-between gap-3">
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'teal'), 'hover:border-500 surface-border': !isThemeActive('lara', 'teal') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('lara', 'teal')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
                     </button>
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'blue'), 'hover:border-500 surface-border': !isThemeActive('lara', 'blue') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('lara', 'blue')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4378e6 0%, rgba(67, 120, 230, 0.5) 100%)"></span>
                     </button>
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'indigo'), 'hover:border-500 surface-border': !isThemeActive('lara', 'indigo') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('lara', 'indigo')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #585fe0 0%, rgba(88, 95, 224, 0.5) 100%)"></span>
                     </button>
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'purple'), 'hover:border-500 surface-border': !isThemeActive('lara', 'purple') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('lara', 'purple')"
                     >
@@ -74,14 +86,20 @@
                 </div>
                 <div class="flex align-items-center justify-content-between gap-3">
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('md', 'indigo'), 'hover:border-500 surface-border': !isThemeActive('md', 'indigo') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('md', 'indigo')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0565f2 0%, rgba(5, 101, 242, 0.5) 100%)"></span>
                     </button>
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('md', 'deeppurple'), 'hover:border-500 surface-border': !isThemeActive('md', 'deeppurple') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('md', 'deeppurple')"
                     >
@@ -98,14 +116,20 @@
                 </div>
                 <div class="flex align-items-center justify-content-between gap-3">
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('bootstrap4', 'blue'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'blue') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('bootstrap4', 'blue')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #027bff 0%, rgba(2, 123, 255, 0.5) 100%)"></span>
                     </button>
                     <button
-                        class="bg-transparent border-1 cursor-pointer surface-border p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('bootstrap4', 'purple'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'purple') }
+                        ]"
                         style="border-radius: 30px"
                         @click="changeTheme('bootstrap4', 'purple')"
                     >
@@ -123,7 +147,10 @@
                             <span class="font-medium">Soho</span>
                         </div>
                         <button
-                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                            :class="[
+                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
+                                { 'border-primary': isThemeActive('soho'), 'hover:border-500 surface-border': !isThemeActive('soho') }
+                            ]"
                             style="border-radius: 30px"
                             @click="changeTheme('soho')"
                         >
@@ -136,7 +163,10 @@
                             <span class="font-medium">Viva</span>
                         </div>
                         <button
-                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                            :class="[
+                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
+                                { 'border-primary': isThemeActive('viva'), 'hover:border-500 surface-border': !isThemeActive('viva') }
+                            ]"
                             style="border-radius: 30px"
                             @click="changeTheme('viva')"
                         >
@@ -155,7 +185,10 @@
                             <span class="font-medium">Fluent</span>
                         </div>
                         <button
-                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                            :class="[
+                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
+                                { 'border-primary': isThemeActive('fluent-light'), 'hover:border-500 surface-border': !isThemeActive('fluent-light') }
+                            ]"
                             style="border-radius: 30px"
                             @click="changeTheme('fluent-light')"
                         >
@@ -168,7 +201,10 @@
                             <span class="font-medium">Mira</span>
                         </div>
                         <button
-                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                            :class="[
+                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
+                                { 'border-primary': isThemeActive('mira'), 'hover:border-500 surface-border': !isThemeActive('mira') }
+                            ]"
                             style="border-radius: 30px"
                             @click="changeTheme('mira')"
                         >
@@ -181,7 +217,10 @@
                             <span class="font-medium">Nano</span>
                         </div>
                         <button
-                            class="bg-transparent border-1 cursor-pointer surface-border p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200 hover:border-500"
+                            :class="[
+                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
+                                { 'border-primary': isThemeActive('nano'), 'hover:border-500 surface-border': !isThemeActive('nano') }
+                            ]"
                             style="border-radius: 30px"
                             @click="changeTheme('nano')"
                         >
@@ -294,6 +333,22 @@ export default {
 
                 this.changeTheme(tokens[0].substring(0, 2), tokens[2]);
             }
+        },
+        isThemeActive(theme, color) {
+            let themeName;
+            let themePrefix = this.compactMaterial ? 'mdc' : theme;
+
+            if (this.lightOnlyThemes.includes(themePrefix)) {
+                themeName = themePrefix;
+            } else {
+                themeName = themePrefix + (this.$appState.darkTheme ? '-dark' : '-light');
+            }
+
+            if (color) {
+                themeName += '-' + color;
+            }
+
+            return this.$appState.theme === themeName;
         }
     },
     computed: {
