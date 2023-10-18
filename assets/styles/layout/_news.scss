@@ -41,7 +41,7 @@
     .layout-news-link,
     .layout-news-link:visited,
     .layout-news-link:active {
-        color:#ffffff;
+        color:var(--primary-color-text);
         font-weight:700;
     }
     .layout-news-link:hover {
