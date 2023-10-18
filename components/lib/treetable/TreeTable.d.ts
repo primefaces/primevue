@@ -618,27 +618,9 @@ export interface TreeTableSlots {
      */
     loadingicon(): VNode[];
     /**
-     * Custom toggler icon template.
-     */
-    togglericon(): VNode[];
-    /**
      * Custom checkbox icon template.
      */
     checkboxicon(): VNode[];
-    /**
-     * Custom sort icon template.
-     * @param {Object} scope - sorticon slot's params.
-     */
-    sorticon(scope: {
-        /**
-         * Whether or not column is sorted
-         */
-        sorted: TreeNode;
-        /**
-         * Current sort order
-         */
-        sortOrder: boolean;
-    }): VNode[];
     /**
      * Custom paginator first page link icon template.
      */
