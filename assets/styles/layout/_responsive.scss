@@ -128,6 +128,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .DocSearch-Container {
+        position: fixed !important;
+    }
+}
+
 @media screen and (max-width: 575px) {
     .layout-topbar-inner {
         padding-left: 1rem;
