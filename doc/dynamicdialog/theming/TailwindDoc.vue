@@ -6,7 +6,7 @@
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz scrollable />
         <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
-        <DocSectionCode :code="code2" embedded />
+        <DocSectionCode :code="code2" :extFiles="extFiles" :service="['ProductService']" embedded />
     </DocSectionText>
 </template>
 
@@ -153,120 +153,6 @@ const showProducts = () => {
 `
             },
             extFiles: {
-                options: {
-                    'src/components/ProductListDemo.vue': {
-                        content: `
-<template>
-	<div>
-        <div class="flex justify-content-end mt-1 mb-3">
-            <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
-        </div>
-        <DataTable :value="products">
-			<Column field="code" header="Code"></Column>
-			<Column field="name" header="Name"></Column>
-            <Column header="Image">
-                <template #body="slotProps">
-                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
-                </template>
-            </Column>
-			<Column field="category" header="Category"></Column>
-			<Column field="quantity" header="Quantity"></Column>
-            <Column style="width:5rem">
-                <template #body="slotProps">
-                    <Button type="button" icon="pi pi-plus" text rounded @click="selectProduct(slotProps.data)"></Button>
-                </template>
-            </Column>
-		</DataTable>
-
-	</div>
-</template>
-
-<script>
-import { ProductService } from '@/service/ProductService';
-import InfoDemo from './InfoDemo.vue';
-
-export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            products: null
-        }
-    },
-    mounted() {
-        ProductService.getProductsSmall().then(data => this.products = data.slice(0,5));
-    },
-    methods: {
-        selectProduct(data) {
-            this.dialogRef.close(data);
-        },
-        showInfo() {
-            this.$dialog.open(InfoDemo, {
-                props: {
-                    header: 'Information',
-                    modal: true,
-                    dismissableMask: true
-                },
-                data: {
-                    totalProducts: this.products ? this.products.length : 0
-                }
-            });
-        }
-    }
-}
-<\/script>
-`
-                    },
-                    'src/components/InfoDemo.vue': {
-                        content: `
-<template>
-    <div>
-        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
-        <div class="flex justify-content-end">
-            <Button type="button" label="Close" @click="closeDialog"></Button>
-        </div>
-    </div>
-</template>
-
-<script>
-export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            totalProducts: 0
-        }
-    },
-    mounted() {
-        this.totalProducts = this.dialogRef.data.totalProducts;
-    },
-    methods: {
-        closeDialog() {
-            this.dialogRef.close();
-        }
-    }
-}
-<\/script>
-                            `
-                    },
-                    'src/components/FooterDemo.vue': {
-                        content: `
-<template>
-    <Button type="button" label="No" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
-    <Button type="button" label="Yes" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
-</template>
-
-<script>
-export default {
-    inject: ['dialogRef'],
-    methods: {
-        closeDialog(e) {
-            this.dialogRef.close(e);
-        }
-    }
-};
-<\/script>
-`
-                    }
-                },
                 composition: {
                     'src/components/ProductListDemo.vue': {
                         content: `

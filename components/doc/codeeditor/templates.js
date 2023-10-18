@@ -42,7 +42,9 @@ const getVueApp = (props = {}, sourceType) => {
         });
 
     let extFilesSource = extFiles
-        ? extFiles[sourceType.language]
+        ? embedded
+            ? extFiles['composition']
+            : extFiles[sourceType.language]
             ? { ...extFiles[sourceType.language] }
             : Object.keys(extFiles)
                   .filter((k) => !sourceTypes.includes(k))
@@ -473,7 +475,7 @@ const onThemeToggler = () => {
     const root = document.getElementsByTagName('html')[0];
 
     root.classList.toggle('dark');
-    iconClass.value = iconClass.value==='pi-moon' ? 'pi-sun': 'pi-moon';
+    iconClass.value = iconClass.value === 'pi-moon' ? 'pi-sun': 'pi-moon';
 };
 </script>`
         };
