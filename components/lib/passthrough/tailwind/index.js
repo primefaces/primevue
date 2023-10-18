@@ -2221,16 +2221,23 @@ export default {
             ]
         }),
         action: ({ context }) => ({
-            class: ['select-none', 'cursor-pointer flex items-center no-underline overflow-hidden relative', 'py-3 px-5 select-none']
+            class: [
+                'select-none',
+                'cursor-pointer flex items-center no-underline overflow-hidden relative',
+                'py-3 px-5 select-none',
+                {
+                    'pl-9 sm:pl-5': context.level === 1,
+                    'pl-14 sm:pl-5': context.level === 2
+                }
+            ]
         }),
         icon: {
             class: 'mr-2'
         },
         submenuicon: ({ props }) => ({
             class: [
-                'max-[960px]:ml-auto',
                 {
-                    'ml-2': props.root,
+                    'ml-auto sm:ml-2': props.root,
                     'ml-auto': !props.root
                 }
             ]
