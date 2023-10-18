@@ -34,7 +34,9 @@ export default {
                 }
             ]
         }),
-        menuitem: 'sm:relative sm:w-auto w-full static',
+        menuitem: {
+            class: 'sm:relative sm:w-auto w-full static'
+        },
         content: ({ props, context }) => ({
             class: [
                 ' transition-shadow duration-200',
@@ -58,17 +60,18 @@ export default {
                 'cursor-pointer flex items-center no-underline overflow-hidden relative',
                 'py-3 px-5 select-none',
                 {
-                    'max-[960px]:pl-9': context.level === 1,
-                    'max-[960px]:pl-14': context.level === 2
+                    'pl-9 sm:pl-5': context.level === 1,
+                    'pl-14 sm:pl-5': context.level === 2
                 }
             ]
         }),
-        icon: 'mr-2',
+        icon: {
+            class: 'mr-2'
+        },
         submenuicon: ({ props }) => ({
             class: [
-                'max-[960px]:ml-auto',
                 {
-                    'ml-2': props.root,
+                    'ml-auto sm:ml-2': props.root,
                     'ml-auto': !props.root
                 }
             ]
@@ -84,7 +87,9 @@ export default {
                 }
             ]
         }),
-        separator: 'border-t border-gray-300 dark:border-blue-900/40 my-1',
+        separator: {
+            class: 'border-t border-gray-300 dark:border-blue-900/40 my-1'
+        },
         button: {
             class: [
                 'flex sm:hidden w-8 h-8 rounded-full text-gray-600 dark:text-white/80 transition duration-200 ease-in-out',

@@ -32,8 +32,12 @@ export default {
         header: {
             class: ['flex items-center justify-between shrink-0', 'bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6', 'dark:bg-gray-900  dark:text-white/80']
         },
-        headerTitle: 'font-bold text-lg',
-        headerIcons: 'flex items-center',
+        headerTitle: {
+            class: 'font-bold text-lg'
+        },
+        headerIcons: {
+            class: 'flex items-center'
+        },
         closeButton: {
             class: [
                 'flex items-center justify-center overflow-hidden relative',
@@ -43,20 +47,25 @@ export default {
                 'dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]'
             ]
         },
-        closeButtonIcon: 'w-4 h-4 inline-block',
-        content: ({ state }) => ({
+        closeButtonIcon: {
+            class: 'w-4 h-4 inline-block'
+        },
+        content: ({ state, instance }) => ({
             class: [
                 'overflow-y-auto',
                 'bg-white text-gray-700 px-6 pb-8 pt-0',
-                'rounded-bl-lg rounded-br-lg',
-                'dark:bg-gray-900  dark:text-white/80 ',
+                ,
+                'dark:bg-gray-900  dark:text-white/80',
                 {
                     grow: state.maximized
+                },
+                {
+                    'rounded-bl-lg rounded-br-lg': !instance.$slots.footer
                 }
             ]
         }),
         footer: {
-            class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
+            class: ['flex gap-2 shrink-0 justify-end align-center', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
         mask: ({ props }) => ({
             class: ['transition duration-200', { 'bg-black/40': props.modal }]

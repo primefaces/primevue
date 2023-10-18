@@ -35,10 +35,18 @@ export default {
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80'
             ]
         },
-        content: 'p-5 items-center flex',
-        icon: 'text-2xl',
-        message: 'ml-4',
-        footer: 'text-right px-5 py-5 pt-0 ',
+        content: {
+            class: 'p-5 items-center flex'
+        },
+        icon: {
+            class: 'text-2xl'
+        },
+        message: {
+            class: 'ml-4'
+        },
+        footer: {
+            class: 'flex gap-2 justify-end align-center text-right px-5 py-5 pt-0'
+        },
         transition: TRANSITIONS.overlay
     }
 }
