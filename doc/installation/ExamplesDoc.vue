@@ -7,7 +7,7 @@
             <img src="https://primefaces.org/cdn/primevue/images/logos/vite.svg" alt="Vite" class="w-4rem h-4rem mb-3" />
             <span class="text-xl text-900">Vite</span>
         </a>
-        <a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart" class="flex flex-column align-items-center">
+        <a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt-quickstart" class="flex flex-column align-items-center">
             <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="Nuxt.JS" class="w-4rem h-4rem mb-3" />
             <span class="text-xl text-900">Nuxt</span>
         </a>
