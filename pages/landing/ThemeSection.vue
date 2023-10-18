@@ -1,7 +1,7 @@
 <template>
     <section class="landing-themes py-8">
         <div class="section-header">Themes</div>
-        <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as material, bootstrap, tailwind, primeone or develop your own.</p>
+        <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as Material, Bootstrap, Tailwind, PrimeOne or develop your own.</p>
         <div class="flex flex-wrap justify-content-center">
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'teal')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
