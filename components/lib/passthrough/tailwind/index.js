@@ -740,7 +740,7 @@ export default {
     button: {
         root: ({ props, context }) => ({
             class: [
-                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom h-full',
+                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom',
                 'transition duration-200 ease-in-out',
                 'focus:outline-none focus:outline-offset-0',
                 {
@@ -1376,12 +1376,18 @@ export default {
                 }
             ]
         }),
-        input: {
+        input: ({ props }) => ({
             class: [
-                'font-sans text-base text-gray-600 dark:text-white/80 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg',
-                'hover:border-blue-500' //Hover
+                'font-sans text-base text-gray-600 dark:text-white/80 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none',
+                'hover:border-blue-500',
+                { 'rounded-lg': !props.showIcon, 'border-r-0 rounded-l-lg': props.showIcon }
             ]
-        },
+        }),
+        dropdownbutton: ({ props }) => ({
+            root: {
+                class: [{ 'rounded-l-none': props.showIcon }]
+            }
+        }),
         panel: ({ props }) => ({
             class: [
                 'bg-white dark:bg-gray-900',
