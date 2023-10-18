@@ -23,6 +23,7 @@ import FontAwesomeDoc from '@/doc/customicons/FontAwesomeDoc.vue';
 import ImageDoc from '@/doc/customicons/ImageDoc.vue';
 import MaterialDoc from '@/doc/customicons/MaterialDoc.vue';
 import SVGDoc from '@/doc/customicons/SVGDoc.vue';
+import VideoDoc from '@/doc/customicons/VideoDoc.vue';
 
 export default {
     data() {
@@ -47,6 +48,11 @@ export default {
                     id: 'image',
                     label: 'Image',
                     component: ImageDoc
+                },
+                {
+                    id: 'video',
+                    label: 'Video Tutorial',
+                    component: VideoDoc
                 }
             ]
         };

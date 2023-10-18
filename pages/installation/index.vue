@@ -24,7 +24,6 @@ import StyledModeDoc from '@/doc/installation/StyledModeDoc.vue';
 import UnstyledModeDoc from '@/doc/installation/UnstyledModeDoc.vue';
 import UsageDoc from '@/doc/installation/UsageDoc.vue';
 import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc.vue';
-import NuxtDoc from '@/doc/installation/videos/NuxtDoc.vue';
 
 export default {
     data() {
@@ -74,20 +73,8 @@ export default {
                 },
                 {
                     id: 'videos',
-                    label: 'Videos',
-                    description: 'Video tutorials to take you through step-by-step.',
-                    children: [
-                        {
-                            id: 'createvue',
-                            label: 'CreateVue',
-                            component: CreateVueDoc
-                        },
-                        {
-                            id: 'nuxt',
-                            label: 'Nuxt',
-                            component: NuxtDoc
-                        }
-                    ]
+                    label: 'Video Tutorial',
+                    component: CreateVueDoc
                 }
             ]
         };
