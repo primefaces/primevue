@@ -2221,15 +2221,7 @@ export default {
             ]
         }),
         action: ({ context }) => ({
-            class: [
-                'select-none',
-                'cursor-pointer flex items-center no-underline overflow-hidden relative',
-                'py-3 px-5 select-none',
-                {
-                    'max-[960px]:pl-9': context.level === 1,
-                    'max-[960px]:pl-14': context.level === 2
-                }
-            ]
+            class: ['select-none', 'cursor-pointer flex items-center no-underline overflow-hidden relative', 'py-3 px-5 select-none']
         }),
         icon: {
             class: 'mr-2'
