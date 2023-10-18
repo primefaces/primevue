@@ -74,11 +74,11 @@ import { ref } from 'vue';
 
 const value = ref(null);
 const options = ref([
-                { icon: 'pi pi-align-left', value: 'Left' },
-                { icon: 'pi pi-align-right', value: 'Right' },
-                { icon: 'pi pi-align-center', value: 'Center' },
-                { icon: 'pi pi-align-justify', value: 'Justify' }
-            ]);
+    { icon: 'pi pi-align-left', value: 'Left' },
+    { icon: 'pi pi-align-right', value: 'Right' },
+    { icon: 'pi pi-align-center', value: 'Center' },
+    { icon: 'pi pi-align-justify', value: 'Justify' }
+]);
 <\/script>
 `
             }

@@ -56,10 +56,10 @@ import { ref } from 'vue';
 
 const value = ref(null);
 const options = ref([
-                { name: 'Option 1', value: 1 },
-                { name: 'Option 2', value: 2 },
-                { name: 'Option 3', value: 3 }
-            ]);
+    { name: 'Option 1', value: 1 },
+    { name: 'Option 2', value: 2 },
+    { name: 'Option 3', value: 3 }
+]);
 <\/script>
 `
             }

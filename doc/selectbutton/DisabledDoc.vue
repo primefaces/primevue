@@ -64,9 +64,9 @@ const value1 = ref('Off');
 const value2 = ref();
 const options1 = ref(['Off', 'On']);
 const options2 = ref([
-                { name: 'Option 1', value: 1 },
-                { name: 'Option 2', value: 2, constant: true }
-            ]);
+    { name: 'Option 1', value: 1 },
+    { name: 'Option 2', value: 2, constant: true }
+]);
 <\/script>
 `
             }
