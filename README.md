@@ -134,7 +134,15 @@ primevue: {
 }
 ```
 
+In styled mode, the theme can be defined at Nuxt configuration with the css property. Note that this only applies to styled mode, in unstyled mode a theme file is not required as styling is done externally.
+
 For detailed [information](https://primevue.org/nuxt)
+
+```javascript
+export default defineNuxtConfig({
+    css: ['primevue/resources/themes/lara-dark-teal/theme.css']
+});
+```
 
 ## Example
 
