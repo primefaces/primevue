@@ -441,7 +441,7 @@ export default {
             ]
         }),
         footer: {
-            class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
+            class: ['flex gap-2 shrink-0 justify-end align-center', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
         mask: ({ props }) => ({
             class: ['transition duration-200', { 'bg-black/40': props.modal }]
@@ -503,7 +503,7 @@ export default {
             class: 'ml-4'
         },
         footer: {
-            class: 'text-right px-5 py-5 pt-0'
+            class: 'flex gap-2 justify-end align-center text-right px-5 py-5 pt-0'
         },
         transition: TRANSITIONS.overlay
     },
@@ -512,7 +512,7 @@ export default {
             class: [
                 'bg-white text-gray-700 border-0 rounded-md shadow-lg',
                 'z-40 transform origin-center',
-                'absolute left-0 top-0',
+                'absolute left-0 top-0 mt-3',
                 'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900',
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80'
             ]
