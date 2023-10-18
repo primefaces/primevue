@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.37.0](https://github.com/primefaces/primevue/tree/3.37.0) (2023-10-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.36.0...3.37.0)
+**Implemented New Features and Enhancements:**
+
+-   Lara Color Enhancements [\#4640](https://github.com/primefaces/primevue/issues/4640)
+-   Menu components pt context disabled updates [\#4632](https://github.com/primefaces/primevue/issues/4632)
+-   Overlaypanel: Overlay panel doesnot close on escape button click [\#4620](https://github.com/primefaces/primevue/issues/4620)
+-   New `animate` directive [\#4610](https://github.com/primefaces/primevue/issues/4610)
+-   Update Lara Themes [\#4592](https://github.com/primefaces/primevue/issues/4592)
+-   Tooltip: user interaction with tooltip content [\#3568](https://github.com/primefaces/primevue/issues/3568)
+
+**Fixed bugs:**
+
+-   SelectButton: unselectable property defect [\#4631](https://github.com/primefaces/primevue/issues/4631)
+-   Slider: step defect [\#4625](https://github.com/primefaces/primevue/issues/4625)
+-   Menu: 'class' prop doesnt' work in submenuheader [\#4622](https://github.com/primefaces/primevue/issues/4622)
+-   Tailwind: typos in passthrough/tailwind [\#4617](https://github.com/primefaces/primevue/issues/4617)
+-   PanelMenu: top-level items lacking the label, props, hasSubmenu slot properties [\#4616](https://github.com/primefaces/primevue/issues/4616)
+-   Calendar: Can't navigate after selecting a date [\#4614](https://github.com/primefaces/primevue/issues/4614)
+-   Tree: Invalid typing of the default slot [\#4608](https://github.com/primefaces/primevue/issues/4608)
+-   locale "selectedItemsLabel" is broken on MultiSelect [\#4558](https://github.com/primefaces/primevue/issues/4558)
+-   Tree: Pass Through input options ignored [\#4478](https://github.com/primefaces/primevue/issues/4478)
+-   Picklist: Unexpected behavior on double click while holding control [\#4072](https://github.com/primefaces/primevue/issues/4072)
+
 ## [3.36.0](https://github.com/primefaces/primevue/tree/3.36.0) (2023-10-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.35.0...3.36.0)
