@@ -3650,6 +3650,9 @@ export default {
                     'dark:text-white/70' //Dark Mode
                 ]
             }),
+            sort: {
+                class: 'inline-block align-middle'
+            },
             sorticon: ({ context }) => ({
                 class: ['ml-2', context.sorted ? 'text-blue-700 dark:text-white/80' : 'text-slate-700 dark:text-white/70']
             }),
