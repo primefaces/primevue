@@ -12,13 +12,13 @@ export default {
             code: {
                 basic: `
 # Using npm
-npm install --save-dev nuxt-primevue
+npm install primevue
 
 # Using yarn
-yarn add --dev nuxt-primevue
+yarn add primevue
 
 # Using pnpm
-pnpm add -D nuxt-primevue
+pnpm add primevue
 `
             }
         };
