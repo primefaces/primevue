@@ -1,8 +1,8 @@
 {
-    "id": 43,
-    "content": "Building Design Systems with Tailwind",
+    "id": 44,
+    "content": "🎉 Introduding the official Nuxt Module. ",
     "linkText": "Learn More",
-    "linkHref": "https://primevue.org/tailwind",
+    "linkHref": "https://primevue.org/nuxt",
     "backgroundStyle": "background-color:#059669",
     "textStyle": "color:#ffffff;font-weight:500",
     "linkStyle": "color:#ffffff;font-weight:700;text-decoration: underline;"

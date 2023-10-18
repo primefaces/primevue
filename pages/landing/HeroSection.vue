@@ -73,13 +73,13 @@
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
                             <ul class="list-none p-0 m-0">
-                                <li class="flex mb-3">
+                                <li class="flex align-items-center mb-3">
                                     <span class="mr-3">
                                         <img src="https://primefaces.org/cdn/primevue/images/landing/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
                                     </span>
                                     <div class="flex flex-column">
                                         <span class="font-bold mb-1">Amanda Williams</span>
-                                        <p class="m-0 text-secondary">Administrator</p>
+                                        <span class="text-secondary">Administrator</span>
                                     </div>
                                 </li>
                                 <li class="flex">
@@ -191,9 +191,7 @@ export default {
             return {
                 plugins: {
                     legend: {
-                        labels: {
-                            color: textColor
-                        }
+                        display: false
                     }
                 },
                 scales: {

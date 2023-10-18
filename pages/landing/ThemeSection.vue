@@ -2,7 +2,7 @@
     <section class="landing-themes py-8">
         <div class="section-header">Themes</div>
         <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as Material, Bootstrap, Tailwind, PrimeOne or develop your own.</p>
-        <div class="flex flex-wrap justify-content-center">
+        <div class="flex flex-wrap justify-content-center px-5">
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'teal')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>

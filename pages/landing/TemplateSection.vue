@@ -4,7 +4,7 @@
         <p class="section-detail relative z-3">Professionally designed highly customizable application templates to get started in style.</p>
         <div class="flex justify-content-center mt-4 relative z-3">
             <a href="https://www.primefaces.org/store" class="font-semibold p-3 border-round flex align-items-center linkbox active">
-                <span>Learn More</span>
+                <span>Explore All</span>
                 <i class="pi pi-arrow-right ml-2"></i>
             </a>
         </div>

@@ -5,7 +5,7 @@
             sure to apply the CSS layer configuration above when including the styles of Tailwind as well.
         </p>
         <p class="flex align-items-start gap-2">
-            <Badge value="1"></Badge>
+            <Badge value="1" class="mt-1"></Badge>
             <span
                 >Tailwind uses PurgeCSS internally to remove unused classes, as PrimeVue components are loaded from <i>node_modules</i> the <i>content</i> property at <i>tailwind.config.js</i> needs to be aware of PrimeVue, otherwise the classes
                 utilized in the theme will be removed as well.</span
@@ -13,7 +13,7 @@
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p class="flex align-items-start gap-2">
-            <Badge value="2"></Badge>
+            <Badge value="2" class="mt-1"></Badge>
             <span
                 >Next step is enabling the <i>unstyled</i> option to remove the default style classes from the components and adding an empty <i>pt</i> so that they can be styled with Tailwind in the next section. Note that if you run your
                 application at this stage, functionality and accessibility of the components will still work but everything will be transparent as there is no style.</span
@@ -22,7 +22,7 @@
         <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 
         <p class="flex align-items-start gap-2">
-            <Badge value="3"></Badge>
+            <Badge value="3" class="mt-1"></Badge>
             <span
                 >At the final step, component styles are provided via a pass through configuration that utilizes Tailwind CSS. The default preset of each component is available at the Tailwind part under theming section of each component so you'll
                 able to copy paste instead of starting from scratch. Example below styles, inputtext and panel components;
