@@ -53948,29 +53948,10 @@
                             "description": "Custom loading icon template."
                         },
                         {
-                            "name": "togglericon",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom toggler icon template."
-                        },
-                        {
                             "name": "checkboxicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom checkbox icon template."
-                        },
-                        {
-                            "name": "sorticon",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">sorted</span>: <span class=\"text-primary-500\">TreeNode</span>, <span class=\"text-primary-300\">// Whether or not column is sorted</span>\n  \t <span class=\"ml-3 text-primary-700\">sortOrder</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current sort order</span>\n }",
-                                    "description": "sorticon slot's params."
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom sort icon template."
                         },
                         {
                             "name": "paginatorfirstpagelinkicon",
