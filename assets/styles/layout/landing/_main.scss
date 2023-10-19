@@ -1,6 +1,5 @@
 .landing {
     background-color: var(--home-bg);
-    transition: background-color .5s;
     scroll-behavior: smooth;
     padding-top: 4rem;
 
@@ -8,11 +7,10 @@
         border: 1px solid var(--home-border-color);
         border-radius: 10px;
         background-color: var(--home-box-bg);
-        transition: background-color .5s, border-color .5s;
     }
 
     .linkbox {
-        transition: all 0.3s;
+        transition: background-color .2s, border-color .2s;
         display: inline-flex;
         align-items: center;
         color: var(--home-linkbox-text-color);
