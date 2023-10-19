@@ -21,7 +21,7 @@ npm install primevue
 yarn add primevue
 
 # Using pnpm
-pnpm add nuxt-primevue
+pnpm add primevue
 ```
 
 ## Plugin
