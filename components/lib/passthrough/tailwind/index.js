@@ -397,7 +397,7 @@ export default {
         root: ({ state }) => ({
             class: [
                 'rounded-lg shadow-lg border-0',
-                'max-h-90 transform scale-100',
+                'max-h-[90%] transform scale-100',
                 'm-0 w-[50vw]',
                 'dark:border dark:border-blue-900/40',
                 {
@@ -430,7 +430,6 @@ export default {
             class: [
                 'overflow-y-auto',
                 'bg-white text-gray-700 px-6 pb-8 pt-0',
-                ,
                 'dark:bg-gray-900  dark:text-white/80',
                 {
                     grow: state.maximized
