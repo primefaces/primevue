@@ -4,10 +4,11 @@
     left: 0;
     width: calc(100% - var(--scrollbar-width, 0px));
     z-index: 1100;
-    transition: background-color 1s;
-    border-bottom: 1px solid var(--topbar-border);
+    transition: background-color .5s, border-color .5s;
+    border-bottom: 1px solid transparent;
 
     &.layout-topbar-sticky {
+        border-bottom: 1px solid var(--surface-border);
         background-color: var(--topbar-sticky-bg);
         backdrop-filter: blur(8px);
     }

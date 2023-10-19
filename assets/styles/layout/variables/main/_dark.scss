@@ -2,7 +2,8 @@
     --topbar-sticky-bg:rgba(0,0,0,.3);
     --card-border: 0 none;
     --card-bg: var(--surface-card);
-    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/top-pattern-light.png);
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--primary-color) 0%, #000000 100%);
+    --glow-blend: hard-light, color-dodge;
     --topbar-border: var(--surface-border);
     --mobile-menu-bg: rgba(0,0,0,.3);
     --demo-code-bg: var(--surface-card);
