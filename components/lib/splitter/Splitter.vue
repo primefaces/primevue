@@ -268,18 +268,15 @@ export default {
             if (newPrevPanelSize > 100 || newPrevPanelSize < 0) return false;
             if (newNextPanelSize > 100 || newNextPanelSize < 0) return false;
 
-            let prevIdx = this.prevPanelIndex;
-            let nextIdx = prevIdx + 1;
+            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[this.prevPanelIndex], 'minSize');
 
-            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[prevIdx], 'minSize');
-
-            if (this.panels[prevIdx].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
+            if (this.panels[this.prevPanelIndex].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
-            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[nextIdx], 'minSize');
+            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[this.prevPanelIndex + 1], 'minSize');
 
-            if (this.panels[nextIdx].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
+            if (this.panels[this.prevPanelIndex + 1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
                 return false;
             }
 
