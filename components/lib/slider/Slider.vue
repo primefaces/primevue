@@ -101,8 +101,9 @@ export default {
             if (this.step) {
                 const oldValue = this.range ? this.modelValue[this.handleIndex] : this.modelValue;
                 const diff = newValue - oldValue;
-
-                if (diff < 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
+                if ((newValue - (this.step / 2)) < this.min) newValue = this.min;
+                else if ((newValue + (this.step / 2)) > this.max) newValue = this.max;
+                else if (diff < 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
                 else if (diff > 0) newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             } else {
                 newValue = Math.floor(newValue);
