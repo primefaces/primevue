@@ -16,9 +16,7 @@ npm install primeflex
 `
             },
             code2: {
-                basic: `
-import 'primeflex/primeflex.css';
-`
+                basic: "\nimport 'primeflex/primeflex.css'\n"
             }
         };
     }
