@@ -16,6 +16,11 @@
                     "name": "Nuxt",
                     "to": "/nuxt",
                     "badge": "NEW"
+                },
+                {
+                    "name": "Playground",
+                    "to": "/playground",
+                    "badge": "NEW"
                 }
             ]
         },
