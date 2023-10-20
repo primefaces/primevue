@@ -265,15 +265,21 @@ export default {
             }
         },
         validateResize(newPrevPanelSize, newNextPanelSize) {
-            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[0], 'minSize');
+            if (newPrevPanelSize > 100 || newPrevPanelSize < 0) return false;
+            if (newNextPanelSize > 100 || newNextPanelSize < 0) return false;
 
-            if (this.panels[0].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
+            let prevIdx = this.prevPanelIndex;
+            let nextIdx = prevIdx + 1;
+
+            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[prevIdx], 'minSize');
+
+            if (this.panels[prevIdx].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
-            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[1], 'minSize');
+            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[nextIdx], 'minSize');
 
-            if (this.panels[1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
+            if (this.panels[nextIdx].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
                 return false;
             }
 
