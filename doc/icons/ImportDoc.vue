@@ -10,9 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import 'primeicons/primeicons.css';
-`
+                basic: "\nimport 'primeicons/primeicons.css'\n"
             }
         };
     }
