@@ -295,7 +295,7 @@ export default {
         },
         onBasicUploaderClick(event) {
             if (this.hasFiles) this.upload();
-            if (event.button === 0) this.$refs.fileInput.click();
+            else if (event.button === 0) this.$refs.fileInput.click();
         },
         remove(index) {
             this.clearInputElement();
