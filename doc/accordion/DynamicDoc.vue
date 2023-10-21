@@ -5,7 +5,7 @@
     <div class="card">
         <Accordion :activeIndex="0">
             <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </AccordionTab>
         </Accordion>
     </div>
@@ -25,7 +25,7 @@ export default {
                 basic: `
 <Accordion :activeIndex="0">
     <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
-        <p>{{ tab.content }}</p>
+        <p class="m-0">{{ tab.content }}</p>
     </AccordionTab>
 </Accordion>
 `,
@@ -34,7 +34,7 @@ export default {
     <div class="card">
         <Accordion :activeIndex="0">
             <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </AccordionTab>
         </Accordion>
     </div>
@@ -59,7 +59,7 @@ export default {
     <div class="card">
         <Accordion :activeIndex="0">
             <AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </AccordionTab>
         </Accordion>
     </div>

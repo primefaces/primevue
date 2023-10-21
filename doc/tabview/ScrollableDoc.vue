@@ -5,7 +5,7 @@
     <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </TabPanel>
         </TabView>
     </div>
@@ -21,7 +21,7 @@ export default {
                 basic: `
 <TabView :scrollable="true">
     <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
-        <p>{{ tab.content }}</p>
+        <p class="m-0">{{ tab.content }}</p>
     </TabPanel>
 </TabView>
 `,
@@ -30,7 +30,7 @@ export default {
     <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </TabPanel>
         </TabView>
     </div>
@@ -51,7 +51,7 @@ export default {
     <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
-                <p>{{ tab.content }}</p>
+                <p class="m-0">{{ tab.content }}</p>
             </TabPanel>
         </TabView>
     </div>
