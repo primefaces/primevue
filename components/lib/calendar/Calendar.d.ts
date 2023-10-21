@@ -801,6 +801,30 @@ export interface CalendarSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom header for the showWeek
+     */
+    showWeekHeader(): VNode[];
+    /**
+     * Custom showWeek template
+     * @param {Object} scope - showWeek slot params
+     */
+    showWeek(scope: {
+        /**
+         * Date information corresponding to first day of week
+         */
+        date: {
+            day: number;
+            month: number;
+            year: number;
+            today: boolean;
+            selectable: boolean;
+        };
+        /**
+         * Internally calculated week number
+         */
+        weekNumber: number;
+    }): VNode[];
 }
 
 /**

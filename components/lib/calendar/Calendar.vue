@@ -169,7 +169,11 @@
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
                                                 <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
-                                                    <span v-bind="ptm('weekLabel')" data-pc-group-section="tableheadercelllabel">{{ weekHeaderLabel }}</span>
+                                                    <slot name="showWeekHeader">
+                                                        <span v-bind="ptm('weekLabel')" data-pc-group-section="tableheadercelllabel">
+                                                            {{ weekHeaderLabel }}
+                                                        </span>
+                                                    </slot>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell">
                                                     <span v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel">{{ weekDay }}</span>
@@ -180,8 +184,10 @@
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
                                                 <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
                                                     <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tablebodycelllabel">
-                                                        <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
-                                                        {{ month.weekNumbers[i] }}
+                                                        <slot name="showWeek" :date="week[i]" :weekNumber="month.weekNumbers[i]">
+                                                            <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
+                                                            {{ month.weekNumbers[i] }}
+                                                        </slot>
                                                     </span>
                                                 </td>
                                                 <td
