@@ -69,7 +69,7 @@ export default {
                 },
                 {
                     id: 'csp',
-                    label: 'Content Security Policy (CSP)',
+                    label: 'CSP',
                     children: [
                         {
                             id: 'nonce',

@@ -29,7 +29,7 @@ export default {
                 },
                 {
                     id: 'checkbox',
-                    label: 'Checkbox & RadioButton',
+                    label: 'Check & Radio',
                     component: CheckboxDoc
                 }
             ]
