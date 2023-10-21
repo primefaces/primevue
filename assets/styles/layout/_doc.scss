@@ -1,13 +1,25 @@
 .doc-tabmenu {
     list-style: none;
-    margin: 0 17rem 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
     margin-bottom: 2rem;
-    border-bottom: 1px solid var(--surface-border);
-    overflow: visible;
+    overflow: auto;
+    position: relative;
+
+    &:after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid var(--surface-border);
+        content: '';
+    }
 
     li {
+        position: relative;
+        z-index: 1;
+        
         button {
             background-color: transparent;
             border: 0 none;
@@ -19,7 +31,6 @@
             letter-spacing: 1px;
             cursor: pointer;
             margin: 0;
-            margin: 0 0 -1px 0;
             transition: all 0.2s;
             border-bottom: 1px solid transparent;
             border-top-right-radius: var(--border-round);
@@ -39,8 +50,8 @@
 
         &.doc-tabmenu-active {
             button {
-                color: var(--primary-color);
                 border-bottom-color: var(--primary-color);
+                color: var(--primary-color);
             }
         }
     }
@@ -82,7 +93,9 @@
         opacity: 0.7;
         margin-left: 1rem;
         display: none;
-        transition: opacity .3s, color .3s;
+        transition: all .2s;
+        border-radius: var(--border-radius);
+        @include focus-visible();
     }
 
     &:hover {
@@ -114,6 +127,9 @@
         a {
             color: var(--primary-color);
             font-weight: 600;
+            transition: all .2s;
+            border-radius: var(--border-radius);
+            @include focus-visible();
 
             &:hover {
                 text-decoration: underline;
