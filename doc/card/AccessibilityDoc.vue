@@ -21,7 +21,8 @@ export default {
                 basic: `
 <Card role="region">
     Content
-</Card>`
+</Card>
+`
             }
         };
     }
