@@ -263,7 +263,7 @@ export default {
                     {
                         class: this.cx('headerLabel')
                     },
-                    this.getPTOptions('headerLabel', processedItem, index)
+                    this.getPTOptions('headerLabel', item, index)
                 )
             };
         }
