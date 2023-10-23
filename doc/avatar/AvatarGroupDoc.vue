@@ -9,7 +9,7 @@
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" size="large" shape="circle" />
-            <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
+            <Avatar label="+2" shape="circle" size="large" />
         </AvatarGroup>
     </div>
     <DocSectionCode :code="code" />
@@ -27,7 +27,7 @@ export default {
     <Avatar image="/images/avatar/onyamalimba.png" size="large" shape="circle" />
     <Avatar image="/images/avatar/ionibowcher.png" size="large" shape="circle" />
     <Avatar image="/images/avatar/xuxuefeng.png" size="large" shape="circle" />
-    <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
+    <Avatar label="+2" shape="circle" size="large" />
 </AvatarGroup>
 `,
                 options: `
@@ -39,7 +39,7 @@ export default {
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" size="large" shape="circle" />
-            <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
+            <Avatar label="+2" shape="circle" size="large" />
         </AvatarGroup>
     </div>
 </template>
@@ -57,7 +57,7 @@ export default {
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" size="large" shape="circle" />
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" size="large" shape="circle" />
-            <Avatar label="+2" shape="circle" size="large" style="background-color: '#9c27b0', color: '#ffffff'" />
+            <Avatar label="+2" shape="circle" size="large" />
         </AvatarGroup>
     </div>
 </template>
