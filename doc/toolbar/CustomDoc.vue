@@ -28,7 +28,7 @@
             <template #end>
                 <div class="flex align-items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold" style="color: var(--primary-color-text)">Amy Elsner</span>
+                    <span class="font-bold text-bluegray-50">Amy Elsner</span>
                 </div>
             </template>
         </Toolbar>
@@ -61,7 +61,7 @@ export default {
     <template #end>
         <div class="flex align-items-center gap-2">
             <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
-            <span class="font-bold" style="color: var(--primary-color-text)">Amy Elsner</span>
+            <span class="font-bold text-bluegray-50">Amy Elsner</span>
         </div>
     </template>
 </Toolbar>
@@ -94,7 +94,7 @@ export default {
             <template #end>
                 <div class="flex align-items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold" style="color: var(--primary-color-text)">Amy Elsner</span>
+                    <span class="font-bold text-bluegray-50">Amy Elsner</span>
                 </div>
             </template>
         </Toolbar>
@@ -132,7 +132,7 @@ export default {
             <template #end>
                 <div class="flex align-items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold" style="color: var(--primary-color-text)">Amy Elsner</span>
+                    <span class="font-bold text-bluegray-50">Amy Elsner</span>
                 </div>
             </template>
         </Toolbar>
