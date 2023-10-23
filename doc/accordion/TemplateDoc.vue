@@ -3,11 +3,14 @@
         <p>Title section of a tab is customized with the <i>header</i> slot.</p>
     </DocSectionText>
     <div class="card">
-        <Accordion class="accordion-custom" :activeIndex="0">
+        <Accordion :activeIndex="0">
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-calendar"></i>
-                    <span>Header I</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                        <Badge value="3" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -16,8 +19,11 @@
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-user"></i>
-                    <span>Header II</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                        <Badge value="4" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -26,9 +32,11 @@
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-search"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog"></i>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -46,11 +54,14 @@ export default {
         return {
             code: {
                 basic: `
-<Accordion class="accordion-custom" :activeIndex="0">
+<Accordion :activeIndex="0">
     <AccordionTab>
         <template #header>
-            <i class="pi pi-calendar"></i>
-            <span>Header I</span>
+            <span class="flex align-items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                <Badge value="3" class="ml-auto" />
+            </span>
         </template>
         <p class="m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -59,8 +70,11 @@ export default {
     </AccordionTab>
     <AccordionTab>
         <template #header>
-            <i class="pi pi-user"></i>
-            <span>Header II</span>
+            <span class="flex align-items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                <Badge value="4" class="ml-auto" />
+            </span>
         </template>
         <p class="m-0">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -69,9 +83,11 @@ export default {
     </AccordionTab>
     <AccordionTab>
         <template #header>
-            <i class="pi pi-search"></i>
-            <span>Header III</span>
-            <i class="pi pi-cog"></i>
+            <span class="flex align-items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                <Badge value="2" class="ml-auto" />
+            </span>
         </template>
         <p class="m-0">
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -83,11 +99,14 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Accordion class="accordion-custom" :activeIndex="0">
+        <Accordion :activeIndex="0">
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-calendar"></i>
-                    <span>Header I</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                        <Badge value="3" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -96,8 +115,11 @@ export default {
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-user"></i>
-                    <span>Header II</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                        <Badge value="4" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -106,9 +128,11 @@ export default {
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-search"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog"></i>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -121,30 +145,18 @@ export default {
 
 <script>
 <\/script>
-
-<style scoped>
-.accordion-custom i span {
-    vertical-align: middle;
-}
-
-.accordion-custom span {
-    margin: 0 0.5rem;
-}
-
-.p-accordion p {
-    line-height: 1.5;
-    margin: 0;
-}
-</style>
 `,
                 composition: `
 <template>
     <div class="card">
-        <Accordion class="accordion-custom" :activeIndex="0">
+        <Accordion :activeIndex="0">
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-calendar"></i>
-                    <span>Header I</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                        <Badge value="3" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -153,8 +165,11 @@ export default {
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-user"></i>
-                    <span>Header II</span>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                        <Badge value="4" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -163,9 +178,11 @@ export default {
             </AccordionTab>
             <AccordionTab>
                 <template #header>
-                    <i class="pi pi-search"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog"></i>
+                    <span class="flex align-items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" class="ml-auto" />
+                    </span>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -178,38 +195,9 @@ export default {
 
 <script setup>
 <\/script>
-
-<style scoped>
-.accordion-custom i span {
-    vertical-align: middle;
-}
-
-.accordion-custom span {
-    margin: 0 0.5rem;
-}
-
-.p-accordion p {
-    line-height: 1.5;
-    margin: 0;
-}
-</style>`
+`
             }
         };
     }
 };
 </script>
-
-<style scoped>
-.accordion-custom i span {
-    vertical-align: middle;
-}
-
-.accordion-custom span {
-    margin: 0 0.5rem;
-}
-
-.p-accordion p {
-    line-height: 1.5;
-    margin: 0;
-}
-</style>

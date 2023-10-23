@@ -3,10 +3,10 @@
         <p>Accordion can be controlled programmatically using a binding to <i>activeIndex</i> along with <i>v-model</i> to update the active index.</p>
     </DocSectionText>
     <div class="card">
-        <div class="pb-3">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-3 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -40,10 +40,10 @@ export default {
             active: 0,
             code: {
                 basic: `
-<div class="pb-3">
-    <Button @click="active = 0" text label="Activate 1st" />
-    <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-    <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+<div class="flex mb-3 gap-2 justify-content-end">
+    <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+    <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+    <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
 </div>
 
 <Accordion v-model:activeIndex="active">
@@ -70,10 +70,10 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="pb-3">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-3 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -112,10 +112,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="pb-3">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-3 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <Accordion v-model:activeIndex="active">
