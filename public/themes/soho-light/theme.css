@@ -5708,6 +5708,11 @@
     font-weight: 700;
   }
 
+  .p-selectbutton > .p-button,
+.p-togglebutton.p-button {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
   .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
     background-color: #7254f3;
   }

@@ -5675,3 +5675,9 @@
     font-size: 1rem;
   }
 }
+@layer primevue {
+  .p-selectbutton > .p-button,
+.p-togglebutton.p-button {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+}
