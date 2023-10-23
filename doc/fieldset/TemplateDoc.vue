@@ -1,13 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Legend section can also be defined with custom content instead of primitive values.</p>
+        <p>Legend section can be customized with custom content using templating.</p>
     </DocSectionText>
     <div class="card">
         <Fieldset>
             <template #legend>
-                <div class="flex align-items-center text-primary">
-                    <span class="pi pi-user mr-2"></span>
-                    <span class="font-bold text-lg">User Details</span>
+                <div class="flex align-items-center gap-2 px-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <p class="m-0">
@@ -27,9 +27,9 @@ export default {
                 basic: `
 <Fieldset>
     <template #legend>
-        <div class="flex align-items-center text-primary">
-            <span class="pi pi-user mr-2"></span>
-            <span class="font-bold text-lg">User Details</span>
+        <div class="flex align-items-center gap-2 px-2">
+            <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold">Amy Elsner</span>
         </div>
     </template>
     <p class="m-0">
@@ -43,9 +43,9 @@ export default {
     <div class="card">
         <Fieldset>
             <template #legend>
-                <div class="flex align-items-center text-primary">
-                    <span class="pi pi-user mr-2"></span>
-                    <span class="font-bold text-lg">User Details</span>
+                <div class="flex align-items-center gap-2 px-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <p class="m-0">
@@ -64,9 +64,9 @@ export default {
     <div class="card">
         <Fieldset>
             <template #legend>
-                <div class="flex align-items-center text-primary">
-                    <span class="pi pi-user mr-2"></span>
-                    <span class="font-bold text-lg">User Details</span>
+                <div class="flex align-items-center gap-2 px-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <p class="m-0">

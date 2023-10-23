@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Content of the fieldset can be expanded and collapsed when <i>toggleable</i> option is enabled. A toggleable fieldset can either be used as a Controlled or Uncontrolled component. In controlled mode a binding to <i>collapsed</i>property
-            along with <i>toggle</i> event are needed to manage the content state.
-        </p>
+        <p>Content of the fieldset can be expanded and collapsed when <i>toggleable</i> option is enabled.</p>
     </DocSectionText>
     <div class="card">
         <Fieldset legend="Header" :toggleable="true">
