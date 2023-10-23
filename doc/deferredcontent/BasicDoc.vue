@@ -3,7 +3,7 @@
         <p>DeferredContent is used by wrapping the target.</p>
     </DocSectionText>
     <div class="card">
-        <div style="height: 800px">Scroll down to lazy load an image.</div>
+        <div style="height: 1000px">Scroll down to lazy load an image.</div>
 
         <DeferredContent @load="onImageLoad">
             <img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature" />
@@ -26,7 +26,7 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <div style="height: 800px">Scroll down to lazy load an image.</div>
+        <div style="height: 1000px">Scroll down to lazy load an image.</div>
 
         <DeferredContent @load="onImageLoad">
             <img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature" />
@@ -48,7 +48,7 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <div style="height: 800px">Scroll down to lazy load an image.</div>
+        <div style="height: 1000px">Scroll down to lazy load an image.</div>
 
         <DeferredContent @load="onImageLoad">
             <img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature" />
