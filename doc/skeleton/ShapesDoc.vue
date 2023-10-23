@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card">
         <div class="flex flex-wrap">
-            <div class="w-full md:w-6 p-3">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rectangle</h5>
                 <Skeleton class="mb-2"></Skeleton>
                 <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -12,7 +12,7 @@
                 <Skeleton height="2rem" class="mb-2"></Skeleton>
                 <Skeleton width="10rem" height="4rem"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rounded</h5>
                 <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
@@ -20,7 +20,7 @@
                 <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Square</h5>
                 <div class="flex align-items-end">
                     <Skeleton size="2rem" class="mr-2"></Skeleton>
@@ -29,7 +29,7 @@
                     <Skeleton size="5rem"></Skeleton>
                 </div>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Circle</h5>
                 <div class="flex align-items-end">
                     <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
@@ -79,7 +79,7 @@ export default {
 <template>
     <div class="card">
         <div class="flex flex-wrap">
-            <div class="w-full md:w-6 p-3">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rectangle</h5>
                 <Skeleton class="mb-2"></Skeleton>
                 <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -87,7 +87,7 @@ export default {
                 <Skeleton height="2rem" class="mb-2"></Skeleton>
                 <Skeleton width="10rem" height="4rem"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rounded</h5>
                 <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
@@ -95,7 +95,7 @@ export default {
                 <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Square</h5>
                 <div class="flex align-items-end">
                     <Skeleton size="2rem" class="mr-2"></Skeleton>
@@ -104,7 +104,7 @@ export default {
                     <Skeleton size="5rem"></Skeleton>
                 </div>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Circle</h5>
                 <div class="flex align-items-end">
                     <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
@@ -124,7 +124,7 @@ export default {
 <template>
     <div class="card">
         <div class="flex flex-wrap">
-            <div class="w-full md:w-6 p-3">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rectangle</h5>
                 <Skeleton class="mb-2"></Skeleton>
                 <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -132,7 +132,7 @@ export default {
                 <Skeleton height="2rem" class="mb-2"></Skeleton>
                 <Skeleton width="10rem" height="4rem"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5>Rounded</h5>
                 <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
@@ -140,7 +140,7 @@ export default {
                 <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
                 <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Square</h5>
                 <div class="flex align-items-end">
                     <Skeleton size="2rem" class="mr-2"></Skeleton>
@@ -149,7 +149,7 @@ export default {
                     <Skeleton size="5rem"></Skeleton>
                 </div>
             </div>
-            <div class="field col-12 md:col-6">
+            <div class="w-full xl:w-6 p-3">
                 <h5 class="mt-3">Circle</h5>
                 <div class="flex align-items-end">
                     <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
