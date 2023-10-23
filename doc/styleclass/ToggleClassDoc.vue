@@ -3,7 +3,7 @@
         <p>StyleClass has two modes, <i>toggleClass</i> to simply add-remove a class and enter/leave animations.</p>
     </DocSectionText>
     <div class="card flex flex-column align-items-center gap-3">
-        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
+        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
         <InputText />
     </div>
     <DocSectionCode :code="code" />
@@ -21,7 +21,7 @@ export default {
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
+        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
         <InputText />
     </div>
 </template>
@@ -32,7 +32,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
+        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
         <InputText />
     </div>
 </template>
