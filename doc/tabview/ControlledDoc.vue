@@ -3,10 +3,10 @@
         <p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" text plain rounded label="1" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 0 }]" />
+            <Button @click="active = 1" text plain rounded label="2" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 1 }]" />
+            <Button @click="active = 2" text plain rounded label="3" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 2 }]" />
         </div>
 
         <TabView v-model:activeIndex="active">
@@ -40,10 +40,10 @@ export default {
             active: 0,
             code: {
                 basic: `
-<div class="py-2">
-    <Button @click="active = 0" text label="Activate 1st" />
-    <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-    <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+<div class="flex mb-2 gap-2 justify-content-end">
+    <Button @click="active = 0" text plain rounded label="1" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 0 }]" />
+    <Button @click="active = 1" text plain rounded label="2" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 1 }]" />
+    <Button @click="active = 2" text plain rounded label="3" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 2 }]" />
 </div>
 
 <TabView v-model:activeIndex="active">
@@ -70,10 +70,10 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" text plain rounded label="1" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 0 }]" />
+            <Button @click="active = 1" text plain rounded label="2" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 1 }]" />
+            <Button @click="active = 2" text plain rounded label="3" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 2 }]" />
         </div>
 
         <TabView v-model:activeIndex="active">
@@ -112,10 +112,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" text plain rounded label="1" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 0 }]" />
+            <Button @click="active = 1" text plain rounded label="2" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 1 }]" />
+            <Button @click="active = 2" text plain rounded label="3" :class="['w-2rem h-2rem p-0', { 'text-primary': active === 2 }]" />
         </div>
 
         <TabView v-model:activeIndex="active">
