@@ -18,7 +18,7 @@ export default {
         return {
             code: {
                 basic: `
-<FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+<FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
     <template #empty>
         <p>Drag and drop files to here to upload.</p>
     </template>
@@ -28,7 +28,7 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+        <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #empty>
                 <p>Drag and drop files to here to upload.</p>
             </template>
@@ -50,7 +50,7 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+        <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #empty>
                 <p>Drag and drop files to here to upload.</p>
             </template>
