@@ -6,8 +6,10 @@
         <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-calendar mr-2"></i>
-                    <span>Header I</span>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -16,8 +18,10 @@
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <span>Header II</span>
-                    <i class="pi pi-user ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -26,9 +30,11 @@
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-search mr-2"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -49,8 +55,10 @@ export default {
 <TabView class="tabview-custom">
     <TabPanel>
         <template #header>
-            <i class="pi pi-calendar mr-2"></i>
-            <span>Header I</span>
+            <div class="flex align-items-center gap-2">
+                <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Amy Elsner</span>
+            </div>
         </template>
         <p class="m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -59,8 +67,10 @@ export default {
     </TabPanel>
     <TabPanel>
         <template #header>
-            <span>Header II</span>
-            <i class="pi pi-user ml-2"></i>
+            <div class="flex align-items-center gap-2">
+                <Avatar image="/images/avatar/onyamalimba.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Onyama Limba</span>
+            </div>
         </template>
         <p class="m-0">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -69,9 +79,11 @@ export default {
     </TabPanel>
     <TabPanel>
         <template #header>
-            <i class="pi pi-search mr-2"></i>
-            <span>Header III</span>
-            <i class="pi pi-cog ml-2"></i>
+            <div class="flex align-items-center gap-2">
+                <Avatar image="/images/avatar/ionibowcher.png" shape="circle" />
+                <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                <Badge value="2" />
+            </div>
         </template>
         <p class="m-0">
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -86,8 +98,10 @@ export default {
         <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-calendar mr-2"></i>
-                    <span>Header I</span>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -96,8 +110,10 @@ export default {
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <span>Header II</span>
-                    <i class="pi pi-user ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -106,9 +122,11 @@ export default {
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-search mr-2"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
@@ -128,8 +146,10 @@ export default {
         <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-calendar ml-2"></i>
-                    <span>Header I</span>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -138,8 +158,10 @@ export default {
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <span>Header II</span>
-                    <i class="pi pi-user ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
+                    </div>
                 </template>
                 <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
@@ -148,9 +170,11 @@ export default {
             </TabPanel>
             <TabPanel>
                 <template #header>
-                    <i class="pi pi-search mr-2"></i>
-                    <span>Header III</span>
-                    <i class="pi pi-cog ml-2"></i>
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
                 </template>
                 <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
