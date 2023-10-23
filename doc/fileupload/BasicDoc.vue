@@ -3,7 +3,7 @@
         <p>FileUpload basic <i>mode</i> provides a simpler UI as an alternative to default advanced mode.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
     </div>
     <DocSectionCode :code="code" />
 </template>
