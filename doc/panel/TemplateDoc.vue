@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Header, icons and footer sections of the panel is customizable via templating.</p>
+        <p>Header, icons and footer sections of the panel are customizable via templating.</p>
     </DocSectionText>
     <div class="card">
         <Panel toggleable>
