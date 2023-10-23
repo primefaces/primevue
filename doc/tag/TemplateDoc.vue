@@ -3,10 +3,10 @@
         <p>Children of the component are passed as the content for templating.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Tag :style="{ background: 'linear-gradient(-225deg,#AC32E4 0%,#7918F2 48%,#4801FF 100%)' }">
+        <Tag style="background: linear-gradient(to right, var(--primary-300), var(--primary-700))">
             <div class="flex align-items-center gap-2">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
-                <span class="text-base">Italia</span>
+                <span class="text-base">Italy</span>
                 <i class="pi pi-times text-xs"></i>
             </div>
         </Tag>
@@ -20,9 +20,9 @@ export default {
         return {
             code: {
                 basic: `
-<Tag :style="{ background: 'linear-gradient(-225deg,#AC32E4 0%,#7918F2 48%,#4801FF 100%)' }">
+<Tag style="background: linear-gradient(to right, var(--primary-300), var(--primary-700))">
     <div class="flex align-items-center gap-2">
-        <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
+        <img alt="Country" src="/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
         <span class="text-base">Italia</span>
         <i class="pi pi-times text-xs"></i>
     </div>
@@ -31,7 +31,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Tag :style="{ background: 'linear-gradient(-225deg,#AC32E4 0%,#7918F2 48%,#4801FF 100%)' }">
+        <Tag style="background: linear-gradient(to right, var(--primary-300), var(--primary-700))">
             <div class="flex align-items-center gap-2">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
                 <span class="text-base">Italia</span>
@@ -42,13 +42,12 @@ export default {
 </template>
 
 <script>
-
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Tag :style="{ background: 'linear-gradient(-225deg,#AC32E4 0%,#7918F2 48%,#4801FF 100%)' }">
+        <Tag style="background: linear-gradient(to right, var(--primary-300), var(--primary-700))">
             <div class="flex align-items-center gap-2">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
                 <span class="text-base">Italia</span>
@@ -59,7 +58,6 @@ export default {
 </template>
 
 <script setup>
-
 <\/script>
 `
             }
