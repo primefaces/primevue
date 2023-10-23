@@ -46,6 +46,11 @@ export default {
                     component: SeverityDoc
                 },
                 {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
                     id: 'raised',
                     label: 'Raised',
                     component: RaisedDoc
@@ -79,11 +84,6 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
-                },
-                {
-                    id: 'disabled',
-                    label: 'Disabled',
-                    component: DisabledDoc
                 },
                 {
                     id: 'accessibility',
