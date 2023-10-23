@@ -2301,6 +2301,7 @@
 
   .p-speeddial-mask {
     background-color: rgba(0, 0, 0, 0.32);
+    border-radius: 4px;
   }
 
   .p-splitbutton {
