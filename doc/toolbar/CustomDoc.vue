@@ -3,14 +3,7 @@
         <p>A customized toolbar with navigation bar like functionality.</p>
     </DocSectionText>
     <div class="card">
-        <Toolbar
-            :pt="{
-                root: {
-                    class: 'bg-gray-900 shadow-2',
-                    style: 'border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-700));'
-                }
-            }"
-        >
+        <Toolbar class="bg-gray-900 shadow-2" style="border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -49,14 +42,7 @@ export default {
         return {
             code: {
                 basic: `
-<Toolbar
-    :pt="{
-        root: {
-            class: 'bg-gray-900 shadow-2',
-            style: 'border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-700));'
-        }
-    }"
->
+<Toolbar class="bg-gray-900 shadow-2" style="border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))">
     <template #start>
         <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="..." fill="var(--primary-color-text)" />
@@ -83,14 +69,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Toolbar
-            :pt="{
-                root: {
-                    class: 'bg-gray-900 shadow-2',
-                    style: 'border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-700));'
-                }
-            }"
-        >
+        <Toolbar class="bg-gray-900 shadow-2" style="border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -128,14 +107,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Toolbar
-            :pt="{
-                root: {
-                    class: 'bg-gray-900 shadow-2',
-                    style: 'border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-700));'
-                }
-            }"
-        >
+        <Toolbar class="bg-gray-900 shadow-2" style="border-radius: 3rem; background-image: linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
