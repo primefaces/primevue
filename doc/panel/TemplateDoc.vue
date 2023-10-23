@@ -1,9 +1,24 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Header of the panel is either defined with the header property or the header template.</p>
+        <p>Header, icons and footer sections of the panel is customizable via templating.</p>
     </DocSectionText>
     <div class="card">
-        <Panel header="Header" toggleable>
+        <Panel toggleable>
+            <template #header>
+                <div class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex align-items-center justify-content-between">
+                    <div class="flex align-items-center gap-2">
+                        <Button icon="pi pi-user" rounded text></Button>
+                        <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+                    </div>
+                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                </div>
+            </template>
             <template #icons>
                 <button class="p-panel-header-icon p-link mr-2" @click="toggle">
                     <span class="pi pi-cog"></span>
@@ -25,48 +40,38 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
+                    label: 'Refresh',
+                    icon: 'pi pi-refresh'
                 },
                 {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
+                    label: 'Search',
+                    icon: 'pi pi-search'
+                },
+                {
+                    separator: true
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-times'
                 }
             ],
             code: {
                 basic: `
-<Panel header="Header" toggleable>
-    <template #icons>
-        <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-            <span class="pi pi-cog"></span>
-        </button>
-        <Menu ref="menu" id="config_menu" :model="items" popup />
+<Panel toggleable>
+    <template #header>
+        <div class="flex align-items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
+            <span class="font-bold">Amy Elsner</span>
+        </div>
+    </template>
+    <template #footer>
+        <div class="flex align-items-center justify-content-between">
+            <div class="flex align-items-center gap-2">
+                <Button icon="pi pi-user" rounded text></Button>
+                <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+            </div>
+            <span class="p-text-secondary">Last updated 2 hours ago</span>
+        </div>
     </template>
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -78,12 +83,21 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <Panel header="Header" toggleable>
-            <template #icons>
-                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-                    <span class="pi pi-cog"></span>
-                </button>
-                <Menu ref="menu" id="config_menu" :model="items" popup />
+        <Panel toggleable>
+            <template #header>
+                <div class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex align-items-center justify-content-between">
+                    <div class="flex align-items-center gap-2">
+                        <Button icon="pi pi-user" rounded text></Button>
+                        <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+                    </div>
+                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                </div>
             </template>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -99,38 +113,19 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
+                    label: 'Refresh',
+                    icon: 'pi pi-refresh'
                 },
                 {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
+                    label: 'Search',
+                    icon: 'pi pi-search'
+                },
+                {
+                    separator: true
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-times'
                 }
             ]
         }
@@ -150,12 +145,21 @@ export default {
 <template>
     <div class="card">
         <Toast />
-        <Panel header="Header" toggleable>
-            <template #icons>
-                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-                    <span class="pi pi-cog"></span>
-                </button>
-                <Menu ref="menu" id="config_menu" :model="items" popup />
+        <Panel toggleable>
+            <template #header>
+                <div class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex align-items-center justify-content-between">
+                    <div class="flex align-items-center gap-2">
+                        <Button icon="pi pi-user" rounded text></Button>
+                        <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+                    </div>
+                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                </div>
             </template>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -177,38 +181,19 @@ const router = useRouter();
 
 const items = ref([
     {
-        label: 'Options',
-        items: [
-            {
-                label: 'Update',
-                icon: 'pi pi-refresh',
-                command: () => {
-                    toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                }
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-times',
-                command: () => {
-                    toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                }
-            }
-        ]
+        label: 'Refresh',
+        icon: 'pi pi-refresh'
     },
     {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'Vue Website',
-                icon: 'pi pi-external-link',
-                url: 'https://vuejs.org/'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload',
-                to: '/fileupload'
-            }
-        ]
+        label: 'Search',
+        icon: 'pi pi-search'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-times'
     }
 ]);
 
