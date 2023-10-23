@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Setting the <i>target</i> property to <i>parent</i> binds ScrollTop to its parent element that has scrolling content.</p>
     </DocSectionText>
-    <div class="card">
+    <div class="card flex justify-content-center">
         <ScrollPanel style="width: 250px; height: 200px">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
@@ -27,7 +27,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card">
+    <div class="card flex justify-content-center">
         <ScrollPanel style="width: 250px; height: 200px">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
@@ -64,7 +64,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card">
+    <div class="card flex justify-content-center">
         <ScrollPanel style="width: 250px; height: 200px">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
