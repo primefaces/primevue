@@ -11,12 +11,12 @@
                 </div>
             </template>
             <template #footer>
-                <div class="flex align-items-center justify-content-between">
+                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
                     <div class="flex align-items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                    <span class="p-text-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>
@@ -65,12 +65,12 @@ export default {
         </div>
     </template>
     <template #footer>
-        <div class="flex align-items-center justify-content-between">
+        <div class="flex flex-wrap align-items-center justify-content-between gap-3">
             <div class="flex align-items-center gap-2">
                 <Button icon="pi pi-user" rounded text></Button>
                 <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
             </div>
-            <span class="p-text-secondary">Last updated 2 hours ago</span>
+            <span class="p-text-secondary">Updated 2 hours ago</span>
         </div>
     </template>
     <p class="m-0">
@@ -91,12 +91,12 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="flex align-items-center justify-content-between">
+                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
                     <div class="flex align-items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                    <span class="p-text-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <p class="m-0">
@@ -153,12 +153,12 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="flex align-items-center justify-content-between">
+                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
                     <div class="flex align-items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Last updated 2 hours ago</span>
+                    <span class="p-text-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <p class="m-0">
