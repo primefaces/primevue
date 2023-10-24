@@ -106,11 +106,27 @@ const AccordionEvents = [
     }
 ];
 
+const AccordioneSlots = [
+    {
+        name: 'default',
+        description: 'Custom template.'
+    },
+    {
+        name: 'collapseicon',
+        description: 'Custom collapse icon template.'
+    },
+    {
+        name: 'expandicon',
+        description: 'Custom expand icon template.'
+    }
+];
+
 module.exports = {
     accordion: {
         name: 'Accordion',
         description: 'Accordion groups a collection of contents in tabs.',
         props: AccordionProps,
-        events: AccordionEvents
+        events: AccordionEvents,
+        slots: AccordioneSlots
     }
 };
