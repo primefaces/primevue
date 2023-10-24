@@ -1,4 +1,4 @@
-import viteConfig from './vite.config';
+import aliasConfig from './alias.config';
 
 const baseUrl = '/';
 
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         }
     ],
     nitro: {
-        alias: viteConfig.resolve.alias
+        alias: aliasConfig.resolve.alias
     },
     primevue: {
         options: {
@@ -76,5 +76,6 @@ export default defineNuxtConfig({
     gtag: {
         id: 'G-48TTQ6G6KV'
     },
-    css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/layout/landing/_landing.scss', '@/assets/styles/layout/layout.scss']
+    css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/layout/landing/_landing.scss', '@/assets/styles/layout/layout.scss'],
+    vite: aliasConfig
 });

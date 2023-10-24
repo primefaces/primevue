@@ -2,10 +2,10 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
-import viteConfig from './vite.config';
+import aliasConfig from './alias.config';
 
 export default mergeConfig(
-    viteConfig,
+    aliasConfig,
     defineConfig({
         plugins: [vue()],
         test: {
