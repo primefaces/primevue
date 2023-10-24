@@ -53,7 +53,7 @@ export default {
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
                     icon: {
-                        class: 'text-base',
+                        class: 'text-base'
                     }
                 }"
             />
@@ -79,7 +79,7 @@ export default {
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
                     icon: {
-                        class: 'text-base',
+                        class: 'text-base'
                     }
                 }"
             />
