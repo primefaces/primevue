@@ -5,7 +5,15 @@
     <div class="card">
         <div class="flex flex-column md:flex-row gap-5">
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: { 'border-right': '10px solid var(--surface-ground)' }
+                        },
+                        bary: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -21,7 +29,15 @@
                 </ScrollPanel>
             </div>
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: 'border-right: 10px solid var(--surface-50); border-bottom: 10px solid var(--surface-50);'
+                        },
+                        bary: 'surface-300 opacity-100 border-noround'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -47,15 +63,31 @@ export default {
         return {
             code: {
                 basic: `
-<ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+<ScrollPanel
+    style="width: 100%; height: 200px"
+    :pt="{
+        wrapper: {
+            style: { 'border-right': '10px solid var(--surface-ground)' }
+        },
+        bary: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+    }"
+>
     <p>
-        Lorem ipsum dolor ..
+        Lorem ipsum dolor sit amet...
     </p>
 </ScrollPanel>
 
-<ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+<ScrollPanel
+    style="width: 100%; height: 200px"
+    :pt="{
+        wrapper: {
+            style: 'border-right: 10px solid var(--surface-50); border-bottom: 10px solid var(--surface-50);'
+        },
+        bary: 'surface-300 opacity-100 border-noround'
+    }"
+>
     <p>
-        Lorem ipsum dolor ..
+        Lorem ipsum dolor sit amet...
     </p>
 </ScrollPanel>
 `,
@@ -64,7 +96,15 @@ export default {
     <div class="card">
         <div class="flex flex-column md:flex-row gap-5">
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: { 'border-right': '10px solid var(--surface-ground)' }
+                        },
+                        bary: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -80,7 +120,15 @@ export default {
                 </ScrollPanel>
             </div>
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: 'border-right: 10px solid var(--surface-50); border-bottom: 10px solid var(--surface-50);'
+                        },
+                        bary: 'surface-300 opacity-100 border-noround'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -98,44 +146,21 @@ export default {
         </div>
     </div>
 </template>
-
-<script>
-<\/script>
-
-<style scoped>
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-ground);
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar) {
-    background-color: var(--primary-300);
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover) {
-    background-color: var(--primary-400);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-50);
-    border-bottom: 10px solid var(--surface-50);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-bar) {
-    background-color: var(--surface-300);
-    border-radius: 0;
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-</style>
 `,
                 composition: `
 <template>
     <div class="card">
         <div class="flex flex-column md:flex-row gap-5">
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: { 'border-right': '10px solid var(--surface-ground)' }
+                        },
+                        bary: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -151,7 +176,15 @@ export default {
                 </ScrollPanel>
             </div>
             <div class="flex-auto">
-                <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
+                <ScrollPanel
+                    style="width: 100%; height: 200px"
+                    :pt="{
+                        wrapper: {
+                            style: 'border-right: 10px solid var(--surface-50); border-bottom: 10px solid var(--surface-50);'
+                        },
+                        bary: 'surface-300 opacity-100 border-noround'
+                    }"
+                >
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -169,67 +202,9 @@ export default {
         </div>
     </div>
 </template>
-
-<script setup>
-<\/script>
-
-<style scoped>
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-ground);
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar) {
-    background-color: var(--primary-300);
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover) {
-    background-color: var(--primary-400);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-50);
-    border-bottom: 10px solid var(--surface-50);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-bar) {
-    background-color: var(--surface-300);
-    border-radius: 0;
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-</style>`
+`
             }
         };
     }
 };
 </script>
-
-<style scoped>
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-ground);
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar) {
-    background-color: var(--primary-300);
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover) {
-    background-color: var(--primary-400);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-wrapper) {
-    border-right: 10px solid var(--surface-50);
-    border-bottom: 10px solid var(--surface-50);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-bar) {
-    background-color: var(--surface-300);
-    border-radius: 0;
-    opacity: 1;
-    transition: background-color 0.3s;
-}
-</style>
