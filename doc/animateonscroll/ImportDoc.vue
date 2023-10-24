@@ -9,9 +9,9 @@ export default {
         return {
             code: {
                 basic: `
-import Animate from 'primevue/animate';
+import AnimateOnScroll from 'primevue/animateonscroll';
                 
-app.directive('animate', Animate);
+app.directive('animateonscroll', AnimateOnScroll);
 `
             }
         };

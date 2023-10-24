@@ -6,11 +6,11 @@
         </p>
     </DocSectionText>
     <div class="card flex flex-column align-items-center">
-        <div v-animate="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animate="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip up</span>
         </div>
     </div>
@@ -24,11 +24,11 @@ export default {
             code: {
                 basic: `
 <div class="card flex flex-column align-items-center">
-    <div v-animate="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+    <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
         <span class="text-900 text-3xl font-bold">flip</span>
     </div>
     <div class="h-30rem"></div>
-    <div v-animate="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+    <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
         <span class="text-900 text-3xl font-bold">flip up</span>
     </div>
 </div>
@@ -36,11 +36,11 @@ export default {
                 options: `
 <template>
     <div class="card flex flex-column align-items-center">
-        <div v-animate="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animate="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip up</span>
         </div>
     </div>
@@ -49,11 +49,11 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center">
-        <div v-animate="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animate="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
+        <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
             <span class="text-900 text-3xl font-bold">flip up</span>
         </div>
     </div>
