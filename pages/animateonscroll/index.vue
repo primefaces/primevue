@@ -1,7 +1,7 @@
 <template>
     <DocComponent
         title="Vue AnimateOnScroll Directive"
-        header="Animate"
+        header="AnimateOnScroll"
         description="AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load."
         :componentDocs="docs"
         :apiDocs="['AnimateOnScroll']"
