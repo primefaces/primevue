@@ -765,7 +765,7 @@ export default {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);
         },
         isValidOption(option) {
-            return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
+            return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);

@@ -528,7 +528,7 @@ export default {
             return this.isValidOption(processedOption) && this.getProccessedOptionLabel(processedOption).toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
         },
         isValidOption(processedOption) {
-            return !!processedOption && !this.isOptionDisabled(processedOption.option);
+            return ObjectUtils.isNotEmpty(processedOption) && !this.isOptionDisabled(processedOption.option);
         },
         isValidSelectedOption(processedOption) {
             return this.isValidOption(processedOption) && this.isSelected(processedOption);
