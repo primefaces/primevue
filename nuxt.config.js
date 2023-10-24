@@ -1,4 +1,4 @@
-import aliasConfig from './alias.config';
+import aliasConfig from './nuxt-vite.config.js';
 
 const baseUrl = '/';
 

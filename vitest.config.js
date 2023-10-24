@@ -2,7 +2,7 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
-import aliasConfig from './alias.config';
+import aliasConfig from './nuxt-vite.config.js';
 
 export default mergeConfig(
     aliasConfig,
