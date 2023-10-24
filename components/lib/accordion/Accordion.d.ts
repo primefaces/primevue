@@ -174,6 +174,21 @@ export interface AccordionSlots {
      * Default slot to detect AccordionTab components.
      */
     default(): VNode[];
+    /**
+     * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
+     */
+    togglericon(scope: {
+        /**
+         * Current index of the tab
+         */
+        index: number;
+        /**
+         * Whether the current tab is active
+         * @param {number} index - Current index of the tab
+         */
+        isTabActive: (index: number) => void;
+    }): VNode[];
 }
 
 /**
