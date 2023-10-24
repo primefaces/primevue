@@ -4,7 +4,7 @@
         header="Animate"
         description="AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load."
         :componentDocs="docs"
-        :apiDocs="['Animate']"
+        :apiDocs="['AnimateOnScroll']"
     />
 </template>
 
