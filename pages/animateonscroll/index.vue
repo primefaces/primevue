@@ -9,8 +9,10 @@
 </template>
 
 <script>
+import AccessibilityDoc from '@/doc/animateonscroll/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/animateonscroll/BasicDoc.vue';
 import ImportDoc from '@/doc/animateonscroll/ImportDoc.vue';
+import OnceDoc from '@/doc/animateonscroll/OnceDoc.vue';
 
 export default {
     data() {
@@ -25,6 +27,16 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'once',
+                    label: 'Once',
+                    component: OnceDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
                 }
             ]
         };
