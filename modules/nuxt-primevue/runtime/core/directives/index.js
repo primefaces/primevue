@@ -4,5 +4,5 @@ export const directives = [
     { name: 'ripple', as: 'Ripple', from: 'primevue/ripple' },
     { name: 'styleclass', as: 'StyleClass', from: 'primevue/styleclass' },
     { name: 'focustrap', as: 'FocusTrap', from: 'primevue/focustrap' },
-    { name: 'animate', as: 'Animate', from: 'primevue/animate' }
+    { name: 'animateonscroll', as: 'AnimateOnScroll', from: 'primevue/animateonscroll' }
 ];

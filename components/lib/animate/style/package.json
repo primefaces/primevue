@@ -1,6 +1,0 @@
-{
-    "main": "./animatestyle.cjs.js",
-    "module": "./animatestyle.esm.js",
-    "unpkg": "./animatestyle.min.js",
-    "types": "./AnimateStyle.d.ts"
-}

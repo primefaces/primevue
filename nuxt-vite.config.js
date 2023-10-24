@@ -7,6 +7,7 @@ const STYLE_ALIAS = {
     'primevue/basecomponent/style': path.resolve(__dirname, './components/lib/basecomponent/style/BaseComponentStyle.js'),
     'primevue/accordion/style': path.resolve(__dirname, './components/lib/accordion/style/AccordionStyle.js'),
     'primevue/accordiontab/style': path.resolve(__dirname, './components/lib/accordiontab/style/AccordionTabStyle.js'),
+    'primevue/animateonscroll/style': path.resolve(__dirname, './components/lib/animateonscroll/style/AnimateOnScrollStyle.js'),
     'primevue/autocomplete/style': path.resolve(__dirname, './components/lib/autocomplete/style/AutoCompleteStyle.js'),
     'primevue/avatar/style': path.resolve(__dirname, './components/lib/avatar/style/AvatarStyle.js'),
     'primevue/avatargroup/style': path.resolve(__dirname, './components/lib/avatargroup/style/AvatarGroupStyle.js'),

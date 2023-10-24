@@ -414,8 +414,8 @@
                             "to": "/progressspinner"
                         },
                         {
-                            "name": "Animate",
-                            "to": "/animate"
+                            "name": "AnimateOnScroll",
+                            "to": "/animateonscroll"
                         },
                         {
                             "name": "Ripple",

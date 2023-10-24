@@ -69,7 +69,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/basecomponent/style': 'primevue.basecomponent.style',
     'primevue/accordion/style': 'primevue.accordion.style',
     'primevue/accordiontab/style': 'primevue.accordiontab.style',
-    'primevue/animate/style': 'primevue.animate.style',
+    'primevue/animateonscroll/style': 'primevue.animateonscroll.style',
     'primevue/autocomplete/style': 'primevue.autocomplete.style',
     'primevue/avatar/style': 'primevue.avatar.style',
     'primevue/avatargroup/style': 'primevue.avatargroup.style',

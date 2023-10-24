@@ -1,0 +1,6 @@
+{
+    "main": "./animateonscroll.cjs.js",
+    "module": "./animateonscroll.esm.js",
+    "unpkg": "./animateonscroll.min.js",
+    "types": "./AnimateOnScroll.d.ts"
+}

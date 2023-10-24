@@ -1,7 +1,7 @@
 import { Plugin } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
 import { AccordionTabPassThroughOptions } from '../accordiontab';
-import { AnimateDirectivePassThroughOptions } from '../animate';
+import { AnimateOnScrollDirectivePassThroughOptions } from '../animateonscroll';
 import { AutoCompletePassThroughOptions } from '../autocomplete';
 import { AvatarPassThroughOptions } from '../avatar';
 import { AvatarGroupPassThroughOptions } from '../avatargroup';
@@ -219,7 +219,7 @@ export interface PrimeVuePTOptions {
         styleclass?: StyleClassDirectivePassThroughOptions;
         focustrap?: FocusTrapDirectivePassThroughOptions;
         ripple?: RippleDirectivePassThroughOptions;
-        animate?: AnimateDirectivePassThroughOptions;
+        animate?: AnimateOnScrollDirectivePassThroughOptions;
     };
     global?: {
         css?: (options: any) => string | string | undefined;

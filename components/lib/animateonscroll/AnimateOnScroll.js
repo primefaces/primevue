@@ -1,9 +1,9 @@
 import { DomHandler } from 'primevue/utils';
-import BaseAnimate from './BaseAnimate';
+import BaseAnimateOnScroll from './BaseAnimateOnScroll';
 
-const Animate = BaseAnimate.extend('animate', {
+const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
     mounted(el, binding) {
-        el.setAttribute('data-pd-animate', true);
+        el.setAttribute('data-pd-animateonscroll', true);
         !this.isUnstyled() && DomHandler.addClass(el, 'p-animate');
 
         this.bindIntersectionObserver(el, binding);
@@ -57,4 +57,4 @@ const Animate = BaseAnimate.extend('animate', {
     }
 });
 
-export default Animate;
+export default AnimateOnScroll;
