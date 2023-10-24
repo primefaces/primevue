@@ -3,8 +3,10 @@ import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import vue from 'rollup-plugin-vue';
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
+
+import pkg from './package.json';
 
 let entries = [];
 
@@ -440,6 +442,52 @@ function addServices() {
     addEntry('dynamicdialogeventbus', 'DynamicDialogEventBus.js', 'dynamicdialogeventbus');
 }
 
+function addPackageJson() {
+    const outputDir = 'dist';
+    const packageJson = `{
+    "name": "primevue",
+    "version": "${pkg.version}",
+    "private": false,
+    "author": "PrimeTek Informatics",
+    "description": "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.",
+    "homepage": "https://primevue.org/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+        "primevue",
+        "vue",
+        "vue.js",
+        "vue2",
+        "vue3",
+        "ui library",
+        "component library",
+        "material",
+        "bootstrap",
+        "fluent",
+        "tailwind",
+        "unstyled",
+        "passthrough"
+    ],
+    "web-types": "./web-types.json",
+    "vetur": {
+        "tags": "./vetur-tags.json",
+        "attributes": "./vetur-attributes.json"
+    },
+    "peerDependencies": {
+        "vue": "^3.0.0"
+    }
+}`;
+
+    !fs.existsSync(outputDir) && fs.mkdirSync(outputDir);
+    fs.writeFileSync(path.resolve(outputDir, 'package.json'), packageJson);
+}
+
 addUtils();
 addStyle();
 addBase();
@@ -451,5 +499,6 @@ addSFC();
 addIcon();
 addPassThrough();
 addCore();
+addPackageJson();
 
 export default entries;
