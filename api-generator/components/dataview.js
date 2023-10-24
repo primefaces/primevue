@@ -27,7 +27,7 @@ const DataViewProps = [
         name: 'totalRecords',
         type: 'number',
         default: 'null',
-        description: 'Number of total records, defaults to length of value when not defined.'
+        description: 'Number of total records, defaults to length of value when not defined. Not working without lazy prop'
     },
     {
         name: 'paginator',
