@@ -162,16 +162,6 @@ export default {
     }
 }
 <\/script>
-
-<style scoped>
-::v-deep(b) {
-    display: block;
-}
-
-::v-deep(.p-card-body) {
-    padding: 2rem;
-}
-</style>
 `,
                 composition: `
 <template>
@@ -251,16 +241,7 @@ const isActive = (item) => {
     return item.route ? router.resolve(item.route).path === route.path : false;
 };
 <\/script>
-
-<style scoped>
-::v-deep(b) {
-    display: block;
-}
-
-::v-deep(.p-card-body) {
-    padding: 2rem;
-}
-</style>`,
+`,
                 pages: [
                     {
                         tabName: 'PersonalDemo',

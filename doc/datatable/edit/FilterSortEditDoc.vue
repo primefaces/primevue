@@ -3,7 +3,21 @@
         <p>Cell Editing with Sorting and Filter</p>
     </DocSectionText>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+        <DataTable
+            v-model:filters="filters"
+            :value="products"
+            editMode="cell"
+            @cell-edit-complete="onCellEditComplete"
+            filterDisplay="row"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        class: [{ 'pt-0 pb-0': state['d_editing'] }]
+                    })
+                }
+            }"
+        >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
@@ -34,8 +48,21 @@ export default {
             },
             code: {
                 basic: `
-<DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
-        @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
+<DataTable
+    v-model:filters="filters"
+    :value="products"
+    editMode="cell"
+    @cell-edit-complete="onCellEditComplete"
+    filterDisplay="row"
+    :pt="{
+        table: { style: 'min-width: 50rem' },
+        column: {
+            bodycell: ({ state }) => ({
+                class: [{ 'pt-0 pb-0': state['d_editing'] }]
+            })
+        }
+    }"
+>
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
         <template #filter="{ filterModel, filterCallback }">
             <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
@@ -49,8 +76,21 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
-                @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
+        <DataTable
+            v-model:filters="filters"
+            :value="products"
+            editMode="cell"
+            @cell-edit-complete="onCellEditComplete"
+            filterDisplay="row"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        class: [{ 'pt-0 pb-0': state['d_editing'] }]
+                    })
+                }
+            }"
+        >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
@@ -115,19 +155,25 @@ export default {
     }
 };
 <\/script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-</style>
 `,
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
-                @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
+        <DataTable
+            v-model:filters="filters"
+            :value="products"
+            editMode="cell"
+            @cell-edit-complete="onCellEditComplete"
+            filterDisplay="row"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        class: [{ 'pt-0 pb-0': state['d_editing'] }]
+                    })
+                }
+            }"
+        >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
@@ -184,14 +230,7 @@ const onCellEditComplete = (event) => {
     }
 };
 
-<\/script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-</style>`,
+<\/script>`,
                 data: `
 {
     id: '1000',
@@ -240,10 +279,3 @@ const onCellEditComplete = (event) => {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-</style>

@@ -3,7 +3,18 @@
         <p>Rows can be fixed during scrolling by enabling the <i>frozenValue</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <DataTable :value="customers" :frozenValue="lockedCustomers" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
+        <DataTable
+            :value="customers"
+            :frozenValue="lockedCustomers"
+            scrollable
+            scrollHeight="400px"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                bodyrow: ({ props }) => ({
+                    class: [{ 'font-bold': props.frozenRow }]
+                })
+            }"
+        >
             <Column field="name" header="Name"></Column>
             <Column field="country.name" header="Country"></Column>
             <Column field="representative.name" header="Representative"></Column>
@@ -45,7 +56,18 @@ export default {
             ],
             code: {
                 basic: `
-<DataTable :value="customers" :frozenValue="lockedCustomers" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
+<DataTable
+    :value="customers"
+    :frozenValue="lockedCustomers"
+    scrollable
+    scrollHeight="400px"
+    :pt="{
+        table: { style: 'min-width: 50rem' },
+        bodyrow: ({ props }) => ({
+            class: [{ 'font-bold': props.frozenRow }]
+        })
+    }"
+>
     <Column field="name" header="Name"></Column>
     <Column field="country.name" header="Country"></Column>
     <Column field="representative.name" header="Representative"></Column>
@@ -60,7 +82,18 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <DataTable :value="customers" :frozenValue="lockedCustomers" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
+        <DataTable
+            :value="customers"
+            :frozenValue="lockedCustomers"
+            scrollable
+            scrollHeight="400px"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                bodyrow: ({ props }) => ({
+                    class: [{ 'font-bold': props.frozenRow }]
+                })
+            }"
+        >
             <Column field="name" header="Name"></Column>
             <Column field="country.name" header="Country"></Column>
             <Column field="representative.name" header="Representative"></Column>
@@ -127,7 +160,18 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <DataTable :value="customers" :frozenValue="lockedCustomers" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
+        <DataTable
+            :value="customers"
+            :frozenValue="lockedCustomers"
+            scrollable
+            scrollHeight="400px"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                bodyrow: ({ props }) => ({
+                    class: [{ 'font-bold': props.frozenRow }]
+                })
+            }"
+        >
             <Column field="name" header="Name"></Column>
             <Column field="country.name" header="Country"></Column>
             <Column field="representative.name" header="Representative"></Column>
@@ -233,9 +277,3 @@ onMounted(() => {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.p-datatable-frozen-tbody > tr) {
-    font-weight: 700;
-}
-</style>

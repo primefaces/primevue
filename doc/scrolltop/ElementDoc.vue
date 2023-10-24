@@ -11,7 +11,18 @@
                 dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
                 Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
             </p>
-            <ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+            <ScrollTop
+                target="parent"
+                :threshold="100"
+                icon="pi pi-arrow-up"
+                :pt="{
+                    root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
+                    icon: {
+                        class: 'text-base',
+                        style: 'color: var(--primary-color-text)'
+                    }
+                }"
+            />
         </ScrollPanel>
     </div>
     <DocSectionCode :code="code" />
@@ -23,7 +34,7 @@ export default {
         return {
             code: {
                 basic: `
-<ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+<ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" />
 `,
                 options: `
 <template>
@@ -36,31 +47,21 @@ export default {
                 dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
                 Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
             </p>
-            <ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+            <ScrollTop
+                target="parent"
+                :threshold="100"
+                icon="pi pi-arrow-up"
+                :pt="{
+                    root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
+                    icon: {
+                        class: 'text-base',
+                        style: 'color: var(--primary-color-text)'
+                    }
+                }"
+            />
         </ScrollPanel>
     </div>
 </template>
-
-<script>
-<\/script>
-
-<style scoped>
-::v-deep(.custom-scrolltop) {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop:hover) {
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop .p-scrolltop-icon) {
-    font-size: 1rem;
-    color: var(--primary-color-text);
-}
-</style>
 `,
                 composition: `
 <template>
@@ -73,51 +74,24 @@ export default {
                 dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
                 Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
             </p>
-            <ScrollTop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up" />
+            <ScrollTop
+                target="parent"
+                :threshold="100"
+                icon="pi pi-arrow-up"
+                :pt="{
+                    root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
+                    icon: {
+                        class: 'text-base',
+                        style: 'color: var(--primary-color-text)'
+                    }
+                }"
+            />
         </ScrollPanel>
     </div>
 </template>
-
-<script setup>
-<\/script>
-
-<style scoped>
-::v-deep(.custom-scrolltop) {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop:hover) {
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop .p-scrolltop-icon) {
-    font-size: 1rem;
-    color: var(--primary-color-text);
-}
-</style>`
+`
             }
         };
     }
 };
 </script>
-
-<style scoped>
-::v-deep(.custom-scrolltop) {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop:hover) {
-    background-color: var(--primary-color);
-}
-
-::v-deep(.custom-scrolltop .p-scrolltop-icon) {
-    font-size: 1rem;
-    color: var(--primary-color-text);
-}
-</style>

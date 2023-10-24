@@ -44,16 +44,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-::v-deep(.styled-box-green .p-ink) {
-    background: rgba(75, 175, 80, 0.3);
-}
-::v-deep(.styled-box-orange .p-ink) {
-    background: rgba(#ffc106, 0.3);
-}
-
-::v-deep(.styled-box-purple .p-ink) {
-    background: rgba(#9c27b0, 0.3);
-}
-</style>
