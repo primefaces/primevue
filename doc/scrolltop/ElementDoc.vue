@@ -18,8 +18,7 @@
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
                     icon: {
-                        class: 'text-base',
-                        style: 'color: var(--primary-color-text)'
+                        class: 'text-base'
                     }
                 }"
             />
@@ -55,7 +54,6 @@ export default {
                     root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
                     icon: {
                         class: 'text-base',
-                        style: 'color: var(--primary-color-text)'
                     }
                 }"
             />
@@ -82,7 +80,6 @@ export default {
                     root: 'w-2rem h-2rem border-round-sm bg-primary hover:bg-primary',
                     icon: {
                         class: 'text-base',
-                        style: 'color: var(--primary-color-text)'
                     }
                 }"
             />
