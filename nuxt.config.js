@@ -5,7 +5,7 @@ const baseUrl = '/';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
-    modules: ['nuxt-gtag', 'nuxt-primevue'],
+    modules: ['nuxt-gtag', '~/modules/nuxt-primevue/module'],
     components: [
         '~/components',
         {
@@ -17,7 +17,10 @@ export default defineNuxtConfig({
         alias: viteConfig.resolve.alias
     },
     primevue: {
-        usePrimeVue: false,
+        options: {
+            ripple: true
+        },
+        layerOrder: 'primevue',
         resolvePath: function ({ as, from, type }) {
             const resolvedPath = from.replace('primevue', '@/components/lib');
 
