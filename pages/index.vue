@@ -13,10 +13,6 @@
 </template>
 
 <script>
-definePageMeta({
-    layout: 'custom'
-});
-
 import EventBus from '@/layouts/AppEventBus';
 import AppNews from '@/layouts/AppNews';
 import AppTopBar from '@/layouts/AppTopBar.vue';
@@ -29,6 +25,11 @@ import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
 
 export default {
+    setup() {
+        definePageMeta({
+            layout: 'custom'
+        });
+    },
     props: {
         theme: {
             type: String,

@@ -300,6 +300,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default slot to detect AccordionTab components."
+                        },
+                        {
+                            "name": "togglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Current index of the tab</span>\n \t <span class=\"ml-3 text-primary-700\">isTabActive</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Whether the current tab is active</span>\n}",
+                                    "description": "togglericon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggler icon template."
                         }
                     ]
                 },

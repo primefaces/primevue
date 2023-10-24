@@ -21,6 +21,7 @@
                     v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction', i) }"
                 >
                     <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
+                    <component v-else-if="$slots.toggleicon" :is="$slots.toggleicon" :isTabActive="isTabActive(i)" :index="i"></component>
                     <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('tab.headerIcon'), collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
                     <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('tab.headerIcon'), expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
                     <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" v-bind="getTabPT(tab, 'headertitle', i)">{{ tab.props.header }}</span>
