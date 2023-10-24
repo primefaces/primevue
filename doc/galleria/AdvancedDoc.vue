@@ -9,13 +9,22 @@
             :value="images"
             :numVisible="5"
             containerStyle="max-width: 640px"
-            :containerClass="galleriaClass"
             :showThumbnails="showThumbnails"
             :showItemNavigators="true"
             :showItemNavigatorsOnHover="true"
             :circular="true"
             :autoPlay="isAutoPlay"
             :transitionInterval="3000"
+            :pt="{
+                root: {
+                    class: [{ 'flex flex-column': fullScreen }]
+                },
+                content: {
+                    class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
+                },
+
+                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+            }"
         >
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
@@ -26,15 +35,15 @@
                 </div>
             </template>
             <template #footer>
-                <div class="custom-galleria-footer">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
+                <div class="flex align-items-center bg-black-alpha-90 text-white">
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
-                        <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="title">{{ images[activeIndex].title }}</span>
-                        <span>{{ images[activeIndex].alt }}</span>
+                        <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
@@ -56,8 +65,29 @@ export default {
             isAutoPlay: true,
             code: {
                 basic: `
-<Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
+<Galleria
+    ref="galleria"
+    v-model:activeIndex="activeIndex"
+    :value="images"
+    :numVisible="5"
+    containerStyle="max-width: 640px"
+    :showThumbnails="showThumbnails"
+    :showItemNavigators="true"
+    :showItemNavigatorsOnHover="true"
+    :circular="true"
+    :autoPlay="isAutoPlay"
+    :transitionInterval="3000"
+    :pt="{
+        root: {
+            class: [{ 'flex flex-column': fullScreen }]
+        },
+        content: {
+            class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
+        },
+
+        thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+    }"
+>
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
     </template>
@@ -67,15 +97,15 @@ export default {
         </div>
     </template>
     <template #footer>
-        <div class="custom-galleria-footer">
-            <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
+        <div class="flex align-items-center bg-black-alpha-90 text-white">
+            <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
             <span v-if="images" class="title-container">
-                <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
-                <span class="title">{{ images[activeIndex].title }}</span>
-                <span>{{ images[activeIndex].alt }}</span>
+                <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
+                <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
             </span>
-            <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
+            <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
         </div>
     </template>
 </Galleria>
@@ -83,8 +113,29 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
+        <Galleria
+            ref="galleria"
+            v-model:activeIndex="activeIndex"
+            :value="images"
+            :numVisible="5"
+            containerStyle="max-width: 640px"
+            :showThumbnails="showThumbnails"
+            :showItemNavigators="true"
+            :showItemNavigatorsOnHover="true"
+            :circular="true"
+            :autoPlay="isAutoPlay"
+            :transitionInterval="3000"
+            :pt="{
+                root: {
+                    class: [{ 'flex flex-column': fullScreen }]
+                },
+                content: {
+                    class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
+                },
+
+                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+            }"
+        >
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
             </template>
@@ -94,15 +145,15 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="custom-galleria-footer">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
+                <div class="flex align-items-center bg-black-alpha-90 text-white">
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
-                        <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="title">{{ images[activeIndex].title }}</span>
-                        <span>{{ images[activeIndex].alt }}</span>
+                        <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
@@ -187,84 +238,39 @@ export default {
         slideButtonIcon() {
             return this.isAutoPlay ? 'pi pi-pause' : 'pi pi-play';
         },
-        galleriaClass() {
-            return ['custom-galleria', { fullscreen: this.fullScreen }];
-        },
         fullScreenIcon() {
             return \`pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}\`;
         }
     }
 };
 <\/script>
-
-<style lang="scss" scoped>
-::v-deep(.custom-galleria) {
-    &.fullscreen {
-        display: flex;
-        flex-direction: column;
-
-        .p-galleria-content {
-            flex-grow: 1;
-            justify-content: center;
-        }
-    }
-
-    .p-galleria-content {
-        position: relative;
-    }
-
-    .p-galleria-thumbnail-wrapper {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .p-galleria-thumbnail-items-container {
-        width: 100%;
-    }
-
-    .custom-galleria-footer {
-        display: flex;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.9);
-        color: #ffffff;
-
-        > button {
-            background-color: transparent;
-            color: #ffffff;
-            border: 0 none;
-            border-radius: 0;
-            margin: 0.2rem 0;
-
-            &.fullscreen-button {
-                margin-left: auto;
-            }
-
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-        }
-    }
-
-    .title-container {
-        > span {
-            font-size: 0.9rem;
-            padding-left: 0.829rem;
-
-            &.title {
-                font-weight: bold;
-            }
-        }
-    }
-}
-</style>
 `,
                 composition: `
 <template>
     <div class="card">
-        <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
+        <Galleria
+            ref="galleria"
+            v-model:activeIndex="activeIndex"
+            :value="images"
+            :numVisible="5"
+            containerStyle="max-width: 640px"
+            :showThumbnails="showThumbnails"
+            :showItemNavigators="true"
+            :showItemNavigatorsOnHover="true"
+            :circular="true"
+            :autoPlay="isAutoPlay"
+            :transitionInterval="3000"
+            :pt="{
+                root: {
+                    class: [{ 'flex flex-column': fullScreen }]
+                },
+                content: {
+                    class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
+                },
+
+                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+            }"
+        >
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
             </template>
@@ -274,15 +280,15 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="custom-galleria-footer">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
+                <div class="flex align-items-center bg-black-alpha-90 text-white">
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
-                        <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="title">{{ images[activeIndex].title }}</span>
-                        <span>{{ images[activeIndex].alt }}</span>
+                        <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
@@ -361,11 +367,6 @@ const unbindDocumentListeners = () => {
     document.removeEventListener('msfullscreenchange', onFullScreenChange);
 };
 
-
-
-const galleriaClass = computed(() => {
-    return ['custom-galleria', { fullscreen: fullScreen.value }];
-});
 const fullScreenIcon = computed(() => {
     return \`pi \${fullScreen.value ? 'pi-window-minimize' : 'pi-window-maximize'}\`;
 });
@@ -374,68 +375,7 @@ const slideButtonIcon = computed(() => {
 });
 <\/script>
 
-<style lang="scss" scoped>
-::v-deep(.custom-galleria) {
-    &.fullscreen {
-        display: flex;
-        flex-direction: column;
-
-        .p-galleria-content {
-            flex-grow: 1;
-            justify-content: center;
-        }
-    }
-
-    .p-galleria-content {
-        position: relative;
-    }
-
-    .p-galleria-thumbnail-wrapper {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .p-galleria-thumbnail-items-container {
-        width: 100%;
-    }
-
-    .custom-galleria-footer {
-        display: flex;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.9);
-        color: #ffffff;
-
-        > button {
-            background-color: transparent;
-            color: #ffffff;
-            border: 0 none;
-            border-radius: 0;
-            margin: 0.2rem 0;
-
-            &.fullscreen-button {
-                margin-left: auto;
-            }
-
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-        }
-    }
-
-    .title-container {
-        > span {
-            font-size: 0.9rem;
-            padding-left: 0.829rem;
-
-            &.title {
-                font-weight: bold;
-            }
-        }
-    }
-}
-</style>`,
+`,
                 data: `
 /* PhotoService */
 {
@@ -514,75 +454,9 @@ const slideButtonIcon = computed(() => {
         slideButtonIcon() {
             return this.isAutoPlay ? 'pi pi-pause' : 'pi pi-play';
         },
-        galleriaClass() {
-            return ['custom-galleria', { fullscreen: this.fullScreen }];
-        },
         fullScreenIcon() {
             return `pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
         }
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.custom-galleria) {
-    &.fullscreen {
-        display: flex;
-        flex-direction: column;
-
-        .p-galleria-content {
-            flex-grow: 1;
-            justify-content: center;
-        }
-    }
-
-    .p-galleria-content {
-        position: relative;
-    }
-
-    .p-galleria-thumbnail-wrapper {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .p-galleria-thumbnail-items-container {
-        width: 100%;
-    }
-
-    .custom-galleria-footer {
-        display: flex;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.9);
-        color: #ffffff;
-
-        > button {
-            background-color: transparent;
-            color: #ffffff;
-            border: 0 none;
-            border-radius: 0;
-            margin: 0.2rem 0;
-
-            &.fullscreen-button {
-                margin-left: auto;
-            }
-
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-        }
-    }
-
-    .title-container {
-        > span {
-            font-size: 0.9rem;
-            padding-left: 0.829rem;
-
-            &.title {
-                font-weight: bold;
-            }
-        }
-    }
-}
-</style>
