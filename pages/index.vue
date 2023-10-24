@@ -16,13 +16,13 @@
 import EventBus from '@/layouts/AppEventBus';
 import AppNews from '@/layouts/AppNews';
 import AppTopBar from '@/layouts/AppTopBar.vue';
-import BlockSection from './landing/BlockSection';
-import FeaturesSection from './landing/FeaturesSection';
-import FooterSection from './landing/FooterSection';
-import HeroSection from './landing/HeroSection';
-import TemplateSection from './landing/TemplateSection';
-import ThemeSection from './landing/ThemeSection';
-import UsersSection from './landing/UsersSection';
+import BlockSection from './landing/BlockSection.vue';
+import FeaturesSection from './landing/FeaturesSection.vue';
+import FooterSection from './landing/FooterSection.vue';
+import HeroSection from './landing/HeroSection.vue';
+import TemplateSection from './landing/TemplateSection.vue';
+import ThemeSection from './landing/ThemeSection.vue';
+import UsersSection from './landing/UsersSection.vue';
 
 export default {
     setup() {
