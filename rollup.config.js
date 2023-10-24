@@ -401,7 +401,7 @@ function addDirectives() {
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
     addEntry('focustrap', 'FocusTrap.js', 'focustrap');
     addEntry('styleclass', 'StyleClass.js', 'styleclass');
-    addEntry('animate', 'Animate.js', 'animate');
+    addEntry('animateonscroll', 'AnimateOnScroll.js', 'animateonscroll');
 }
 
 function addConfig() {
