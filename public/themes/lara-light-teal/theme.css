@@ -5712,4 +5712,9 @@
   .p-inline-message-text {
     font-weight: 500;
   }
+
+  .p-picklist-buttons .p-button,
+.p-orderlist-controls .p-button {
+    transition: opacity 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
 }
