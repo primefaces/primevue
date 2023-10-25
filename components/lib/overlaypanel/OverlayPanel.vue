@@ -192,7 +192,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' && this.closeOnEscape) {
+            if (event.code === 'Escape' || this.closeOnEscape) {
                 this.visible = false;
             }
         },
