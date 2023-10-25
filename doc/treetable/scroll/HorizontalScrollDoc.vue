@@ -3,7 +3,7 @@
         <p>Horizontal scrolling is enabled when the total width of columns exceeds table width.</p>
     </DocSectionText>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander style="width: 250px"></Column>
             <Column field="size" header="Size" style="width: 250px"></Column>
             <Column field="type" header="Type 2" style="width: 250px"></Column>
@@ -24,7 +24,7 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+<TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
     <Column field="name" header="Name" expander style="width: 250px"></Column>
     <Column field="size" header="Size" style="width: 250px"></Column>
     <Column field="type" header="Type 2" style="width: 250px"></Column>
@@ -36,7 +36,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander style="width: 250px"></Column>
             <Column field="size" header="Size" style="width: 250px"></Column>
             <Column field="type" header="Type 2" style="width: 250px"></Column>
@@ -65,7 +65,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander style="width: 250px"></Column>
             <Column field="size" header="Size" style="width: 250px"></Column>
             <Column field="type" header="Type 2" style="width: 250px"></Column>

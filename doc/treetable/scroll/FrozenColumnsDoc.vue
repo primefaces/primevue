@@ -3,7 +3,7 @@
         <p>A column can be fixed during horizontal scrolling by enabling the <i>frozen</i> property on a Column. The location is defined with the <i>alignFrozen</i> that can be <i>left</i> or <i>right</i>.</p>
     </DocSectionText>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
             <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
             <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
@@ -24,7 +24,7 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+<TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
     <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
     <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
     <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
@@ -36,7 +36,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
             <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
             <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
@@ -65,7 +65,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="200px" scrollDirection="both">
+        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
             <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
             <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
             <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>

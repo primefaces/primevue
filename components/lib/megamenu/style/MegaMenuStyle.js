@@ -185,6 +185,7 @@ const classes = {
         return columnClass;
     },
     submenu: 'p-submenu-list p-megamenu-submenu',
+    submenuLabel: 'p-menuitem-text',
     separator: 'p-menuitem-separator',
     end: 'p-megamenu-end'
 };

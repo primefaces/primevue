@@ -11,14 +11,11 @@ export default {
         return {
             code: {
                 basic: `
-primevue: { 
+primevue: {
     options: {
         unstyled: true,
         ripple: true,
-        inputStyle: 'filled',
-        pt: {
-
-        }
+        inputStyle: 'filled'
     }
 }
 `
