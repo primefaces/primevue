@@ -50,7 +50,7 @@ export default {
     <div class="card">
         <div class="flex flex-wrap gap-5">
             <div>
-                <h5>Image</h5>
+                <h5 class="mb-2">Image</h5>
                 <div class="flex">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
@@ -59,11 +59,11 @@ export default {
             </div>
 
             <div>
-                <h5>Badge</h5>
-                <Avatar v-badge.danger="4" class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
+                <h5 class="mb-2">Badge</h5>
+                <Avatar v-badge.danger="4" class="relative" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
             </div>
 
-            <div>
+            <div class="mb-2">
                 <h5>Gravatar</h5>
                 <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex align-items-center justify-content-center mr-2" size="xlarge" />
             </div>
