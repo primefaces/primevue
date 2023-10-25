@@ -51,7 +51,7 @@ export interface AnimateOnScrollDirectivePassThroughOptions {
  */
 export interface AnimateOnScrollDirectiveModifiers {
     /**
-     * Whether the animation will be repeated
+     * Whether the scroll event listener should be removed after initial run.
      *  @defaultValue true
      */
     once?: boolean | undefined;

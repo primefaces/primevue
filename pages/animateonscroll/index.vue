@@ -2,7 +2,7 @@
     <DocComponent
         title="Vue AnimateOnScroll Directive"
         header="AnimateOnScroll"
-        description="AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load."
+        description="AnimateOnScroll is used to apply animations to elements when entering or leaving the viewport during scrolling."
         :componentDocs="docs"
         :apiDocs="['AnimateOnScroll']"
     />
@@ -12,7 +12,6 @@
 import AccessibilityDoc from '@/doc/animateonscroll/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/animateonscroll/BasicDoc.vue';
 import ImportDoc from '@/doc/animateonscroll/ImportDoc.vue';
-import OnceDoc from '@/doc/animateonscroll/OnceDoc.vue';
 
 export default {
     data() {
@@ -27,11 +26,6 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
-                },
-                {
-                    id: 'once',
-                    label: 'Once',
-                    component: OnceDoc
                 },
                 {
                     id: 'accessibility',

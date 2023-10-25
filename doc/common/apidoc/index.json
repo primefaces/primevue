@@ -920,7 +920,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether the animation will be repeated"
+                            "description": "Whether the scroll event should be removed after initial run."
                         }
                     ],
                     "methods": []
