@@ -5,19 +5,17 @@
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-center" style="flex: 1">
-                    <div class="text-center">
-                        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
+                <div class="flex flex-column align-items-start" style="flex: 1">
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold text-900">Amy Elsner</span>
                     </div>
-                    <div class="flex gap-2">
-                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
-                        <Button severity="secondary" label="No" @click="onReject()"></Button>
-                    </div>
+                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
-        <Button @click="showTemplate" label="Confirm" />
+        <Button @click="showTemplate" label="View" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -31,38 +29,34 @@ export default {
                 basic: `
 <Toast position="bottom-center" group="bc" @close="onClose">
     <template #message="slotProps">
-        <div class="flex flex-column align-items-center" style="flex: 1">
-            <div class="text-center">
-                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
+        <div class="flex flex-column align-items-start" style="flex: 1">
+            <div class="flex align-items-center gap-2">
+                <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold text-900">Amy Elsner</span>
             </div>
-            <div class="flex gap-2">
-                <Button severity="success" label="Yes" @click="onConfirm()"></Button>
-                <Button severity="secondary" label="No" @click="onReject()"></Button>
-            </div>
+            <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+            <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
         </div>
     </template>
 </Toast>
-<Button @click="showTemplate" label="Confirm" />
+<Button @click="showTemplate" label="View" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-center" style="flex: 1">
-                    <div class="text-center">
-                        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
+                <div class="flex flex-column align-items-start" style="flex: 1">
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold text-900">Amy Elsner</span>
                     </div>
-                    <div class="flex gap-2">
-                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
-                        <Button severity="secondary" label="No" @click="onReject()"></Button>
-                    </div>
+                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
-        <Button @click="showTemplate" label="Confirm" />
+        <Button @click="showTemplate" label="View" />
     </div>
 </template>
 
@@ -76,15 +70,11 @@ export default {
     methods: {
         showTemplate() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+                this.$toast.add({ severity: 'success', summary: 'Can you send me the report?', group: 'bc' });
                 this.visible = true;
             }
         },
-        onConfirm() {
-            this.$toast.removeGroup('bc');
-            this.visible = false;
-        },
-        onReject() {
+        onReply() {
             this.$toast.removeGroup('bc');
             this.visible = false;
         },
@@ -100,19 +90,17 @@ export default {
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-center" style="flex: 1">
-                    <div class="text-center">
-                        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
+                <div class="flex flex-column align-items-start" style="flex: 1">
+                    <div class="flex align-items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold text-900">Amy Elsner</span>
                     </div>
-                    <div class="flex gap-2">
-                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
-                        <Button severity="secondary" label="No" @click="onReject()"></Button>
-                    </div>
+                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
-        <Button @click="showTemplate" label="Confirm" />
+        <Button @click="showTemplate" label="View" />
     </div>
 </template>
 
@@ -124,17 +112,12 @@ const visible = ref(false);
 
 const showTemplate = () => {
     if (!visible.value) {
-        toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+        toast.add({ severity: 'success', summary: 'Can you send me the report?', group: 'bc' });
         visible.value = true;
     } 
 };
 
-const onConfirm = () => {
-    toast.removeGroup('bc');
-    visible.value = false;
-}
-
-const onReject = () => {
+const onReply = () => {
     toast.removeGroup('bc');
     visible.value = false;
 }
@@ -150,15 +133,11 @@ const onClose = () => {
     methods: {
         showTemplate() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
+                this.$toast.add({ severity: 'success', summary: 'Can you send me the report?', group: 'bc' });
                 this.visible = true;
             }
         },
-        onConfirm() {
-            this.$toast.removeGroup('bc');
-            this.visible = false;
-        },
-        onReject() {
+        onReply() {
             this.$toast.removeGroup('bc');
             this.visible = false;
         },

@@ -20,12 +20,10 @@ export default {
             code: {
                 basic: `
 <Toast />
-<div class="flex flex-wrap gap-2">
-    <Button label="Success" severity="success" @click="showSuccess" />
-    <Button label="Info" severity="info" @click="showInfo" />
-    <Button label="Warn" severity="warning" @click="showWarn" />
-    <Button label="Error" severity="danger" @click="showError" />
-</div>
+<Button label="Success" severity="success" @click="showSuccess" />
+<Button label="Info" severity="info" @click="showInfo" />
+<Button label="Warn" severity="warning" @click="showWarn" />
+<Button label="Error" severity="danger" @click="showError" />
 `,
                 options: `
 <template>
