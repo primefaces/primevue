@@ -15,7 +15,6 @@ import AccessibilityDoc from '@/doc/carousel/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/carousel/BasicDoc.vue';
 import CircularDoc from '@/doc/carousel/CircularDoc.vue';
 import ImportDoc from '@/doc/carousel/ImportDoc.vue';
-import NumScrollDoc from '@/doc/carousel/NumScrollDoc.vue';
 import ResponsiveDoc from '@/doc/carousel/ResponsiveDoc.vue';
 import VerticalDoc from '@/doc/carousel/VerticalDoc.vue';
 import PTComponent from '@/doc/carousel/pt/index.vue';
@@ -39,11 +38,6 @@ export default {
                     id: 'circular',
                     label: 'Circular',
                     component: CircularDoc
-                },
-                {
-                    id: 'numscroll',
-                    label: 'Num Scroll',
-                    component: NumScrollDoc
                 },
                 {
                     id: 'responsive',
