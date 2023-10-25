@@ -5142,7 +5142,7 @@
   }
   .p-message .p-message-text {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
   }
   .p-message .p-message-icon {
     font-size: 1.5rem;
@@ -5707,5 +5707,9 @@
 
   .p-toast-message {
     backdrop-filter: blur(10px);
+  }
+
+  .p-inline-message-text {
+    font-weight: 500;
   }
 }
