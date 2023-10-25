@@ -3,12 +3,10 @@
         <p>Thumbnails represent a smaller version of the actual content.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5 align-self-center">
-            <div class="flex flex-wrap gap-3 mb-5">
-                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
-                    <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
-                    <label :for="option.label" class="ml-2"> {{ option.label }} </label>
-                </div>
+        <div class="flex flex-wrap gap-3 mb-5">
+            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
         </div>
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
@@ -81,12 +79,10 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5 align-self-center">
-            <div class="flex flex-wrap gap-3 mb-5">
-                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
-                    <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
-                    <label :for="option.label" class="ml-2"> {{ option.label }} </label>
-                </div>
+        <div class="flex flex-wrap gap-3 mb-5">
+            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
         </div>
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
@@ -153,12 +149,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5 align-self-center">
-            <div class="flex flex-wrap gap-3 mb-5">
-                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
-                    <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
-                    <label :for="option.label" class="ml-2"> {{ option.label }} </label>
-                </div>
+        <div class="flex flex-wrap gap-3 mb-5">
+            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
         </div>
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
