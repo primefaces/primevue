@@ -29,6 +29,7 @@ pre[class*="language-"] {
     padding: 0;
     max-height: 40rem;
     overflow: auto;
+    color-scheme: dark;
 
     &:before, &:after {
         display: none !important;
