@@ -15,7 +15,7 @@ export default {
         return {
             code: {
                 basic: `
-<Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg" alt="Image" width="250" preview />
+<Image src="/image.jpg" alt="Image" width="250" preview />
 `,
                 options: `
 <template>
