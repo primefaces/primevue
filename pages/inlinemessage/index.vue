@@ -16,7 +16,6 @@ import BasicDoc from '@/doc/inlinemessage/BasicDoc.vue';
 import FormDoc from '@/doc/inlinemessage/FormDoc.vue';
 import ImportDoc from '@/doc/inlinemessage/ImportDoc.vue';
 import SeverityDoc from '@/doc/inlinemessage/SeverityDoc.vue';
-import TemplateDoc from '@/doc/inlinemessage/TemplateDoc.vue';
 import PTComponent from '@/doc/inlinemessage/pt/index.vue';
 import ThemingDoc from '@/doc/inlinemessage/theming/index.vue';
 
@@ -43,11 +42,6 @@ export default {
                     id: 'form',
                     label: 'Form',
                     component: FormDoc
-                },
-                {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
                 },
                 {
                     id: 'accessibility',
