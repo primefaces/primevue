@@ -920,7 +920,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether the scroll event should be removed after initial run."
+                            "description": "Whether the scroll event listener should be removed after initial run."
                         }
                     ],
                     "methods": []
