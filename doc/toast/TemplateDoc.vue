@@ -11,7 +11,7 @@
                         <span class="font-bold text-900">Amy Elsner</span>
                     </div>
                     <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
-                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
+                    <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
@@ -35,7 +35,7 @@ export default {
                 <span class="font-bold text-900">Amy Elsner</span>
             </div>
             <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
-            <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
+            <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
         </div>
     </template>
 </Toast>
@@ -52,7 +52,7 @@ export default {
                         <span class="font-bold text-900">Amy Elsner</span>
                     </div>
                     <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
-                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
+                    <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
@@ -96,7 +96,7 @@ export default {
                         <span class="font-bold text-900">Amy Elsner</span>
                     </div>
                     <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
-                    <Button severity="success" outlined class="p-button-sm" label="Reply" @click="onReply()"></Button>
+                    <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
         </Toast>
