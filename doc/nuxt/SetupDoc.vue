@@ -17,8 +17,8 @@ export default defineNuxtConfig({
     modules: [
         'nuxt-primevue'
     ],
-    primevue: { 
-        /* Options */ 
+    primevue: {
+        /* Options */
     }
 })
 `
@@ -29,9 +29,11 @@ export default defineNuxtConfig({
     modules: [
         'nuxt-primevue'
     ],
-    primevue: { 
+    primevue: {
         usePrimeVue: true,
         options: {},
+        importPT: undefined,
+        cssLayerOrder: 'tailwind-base, primevue, tailwind-utilities',
         components: {
             prefix: '',
             name: undefined,
@@ -51,7 +53,7 @@ export default defineNuxtConfig({
             exclude: undefined
         }
     }
-}) 
+})
 `
             }
         };
