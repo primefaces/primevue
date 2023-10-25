@@ -126,6 +126,12 @@ export default {
     },
     watch: {
         page(newValue) {
+            if (newValue > this.d_page) {
+                this.navForward({}, newValue);
+            } else if (newValue < this.d_page) {
+                this.navBackward({}, newValue);
+            }
+
             this.d_page = newValue;
         },
         circular(newValue) {
