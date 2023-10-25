@@ -31504,6 +31504,14 @@
                             "description": "Used to pass attributes to the submenu's DOM element."
                         },
                         {
+                            "name": "submenuLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the submenu label's DOM element."
+                        },
+                        {
                             "name": "separator",
                             "optional": true,
                             "readonly": false,
