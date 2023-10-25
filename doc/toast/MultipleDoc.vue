@@ -16,7 +16,6 @@ export default {
                 basic: `
 <Toast />
 <Button label="Multiple" severity="warning" @click="showMultiple()" />
-
 `,
                 options: `
 <template>

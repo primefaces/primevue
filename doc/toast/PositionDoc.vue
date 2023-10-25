@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Location of the messages is customized with the <i>position</i> property.</p>
+        <p>A message can be targeted to a certain Toast component by matching the <i>group</i> keys whereas location is customized with the <i>position</i>.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
-            <Button label="Top Left" class="mr-2" @click="showTopLeft" />
+            <Button label="Top Left" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
+            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -22,11 +22,9 @@ export default {
 <Toast position="bottom-left" group="bl" />
 <Toast position="bottom-right" group="br" />
 
-<div class="flex flex-wrap gap-2">
-    <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-    <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
-    <Button label="Bottom Right" severity="success" @click="showBottomRight" />
-</div>
+<Button label="Top Left" @click="showTopLeft" />
+<Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
+<Button label="Bottom Right" severity="help" @click="showBottomRight" />
 `,
                 options: `
 <template>
@@ -36,9 +34,9 @@ export default {
         <Toast position="bottom-right" group="br" />
 
         <div class="flex flex-wrap gap-2">
-            <Button label="Top Left" class="mr-2" @click="showTopLeft" />
+            <Button label="Top Left" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
+            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
         </div>
     </div>
 </template>
@@ -67,9 +65,9 @@ export default {
         <Toast position="bottom-right" group="br" />
         
         <div class="flex flex-wrap gap-2">
-            <Button label="Top Left" class="mr-2" @click="showTopLeft" />
+            <Button label="Top Left" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
+            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
         </div>
     </div>
 </template>

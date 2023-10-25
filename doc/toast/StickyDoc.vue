@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
-            <Button @click="showSticky" label="Sticky" severity="success" />
-            <Button label="Clear" @click="clear()" />
+            <Button @click="showSticky" label="Sticky" />
+            <Button label="Clear" severity="secondary" @click="clear()" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -19,15 +19,15 @@ export default {
                 basic: `
 <Toast />
 <Button @click="showSticky" label="Sticky" />
-<Button label="Clear" @click="clear()" />
+<Button label="Clear" severity="secondary" @click="clear()" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button @click="showSticky" label="Sticky" severity="success" />
-            <Button label="Clear" @click="clear()" />
+            <Button @click="showSticky" label="Sticky" />
+            <Button label="Clear" severity="secondary" @click="clear()" />
         </div>
     </div>
 </template>
@@ -50,8 +50,8 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button @click="showSticky" label="Sticky" severity="success" />
-            <Button label="Clear" @click="clear()" />
+            <Button @click="showSticky" label="Sticky" />
+            <Button label="Clear" severity="secondary" @click="clear()" />
         </div>
     </div>
 </template>

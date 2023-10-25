@@ -4,7 +4,7 @@
     </DocSectionText>
     <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     <div class="doc-section-description">
-        <p><i>$toast</i> is available as a property in the application instance for Options API. The service can be injected with the <i>useToast</i> function for Composition API.</p>
+        <p>The service is available with the <i>useToast</i> function for Composition API or using the <i>$toast</i> property of the application for Options API.</p>
     </div>
     <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
