@@ -493,8 +493,7 @@
         {
             "name": "Tailwind",
             "icon": "pi pi-heart",
-            "to": "/tailwind",
-            "badge": "NEW"
+            "to": "/tailwind"
         },
         {
             "name": "Figma UI Kit",

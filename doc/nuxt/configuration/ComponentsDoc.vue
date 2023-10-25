@@ -53,7 +53,7 @@ primevue: {
     components: {
         name: ({ name, as, from }) => {
             return name === 'Button' ? \`My\${name}\` : name;
-        }
+        },
         include: ['Button', 'DataTable']    /* Used as <MyButton /> and <DataTable /> */
     }
 }

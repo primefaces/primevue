@@ -23,9 +23,11 @@ import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
 import ExampleDoc from '@/doc/nuxt/ExampleDoc.vue';
 import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
 import StyleDoc from '@/doc/nuxt/StyleDoc.vue';
+import CSSLayerOrderDoc from '@/doc/nuxt/configuration/CSSLayerOrderDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
 import ComposablesDoc from '@/doc/nuxt/configuration/ComposablesDoc.vue';
 import DirectivesDoc from '@/doc/nuxt/configuration/DirectivesDoc.vue';
+import ImportPTDoc from '@/doc/nuxt/configuration/ImportPTDoc.vue';
 import OptionsDoc from '@/doc/nuxt/configuration/OptionsDoc.vue';
 import UsePrimeVueDoc from '@/doc/nuxt/configuration/UsePrimeVueDoc.vue';
 import VideoDoc from '../../doc/nuxt/VideoDoc.vue';
@@ -72,6 +74,16 @@ export default {
                             id: 'composables',
                             label: 'composables',
                             component: ComposablesDoc
+                        },
+                        {
+                            id: 'importpt',
+                            label: 'importPT',
+                            component: ImportPTDoc
+                        },
+                        {
+                            id: 'layerorder',
+                            label: 'cssLayerOrder',
+                            component: CSSLayerOrderDoc
                         }
                     ]
                 },
