@@ -3,10 +3,10 @@
         <p>The <i>severity</i> option specifies the type of the message.</p>
     </DocSectionText>
     <div class="card">
-        <Message severity="success">Success Message Content</Message>
-        <Message severity="info">Info Message Content</Message>
-        <Message severity="warn">Warning Message Content</Message>
-        <Message severity="error">Error Message Content</Message>
+        <Message severity="success">Success Message</Message>
+        <Message severity="info">Info Message</Message>
+        <Message severity="warn">Warning Message</Message>
+        <Message severity="error">Error Message</Message>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -17,18 +17,18 @@ export default {
         return {
             code: {
                 basic: `
-<Message severity="success">Success Message Content</Message>
-<Message severity="info">Info Message Content</Message>
-<Message severity="warn">Warning Message Content</Message>
-<Message severity="error">Error Message Content</Message>
+<Message severity="success">Success Message</Message>
+<Message severity="info">Info Message</Message>
+<Message severity="warn">Warning Message</Message>
+<Message severity="error">Error Message</Message>
 `,
                 options: `
 <template>
     <div class="card">
-        <Message severity="success">Success Message Content</Message>
-        <Message severity="info">Info Message Content</Message>
-        <Message severity="warn">Warning Message Content</Message>
-        <Message severity="error">Error Message Content</Message>
+        <Message severity="success">Success Message</Message>
+        <Message severity="info">Info Message</Message>
+        <Message severity="warn">Warning Message</Message>
+        <Message severity="error">Error Message</Message>
     </div>
 </template>
 
@@ -38,10 +38,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Message severity="success">Success Message Content</Message>
-        <Message severity="info">Info Message Content</Message>
-        <Message severity="warn">Warning Message Content</Message>
-        <Message severity="error">Error Message Content</Message>
+        <Message severity="success">Success Message</Message>
+        <Message severity="info">Info Message</Message>
+        <Message severity="warn">Warning Message</Message>
+        <Message severity="error">Error Message</Message>
     </div>
 </template>
 

@@ -11,7 +11,6 @@ import DynamicDoc from '@/doc/message/DynamicDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import SeverityDoc from '@/doc/message/SeverityDoc.vue';
 import StickyDoc from '@/doc/message/StickyDoc.vue';
-import TemplateDoc from '@/doc/message/TemplateDoc.vue';
 import PTComponent from '@/doc/message/pt/index.vue';
 import ThemingDoc from '@/doc/message/theming/index.vue';
 
@@ -53,11 +52,6 @@ export default {
                     id: 'custom-icon',
                     label: 'Custom Icon',
                     component: CustomIconDoc
-                },
-                {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
                 },
                 {
                     id: 'accessibility',

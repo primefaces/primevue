@@ -39,6 +39,13 @@ export default {
             visible: true
         };
     },
+    watch: {
+        sticky(newValue) {
+            if (!newValue) {
+                this.closeAfterDelay();
+            }
+        }
+    },
     mounted() {
         if (!this.sticky) {
             this.closeAfterDelay();

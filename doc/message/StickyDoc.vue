@@ -1,15 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message should be displayed which is 3000 ms by
-            default.
-        </p>
+        <p>Messages can disappear automatically by turning the <i>sticky</i> option off. The timeout duration is defined using the <i>life</i> property in milliseconds.</p>
     </DocSectionText>
     <div class="card">
-        <Message severity="success" sticky>Success Message Content</Message>
-        <Message severity="info" sticky>Info Message Content</Message>
-        <Message severity="warn" sticky>Warning Message Content</Message>
-        <Message severity="error" sticky>Error Message Content</Message>
+        <Button label="Turn off Sticky" @click="sticky = false" />
+        <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
+        <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,37 +16,51 @@
 export default {
     data() {
         return {
+            sticky: true,
             code: {
                 basic: `
-<Message severity="success" sticky>Success Message Content</Message>
-<Message severity="info" sticky>Info Message Content</Message>
-<Message severity="warn" sticky>Warning Message Content</Message>
-<Message severity="error" sticky>Error Message Content</Message>
+<Button label="Turn off Sticky" @click="sticky = false" />
+<Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
+<Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
+<Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+<Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
 `,
                 options: `
 <template>
     <div class="card">
-        <Message severity="success" sticky>Success Message Content</Message>
-        <Message severity="info" sticky>Info Message Content</Message>
-        <Message severity="warn" sticky>Warning Message Content</Message>
-        <Message severity="error" sticky>Error Message Content</Message>
+        <Button label="Turn off Sticky" @click="sticky = false" />
+        <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
+        <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+            sticky: false
+        };
+    }
+};
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card">
-        <Message severity="success" sticky>Success Message Content</Message>
-        <Message severity="info" sticky>Info Message Content</Message>
-        <Message severity="warn" sticky>Warning Message Content</Message>
-        <Message severity="error" sticky>Error Message Content</Message>
+        <Button label="Turn off Sticky" @click="sticky.value = false" />
+        <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
+        <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+let sticky = ref(true);
 <\/script>
 `
             }

@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
+        <p>Messages are closable by default, disable <i>closable</i> option to remove the close button.</p>
     </DocSectionText>
     <div class="card">
-        <Message :closable="false">Message Content</Message>
+        <Message :closable="false">Not Closable</Message>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,12 +14,12 @@ export default {
         return {
             code: {
                 basic: `
-<Message :closable="false">Message Content</Message>
+<Message :closable="false">Not Closable</Message>
 `,
                 options: `
 <template>
     <div class="card">
-        <Message :closable="false">Message Content</Message>
+        <Message :closable="false">Not Closable</Message>
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Message :closable="false">Message Content</Message>
+        <Message :closable="false">Not Closable</Message>
     </div>
 </template>
 
