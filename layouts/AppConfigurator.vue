@@ -3,7 +3,7 @@
         <div class="p-2">
             <section class="pb-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span class="text-xl font-semibold">Scale</span>
-                <div class="flex align-items-center gap-2 border-1 surface-border p-2" style="border-radius: 30px">
+                <div class="flex align-items-center gap-2 border-1 surface-border py-1 px-2" style="border-radius: 30px">
                     <Button icon="pi pi-minus" @click="decrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[0]" />
                     <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-200', { 'text-lg text-primary': s === scale }]" />
 
@@ -13,7 +13,7 @@
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span class="text-xl font-semibold">Input Style</span>
-                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" />
+                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
