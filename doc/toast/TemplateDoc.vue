@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content inside a message is defined with the <i>content</i> option.</p>
+        <p>Custom content inside a message is defined with the <i>content</i> template.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
