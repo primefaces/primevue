@@ -866,7 +866,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "AnimateOnScroll scroll to add when item begins to get displayed."
+                            "description": "Style class to add when item goes into viewport, use white space as a delimeter to define multiple classes."
                         },
                         {
                             "name": "leaveClass",
@@ -874,7 +874,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "AnimateOnScroll scroll to add when item begins to get hidden."
+                            "description": "Style class to add when item leaves the viewport, use white space as a delimeter to define multiple classes."
                         },
                         {
                             "name": "root",
@@ -882,7 +882,7 @@
                             "readonly": false,
                             "type": "null | Element | Document",
                             "default": "",
-                            "description": "Specifies the  `root`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root\">MDN Reference</a> "
+                            "description": "Specifies the  `root`  option of the IntersectionObserver API"
                         },
                         {
                             "name": "rootMargin",
@@ -890,7 +890,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin\">MDN Reference</a> "
+                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API"
                         },
                         {
                             "name": "threshold",
@@ -898,31 +898,7 @@
                             "readonly": false,
                             "type": "readonly number[]",
                             "default": "",
-                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds\">MDN Reference</a> "
-                        },
-                        {
-                            "name": "animateOnLoad",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Whether the  `enterClass`  animation will run if the target is in the viewport when the page is loaded."
-                        },
-                        {
-                            "name": "pt",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PassThrough<AnimateOnScrollDirectivePassThroughOptions>",
-                            "default": "",
-                            "description": "Used to pass attributes to DOM elements inside the component."
-                        },
-                        {
-                            "name": "ptOptions",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PassThroughOptions",
-                            "default": "",
-                            "description": "Used to configure passthrough(pt) options of the component."
+                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API"
                         }
                     ],
                     "methods": []
