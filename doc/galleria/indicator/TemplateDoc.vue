@@ -22,20 +22,6 @@ export default {
     data() {
         return {
             images: null,
-            responsiveOptions: [
-                {
-                    breakpoint: '991px',
-                    numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '575px',
-                    numVisible: 1
-                }
-            ],
             code: {
                 basic: `
 <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false"

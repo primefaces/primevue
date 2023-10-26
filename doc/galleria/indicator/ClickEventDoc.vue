@@ -3,7 +3,7 @@
         <p>Indicators are displayed at the bottom by enabling <i>showIndicators</i> property and interacted with the click event by default.</p>
     </DocSectionText>
     <div class="card">
-        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true">
+        <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
             </template>
@@ -19,23 +19,9 @@ export default {
     data() {
         return {
             images: null,
-            responsiveOptions: [
-                {
-                    breakpoint: '991px',
-                    numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '575px',
-                    numVisible: 1
-                }
-            ],
             code: {
                 basic: `
-<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+<Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px"
     :showThumbnails="false" :showIndicators="true">
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -45,7 +31,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+        <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px"
             :showThumbnails="false" :showIndicators="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -60,21 +46,7 @@ import { PhotoService } from '@/service/PhotoService';
 export default {
     data() {
         return {
-            images: null,
-            responsiveOptions: [
-                {
-                    breakpoint: '991px',
-                    numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '575px',
-                    numVisible: 1
-                }
-            ]
+            images: null
         };
     },
     mounted() {
@@ -86,7 +58,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+        <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px"
             :showThumbnails="false" :showIndicators="true">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
@@ -104,20 +76,6 @@ onMounted(() => {
 });
 
 const images = ref();
-const responsiveOptions = ref([
-    {
-        breakpoint: '991px',
-        numVisible: 4
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 3
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1
-    }
-]);
 <\/script>
 `,
                 data: `

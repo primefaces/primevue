@@ -19,9 +19,9 @@
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>
                         <h6 class="mt-0 mb-3">${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                        <div class="mt-5">
-                            <Button icon="pi pi-search" rounded class="mr-2" />
-                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                            <Button icon="pi pi-search" rounded />
+                            <Button icon="pi pi-star-fill" rounded severity="secondary" />
                         </div>
                     </div>
                 </div>
@@ -40,17 +40,22 @@ export default {
             products: null,
             responsiveOptions: [
                 {
-                    breakpoint: '1199px',
-                    numVisible: 1,
-                    numScroll: 1
-                },
-                {
-                    breakpoint: '991px',
+                    breakpoint: '1400px',
                     numVisible: 2,
                     numScroll: 1
                 },
                 {
+                    breakpoint: '1199px',
+                    numVisible: 3,
+                    numScroll: 1
+                },
+                {
                     breakpoint: '767px',
+                    numVisible: 2,
+                    numScroll: 1
+                },
+                {
+                    breakpoint: '575px',
                     numVisible: 1,
                     numScroll: 1
                 }
@@ -75,9 +80,9 @@ export default {
                 <h4 class="mb-1">{{ slotProps.data.name }}</h4>
                 <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                 <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                <div class="mt-5">
-                    <Button icon="pi pi-search" rounded class="mr-2" />
-                    <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                    <Button icon="pi pi-search" rounded />
+                    <Button icon="pi pi-star-fill" rounded severity="secondary" />
                 </div>
             </div>
         </div>
@@ -105,9 +110,9 @@ export default {
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>
                         <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                        <div class="mt-5">
-                            <Button icon="pi pi-search" rounded class="mr-2" />
-                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                            <Button icon="pi pi-search" rounded />
+                            <Button icon="pi pi-star-fill" rounded severity="secondary" />
                         </div>
                     </div>
                 </div>
@@ -125,17 +130,22 @@ export default {
             products: null,
             responsiveOptions: [
                 {
-                    breakpoint: '1199px',
-                    numVisible: 1,
-                    numScroll: 1
-                },
-                {
-                    breakpoint: '991px',
+                    breakpoint: '1400px',
                     numVisible: 2,
                     numScroll: 1
                 },
                 {
+                    breakpoint: '1199px',
+                    numVisible: 3,
+                    numScroll: 1
+                },
+                {
                     breakpoint: '767px',
+                    numVisible: 2,
+                    numScroll: 1
+                },
+                {
+                    breakpoint: '575px',
                     numVisible: 1,
                     numScroll: 1
                 }
@@ -186,9 +196,9 @@ export default {
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>
                         <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                        <div class="mt-5">
-                            <Button icon="pi pi-search" rounded class="mr-2" />
-                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                            <Button icon="pi pi-search" rounded />
+                            <Button icon="pi pi-star-fill" rounded severity="secondary" />
                         </div>
                     </div>
                 </div>
@@ -208,17 +218,22 @@ onMounted(() => {
 const products = ref();
 const responsiveOptions = ref([
     {
-        breakpoint: '1199px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-        breakpoint: '991px',
+        breakpoint: '1400px',
         numVisible: 2,
         numScroll: 1
     },
     {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
         breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
         numVisible: 1,
         numScroll: 1
     }
@@ -243,7 +258,7 @@ const getSeverity = (status) => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',

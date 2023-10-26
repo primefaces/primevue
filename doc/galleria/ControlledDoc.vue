@@ -30,12 +30,8 @@ export default {
             activeIndex: 2,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -87,12 +83,8 @@ export default {
             activeIndex: 2,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -146,12 +138,8 @@ const images = ref();
 const activeIndex = ref(2);
 const responsiveOptions = ref([
     {
-        breakpoint: '991px',
+        breakpoint: '1300px',
         numVisible: 4
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 3
     },
     {
         breakpoint: '575px',
