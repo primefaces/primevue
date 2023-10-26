@@ -15,6 +15,7 @@
             :circular="true"
             :autoPlay="isAutoPlay"
             :transitionInterval="3000"
+            :responsiveOptions="responsiveOptions"
             :pt="{
                 root: {
                     class: [{ 'flex flex-column': fullScreen }]
@@ -22,7 +23,6 @@
                 content: {
                     class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
                 },
-
                 thumbnailwrapper: 'absolute w-full left-0 bottom-0'
             }"
         >
@@ -63,6 +63,16 @@ export default {
             isAutoPlayActive: true,
             fullScreen: false,
             isAutoPlay: true,
+            responsiveOptions: [
+                {
+                    breakpoint: '1300px',
+                    numVisible: 4
+                },
+                {
+                    breakpoint: '575px',
+                    numVisible: 1
+                }
+            ],
             code: {
                 basic: `
 <Galleria
@@ -77,6 +87,7 @@ export default {
     :circular="true"
     :autoPlay="isAutoPlay"
     :transitionInterval="3000"
+    :responsiveOptions="responsiveOptions"
     :pt="{
         root: {
             class: [{ 'flex flex-column': fullScreen }]
@@ -125,6 +136,7 @@ export default {
             :circular="true"
             :autoPlay="isAutoPlay"
             :transitionInterval="3000"
+            :responsiveOptions="responsiveOptions"
             :pt="{
                 root: {
                     class: [{ 'flex flex-column': fullScreen }]
@@ -171,6 +183,16 @@ export default {
             showThumbnails: false,
             fullScreen: false,
             isAutoPlay: true,
+            responsiveOptions: [
+                {
+                    breakpoint: '1300px',
+                    numVisible: 4
+                },
+                {
+                    breakpoint: '575px',
+                    numVisible: 1
+                }
+            ]
         };
     },
     mounted() {
@@ -260,6 +282,7 @@ export default {
             :circular="true"
             :autoPlay="isAutoPlay"
             :transitionInterval="3000"
+            :responsiveOptions="responsiveOptions"
             :pt="{
                 root: {
                     class: [{ 'flex flex-column': fullScreen }]
@@ -317,6 +340,18 @@ const toggleAutoSlide = () => {
 const onThumbnailButtonClick = () => {
     showThumbnails.value  = !showThumbnails.value ;
 };
+
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
 const toggleFullScreen = () => {
     if (fullScreen.value ) {
         closeFullScreen();

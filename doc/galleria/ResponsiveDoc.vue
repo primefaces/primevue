@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Galleria responsiveness is defined with the <i>responsiveOptions</i> property.</p>
+        <p>Settings per screen size is defined via the <i>responsiveOptions</i> property.</p>
     </DocSectionText>
     <div class="card">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px">
@@ -26,12 +26,8 @@ export default {
             images: null,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -76,12 +72,8 @@ export default {
             images: null,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -123,12 +115,8 @@ onMounted(() => {
 const images = ref();
 const responsiveOptions = ref([
     {
-        breakpoint: '991px',
+        breakpoint: '1300px',
         numVisible: 4
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 3
     },
     {
         breakpoint: '575px',

@@ -24,12 +24,8 @@ export default {
             images: null,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -70,12 +66,8 @@ export default {
             images: null,
             responsiveOptions: [
                 {
-                    breakpoint: '991px',
+                    breakpoint: '1300px',
                     numVisible: 4
-                },
-                {
-                    breakpoint: '767px',
-                    numVisible: 3
                 },
                 {
                     breakpoint: '575px',
@@ -115,12 +107,8 @@ onMounted(() => {
 const images = ref();
 const responsiveOptions = ref([
     {
-        breakpoint: '991px',
+        breakpoint: '1300px',
         numVisible: 4
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 3
     },
     {
         breakpoint: '575px',
