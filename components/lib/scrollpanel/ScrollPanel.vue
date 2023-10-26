@@ -103,39 +103,41 @@ export default {
             }
         },
         moveBar() {
-            /* horizontal scroll */
-            let totalWidth = this.$refs.content.scrollWidth;
-            let ownWidth = this.$refs.content.clientWidth;
-            let bottom = (this.$el.clientHeight - this.$refs.xBar.clientHeight) * -1;
+            if (this.$refs.content) {
+                /* horizontal scroll */
+                let totalWidth = this.$refs.content.scrollWidth;
+                let ownWidth = this.$refs.content.clientWidth;
+                let bottom = (this.$el.clientHeight - this.$refs.xBar.clientHeight) * -1;
 
-            this.scrollXRatio = ownWidth / totalWidth;
+                this.scrollXRatio = ownWidth / totalWidth;
 
-            /* vertical scroll */
-            let totalHeight = this.$refs.content.scrollHeight;
-            let ownHeight = this.$refs.content.clientHeight;
-            let right = (this.$el.clientWidth - this.$refs.yBar.clientWidth) * -1;
+                /* vertical scroll */
+                let totalHeight = this.$refs.content.scrollHeight;
+                let ownHeight = this.$refs.content.clientHeight;
+                let right = (this.$el.clientWidth - this.$refs.yBar.clientWidth) * -1;
 
-            this.scrollYRatio = ownHeight / totalHeight;
+                this.scrollYRatio = ownHeight / totalHeight;
 
-            this.frame = this.requestAnimationFrame(() => {
-                if (this.scrollXRatio >= 1) {
-                    this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'true');
-                    !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
-                } else {
-                    this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
-                    !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
-                    this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
-                }
+                this.frame = this.requestAnimationFrame(() => {
+                    if (this.scrollXRatio >= 1) {
+                        this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'true');
+                        !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
+                    } else {
+                        this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
+                        !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
+                        this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
+                    }
 
-                if (this.scrollYRatio >= 1) {
-                    this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'true');
-                    !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
-                } else {
-                    this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
-                    !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
-                    this.$refs.yBar.style.cssText = 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
-                }
-            });
+                    if (this.scrollYRatio >= 1) {
+                        this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'true');
+                        !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
+                    } else {
+                        this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
+                        !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
+                        this.$refs.yBar.style.cssText = 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
+                    }
+                });
+            }
         },
         onYBarMouseDown(e) {
             this.isYBarClicked = true;
