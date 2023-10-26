@@ -54,7 +54,7 @@ export default {
 </template>
 
 <script setup>
-import { ref } from "vuetest";
+import { ref } from "vue";
 
 const value = ref(50);
 <\/script>
