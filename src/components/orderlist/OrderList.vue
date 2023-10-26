@@ -110,7 +110,7 @@ export default {
             if(this.d_selection) {
                 let value = [...this.value];
 
-                for (let i = 0; i < this.d_selection.length; i++) {
+                for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
 
@@ -164,7 +164,7 @@ export default {
             if (this.d_selection) {
                 let value = [...this.value];
 
-                for (let i = this.d_selection.length - 1; i >= 0; i--) {
+                for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
 
