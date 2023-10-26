@@ -877,6 +877,38 @@
                             "description": "AnimateOnScroll scroll to add when item begins to get hidden."
                         },
                         {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | Element | Document",
+                            "default": "",
+                            "description": "Specifies the  `root`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root)"
+                        },
+                        {
+                            "name": "rootMargin",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin)"
+                        },
+                        {
+                            "name": "threshold",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "readonly number[]",
+                            "default": "",
+                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds)"
+                        },
+                        {
+                            "name": "animateOnLoad",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the  `enterClass`  animation will run if the target is in the viewport when the page is loaded."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
