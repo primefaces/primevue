@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.38.1](https://github.com/primefaces/primevue/tree/3.38.1) (2023-10-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.38.0...3.38.1)
+
+**Fixed bugs:**
+- The package was not published correctly [\#4697](https://github.com/primefaces/primevue/issues/4697)
+
 ## [3.38.0](https://github.com/primefaces/primevue/tree/3.38.0) (2023-10-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.37.0...3.38.0)
