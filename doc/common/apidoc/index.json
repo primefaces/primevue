@@ -882,7 +882,7 @@
                             "readonly": false,
                             "type": "null | Element | Document",
                             "default": "",
-                            "description": "Specifies the  `root`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root)"
+                            "description": "Specifies the  `root`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root\">MDN Reference</a> "
                         },
                         {
                             "name": "rootMargin",
@@ -890,7 +890,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin)"
+                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin\">MDN Reference</a> "
                         },
                         {
                             "name": "threshold",
@@ -898,7 +898,7 @@
                             "readonly": false,
                             "type": "readonly number[]",
                             "default": "",
-                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds)"
+                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API\n <a target=\"_blank\" href=\"https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds\">MDN Reference</a> "
                         },
                         {
                             "name": "animateOnLoad",
