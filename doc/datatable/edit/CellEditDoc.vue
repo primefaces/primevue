@@ -49,10 +49,7 @@ export default {
             ],
             code: {
                 basic: `
-<DataTable
-    :value="products"
-    editMode="cell"
-    @cell-edit-complete="onCellEditComplete"
+<DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete"
     :pt="{
         table: { style: 'min-width: 50rem' },
         column: {
@@ -80,10 +77,7 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable
-            :value="products"
-            editMode="cell"
-            @cell-edit-complete="onCellEditComplete"
+        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete"
             :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
@@ -169,10 +163,7 @@ export default {
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable
-            :value="products"
-            editMode="cell"
-            @cell-edit-complete="onCellEditComplete"
+        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete"
             :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {

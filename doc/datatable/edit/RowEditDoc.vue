@@ -6,7 +6,21 @@
         </p>
     </DocSectionText>
     <div class="card p-fluid">
-        <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id" @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+        <DataTable
+            v-model:editingRows="editingRows"
+            :value="products"
+            editMode="row"
+            dataKey="id"
+            @row-edit-save="onRowEditSave"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        style: state['d_editing'] && 'padding-top: 0.6rem; padding-bottom: 0.6rem'
+                    })
+                }
+            }"
+        >
             <Column field="code" header="Code" style="width: 20%">
                 <template #editor="{ data, field }">
                     <InputText v-model="data[field]" />
@@ -58,8 +72,16 @@ export default {
             ],
             code: {
                 basic: `
-<DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
-        @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+<DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id" @row-edit-save="onRowEditSave"
+    :pt="{
+        table: { style: 'min-width: 50rem' },
+        column: {
+            bodycell: ({ state }) => ({
+                style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem' 
+            })
+        }
+    }"
+>
     <Column field="code" header="Code" style="width: 20%">
         <template #editor="{ data, field }">
             <InputText v-model="data[field]" />
@@ -96,8 +118,16 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
-                @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+        <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id" @row-edit-save="onRowEditSave"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem' 
+                    })
+                }
+            }"
+        >
             <Column field="code" header="Code" style="width: 20%">
                 <template #editor="{ data, field }">
                     <InputText v-model="data[field]" />
@@ -178,19 +208,20 @@ export default {
     }
 };
 <\/script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-}
-</style>
 `,
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id"
-                @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+        <DataTable v-model:editingRows="editingRows" :value="products" editMode="row" dataKey="id" @row-edit-save="onRowEditSave"
+            :pt="{
+                table: { style: 'min-width: 50rem' },
+                column: {
+                    bodycell: ({ state }) => ({
+                        style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem' 
+                    })
+                }
+            }"
+        >
             <Column field="code" header="Code" style="width: 20%">
                 <template #editor="{ data, field }">
                     <InputText v-model="data[field]" />
@@ -266,14 +297,7 @@ const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
 }
 
-<\/script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-}
-</style>`,
+<\/script>`,
                 data: `
 {
     id: '1000',
@@ -322,10 +346,3 @@ const formatCurrency = (value) => {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.editable-cells-table td.p-cell-editing) {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-}
-</style>
