@@ -28,6 +28,5 @@ copyDependencies('./components/lib/icons/', 'dist/icons/');
 copyDependencies('./components/lib/passthrough/', 'dist/passthrough/');
 
 fs.copySync(path.resolve(__dirname, './components/lib/ts-helpers.d.ts'), 'dist/ts-helpers.d.ts');
-fs.copySync(path.resolve(__dirname, './package-build.json'), 'dist/package.json');
 fs.copySync(path.resolve(__dirname, './README.md'), 'dist/README.md');
 fs.copySync(path.resolve(__dirname, './LICENSE.md'), 'dist/LICENSE.md');

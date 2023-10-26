@@ -14,7 +14,7 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "build:lib": "npm run build:check && npm run build:package",
-        "build:package": "NODE_ENV=production rollup -c && node api-generator/build-api && gulp build-styles",
+        "build:package": "NODE_ENV=production rollup -c && node build-meta && node api-generator/build-api && gulp build-styles",
         "build:check": "npm run format:check && npm run security:check",
         "security:check": "npm audit --production --audit-level high",
         "format": "prettier --write \"**/*.{js,vue,d.ts}\" --cache",
