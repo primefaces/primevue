@@ -109,7 +109,8 @@ export default {
             <span class="text-3xl font-bold">scale (once)</span>
         </div>
     </div>
-</template>`
+</template>
+`
             }
         };
     }
