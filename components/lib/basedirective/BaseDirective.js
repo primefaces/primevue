@@ -94,7 +94,9 @@ const BaseDirective = {
                 $name: name,
                 $host: el,
                 $binding: binding,
-                $el: $prevInstance['$el'] || undefined,
+                $modifiers: binding?.modifiers,
+                $value: binding?.value,
+                $el: $prevInstance['$el'] || el || undefined,
                 $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.style },
                 $config: config,
                 /* computed instance variables */

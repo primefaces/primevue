@@ -16,7 +16,8 @@ export declare class DomHandler {
     static getViewport(): { width: number; height: number };
     static getOffset(el: HTMLElement): { top: any; left: any };
     static index(el: HTMLElement): number;
-    static addMultipleClasses(el: HTMLElement, className: string): void;
+    static addMultipleClasses(el: HTMLElement, classNames: string | string[]): void;
+    static addRemoveClasses(el: HTMLElement, classNames: string | string[]): void;
     static addClass(el: HTMLElement, className: string): void;
     static removeClass(el: HTMLElement, className: string): void;
     static hasClass(el: HTMLElement, className: string): boolean;

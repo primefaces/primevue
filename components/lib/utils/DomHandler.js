@@ -126,9 +126,21 @@ export default {
         return -1;
     },
 
-    addMultipleClasses(element, className) {
-        if (element && className) {
-            className.split(' ').forEach((style) => this.addClass(element, style));
+    addMultipleClasses(element, classNames) {
+        if (element && classNames) {
+            [classNames]
+                .flat()
+                .filter(Boolean)
+                .forEach((cNames) => cNames.split(' ').forEach((className) => this.addClass(element, className)));
+        }
+    },
+
+    removeMultipleClasses(element, classNames) {
+        if (element && classNames) {
+            [classNames]
+                .flat()
+                .filter(Boolean)
+                .forEach((cNames) => cNames.split(' ').forEach((className) => this.removeClass(element, className)));
         }
     },
 

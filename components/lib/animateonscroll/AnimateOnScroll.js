@@ -2,57 +2,102 @@ import { DomHandler } from 'primevue/utils';
 import BaseAnimateOnScroll from './BaseAnimateOnScroll';
 
 const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
-    mounted(el, binding) {
-        el.setAttribute('data-pd-animateonscroll', true);
-        !this.isUnstyled() && DomHandler.addClass(el, 'p-animate');
+    created() {
+        this.$value = this.$value || {};
+        this.$el.style.opacity = this.$value.enterClass ? '0' : '';
+    },
+    mounted() {
+        this.$el.setAttribute('data-pd-animateonscroll', true);
 
-        this.bindIntersectionObserver(el, binding);
+        this.bindIntersectionObserver();
     },
-    unmounted(el) {
-        this.unbindIntersectionObserver(el);
-        clearTimeout(this.timeout);
+    unmounted() {
+        this.unbindAnimationEvents();
+        this.unbindIntersectionObserver();
     },
-    timeout: null,
-    observer: null,
+    observer: undefined,
+    resetObserver: undefined,
+    isObserverActive: false,
+    animationState: undefined,
+    animationEndListener: undefined,
     methods: {
-        bindIntersectionObserver(el, binding) {
-            const options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 1.0
-            };
+        bindAnimationEvents() {
+            if (!this.animationEndListener) {
+                this.animationEndListener = () => {
+                    DomHandler.removeMultipleClasses(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
+                    !this.$modifiers.once && this.resetObserver.observe(this.$el);
+                    this.unbindAnimationEvents();
+                };
 
-            this.observer = new IntersectionObserver((element) => this.isVisible(element, el, binding), options);
-            this.observer.observe(el);
-        },
-        isVisible(target, el, binding) {
-            const [intersectionObserverEntry] = target;
-
-            intersectionObserverEntry.isIntersecting ? this.enter(el, binding) : this.leave(el, binding);
-        },
-        enter(el, binding) {
-            el.style.visibility = 'visible';
-            DomHandler.addMultipleClasses(el, binding.value.enterClass);
-
-            binding.modifiers.once && this.unbindIntersectionObserver(el);
-        },
-        leave(el, binding) {
-            DomHandler.removeClass(el, binding.value.enterClass);
-
-            if (binding.value.leaveClass) {
-                DomHandler.addMultipleClasses(el, binding.value.leaveClass);
+                this.$el.addEventListener('animationend', this.animationEndListener);
             }
-
-            const animationDuration = el.style.animationDuration || 500;
-
-            this.timeout = setTimeout(() => {
-                el.style.visibility = 'hidden';
-            }, animationDuration);
         },
-        unbindIntersectionObserver(el) {
-            if (this.observer) {
-                this.observer.unobserve(el);
+        bindIntersectionObserver() {
+            const { root, rootMargin, threshold = 0.5 } = this.$value;
+            const options = { root, rootMargin, threshold };
+
+            // States
+            this.observer = new IntersectionObserver(([entry]) => {
+                if (this.isObserverActive) {
+                    if (entry.boundingClientRect.top > 0) {
+                        entry.isIntersecting ? this.enter() : this.leave();
+                    }
+                } else if (entry.isIntersecting) {
+                    this.$value.animateOnLoad ? this.enter() : (this.$el.style.opacity = '');
+                }
+
+                this.isObserverActive = true;
+            }, options);
+
+            setTimeout(() => this.observer.observe(this.$el), 0);
+
+            // Reset
+            this.resetObserver = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.boundingClientRect.top > 0 && !entry.isIntersecting) {
+                        this.$el.style.opacity = this.$value.enterClass ? '0' : '';
+                        DomHandler.removeMultipleClasses(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
+
+                        this.resetObserver.unobserve(this.$el);
+                    }
+
+                    this.animationState = undefined;
+                },
+                { ...options, threshold: 0 }
+            );
+        },
+        enter() {
+            if (this.animationState !== 'enter' && this.$value.enterClass) {
+                this.$el.style.opacity = '';
+                DomHandler.removeMultipleClasses(this.$el, this.$value.leaveClass);
+                DomHandler.addMultipleClasses(this.$el, this.$value.enterClass);
+
+                this.$modifiers.once && this.unbindIntersectionObserver(this.$el);
+
+                this.bindAnimationEvents();
+                this.animationState = 'enter';
             }
+        },
+        leave() {
+            if (this.animationState !== 'leave' && this.$value.leaveClass) {
+                this.$el.style.opacity = this.$value.enterClass ? '0' : '';
+                DomHandler.removeMultipleClasses(this.$el, this.$value.enterClass);
+                DomHandler.addMultipleClasses(this.$el, this.$value.leaveClass);
+
+                this.bindAnimationEvents();
+                this.animationState = 'leave';
+            }
+        },
+        unbindAnimationEvents() {
+            if (this.animationEndListener) {
+                this.$el.removeEventListener('animationend', this.animationEndListener);
+                this.animationEndListener = undefined;
+            }
+        },
+        unbindIntersectionObserver() {
+            this.observer?.unobserve(this.$el);
+            this.resetObserver?.unobserve(this.$el);
+            this.isObserverActive = false;
         }
     }
 });

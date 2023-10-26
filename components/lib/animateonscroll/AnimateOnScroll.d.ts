@@ -24,6 +24,25 @@ export interface AnimateOnScrollOptions {
      */
     leaveClass?: string | undefined;
     /**
+     * Specifies the `root` option of the IntersectionObserver API
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root)
+     */
+    root?: Element | Document | null;
+    /**
+     * Specifies the `rootMargin` option of the IntersectionObserver API
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin)
+     */
+    rootMargin?: string;
+    /**
+     * Specifies the `threshold` option of the IntersectionObserver API
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds)
+     */
+    threshold?: ReadonlyArray<number>;
+    /**
+     * Whether the `enterClass` animation will run if the target is in the viewport when the page is loaded.
+     */
+    animateOnLoad?: boolean;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {AnimateOnScrollDirectivePassThroughOptions}
      */
