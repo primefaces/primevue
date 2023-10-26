@@ -10,12 +10,24 @@
             </span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-2000">
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
             <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'fadeinleft', leaveClass: 'fadeoutleft' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-2000">
+        <div v-animateonscroll="{ enterClass: 'fadeinleft', leaveClass: 'fadeoutleft' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
             <span class="text-3xl font-bold">fade-left</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'fadeinright', leaveClass: 'fadeoutright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">fade-right</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'flipright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">flip</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll.once="{ enterClass: 'scalein' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">scale (once)</span>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -28,24 +40,48 @@ export default {
             code: {
                 basic: `
 <div class="card flex flex-column align-items-center">
-    <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-        <span class="text-900 text-3xl font-bold">flip</span>
+    <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
+        <span class="text-3xl font-bold">fade-in</span>
     </div>
     <div class="h-30rem"></div>
-    <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-        <span class="text-900 text-3xl font-bold">flip up</span>
+    <div v-animateonscroll="{ enterClass: 'fadeinleft', leaveClass: 'fadeoutleft' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+        <span class="text-3xl font-bold">fade-left</span>
+    </div>
+    <div class="h-30rem"></div>
+    <div v-animateonscroll="{ enterClass: 'fadeinright', leaveClass: 'fadeoutright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+        <span class="text-3xl font-bold">fade-right</span>
+    </div>
+    <div class="h-30rem"></div>
+    <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'flipright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+        <span class="text-3xl font-bold">flip</span>
+    </div>
+    <div class="h-30rem"></div>
+    <div v-animateonscroll.once="{ enterClass: 'scalein' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+        <span class="text-3xl font-bold">scale (once)</span>
     </div>
 </div>
 `,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center">
-        <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-            <span class="text-900 text-3xl font-bold">flip</span>
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
+            <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-            <span class="text-900 text-3xl font-bold">flip up</span>
+        <div v-animateonscroll="{ enterClass: 'fadeinleft', leaveClass: 'fadeoutleft' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">fade-left</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'fadeinright', leaveClass: 'fadeoutright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">fade-right</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'flipright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">flip</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll.once="{ enterClass: 'scalein' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">scale (once)</span>
         </div>
     </div>
 </template>
@@ -53,12 +89,24 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center">
-        <div v-animateonscroll="{ enterClass: 'flip', leaveClass: 'fadeoutleft' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-            <span class="text-900 text-3xl font-bold">flip</span>
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
+            <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'flipup' }" class="flex justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-out">
-            <span class="text-900 text-3xl font-bold">flip up</span>
+        <div v-animateonscroll="{ enterClass: 'fadeinleft', leaveClass: 'fadeoutleft' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">fade-left</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'fadeinright', leaveClass: 'fadeoutright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">fade-right</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'flipright' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">flip</span>
+        </div>
+        <div class="h-30rem"></div>
+        <div v-animateonscroll.once="{ enterClass: 'scalein' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
+            <span class="text-3xl font-bold">scale (once)</span>
         </div>
     </div>
 </template>`
