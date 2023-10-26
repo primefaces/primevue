@@ -84,7 +84,8 @@ export default {
             <Button icon="pi pi-times" severity="danger" />
         </div>
     </div>
-</template>`
+</template>
+`
             }
         };
     }
