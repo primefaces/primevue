@@ -358,6 +358,10 @@ if (project) {
                                         .map((s) => {
                                             if (s.text.indexOf('[here]') > -1) {
                                                 return `${s.text.slice(0, s.text.indexOf('[here]'))} <a target="_blank" href="${s.text.slice(s.text.indexOf('(') + 1, s.text.indexOf(')'))}">here</a> ${s.text.slice(s.text.indexOf(')') + 1)}`;
+                                            } else if (s.text.indexOf('[MDN Reference]') > -1) {
+                                                return `${s.text.slice(0, s.text.indexOf('[MDN Reference]'))} <a target="_blank" href="${s.text.slice(s.text.indexOf('(') + 1, s.text.indexOf(')'))}">MDN Reference</a> ${s.text.slice(
+                                                    s.text.indexOf(')') + 1
+                                                )}`;
                                             }
 
                                             return s.text || '';
