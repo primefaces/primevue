@@ -1,8 +1,36 @@
 # Changelog
 
+## [3.38.0](https://github.com/primefaces/primevue/tree/3.38.0) (2023-10-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.37.0...3.38.0)
+
+**Breaking Changes:**
+
+-   `Animate` directive renamed as `AnimateOnScroll` [\#4682](https://github.com/primefaces/primevue/issues/4682)
+
+**Implemented New Features and Enhancements:**
+
+-   MegaMenu: separate `label` and `submenuLabel` pt options [\#4690](https://github.com/primefaces/primevue/issues/4690)
+-   Improve Lara dark colors [\#4687](https://github.com/primefaces/primevue/issues/4687)
+-   Accordion: new `expandicon` and `collapseicon` slots [\#4679](https://github.com/primefaces/primevue/issues/4679)
+-   SpeedDial: mask border-radius added [\#4674](https://github.com/primefaces/primevue/issues/4674)
+
+**Fixed bugs:**
+
+-   OverlayPanel: closeOnEscape broken [\#4693](https://github.com/primefaces/primevue/issues/4693)
+-   ScrollPanel: TypeError: Cannot read properties of null \(reading 'scrollWidth'\) [\#4689](https://github.com/primefaces/primevue/issues/4689)
+-   Carousel: page attribute not updating carousel [\#4684](https://github.com/primefaces/primevue/issues/4684)
+-   Add empty option check to some components [\#4681](https://github.com/primefaces/primevue/issues/4681)
+-   PanelMenu: Error when using `#item` slot [\#4671](https://github.com/primefaces/primevue/issues/4671)
+-   FileUpload: Basic uploader click [\#4667](https://github.com/primefaces/primevue/issues/4667)
+-   ConfirmPopup: button classes implementation defects [\#4663](https://github.com/primefaces/primevue/issues/4663)
+-   Tooltip: Cursor flickers on hover [\#4655](https://github.com/primefaces/primevue/issues/4655)
+-   Splitter: minSize broken [\#4652](https://github.com/primefaces/primevue/issues/4652)
+
 ## [3.37.0](https://github.com/primefaces/primevue/tree/3.37.0) (2023-10-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.36.0...3.37.0)
+
 **Implemented New Features and Enhancements:**
 
 -   Lara Color Enhancements [\#4640](https://github.com/primefaces/primevue/issues/4640)
