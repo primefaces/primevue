@@ -43,7 +43,7 @@ const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
                         entry.isIntersecting ? this.enter() : this.leave();
                     }
                 } else if (entry.isIntersecting) {
-                    this.$value.animateOnLoad ? this.enter() : (this.$el.style.opacity = '');
+                    this.enter();
                 }
 
                 this.isObserverActive = true;

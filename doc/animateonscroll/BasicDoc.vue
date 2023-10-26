@@ -26,10 +26,6 @@
             <span class="text-3xl font-bold">zoom</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'zoomindown', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
-            <span class="text-3xl font-bold">zoom-down</span>
-        </div>
-        <div class="h-30rem"></div>
         <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
             <span class="text-3xl font-bold">flip-left</span>
         </div>
@@ -66,10 +62,6 @@ export default {
     <div class="h-30rem"></div>
     <div v-animateonscroll="{ enterClass: 'zoomin', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
         <span class="text-3xl font-bold">zoom</span>
-    </div>
-    <div class="h-30rem"></div>
-    <div v-animateonscroll="{ enterClass: 'zoomindown', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
-        <span class="text-3xl font-bold">zoom-down</span>
     </div>
     <div class="h-30rem"></div>
     <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
@@ -111,10 +103,6 @@ export default {
             <span class="text-3xl font-bold">zoom</span>
         </div>
         <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'zoomindown', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
-            <span class="text-3xl font-bold">zoom-down</span>
-        </div>
-        <div class="h-30rem"></div>
         <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">
             <span class="text-3xl font-bold">flip-left</span>
         </div>
@@ -153,10 +141,6 @@ export default {
         <div class="h-30rem"></div>
         <div v-animateonscroll="{ enterClass: 'zoomin', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
             <span class="text-3xl font-bold">zoom</span>
-        </div>
-        <div class="h-30rem"></div>
-        <div v-animateonscroll="{ enterClass: 'zoomindown', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000">
-            <span class="text-3xl font-bold">zoom-down</span>
         </div>
         <div class="h-30rem"></div>
         <div v-animateonscroll="{ enterClass: 'flipleft', leaveClass: 'fadeout' }" class="flex bg-primary justify-content-center align-items-center h-20rem w-20rem border-round shadow-2 animation-duration-1000 animation-ease-in-out">

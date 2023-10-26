@@ -8,50 +8,31 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective/BaseDirective';
-import { PassThroughOptions } from '../passthrough';
-import { PassThrough } from '../ts-helpers';
 
 /**
  * Defines options of AnimateOnScroll.
  */
 export interface AnimateOnScrollOptions {
     /**
-     * AnimateOnScroll scroll to add when item begins to get displayed.
+     * Style class to add when item goes into viewport, use white space as a delimeter to define multiple classes.
      */
     enterClass?: string | undefined;
     /**
-     * AnimateOnScroll scroll to add when item begins to get hidden.
+     * Style class to add when item leaves the viewport, use white space as a delimeter to define multiple classes.
      */
     leaveClass?: string | undefined;
     /**
      * Specifies the `root` option of the IntersectionObserver API
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/root)
      */
     root?: Element | Document | null;
     /**
      * Specifies the `rootMargin` option of the IntersectionObserver API
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/rootMargin)
      */
     rootMargin?: string;
     /**
      * Specifies the `threshold` option of the IntersectionObserver API
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IntersectionObserver/thresholds)
      */
     threshold?: ReadonlyArray<number>;
-    /**
-     * Whether the `enterClass` animation will run if the target is in the viewport when the page is loaded.
-     */
-    animateOnLoad?: boolean;
-    /**
-     * Used to pass attributes to DOM elements inside the component.
-     * @type {AnimateOnScrollDirectivePassThroughOptions}
-     */
-    pt?: PassThrough<AnimateOnScrollDirectivePassThroughOptions>;
-    /**
-     * Used to configure passthrough(pt) options of the component.
-     * @type {PassThroughOptions}
-     */
-    ptOptions?: PassThroughOptions;
 }
 
 /**
