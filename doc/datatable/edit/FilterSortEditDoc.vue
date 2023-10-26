@@ -48,12 +48,7 @@ export default {
             },
             code: {
                 basic: `
-<DataTable
-    v-model:filters="filters"
-    :value="products"
-    editMode="cell"
-    @cell-edit-complete="onCellEditComplete"
-    filterDisplay="row"
+<DataTable  v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete"  filterDisplay="row"
     :pt="{
         table: { style: 'min-width: 50rem' },
         column: {
@@ -76,12 +71,7 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable
-            v-model:filters="filters"
-            :value="products"
-            editMode="cell"
-            @cell-edit-complete="onCellEditComplete"
-            filterDisplay="row"
+        <DataTable v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" filterDisplay="row"
             :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
@@ -159,12 +149,7 @@ export default {
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable
-            v-model:filters="filters"
-            :value="products"
-            editMode="cell"
-            @cell-edit-complete="onCellEditComplete"
-            filterDisplay="row"
+        <DataTable v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" filterDisplay="row"
             :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
