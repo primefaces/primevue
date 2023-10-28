@@ -1,11 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. <i>target</i> attribute is mandatory to align the popup to its caller.</p>
+        <p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. The <i>target</i> attribute is mandatory to align the popup to its referrer.</p>
     </DocSectionText>
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" severity="danger"></Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -17,10 +17,8 @@ export default {
             code: {
                 basic: `
 <ConfirmPopup></ConfirmPopup>
-<div class="card flex flex-wrap gap-2 justify-content-center">
-    <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-    <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
-</div>
+<Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
+<Button @click="confirm2($event)" icon="pi pi-times" label="Delete" severity="danger"></Button>
 `,
                 options: `
 <template>
@@ -28,7 +26,7 @@ export default {
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" severity="danger"></Button>
     </div>
 </template>
 
@@ -53,7 +51,7 @@ export default {
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
-                acceptClass: 'p-button-danger',
+                acceptClass: 'p-button-danger p-button-sm',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },
@@ -72,7 +70,7 @@ export default {
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" severity="danger"></Button>
     </div>
 </template>
 
@@ -102,7 +100,7 @@ const confirm2 = (event) => {
         target: event.currentTarget,
         message: 'Do you want to delete this record?',
         icon: 'pi pi-info-circle',
-        acceptClass: 'p-button-danger',
+        acceptClass: 'p-button-danger p-button-sm',
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
         },
@@ -135,7 +133,7 @@ const confirm2 = (event) => {
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
-                acceptClass: 'p-button-danger',
+                acceptClass: 'p-button-danger p-button-sm',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },
