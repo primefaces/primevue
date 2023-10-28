@@ -1,14 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>position</i> property of the confirm options is used to display a Dialog at all edges and corners of the screen.</p>
+        <p>The <i>position</i> property of the confirm options specifies the location of the Dialog.</p>
     </DocSectionText>
-    <ConfirmDialog group="positionDialog"></ConfirmDialog>
+    <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
         </div>
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
@@ -28,12 +28,12 @@ export default {
         return {
             code: {
                 basic: `
-<ConfirmDialog group="positionDialog"></ConfirmDialog>
-<div class="flex flex-wrap justify-content-center gap-2 mb-2">
+<ConfirmDialog group="positioned"></ConfirmDialog>
+<div class="flex flex-wrap justify-content-center gap-2 mb-3">
     <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
 </div>
-<div class="flex flex-wrap justify-content-center gap-2 mb-2">
+<div class="flex flex-wrap justify-content-center gap-2 mb-3">
     <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
     <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
@@ -47,13 +47,13 @@ export default {
                 options: `
 <template>
     <Toast />
-    <ConfirmDialog group="positionDialog"></ConfirmDialog>
+    <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
         </div>
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
@@ -71,16 +71,16 @@ export default {
     methods: {
         confirmPosition(position) {
             this.$confirm.require({
-                group: 'positionDialog',
-                message: 'Do you want to delete this record?',
-                header: 'Delete Confirmation',
+                group: 'positioned',
+                message: 'Are you sure you want to proceed?',
+                header: 'Confirmation',
                 icon: 'pi pi-info-circle',
                 position: position,
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'Process incomplete', life: 3000 });
                 }
             });
         },
@@ -91,13 +91,13 @@ export default {
                 composition: `
 <template>
     <Toast />
-    <ConfirmDialog group="positionDialog"></ConfirmDialog>
+    <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
         </div>
-        <div class="flex flex-wrap justify-content-center gap-2 mb-2">
+        <div class="flex flex-wrap justify-content-center gap-2 mb-3">
             <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
             <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
@@ -119,16 +119,16 @@ const toast = useToast();
 
 const confirmPosition = (position) => {
     confirm.require({
-        group: 'positionDialog',
-        message: 'Do you want to delete this record?',
-        header: 'Delete Confirmation',
+        group: 'positioned',
+        message: 'Are you sure you want to proceed?',
+        header: 'Confirmation',
         icon: 'pi pi-info-circle',
         position: position,
         accept: () => {
-            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
         },
         reject: () => {
-            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'Process incomplete', life: 3000 });
         }
     });
 };
@@ -140,16 +140,16 @@ const confirmPosition = (position) => {
     methods: {
         confirmPosition(position) {
             this.$confirm.require({
-                group: 'positionDialog',
-                message: 'Do you want to delete this record?',
-                header: 'Delete Confirmation',
+                group: 'positioned',
+                message: 'Are you sure you want to proceed?',
+                header: 'Confirmation',
                 icon: 'pi pi-info-circle',
                 position: position,
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'Process incomplete', life: 3000 });
                 }
             });
         }
