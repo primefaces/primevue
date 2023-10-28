@@ -5,7 +5,7 @@
     <ConfirmDialog group="templating">
         <template #message="slotProps">
             <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border">
-                <i :class="slotProps.message.icon" class="text-5xl text-primary-500"></i>
+                <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
                 <p>{{ slotProps.message.message }}</p>
             </div>
         </template>
@@ -25,7 +25,7 @@ export default {
 <ConfirmDialog group="templating">
     <template #message="slotProps">
         <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border">
-            <i :class="slotProps.message.icon" class="text-5xl text-primary-500"></i>
+            <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
             <p>{{ slotProps.message.message }}</p>
         </div>
     </template>
@@ -56,10 +56,11 @@ export default {
                 group: 'templating',
                 header: 'Confirmation',
                 message: 'Please confirm to proceed moving forward.',
-                icon: 'pi pi-question-circle',
+                icon: 'pi pi-exclamation-circle',
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
-                acceptClass: 'p-button-outlined',
+                rejectClass: 'p-button-sm',
+                acceptClass: 'p-button-outlined p-button-sm',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -77,7 +78,7 @@ export default {
     <ConfirmDialog group="templating">
         <template #message="slotProps">
             <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border">
-                <i :class="slotProps.message.icon" class="text-5xl text-primary-500"></i>
+                <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
                 <p>{{ slotProps.message.message }}</p>
             </div>
         </template>
@@ -100,10 +101,11 @@ const showTemplate = () => {
         group: 'templating',
         header: 'Confirmation',
         message: 'Please confirm to proceed moving forward.',
-        icon: 'pi pi-question-circle',
+        icon: 'pi pi-exclamation-circle',
         acceptIcon: 'pi pi-check',
         rejectIcon: 'pi pi-times',
-        acceptClass: 'p-button-outlined',
+        rejectClass: 'p-button-sm',
+        acceptClass: 'p-button-outlined p-button-sm',
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
         },
@@ -123,10 +125,11 @@ const showTemplate = () => {
                 group: 'templating',
                 header: 'Confirmation',
                 message: 'Please confirm to proceed moving forward.',
-                icon: 'pi pi-question-circle',
+                icon: 'pi pi-exclamation-circle',
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
-                acceptClass: 'p-button-outlined',
+                rejectClass: 'p-button-sm',
+                acceptClass: 'p-button-outlined p-button-sm',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },

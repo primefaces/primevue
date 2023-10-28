@@ -11,8 +11,8 @@
                 <span class="font-bold text-2xl block mb-2 mt-4">{{ message.header }}</span>
                 <p class="mb-0">{{ message.message }}</p>
                 <div class="flex align-items-center gap-2 mt-4">
-                    <Button label="Save" @click="onAccept"></Button>
-                    <Button label="Cancel" outlined @click="onReject"></Button>
+                    <Button label="Save" @click="onAccept" class="w-8rem"></Button>
+                    <Button label="Cancel" outlined @click="onReject" class="w-8rem"></Button>
                 </div>
             </div>
         </template>
@@ -38,8 +38,8 @@ export default {
             <span class="font-bold text-2xl block mb-2 mt-4">{{ message.header }}</span>
             <p class="mb-0">{{ message.message }}</p>
             <div class="flex align-items-center gap-2 mt-4">
-                <Button label="Save" @click="onAccept"></Button>
-                <Button label="Cancel" outlined @click="onReject"></Button>
+                <Button label="Save" @click="onAccept" class="w-8rem"></Button>
+                <Button label="Cancel" outlined @click="onReject" class="w-8rem"></Button>
             </div>
         </div>
     </template>
@@ -57,8 +57,8 @@ export default {
                 <span class="font-bold text-2xl block mb-2 mt-4">{{ message.header }}</span>
                 <p class="mb-0">{{ message.message }}</p>
                 <div class="flex align-items-center gap-2 mt-4">
-                    <Button label="Save" @click="onAccept"></Button>
-                    <Button label="Cancel" outlined @click="onReject"></Button>
+                    <Button label="Save" @click="onAccept" class="w-8rem"></Button>
+                    <Button label="Cancel" outlined @click="onReject" class="w-8rem"></Button>
                 </div>
             </div>
         </template>
