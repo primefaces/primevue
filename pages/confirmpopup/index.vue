@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/confirmpopup/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/confirmpopup/BasicDoc.vue';
 import ConfirmationServiceDoc from '@/doc/confirmpopup/ConfirmationServiceDoc.vue';
+import HeadlessDoc from '@/doc/confirmpopup/HeadlessDoc.vue';
 import ImportDoc from '@/doc/confirmpopup/ImportDoc.vue';
 import TemplateDoc from '@/doc/confirmpopup/TemplateDoc.vue';
 import PTComponent from '@/doc/confirmpopup/pt/index.vue';
@@ -30,7 +31,7 @@ export default {
                 },
                 {
                     id: 'confirmation-service',
-                    label: 'Confirmation Service',
+                    label: 'Service',
                     component: ConfirmationServiceDoc
                 },
                 {
@@ -42,6 +43,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'headless',
+                    label: 'Headless',
+                    component: HeadlessDoc
                 },
                 {
                     id: 'accessibility',

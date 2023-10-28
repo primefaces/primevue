@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/confirmdialog/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/confirmdialog/BasicDoc.vue';
 import ConfirmationServiceDoc from '@/doc/confirmdialog/ConfirmationServiceDoc.vue';
+import HeadlessDoc from '@/doc/confirmdialog/HeadlessDoc.vue';
 import ImportDoc from '@/doc/confirmdialog/ImportDoc.vue';
 import PositionDoc from '@/doc/confirmdialog/PositionDoc.vue';
 import TemplateDoc from '@/doc/confirmdialog/TemplateDoc.vue';
@@ -31,7 +32,7 @@ export default {
                 },
                 {
                     id: 'confirmation-service',
-                    label: 'Confirmation Service',
+                    label: 'Service',
                     component: ConfirmationServiceDoc
                 },
                 {
@@ -48,6 +49,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'headless',
+                    label: 'Headless',
+                    component: HeadlessDoc
                 },
                 {
                     id: 'accessibility',

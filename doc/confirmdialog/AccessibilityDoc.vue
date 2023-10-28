@@ -78,7 +78,8 @@ export default {
                 basic: `
 <ConfirmDialog id="confirm" />
 
-<Button @click="openDialog()" label="Confirm" :aria-expanded="visible" :aria-controls="visible ? 'confirm' : null"></Button>`
+<Button @click="openDialog()" label="Confirm" :aria-expanded="visible" :aria-controls="visible ? 'confirm' : null"></Button>
+`
             },
             code2: {
                 basic: `

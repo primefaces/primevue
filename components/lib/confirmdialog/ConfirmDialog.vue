@@ -55,7 +55,6 @@ import BaseConfirmDialog from './BaseConfirmDialog.vue';
 export default {
     name: 'ConfirmDialog',
     extends: BaseConfirmDialog,
-
     confirmListener: null,
     closeListener: null,
     data() {

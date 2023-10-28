@@ -343,8 +343,8 @@
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
-                background-color: var(--highlight-bg);
-                color: var(--highlight-text-color);
+                background-color: var(--doc-highlight-text-bg);
+                color: var(--doc-highlight-text-color);
                 border-radius: 6px;
                 padding: 2px 6px;
                 font-weight: 600;
