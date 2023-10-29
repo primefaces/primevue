@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Dialog is used as a container and visibility is controlled with a binding to <i>visible</i>. Dialogs are <i>draggable</i> by default.</p>
+        <p>Dialog is used as a container and visibility is controlled with a binding to <i>visible</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
