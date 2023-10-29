@@ -139,6 +139,7 @@ export default {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+            this.unbindDocumentKeyDownListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
             this.$emit('hide');
@@ -192,7 +193,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' || this.closeOnEscape) {
+            if (event.code === 'Escape' && this.closeOnEscape) {
                 this.visible = false;
             }
         },
