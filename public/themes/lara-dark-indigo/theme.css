@@ -2612,7 +2612,7 @@
     border-radius: 0;
   }
   .p-datatable .p-datatable-header {
-    background: #1f2937;
+    background: #192433;
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #424b57;
     border-width: 0 0 1px 0;
@@ -2620,7 +2620,7 @@
     font-weight: 700;
   }
   .p-datatable .p-datatable-footer {
-    background: #1f2937;
+    background: #192433;
     color: rgba(255, 255, 255, 0.87);
     border: 1px solid #424b57;
     border-width: 0 0 1px 0;
@@ -2634,7 +2634,7 @@
     border-width: 0 0 1px 0;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.87);
-    background: #1f2937;
+    background: #192433;
     transition: box-shadow 0.2s;
   }
   .p-datatable .p-datatable-tfoot > tr > td {
@@ -2644,7 +2644,7 @@
     border-width: 0 0 1px 0;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.87);
-    background: #1f2937;
+    background: #192433;
   }
   .p-datatable .p-sortable-column .p-sortable-column-icon {
     color: rgba(255, 255, 255, 0.6);
@@ -2753,7 +2753,7 @@
   .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot, .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {
-    background-color: #1f2937;
+    background-color: #192433;
   }
   .p-datatable .p-datatable-loading-icon {
     font-size: 2rem;
@@ -2817,7 +2817,7 @@
     border-width: 0 1px 0 1px;
   }
   .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
-    background: #1f2937;
+    background: #1c2634;
   }
   .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {
     background: rgba(165, 180, 252, 0.16);
