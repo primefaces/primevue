@@ -81,7 +81,8 @@ export default {
 
 <Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }">
     <p>Content</p>
-</Dialog>`
+</Dialog>
+`
             }
         };
     }

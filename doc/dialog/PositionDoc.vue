@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>position</i> property is used to display a Dialog at all edges and corners of the screen.</p>
+        <p>The <i>position</i> property defines the location of relative to the screen.</p>
     </DocSectionText>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-2">
