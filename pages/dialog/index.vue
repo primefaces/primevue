@@ -36,11 +36,6 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'longcontent',
-                    label: 'Long Content',
-                    component: LongContentDoc
-                },
-                {
                     id: 'position',
                     label: 'Position',
                     component: PositionDoc
@@ -49,6 +44,11 @@ export default {
                     id: 'maximizable',
                     label: 'Maximizable',
                     component: MaximizableDoc
+                },
+                {
+                    id: 'longcontent',
+                    label: 'Long Content',
+                    component: LongContentDoc
                 },
                 {
                     id: 'modal',
