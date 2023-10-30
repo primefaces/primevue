@@ -168,7 +168,7 @@ export default {
             }
         },
         onContentKeydown(event) {
-            if (event.code === 'Escape') {
+            if (event.code === 'Escape' && this.closeOnEscape) {
                 this.hide();
                 DomHandler.focus(this.target);
             }
