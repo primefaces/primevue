@@ -951,7 +951,7 @@
                             "readonly": false,
                             "type": "AnimateOnScrollDirectiveModifiers",
                             "default": "",
-                            "description": "Modifiers of the tooltip."
+                            "description": "Modifiers of the AnimateOnScroll."
                         }
                     ],
                     "methods": [],
