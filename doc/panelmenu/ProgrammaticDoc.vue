@@ -147,7 +147,7 @@ export default {
                         },
                         {
                             key: '3_1',
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -307,7 +307,7 @@ export default {
                         },
                         {
                             key: '3_1',
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -490,7 +490,7 @@ const items = ref([
             },
             {
                 key: '3_1',
-                label: 'Archieve',
+                label: 'Archive',
                 icon: 'pi pi-fw pi-calendar-times',
                 items: [
                     {

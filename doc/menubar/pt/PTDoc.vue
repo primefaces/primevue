@@ -124,7 +124,7 @@ export default {
                             ]
                         },
                         {
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -276,7 +276,7 @@ export default {
                             ]
                         },
                         {
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -421,7 +421,7 @@ const items = ref([
                 ]
             },
             {
-                label: 'Archieve',
+                label: 'Archive',
                 icon: 'pi pi-fw pi-calendar-times',
                 items: [
                     {
