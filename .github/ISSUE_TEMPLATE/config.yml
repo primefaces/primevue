@@ -1,4 +1,7 @@
 contact_links:
+    - name: Feature request
+      url: https://github.com/orgs/primefaces/discussions/categories/primevue
+      about: Propose an enhancement at discussions.
     - name: Support
       url: https://primevue.org/support/
       about: Professional support for the open source innovation.
