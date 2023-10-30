@@ -66,7 +66,7 @@ export interface AnimateOnScrollDirectiveBinding extends Omit<DirectiveBinding, 
      */
     value?: AnimateOnScrollOptions | undefined;
     /**
-     * Modifiers of the tooltip.
+     * Modifiers of the AnimateOnScroll.
      * @type {AnimateOnScrollDirectiveModifiers}
      */
     modifiers?: AnimateOnScrollDirectiveModifiers | undefined;
