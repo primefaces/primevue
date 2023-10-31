@@ -293,8 +293,13 @@ export interface PasswordSlots {
     hideicon(scope: {
         /**
          * Hide icon click event
+         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
          */
         onClick: () => void;
+        /**
+         * Hide icon click event
+         */
+        toggleCallback: () => void;
     }): VNode[];
     /**
      * Custom show icon template.
@@ -302,9 +307,14 @@ export interface PasswordSlots {
      */
     showicon(scope: {
         /**
-         * Show icon click event
+         * Hide icon click event
+         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
          */
         onClick: () => void;
+        /**
+         * Hide icon click event
+         */
+        toggleCallback: () => void;
     }): VNode[];
 }
 
