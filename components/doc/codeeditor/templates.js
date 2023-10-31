@@ -148,6 +148,7 @@ import PrimeVue from "primevue/config";
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import AnimateOnScroll from 'primevue/animateonscroll';
 import Avatar from 'primevue/avatar';
 import AvatarGroup from 'primevue/avatargroup';
 import Badge from 'primevue/badge';
@@ -256,6 +257,7 @@ app.directive('badge', BadgeDirective);
 app.directive('ripple', Ripple);
 app.directive('styleclass', StyleClass);
 app.directive('focustrap', FocusTrap);
+app.directive('animateonscroll', AnimateOnScroll);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
