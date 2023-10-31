@@ -46086,7 +46086,7 @@
                             "description": "Action element binding"
                         },
                         {
-                            "name": "icon",
+                            "name": "step",
                             "optional": false,
                             "readonly": false,
                             "type": "object",
