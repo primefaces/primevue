@@ -222,16 +222,31 @@ export interface ConfirmDialogSlots {
         message: any;
         /**
          * Close dialog function.
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
         /**
          * Accept function of the component
+         * @deprecated since v3.39.0. Use 'acceptCallback' property instead.
          */
         onAccept: () => void;
         /**
          * Reject function of the component
+         * @deprecated since v3.39.0. Use 'rejectCallback' property instead.
          */
         onReject: () => void;
+        /**
+         * Close dialog function.
+         */
+        closeCallback: () => void;
+        /**
+         * Accept function of the component
+         */
+        acceptCallback: () => void;
+        /**
+         * Reject function of the component
+         */
+        rejectCallback: () => void;
     }): VNode[];
 }
 
