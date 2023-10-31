@@ -167,7 +167,7 @@ export default {
             }
         },
         onContentKeydown(event) {
-            if (event.code === 'Escape') {
+            if (event.code === 'Escape' && this.closeOnEscape) {
                 this.hide();
                 DomHandler.focus(this.target);
             }
@@ -192,7 +192,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' || this.closeOnEscape) {
+            if (event.code === 'Escape') {
                 this.visible = false;
             }
         },
