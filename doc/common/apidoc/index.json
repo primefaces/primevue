@@ -3966,7 +3966,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}"
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -11154,7 +11154,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">onKeydown</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon keydown event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">onKeydown</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon keydown event</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">keydownCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon keydown event</span>\n}",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -11649,7 +11649,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
                                     "description": "remove token icon slot's params."
                                 }
                             ],
@@ -23677,7 +23677,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the clear icon</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Clear icon click function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the clear icon</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Clear icon click function.</span>\n\t <span class=\"ml-3 text-primary-700\">clearCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Clear icon click function.</span>\n}",
                                     "description": "clear icon slot's params."
                                 }
                             ],
@@ -27713,7 +27713,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onError</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Image error function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onError</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Image error function.</span>\n\t <span class=\"ml-3 text-primary-700\">errorCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
                                     "description": "image slot's params."
                                 }
                             ],
@@ -27726,7 +27726,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the preview image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the preview image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the preview image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the preview image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n\t <span class=\"ml-3 text-primary-700\">previewCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
                                     "description": "preview slot's params."
                                 }
                             ],
@@ -34836,7 +34836,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Item of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Item of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
                                     "description": "removetokenicon slot's params."
                                 }
                             ],
@@ -39042,7 +39042,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
                                     "description": "hideicon slot's params."
                                 }
                             ],
@@ -39055,7 +39055,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Show icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
                                     "description": "showicon slot's params."
                                 }
                             ],
@@ -44617,7 +44617,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Button click function</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Button click function</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Button click function</span>\n}",
                                     "description": "button slot's params."
                                 }
                             ],
