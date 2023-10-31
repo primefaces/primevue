@@ -12,7 +12,7 @@
             :aria-haspopup="model.length && model.length > 0 ? true : false"
             :aria-expanded="mobileActive"
             :aria-controls="id"
-            :aria-label="$primevue.config.locale.aria.navigation"
+            :aria-label="$primevue.config.locale.aria?.navigation"
             @click="menuButtonClick($event)"
             @keydown="menuButtonKeydown($event)"
             v-bind="{ ...buttonProps, ...ptm('button') }"
