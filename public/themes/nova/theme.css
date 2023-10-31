@@ -3880,7 +3880,7 @@
   .p-confirm-popup:before {
     border: solid transparent;
     border-color: rgba(200, 200, 200, 0);
-    border-bottom-color: #c8c8c8;
+    border-bottom-color: #bebebe;
   }
   .p-confirm-popup.p-confirm-popup-flipped:after {
     border-top-color: #ffffff;

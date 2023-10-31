@@ -3925,7 +3925,7 @@
   .p-confirm-popup:before {
     border: solid transparent;
     border-color: rgba(38, 50, 56, 0);
-    border-bottom-color: #263238;
+    border-bottom-color: #243035;
   }
   .p-confirm-popup.p-confirm-popup-flipped:after {
     border-top-color: #161d21;
