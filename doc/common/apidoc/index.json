@@ -16132,7 +16132,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">acceptCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">rejectCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -16476,7 +16476,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">acceptCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">rejectCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -21813,7 +21813,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onMaximize</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Maximize/minimize dialog function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onMaximize</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Maximize/minimize dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">maximizeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Maximize/minimize dialog function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -33627,7 +33627,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close message function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close message function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close message function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -43422,7 +43422,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -50079,7 +50079,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close toast function</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close toast function</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
