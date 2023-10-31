@@ -14,7 +14,7 @@
                 }
             }"
         >
-            <template #container="{ onClose }">
+            <template #container="{ closeCallback }">
                 <div class="flex flex-column px-8 py-5 gap-4" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
                     <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
                         <path
@@ -35,8 +35,8 @@
                         <InputText id="password" class="bg-white-alpha-20 border-none p-3 text-primary-50" type="password"></InputText>
                     </div>
                     <div class="flex align-items-center gap-2">
-                        <Button label="Sign-In" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
-                        <Button label="Cancel" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Sign-In" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Cancel" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
                     </div>
                 </div>
             </template>
@@ -63,7 +63,7 @@ export default {
         }
     }"
 >
-    <template #container="{ onClose }">
+    <template #container="{ closeCallback }">
         <div class="flex flex-column px-8 py-5 gap-4" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
             <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
                 <path d="..." fill="var(--primary-700)"/>
@@ -78,8 +78,8 @@ export default {
                 <InputText id="password" class="bg-white-alpha-20 border-none p-3 text-primary-50" type="password"></InputText>
             </div>
             <div class="flex align-items-center gap-2">
-                <Button label="Sign-In" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
-                <Button label="Cancel" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                <Button label="Sign-In" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                <Button label="Cancel" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
             </div>
         </div>
     </template>
@@ -99,7 +99,7 @@ export default {
                 }
             }"
         >
-            <template #container="{ onClose }">
+            <template #container="{ closeCallback }">
                 <div class="flex flex-column px-8 py-5 gap-4" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
                     <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
                         <path
@@ -120,8 +120,8 @@ export default {
                         <InputText id="password" class="bg-white-alpha-20 border-none p-3 text-primary-50" type="password"></InputText>
                     </div>
                     <div class="flex align-items-center gap-2">
-                        <Button label="Sign-In" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
-                        <Button label="Cancel" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Sign-In" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Cancel" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
                     </div>
                 </div>
             </template>
@@ -153,7 +153,7 @@ export default {
                 }
             }"
         >
-            <template #container="{ onClose }">
+            <template #container="{ closeCallback }">
                 <div class="flex flex-column px-8 py-5 gap-4" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--primary-400), var(--primary-700))">
                     <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
                         <path
@@ -174,8 +174,8 @@ export default {
                         <InputText id="password" class="bg-white-alpha-20 border-none p-3 text-primary-50" type="password"></InputText>
                     </div>
                     <div class="flex align-items-center gap-2">
-                        <Button label="Sign-In" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
-                        <Button label="Cancel" @click="onClose" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Sign-In" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+                        <Button label="Cancel" @click="closeCallback" text class="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
                     </div>
                 </div>
             </template>
