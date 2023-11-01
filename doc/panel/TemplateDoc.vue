@@ -60,7 +60,7 @@ export default {
 <Panel toggleable>
     <template #header>
         <div class="flex align-items-center gap-2">
-            <Avatar image="/images/avatar/amyelsner.png" size="large" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
             <span class="font-bold">Amy Elsner</span>
         </div>
     </template>
@@ -72,6 +72,12 @@ export default {
             </div>
             <span class="p-text-secondary">Updated 2 hours ago</span>
         </div>
+    </template>
+    <template #icons>
+        <button class="p-panel-header-icon p-link mr-2" @click="toggle">
+            <span class="pi pi-cog"></span>
+        </button>
+        <Menu ref="menu" id="config_menu" :model="items" popup />
     </template>
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -98,6 +104,12 @@ export default {
                     </div>
                     <span class="p-text-secondary">Updated 2 hours ago</span>
                 </div>
+            </template>
+            <template #icons>
+                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
+                    <span class="pi pi-cog"></span>
+                </button>
+                <Menu ref="menu" id="config_menu" :model="items" popup />
             </template>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -160,6 +172,12 @@ export default {
                     </div>
                     <span class="p-text-secondary">Updated 2 hours ago</span>
                 </div>
+            </template>
+            <template #icons>
+                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
+                    <span class="pi pi-cog"></span>
+                </button>
+                <Menu ref="menu" id="config_menu" :model="items" popup />
             </template>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
