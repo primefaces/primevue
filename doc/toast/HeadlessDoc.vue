@@ -115,7 +115,7 @@ export default {
 
                     if (this.progress >= 100) {
                         this.progress = 100;
-                        clearInterval(interval);
+                        clearInterval(this.interval);
                     }
                 }, 1000);
             }
@@ -214,7 +214,7 @@ const show = () => {
 
                     if (this.progress >= 100) {
                         this.progress = 100;
-                        clearInterval(interval);
+                        clearInterval(this.interval);
                     }
                 }, 1000);
             }
