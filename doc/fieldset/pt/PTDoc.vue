@@ -67,7 +67,8 @@ export default {
             </p>
         </Fieldset>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

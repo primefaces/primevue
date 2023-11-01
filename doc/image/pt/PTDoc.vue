@@ -59,7 +59,8 @@ export default {
             }"
         />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

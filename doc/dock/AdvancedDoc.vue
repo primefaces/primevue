@@ -862,7 +862,8 @@ const commandHandler = (text) => {
     padding: 0;
     border-radius: 0;
 }
-</style>`
+</style>
+`
             }
         };
     },

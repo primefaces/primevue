@@ -48,7 +48,8 @@ export default {
 .custom-error.p-tooltip-right .p-tooltip-arrow {
     border-right-color: var(--pink-800);
 }
-</style>`
+</style>
+`
             }
         };
     }

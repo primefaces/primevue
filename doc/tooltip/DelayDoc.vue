@@ -28,7 +28,8 @@ export default {
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="{ value: 'Enter your username', showDelay: 1000, hideDelay: 300 }" type="text" placeholder="Delayed" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

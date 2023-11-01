@@ -164,7 +164,8 @@ export default {
     width: 110px;
     text-align: center;
 }
-</style>`
+</style>
+`
             }
         };
     }

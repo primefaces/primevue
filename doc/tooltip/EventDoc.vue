@@ -32,7 +32,8 @@ export default {
         <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
         <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

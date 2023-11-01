@@ -34,7 +34,8 @@ export default {
             image: { class: 'w-4rem h-4rem' }
         }"
     />
-</template>`
+</template>
+`
             }
         };
     }

@@ -193,7 +193,8 @@ const events = ref([
         }
     }
 }
-</style>`
+</style>
+`
             }
         };
     }

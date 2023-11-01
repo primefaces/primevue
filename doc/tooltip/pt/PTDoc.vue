@@ -57,7 +57,8 @@ export default {
         type="text"
         placeholder="PassThrough Tooltip"
     />
-</div>`
+</div>
+`
             }
         };
     }

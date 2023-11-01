@@ -73,7 +73,8 @@ export default {
             </template>
         </Toolbar>
     </div>
-</template>`
+</template>
+`
             }
         };
     }
