@@ -152,7 +152,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         onMouseLeave(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
-
             const autoHide = el.$_ptooltipAutoHide;
 
             if (!autoHide) {
@@ -282,7 +281,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                     role: 'tooltip',
                     style: {
                         display: 'inline-block',
-                        width: el.$_ptooltipFitContent ? 'fit-content' : undefined
+                        width: el.$_ptooltipFitContent ? 'fit-content' : undefined,
+                        pointerEvents: el.$_ptooltipAutoHide && 'none'
                     },
                     class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
                     'p-bind': this.ptm('root', {
