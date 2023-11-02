@@ -770,7 +770,7 @@ export default {
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
-            const selectedItemsLabel = this.$primevue.config.locale.selectionMessage || this.selectedItemsLabel;
+            const selectedItemsLabel = this.selectedItemsLabel || this.$primevue.config.locale.selectionMessage;
 
             if (pattern.test(selectedItemsLabel)) {
                 return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
