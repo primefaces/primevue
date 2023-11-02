@@ -7,6 +7,8 @@ const form = [
     'ColorPicker',
     'Dropdown',
     'Editor',
+    'InputGroup',
+    'InputGroupAddon',
     'InputMask',
     'InputNumber',
     'InputSwitch',
