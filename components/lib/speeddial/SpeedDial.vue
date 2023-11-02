@@ -88,7 +88,7 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         if (this.type !== 'linear') {
-            const button = DomHandler.findSingle(this.container, '[data-pc-section="button"]');
+            const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
 
             if (button && firstItem) {
