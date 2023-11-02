@@ -282,7 +282,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                     style: {
                         display: 'inline-block',
                         width: el.$_ptooltipFitContent ? 'fit-content' : undefined,
-                        pointerEvents: el.$_ptooltipAutoHide && 'none'
+                        pointerEvents: !this.isUnstyled() && el.$_ptooltipAutoHide && 'none'
                     },
                     class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
                     'p-bind': this.ptm('root', {
