@@ -51066,8 +51066,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
-                            "description": "By default the tooltip contents are not rendered as text. Set to true to support html tags in the content."
+                            "default": "true",
+                            "description": "By default the tooltip contents are not rendered as text. Set to false to support html tags in the content."
                         },
                         {
                             "name": "fitContent",
