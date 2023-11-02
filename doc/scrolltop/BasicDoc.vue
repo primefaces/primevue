@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex flex-column align-items-center">
         <p>Scroll down the page to display the ScrollTop component.</p>
-        <i class="pi pi-angle-down fadeout animation-duration-1000 animation-iteration-infinite" style="fontsize: 2rem"></i>
+        <i class="pi pi-angle-down fadeout animation-duration-1000 animation-iteration-infinite" style="fontsize: 2rem; margin-bottom: 30rem"></i>
         <ScrollTop />
     </div>
     <DocSectionCode :code="code" />
