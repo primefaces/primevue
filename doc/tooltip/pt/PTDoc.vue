@@ -25,7 +25,12 @@ export default {
     v-tooltip.right="{
         value: \`PrimeVue Rocks!\`,
         pt: {
-            text: 'bg-primary'
+            arrow: {
+                style: {
+                    borderRightColor: 'var(--primary-color)'
+                }
+            },
+            text: 'bg-primary font-medium'
         }
     }"
     type="text"
@@ -37,7 +42,12 @@ export default {
         v-tooltip.right="{
             value: \`PrimeVue Rocks!\`,
             pt: {
-                text: 'bg-primary'
+                arrow: {
+                    style: {
+                        borderRightColor: 'var(--primary-color)'
+                    }
+                },
+                text: 'bg-primary font-medium'
             }
         }"
         type="text"
@@ -51,7 +61,12 @@ export default {
         v-tooltip.right="{
             value: \`PrimeVue Rocks!\`,
             pt: {
-                text: 'bg-primary'
+                arrow: {
+                    style: {
+                        borderRightColor: 'var(--primary-color)'
+                    }
+                },
+                text: 'bg-primary font-medium'
             }
         }"
         type="text"
