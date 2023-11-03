@@ -35,7 +35,15 @@
                             <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="isItemGroup(processedItem)" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
+                    <component
+                        v-else
+                        :is="templates.item"
+                        :item="processedItem.item"
+                        :isActive="isItemActive(processedItem)"
+                        :hasSubmenu="isItemGroup(processedItem)"
+                        :label="getItemLabel(processedItem)"
+                        :props="getMenuItemProps(processedItem, index)"
+                    ></component>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(processedItem)" :class="cx('toggleableContent')" v-bind="ptm('toggleableContent')">
