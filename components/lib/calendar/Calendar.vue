@@ -2652,8 +2652,11 @@ export default {
         onOverlayKeyDown(event) {
             switch (event.code) {
                 case 'Escape':
-                    this.input.focus();
-                    this.overlayVisible = false;
+                    if (!this.inline) {
+                        this.input.focus();
+                        this.overlayVisible = false;
+                    }
+
                     break;
 
                 default:
