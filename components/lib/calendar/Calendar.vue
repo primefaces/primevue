@@ -554,6 +554,12 @@ export default {
         showTime() {
             this.updateCurrentMetaData();
         },
+        minDate() {
+            this.updateCurrentMetaData();
+        },
+        maxDate() {
+            this.updateCurrentMetaData();
+        },
         months() {
             if (this.overlay) {
                 if (!this.focused) {
