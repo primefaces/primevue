@@ -6,7 +6,7 @@
         <Menu :model="items">
             <template #item="{ item, props }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                    <a :href="href" v-bind="props.action" @click="navigate">
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
                         <span :class="item.icon" />
                         <span class="ml-2">{{ item.label }}</span>
                     </a>
@@ -43,7 +43,7 @@ export default {
                         },
                         {
                             label: 'External',
-                            icon: 'pi pi-external-link',
+                            icon: 'pi pi-home',
                             url: 'https://vuejs.org/'
                         }
                     ]
@@ -54,7 +54,7 @@ export default {
 <Menu :model="items">
     <template #item="{ item, props }">
         <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-            <a :href="href" v-bind="props.action" @click="navigate">
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
                 <span :class="item.icon" />
                 <span class="ml-2">{{ item.label }}</span>
             </a>
@@ -72,7 +72,7 @@ export default {
         <Menu :model="items">
             <template #item="{ item, props }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                    <a :href="href" v-bind="props.action" @click="navigate">
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
                         <span :class="item.icon" />
                         <span class="ml-2">{{ item.label }}</span>
                     </a>
@@ -105,7 +105,7 @@ export default {
                 },
                 {
                     label: 'External',
-                    icon: 'pi pi-external-link',
+                    icon: 'pi pi-home',
                     url: 'https://vuejs.org/'
                 }
             ]
@@ -120,7 +120,7 @@ export default {
         <Menu :model="items">
             <template #item="{ item, props }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                    <a :href="href" v-bind="props.action" @click="navigate">
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
                         <span :class="item.icon" />
                         <span class="ml-2">{{ item.label }}</span>
                     </a>
@@ -155,7 +155,7 @@ const items = ref([
     },
     {
         label: 'External',
-        icon: 'pi pi-external-link',
+        icon: 'pi pi-home',
         url: 'https://vuejs.org/'
     }
 ]);
