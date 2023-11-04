@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Popup mode is enabled by adding <i>popup</i> property and calling <i>toggle</i> method with an event of the target.</p>
+        <p>Overlay mode is enabled by adding <i>popup</i> property and calling <i>toggle</i> function of the menu ref with an event of the target.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+        <Button type="button" icon="pi pi-ellipsis-v" plain @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
     </div>
     <DocSectionCode :code="code" />
@@ -18,34 +18,26 @@ export default {
                     label: 'Options',
                     items: [
                         {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
+                            label: 'Refresh',
+                            icon: 'pi pi-refresh'
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
+                            label: 'Export',
+                            icon: 'pi pi-upload'
                         }
                     ]
                 }
             ],
             code: {
                 basic: `
-<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+<Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-<Toast />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+        <Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-        <Toast />
     </div>
 </template>
 
@@ -55,23 +47,12 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
+                    label: 'Refresh',
+                    icon: 'pi pi-refresh'
+                },
+                {
+                    label: 'Export',
+                    icon: 'pi pi-upload'
                 }
             ]
         };
@@ -79,46 +60,34 @@ export default {
     methods: {
         toggle(event) {
             this.$refs.menu.toggle(event);
-        },
-        save() {
-            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
         }
-    },
+    }
 };
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+        <Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-        <Toast />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { useToast } from "primevue/usetoast";
 
-const toast = useToast();
 const menu = ref();
 const items = ref([
     {
         label: 'Options',
         items: [
             {
-                label: 'Update',
-                icon: 'pi pi-refresh',
-                command: () => {
-                    toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                }
+                label: 'Refresh',
+                icon: 'pi pi-refresh'
             },
             {
-                label: 'Delete',
-                icon: 'pi pi-times',
-                command: () => {
-                    toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                }
+                label: 'Export',
+                icon: 'pi pi-upload'
             }
         ]
     }
@@ -126,10 +95,6 @@ const items = ref([
 
 const toggle = (event) => {
     menu.value.toggle(event);
-};
-
-const save = () => {
-    toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
 };
 <\/script>
 `
