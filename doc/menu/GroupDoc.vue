@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Menu supports one level of nesting by defining children with <i>items</i> property.</p>
+        <p>Menu supports single level of grouping by defining children with the <i>items</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
@@ -14,21 +14,28 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
+                    label: 'Documents',
                     items: [
                         {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
+                            label: 'New',
+                            icon: 'pi pi-plus'
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
+                            label: 'Search',
+                            icon: 'pi pi-search'
+                        }
+                    ]
+                },
+                {
+                    label: 'Profile',
+                    items: [
+                        {
+                            label: 'Settings',
+                            icon: 'pi pi-cog'
+                        },
+                        {
+                            label: 'Logout',
+                            icon: 'pi pi-sign-out'
                         }
                     ]
                 }
@@ -36,13 +43,11 @@ export default {
             code: {
                 basic: `
 <Menu :model="items" />
-<Toast />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
-        <Toast />
     </div>
 </template>
 
@@ -52,21 +57,28 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
+                    label: 'Documents',
                     items: [
                         {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
+                            label: 'New',
+                            icon: 'pi pi-plus'
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
+                            label: 'Search',
+                            icon: 'pi pi-search'
+                        }
+                    ]
+                },
+                {
+                    label: 'Profile',
+                    items: [
+                        {
+                            label: 'Settings',
+                            icon: 'pi pi-cog'
+                        },
+                        {
+                            label: 'Logout',
+                            icon: 'pi pi-sign-out'
                         }
                     ]
                 }
@@ -80,32 +92,36 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
-        <Toast />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { useToast } from "primevue/usetoast";
 
-const toast = useToast();
 const items = ref([
     {
-        label: 'Options',
+        label: 'Documents',
         items: [
             {
-                label: 'Update',
-                icon: 'pi pi-refresh',
-                command: () => {
-                    toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                }
+                label: 'New',
+                icon: 'pi pi-plus'
             },
             {
-                label: 'Delete',
-                icon: 'pi pi-times',
-                command: () => {
-                    toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                }
+                label: 'Search',
+                icon: 'pi pi-search'
+            }
+        ]
+    },
+    {
+        label: 'Profile',
+        items: [
+            {
+                label: 'Settings',
+                icon: 'pi pi-cog'
+            },
+            {
+                label: 'Logout',
+                icon: 'pi pi-sign-out'
             }
         ]
     }
