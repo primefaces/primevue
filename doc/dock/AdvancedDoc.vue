@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A sample macOS implementation using various components.</p>
+        <p>A sample desktop demo using various components.</p>
     </DocSectionText>
     <div class="card dock-demo">
         <Toast position="top-center" group="tc" />
