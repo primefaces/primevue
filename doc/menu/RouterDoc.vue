@@ -43,7 +43,7 @@ export default {
                         },
                         {
                             label: 'External',
-                            icon: 'pi pi-external-link',
+                            icon: 'pi pi-home',
                             url: 'https://vuejs.org/'
                         }
                     ]
@@ -105,7 +105,7 @@ export default {
                 },
                 {
                     label: 'External',
-                    icon: 'pi pi-external-link',
+                    icon: 'pi pi-home',
                     url: 'https://vuejs.org/'
                 }
             ]
@@ -155,7 +155,7 @@ const items = ref([
     },
     {
         label: 'External',
-        icon: 'pi pi-external-link',
+        icon: 'pi pi-home',
         url: 'https://vuejs.org/'
     }
 ]);
