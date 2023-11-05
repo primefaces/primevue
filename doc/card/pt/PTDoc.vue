@@ -58,7 +58,8 @@ export default {
             </template>
         </Card>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

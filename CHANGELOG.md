@@ -1,11 +1,33 @@
 # Changelog
 
+## [3.39.0](https://github.com/primefaces/primevue/tree/3.39.0) (2023-11-01)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.38.1...3.39.0)
+
+**Breaking Changes:**
+
+-   Change slot parameter function name on* to *CallBack [\#4728](https://github.com/primefaces/primevue/issues/4728)
+
+**Fixed bugs:**
+
+-   ConfirmPopup: arrow defect [\#4730](https://github.com/primefaces/primevue/issues/4730)
+-   Overlaypanel: Overlaypanel closes when any key is pressed [\#4712](https://github.com/primefaces/primevue/issues/4712)
+-   Steps: Property 'step' does not exist on type 'StepsRouterBindProps'. [\#4703](https://github.com/primefaces/primevue/issues/4703)
+-   Datatable: Cannot set properties of null (setting 'tabIndex') [\#4498](https://github.com/primefaces/primevue/issues/4498)
+-   Menubar: Custom locale config overwriting default untouched config properties [\#4270](https://github.com/primefaces/primevue/issues/4270)
+
+**Implemented New Features and Enhancements:**
+
+-   SplitButton: new buttoncontent and item slots [\#4729](https://github.com/primefaces/primevue/issues/4729)
+-   Datatable: Lara Dark Theme Color Inconsistencies [\#4714](https://github.com/primefaces/primevue/issues/4714)
+
 ## [3.38.1](https://github.com/primefaces/primevue/tree/3.38.1) (2023-10-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.38.0...3.38.1)
 
 **Fixed bugs:**
-- The package was not published correctly [\#4697](https://github.com/primefaces/primevue/issues/4697)
+
+-   The package was not published correctly [\#4697](https://github.com/primefaces/primevue/issues/4697)
 
 ## [3.38.0](https://github.com/primefaces/primevue/tree/3.38.0) (2023-10-26)
 

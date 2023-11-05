@@ -296,6 +296,10 @@ export interface PanelMenuSlots {
          */
         item: MenuItem;
         /**
+         * Current active state of the menuitem
+         */
+        isActive: boolean;
+        /**
          * Label property of the menuitem
          */
         label: string | ((...args: any) => string) | undefined;

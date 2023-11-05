@@ -115,7 +115,7 @@ export interface StepsRouterBindProps {
     /**
      * Icon element binding
      */
-    icon: object;
+    step: object;
     /**
      * Label element binding
      */

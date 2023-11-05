@@ -1,6 +1,6 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')" data-pc-name="speeddial">
-        <slot name="button" :onClick="onClick">
+        <slot name="button" :onClick="onClick" :toggleCallback="onClick">
             <SDButton
                 type="button"
                 :class="[cx('button'), buttonClass]"
@@ -88,7 +88,7 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         if (this.type !== 'linear') {
-            const button = DomHandler.findSingle(this.container, '[data-pc-section="button"]');
+            const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
 
             if (button && firstItem) {
@@ -138,9 +138,7 @@ export default {
         },
         onClick(event) {
             this.d_visible ? this.hide() : this.show();
-
             this.isItemClicked = true;
-
             this.$emit('click', event);
         },
         show() {

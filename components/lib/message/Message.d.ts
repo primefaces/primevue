@@ -195,8 +195,13 @@ export interface MessageSlots {
     container(scope: {
         /**
          * Close message function.
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
+        /**
+         * Close message function.
+         */
+        closeCallback: () => void;
     }): VNode[];
 }
 

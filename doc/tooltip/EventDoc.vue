@@ -1,10 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Tooltip is configured via modifiers that can be chained. Also, tooltip gets displayed on hover event by default, use <i>focus</i> modifier as alternative to set.</p>
+        <p>Event to display the tooltip is defined as a modifier, default event is hover.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-2">
-        <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
-        <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
+        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,24 +14,22 @@ export default {
         return {
             code: {
                 basic: `
-<InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
-<Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
+<InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
-        <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
-        <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
+    <div class="card flex flex-wrap justify-content-center">
+        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
     </div>
 </template>
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
-        <InputText v-tooltip.focus="'Enter your username'" type="text" placeholder="Focus" />
-        <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
+    <div class="card flex flex-wrap justify-content-center">
+        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

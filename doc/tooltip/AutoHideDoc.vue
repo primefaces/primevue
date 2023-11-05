@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Tooltip is hidden when mouse leaves the target element, in cases where tooltip needs to be interacted with, set <i>autoHide</i> to false to change the default behavior.</p>
+        <p>Tooltip gets hidden when mouse leaves the target element by default, set <i>autoHide</i> to false to change this behavior.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />

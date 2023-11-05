@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>OverlayPanel is accessed via its reference and visibility is controlled using <i>toggle</i>, <i>show</i> and <i>hide</i> methods with an event of the target.</p>
+        <p>OverlayPanel is accessed via its ref and visibility is controlled using <i>toggle</i>, <i>show</i> and <i>hide</i> functions with an event of the target.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
@@ -21,7 +21,7 @@ export default {
 <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
 
 <OverlayPanel ref="op">
-    <img src="https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg" alt="Bamboo Watch" />
+    <img src="/images/product/bamboo-watch.jpg" alt="Bamboo Watch" />
 </OverlayPanel>
 `,
                 options: `
@@ -60,6 +60,7 @@ export default {
 import { ref } from "vue";
 
 const op = ref();
+
 const toggle = (event) => {
     op.value.toggle(event);
 }

@@ -3893,7 +3893,7 @@
   .p-confirm-popup:before {
     border: solid transparent;
     border-color: rgba(48, 69, 98, 0);
-    border-bottom-color: #304562;
+    border-bottom-color: #2e425d;
   }
   .p-confirm-popup.p-confirm-popup-flipped:after {
     border-top-color: #1f2d40;

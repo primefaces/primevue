@@ -1,27 +1,24 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
-            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
-        </p>
+        <p>Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
                 </a>
             </template>
         </Menu>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" hideStackBlitz hideCodeSandbox />
 </template>
 
 <script>
@@ -30,37 +27,24 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
-                },
-                {
                     label: 'Navigate',
                     items: [
                         {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/',
-                            target: '_blank'
+                            label: 'Router Link',
+                            icon: 'pi pi-palette',
+                            route: '/unstyled'
                         },
                         {
-                            label: 'Upload',
-                            icon: 'pi pi-upload',
-                            route: '/fileupload'
+                            label: 'Programmatic',
+                            icon: 'pi pi-link',
+                            command: () => {
+                                this.$router.push('/installation');
+                            }
+                        },
+                        {
+                            label: 'External',
+                            icon: 'pi pi-home',
+                            url: 'https://vuejs.org/'
                         }
                     ]
                 }
@@ -68,16 +52,16 @@ export default {
             code: {
                 basic: `
 <Menu :model="items">
-    <template #item="{ label, item, props }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
+    <template #item="{ item, props }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
             </a>
         </router-link>
-        <a v-else :href="item.url" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
         </a>
     </template>
 </Menu>
@@ -86,20 +70,19 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
                 </a>
             </template>
         </Menu>
-        <Toast />
     </div>
 </template>
 
@@ -109,40 +92,21 @@ export default {
         return {
             items: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
+                    label: 'Router Link',
+                    icon: 'pi pi-palette',
+                    route: '/unstyled'
                 },
                 {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/',
-                            target: '_blank',
-                        },
-                        {
-                            label: 'Upload',
-                            icon: 'pi pi-upload',
-                            route: '/fileupload'
-                        }
-                    ]
+                    label: 'Programmatic',
+                    icon: 'pi pi-link',
+                    command: () => {
+                        this.$router.push('/installation');
+                    }
+                },
+                {
+                    label: 'External',
+                    icon: 'pi pi-home',
+                    url: 'https://vuejs.org/'
                 }
             ]
         };
@@ -154,62 +118,45 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Menu :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
                 </a>
             </template>
         </Menu>
-        <Toast />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue";
+
+const router = useRouter();
 
 const items = ref([
     {
-        label: 'Options',
-        items: [
-            {
-                label: 'Update',
-                icon: 'pi pi-refresh',
-
-                command: () => {
-                    this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                }
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-times',
-                command: () => {
-                    this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                }
-            }
-        ]
+        label: 'Router Link',
+        icon: 'pi pi-palette',
+        route: '/unstyled'
     },
     {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'Vue Website',
-                icon: 'pi pi-external-link',
-                url: 'https://vuejs.org/',
-                target: '_blank',
-            },
-            {
-                label: 'Upload',
-                icon: 'pi pi-upload',
-                route: '/fileupload'
-            }
-        ]
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            this.$router.push('/installation');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        url: 'https://vuejs.org/'
     }
 ]);
 <\/script>

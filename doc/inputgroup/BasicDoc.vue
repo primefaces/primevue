@@ -92,7 +92,8 @@ export default {
             <InputText placeholder="Website" />
         </div>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

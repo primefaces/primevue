@@ -84,7 +84,7 @@ const onSelectAllChange = (event) => {
     selectedItems.value = event.checked ? items.value.map((item) => item.value) : [];
     selectAll.value = event.checked;
 };
-onChange(event) {
+const onChange = (event) => {
     selectAll.value = event.value.length === items.value.length;
 }
 

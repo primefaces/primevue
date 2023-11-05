@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Dialogs can be created dynamically with any component as the content using a DialogService along with a <i>DynamicDialog</i> component. Ideal location of a DynamicDialog is the main template so that it can be used by any component within
-            the application.
-        </p>
+        <p>A sample implementation to demonstrate loading components asynchronously, nested content and passing data.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
@@ -15,7 +12,7 @@
 
 <script>
 import { markRaw } from 'vue';
-import FooterDemo from './demo/FooterDemo.vue';
+import FooterDemo from './demo/FooterDemo';
 import ProductListDemo from './demo/ProductListDemo';
 
 export default {
@@ -239,8 +236,7 @@ export default {
                     'src/components/FooterDemo.vue': {
                         content: `
 <template>
-    <Button type="button" label="No" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
-    <Button type="button" label="Yes" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
+    <Button type="button" label="Cancel" icon="pi pi-times" @click="closeDialog({ buttonType: 'Cancel' })" autofocus></Button>
 </template>
 
 <script>
@@ -349,8 +345,7 @@ const closeDialog = () => {
                     'src/components/FooterDemo.vue': {
                         content: `
 <template>
-    <Button type="button" label="No" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
-    <Button type="button" label="Yes" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
+    <Button type="button" label="Cancel" icon="pi pi-times" @click="closeDialog({ buttonType: 'Cancel' })" autofocus></Button>
 </template>
 
 <script setup>

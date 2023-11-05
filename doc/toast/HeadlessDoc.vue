@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
-            <template #container="{ message, onClose }">
+            <template #container="{ message, closeCallback }">
                 <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
@@ -15,8 +15,8 @@
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="onClose"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="onClose"></Button>
+                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
@@ -37,7 +37,7 @@ export default {
             code: {
                 basic: `
 <Toast position="top-center" group="headless" @close="visible = false">
-    <template #container="{ message, onClose }">
+    <template #container="{ message, closeCallback }">
         <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
             <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
             <div class="flex flex-column gap-3 w-full">
@@ -48,8 +48,8 @@ export default {
                     <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                 </div>
                 <div class="flex gap-3 mb-3">
-                    <Button label="Another Upload?" text class="p-0" @click="onClose"></Button>
-                    <Button label="Cancel" text class="text-white p-0" @click="onClose"></Button>
+                    <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
+                    <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
                 </div>
             </div>
         </section>
@@ -61,7 +61,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
-            <template #container="{ message, onClose }">
+            <template #container="{ message, closeCallback }">
                 <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
@@ -72,8 +72,8 @@ export default {
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="onClose"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="onClose"></Button>
+                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
@@ -115,7 +115,7 @@ export default {
 
                     if (this.progress >= 100) {
                         this.progress = 100;
-                        clearInterval(interval);
+                        clearInterval(this.interval);
                     }
                 }, 1000);
             }
@@ -128,7 +128,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
-            <template #container="{ message, onClose }">
+            <template #container="{ message, closeCallback }">
                 <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
@@ -139,8 +139,8 @@ export default {
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="onClose"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="onClose"></Button>
+                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
@@ -214,7 +214,7 @@ const show = () => {
 
                     if (this.progress >= 100) {
                         this.progress = 100;
-                        clearInterval(interval);
+                        clearInterval(this.interval);
                     }
                 }, 1000);
             }

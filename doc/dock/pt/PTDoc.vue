@@ -167,7 +167,8 @@ const items = ref([
 .dock-demo > .p-dock {
     z-index: 1000;
 }
-</style>`
+</style>
+`
             }
         };
     }

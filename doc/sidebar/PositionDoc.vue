@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Sidebar location is configured with the <i>position</i> property that can take <i>left</i>, <i>right</i>, <i>top</i> and <i>bottom</i> as a value.</p>
+        <p>Sidebar location is configured with the <i>position</i> property that can take <i>left</i>, <i>right</i>, <i>top</i> and <i>bottom</i> as valid values.</p>
     </DocSectionText>
     <div class="card">
         <div class="flex gap-2 justify-content-center">
@@ -20,12 +20,12 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top">
+        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
             <h2>Top Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom">
+        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
             <h2>Bottom Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
@@ -60,12 +60,12 @@ export default {
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 
-<Sidebar v-model:visible="visibleTop" position="top">
+<Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
     <h2>Top Sidebar</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 
-<Sidebar v-model:visible="visibleBottom" position="bottom">
+<Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
     <h2>Bottom Sidebar</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
@@ -90,12 +90,12 @@ export default {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top">
+        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
             <h2>Top Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom">
+        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
             <h2>Bottom Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
@@ -135,12 +135,12 @@ export default {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top">
+        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
             <h2>Top Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom">
+        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
             <h2>Bottom Sidebar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>

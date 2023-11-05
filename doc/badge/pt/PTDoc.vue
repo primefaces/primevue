@@ -91,7 +91,8 @@ export default {
             class="pi pi-calendar text-4xl"
         />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

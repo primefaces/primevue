@@ -1,27 +1,23 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
-            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
-        </p>
+        <p>Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="[item.icon, 'text-color']" />
+                        <span class="text-primary font-semibold">{{ item.label }}</span>
                     </a>
                 </router-link>
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-if="item.icon" v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                    <span class="text-color">{{ item.label }}</span>
                 </a>
             </template>
         </Breadcrumb>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" hideStackBlitz hideCodeSandbox />
 </template>
 
 <script>
@@ -30,22 +26,21 @@ export default {
         return {
             home: {
                 icon: 'pi pi-home',
-                route: '/'
+                route: '/installation'
             },
-            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }],
+            items: [{ label: 'Components' }, { label: 'Form' }, { label: 'InputText', route: '/inputtext' }],
             code: {
                 basic: `
 <Breadcrumb :home="home" :model="items">
-    <template #item="{ label, item, props }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
+    <template #item="{ item, props }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a :href="href" v-bind="props.action" @click="navigate">
+                <span :class="[item.icon, 'text-color']" />
+                <span class="text-primary font-semibold">{{ item.label }}</span>
             </a>
         </router-link>
         <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-if="item.icon" v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
+            <span class="text-color">{{ item.label }}</span>
         </a>
     </template>
 </Breadcrumb>
@@ -54,16 +49,15 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="[item.icon, 'text-color']" />
+                        <span class="text-primary font-semibold">{{ item.label }}</span>
                     </a>
                 </router-link>
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-if="item.icon" v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                    <span class="text-color">{{ item.label }}</span>
                 </a>
             </template>
         </Breadcrumb>
@@ -76,14 +70,12 @@ export default {
         return {
             home: {
                 icon: 'pi pi-home',
-                route: '/'
+                route: '/installation'
             },
             items: [
-                {label: 'Computer'},
-                {label: 'Notebook'},
-                {label: 'Accessories'},
-                {label: 'Backpacks'},
-                {label: 'Item'}
+                { label: 'Components' }, 
+                { label: 'Form' }, 
+                { label: 'InputText', route: '/inputtext' }
             ]
         }
     }
@@ -94,16 +86,15 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
-            <template #item="{ label, item, props }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="[item.icon, 'text-color']" />
+                        <span class="text-primary font-semibold">{{ item.label }}</span>
                     </a>
                 </router-link>
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-if="item.icon" v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
+                    <span class="text-color">{{ item.label }}</span>
                 </a>
             </template>
         </Breadcrumb>
@@ -115,14 +106,12 @@ import { ref } from "vue";
 
 const home = ref({
     icon: 'pi pi-home',
-    route: '/'
+    route: '/installation'
 });
 const items = ref([
-    {label: 'Computer'},
-    {label: 'Notebook'},
-    {label: 'Accessories'},
-    {label: 'Backpacks'},
-    {label: 'Item'}
+    { label: 'Components' }, 
+    { label: 'Form' }, 
+    { label: 'InputText', route: '/inputtext' }
 ]);
 <\/script>
 `

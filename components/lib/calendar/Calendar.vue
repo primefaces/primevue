@@ -554,6 +554,12 @@ export default {
         showTime() {
             this.updateCurrentMetaData();
         },
+        minDate() {
+            this.updateCurrentMetaData();
+        },
+        maxDate() {
+            this.updateCurrentMetaData();
+        },
         months() {
             if (this.overlay) {
                 if (!this.focused) {
@@ -2646,8 +2652,11 @@ export default {
         onOverlayKeyDown(event) {
             switch (event.code) {
                 case 'Escape':
-                    this.input.focus();
-                    this.overlayVisible = false;
+                    if (!this.inline) {
+                        this.input.focus();
+                        this.overlayVisible = false;
+                    }
+
                     break;
 
                 default:

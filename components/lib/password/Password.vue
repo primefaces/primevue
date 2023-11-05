@@ -23,10 +23,10 @@
             v-bind="{ ...inputProps, ...ptm('input') }"
             :unstyled="unstyled"
         />
-        <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle">
+        <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
             <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
         </slot>
-        <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle">
+        <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
             <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" v-bind="ptm('showIcon')" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">

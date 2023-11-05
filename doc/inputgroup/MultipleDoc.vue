@@ -68,7 +68,8 @@ export default {
             <span class="p-inputgroup-addon">.00</span>
         </div>
     </div>
-</template>`
+</template>
+`
             }
         };
     }
