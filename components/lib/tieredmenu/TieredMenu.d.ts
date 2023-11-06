@@ -322,6 +322,14 @@ export interface TieredMenuSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom start template.
+     */
+    start(): VNode[];
+    /**
+     * Custom end template.
+     */
+    end(): VNode[];
 }
 
 /**

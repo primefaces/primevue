@@ -2,6 +2,9 @@
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="tieredmenu">
+                <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
+                    <slot name="start"></slot>
+                </div>
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
@@ -27,6 +30,9 @@
                     @item-click="onItemClick"
                     @item-mouseenter="onItemMouseEnter"
                 />
+                <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
+                    <slot name="end"></slot>
+                </div>
             </div>
         </transition>
     </Portal>

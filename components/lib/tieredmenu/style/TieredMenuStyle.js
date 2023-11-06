@@ -57,6 +57,7 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
+    start: 'p-tieredmenu-start',
     menu: 'p-tieredmenu-root-list',
     menuitem: ({ instance, processedItem }) => [
         'p-menuitem',
@@ -78,7 +79,8 @@ const classes = {
     text: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',
     submenu: 'p-submenu-list',
-    separator: 'p-menuitem-separator'
+    separator: 'p-menuitem-separator',
+    end: 'p-tieredmenu-end'
 };
 
 export default BaseStyle.extend({
