@@ -884,7 +884,7 @@ export default {
             return this.optionGroupLabel ? this.flatOptions(this.suggestions) : this.suggestions || [];
         },
         inputValue() {
-            if (this.modelValue) {
+            if (ObjectUtils.isNotEmpty(this.modelValue)) {
                 if (typeof this.modelValue === 'object') {
                     const label = this.getOptionLabel(this.modelValue);
 
