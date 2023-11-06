@@ -51,6 +51,14 @@ const TieredMenuProps = [
 
 const TieredMenuSlots = [
     {
+        name: 'start',
+        description: 'Custom start content.'
+    },
+    {
+        name: 'end',
+        description: 'Custom end content.'
+    },
+    {
         name: 'item',
         description: 'Template of a menuitem.'
     },
