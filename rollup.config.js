@@ -112,6 +112,8 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/image/style': 'primevue.image.style',
     'primevue/inlinemessage/style': 'primevue.inlinemessage.style',
     'primevue/inplace/style': 'primevue.inplace.style',
+    'primevue/inputgroup/style': 'primevue.inputgroup.style',
+    'primevue/inputgroupaddon/style': 'primevue.inputgroupaddon.style',
     'primevue/inputmask/style': 'primevue.inputmask.style',
     'primevue/inputnumber/style': 'primevue.inputnumber.style',
     'primevue/inputswitch/style': 'primevue.inputswitch.style',
