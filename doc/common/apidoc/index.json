@@ -5245,7 +5245,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -28379,6 +28379,412 @@
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
                 "InplaceStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "inputgroup": {
+        "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "components": {
+            "default": {
+                "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputGroupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupProps": {
+                    "description": "Defines valid properties in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputGroupPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupSlots": {
+                    "description": "Defines valid slots in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom default template."
+                        }
+                    ]
+                },
+                "InputGroupEmits": {
+                    "description": "Defines valid emits in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughOptionType": {
+                    "values": "InputGroupPassThroughAttributes | (options: InputGroupPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputgroup/style/InputGroupStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "inputgroupaddon": {
+        "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "components": {
+            "default": {
+                "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputGroupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupProps": {
+                    "description": "Defines valid properties in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputGroupPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupSlots": {
+                    "description": "Defines valid slots in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom default template."
+                        }
+                    ]
+                },
+                "InputGroupEmits": {
+                    "description": "Defines valid emits in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughOptionType": {
+                    "values": "InputGroupPassThroughAttributes | (options: InputGroupPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputgroupaddon/style/InputGroupAddonStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupAddonStyle": {
                     "relatedProp": "",
                     "props": [
                         {
