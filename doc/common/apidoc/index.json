@@ -49539,6 +49539,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item icon template."
+                        },
+                        {
+                            "name": "start",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom start template."
+                        },
+                        {
+                            "name": "end",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom end template."
                         }
                     ]
                 },
