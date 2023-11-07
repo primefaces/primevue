@@ -118,8 +118,8 @@ const css = `
         -webkit-transition: none;
         transition: none;
         transform: none;
-        width: 100vw;
-        height: 100vh;
+        width: 100vw !important;
+        height: 100vh !important;
         top: 0px;
         left: 0px;
         max-height: 100%;
