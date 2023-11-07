@@ -291,6 +291,10 @@ export interface ContextMenuSlots {
          */
         label: string | ((...args: any) => string) | undefined;
         /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
+        /**
          * Binding properties of the menuitem
          */
         props: ContextMenuRouterBindProps;
