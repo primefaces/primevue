@@ -162,7 +162,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -913,7 +913,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -3340,7 +3340,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -4311,7 +4311,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4560,7 +4560,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4757,7 +4757,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4985,7 +4985,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -5720,7 +5720,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -6048,7 +6048,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -6420,7 +6420,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -7294,7 +7294,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -8407,7 +8407,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -8771,7 +8771,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -9448,7 +9448,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -10189,7 +10189,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -10547,7 +10547,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11025,7 +11025,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11423,7 +11423,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11935,7 +11935,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -12880,7 +12880,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -13852,7 +13852,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -15974,7 +15974,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -16339,7 +16339,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -16749,7 +16749,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -18728,7 +18728,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -20384,7 +20384,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -20869,7 +20869,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -21132,7 +21132,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -21446,7 +21446,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -22082,7 +22082,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -22373,7 +22373,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -23048,7 +23048,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -24464,7 +24464,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -24864,7 +24864,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -25544,7 +25544,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -26193,7 +26193,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -26617,7 +26617,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -27521,7 +27521,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -27903,7 +27903,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28176,7 +28176,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28488,7 +28488,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28637,7 +28637,7 @@
         "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
         "components": {
             "default": {
-                "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+                "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -28650,7 +28650,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "InputGroupPassThroughMethodOptions": {
+                "InputGroupAddonPassThroughMethodOptions": {
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
@@ -28673,15 +28673,15 @@
                     ],
                     "methods": []
                 },
-                "InputGroupPassThroughOptions": {
+                "InputGroupAddonPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "InputGroupProps.pt",
+                    "relatedProp": "InputGroupAddonProps.pt",
                     "props": [
                         {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputGroupPassThroughOptionType",
+                            "type": "InputGroupAddonPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -28691,12 +28691,12 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
                 },
-                "InputGroupPassThroughAttributes": {
+                "InputGroupAddonPassThroughAttributes": {
                     "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
@@ -28709,7 +28709,7 @@
                     ],
                     "methods": []
                 },
-                "InputGroupProps": {
+                "InputGroupAddonProps": {
                     "description": "Defines valid properties in InputGroupAddon component.",
                     "relatedProp": "",
                     "props": [
@@ -28717,7 +28717,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<InputGroupPassThroughOptions>",
+                            "type": "PassThrough<InputGroupAddonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -28740,7 +28740,7 @@
                     ],
                     "methods": []
                 },
-                "InputGroupSlots": {
+                "InputGroupAddonSlots": {
                     "description": "Defines valid slots in InputGroupAddon component.",
                     "relatedProp": "",
                     "props": [
@@ -28760,7 +28760,7 @@
                         }
                     ]
                 },
-                "InputGroupEmits": {
+                "InputGroupAddonEmits": {
                     "description": "Defines valid emits in InputGroupAddon component.",
                     "relatedProp": "",
                     "props": [],
@@ -28771,8 +28771,8 @@
         "types": {
             "description": "Defines the custom types used by the module.",
             "values": {
-                "InputGroupPassThroughOptionType": {
-                    "values": "InputGroupPassThroughAttributes | (options: InputGroupPassThroughMethodOptions) => undefined | string | null | undefined"
+                "InputGroupAddonPassThroughOptionType": {
+                    "values": "InputGroupAddonPassThroughAttributes | (options: InputGroupAddonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -28910,7 +28910,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -29336,7 +29336,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -29928,7 +29928,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -30280,7 +30280,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -30562,7 +30562,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -31133,7 +31133,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -31955,7 +31955,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -32575,7 +32575,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -33171,7 +33171,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -33861,7 +33861,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -34575,7 +34575,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -35719,7 +35719,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -36431,7 +36431,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -36923,7 +36923,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -37415,7 +37415,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -37973,7 +37973,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -38445,7 +38445,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -39090,7 +39090,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -39992,7 +39992,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -40837,7 +40837,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41081,7 +41081,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41342,7 +41342,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41761,7 +41761,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42186,7 +42186,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42372,7 +42372,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42608,7 +42608,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42875,7 +42875,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -43170,7 +43170,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -43647,7 +43647,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -44008,7 +44008,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -44285,7 +44285,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -44689,7 +44689,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -45271,7 +45271,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -45817,7 +45817,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46139,7 +46139,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46422,7 +46422,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46782,7 +46782,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46995,7 +46995,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -47413,7 +47413,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -47841,7 +47841,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48228,7 +48228,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48543,7 +48543,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48855,7 +48855,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -49195,7 +49195,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -49806,7 +49806,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -50208,7 +50208,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -50807,7 +50807,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -51255,7 +51255,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -51580,7 +51580,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -52131,7 +52131,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -52773,7 +52773,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -53859,7 +53859,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -54903,7 +54903,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -55752,7 +55752,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []

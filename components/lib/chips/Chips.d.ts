@@ -92,7 +92,7 @@ export interface ChipsPassThroughOptions {
      */
     input?: ChipsPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

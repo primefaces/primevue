@@ -50,7 +50,7 @@ export interface BlockUIPassThroughOptions {
      */
     mask?: BlockUIPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

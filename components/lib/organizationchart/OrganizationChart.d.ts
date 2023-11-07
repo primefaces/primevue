@@ -152,7 +152,7 @@ export interface OrganizationChartPassThroughOptions {
      */
     nodeCell?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

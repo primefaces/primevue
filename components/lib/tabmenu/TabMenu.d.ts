@@ -75,7 +75,7 @@ export interface TabMenuPassThroughOptions {
      */
     inkbar?: TabMenuPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
