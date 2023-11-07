@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>command</i> property defines the callback to run when an item is activated by click or a key event.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+    <div class="card">
+        <Menubar :model="items" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -66,13 +66,13 @@ export default {
             ],
             code: {
                 basic: `
-<TieredMenu :model="items" />
+<Menubar :model="items" />
 <Toast />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+    <div class="card">
+        <Menubar :model="items" />
         <Toast />
     </div>
 </template>
@@ -140,8 +140,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+    <div class="card">
+        <Menubar :model="items" />
         <Toast />
     </div>
 </template>
