@@ -1,8 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Menubar offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. When item templating is used, bind the <i>action</i> prop from the slot props to handle accessibility and
-            pass through attributes. The submenu header has its own <i>submenuheader</i> template and additional slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
+            Menubar offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. Additional slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
         </p>
     </DocSectionText>
     <div class="card">

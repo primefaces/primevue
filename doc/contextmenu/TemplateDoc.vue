@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            ContextMenu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. When item templating is used, bind the <i>action</i> prop from the slot props to handle accessibility
-            and pass through attributes.
-        </p>
+        <p>ContextMenu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
     </DocSectionText>
     <div class="card flex md:justify-content-center">
         <ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
