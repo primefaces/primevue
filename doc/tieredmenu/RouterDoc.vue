@@ -14,7 +14,7 @@
                 <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
-                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+                    <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
                 </a>
             </template>
         </TieredMenu>
@@ -76,7 +76,7 @@ export default {
         <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
             <span :class="item.icon" />
             <span class="ml-2">{{ item.label }}</span>
-            <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+            <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
         </a>
     </template>
 </TieredMenu>
@@ -95,7 +95,7 @@ export default {
                 <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
-                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+                    <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
                 </a>
             </template>
         </TieredMenu>
@@ -162,7 +162,7 @@ export default {
                 <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
-                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
+                    <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
                 </a>
             </template>
         </TieredMenu>
