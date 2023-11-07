@@ -349,7 +349,8 @@ export default {
             d_columnOrder: null,
             d_editingRowKeys: null,
             d_editingMeta: {},
-            d_filters: this.cloneFilters(this.filters)
+            d_filters: this.cloneFilters(this.filters),
+            d_registeredColumns: []
         };
     },
     rowTouched: false,
@@ -1976,17 +1977,30 @@ export default {
         },
         hasSpacerStyle(style) {
             return ObjectUtils.isNotEmpty(style);
+        },
+        registerColumn(column) {
+            if (this.registerColumns && column.type.name === 'Column') {
+                this.d_registeredColumns.push(column);
+            }
+        },
+        unregisterColumn(column) {
+            this.d_registeredColumns = this.d_registeredColumns.filter((c) => c !== column);
         }
     },
     computed: {
         columns() {
             let children = this.getChildren();
 
-            if (!children) {
-                return;
+            const cols = [];
+            if (this.registerColumns) {
+                cols.push(...this.d_registeredColumns);
+            } else if (children) {
+                cols.push(...this.recursiveGetChildren(children, []));
             }
 
-            const cols = this.recursiveGetChildren(children, []);
+            if (!cols.length) {
+                return;
+            }
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
@@ -2102,6 +2116,12 @@ export default {
         ArrowDownIcon: ArrowDownIcon,
         ArrowUpIcon: ArrowUpIcon,
         SpinnerIcon: SpinnerIcon
+    },
+    provide() {
+        return {
+            registerColumn: this.registerColumn,
+            unregisterColumn: this.unregisterColumn
+        };
     }
 };
 </script>

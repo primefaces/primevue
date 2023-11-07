@@ -597,6 +597,9 @@ export default {
     },
     computed: {
         columnsLength() {
+            if (!this.columns) {
+                return 0;
+            }
             let hiddenColLength = 0;
 
             this.columns.forEach((column) => {

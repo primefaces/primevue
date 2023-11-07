@@ -269,6 +269,10 @@ export default {
         filterInputProps: {
             type: null,
             default: null
+        },
+        registerColumns: {
+            type: Boolean,
+            default: false
         }
     },
     style: DataTableStyle,

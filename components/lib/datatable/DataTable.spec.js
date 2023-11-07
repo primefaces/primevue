@@ -7,6 +7,7 @@ import Column from '../column/Column.vue';
 import ColumnGroup from '../columngroup/ColumnGroup.vue';
 import Row from '../row/Row.vue';
 import DataTable from './DataTable.vue';
+import { defineComponent, h, nextTick } from 'vue';
 
 window.URL.createObjectURL = function () {};
 
@@ -1409,4 +1410,121 @@ describe('DataTable.vue', () => {
     });
 
     // row styling
+
+    // provide registerColumn
+    it('should have basic demo with registerColumns', async () => {
+        const ColumnWrapper = defineComponent({
+            name: 'ColumnWrapper',
+            components: {
+                Column
+            },
+            render() {
+                return [h(Column, { expander: true }), h(Column, { field: 'name', header: 'Name' }), h(Column, { field: 'code', header: 'Code' })];
+            }
+        });
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    ColumnWrapper
+                }
+            },
+            props: {
+                value: smallData,
+                registerColumns: true
+            },
+            slots: {
+                default: `<ColumnWrapper></ColumnWrapper>`
+            }
+        });
+
+        // Since registerColumn is called on Column mount, it is not immediate
+        await nextTick();
+
+        expect(wrapper.findAll('.p-column-header-content').length).toEqual(3);
+        const tbody = wrapper.find('.p-datatable-tbody');
+
+        expect(tbody.findAll('tr').length).toEqual(3);
+
+        const rows = tbody.findAll('tr');
+        expect(rows[0].findAll('td').length).toEqual(3);
+    });
+
+    it('should have reactive column props with registerColumns', async () => {
+        const ColumnWrapper = defineComponent({
+            name: 'ColumnWrapper',
+            data() {
+                return { headerValue: 'Name' };
+            },
+            components: {
+                Column
+            },
+            render() {
+                return [h('button', { id: 'testButton', onClick: () => (this.headerValue = 'emaN') }), h(Column, { field: 'name', header: this.headerValue })];
+            }
+        });
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    ColumnWrapper
+                }
+            },
+            props: {
+                value: smallData,
+                registerColumns: true
+            },
+            slots: {
+                default: `<ColumnWrapper></ColumnWrapper>`
+            }
+        });
+
+        await nextTick();
+
+        let columnHeaderContent = wrapper.find('.p-column-header-content');
+        expect(columnHeaderContent.text()).toEqual('Name');
+
+        const button = wrapper.find('#testButton');
+        expect(button.exists()).toBe(true);
+        await button.trigger('click');
+
+        columnHeaderContent = wrapper.find('.p-column-header-content');
+        expect(columnHeaderContent.text()).toEqual('emaN');
+    });
+
+    it('should have column body template with registerColumns', async () => {
+        const ColumnWrapper = defineComponent({
+            name: 'ColumnWrapper',
+            components: {
+                Column
+            },
+            render() {
+                return h(Column, { field: 'name', header: 'Name' }, { body: () => h('div', 'Hello World!') });
+            }
+        });
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    ColumnWrapper
+                }
+            },
+            props: {
+                value: smallData,
+                registerColumns: true
+            },
+            slots: {
+                default: `<ColumnWrapper></ColumnWrapper>`
+            }
+        });
+
+        await nextTick();
+
+        const tbody = wrapper.find('.p-datatable-tbody');
+
+        expect(tbody.findAll('tr').length).toEqual(3);
+
+        const row = tbody.find('tr');
+        expect(row.text()).toEqual('Hello World!');
+    });
 });
