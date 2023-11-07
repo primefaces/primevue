@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type InputGroupPassThroughOptionType = InputGroupPassThroughAttributes | ((options: InputGroupPassThroughMethodOptions) => InputGroupPassThroughAttributes | string) | string | null | undefined;
+export declare type InputGroupAddonPassThroughOptionType = InputGroupAddonPassThroughAttributes | ((options: InputGroupAddonPassThroughMethodOptions) => InputGroupAddonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface InputGroupPassThroughMethodOptions {
+export interface InputGroupAddonPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -30,13 +30,13 @@ export interface InputGroupPassThroughMethodOptions {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link InputGroupProps.pt}
+ * @see {@link InputGroupAddonProps.pt}
  */
-export interface InputGroupPassThroughOptions {
+export interface InputGroupAddonPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: InputGroupPassThroughOptionType;
+    root?: InputGroupAddonPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
@@ -47,19 +47,19 @@ export interface InputGroupPassThroughOptions {
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface InputGroupPassThroughAttributes {
+export interface InputGroupAddonPassThroughAttributes {
     [key: string]: any;
 }
 
 /**
  * Defines valid properties in InputGroupAddon component.
  */
-export interface InputGroupProps {
+export interface InputGroupAddonProps {
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {InputGroupPassThroughOptions}
+     * @type {InputGroupAddonPassThroughOptions}
      */
-    pt?: PassThrough<InputGroupPassThroughOptions>;
+    pt?: PassThrough<InputGroupAddonPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -75,7 +75,7 @@ export interface InputGroupProps {
 /**
  * Defines valid slots in InputGroupAddon component.
  */
-export interface InputGroupSlots {
+export interface InputGroupAddonSlots {
     /**
      * Custom default template.
      */
@@ -90,20 +90,20 @@ export interface InputGroupSlots {
 /**
  * Defines valid emits in InputGroupAddon component.
  */
-export interface InputGroupEmits {}
+export interface InputGroupAddonEmits {}
 
 /**
  * **PrimeVue - InputGroupAddon**
  *
- * _InputGroup displays text, icon, buttons and other content can be grouped next to an input._
+ * _InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input._
  *
- * [Live Demo](https://www.primevue.org/inputgroup/)
+ * [Live Demo](https://www.primevue.org/inputgroupaddon/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  */
-declare class InputGroupAddon extends ClassComponent<InputGroupProps, InputGroupSlots, InputGroupEmits> {}
+declare class InputGroupAddon extends ClassComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
