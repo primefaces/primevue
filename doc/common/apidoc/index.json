@@ -17061,7 +17061,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">ContextMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">ContextMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
