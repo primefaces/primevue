@@ -10,10 +10,6 @@ export default {
             type: Array,
             default: null
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         activeIndex: {
             type: Number,
             default: 0

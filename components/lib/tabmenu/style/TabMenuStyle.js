@@ -47,10 +47,10 @@ const css = `
 const classes = {
     root: 'p-tabmenu p-component',
     menu: 'p-tabmenu-nav p-reset',
-    menuitem: ({ instance, props, index, item, isActive, isExactActive }) => [
+    menuitem: ({ instance, index, item }) => [
         'p-tabmenuitem',
         {
-            'p-highlight': (props.exact ? isExactActive : isActive) || instance.d_activeIndex === index,
+            'p-highlight': instance.d_activeIndex === index,
             'p-disabled': instance.disabled(item)
         }
     ],

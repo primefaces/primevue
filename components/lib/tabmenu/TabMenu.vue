@@ -2,41 +2,8 @@
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tabmenu">
         <ul ref="nav" :class="cx('menu')" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
-                <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li
-                        v-if="visible(item)"
-                        ref="tab"
-                        :class="[cx('menuitem', { item, isActive, isExactActive }), item.class]"
-                        :style="item.style"
-                        role="presentation"
-                        v-bind="getPTOptions('menuitem', item, i)"
-                        :data-p-highlight="exact ? isExactActive : isActive"
-                        :data-p-disabled="disabled(item)"
-                    >
-                        <template v-if="!$slots.item">
-                            <a
-                                ref="tabLink"
-                                v-ripple
-                                role="menuitem"
-                                :href="href"
-                                :class="cx('action')"
-                                :aria-label="label(item)"
-                                :aria-disabled="disabled(item)"
-                                :tabindex="-1"
-                                @click="onItemClick($event, item, i, navigate)"
-                                @keydown="onKeydownItem($event, item, i, navigate)"
-                                v-bind="getPTOptions('action', item, i)"
-                            >
-                                <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
-                                <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', item, i)" />
-                                <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
-                            </a>
-                        </template>
-                        <component v-else :is="$slots.item" :item="item" :index="i"></component>
-                    </li>
-                </router-link>
                 <li
-                    v-else-if="visible(item)"
+                    v-if="visible(item)"
                     ref="tab"
                     :class="[cx('menuitem', { item, index: i }), item.class]"
                     role="presentation"
@@ -78,21 +45,12 @@ export default {
         };
     },
     watch: {
-        $route() {
-            this.timeout = setTimeout(() => this.updateInkBar(), 50);
-        },
         activeIndex(newValue) {
             this.d_activeIndex = newValue;
         }
     },
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
-        }
-    },
     mounted() {
         this.updateInkBar();
-
         const activeItem = this.findActiveItem();
 
         activeItem && (activeItem.tabIndex = '0');
@@ -112,7 +70,7 @@ export default {
                 }
             });
         },
-        onItemClick(event, item, index, navigate) {
+        onItemClick(event, item, index) {
             if (this.disabled(item)) {
                 event.preventDefault();
 
@@ -126,10 +84,6 @@ export default {
                 });
             }
 
-            if (item.to && navigate) {
-                navigate(event);
-            }
-
             if (index !== this.d_activeIndex) {
                 this.d_activeIndex = index;
                 this.$emit('update:activeIndex', this.d_activeIndex);
@@ -140,7 +94,7 @@ export default {
                 index: index
             });
         },
-        onKeydownItem(event, item, index, navigate) {
+        onKeydownItem(event, item, index) {
             switch (event.code) {
                 case 'ArrowRight': {
                     this.navigateToNextItem(event.target);
@@ -169,7 +123,7 @@ export default {
                 case 'Space':
 
                 case 'Enter': {
-                    this.onItemClick(event, item, index, navigate);
+                    this.onItemClick(event, item, index);
                     event.preventDefault();
                     break;
                 }
