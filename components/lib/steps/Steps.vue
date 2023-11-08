@@ -1,24 +1,19 @@
 <template>
     <nav :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="steps">
         <ol ref="list" :class="cx('menu')" v-bind="ptm('menu')">
-            <template v-for="(item, index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="[cx('menuitem', { item }), item.class]" :style="item.style" v-bind="getPTOptions('menuitem', item, index)" :data-p-highlight="isActive(item)" :data-p-disabled="isItemDisabled(item)">
+            <template v-for="(item, index) of model" :key="label(item) + '_' + index.toString()">
+                <li
+                    v-if="visible(item)"
+                    :class="[cx('menuitem', { item, index }), item.class]"
+                    :style="item.style"
+                    @click="onItemClick($event, item, index)"
+                    @keydown="onItemKeydown($event, item, index)"
+                    v-bind="getPTOptions('menuitem', item, index)"
+                    :data-p-highlight="isActive(index)"
+                    :data-p-disabled="isItemDisabled(item, index)"
+                >
                     <template v-if="!$slots.item">
-                        <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                            <a
-                                :href="href"
-                                :class="cx('action', { isActive, isExactActive })"
-                                :tabindex="-1"
-                                :aria-current="isExactActive ? 'step' : undefined"
-                                @click="onItemClick($event, item, navigate)"
-                                @keydown="onItemKeydown($event, item, navigate)"
-                                v-bind="getPTOptions('action', item, index)"
-                            >
-                                <span :class="cx('step')" v-bind="getPTOptions('step', item, index)">{{ index + 1 }}</span>
-                                <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
-                            </a>
-                        </router-link>
-                        <span v-else :class="cx('action')" @keydown="onItemKeydown($event, item)" v-bind="getPTOptions('action', item, index)">
+                        <span :class="cx('action')" v-bind="getPTOptions('action', item, index)">
                             <span :class="cx('step')" v-bind="getPTOptions('step', item, index)">{{ index + 1 }}</span>
                             <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
                         </span>
@@ -38,9 +33,15 @@ import BaseSteps from './BaseSteps.vue';
 export default {
     name: 'Steps',
     extends: BaseSteps,
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+    emits: ['update:activeStep', 'step-change'],
+    data() {
+        return {
+            d_activeStep: this.activeStep
+        };
+    },
+    watch: {
+        activeStep(newValue) {
+            this.d_activeStep = newValue;
         }
     },
     mounted() {
@@ -54,12 +55,12 @@ export default {
                 context: {
                     item,
                     index,
-                    active: this.isActive(item),
-                    disabled: this.isItemDisabled(item)
+                    active: this.isActive(index),
+                    disabled: this.isItemDisabled(item, index)
                 }
             });
         },
-        onItemClick(event, item, navigate) {
+        onItemClick(event, item, index) {
             if (this.disabled(item) || this.readonly) {
                 event.preventDefault();
 
@@ -73,11 +74,17 @@ export default {
                 });
             }
 
-            if (item.to && navigate) {
-                navigate(event);
+            if (index !== this.d_activeStep) {
+                this.d_activeStep = index;
+                this.$emit('update:activeStep', this.d_activeStep);
             }
+
+            this.$emit('step-change', {
+                originalEvent: event,
+                index: index
+            });
         },
-        onItemKeydown(event, item, navigate) {
+        onItemKeydown(event, item) {
             switch (event.code) {
                 case 'ArrowRight': {
                     this.navigateToNextItem(event.target);
@@ -110,7 +117,7 @@ export default {
                 case 'Enter':
 
                 case 'Space': {
-                    this.onItemClick(event, item, navigate);
+                    this.onItemClick(event, item);
                     event.preventDefault();
                     break;
                 }
@@ -164,11 +171,11 @@ export default {
             focusableItem.tabIndex = '0';
             focusableItem.focus();
         },
-        isActive(item) {
-            return item.to ? this.$router.resolve(item.to).path === this.$route.path : false;
+        isActive(index) {
+            return index === this.d_activeStep;
         },
-        isItemDisabled(item) {
-            return this.disabled(item) || (this.readonly && !this.isActive(item));
+        isItemDisabled(item, index) {
+            return this.disabled(item) || (this.readonly && !this.isActive(index));
         },
         visible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
