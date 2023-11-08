@@ -297,6 +297,10 @@ export interface PanelMenuSlots {
          */
         item: MenuItem;
         /**
+         * Whether there is a root menuitem
+         */
+        root: boolean;
+        /**
          * Current active state of the menuitem
          */
         isActive: boolean;

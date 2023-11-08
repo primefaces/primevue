@@ -32,6 +32,7 @@
                         v-else
                         :is="templates.item"
                         :item="processedItem.item"
+                        :root="false"
                         :isActive="isItemActive(processedItem)"
                         :hasSubmenu="isItemGroup(processedItem)"
                         :label="getItemLabel(processedItem)"
