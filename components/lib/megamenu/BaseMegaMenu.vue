@@ -14,10 +14,6 @@ export default {
             type: String,
             default: 'horizontal'
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         disabled: {
             type: Boolean,
             default: false
