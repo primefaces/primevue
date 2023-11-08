@@ -1303,7 +1303,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-section="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -1760,7 +1760,7 @@ export default {
                     this.createStyleElement();
 
                     let innerHTML = '';
-                    let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-section="virtualscroller"]'} > table[data-pc-section="table"]`;
+                    let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
                     widths.forEach((width, index) => {
                         let style = `width: ${width}px !important; max-width: ${width}px !important`;
