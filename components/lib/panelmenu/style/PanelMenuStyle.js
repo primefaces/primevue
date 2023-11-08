@@ -48,13 +48,7 @@ const classes = {
         }
     ],
     headerContent: 'p-panelmenu-header-content',
-    headerAction: ({ instance, isActive, isExactActive }) => [
-        'p-panelmenu-header-action',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': instance.exact && isExactActive
-        }
-    ],
+    headerAction: 'p-panelmenu-header-action',
     headerIcon: 'p-menuitem-icon',
     headerLabel: 'p-menuitem-text',
     toggleableContent: 'p-toggleable-content',
@@ -68,13 +62,7 @@ const classes = {
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',

@@ -14,10 +14,6 @@ export default {
             type: Object,
             default: null
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         tabindex: {
             type: Number,
             default: 0

@@ -258,6 +258,7 @@ export interface PanelMenuProps {
     expandedKeys?: PanelMenuExpandedKeys;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * @deprecated since v3.40.0.
      * @defaultValue true
      */
     exact?: boolean | undefined;
