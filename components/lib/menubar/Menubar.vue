@@ -34,7 +34,6 @@
             :menuId="id"
             :focusedItemId="focused ? focusedItemId : undefined"
             :activeItemPath="activeItemPath"
-            :exact="exact"
             :level="0"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -89,11 +88,6 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
-        }
-    },
     mounted() {
         this.id = this.id || UniqueComponentId();
     },
