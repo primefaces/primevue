@@ -4,16 +4,13 @@ const css = `
 @layer primevue {
     .p-megamenu {
         display: flex;
+        position: relative;
     }
 
     .p-megamenu-root-list {
         margin: 0;
         padding: 0;
         list-style: none;
-    }
-
-    .p-megamenu-root-list > .p-menuitem {
-        position: relative;
     }
 
     .p-megamenu .p-menuitem-link {
@@ -34,6 +31,8 @@ const css = `
         position: absolute;
         width: auto;
         z-index: 1;
+        left: 0;
+        min-width: 100%;
     }
 
     .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {

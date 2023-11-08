@@ -1,29 +1,45 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content can be placed inside the megamenu using the <i>start</i> and <i>end</i> properties.</p>
+        <p>
+            Menubar offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. Additional slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
+        </p>
     </DocSectionText>
     <div class="card">
-        <MegaMenu :model="items" orientation="horizontal">
+        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
             <template #start>
-                <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-                </span>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                    <path
+                        d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                        fill="var(--primary-color)"
+                    />
+                    <path
+                        d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                        fill="var(--text-color)"
+                    />
+                </svg>
             </template>
-            <template #item="{ label, item, props, hasSubmenu }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
-                    </a>
-                </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
+            <template #item="{ item }">
+                <a v-if="item.root" v-ripple class="flex align-items-center cursor-pointer px-3 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
                 </a>
+                <a v-else-if="!item.image" class="flex align-items-center p-3 cursor-pointer mb-2 gap-2">
+                    <span class="inline-flex align-items-center justify-content-center border-circle bg-primary w-3rem h-3rem">
+                        <i :class="[item.icon, 'text-lg']"></i>
+                    </span>
+                    <span class="inline-flex flex-column gap-1">
+                        <span class="font-medium text-lg text-900">{{ item.label }}</span>
+                        <span class="white-space-nowrap">{{ item.subtext }}</span>
+                    </span>
+                </a>
+                <div v-else class="flex flex-column align-items-start gap-3">
+                    <img alt="megamenu-demo" :src="item.image" class="w-full" />
+                    <span>{{ item.subtext }}</span>
+                    <Button :label="item.label" outlined />
+                </div>
             </template>
             <template #end>
-                <InputText placeholder="Search" type="text" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
             </template>
         </MegaMenu>
     </div>
@@ -36,173 +52,124 @@ export default {
         return {
             items: [
                 {
-                    label: 'Videos',
-                    icon: 'pi pi-fw pi-video',
+                    label: 'Company',
+                    root: true,
                     items: [
                         [
                             {
-                                label: 'Video 1',
-                                items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }]
-                            },
-                            {
-                                label: 'Video 2',
-                                items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }]
+                                items: [
+                                    { label: 'Features', icon: 'pi pi-list', subtext: 'Subtext of item' },
+                                    { label: 'Customers', icon: 'pi pi-users', subtext: 'Subtext of item' },
+                                    { label: 'Case Studies', icon: 'pi pi-file', subtext: 'Subtext of item' }
+                                ]
                             }
                         ],
                         [
                             {
-                                label: 'Video 3',
-                                items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }]
-                            },
+                                items: [
+                                    { label: 'Solutions', icon: 'pi pi-shield', subtext: 'Subtext of item' },
+                                    { label: 'Faq', icon: 'pi pi-question', subtext: 'Subtext of item' },
+                                    { label: 'Library', icon: 'pi pi-search', subtext: 'Subtext of item' }
+                                ]
+                            }
+                        ],
+                        [
                             {
-                                label: 'Video 4',
-                                items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }]
+                                items: [
+                                    { label: 'Community', icon: 'pi pi-comments', subtext: 'Subtext of item' },
+                                    { label: 'Rewards', icon: 'pi pi-star', subtext: 'Subtext of item' },
+                                    { label: 'Investors', icon: 'pi pi-globe', subtext: 'Subtext of item' }
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                items: [{ image: 'https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png', label: 'GET STARTED', subtext: 'Build spectacular apps in no time.' }]
                             }
                         ]
                     ]
                 },
                 {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-users',
-                    items: [
-                        [
-                            {
-                                label: 'User 1',
-                                items: [{ label: 'User 1.1' }, { label: 'User 1.2' }]
-                            },
-                            {
-                                label: 'User 2',
-                                items: [{ label: 'User 2.1' }, { label: 'User 2.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'User 3',
-                                items: [{ label: 'User 3.1' }, { label: 'User 3.2' }]
-                            },
-                            {
-                                label: 'User 4',
-                                items: [{ label: 'User 4.1' }, { label: 'User 4.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'User 5',
-                                items: [{ label: 'User 5.1' }, { label: 'User 5.2' }]
-                            },
-                            {
-                                label: 'User 6',
-                                items: [{ label: 'User 6.1' }, { label: 'User 6.2' }]
-                            }
-                        ]
-                    ]
+                    label: 'Resources',
+                    root: true
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        [
-                            {
-                                label: 'Event 1',
-                                items: [{ label: 'Event 1.1' }, { label: 'Event 1.2' }]
-                            },
-                            {
-                                label: 'Event 2',
-                                items: [{ label: 'Event 2.1' }, { label: 'Event 2.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'Event 3',
-                                items: [{ label: 'Event 3.1' }, { label: 'Event 3.2' }]
-                            },
-                            {
-                                label: 'Event 4',
-                                items: [{ label: 'Event 4.1' }, { label: 'Event 4.2' }]
-                            }
-                        ]
-                    ]
-                },
-                {
-                    label: 'Settings',
-                    icon: 'pi pi-fw pi-cog',
-                    items: [
-                        [
-                            {
-                                label: 'Setting 1',
-                                items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }]
-                            },
-                            {
-                                label: 'Setting 2',
-                                items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }]
-                            },
-                            {
-                                label: 'Setting 3',
-                                items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'Technology 4',
-                                items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }]
-                            }
-                        ]
-                    ]
-                },
-                {
-                    label: 'Upload',
-                    icon: 'pi pi-fw pi-upload',
-                    route: '/fileupload'
+                    label: 'Contact',
+                    root: true
                 }
             ],
             code: {
                 basic: `
-<MegaMenu :model="items" orientation="horizontal">
+<MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
     <template #start>
-        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
+        <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+            <path d="..." fill="var(--primary-color)" />
+            <path d="..." fill="var(--text-color)" />
+        </svg>
     </template>
-    <template #item="{ label, item, props, hasSubmenu }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
-            </a>
-        </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
-            <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
+    <template #item="{ item }">
+        <a v-if="item.root" v-ripple class="flex align-items-center cursor-pointer px-3 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
         </a>
+        <a v-else-if="!item.image" class="flex align-items-center p-3 cursor-pointer mb-2 gap-2">
+            <span class="inline-flex align-items-center justify-content-center border-circle bg-primary w-3rem h-3rem">
+                <i :class="[item.icon, 'text-lg']"></i>
+            </span>
+            <span class="inline-flex flex-column gap-1">
+                <span class="font-medium text-lg text-900">{{ item.label }}</span>
+                <span class="white-space-nowrap">{{ item.subtext }}</span>
+            </span>
+        </a>
+        <div v-else class="flex flex-column align-items-start gap-3">
+            <img alt="megamenu-demo" :src="item.image" class="w-full" />
+            <span>{{ item.subtext }}</span>
+            <Button :label="item.label" outlined />
+        </div>
     </template>
     <template #end>
-        <InputText placeholder="Search" type="text" />
+        <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
     </template>
 </MegaMenu>
 `,
                 options: `
 <template>
     <div class="card">
-        <MegaMenu :model="items" orientation="horizontal">
+        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
             <template #start>
-                <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-                </span>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                    <path
+                        d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                        fill="var(--primary-color)"
+                    />
+                    <path
+                        d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                        fill="var(--text-color)"
+                    />
+                </svg>
             </template>
-            <template #item="{ label, item, props, hasSubmenu }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
-                    </a>
-                </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
+            <template #item="{ item }">
+                <a v-if="item.root" v-ripple class="flex align-items-center cursor-pointer px-3 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
                 </a>
+                <a v-else-if="!item.image" class="flex align-items-center p-3 cursor-pointer mb-2 gap-2">
+                    <span class="inline-flex align-items-center justify-content-center border-circle bg-primary w-3rem h-3rem">
+                        <i :class="[item.icon, 'text-lg']"></i>
+                    </span>
+                    <span class="inline-flex flex-column gap-1">
+                        <span class="font-medium text-lg text-900">{{ item.label }}</span>
+                        <span class="white-space-nowrap">{{ item.subtext }}</span>
+                    </span>
+                </a>
+                <div v-else class="flex flex-column align-items-start gap-3">
+                    <img alt="megamenu-demo" :src="item.image" class="w-full" />
+                    <span>{{ item.subtext }}</span>
+                    <Button :label="item.label" outlined />
+                </div>
             </template>
             <template #end>
-                <InputText placeholder="Search" type="text" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
             </template>
         </MegaMenu>
     </div>
@@ -214,123 +181,50 @@ export default {
         return {
             items: [
                 {
-                    label: 'Videos',
-                    icon: 'pi pi-fw pi-video',
+                    label: 'Company',
+                    root: true,
                     items: [
                         [
                             {
-                                label: 'Video 1',
-                                items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }]
-                            },
-                            {
-                                label: 'Video 2',
-                                items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }]
+                                items: [
+                                    { label: 'Features', icon: 'pi pi-list', subtext: 'Subtext of item' },
+                                    { label: 'Customers', icon: 'pi pi-users', subtext: 'Subtext of item' },
+                                    { label: 'Case Studies', icon: 'pi pi-file', subtext: 'Subtext of item' }
+                                ]
                             }
                         ],
                         [
                             {
-                                label: 'Video 3',
-                                items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }]
-                            },
+                                items: [
+                                    { label: 'Solutions', icon: 'pi pi-shield', subtext: 'Subtext of item' },
+                                    { label: 'Faq', icon: 'pi pi-question', subtext: 'Subtext of item' },
+                                    { label: 'Library', icon: 'pi pi-search', subtext: 'Subtext of item' }
+                                ]
+                            }
+                        ],
+                        [
                             {
-                                label: 'Video 4',
-                                items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }]
+                                items: [
+                                    { label: 'Community', icon: 'pi pi-comments', subtext: 'Subtext of item' },
+                                    { label: 'Rewards', icon: 'pi pi-star', subtext: 'Subtext of item' },
+                                    { label: 'Investors', icon: 'pi pi-globe', subtext: 'Subtext of item' }
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                items: [{ image: 'https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png', label: 'GET STARTED', subtext: 'Build spectacular apps in no time.' }]
                             }
                         ]
                     ]
                 },
                 {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-users',
-                    items: [
-                        [
-                            {
-                                label: 'User 1',
-                                items: [{ label: 'User 1.1' }, { label: 'User 1.2' }]
-                            },
-                            {
-                                label: 'User 2',
-                                items: [{ label: 'User 2.1' }, { label: 'User 2.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'User 3',
-                                items: [{ label: 'User 3.1' }, { label: 'User 3.2' }]
-                            },
-                            {
-                                label: 'User 4',
-                                items: [{ label: 'User 4.1' }, { label: 'User 4.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'User 5',
-                                items: [{ label: 'User 5.1' }, { label: 'User 5.2' }]
-                            },
-                            {
-                                label: 'User 6',
-                                items: [{ label: 'User 6.1' }, { label: 'User 6.2' }]
-                            }
-                        ]
-                    ]
+                    label: 'Resources',
+                    root: true
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        [
-                            {
-                                label: 'Event 1',
-                                items: [{ label: 'Event 1.1' }, { label: 'Event 1.2' }]
-                            },
-                            {
-                                label: 'Event 2',
-                                items: [{ label: 'Event 2.1' }, { label: 'Event 2.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'Event 3',
-                                items: [{ label: 'Event 3.1' }, { label: 'Event 3.2' }]
-                            },
-                            {
-                                label: 'Event 4',
-                                items: [{ label: 'Event 4.1' }, { label: 'Event 4.2' }]
-                            }
-                        ]
-                    ]
-                },
-                {
-                    label: 'Settings',
-                    icon: 'pi pi-fw pi-cog',
-                    items: [
-                        [
-                            {
-                                label: 'Setting 1',
-                                items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }]
-                            },
-                            {
-                                label: 'Setting 2',
-                                items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }]
-                            },
-                            {
-                                label: 'Setting 3',
-                                items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'Technology 4',
-                                items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }]
-                            }
-                        ]
-                    ]
-                },
-                {
-                    label: 'Upload',
-                    icon: 'pi pi-fw pi-upload',
-                    route: '/fileupload'
+                    label: 'Contact',
+                    root: true
                 }
             ]
         };
@@ -338,152 +232,98 @@ export default {
 };
 <\/script>
 `,
-                composition: `<MegaMenu :model="items" orientation="horizontal">
-    <template #start>
-        <span class="flex align-items-center">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-        </span>
-    </template>
-    <template #item="{ label, item, props, hasSubmenu }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
-            </a>
-        </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
-            <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
-        </a>
-    </template>
-    <template #end>
-        <InputText placeholder="Search" type="text" />
-    </template>
-</MegaMenu>
+                composition: `
+<template>
+    <div class="card">
+        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
+            <template #start>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                    <path
+                        d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                        fill="var(--primary-color)"
+                    />
+                    <path
+                        d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                        fill="var(--text-color)"
+                    />
+                </svg>
+            </template>
+            <template #item="{ item }">
+                <a v-if="item.root" v-ripple class="flex align-items-center cursor-pointer px-3 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+                <a v-else-if="!item.image" class="flex align-items-center p-3 cursor-pointer mb-2 gap-2">
+                    <span class="inline-flex align-items-center justify-content-center border-circle bg-primary w-3rem h-3rem">
+                        <i :class="[item.icon, 'text-lg']"></i>
+                    </span>
+                    <span class="inline-flex flex-column gap-1">
+                        <span class="font-medium text-lg text-900">{{ item.label }}</span>
+                        <span class="white-space-nowrap">{{ item.subtext }}</span>
+                    </span>
+                </a>
+                <div v-else class="flex flex-column align-items-start gap-3">
+                    <img alt="megamenu-demo" :src="item.image" class="w-full" />
+                    <span>{{ item.subtext }}</span>
+                    <Button :label="item.label" outlined />
+                </div>
+            </template>
+            <template #end>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            </template>
+        </MegaMenu>
+    </div>
+</template>
 
 <script setup>
 import { ref } from "vue";
 
 const items = ref([
     {
-        label: 'Videos',
-        icon: 'pi pi-fw pi-video',
+        label: 'Company',
+        root: true,
         items: [
             [
                 {
-                    label: 'Video 1',
-                    items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }]
-                },
-                {
-                    label: 'Video 2',
-                    items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }]
+                    items: [
+                        { label: 'Features', icon: 'pi pi-list', subtext: 'Subtext of item' },
+                        { label: 'Customers', icon: 'pi pi-users', subtext: 'Subtext of item' },
+                        { label: 'Case Studies', icon: 'pi pi-file', subtext: 'Subtext of item' }
+                    ]
                 }
             ],
             [
                 {
-                    label: 'Video 3',
-                    items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }]
-                },
+                    items: [
+                        { label: 'Solutions', icon: 'pi pi-shield', subtext: 'Subtext of item' },
+                        { label: 'Faq', icon: 'pi pi-question', subtext: 'Subtext of item' },
+                        { label: 'Library', icon: 'pi pi-search', subtext: 'Subtext of item' }
+                    ]
+                }
+            ],
+            [
                 {
-                    label: 'Video 4',
-                    items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }]
+                    items: [
+                        { label: 'Community', icon: 'pi pi-comments', subtext: 'Subtext of item' },
+                        { label: 'Rewards', icon: 'pi pi-star', subtext: 'Subtext of item' },
+                        { label: 'Investors', icon: 'pi pi-globe', subtext: 'Subtext of item' }
+                    ]
+                }
+            ],
+            [
+                {
+                    items: [{ image: 'https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png', label: 'GET STARTED', subtext: 'Build spectacular apps in no time.' }]
                 }
             ]
         ]
     },
     {
-        label: 'Users',
-        icon: 'pi pi-fw pi-users',
-        items: [
-            [
-                {
-                    label: 'User 1',
-                    items: [{ label: 'User 1.1' }, { label: 'User 1.2' }]
-                },
-                {
-                    label: 'User 2',
-                    items: [{ label: 'User 2.1' }, { label: 'User 2.2' }]
-                }
-            ],
-            [
-                {
-                    label: 'User 3',
-                    items: [{ label: 'User 3.1' }, { label: 'User 3.2' }]
-                },
-                {
-                    label: 'User 4',
-                    items: [{ label: 'User 4.1' }, { label: 'User 4.2' }]
-                }
-            ],
-            [
-                {
-                    label: 'User 5',
-                    items: [{ label: 'User 5.1' }, { label: 'User 5.2' }]
-                },
-                {
-                    label: 'User 6',
-                    items: [{ label: 'User 6.1' }, { label: 'User 6.2' }]
-                }
-            ]
-        ]
+        label: 'Resources',
+        root: true
     },
     {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-            [
-                {
-                    label: 'Event 1',
-                    items: [{ label: 'Event 1.1' }, { label: 'Event 1.2' }]
-                },
-                {
-                    label: 'Event 2',
-                    items: [{ label: 'Event 2.1' }, { label: 'Event 2.2' }]
-                }
-            ],
-            [
-                {
-                    label: 'Event 3',
-                    items: [{ label: 'Event 3.1' }, { label: 'Event 3.2' }]
-                },
-                {
-                    label: 'Event 4',
-                    items: [{ label: 'Event 4.1' }, { label: 'Event 4.2' }]
-                }
-            ]
-        ]
-    },
-    {
-        label: 'Settings',
-        icon: 'pi pi-fw pi-cog',
-        items: [
-            [
-                {
-                    label: 'Setting 1',
-                    items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }]
-                },
-                {
-                    label: 'Setting 2',
-                    items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }]
-                },
-                {
-                    label: 'Setting 3',
-                    items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }]
-                }
-            ],
-            [
-                {
-                    label: 'Technology 4',
-                    items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }]
-                }
-            ]
-        ]
-    },
-    {
-        label: 'Upload',
-        icon: 'pi pi-fw pi-upload',
-        route: '/fileupload'
+        label: 'Contact',
+        root: true
     }
 ]);
 <\/script>
