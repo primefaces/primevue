@@ -6146,7 +6146,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "aria-label",
@@ -16997,7 +16998,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -22555,7 +22557,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tooltipOptions",
@@ -32155,7 +32158,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "disabled",
@@ -32768,7 +32772,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -33379,7 +33384,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "buttonProps",
@@ -38683,7 +38689,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -47123,7 +47130,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Defines if active route highlight should match the exact route path."
+                            "description": "Defines if active route highlight should match the exact route path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "activeIndex",
@@ -49435,7 +49443,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "disabled",
