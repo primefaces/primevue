@@ -46551,7 +46551,16 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
+                        },
+                        {
+                            "name": "activeStep",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Active step index of menuitem."
                         },
                         {
                             "name": "pt",
