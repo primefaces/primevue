@@ -26,10 +26,6 @@ export default {
             type: Number,
             default: 0
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         disabled: {
             type: Boolean,
             default: false

@@ -21,14 +21,7 @@
             >
                 <div :class="cx('content')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, index, 'content')">
                     <template v-if="!templates.item">
-                        <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, index, 'action')">
-                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                                <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
-                            </a>
-                        </router-link>
-                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
                             <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
@@ -50,7 +43,6 @@
                     :items="processedItem.items"
                     :templates="templates"
                     :activeItemPath="activeItemPath"
-                    :exact="exact"
                     :level="level + 1"
                     :pt="pt"
                     :unstyled="unstyled"
@@ -107,10 +99,6 @@ export default {
             type: Object,
             default: null
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         tabindex: {
             type: Number,
             default: 0
@@ -161,9 +149,6 @@ export default {
         },
         onItemMouseEnter(event, processedItem) {
             this.$emit('item-mouseenter', { originalEvent: event, processedItem });
-        },
-        onItemActionClick(event, navigate) {
-            navigate && navigate(event);
         },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
