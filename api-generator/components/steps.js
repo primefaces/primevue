@@ -12,16 +12,16 @@ const StepsProps = [
         description: 'An array of menuitems.'
     },
     {
+        name: 'activeStep',
+        type: 'number',
+        default: '0',
+        description: 'Active step index of menuitem.'
+    },
+    {
         name: 'readonly',
         type: 'boolean',
         default: 'true',
         description: 'Whether the items are clickable or not.'
-    },
-    {
-        name: 'exact',
-        type: 'boolean',
-        default: 'true',
-        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     },
     {
         name: 'pt',
