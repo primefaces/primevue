@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.40.1](https://github.com/primefaces/primevue/tree/3.40.1) (2023-11-09)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.40.0...3.40.1)
+
+**Fixed bugs:**
+
+-   InputGroupAddon esm broken [\#4788](https://github.com/primefaces/primevue/issues/4788)
+
 ## [3.40.0](https://github.com/primefaces/primevue/tree/3.40.0) (2023-11-09)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.39.0...3.40.0)
