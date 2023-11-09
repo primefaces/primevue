@@ -303,7 +303,7 @@ export interface PanelMenuSlots {
         /**
          * Current active state of the menuitem
          */
-        isActive: boolean;
+        active: boolean;
         /**
          * Label property of the menuitem
          */

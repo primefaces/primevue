@@ -33,7 +33,7 @@
                         :is="templates.item"
                         :item="processedItem.item"
                         :root="false"
-                        :isActive="isItemActive(processedItem)"
+                        :active="isItemActive(processedItem)"
                         :hasSubmenu="isItemGroup(processedItem)"
                         :label="getItemLabel(processedItem)"
                         :props="getMenuItemProps(processedItem, index)"

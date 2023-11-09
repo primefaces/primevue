@@ -28,7 +28,7 @@
                                 <span :class="cx('headerLabel')" v-bind="getPTOptions('headerLabel', item, index)">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
-                        <component v-else :is="$slots.item" :item="item" :root="true" :isActive="isItemActive(item)" :hasSubmenu="getItemProp(item, 'items')" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
+                        <component v-else :is="$slots.item" :item="item" :root="true" :active="isItemActive(item)" :hasSubmenu="getItemProp(item, 'items')" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
                     </div>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
