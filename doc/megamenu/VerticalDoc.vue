@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Layout of the MegaMenu is changed with the <i>orientation</i> property that accepts <i>horizontal</i> and <i>vertical</i> as options.</p>
+        <p>Layout of the MegaMenu is configured with the <i>orientation</i> property that accepts <i>horizontal</i> and <i>vertical</i> as options.</p>
     </DocSectionText>
     <div class="card">
         <MegaMenu :model="items" orientation="vertical" />

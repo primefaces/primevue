@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Menubar offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. Additional slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
+            MegaMenu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. Additional slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
         </p>
     </DocSectionText>
     <div class="card">
