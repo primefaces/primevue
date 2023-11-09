@@ -2730,6 +2730,10 @@
     background: #007bff;
     color: #ffffff;
   }
+  .p-datatable .p-datatable-tbody > tr.p-highlight-contextmenu {
+    outline: 0.15rem solid rgba(38, 143, 255, 0.5);
+    outline-offset: -0.15rem;
+  }
   .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
     box-shadow: inset 0 2px 0 0 #007bff;
   }
