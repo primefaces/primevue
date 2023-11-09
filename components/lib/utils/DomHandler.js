@@ -713,6 +713,34 @@ export default {
         return nextIndex > -1 ? focusableElements[nextIndex] : null;
     },
 
+    getPreviousElementSibling(element, selector) {
+        let previousElement = element.previousElementSibling;
+
+        while (previousElement) {
+            if (previousElement.matches(selector)) {
+                return previousElement;
+            } else {
+                previousElement = previousElement.previousElementSibling;
+            }
+        }
+
+        return null;
+    },
+
+    getNextElementSibling(element, selector) {
+        let nextElement = element.nextElementSibling;
+
+        while (nextElement) {
+            if (nextElement.matches(selector)) {
+                return nextElement;
+            } else {
+                nextElement = nextElement.nextElementSibling;
+            }
+        }
+
+        return null;
+    },
+
     isClickable(element) {
         if (element) {
             const targetNode = element.nodeName;
