@@ -760,7 +760,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the tab</span>\n \t <span class=\"ml-3 text-primary-700\">isTabActive</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Whether the tab is active</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the tab</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">isTabActive</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Whether the tab is active</span>\n\t <span class=\"ml-3 text-primary-700\">active</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Whether the tab is active</span>\n}",
                                     "description": "header slot's params."
                                 }
                             ],
