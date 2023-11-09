@@ -181,6 +181,10 @@ export interface StepsSlots {
          */
         item: MenuItem;
         /**
+         * Current active state of the menuitem
+         */
+        active: boolean;
+        /**
          * Label property of the menuitem
          */
         label: string | ((...args: any) => string) | undefined;
