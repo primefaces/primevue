@@ -194,8 +194,14 @@ export interface AccordionTabSlots {
         /**
          * Whether the tab is active
          * @param {number} index - Index of the tab
+         * @deprecated since v3.40.0. Use 'active' property instead.
          */
         isTabActive: (index: number) => void;
+        /**
+         * Whether the tab is active
+         * @param {number} index - Index of the tab
+         */
+        active: (index: number) => void;
     }): VNode[];
 }
 
