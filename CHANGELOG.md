@@ -1,5 +1,38 @@
 # Changelog
 
+## [3.40.0](https://github.com/primefaces/primevue/tree/3.40.0) (2023-11-09)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.39.0...3.40.0)
+
+**Breaking Changes:**
+
+-   AccordionTab: isTabActive property is deprecated [\#4783](https://github.com/primefaces/primevue/issues/4783)
+-   Remove vue-router support from Menu components [\#4739](https://github.com/primefaces/primevue/issues/4739)
+-   Tooltip: escape should be false by default [\#4738](https://github.com/primefaces/primevue/issues/4738)
+
+**Fixed bugs:**
+
+-   DataTable/TreeTable: Frozen column improvements [\#4786](https://github.com/primefaces/primevue/issues/4786)
+-   Table row is not highlighted with context menu [\#4785](https://github.com/primefaces/primevue/issues/4785)
+-   core: Error BaseStyle\_\_default.default is undefined [\#4648](https://github.com/primefaces/primevue/issues/4648)
+-   DataTable: editingRows watcher implementation defect [\#4757](https://github.com/primefaces/primevue/issues/4757)
+-   MultiSelect Name: prop overshadowing [\#4743](https://github.com/primefaces/primevue/issues/4743)
+-   SpeedDial: unstyled implementation defect breaks the calculations [\#4740](https://github.com/primefaces/primevue/issues/4740)
+-   Tooltip: autoHide does not work properly [\#4737](https://github.com/primefaces/primevue/issues/4737)
+-   Calendar: Console.Error/Crash when pressing Escape key using Inline Calendar [\#4732](https://github.com/primefaces/primevue/issues/4732)
+-   Calendar does not show the right month (for the minimal departure date) when it's dynamically set [\#4157](https://github.com/primefaces/primevue/issues/4157)
+
+**Implemented New Features and Enhancements:**
+
+-   Collision Enhancements [\#4784](https://github.com/primefaces/primevue/issues/4784)
+-   TabMenu/Steps: active option for item templating [\#4780](https://github.com/primefaces/primevue/issues/4780)
+-   PanelMenu: root option for item templating [\#4779](https://github.com/primefaces/primevue/issues/4779)
+-   Steps: new activeStep property [\#4778](https://github.com/primefaces/primevue/issues/4778)
+-   ContextMenu: hasSubmenu options for item templating [\#4764](https://github.com/primefaces/primevue/issues/4764)
+-   TieredMenu: New start and end templating [\#4760](https://github.com/primefaces/primevue/issues/4760)
+-   PanelMenu: active options for item templating [\#4750](https://github.com/primefaces/primevue/issues/4750)
+-   New InputGroup Component [\#4742](https://github.com/primefaces/primevue/issues/4742)
+
 ## [3.39.0](https://github.com/primefaces/primevue/tree/3.39.0) (2023-11-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.38.1...3.39.0)
