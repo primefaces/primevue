@@ -1,9 +1,11 @@
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import BaseIconStyle from 'primevue/baseicon/style';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'BaseIcon',
+    extends: BaseComponent,
     props: {
         label: {
             type: String,
@@ -14,6 +16,7 @@ export default {
             default: false
         }
     },
+    style: BaseIconStyle,
     beforeMount() {
         BaseIconStyle.loadStyle({ nonce: this.$config?.csp?.nonce });
     },
