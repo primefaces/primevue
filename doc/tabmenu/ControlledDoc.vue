@@ -1,9 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
+        <p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <Button @click="active = 0" text outlined class="mb-2" label="Activate 1st" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
+        </div>
+
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -13,38 +18,32 @@
 export default {
     data() {
         return {
-            active: 3,
+            active: 0,
             items: [
-                {
-                    label: 'Home',
-                    icon: 'pi pi-fw pi-home'
-                },
-                {
-                    label: 'Calendar',
-                    icon: 'pi pi-fw pi-calendar'
-                },
-                {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil'
-                },
-                {
-                    label: 'Documentation',
-                    icon: 'pi pi-fw pi-file'
-                },
-                {
-                    label: 'Settings',
-                    icon: 'pi pi-fw pi-cog'
-                }
+                { label: 'Dashboard', icon: 'pi pi-home' },
+                { label: 'Transactions', icon: 'pi pi-chart-line' },
+                { label: 'Products', icon: 'pi pi-list' },
+                { label: 'Messages', icon: 'pi pi-inbox' }
             ],
             code: {
                 basic: `
-<Button @click="active = 0" text outlined label="Activate 1st" />
+<div class="flex mb-2 gap-2 justify-content-end">
+    <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+    <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+    <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
+</div>
+
 <TabMenu v-model:activeIndex="active" :model="items" />
 `,
                 options: `
 <template>
     <div class="card">
-        <Button @click="active = 0" text outlined label="Activate 1st" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
+        </div>
+
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
 </template>
@@ -53,38 +52,27 @@ export default {
 export default {
     data() {
         return {
-            active: 3,
+            active: 0,
             items: [
-                {
-                    label: 'Home',
-                    icon: 'pi pi-fw pi-home'
-                },
-                {
-                    label: 'Calendar',
-                    icon: 'pi pi-fw pi-calendar'
-                },
-                {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil'
-                },
-                {
-                    label: 'Documentation',
-                    icon: 'pi pi-fw pi-file'
-                },
-                {
-                    label: 'Settings',
-                    icon: 'pi pi-fw pi-cog'
-                }
+                { label: 'Dashboard', icon: 'pi pi-home' },
+                { label: 'Transactions', icon: 'pi pi-chart-line' },
+                { label: 'Products', icon: 'pi pi-list' },
+                { label: 'Messages', icon: 'pi pi-inbox' }
             ]
-        };
+        }
     }
-};
+}
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card">
-        <Button @click="active = 0" text outlined label="Activate 1st" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active.value = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active.value = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active.value = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
+        </div>
+
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
 </template>
@@ -92,28 +80,13 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const active = ref(3);
+const active = ref(0);
+
 const items = ref([
-    {
-        label: 'Home',
-        icon: 'pi pi-fw pi-home'
-    },
-    {
-        label: 'Calendar',
-        icon: 'pi pi-fw pi-calendar'
-    },
-    {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil'
-    },
-    {
-        label: 'Documentation',
-        icon: 'pi pi-fw pi-file'
-    },
-    {
-        label: 'Settings',
-        icon: 'pi pi-fw pi-cog'
-    }
+    { label: 'Dashboard', icon: 'pi pi-home' },
+    { label: 'Transactions', icon: 'pi pi-chart-line' },
+    { label: 'Products', icon: 'pi pi-list' },
+    { label: 'Messages', icon: 'pi pi-inbox' }
 ]);
 <\/script>
 `
