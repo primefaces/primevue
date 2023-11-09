@@ -34,6 +34,7 @@ export declare class DomHandler {
     static getWidth(el: HTMLElement): number;
     static absolutePosition(el: HTMLElement, target: HTMLElement): void;
     static relativePosition(el: HTMLElement, target: HTMLElement): void;
+    static nestedPosition(el: HTMLElement, level: number): void;
     static getParents(el: HTMLElement, parents?: any[]): any[];
     static getScrollableParents(el: HTMLElement): any[];
     static getHiddenElementOuterHeight(el: HTMLElement): number;

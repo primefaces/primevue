@@ -169,22 +169,7 @@ export default {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
         },
         onEnter() {
-            this.position();
-        },
-        position() {
-            const parentItem = this.$refs.container.parentElement;
-            const containerOffset = DomHandler.getOffset(this.$refs.container.parentElement);
-            const viewport = DomHandler.getViewport();
-            const sublistWidth = this.$refs.container.offsetParent ? this.$refs.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$refs.container);
-            const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
-
-            this.$refs.container.style.top = '0px';
-
-            if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
-                this.$refs.container.style.left = -1 * sublistWidth + 'px';
-            } else {
-                this.$refs.container.style.left = itemOuterWidth + 'px';
-            }
+            DomHandler.nestedPosition(this.$refs.container, this.level);
         },
         getMenuItemProps(processedItem, index) {
             return {

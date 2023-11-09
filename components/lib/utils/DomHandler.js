@@ -363,6 +363,35 @@ export default {
         }
     },
 
+    nestedPosition(element, level) {
+        if (element) {
+            const parentItem = element.parentElement;
+            const elementOffset = this.getOffset(parentItem);
+            const viewport = this.getViewport();
+            const sublistWidth = element.offsetParent ? element.offsetWidth : this.getHiddenElementOuterWidth(element);
+            const itemOuterWidth = this.getOuterWidth(parentItem.children[0]);
+            let left;
+
+            if (parseInt(elementOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - this.calculateScrollbarWidth()) {
+                if (parseInt(elementOffset.left, 10) < sublistWidth) {
+                    // for too small screens
+                    if (level % 2 === 1) {
+                        left = parseInt(elementOffset.left, 10) ? '-' + parseInt(elementOffset.left, 10) + 'px' : '100%';
+                    } else if (level % 2 === 0) {
+                        left = viewport.width - sublistWidth - this.calculateScrollbarWidth() + 'px';
+                    }
+                } else {
+                    left = '-100%';
+                }
+            } else {
+                left = '100%';
+            }
+
+            element.style.top = '0px';
+            element.style.left = left;
+        }
+    },
+
     getParents(element, parents = []) {
         return element['parentNode'] === null ? parents : this.getParents(element.parentNode, parents.concat([element.parentNode]));
     },

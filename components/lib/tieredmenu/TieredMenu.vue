@@ -21,6 +21,7 @@
                     :templates="$slots"
                     :activeItemPath="activeItemPath"
                     :level="0"
+                    :visible="submenuVisible"
                     :pt="pt"
                     :unstyled="unstyled"
                     @focus="onFocus"
@@ -64,6 +65,7 @@ export default {
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
             visible: !this.popup,
+            submenuVisible: false,
             dirty: false
         };
     },
@@ -240,7 +242,10 @@ export default {
 
             const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
-            grouped && activeItemPath.push(processedItem);
+            if (grouped) {
+                activeItemPath.push(processedItem);
+                this.submenuVisible = true;
+            }
 
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;

@@ -41,6 +41,15 @@ const css = `
         left: 100%;
         top: 0;
     }
+
+    .p-tieredmenu-enter-from,
+    .p-tieredmenu-leave-active {
+        opacity: 0;
+    }
+
+    .p-tieredmenu-enter-active {
+        transition: opacity 250ms;
+    }
 }
 `;
 

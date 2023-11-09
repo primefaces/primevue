@@ -35,7 +35,8 @@ const css = `
         margin-left: auto;
     }
 
-    .p-contextmenu-enter-from {
+    .p-contextmenu-enter-from,
+    .p-contextmenu-leave-active {
         opacity: 0;
     }
 

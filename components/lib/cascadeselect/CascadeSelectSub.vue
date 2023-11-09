@@ -1,5 +1,5 @@
 <template>
-    <ul :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
+    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
@@ -45,6 +45,7 @@
                     @option-change="onOptionChange"
                     :pt="pt"
                     :unstyled="unstyled"
+                    :isParentMount="mounted"
                 />
             </li>
         </template>
@@ -62,6 +63,7 @@ export default {
     hostName: 'CascadeSelect',
     extends: BaseComponent,
     emits: ['option-change'],
+    container: null,
     props: {
         selectId: String,
         focusedOptionId: String,
@@ -74,12 +76,25 @@ export default {
         optionGroupChildren: Array,
         activeOptionPath: Array,
         level: Number,
-        templates: null
+        templates: null,
+        isParentMount: Boolean
+    },
+    data() {
+        return {
+            mounted: false
+        };
+    },
+    watch: {
+        isParentMount: {
+            handler(newValue) {
+                newValue && DomHandler.nestedPosition(this.container, this.level);
+            }
+        }
     },
     mounted() {
-        if (ObjectUtils.isNotEmpty(this.parentKey)) {
-            this.position();
-        }
+        // entering order correction when an item is selected
+        (this.isParentMount || this.level === 0) && DomHandler.nestedPosition(this.container, this.level);
+        this.mounted = true;
     },
     methods: {
         getOptionId(processedOption) {
@@ -121,16 +136,8 @@ export default {
         onOptionChange(event) {
             this.$emit('option-change', event);
         },
-        position() {
-            const parentItem = this.$el.parentElement;
-            const containerOffset = DomHandler.getOffset(parentItem);
-            const viewport = DomHandler.getViewport();
-            const sublistWidth = this.$el.offsetParent ? this.$el.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$el);
-            const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
-
-            if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
-                this.$el.style.left = '-100%';
-            }
+        containerRef(el) {
+            this.container = el;
         }
     },
     directives: {
