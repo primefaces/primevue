@@ -4176,7 +4176,7 @@
   }
 
   .p-contextmenu {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     color: #4b5563;
     border: 0 none;
@@ -4188,7 +4188,7 @@
     outline: 0 none;
   }
   .p-contextmenu .p-submenu-list {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -4407,7 +4407,7 @@
     border-top-left-radius: 6px;
   }
   .p-megamenu .p-submenu-list {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     width: 12.5rem;
   }
   .p-megamenu .p-submenu-list .p-menuitem-separator {
@@ -4416,7 +4416,7 @@
   }
   .p-megamenu.p-megamenu-vertical {
     width: 12.5rem;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
   }
   .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
     color: #4b5563;
@@ -4450,7 +4450,7 @@
   }
 
   .p-menu {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     color: #4b5563;
     border: 1px solid #e5e7eb;
@@ -4623,7 +4623,7 @@
     color: #6b7280;
   }
   .p-menubar .p-submenu-list {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -4661,7 +4661,7 @@
     .p-menubar .p-menubar-root-list {
       position: absolute;
       display: none;
-      padding: 0.25rem 0;
+      padding: 0.5rem 0;
       background: #ffffff;
       border: 0 none;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -4770,7 +4770,7 @@
     color: #374151;
   }
   .p-panelmenu .p-panelmenu-content {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     border: 1px solid #e5e7eb;
     background: #ffffff;
     color: #4b5563;
@@ -4936,7 +4936,7 @@
   }
 
   .p-tieredmenu {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     color: #4b5563;
     border: 1px solid #e5e7eb;
@@ -4952,7 +4952,7 @@
     outline: 0 none;
   }
   .p-tieredmenu .p-submenu-list {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     background: #ffffff;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
