@@ -5721,4 +5721,9 @@
 .p-orderlist-controls .p-button {
     transition: opacity 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
+
+  .p-steps .p-steps-item.p-highlight .p-steps-number {
+    background: #6366F1;
+    color: #ffffff;
+  }
 }

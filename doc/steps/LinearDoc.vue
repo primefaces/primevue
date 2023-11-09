@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Steps requires a collection of menuitems as its <i>model</i>.</p>
+        <p>Steps is linear by default to enforce completion of a previus step to proceed, set <i>readonly</i> as false for non-linear mode.</p>
     </DocSectionText>
     <div class="card">
-        <Steps :model="items" />
+        <Steps :model="items" :readonly="false" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -25,7 +25,7 @@ export default {
             ],
             code: {
                 basic: `
-<Steps :model="items" />
+<Steps :model="items" :readonly="false" />
 `,
                 options: `
 <template>
@@ -57,7 +57,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Steps :model="items" />
+        <Steps :model="items" :readonly="false" />
     </div>
 </template>
 
