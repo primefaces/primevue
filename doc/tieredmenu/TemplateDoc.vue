@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Menu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <p>TieredMenu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <TieredMenu :model="items">
