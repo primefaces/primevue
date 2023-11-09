@@ -10,8 +10,8 @@ function registerItems(items = [], options = {}, params) {
 
     return items.filter((item) => {
         const name = item?.name;
-        const matchedIn = included === '*' || included === undefined ? true : Utils.object.isNotEmpty(included) ? included.some((inc) => name?.toLowerCase() === inc.toLowerCase()) : false;
-        const matchedEx = excluded === '*' ? true : Utils.object.isNotEmpty(excluded) ? excluded.some((exc) => name?.toLowerCase() === exc.toLowerCase()) : false;
+        const matchedIn = included === '*' || included === undefined ? true : Utils.object.isNotEmpty(included) ? included.some((inc) => name?.toLowerCase() === Utils.object.isString(inc) ? inc?.toLowerCase() : inc?.name?.toLowerCase()) : false;
+        const matchedEx = excluded === '*' ? true : Utils.object.isNotEmpty(excluded) ? excluded.some((exc) => name?.toLowerCase() === Utils.object.isString(exc) ? exc?.toLowerCase() : exc?.name?.toLowerCase()) : false;
 
         return matchedIn && !matchedEx;
     });
