@@ -1,6 +1,6 @@
 {
     "main": "./inputgroupaddon.cjs.js",
-    "module": "./inputgrouaddonp.esm.js",
+    "module": "./inputgroupaddon.esm.js",
     "unpkg": "./inputgroupaddon.min.js",
     "types": "./InputGroupAddon.d.ts",
     "browser": {
