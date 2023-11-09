@@ -10,17 +10,23 @@
 </template>
 
 <script>
+import AccessibilityDoc from '@/doc/inputgroup/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputgroup/BasicDoc.vue';
 import ButtonDoc from '@/doc/inputgroup/ButtonDoc.vue';
 import CheckboxDoc from '@/doc/inputgroup/CheckboxDoc.vue';
+import ImportDoc from '@/doc/inputgroup/ImportDoc.vue';
 import MultipleDoc from '@/doc/inputgroup/MultipleDoc.vue';
 import PTComponent from '@/doc/inputgroup/pt/index.vue';
-import AccessibilityDoc from '@/doc/inputgroup/AccessibilityDoc.vue';
 
 export default {
     data() {
         return {
             docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
                 {
                     id: 'basic',
                     label: 'Basic',
