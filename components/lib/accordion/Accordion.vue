@@ -20,7 +20,7 @@
                     @keydown="onTabKeyDown($event, tab, i)"
                     v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction', i) }"
                 >
-                    <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
+                    <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :active="isTabActive(i)" :index="i"></component>
                     <component
                         v-else-if="isTabActive(i)"
                         :is="$slots.collapseicon ? $slots.collapseicon : collapseIcon ? 'span' : 'ChevronDownIcon'"
