@@ -1308,7 +1308,7 @@ export default {
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
-                let style = `width: ${colWidth}px; max-width: ${colWidth}px`;
+                let style = `width: ${colWidth}px !important; max-width: ${colWidth}px !important`;
 
                 innerHTML += `
                     ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
@@ -1764,7 +1764,7 @@ export default {
                     let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
                     widths.forEach((width, index) => {
-                        let style = `width: ${width}px; max-width: ${width}px`;
+                        let style = `width: ${width}px !important; max-width: ${width}px !important`;
 
                         innerHTML += `
                             ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
