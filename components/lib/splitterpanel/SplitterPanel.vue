@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" v-bind="ptm('root', getPTOptions)" data-pc-name="splitterpanel">
+    <div ref="container" :class="cx('root')" v-bind="ptm('root', getPTOptions)" data-pc-name="splitterpanel" style="flex-grow:1;">
         <slot></slot>
     </div>
 </template>
