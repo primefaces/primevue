@@ -331,7 +331,7 @@ export default {
             }
         },
         saveState() {
-            if(Array.isArray(this.panelSizes)) {                
+            if(ObjectUtils.isArray(this.panelSizes)) {                
                 this.getStorage().setItem(this.stateKey, JSON.stringify(this.panelSizes));
             }
         },
