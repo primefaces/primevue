@@ -480,6 +480,34 @@ export default class DomHandler {
         return focusableElements.length > 0 ? focusableElements[0] : null;
     }
 
+    static getPreviousElementSibling(element, selector) {
+        let previousElement = element.previousElementSibling;
+
+        while (previousElement) {
+            if (previousElement.matches(selector)) {
+                return previousElement;
+            } else {
+                previousElement = previousElement.previousElementSibling;
+            }
+        }
+
+        return null;
+    }
+
+    static getNextElementSibling(element, selector) {
+        let nextElement = element.nextElementSibling;
+
+        while (nextElement) {
+            if (nextElement.matches(selector)) {
+                return nextElement;
+            } else {
+                nextElement = nextElement.nextElementSibling;
+            }
+        }
+
+        return null;
+    }
+
     static isClickable(element) {
         const targetNode = element.nodeName;
         const parentNode = element.parentElement && element.parentElement.nodeName;

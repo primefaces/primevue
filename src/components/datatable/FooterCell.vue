@@ -45,7 +45,7 @@ export default {
                 let align = this.columnProp('alignFrozen');
                 if (align === 'right') {
                     let right = 0;
-                    let next = this.$el.nextElementSibling;
+                    let next = DomHandler.getNextElementSibling(this.$el, '.p-frozen-column');
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
                     }

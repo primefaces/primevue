@@ -155,7 +155,7 @@ export default {
                 let align = this.columnProp('alignFrozen');
                 if (align === 'right') {
                     let right = 0;
-                    let next = this.$el.nextElementSibling;
+                    let next = DomHandler.getNextElementSibling(this.$el, '.p-frozen-column');
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
@@ -163,7 +163,7 @@ export default {
                 }
                 else {
                     let left = 0;
-                    let prev = this.$el.previousElementSibling;
+                    let prev = DomHandler.getPreviousElementSibling(this.$el, '.p-frozen-column');
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
