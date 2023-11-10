@@ -338,14 +338,17 @@ export default {
             const stateString = storage.getItem(this.stateKey);
 
             if (stateString) {
-                this.panelSizes = JSON.parse(stateString);
-                let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
-
-                children.forEach((child, i) => {
-                    child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
-                });
-
-                return true;
+                const array = JSON.parse(stateString);
+                if (Array.isArray(array)) {
+                    this.panelSizes = array;
+                    let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
+    
+                    children.forEach((child, i) => {
+                        child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
+                    });
+    
+                    return true;
+                }
             }
 
             return false;
