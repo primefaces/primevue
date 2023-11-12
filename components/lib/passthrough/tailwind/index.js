@@ -1763,7 +1763,7 @@ export default {
             }
         },
         panel: {
-            class: ['bg-white text-gray-700 border-0 rounded-md shadow-lg', 'max-h-[200px] overflow-auto', 'bg-white text-gray-700 border-0 rounded-md shadow-lg', 'dark:bg-gray-900 dark:text-white/80']
+            class: ['bg-white text-gray-700 border-0 rounded-md shadow-lg', 'max-h-[200px] overflow-auto', 'dark:bg-gray-900 dark:text-white/80']
         },
         list: {
             class: 'py-3 list-none m-0'
