@@ -859,6 +859,7 @@ export default {
                             const data = this.dataToRender(slotProps.rows);
 
                             this.$emit('update:selection', data);
+                            event.preventDefault();
                         }
 
                         break;
