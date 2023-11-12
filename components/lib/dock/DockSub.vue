@@ -31,25 +31,7 @@
                 >
                     <div :class="cx('content')" v-bind="getPTOptions('content', processedItem, index)">
                         <template v-if="!templates['item']">
-                            <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
-                                <a
-                                    v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
-                                    :href="href"
-                                    :class="cx('action', { isActive, isExactActive })"
-                                    :target="processedItem.target"
-                                    tabindex="-1"
-                                    aria-hidden="true"
-                                    @click="onItemActionClick($event, processedItem, navigate)"
-                                    v-bind="getPTOptions('action', processedItem, index)"
-                                >
-                                    <template v-if="!templates['icon']">
-                                        <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions('icon', processedItem, index)"></span>
-                                    </template>
-                                    <component v-else :is="templates['icon']" :item="processedItem" :class="cx('icon')"></component>
-                                </a>
-                            </router-link>
                             <a
-                                v-else
                                 v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
                                 :href="processedItem.url"
                                 :class="cx('action')"
@@ -96,10 +78,6 @@ export default {
         templates: {
             type: null,
             default: null
-        },
-        exact: {
-            type: Boolean,
-            default: true
         },
         tooltipOptions: null,
         menuId: {
@@ -162,9 +140,6 @@ export default {
         },
         onItemMouseEnter(index) {
             this.currentIndex = index;
-        },
-        onItemActionClick(event, navigate) {
-            navigate && navigate(event);
         },
         onItemClick(event, processedItem) {
             if (this.isSameMenuItem(event)) {

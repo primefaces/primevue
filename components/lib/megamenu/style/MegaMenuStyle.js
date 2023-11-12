@@ -4,16 +4,13 @@ const css = `
 @layer primevue {
     .p-megamenu {
         display: flex;
+        position: relative;
     }
 
     .p-megamenu-root-list {
         margin: 0;
         padding: 0;
         list-style: none;
-    }
-
-    .p-megamenu-root-list > .p-menuitem {
-        position: relative;
     }
 
     .p-megamenu .p-menuitem-link {
@@ -34,6 +31,8 @@ const css = `
         position: absolute;
         width: auto;
         z-index: 1;
+        left: 0;
+        min-width: 100%;
     }
 
     .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
@@ -144,13 +143,7 @@ const classes = {
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',

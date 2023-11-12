@@ -1,0 +1,6 @@
+{
+    "main": "./inputgroupaddonstyle.cjs.js",
+    "module": "./inputgroupaddonstyle.esm.js",
+    "unpkg": "./inputgroupaddonstyle.min.js",
+    "types": "./InputGroupAddonStyle.d.ts"
+}

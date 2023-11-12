@@ -6,12 +6,6 @@ const TabMenuProps = [
         description: 'An array of menuitems.'
     },
     {
-        name: 'exact',
-        type: 'boolean',
-        default: 'true',
-        description: 'Defines if active route highlight should match the exact route path.'
-    },
-    {
         name: 'activeIndex',
         type: 'number',
         default: '0',

@@ -5,7 +5,7 @@
         </p>
     </DocSectionText>
     <div class="card">
-        <ContextMenu ref="cm" :model="menuModel" />
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
         <DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -34,7 +34,7 @@ export default {
             ],
             code: {
                 basic: `
-<ContextMenu ref="cm" :model="menuModel" />
+<ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
 <DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu
         @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
@@ -49,8 +49,8 @@ export default {
 `,
                 options: `
 <template>
-    <div>
-        <ContextMenu ref="cm" :model="menuModel" />
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
         <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" 
                 @rowContextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
@@ -105,8 +105,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div>
-        <ContextMenu ref="cm" :model="menuModel" />
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
         <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct"
                 @rowContextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>

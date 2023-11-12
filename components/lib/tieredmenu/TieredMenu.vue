@@ -2,6 +2,9 @@
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="tieredmenu">
+                <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
+                    <slot name="start"></slot>
+                </div>
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
@@ -17,8 +20,8 @@
                     :items="processedItems"
                     :templates="$slots"
                     :activeItemPath="activeItemPath"
-                    :exact="exact"
                     :level="0"
+                    :visible="submenuVisible"
                     :pt="pt"
                     :unstyled="unstyled"
                     @focus="onFocus"
@@ -27,6 +30,9 @@
                     @item-click="onItemClick"
                     @item-mouseenter="onItemMouseEnter"
                 />
+                <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
+                    <slot name="end"></slot>
+                </div>
             </div>
         </transition>
     </Portal>
@@ -59,6 +65,7 @@ export default {
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
             visible: !this.popup,
+            submenuVisible: false,
             dirty: false
         };
     },
@@ -76,11 +83,6 @@ export default {
                     this.unbindResizeListener();
                 }
             }
-        }
-    },
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {
@@ -240,7 +242,10 @@ export default {
 
             const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
-            grouped && activeItemPath.push(processedItem);
+            if (grouped) {
+                activeItemPath.push(processedItem);
+                this.submenuVisible = true;
+            }
 
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;

@@ -2,7 +2,7 @@
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
-                <slot v-if="$slots.container" name="container" :message="confirmation" :onAccept="accept" :onReject="reject"></slot>
+                <slot v-if="$slots.container" name="container" :message="confirmation" :onAccept="accept" :onReject="reject" :acceptCallback="accept" :rejectCallback="reject"></slot>
                 <template v-else>
                     <template v-if="!$slots.message">
                         <div :class="cx('content')" v-bind="ptm('content')">

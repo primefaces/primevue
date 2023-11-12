@@ -186,7 +186,7 @@ export interface AutoCompletePassThroughOptions {
      */
     selectedMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -631,8 +631,14 @@ export interface AutoCompleteSlots {
         /**
          * Remove token icon function.
          * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
          */
         onClick: (event: Event, index: number) => void;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        removeCallback: (event: Event, index: number) => void;
     }): VNode[];
     /**
      * Custom loading icon template.

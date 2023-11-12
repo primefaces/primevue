@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A sample macOS implementation using various components.</p>
+        <p>A sample desktop demo using various components.</p>
     </DocSectionText>
     <div class="card dock-demo">
         <Toast position="top-center" group="tc" />
@@ -213,7 +213,7 @@ export default {
                             ]
                         },
                         {
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -269,7 +269,7 @@ export default {
                 <i class="pi pi-bars px-2" />
             </template>
         </Menubar>
-    
+
         <div class="dock-window dock-advanced">
             <Dock :model="items">
                 <template #item="{ item }">
@@ -278,15 +278,15 @@ export default {
                     </a>
                 </template>
             </Dock>
-    
+
             <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
                 <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
             </Dialog>
-    
+
             <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
                 <Tree :value="nodes" />
             </Dialog>
-    
+
             <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px" :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                 <template #item="slotProps">
                     <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
@@ -464,7 +464,7 @@ export default {
                             ]
                         },
                         {
-                            label: 'Archieve',
+                            label: 'Archive',
                             icon: 'pi pi-fw pi-calendar-times',
                             items: [
                                 {
@@ -560,7 +560,7 @@ export default {
     <div>
         <div class="card dock-demo">
             <Toast position="top-center" group="tc" />
-            
+
             <Menubar :model="menubarItems">
                 <template #start>
                     <i class="pi pi-apple px-2"></i>
@@ -783,7 +783,7 @@ const menubarItems = ref([
                 ]
             },
             {
-                label: 'Archieve',
+                label: 'Archive',
                 icon: 'pi pi-fw pi-calendar-times',
                 items: [
                     {
@@ -855,14 +855,15 @@ const commandHandler = (text) => {
     background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
 
 .dock-demo .p-menubar {
     padding: 0;
     border-radius: 0;
 }
-</style>`
+</style>
+`
             }
         };
     },

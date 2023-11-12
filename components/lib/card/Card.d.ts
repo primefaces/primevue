@@ -48,7 +48,7 @@ export interface CardPassThroughOptions {
      */
     footer?: CardPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

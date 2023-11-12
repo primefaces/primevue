@@ -121,7 +121,7 @@ export interface PanelMenuPassThroughOptions {
      */
     separator?: PanelMenuPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -258,6 +258,7 @@ export interface PanelMenuProps {
     expandedKeys?: PanelMenuExpandedKeys;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * @deprecated since v3.40.0.
      * @defaultValue true
      */
     exact?: boolean | undefined;
@@ -295,6 +296,14 @@ export interface PanelMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Whether there is a root menuitem
+         */
+        root: boolean;
+        /**
+         * Current active state of the menuitem
+         */
+        active: boolean;
         /**
          * Label property of the menuitem
          */

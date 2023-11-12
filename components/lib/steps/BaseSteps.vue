@@ -17,9 +17,9 @@ export default {
             type: Boolean,
             default: true
         },
-        exact: {
-            type: Boolean,
-            default: true
+        activeStep: {
+            type: Number,
+            default: 0
         }
     },
     style: StepsStyle,

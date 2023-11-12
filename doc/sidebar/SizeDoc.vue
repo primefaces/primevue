@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Sidebar dimension can be defined with <i>style</i> or <i>class</i> properties which can also be responsive when used with a CSS utility library like PrimeFlex.</p>
+        <p>Sidebar dimension can be defined with <i>style</i> or <i>class</i> properties which can also be responsive when used with a CSS utility library like PrimeFlex or Tailwind.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible" class="w-full md:w-20rem lg:w-30rem">

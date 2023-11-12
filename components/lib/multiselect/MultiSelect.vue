@@ -33,7 +33,7 @@
                             <slot name="chip" :value="item">
                                 <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :onClick="(event) => removeOption(event, item)">
+                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :onClick="(event) => removeOption(event, item)" :removeCallback="(event) => removeOption(event, item)">
                                 <span v-if="removeTokenIcon" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                                 <TimesCircleIcon v-else :class="cx('removeTokenIcon')" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                             </slot>
@@ -770,7 +770,7 @@ export default {
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
-            const selectedItemsLabel = this.$primevue.config.locale.selectionMessage || this.selectedItemsLabel;
+            const selectedItemsLabel = this.selectedItemsLabel || this.$primevue.config.locale.selectionMessage;
 
             if (pattern.test(selectedItemsLabel)) {
                 return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');

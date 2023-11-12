@@ -136,7 +136,7 @@
                 </a>
                 <a
                     href="https://www.figma.com/file/Br6Z9SxeYKGZWwKXUcUkGA/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.1.1?type=design&node-id=806%3A36648&mode=design&t=GhlXi6oKNtsPtiS6-1"
-                    class="p-5 w-6 bg-gray-900 flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
+                    class="p-5 w-full md:w-6 bg-gray-900 flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
                     style="border-radius: 50px"
                 >
                     <span class="text-white text-4xl font-bold mb-5">Preview Dark</span>

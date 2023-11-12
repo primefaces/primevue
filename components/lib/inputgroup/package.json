@@ -1,0 +1,9 @@
+{
+    "main": "./inputgroup.cjs.js",
+    "module": "./inputgroup.esm.js",
+    "unpkg": "./inputgroup.min.js",
+    "types": "./InputGroup.d.ts",
+    "browser": {
+        "./sfc": "./InputGroup.vue"
+    }
+}

@@ -44,7 +44,7 @@ export interface RippleDirectivePassThroughOptions {
      */
     root?: RippleDirectivePassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

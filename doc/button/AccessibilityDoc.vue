@@ -48,7 +48,8 @@ export default {
 <Button class="youtube p-0" aria-label="Youtube">
     <i class="pi pi-youtube px-2"></i>
     <span class="px-3">Youtube</span>
-</Button>`
+</Button>
+`
             }
         };
     }

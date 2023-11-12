@@ -122,7 +122,7 @@ describe('ContextMenu.vue', () => {
                                 ]
                             },
                             {
-                                label: 'Archieve',
+                                label: 'Archive',
                                 icon: 'pi pi-fw pi-calendar-times',
                                 items: [
                                     {

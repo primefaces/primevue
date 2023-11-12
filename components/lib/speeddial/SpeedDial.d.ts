@@ -77,7 +77,7 @@ export interface SpeedDialPassThroughOptions {
      */
     mask?: SpeedDialPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -297,8 +297,14 @@ export interface SpeedDialSlots {
         /**
          * Button click function
          * @param {Event} event - Browser event.
+         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
          */
         onClick: (event: Event) => void;
+        /**
+         * Button click function
+         * @param {Event} event - Browser event.
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom icon template.

@@ -57,7 +57,7 @@ export interface FocusTrapDirectivePassThroughOptions {
      */
     lastFocusableElement?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

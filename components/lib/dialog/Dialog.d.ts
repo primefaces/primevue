@@ -88,7 +88,7 @@ export interface DialogPassThroughOptions {
      */
     mask?: DialogPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -339,13 +339,24 @@ export interface DialogSlots {
     container(scope: {
         /**
          * Close dialog function.
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
         /**
          * Maximize/minimize dialog function.
          * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'maximizeCallback' property instead.
          */
         onMaximize: (event: Event) => void;
+        /**
+         * Close dialog function.
+         */
+        closeCallback: () => void;
+        /**
+         * Maximize/minimize dialog function.
+         * @param {Event} event - Browser event
+         */
+        maximizeCallback: (event: Event) => void;
     }): VNode[];
 }
 

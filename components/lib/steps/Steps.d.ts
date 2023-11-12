@@ -67,7 +67,7 @@ export interface StepsPassThroughOptions {
      */
     label?: StepsPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -115,7 +115,7 @@ export interface StepsRouterBindProps {
     /**
      * Icon element binding
      */
-    icon: object;
+    step: object;
     /**
      * Label element binding
      */
@@ -141,9 +141,15 @@ export interface StepsProps {
     readonly?: boolean | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * @deprecated since v3.40.0.
      * @defaultValue true
      */
     exact?: boolean | undefined;
+    /**
+     * Active step index of menuitem.
+     * @defaultValue 0
+     */
+    activeStep?: number | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {StepsPassThroughOptions}
@@ -174,6 +180,10 @@ export interface StepsSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Current active state of the menuitem
+         */
+        active: boolean;
         /**
          * Label property of the menuitem
          */

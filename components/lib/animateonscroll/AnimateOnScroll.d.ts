@@ -40,7 +40,7 @@ export interface AnimateOnScrollOptions {
  */
 export interface AnimateOnScrollDirectivePassThroughOptions {
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;
@@ -66,7 +66,7 @@ export interface AnimateOnScrollDirectiveBinding extends Omit<DirectiveBinding, 
      */
     value?: AnimateOnScrollOptions | undefined;
     /**
-     * Modifiers of the tooltip.
+     * Modifiers of the AnimateOnScroll.
      * @type {AnimateOnScrollDirectiveModifiers}
      */
     modifiers?: AnimateOnScrollDirectiveModifiers | undefined;

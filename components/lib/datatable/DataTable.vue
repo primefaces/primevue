@@ -402,7 +402,7 @@ export default {
             }
         },
         editingRows: {
-            deep: true,
+            immediate: true,
             handler(newValue) {
                 if (this.dataKey) {
                     this.updateEditingRowKeys(newValue);

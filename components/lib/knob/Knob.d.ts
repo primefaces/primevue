@@ -61,7 +61,7 @@ export interface KnobPassThroughOptions {
      */
     label?: KnobPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

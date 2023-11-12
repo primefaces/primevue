@@ -127,13 +127,7 @@ const classes = {
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ props, isActive, isExactActive }) => [
-        'p-dock-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-dock-link',
     icon: 'p-dock-icon'
 };
 

@@ -18,14 +18,7 @@
             >
                 <div :class="cx('content')" @click="onItemClick($event, processedItem)" v-bind="getPTOptions('content', processedItem, index)">
                     <template v-if="!templates.item">
-                        <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action', processedItem, index)">
-                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
-                                <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
-                            </a>
-                        </router-link>
-                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
                             <template v-if="isItemGroup(processedItem)">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :class="cx('submenuIcon')" :active="isItemActive(processedItem)" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
                                 <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
@@ -35,7 +28,16 @@
                             <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="isItemGroup(processedItem)" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
+                    <component
+                        v-else
+                        :is="templates.item"
+                        :item="processedItem.item"
+                        :root="false"
+                        :active="isItemActive(processedItem)"
+                        :hasSubmenu="isItemGroup(processedItem)"
+                        :label="getItemLabel(processedItem)"
+                        :props="getMenuItemProps(processedItem, index)"
+                    ></component>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(processedItem)" :class="cx('toggleableContent')" v-bind="ptm('toggleableContent')">
@@ -49,7 +51,6 @@
                             :level="level + 1"
                             :templates="templates"
                             :activeItemPath="activeItemPath"
-                            :exact="exact"
                             @item-toggle="onItemToggle"
                             :pt="pt"
                             :unstyled="unstyled"
@@ -107,10 +108,6 @@ export default {
             type: Object,
             default: null
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         tabindex: {
             type: Number,
             default: -1
@@ -161,9 +158,6 @@ export default {
         },
         onItemToggle(event) {
             this.$emit('item-toggle', event);
-        },
-        onItemActionClick(event, navigate) {
-            navigate && navigate(event);
         },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;

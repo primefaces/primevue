@@ -78,7 +78,8 @@ export default {
 
 <Sidebar id="sbar" v-model:visible="visible" role="region" >
     <p>Content</p>
-</Sidebar>`
+</Sidebar>
+`
             }
         };
     }

@@ -1,28 +1,25 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
-            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
-        </p>
+        <p>Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.</p>
     </DocSectionText>
-    <div class="card relative z-2">
+    <div class="card">
         <Menubar :model="items">
-            <template #item="{ label, item, props, root, hasSubmenu }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
                 </a>
             </template>
         </Menubar>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" hideStackBlitz hideCodeSandbox />
 </template>
 
 <script>
@@ -31,165 +28,74 @@ export default {
         return {
             items: [
                 {
-                    label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    label: 'Router',
+                    icon: 'pi pi-palette',
                     items: [
                         {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-plus',
-                            items: [
-                                {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
-                                },
-                                {
-                                    label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
-                                }
-                            ]
+                            label: 'Styled',
+                            route: '/theming'
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
-                        },
-                        {
-                            separator: true
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
+                            label: 'Unstyled',
+                            route: '/unstyled'
                         }
                     ]
                 },
                 {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
+                    label: 'Programmatic',
+                    icon: 'pi pi-link',
+                    command: () => {
+                        this.$router.push('/installation');
+                    }
+                },
+                {
+                    label: 'External',
+                    icon: 'pi pi-home',
                     items: [
                         {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
+                            label: 'Vue.js',
+                            url: 'https://vuejs.org/'
                         },
                         {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
+                            label: 'Vite.js',
+                            url: 'https://vuejs.org/'
                         }
                     ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
-                                    items: [
-                                        {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
-                                        }
-                                    ]
-                                },
-                                {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: 'Upload',
-                    icon: 'pi pi-fw pi-upload',
-                    route: '/fileupload'
-                },
-                {
-                    label: 'Quit',
-                    icon: 'pi pi-fw pi-power-off'
                 }
             ],
             code: {
                 basic: `
 <Menubar :model="items">
-    <template #item="{ label, item, props, root, hasSubmenu }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
+    <template #item="{ item, props, hasSubmenu }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
             </a>
         </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
-            <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
         </a>
     </template>
 </Menubar>
 `,
                 options: `
 <template>
-    <div class="card relative z-2">
+    <div class="card">
         <Menubar :model="items">
-            <template #item="{ label, item, props, root, hasSubmenu }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
                 </a>
             </template>
         </Menubar>
@@ -202,130 +108,39 @@ export default {
         return {
             items: [
                 {
-                    label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    label: 'Router',
+                    icon: 'pi pi-palette',
                     items: [
                         {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-plus',
-                            items: [
-                                {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
-                                },
-                                {
-                                    label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
-                                }
-                            ]
+                            label: 'Styled',
+                            route: '/theming'
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
-                        },
-                        {
-                            separator: true
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
+                            label: 'Unstyled',
+                            route: '/unstyled'
                         }
                     ]
                 },
                 {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
+                    label: 'Programmatic',
+                    icon: 'pi pi-link',
+                    command: () => {
+                        this.$router.push('/installation');
+                    }
+                },
+                {
+                    label: 'External',
+                    icon: 'pi pi-home',
                     items: [
                         {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
+                            label: 'Vue.js',
+                            url: 'https://vuejs.org/'
                         },
                         {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
+                            label: 'Vite.js',
+                            url: 'https://vuejs.org/'
                         }
                     ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
-                                    items: [
-                                        {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
-                                        }
-                                    ]
-                                },
-                                {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: 'Upload',
-                    icon: 'pi pi-fw pi-upload',
-                    route: '/fileupload'
-                },
-                {
-                    label: 'Quit',
-                    icon: 'pi pi-fw pi-power-off'
                 }
             ]
         };
@@ -335,19 +150,19 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card relative z-2">
+    <div class="card">
         <Menubar :model="items">
-            <template #item="{ label, item, props, root, hasSubmenu }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action" @click="routerProps.navigate">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
+            <template #item="{ item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
                     </a>
                 </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
                 </a>
             </template>
         </Menubar>
@@ -356,133 +171,45 @@ export default {
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue";
+
+const router = useRouter();
 
 const items = ref([
     {
-        label: 'File',
-        icon: 'pi pi-fw pi-file',
+        label: 'Router',
+        icon: 'pi pi-palette',
         items: [
             {
-                label: 'New',
-                icon: 'pi pi-fw pi-plus',
-                items: [
-                    {
-                        label: 'Bookmark',
-                        icon: 'pi pi-fw pi-bookmark'
-                    },
-                    {
-                        label: 'Video',
-                        icon: 'pi pi-fw pi-video'
-                    }
-                ]
+                label: 'Styled',
+                route: '/theming'
             },
             {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-trash'
-            },
-            {
-                separator: true
-            },
-            {
-                label: 'Export',
-                icon: 'pi pi-fw pi-external-link'
+                label: 'Unstyled',
+                route: '/unstyled'
             }
         ]
     },
     {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/installation');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
         items: [
             {
-                label: 'Left',
-                icon: 'pi pi-fw pi-align-left'
+                label: 'Vue.js',
+                url: 'https://vuejs.org/'
             },
             {
-                label: 'Right',
-                icon: 'pi pi-fw pi-align-right'
-            },
-            {
-                label: 'Center',
-                icon: 'pi pi-fw pi-align-center'
-            },
-            {
-                label: 'Justify',
-                icon: 'pi pi-fw pi-align-justify'
+                label: 'Vite.js',
+                url: 'https://vuejs.org/'
             }
         ]
-    },
-    {
-        label: 'Users',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'New',
-                icon: 'pi pi-fw pi-user-plus'
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-user-minus'
-            },
-            {
-                label: 'Search',
-                icon: 'pi pi-fw pi-users',
-                items: [
-                    {
-                        label: 'Filter',
-                        icon: 'pi pi-fw pi-filter',
-                        items: [
-                            {
-                                label: 'Print',
-                                icon: 'pi pi-fw pi-print'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'pi pi-fw pi-bars',
-                        label: 'List'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-            {
-                label: 'Edit',
-                icon: 'pi pi-fw pi-pencil',
-                items: [
-                    {
-                        label: 'Save',
-                        icon: 'pi pi-fw pi-calendar-plus'
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
-            },
-            {
-                label: 'Archieve',
-                icon: 'pi pi-fw pi-calendar-times',
-                items: [
-                    {
-                        label: 'Remove',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        label: 'Upload',
-        icon: 'pi pi-fw pi-upload',
-        route: '/fileupload'
-    },
-    {
-        label: 'Quit',
-        icon: 'pi pi-fw pi-power-off'
     }
 ]);
 <\/script>

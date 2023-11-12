@@ -3,7 +3,7 @@
         <p>PanelMenu requires a collection of menuitems as its <i>model</i>.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-25rem" />
+        <PanelMenu :model="items" class="w-full md:w-20rem" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,116 +14,78 @@ export default {
         return {
             items: [
                 {
-                    label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    label: 'Files',
+                    icon: 'pi pi-file',
                     items: [
                         {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-plus',
+                            label: 'Documents',
+                            icon: 'pi pi-file',
                             items: [
                                 {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
-                                },
-                                {
-                                    label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
-                        }
-                    ]
-                },
-                {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
-                    items: [
-                        {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
-                        },
-                        {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
-                        }
-                    ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
+                                    label: 'Invoices',
+                                    icon: 'pi pi-file-pdf',
                                     items: [
                                         {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
+                                            label: 'Pending',
+                                            icon: 'pi pi-stop'
+                                        },
+                                        {
+                                            label: 'Paid',
+                                            icon: 'pi pi-check-circle'
                                         }
                                     ]
                                 },
                                 {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
+                                    label: 'Clients',
+                                    icon: 'pi pi-users'
+                                }
+                            ]
+                        },
+                        {
+                            label: 'Images',
+                            icon: 'pi pi-image',
+                            items: [
+                                {
+                                    label: 'Logos',
+                                    icon: 'pi pi-image'
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
+                    label: 'Cloud',
+                    icon: 'pi pi-cloud',
                     items: [
                         {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
+                            label: 'Upload',
+                            icon: 'pi pi-cloud-upload'
                         },
                         {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
+                            label: 'Download',
+                            icon: 'pi pi-cloud-download'
+                        },
+                        {
+                            label: 'Sync',
+                            icon: 'pi pi-refresh'
+                        }
+                    ]
+                },
+                {
+                    label: 'Devices',
+                    icon: 'pi pi-desktop',
+                    items: [
+                        {
+                            label: 'Phone',
+                            icon: 'pi pi-mobile'
+                        },
+                        {
+                            label: 'Desktop',
+                            icon: 'pi pi-desktop'
+                        },
+                        {
+                            label: 'Tablet',
+                            icon: 'pi pi-tablet'
                         }
                     ]
                 }
@@ -135,7 +97,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-25rem" />
+        <PanelMenu :model="items" class="w-full md:w-20rem" />
     </div>
 </template>
 
@@ -145,116 +107,78 @@ export default {
         return {
             items: [
                 {
-                    label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    label: 'Files',
+                    icon: 'pi pi-file',
                     items: [
                         {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-plus',
+                            label: 'Documents',
+                            icon: 'pi pi-file',
                             items: [
                                 {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
-                                },
-                                {
-                                    label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
-                        }
-                    ]
-                },
-                {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
-                    items: [
-                        {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
-                        },
-                        {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
-                        }
-                    ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
+                                    label: 'Invoices',
+                                    icon: 'pi pi-file-pdf',
                                     items: [
                                         {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
+                                            label: 'Pending',
+                                            icon: 'pi pi-stop'
+                                        },
+                                        {
+                                            label: 'Paid',
+                                            icon: 'pi pi-check-circle'
                                         }
                                     ]
                                 },
                                 {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
+                                    label: 'Clients',
+                                    icon: 'pi pi-users'
+                                }
+                            ]
+                        },
+                        {
+                            label: 'Images',
+                            icon: 'pi pi-image',
+                            items: [
+                                {
+                                    label: 'Logos',
+                                    icon: 'pi pi-image'
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
+                    label: 'Cloud',
+                    icon: 'pi pi-cloud',
                     items: [
                         {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
+                            label: 'Upload',
+                            icon: 'pi pi-cloud-upload'
                         },
                         {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
+                            label: 'Download',
+                            icon: 'pi pi-cloud-download'
+                        },
+                        {
+                            label: 'Sync',
+                            icon: 'pi pi-refresh'
+                        }
+                    ]
+                },
+                {
+                    label: 'Devices',
+                    icon: 'pi pi-desktop',
+                    items: [
+                        {
+                            label: 'Phone',
+                            icon: 'pi pi-mobile'
+                        },
+                        {
+                            label: 'Desktop',
+                            icon: 'pi pi-desktop'
+                        },
+                        {
+                            label: 'Tablet',
+                            icon: 'pi pi-tablet'
                         }
                     ]
                 }
@@ -267,7 +191,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-25rem" />
+        <PanelMenu :model="items" class="w-full md:w-20rem" />
     </div>
 </template>
 
@@ -276,116 +200,78 @@ import { ref } from "vue";
 
 const items = ref([
     {
-        label: 'File',
-        icon: 'pi pi-fw pi-file',
+        label: 'Files',
+        icon: 'pi pi-file',
         items: [
             {
-                label: 'New',
-                icon: 'pi pi-fw pi-plus',
+                label: 'Documents',
+                icon: 'pi pi-file',
                 items: [
                     {
-                        label: 'Bookmark',
-                        icon: 'pi pi-fw pi-bookmark'
-                    },
-                    {
-                        label: 'Video',
-                        icon: 'pi pi-fw pi-video'
-                    }
-                ]
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-trash'
-            },
-            {
-                label: 'Export',
-                icon: 'pi pi-fw pi-external-link'
-            }
-        ]
-    },
-    {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-            {
-                label: 'Left',
-                icon: 'pi pi-fw pi-align-left'
-            },
-            {
-                label: 'Right',
-                icon: 'pi pi-fw pi-align-right'
-            },
-            {
-                label: 'Center',
-                icon: 'pi pi-fw pi-align-center'
-            },
-            {
-                label: 'Justify',
-                icon: 'pi pi-fw pi-align-justify'
-            }
-        ]
-    },
-    {
-        label: 'Users',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'New',
-                icon: 'pi pi-fw pi-user-plus'
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-user-minus'
-            },
-            {
-                label: 'Search',
-                icon: 'pi pi-fw pi-users',
-                items: [
-                    {
-                        label: 'Filter',
-                        icon: 'pi pi-fw pi-filter',
+                        label: 'Invoices',
+                        icon: 'pi pi-file-pdf',
                         items: [
                             {
-                                label: 'Print',
-                                icon: 'pi pi-fw pi-print'
+                                label: 'Pending',
+                                icon: 'pi pi-stop'
+                            },
+                            {
+                                label: 'Paid',
+                                icon: 'pi pi-check-circle'
                             }
                         ]
                     },
                     {
-                        icon: 'pi pi-fw pi-bars',
-                        label: 'List'
+                        label: 'Clients',
+                        icon: 'pi pi-users'
+                    }
+                ]
+            },
+            {
+                label: 'Images',
+                icon: 'pi pi-image',
+                items: [
+                    {
+                        label: 'Logos',
+                        icon: 'pi pi-image'
                     }
                 ]
             }
         ]
     },
     {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
+        label: 'Cloud',
+        icon: 'pi pi-cloud',
         items: [
             {
-                label: 'Edit',
-                icon: 'pi pi-fw pi-pencil',
-                items: [
-                    {
-                        label: 'Save',
-                        icon: 'pi pi-fw pi-calendar-plus'
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
+                label: 'Upload',
+                icon: 'pi pi-cloud-upload'
             },
             {
-                label: 'Archieve',
-                icon: 'pi pi-fw pi-calendar-times',
-                items: [
-                    {
-                        label: 'Remove',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
+                label: 'Download',
+                icon: 'pi pi-cloud-download'
+            },
+            {
+                label: 'Sync',
+                icon: 'pi pi-refresh'
+            }
+        ]
+    },
+    {
+        label: 'Devices',
+        icon: 'pi pi-desktop',
+        items: [
+            {
+                label: 'Phone',
+                icon: 'pi pi-mobile'
+            },
+            {
+                label: 'Desktop',
+                icon: 'pi pi-desktop'
+            },
+            {
+                label: 'Tablet',
+                icon: 'pi pi-tablet'
             }
         ]
     }

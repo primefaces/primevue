@@ -76,7 +76,7 @@ export interface ConfirmPopupPassThroughOptions {
      */
     acceptButton?: ButtonPassThroughOptions;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -176,12 +176,22 @@ export interface ConfirmPopupSlots {
         message: any;
         /**
          * Accept function of the component
+         * @deprecated since v3.39.0. Use 'acceptCallback' property instead.
          */
         onAccept: () => void;
         /**
          * Reject function of the component
+         * @deprecated since v3.39.0. Use 'rejectCallback' property instead.
          */
         onReject: () => void;
+        /**
+         * Accept function of the component
+         */
+        acceptCallback: () => void;
+        /**
+         * Reject function of the component
+         */
+        rejectCallback: () => void;
     }): VNode[];
 }
 

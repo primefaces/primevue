@@ -164,7 +164,7 @@ export interface DropdownPassThroughOptions {
      */
     hiddenLastFocusableEl?: DropdownPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -592,8 +592,14 @@ export interface DropdownSlots {
         /**
          * Clear icon click function.
          * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'clearCallback' property instead.
          */
         onClick: (event: Event) => void;
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom dropdown icon template.

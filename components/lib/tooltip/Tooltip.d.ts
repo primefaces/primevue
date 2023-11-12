@@ -47,8 +47,8 @@ export interface TooltipOptions {
      */
     class?: string | undefined;
     /**
-     * By default the tooltip contents are not rendered as text. Set to true to support html tags in the content.
-     * @defaultValue false
+     * By default the tooltip contents are not rendered as text. Set to false to support html tags in the content.
+     * @defaultValue true
      */
     escape?: boolean | undefined;
     /**
@@ -106,7 +106,7 @@ export interface TooltipDirectivePassThroughOptions {
      */
     arrow?: TooltipDirectivePassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

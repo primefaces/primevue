@@ -46,7 +46,7 @@ export interface DeferredContentPassThroughOptions {
      */
     root?: DeferredContentPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

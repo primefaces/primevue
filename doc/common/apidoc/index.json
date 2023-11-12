@@ -162,7 +162,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -760,7 +760,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the tab</span>\n \t <span class=\"ml-3 text-primary-700\">isTabActive</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Whether the tab is active</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the tab</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">isTabActive</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Whether the tab is active</span>\n\t <span class=\"ml-3 text-primary-700\">active</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Whether the tab is active</span>\n}",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -913,7 +913,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -951,7 +951,7 @@
                             "readonly": false,
                             "type": "AnimateOnScrollDirectiveModifiers",
                             "default": "",
-                            "description": "Modifiers of the tooltip."
+                            "description": "Modifiers of the AnimateOnScroll."
                         }
                     ],
                     "methods": [],
@@ -3340,7 +3340,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -3966,7 +3966,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}"
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -4311,7 +4311,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4560,7 +4560,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4757,7 +4757,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -4985,7 +4985,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -5245,7 +5245,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -5720,7 +5720,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -6048,7 +6048,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -6146,7 +6146,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "aria-label",
@@ -6420,7 +6421,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -7294,7 +7295,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -8407,7 +8408,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -8771,7 +8772,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -9448,7 +9449,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -10189,7 +10190,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -10547,7 +10548,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11025,7 +11026,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11154,7 +11155,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">onKeydown</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon keydown event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onKeydown</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Remove icon keydown event</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">keydownCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Remove icon keydown event</span>\n}",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -11423,7 +11424,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -11649,7 +11650,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the token.</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">index</span>: number) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
                                     "description": "remove token icon slot's params."
                                 }
                             ],
@@ -11935,7 +11936,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -12880,7 +12881,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -13852,7 +13853,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -15974,7 +15975,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -16132,7 +16133,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onAccept</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onReject</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Reject function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">acceptCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">rejectCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -16339,7 +16340,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -16476,7 +16477,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onAccept</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">onReject</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onAccept</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onReject</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Reject function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">acceptCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Accept function of the component</span>\n\t <span class=\"ml-3 text-primary-700\">rejectCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Reject function of the component</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -16749,7 +16750,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -16997,7 +16998,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -17061,7 +17063,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">ContextMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">ContextMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -18728,7 +18730,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -20384,7 +20386,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -20869,7 +20871,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -21132,7 +21134,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -21446,7 +21448,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -21813,7 +21815,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">onMaximize</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Maximize/minimize dialog function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onMaximize</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Maximize/minimize dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close dialog function.</span>\n\t <span class=\"ml-3 text-primary-700\">maximizeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Maximize/minimize dialog function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -22082,7 +22084,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -22373,7 +22375,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -22555,7 +22557,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tooltipOptions",
@@ -23048,7 +23051,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -23677,7 +23680,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the clear icon</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Clear icon click function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the clear icon</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Clear icon click function.</span>\n\t <span class=\"ml-3 text-primary-700\">clearCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Clear icon click function.</span>\n}",
                                     "description": "clear icon slot's params."
                                 }
                             ],
@@ -24464,7 +24467,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -24864,7 +24867,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -25544,7 +25547,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -26193,7 +26196,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -26617,7 +26620,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -27521,7 +27524,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -27713,7 +27716,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onError</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Image error function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the image element.</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onError</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Image error function.</span>\n\t <span class=\"ml-3 text-primary-700\">errorCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
                                     "description": "image slot's params."
                                 }
                             ],
@@ -27726,7 +27729,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the preview image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the preview image element.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the preview image element.</span>\n  \t <span class=\"ml-3 text-primary-700\">style</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style of the preview image element.</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Preview click function.</span>\n\t <span class=\"ml-3 text-primary-700\">previewCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Preview click function.</span>\n}",
                                     "description": "preview slot's params."
                                 }
                             ],
@@ -27903,7 +27906,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28176,7 +28179,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28430,6 +28433,412 @@
             }
         }
     },
+    "inputgroup": {
+        "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "components": {
+            "default": {
+                "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputGroupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupProps": {
+                    "description": "Defines valid properties in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputGroupPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupSlots": {
+                    "description": "Defines valid slots in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom default template."
+                        }
+                    ]
+                },
+                "InputGroupEmits": {
+                    "description": "Defines valid emits in InputGroup component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupPassThroughOptionType": {
+                    "values": "InputGroupPassThroughAttributes | (options: InputGroupPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputgroup/style/InputGroupStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "inputgroupaddon": {
+        "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "components": {
+            "default": {
+                "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupAddonPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupAddonPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputGroupAddonProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputGroupAddonPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupAddonPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupAddonProps": {
+                    "description": "Defines valid properties in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputGroupAddonPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputGroupAddonSlots": {
+                    "description": "Defines valid slots in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom default template."
+                        }
+                    ]
+                },
+                "InputGroupAddonEmits": {
+                    "description": "Defines valid emits in InputGroupAddon component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupAddonPassThroughOptionType": {
+                    "values": "InputGroupAddonPassThroughAttributes | (options: InputGroupAddonPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputgroupaddon/style/InputGroupAddonStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputGroupAddonStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "inputmask": {
         "description": "InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.\n\n[Live Demo](https://www.primevue.org/inputmask/)",
         "components": {
@@ -28504,7 +28913,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -28930,7 +29339,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -29522,7 +29931,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -29874,7 +30283,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -30156,7 +30565,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -30727,7 +31136,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -31549,7 +31958,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -31749,7 +32158,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "disabled",
@@ -32169,7 +32579,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -32362,7 +32772,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -32765,7 +33176,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -32973,7 +33384,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "buttonProps",
@@ -33455,7 +33867,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -33627,7 +34039,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close message function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close message function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close message function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -34169,7 +34581,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -34836,7 +35248,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Item of the token.</span>\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Item of the token.</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 text-primary-700\">removeCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event, <span class=\"text-primary-700\">item</span>: any) &rArr; void</span>, <span class=\"text-primary-300\">// Remove token icon function.</span>\n}",
                                     "description": "removetokenicon slot's params."
                                 }
                             ],
@@ -35313,7 +35725,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -36025,7 +36437,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -36517,7 +36929,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -37009,7 +37421,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -37567,7 +37979,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -38039,7 +38451,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -38277,7 +38689,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "tabindex",
@@ -38325,7 +38738,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">PanelMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">root</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether there is a root menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">active</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current active state of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">PanelMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -38684,7 +39097,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -39042,7 +39455,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
                                     "description": "hideicon slot's params."
                                 }
                             ],
@@ -39055,7 +39468,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Show icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Hide icon click event</span>\n}",
                                     "description": "showicon slot's params."
                                 }
                             ],
@@ -39586,7 +39999,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -40431,7 +40844,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -40675,7 +41088,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -40936,7 +41349,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41355,7 +41768,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41780,7 +42193,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -41966,7 +42379,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42202,7 +42615,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -42469,7 +42882,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -42764,7 +43177,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -43241,7 +43654,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -43422,7 +43835,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close sidebar function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -43602,7 +44015,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -43879,7 +44292,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -44283,7 +44696,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -44617,7 +45030,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 text-primary-700\">onClick</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Button click function</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClick</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Button click function</span>\n\t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Button click function</span>\n}",
                                     "description": "button slot's params."
                                 }
                             ],
@@ -44865,7 +45278,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -45095,6 +45508,12 @@
                             "description": "Button part of the content can easily be customized with the default slot instead of using the built-in modes."
                         },
                         {
+                            "name": "buttoncontent",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Command button part of the content can easily be customized with the button content slot."
+                        },
+                        {
                             "name": "icon",
                             "parameters": [
                                 {
@@ -45105,7 +45524,7 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom menu button icon template."
+                            "description": "Custom button icon template."
                         },
                         {
                             "name": "menubuttonicon",
@@ -45132,6 +45551,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu item icon template."
+                        },
+                        {
+                            "name": "item",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">TieredMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n }",
+                                    "description": "item slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content for each menu item."
                         }
                     ]
                 },
@@ -45392,7 +45824,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -45714,7 +46146,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -45997,7 +46429,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46067,7 +46499,7 @@
                             "description": "Action element binding"
                         },
                         {
-                            "name": "icon",
+                            "name": "step",
                             "optional": false,
                             "readonly": false,
                             "type": "object",
@@ -46119,7 +46551,16 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
+                        },
+                        {
+                            "name": "activeStep",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Active step index of menuitem."
                         },
                         {
                             "name": "pt",
@@ -46159,7 +46600,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Order of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">StepsRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">active</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current active state of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Order of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">StepsRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -46357,7 +46798,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46570,7 +47011,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -46698,7 +47139,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Defines if active route highlight should match the exact route path."
+                            "description": "Defines if active route highlight should match the exact route path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "activeIndex",
@@ -46762,7 +47204,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">TabMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">active</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current active state of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">TabMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -46988,7 +47430,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -47416,7 +47858,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -47803,7 +48245,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48118,7 +48560,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48430,7 +48872,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -48770,7 +49212,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -48921,8 +49363,8 @@
                     ],
                     "methods": []
                 },
-                "TabMenuRouterBindProps": {
-                    "description": "Defines valid router binding props in TabMenu component.",
+                "TieredMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in TieredMenu component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -49010,7 +49452,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                            "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+                            "deprecated": "since v3.40.0."
                         },
                         {
                             "name": "disabled",
@@ -49082,7 +49525,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">TabMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">item</span>: <span class=\"text-primary-500\">MenuItem</span>, <span class=\"text-primary-300\">// Menuitem instance</span>\n  \t <span class=\"ml-3 text-primary-700\">label</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Label property of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">props</span>: <span class=\"text-primary-500\">TieredMenuRouterBindProps</span>, <span class=\"text-primary-300\">// Binding properties of the menuitem</span>\n  \t <span class=\"ml-3 text-primary-700\">hasSubmenu</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Whether or not there is a submenu</span>\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -49114,6 +49557,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item icon template."
+                        },
+                        {
+                            "name": "start",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom start template."
+                        },
+                        {
+                            "name": "end",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom end template."
                         }
                     ]
                 },
@@ -49369,7 +49824,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -49771,7 +50226,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -50079,7 +50534,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700\">onClose</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close toast function</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">message</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Message of the component</span>\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close toast function</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close sidebar function.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -50370,7 +50825,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -50818,7 +51273,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -51047,8 +51502,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
-                            "description": "By default the tooltip contents are not rendered as text. Set to true to support html tags in the content."
+                            "default": "true",
+                            "description": "By default the tooltip contents are not rendered as text. Set to false to support html tags in the content."
                         },
                         {
                             "name": "fitContent",
@@ -51143,7 +51598,7 @@
                             "readonly": false,
                             "type": "DirectiveHooks<any, any>",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -51694,7 +52149,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -52336,7 +52791,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         },
                         {
                             "name": "transition",
@@ -53422,7 +53877,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -54466,7 +54921,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []
@@ -55315,7 +55770,7 @@
                             "readonly": false,
                             "type": "ComponentHooks",
                             "default": "",
-                            "description": "Used to manage all lifecycle hooks"
+                            "description": "Used to manage all lifecycle hooks."
                         }
                     ],
                     "methods": []

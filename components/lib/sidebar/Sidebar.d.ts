@@ -72,7 +72,7 @@ export interface SidebarPassThroughOptions {
      */
     mask?: SidebarPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -195,8 +195,13 @@ export interface SidebarSlots {
     container(scope: {
         /**
          * Close sidebar function.
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
+        /**
+         * Close sidebar function.
+         */
+        closeCallback: () => void;
     }): VNode[];
 }
 

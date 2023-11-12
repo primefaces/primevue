@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/menubar/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/menubar/BasicDoc.vue';
+import CommandDoc from '@/doc/menubar/CommandDoc.vue';
 import ImportDoc from '@/doc/menubar/ImportDoc.vue';
 import RouterDoc from '@/doc/menubar/RouterDoc.vue';
 import TemplateDoc from '@/doc/menubar/TemplateDoc.vue';
@@ -37,6 +38,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'command',
+                    label: 'Command',
+                    component: CommandDoc
                 },
                 {
                     id: 'router',

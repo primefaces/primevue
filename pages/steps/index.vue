@@ -1,65 +1,63 @@
 <template>
-    <div class="stepsdemo-content">
-        <Card>
-            <template v-slot:title> Personal Information </template>
-            <template v-slot:subtitle> Enter your personal information </template>
-            <template v-slot:content>
-                <div class="p-fluid">
-                    <div class="field">
-                        <label for="firstname">Firstname</label>
-                        <InputText id="firstname" v-model="firstname" :class="{ 'p-invalid': validationErrors.firstname && submitted }" />
-                        <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
-                    </div>
-                    <div class="field">
-                        <label for="lastname">Lastname</label>
-                        <InputText id="lastname" v-model="lastname" :class="{ 'p-invalid': validationErrors.lastname && submitted }" />
-                        <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
-                    </div>
-                    <div class="field">
-                        <label for="age">Age</label>
-                        <InputNumber id="age" v-model="age" />
-                    </div>
-                </div>
-            </template>
-            <template v-slot:footer>
-                <div class="grid grid-nogutter justify-content-between">
-                    <i></i>
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
-                </div>
-            </template>
-        </Card>
-    </div>
+    <DocComponent
+        title="Vue Stepper Component"
+        header="Steps"
+        description="Steps also known as Stepper, is an indicator for the steps in a workflow."
+        :componentDocs="docs"
+        :apiDocs="['Steps', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
+import AccessibilityDoc from '@/doc/steps/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/steps/BasicDoc.vue';
+import ControlledDoc from '@/doc/steps/ControlledDoc.vue';
+import ImportDoc from '@/doc/steps/ImportDoc.vue';
+import LinearDoc from '@/doc/steps/LinearDoc.vue';
+import TemplateDoc from '@/doc/steps/TemplateDoc.vue';
+import PTComponent from '@/doc/steps/pt/index.vue';
+import ThemingDoc from '@/doc/steps/theming/index.vue';
+
 export default {
-    emits: ['next-page'],
     data() {
         return {
-            firstname: '',
-            lastname: '',
-            age: null,
-            submitted: false,
-            validationErrors: {}
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'controlled',
+                    label: 'Controlled',
+                    component: ControlledDoc
+                },
+                {
+                    id: 'linear',
+                    label: 'Linear',
+                    component: LinearDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
-    },
-    methods: {
-        nextPage() {
-            this.submitted = true;
-
-            if (this.validateForm()) {
-                this.$emit('next-page', { formData: { firstname: this.firstname, lastname: this.lastname, age: this.age }, pageIndex: 0 });
-            }
-        },
-        validateForm() {
-            if (!this.firstname.trim()) this.validationErrors['firstname'] = true;
-            else delete this.validationErrors['firstname'];
-
-            if (!this.lastname.trim()) this.validationErrors['lastname'] = true;
-            else delete this.validationErrors['lastname'];
-
-            return !Object.keys(this.validationErrors).length;
-        }
     }
 };
 </script>

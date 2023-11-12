@@ -16,7 +16,6 @@
                     :items="processedItems"
                     :templates="$slots"
                     :activeItemPath="activeItemPath"
-                    :exact="exact"
                     :aria-labelledby="ariaLabelledby"
                     :aria-label="ariaLabel"
                     :level="0"
@@ -75,11 +74,6 @@ export default {
                 this.unbindOutsideClickListener();
                 this.unbindResizeListener();
             }
-        }
-    },
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {

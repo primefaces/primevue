@@ -116,7 +116,7 @@ export interface ImagePassThroughOptions {
      */
     preview?: ImagePassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -251,8 +251,13 @@ export interface ImageSlots {
         style: any;
         /**
          * Image error function.
+         * @deprecated since v3.39.0. Use 'errorCallback' property instead.
          */
         onError: () => void;
+        /**
+         * Preview click function.
+         */
+        errorCallback: () => void;
     }): VNode[];
     /**
      * Custom preview template.
@@ -269,8 +274,13 @@ export interface ImageSlots {
         style: any;
         /**
          * Preview click function.
+         * @deprecated since v3.39.0. Use 'previewCallback' property instead.
          */
         onClick: () => void;
+        /**
+         * Preview click function.
+         */
+        previewCallback: () => void;
     }): VNode[];
 }
 

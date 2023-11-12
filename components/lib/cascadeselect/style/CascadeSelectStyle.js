@@ -82,6 +82,15 @@ const css = `
         left: 100%;
         top: 0;
     }
+
+    .p-cascadeselect-enter-from,
+    .p-cascadeselect-leave-active {
+        opacity: 0;
+    }
+
+    .p-cascadeselect-enter-active {
+        transition: opacity 150ms;
+    }
 }
 `;
 

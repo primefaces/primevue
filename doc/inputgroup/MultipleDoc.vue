@@ -3,17 +3,17 @@
         <p>Multiple add-ons can be placed inside the same group.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <div class="p-inputgroup w-full md:w-30rem">
-            <span class="p-inputgroup-addon">
+        <InputGroup class="w-full md:w-30rem">
+            <InputGroupAddon>
                 <i class="pi pi-clock"></i>
-            </span>
-            <span class="p-inputgroup-addon">
+            </InputGroupAddon>
+            <InputGroupAddon>
                 <i class="pi pi-star-fill"></i>
-            </span>
+            </InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">$</span>
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>$</InputGroupAddon>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -24,51 +24,52 @@ export default {
         return {
             code: {
                 basic: `
-<div class="p-inputgroup w-full md:w-30rem">
-    <span class="p-inputgroup-addon">
+<InputGroup class="w-full md:w-30rem">
+    <InputGroupAddon>
         <i class="pi pi-clock"></i>
-    </span>
-    <span class="p-inputgroup-addon">
+    </InputGroupAddon>
+    <InputGroupAddon>
         <i class="pi pi-star-fill"></i>
-    </span>
+    </InputGroupAddon>
     <InputNumber placeholder="Price" />
-    <span class="p-inputgroup-addon">$</span>
-    <span class="p-inputgroup-addon">.00</span>
-</div>
+    <InputGroupAddon>$</InputGroupAddon>
+    <InputGroupAddon>.00</InputGroupAddon>
+</InputGroup>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <div class="p-inputgroup w-full md:w-30rem">
-            <span class="p-inputgroup-addon">
+        <InputGroup class="w-full md:w-30rem">
+            <InputGroupAddon>
                 <i class="pi pi-clock"></i>
-            </span>
-            <span class="p-inputgroup-addon">
+            </InputGroupAddon>
+            <InputGroupAddon>
                 <i class="pi pi-star-fill"></i>
-            </span>
+            </InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">$</span>
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>$</InputGroupAddon>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
     </div>
 </template>
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <div class="p-inputgroup w-full md:w-30rem">
-            <span class="p-inputgroup-addon">
+        <InputGroup class="w-full md:w-30rem">
+            <InputGroupAddon>
                 <i class="pi pi-clock"></i>
-            </span>
-            <span class="p-inputgroup-addon">
+            </InputGroupAddon>
+            <InputGroupAddon>
                 <i class="pi pi-star-fill"></i>
-            </span>
+            </InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">$</span>
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>$</InputGroupAddon>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

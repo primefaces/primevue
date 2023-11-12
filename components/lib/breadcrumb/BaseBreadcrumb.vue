@@ -13,10 +13,6 @@ export default {
         home: {
             type: null,
             default: null
-        },
-        exact: {
-            type: Boolean,
-            default: true
         }
     },
     style: BreadcrumbStyle,

@@ -15,127 +15,70 @@ export default {
             items: [
                 {
                     label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    icon: 'pi pi-file',
                     items: [
                         {
                             label: 'New',
-                            icon: 'pi pi-fw pi-plus',
+                            icon: 'pi pi-plus',
                             items: [
                                 {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
+                                    label: 'Document',
+                                    icon: 'pi pi-file'
+                                },
+                                {
+                                    label: 'Image',
+                                    icon: 'pi pi-image'
                                 },
                                 {
                                     label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
+                                    icon: 'pi pi-video'
                                 }
                             ]
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
+                            label: 'Open',
+                            icon: 'pi pi-folder-open'
                         },
                         {
-                            separator: true
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
+                            label: 'Print',
+                            icon: 'pi pi-print'
                         }
                     ]
                 },
                 {
                     label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
+                    icon: 'pi pi-file-edit',
                     items: [
                         {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
-                        },
-                        {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
-                        }
-                    ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
+                            label: 'Copy',
+                            icon: 'pi pi-copy'
                         },
                         {
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
-                                    items: [
-                                        {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
-                                        }
-                                    ]
-                                },
-                                {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
-                                }
-                            ]
+                            icon: 'pi pi-times'
                         }
                     ]
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        }
-                    ]
+                    label: 'Search',
+                    icon: 'pi pi-search'
                 },
                 {
                     separator: true
                 },
                 {
-                    label: 'Quit',
-                    icon: 'pi pi-fw pi-power-off'
+                    label: 'Share',
+                    icon: 'pi pi-share-alt',
+                    items: [
+                        {
+                            label: 'Slack',
+                            icon: 'pi pi-slack'
+                        },
+                        {
+                            label: 'Whatsapp',
+                            icon: 'pi pi-whatsapp'
+                        }
+                    ]
                 }
             ],
             code: {
@@ -156,127 +99,70 @@ export default {
             items: [
                 {
                     label: 'File',
-                    icon: 'pi pi-fw pi-file',
+                    icon: 'pi pi-file',
                     items: [
                         {
                             label: 'New',
-                            icon: 'pi pi-fw pi-plus',
+                            icon: 'pi pi-plus',
                             items: [
                                 {
-                                    label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
+                                    label: 'Document',
+                                    icon: 'pi pi-file'
+                                },
+                                {
+                                    label: 'Image',
+                                    icon: 'pi pi-image'
                                 },
                                 {
                                     label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
+                                    icon: 'pi pi-video'
                                 }
                             ]
                         },
                         {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
+                            label: 'Open',
+                            icon: 'pi pi-folder-open'
                         },
                         {
-                            separator: true
-                        },
-                        {
-                            label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
+                            label: 'Print',
+                            icon: 'pi pi-print'
                         }
                     ]
                 },
                 {
                     label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
+                    icon: 'pi pi-file-edit',
                     items: [
                         {
-                            label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
-                        },
-                        {
-                            label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
-                        }
-                    ]
-                },
-                {
-                    label: 'Users',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'New',
-                            icon: 'pi pi-fw pi-user-plus'
+                            label: 'Copy',
+                            icon: 'pi pi-copy'
                         },
                         {
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus'
-                        },
-                        {
-                            label: 'Search',
-                            icon: 'pi pi-fw pi-users',
-                            items: [
-                                {
-                                    label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
-                                    items: [
-                                        {
-                                            label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
-                                        }
-                                    ]
-                                },
-                                {
-                                    icon: 'pi pi-fw pi-bars',
-                                    label: 'List'
-                                }
-                            ]
+                            icon: 'pi pi-times'
                         }
                     ]
                 },
                 {
-                    label: 'Events',
-                    icon: 'pi pi-fw pi-calendar',
-                    items: [
-                        {
-                            label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
-                            items: [
-                                {
-                                    label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
-                            items: [
-                                {
-                                    label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        }
-                    ]
+                    label: 'Search',
+                    icon: 'pi pi-search'
                 },
                 {
                     separator: true
                 },
                 {
-                    label: 'Quit',
-                    icon: 'pi pi-fw pi-power-off'
+                    label: 'Share',
+                    icon: 'pi pi-share-alt',
+                    items: [
+                        {
+                            label: 'Slack',
+                            icon: 'pi pi-slack'
+                        },
+                        {
+                            label: 'Whatsapp',
+                            icon: 'pi pi-whatsapp'
+                        }
+                    ]
                 }
             ]
         };
@@ -293,131 +179,74 @@ export default {
 
 <script setup>
 import { ref } from "vue";
-            
+
 const items = ref([
     {
         label: 'File',
-        icon: 'pi pi-fw pi-file',
+        icon: 'pi pi-file',
         items: [
             {
                 label: 'New',
-                icon: 'pi pi-fw pi-plus',
+                icon: 'pi pi-plus',
                 items: [
                     {
-                        label: 'Bookmark',
-                        icon: 'pi pi-fw pi-bookmark'
+                        label: 'Document',
+                        icon: 'pi pi-file'
+                    },
+                    {
+                        label: 'Image',
+                        icon: 'pi pi-image'
                     },
                     {
                         label: 'Video',
-                        icon: 'pi pi-fw pi-video'
+                        icon: 'pi pi-video'
                     }
                 ]
             },
             {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-trash'
+                label: 'Open',
+                icon: 'pi pi-folder-open'
             },
             {
-                separator: true
-            },
-            {
-                label: 'Export',
-                icon: 'pi pi-fw pi-external-link'
+                label: 'Print',
+                icon: 'pi pi-print'
             }
         ]
     },
     {
         label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
+        icon: 'pi pi-file-edit',
         items: [
             {
-                label: 'Left',
-                icon: 'pi pi-fw pi-align-left'
-            },
-            {
-                label: 'Right',
-                icon: 'pi pi-fw pi-align-right'
-            },
-            {
-                label: 'Center',
-                icon: 'pi pi-fw pi-align-center'
-            },
-            {
-                label: 'Justify',
-                icon: 'pi pi-fw pi-align-justify'
-            }
-        ]
-    },
-    {
-        label: 'Users',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'New',
-                icon: 'pi pi-fw pi-user-plus'
+                label: 'Copy',
+                icon: 'pi pi-copy'
             },
             {
                 label: 'Delete',
-                icon: 'pi pi-fw pi-user-minus'
-            },
-            {
-                label: 'Search',
-                icon: 'pi pi-fw pi-users',
-                items: [
-                    {
-                        label: 'Filter',
-                        icon: 'pi pi-fw pi-filter',
-                        items: [
-                            {
-                                label: 'Print',
-                                icon: 'pi pi-fw pi-print'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'pi pi-fw pi-bars',
-                        label: 'List'
-                    }
-                ]
+                icon: 'pi pi-times'
             }
         ]
     },
     {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-            {
-                label: 'Edit',
-                icon: 'pi pi-fw pi-pencil',
-                items: [
-                    {
-                        label: 'Save',
-                        icon: 'pi pi-fw pi-calendar-plus'
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
-            },
-            {
-                label: 'Archieve',
-                icon: 'pi pi-fw pi-calendar-times',
-                items: [
-                    {
-                        label: 'Remove',
-                        icon: 'pi pi-fw pi-calendar-minus'
-                    }
-                ]
-            }
-        ]
+        label: 'Search',
+        icon: 'pi pi-search'
     },
     {
         separator: true
     },
     {
-        label: 'Quit',
-        icon: 'pi pi-fw pi-power-off'
+        label: 'Share',
+        icon: 'pi pi-share-alt',
+        items: [
+            {
+                label: 'Slack',
+                icon: 'pi pi-slack'
+            },
+            {
+                label: 'Whatsapp',
+                icon: 'pi pi-whatsapp'
+            }
+        ]
     }
 ]);
 <\/script>

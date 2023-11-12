@@ -3,21 +3,21 @@
         <p>Buttons can be placed at either side of an input element.</p>
     </DocSectionText>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button label="Search" />
             <InputText placeholder="Keyword" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <InputText placeholder="Keyword" />
             <Button icon="pi pi-search" severity="warning" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
             <Button icon="pi pi-times" severity="danger" />
-        </div>
+        </InputGroup>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -28,57 +28,57 @@ export default {
         return {
             code: {
                 basic: `
-<div class="p-inputgroup flex-1">
+<InputGroup>
     <Button label="Search" />
     <InputText placeholder="Keyword" />
-</div>
+</InputGroup>
 
-<div class="p-inputgroup flex-1">
+<InputGroup>
     <InputText placeholder="Keyword" />
     <Button icon="pi pi-search" severity="warning" />
-</div>
+</InputGroup>
 
-<div class="p-inputgroup flex-1">
+<InputGroup>
     <Button icon="pi pi-check" severity="success" />
     <InputText placeholder="Vote" />
     <Button icon="pi pi-times" severity="danger" />
-</div>
+</InputGroup>
 `,
                 options: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button label="Search" />
             <InputText placeholder="Keyword" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <InputText placeholder="Keyword" />
             <Button icon="pi pi-search" severity="warning" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
             <Button icon="pi pi-times" severity="danger" />
-        </div>
+        </InputGroup>
     </div>
 </template>
 `,
                 composition: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button label="Search" />
             <InputText placeholder="Keyword" />
         </div>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <InputText placeholder="Keyword" />
             <Button icon="pi pi-search" severity="warning" />
         </div>
 
-        <div class="p-inputgroup flex-1">
+        <InputGroup>
             <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
             <Button icon="pi pi-times" severity="danger" />

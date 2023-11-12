@@ -215,7 +215,8 @@ const onCellEditComplete = (event) => {
     }
 };
 
-<\/script>`,
+<\/script>
+`,
                 data: `
 {
     id: '1000',

@@ -12,7 +12,7 @@
             :aria-haspopup="model.length && model.length > 0 ? true : false"
             :aria-expanded="mobileActive"
             :aria-controls="id"
-            :aria-label="$primevue.config.locale.aria.navigation"
+            :aria-label="$primevue.config.locale.aria?.navigation"
             @click="menuButtonClick($event)"
             @keydown="menuButtonKeydown($event)"
             v-bind="{ ...buttonProps, ...ptm('button') }"
@@ -34,7 +34,6 @@
             :menuId="id"
             :focusedItemId="focused ? focusedItemId : undefined"
             :activeItemPath="activeItemPath"
-            :exact="exact"
             :level="0"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -89,11 +88,6 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
-        }
-    },
     mounted() {
         this.id = this.id || UniqueComponentId();
     },

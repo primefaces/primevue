@@ -1,14 +1,15 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content can be placed inside the menuitem using the <i>item</i> templating.</p>
+        <p>Custom content can be placed inside the items using the <i>item</i> template. The divider between the items has its own <i>separator</i> template.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ item }">
-                <a :class="item.class" :href="item.url">
+                <a class="cursor-pointer" :href="item.url">
                     <span :class="item.icon"></span>
                 </a>
             </template>
+            <template #separator> / </template>
         </Breadcrumb>
     </div>
     <DocSectionCode :code="code" />
@@ -18,15 +19,18 @@
 export default {
     data() {
         return {
-            home: { icon: 'pi pi-home', url: 'https://primevue.org/' },
+            home: { icon: 'pi pi-home' },
             items: [{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }],
             code: {
                 basic: `
 <Breadcrumb :home="home" :model="items">
     <template #item="item">
-        <a :class="item.class">
-            <span :class="item.icon"></span>
-        </a>
+        <template #item="{ item }">
+            <a class="cursor-pointer" :href="item.url">
+                <span :class="item.icon"></span>
+            </a>
+        </template>
+        <template #separator> / </template>
     </template>
 </Breadcrumb>
 `,
@@ -34,11 +38,12 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
-            <template #item="{item}">
-                <a :class="item.class">
+            <template #item="{ item }">
+                <a class="cursor-pointer" :href="item.url">
                     <span :class="item.icon"></span>
                 </a>
             </template>
+            <template #separator> / </template>
         </Breadcrumb>
     </div>
 </template>
@@ -47,7 +52,7 @@ export default {
 export default {
     data() {
         return {
-            home: { icon: 'pi pi-home', url: 'https://primevue.org/' },
+            home: { icon: 'pi pi-home' },
             items: [{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]
         }
     }
@@ -58,11 +63,12 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
-            <template #item="{item}">
-                <a :class="item.class">
+            <template #item="{ item }">
+                <a class="cursor-pointer" :href="item.url">
                     <span :class="item.icon"></span>
                 </a>
             </template>
+            <template #separator> / </template>
         </Breadcrumb>
     </div>
 </template>
@@ -70,9 +76,8 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const home = ref({ icon: 'pi pi-home', url: 'https://primevue.org/' });
+const home = ref({ icon: 'pi pi-home' });
 const items = ref([{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]);
-}
 <\/script>
 `
             }

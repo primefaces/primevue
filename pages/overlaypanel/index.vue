@@ -33,7 +33,7 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'dataTable',
+                    id: 'datatable',
                     label: 'DataTable',
                     component: DataTableDoc
                 },

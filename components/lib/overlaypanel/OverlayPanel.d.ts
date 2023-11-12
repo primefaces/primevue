@@ -60,7 +60,7 @@ export interface OverlayPanelPassThroughOptions {
      */
     closeIcon?: OverlayPanelPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -203,13 +203,24 @@ export interface OverlayPanelEmits {
     container(scope: {
         /**
          * Close overlay panel function.
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
         /**
          * Close button keydown function.
          * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'keydownCallback' property instead.
          */
         onKeydown: (event: Event) => void;
+        /**
+         * Close overlay panel function.
+         */
+        closeCallback: () => void;
+        /**
+         * Close button keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
     }): VNode[];
 }
 

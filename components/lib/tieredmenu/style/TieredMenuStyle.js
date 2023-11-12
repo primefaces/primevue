@@ -41,6 +41,15 @@ const css = `
         left: 100%;
         top: 0;
     }
+
+    .p-tieredmenu-enter-from,
+    .p-tieredmenu-leave-active {
+        opacity: 0;
+    }
+
+    .p-tieredmenu-enter-active {
+        transition: opacity 250ms;
+    }
 }
 `;
 
@@ -57,6 +66,7 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
+    start: 'p-tieredmenu-start',
     menu: 'p-tieredmenu-root-list',
     menuitem: ({ instance, processedItem }) => [
         'p-menuitem',
@@ -67,18 +77,13 @@ const classes = {
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     icon: 'p-menuitem-icon',
     text: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',
     submenu: 'p-submenu-list',
-    separator: 'p-menuitem-separator'
+    separator: 'p-menuitem-separator',
+    end: 'p-tieredmenu-end'
 };
 
 export default BaseStyle.extend({

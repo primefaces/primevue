@@ -1,6 +1,6 @@
 <template>
     <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
-        <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" />
+        <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
             <template v-if="!templates.message">
                 <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />

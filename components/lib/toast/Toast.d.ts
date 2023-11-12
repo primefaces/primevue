@@ -98,7 +98,7 @@ export interface ToastPassThroughOptions {
      */
     closeIcon?: ToastPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -305,8 +305,13 @@ export interface ToastSlots {
         message: any;
         /**
          * Close toast function
+         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
          */
         onClose: () => void;
+        /**
+         * Close sidebar function.
+         */
+        closeCallback: () => void;
     }): VNode[];
 }
 

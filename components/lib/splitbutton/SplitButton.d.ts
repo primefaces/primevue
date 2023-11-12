@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { TieredMenuPassThroughOptions } from '../tieredmenu';
+import { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
@@ -63,7 +63,7 @@ export interface SplitButtonPassThroughOptions {
      */
     menu?: TieredMenuPassThroughOptions;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -205,7 +205,11 @@ export interface SplitButtonSlots {
      */
     default(): VNode[];
     /**
-     * Custom menu button icon template.
+     * Command button part of the content can easily be customized with the button content slot.
+     */
+    buttoncontent(): VNode[];
+    /**
+     * Custom button icon template.
      * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
@@ -237,6 +241,28 @@ export interface SplitButtonSlots {
          * Style class of the item icon element.
          */
         class: any;
+    }): VNode[];
+    /**
+     * Custom content for each menu item.
+     * @param {Object} scope - item slot's params.
+     */
+    item(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: TieredMenuRouterBindProps;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
 }
 

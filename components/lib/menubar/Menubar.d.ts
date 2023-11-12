@@ -103,7 +103,7 @@ export interface MenubarPassThroughOptions {
      */
     end?: MenubarPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -229,6 +229,7 @@ export interface MenubarProps {
     model?: MenuItem[] | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * @deprecated since v3.40.0.
      * @defaultValue true
      */
     exact?: boolean | undefined;

@@ -77,7 +77,7 @@ export default {
 
 <script setup>
 import { ref } from "vue";
-            
+
 const items = ref([
     {
         label: 'File',
@@ -185,7 +185,7 @@ const items = ref([
                 ]
             },
             {
-                label: 'Archieve',
+                label: 'Archive',
                 icon: 'pi pi-fw pi-calendar-times',
                 items: [
                     {

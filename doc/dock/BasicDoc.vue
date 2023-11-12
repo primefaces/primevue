@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Menu requires a collection of menuitems as its <i>model</i>. Default location is <i>bottom</i> and other sides are also available when defined with the <i>position</i> property.</p>
+        <p>Menu requires a collection of menuitems as its <i>model</i> and an <i>icon</i> template. Default location is <i>bottom</i> and other edges are also available when defined with the <i>position</i> property.</p>
     </DocSectionText>
     <div class="card dock-demo">
         <div class="flex flex-wrap gap-3 mb-5">
@@ -226,7 +226,8 @@ const positions = ref([
 .dock-demo > .p-dock {
     z-index: 1000;
 }
-</style>`
+</style>
+`
             }
         };
     }
