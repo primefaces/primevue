@@ -27,6 +27,7 @@ const css = `
         align-items: center;
         overflow: hidden;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .p-steps.p-steps-readonly .p-steps-item {
@@ -59,20 +60,14 @@ const css = `
 const classes = {
     root: ({ props }) => ['p-steps p-component', { 'p-readonly': props.readonly }],
     menu: 'p-steps-list',
-    menuitem: ({ instance, item }) => [
+    menuitem: ({ instance, item, index }) => [
         'p-steps-item',
         {
-            'p-highlight p-steps-current': instance.isActive(item),
-            'p-disabled': instance.isItemDisabled(item)
+            'p-highlight p-steps-current': instance.isActive(index),
+            'p-disabled': instance.isItemDisabled(item, index)
         }
     ],
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     step: 'p-steps-number',
     label: 'p-steps-title'
 };

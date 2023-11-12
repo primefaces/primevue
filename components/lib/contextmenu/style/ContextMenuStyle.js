@@ -35,7 +35,8 @@ const css = `
         margin-left: auto;
     }
 
-    .p-contextmenu-enter-from {
+    .p-contextmenu-enter-from,
+    .p-contextmenu-leave-active {
         opacity: 0;
     }
 
@@ -63,13 +64,7 @@ const classes = {
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',

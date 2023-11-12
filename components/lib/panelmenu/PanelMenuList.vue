@@ -10,7 +10,6 @@
         :items="processedItems"
         :templates="templates"
         :activeItemPath="activeItemPath"
-        :exact="exact"
         @focus="onFocus"
         @blur="onBlur"
         @keydown="onKeyDown"
@@ -47,10 +46,6 @@ export default {
         expandedKeys: {
             type: Object,
             default: null
-        },
-        exact: {
-            type: Boolean,
-            default: true
         }
     },
     searchTimeout: null,

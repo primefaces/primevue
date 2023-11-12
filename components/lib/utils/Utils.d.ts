@@ -34,6 +34,7 @@ export declare class DomHandler {
     static getWidth(el: HTMLElement): number;
     static absolutePosition(el: HTMLElement, target: HTMLElement): void;
     static relativePosition(el: HTMLElement, target: HTMLElement): void;
+    static nestedPosition(el: HTMLElement, level: number): void;
     static getParents(el: HTMLElement, parents?: any[]): any[];
     static getScrollableParents(el: HTMLElement): any[];
     static getHiddenElementOuterHeight(el: HTMLElement): number;
@@ -58,6 +59,8 @@ export declare class DomHandler {
     static getFocusableElements(el: HTMLElement, selector?: string): any[];
     static getFirstFocusableElement(el: HTMLElement, selector?: string): any;
     static getLastFocusableElement(el: HTMLElement, selector?: string): any;
+    static getPreviousElementSibling(el: HTMLElement, selector?: string): any;
+    static getNextElementSibling(el: HTMLElement, selector?: string): any;
     static isClickable(el: HTMLElement): boolean;
     static applyStyle(el: HTMLElement, style: any): void;
     static isIOS(): boolean;

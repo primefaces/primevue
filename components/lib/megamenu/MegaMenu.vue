@@ -19,7 +19,6 @@
             :horizontal="horizontal"
             :templates="$slots"
             :activeItem="activeItem"
-            :exact="exact"
             :level="0"
             :pt="pt"
             :unstyled="unstyled"
@@ -71,11 +70,6 @@ export default {
                 this.unbindOutsideClickListener();
                 this.unbindResizeListener();
             }
-        }
-    },
-    beforeMount() {
-        if (!this.$slots.item) {
-            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {

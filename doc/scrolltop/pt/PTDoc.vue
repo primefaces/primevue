@@ -68,7 +68,8 @@ export default {
             />
         </ScrollPanel>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

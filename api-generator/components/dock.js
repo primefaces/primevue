@@ -24,12 +24,6 @@ const DockProps = [
         description: 'Inline style of the element.'
     },
     {
-        name: 'exact',
-        type: 'boolean',
-        default: 'true',
-        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
-    },
-    {
         name: 'tooltipOptions',
         type: 'object',
         default: 'null',

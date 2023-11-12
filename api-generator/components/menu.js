@@ -30,12 +30,6 @@ const MenuProps = [
         description: 'Whether to automatically manage layering.'
     },
     {
-        name: 'exact',
-        type: 'boolean',
-        default: 'true',
-        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
-    },
-    {
         name: 'pt',
         type: 'any',
         default: 'null',
@@ -63,11 +57,11 @@ const MenuEvents = [
 const MenuSlots = [
     {
         name: 'start',
-        description: 'Custom content before the content'
+        description: 'Custom start content.'
     },
     {
         name: 'end',
-        description: 'Custom content after the content'
+        description: 'Custom end content.'
     },
     {
         name: 'item',
@@ -79,7 +73,7 @@ const MenuSlots = [
     },
     {
         name: 'submenuheader',
-        description: 'Custom submenuheader template.'
+        description: 'Custom submenu header template.'
     }
 ];
 

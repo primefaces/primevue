@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round" @click="save">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1rem" />
-            <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
+            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 3rem" class="px-3" />
+            <span class="mr-2 flex align-items-center font-bold">PrimeVue</span>
         </SplitButton>
     </div>
     <DocSectionCode :code="code" />
@@ -42,8 +42,8 @@ export default {
             code: {
                 basic: `
 <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round" @click="save">
-    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1rem" />
-    <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
+    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 3rem" class="px-3" />
+    <span class="mr-2 flex align-items-center font-bold">PrimeVue</span>
 </SplitButton>
 `,
                 options: `
@@ -51,8 +51,8 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round" @click="save">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1rem" />
-            <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
+            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 3rem" class="px-3" />
+            <span class="mr-2 flex align-items-center font-bold">PrimeVue</span>
         </SplitButton>
     </div>
 </template>
@@ -100,8 +100,8 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round" @click="save">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1rem" />
-            <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
+            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 3rem" class="px-3" />
+            <span class="mr-2 flex align-items-center font-bold">PrimeVue</span>
         </SplitButton>
     </div>
 </template>

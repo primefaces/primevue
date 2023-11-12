@@ -129,7 +129,8 @@ export default {
         <Button label="Help" severity="help" />
         <Button label="Danger" severity="danger" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

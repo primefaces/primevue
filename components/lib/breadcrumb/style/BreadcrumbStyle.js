@@ -42,13 +42,7 @@ const classes = {
     home: 'p-breadcrumb-home',
     separator: 'p-menuitem-separator',
     menuitem: ({ instance }) => ['p-menuitem', { 'p-disabled': instance.disabled() }],
-    action: ({ props, isActive, isExactActive }) => [
-        'p-menuitem-link',
-        {
-            'router-link-active': isActive,
-            'router-link-active-exact': props.exact && isExactActive
-        }
-    ],
+    action: 'p-menuitem-link',
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text'
 };

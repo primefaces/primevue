@@ -107,7 +107,7 @@ export default {
             }
 
             return value?.split('|').map((item) => {
-                return item.replace(/(\[|\]|<|>).*$/gm, '').trim();
+                return item.replace(/(\|\|<|>).*$/gm, '').trim();
             });
         },
         isLinkType(value) {

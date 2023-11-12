@@ -14,10 +14,6 @@ export default {
         class: null,
         style: null,
         tooltipOptions: null,
-        exact: {
-            type: Boolean,
-            default: true
-        },
         menuId: {
             type: String,
             default: null

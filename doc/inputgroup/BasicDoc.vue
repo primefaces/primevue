@@ -1,25 +1,25 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>An InputGroup is created by wrapping the input and add-ons inside an element with a <i>p-inputgroup</i> class where add-ons also should be inside an element with <i>.p-inputgroup-addon</i> class.</p>
+        <p>A group is created by wrapping the input and add-ons with the <i>InputGroup</i> component. Each add-on element is defined as a child of <i>InputGroupAddon</i> component.</p>
     </DocSectionText>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">
+        <InputGroup>
+            <InputGroupAddon>
                 <i class="pi pi-user"></i>
-            </span>
+            </InputGroupAddon>
             <InputText placeholder="Username" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">$</span>
+        <InputGroup>
+            <InputGroupAddon>$</InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">www</span>
+        <InputGroup>
+            <InputGroupAddon>www</InputGroupAddon>
             <InputText placeholder="Website" />
-        </div>
+        </InputGroup>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -30,69 +30,70 @@ export default {
         return {
             code: {
                 basic: `
-<div class="p-inputgroup flex-1">
-    <span class="p-inputgroup-addon">
+<InputGroup>
+    <InputGroupAddon>
         <i class="pi pi-user"></i>
-    </span>
+    </InputGroupAddon>
     <InputText placeholder="Username" />
-</div>
+</InputGroup>
 
-<div class="p-inputgroup flex-1">
-    <span class="p-inputgroup-addon">$</span>
+<InputGroup>
+    <InputGroupAddon>$</InputGroupAddon>
     <InputNumber placeholder="Price" />
-    <span class="p-inputgroup-addon">.00</span>
-</div>
+    <InputGroupAddon>.00</InputGroupAddon>
+</InputGroup>
 
-<div class="p-inputgroup flex-1">
-    <span class="p-inputgroup-addon">www</span>
+<InputGroup>
+    <InputGroupAddon>www</InputGroupAddon>
     <InputText placeholder="Website" />
-</div>
+</InputGroup>
 `,
                 options: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">
+        <InputGroup>
+            <InputGroupAddon>
                 <i class="pi pi-user"></i>
-            </span>
+            </InputGroupAddon>
             <InputText placeholder="Username" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">$</span>
+        <InputGroup>
+            <InputGroupAddon>$</InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">www</span>
+        <InputGroup>
+            <InputGroupAddon>www</InputGroupAddon>
             <InputText placeholder="Website" />
-        </div>
+        </InputGroup>
     </div>
 </template>
 `,
                 composition: `
 <template>
     <div class="card flex flex-column md:flex-row gap-3">
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">
+        <InputGroup>
+            <InputGroupAddon>
                 <i class="pi pi-user"></i>
-            </span>
+            </InputGroupAddon>
             <InputText placeholder="Username" />
-        </div>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">$</span>
+        <InputGroup>
+            <InputGroupAddon>$</InputGroupAddon>
             <InputNumber placeholder="Price" />
-            <span class="p-inputgroup-addon">.00</span>
-        </div>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
 
-        <div class="p-inputgroup flex-1">
-            <span class="p-inputgroup-addon">www</span>
+        <InputGroup>
+            <InputGroupAddon>www</InputGroupAddon>
             <InputText placeholder="Website" />
-        </div>
+        </InputGroup>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

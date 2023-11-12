@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>There are four choices to position the tooltip, default value is <i>right</i> and alternatives are <i>top</i>, <i>bottom</i>, <i>left</i>. Position is specified using a modifier.</p>
+        <p>There are four choices to position the tooltip, default value is <i>right</i> and alternatives are <i>top</i>, <i>bottom</i>, <i>left</i>.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
@@ -40,7 +40,8 @@ export default {
         <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
         <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }

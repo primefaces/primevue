@@ -1,0 +1,6 @@
+{
+    "main": "./inputgroupstyle.cjs.js",
+    "module": "./inputgroupstyle.esm.js",
+    "unpkg": "./inputgroupstyle.min.js",
+    "types": "./InputGroupStyle.d.ts"
+}

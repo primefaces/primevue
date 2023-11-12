@@ -57,7 +57,7 @@ export interface SliderPassThroughOptions {
      */
     endHandler?: SliderPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;

@@ -6,12 +6,6 @@ const MenubarProps = [
         description: 'An array of menuitems.'
     },
     {
-        name: 'exact',
-        type: 'boolean',
-        default: 'true',
-        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
-    },
-    {
         name: 'pt',
         type: 'any',
         default: 'null',

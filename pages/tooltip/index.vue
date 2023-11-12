@@ -5,11 +5,11 @@
 <script>
 import AccessibilityDoc from '@/doc/tooltip/AccessibilityDoc.vue';
 import AutoHideDoc from '@/doc/tooltip/AutoHideDoc.vue';
+import CustomDoc from '@/doc/tooltip/CustomDoc.vue';
 import DelayDoc from '@/doc/tooltip/DelayDoc.vue';
 import EventDoc from '@/doc/tooltip/EventDoc.vue';
 import ImportDoc from '@/doc/tooltip/ImportDoc.vue';
 import PositionDoc from '@/doc/tooltip/PositionDoc.vue';
-import TemplateDoc from '@/doc/tooltip/TemplateDoc.vue';
 import PTComponent from '@/doc/tooltip/pt/index.vue';
 import ThemingDoc from '@/doc/tooltip/theming/index.vue';
 
@@ -33,11 +33,6 @@ export default {
                     component: EventDoc
                 },
                 {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
-                },
-                {
                     id: 'autohide',
                     label: 'Auto Hide',
                     component: AutoHideDoc
@@ -46,6 +41,11 @@ export default {
                     id: 'delay',
                     label: 'Delay',
                     component: DelayDoc
+                },
+                {
+                    id: 'custom',
+                    label: 'Custom',
+                    component: CustomDoc
                 },
                 {
                     id: 'accessibility',

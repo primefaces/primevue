@@ -31,7 +31,8 @@ export default {
             root: { class: 'w-12 sm:w-9 md:w-6' }
         }"
     />
-</template>`
+</template>
+`
             }
         };
     }

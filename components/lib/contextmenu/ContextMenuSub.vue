@@ -22,14 +22,7 @@
                 >
                     <div :class="cx('content')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions('content', processedItem, index)">
                         <template v-if="!templates.item">
-                            <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                                <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action', processedItem, index)">
-                                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
-                                    <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
-                                    <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
-                                </a>
-                            </router-link>
-                            <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
+                            <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
                                 <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
@@ -39,7 +32,7 @@
                                 </template>
                             </a>
                         </template>
-                        <component v-else :is="templates.item" :item="processedItem.item" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
+                        <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="getItemProp(processedItem, 'items')" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                     </div>
                     <ContextMenuSub
                         v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
@@ -51,7 +44,6 @@
                         :items="processedItem.items"
                         :templates="templates"
                         :activeItemPath="activeItemPath"
-                        :exact="exact"
                         :level="level + 1"
                         :visible="isItemActive(processedItem) && isItemGroup(processedItem)"
                         :pt="pt"
@@ -115,10 +107,6 @@ export default {
             type: Object,
             default: null
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         activeItemPath: {
             type: Object,
             default: null
@@ -174,9 +162,6 @@ export default {
         onItemMouseEnter(event, processedItem) {
             this.$emit('item-mouseenter', { originalEvent: event, processedItem });
         },
-        onItemActionClick(event, navigate) {
-            navigate && navigate(event);
-        },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
         },
@@ -184,22 +169,7 @@ export default {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
         },
         onEnter() {
-            this.position();
-        },
-        position() {
-            const parentItem = this.$refs.container.parentElement;
-            const containerOffset = DomHandler.getOffset(this.$refs.container.parentElement);
-            const viewport = DomHandler.getViewport();
-            const sublistWidth = this.$refs.container.offsetParent ? this.$refs.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$refs.container);
-            const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
-
-            this.$refs.container.style.top = '0px';
-
-            if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
-                this.$refs.container.style.left = -1 * sublistWidth + 'px';
-            } else {
-                this.$refs.container.style.left = itemOuterWidth + 'px';
-            }
+            DomHandler.nestedPosition(this.$refs.container, this.level);
         },
         getMenuItemProps(processedItem, index) {
             return {

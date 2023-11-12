@@ -50,7 +50,8 @@ export default {
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
         </Splitter>
     </div>
-</template>`
+</template>
+`
             }
         };
     }

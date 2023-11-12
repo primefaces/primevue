@@ -11,7 +11,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
-            target.$_ptooltipEscape = false;
+            target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
             target.$_ptooltipIdAttr = UniqueComponentId() + '_tooltip';
@@ -23,7 +23,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             else {
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
-                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || UniqueComponentId() + '_tooltip';
@@ -52,7 +52,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
-            target.$_ptooltipEscape = false;
+            target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
             target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
             target.$_ptooltipShowDelay = 0;
@@ -68,7 +68,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             } else {
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
-                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
@@ -152,7 +152,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         onMouseLeave(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
-
             const autoHide = el.$_ptooltipAutoHide;
 
             if (!autoHide) {
@@ -268,7 +267,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 })
             });
 
-            if (el.$_ptooltipEscape) {
+            if (!el.$_ptooltipEscape) {
                 tooltipText.innerHTML = el.$_ptooltipValue;
             } else {
                 tooltipText.innerHTML = '';
@@ -282,7 +281,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                     role: 'tooltip',
                     style: {
                         display: 'inline-block',
-                        width: el.$_ptooltipFitContent ? 'fit-content' : undefined
+                        width: el.$_ptooltipFitContent ? 'fit-content' : undefined,
+                        pointerEvents: !this.isUnstyled() && el.$_ptooltipAutoHide && 'none'
                     },
                     class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
                     'p-bind': this.ptm('root', {

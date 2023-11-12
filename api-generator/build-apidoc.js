@@ -398,7 +398,11 @@ if (project) {
                                                             functionParameters += `<span class="text-primary-700">${param.name}</span>: ${param.type?.name}`;
                                                         });
 
-                                                        type += `\t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                        if (child.type?.declaration?.signatures[0]?.comment?.getTag('@deprecated')?.content[0]?.text) {
+                                                            type += `\t <span class="ml-3 text-primary-700 line-through">${child.name}</span>: <span class="text-primary-500 line-through">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300 line-through">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                        } else {
+                                                            type += `\t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                        }
                                                     } else {
                                                         const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 

@@ -34,7 +34,8 @@ export default {
             root: { class: 'w-3rem h-3rem' }
         }"
     />
-</template>`
+</template>
+`
             }
         };
     }

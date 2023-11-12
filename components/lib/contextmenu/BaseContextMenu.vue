@@ -26,10 +26,6 @@ export default {
             type: Boolean,
             default: false
         },
-        exact: {
-            type: Boolean,
-            default: true
-        },
         tabindex: {
             type: Number,
             default: 0

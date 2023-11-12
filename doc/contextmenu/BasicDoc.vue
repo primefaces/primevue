@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ContextMenu requires a collection of menuitems as its <i>model</i> and the <i>show</i> method needs to be called explicity using the <i>contextmenu</i> event of the target to display the menu.</p>
+        <p>ContextMenu requires a collection of menuitems as its <i>model</i> and the <i>show</i> method needs to be called explicity using an event of the target like <i>contextmenu</i> to display the menu.</p>
     </DocSectionText>
     <div class="card flex md:justify-content-center">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" class="w-full md:w-30rem border-round shadow-4" @contextmenu="onImageRightClick" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -14,18 +14,18 @@ export default {
     data() {
         return {
             items: [
-                { label: 'View', icon: 'pi pi-fw pi-search' },
-                { label: 'Delete', icon: 'pi pi-fw pi-trash' }
+                { label: 'Copy', icon: 'pi pi-copy' },
+                { label: 'Rename', icon: 'pi pi-file-edit' }
             ],
             code: {
                 basic: `
-<img alt="Logo" src="/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
+<img alt="Logo" src="/images/nature/nature2.jpg" class="w-full md:w-30rem border-round shadow-4" @contextmenu="onImageRightClick" aria-haspopup="true" />
 <ContextMenu ref="menu" :model="items" />
 `,
                 options: `
 <template>
     <div class="card flex md:justify-content-center">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-30rem border-round shadow-4" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
 </template>
@@ -35,8 +35,8 @@ export default {
     data() {
         return {
             items: [
-                { label: 'View', icon: 'pi pi-fw pi-search' },
-                { label: 'Delete', icon: 'pi pi-fw pi-trash' }
+                { label: 'Copy', icon: 'pi pi-copy' },
+                { label: 'Rename', icon: 'pi pi-file-edit' }
             ]
         };
     },
@@ -51,7 +51,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-30rem border-round shadow-4" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
 </template>
@@ -61,8 +61,8 @@ import { ref } from 'vue';
 
 const menu = ref();
 const items = ref([
-    { label: 'View', icon: 'pi pi-fw pi-search' },
-    { label: 'Delete', icon: 'pi pi-fw pi-trash' }
+    { label: 'Copy', icon: 'pi pi-copy' },
+    { label: 'Rename', icon: 'pi pi-file-edit' }
 ]);
 
 const onImageRightClick = (event) => {

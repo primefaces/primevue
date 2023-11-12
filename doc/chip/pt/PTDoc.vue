@@ -50,7 +50,8 @@ export default {
             label: { class: 'text-white' }
         }"
     />
-</template>`
+</template>
+`
             }
         };
     }

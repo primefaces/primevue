@@ -75,7 +75,7 @@ export interface TabMenuPassThroughOptions {
      */
     inkbar?: TabMenuPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -156,6 +156,7 @@ export interface TabMenuProps {
     model?: MenuItem[] | undefined;
     /**
      * Defines if active route highlight should match the exact route path.
+     * @deprecated since v3.40.0.
      * @defaultValue true
      */
     exact?: boolean | undefined;
@@ -202,6 +203,14 @@ export interface TabMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Index of the menuitem
+         */
+        index: number;
+        /**
+         * Current active state of the menuitem
+         */
+        active: boolean;
         /**
          * Label property of the menuitem
          */

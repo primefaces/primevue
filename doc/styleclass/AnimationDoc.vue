@@ -147,7 +147,8 @@ export default {
 .my-fadeout {
     animation: my-fadeout 150ms linear;
 }
-</style>`
+</style>
+`
             }
         };
     }

@@ -56,7 +56,8 @@ export default {
         <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
         <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
     </div>
-</template>`
+</template>
+`
             }
         };
     }
