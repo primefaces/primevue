@@ -6819,7 +6819,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Breakpoint for responsive mode. Exp;"
+                            "description": "Breakpoint for responsive mode. Exp; @media screen and (max-width: ${breakpoint}) {...}"
                         },
                         {
                             "name": "numMonths",
