@@ -295,7 +295,7 @@ export interface MenuSlots {
         /**
          * Menuitem instance
          */
-        submenuheader: MenuItem;
+        item: MenuItem;
     }): VNode[];
 }
 
