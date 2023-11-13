@@ -25,7 +25,8 @@ export default {
 {
     '0-0': true,
     '0-1-0': true
-}`
+}
+`
             },
             code: {
                 basic: `
