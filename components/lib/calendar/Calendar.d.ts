@@ -48,7 +48,7 @@ export interface CalendarPassThroughMethodOptions {
  */
 export interface CalendarResponsiveOptions {
     /**
-     * Breakpoint for responsive mode. Exp; @media screen and (max-width: ${breakpoint}) {...}
+     * Breakpoint for responsive mode. Exp; \@media screen and (max-width: ${breakpoint}) {...}
      */
     breakpoint: string;
     /**
