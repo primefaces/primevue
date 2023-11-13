@@ -15702,6 +15702,13 @@
                             "default": ""
                         },
                         {
+                            "name": "reject",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onHide",
                             "optional": true,
                             "readonly": false,
@@ -15765,14 +15772,7 @@
                             "description": "Element to receive the focus when the dialog gets visible, valid values are \"accept\" and \"reject\"."
                         }
                     ],
-                    "methods": [
-                        {
-                            "name": "reject",
-                            "parameters": [],
-                            "returnType": "void",
-                            "description": "Callback to execute when action is rejected."
-                        }
-                    ]
+                    "methods": []
                 }
             }
         }
