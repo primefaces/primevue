@@ -15709,6 +15709,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onShow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onHide",
                             "optional": true,
                             "readonly": false,
