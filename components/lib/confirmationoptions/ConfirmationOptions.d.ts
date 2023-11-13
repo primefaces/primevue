@@ -50,6 +50,10 @@ export interface ConfirmationOptions {
      */
     reject?: () => void;
     /**
+     * Callback to execute when dialog is visible.
+     */
+    onShow?: () => void;
+    /**
      * Callback to execute when dialog is hidden.
      */
     onHide?: () => void;
