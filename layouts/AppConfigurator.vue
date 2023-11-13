@@ -32,7 +32,7 @@
                     <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="border-circle" style="width: 1.5rem" />
                     <span class="font-medium">Lara</span>
                 </div>
-                <div class="flex align-items-center justify-content-between gap-3">
+                <div class="flex align-items-center justify-content-between gap-3 mb-3">
                     <button
                         :class="[
                             'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
@@ -72,6 +72,48 @@
                         @click="changeTheme('lara', 'purple')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #7758e4 0%, rgba(119, 88, 228, 0.5) 100%)"></span>
+                    </button>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3">
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'amber'), 'hover:border-500 surface-border': !isThemeActive('lara', 'amber') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'amber')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #f59e0b 0%, rgba(245, 158, 11, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'pink'), 'hover:border-500 surface-border': !isThemeActive('lara', 'pink') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'pink')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #ec4899 0%, rgba(236, 72, 153, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'cyan'), 'hover:border-500 surface-border': !isThemeActive('lara', 'cyan') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'cyan')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #06b6d4 0%, rgba(6, 182, 212, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'turquoise'), 'hover:border-500 surface-border': !isThemeActive('lara', 'turquoise') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'turquoise')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #14b8a6 0%, rgba(20, 184, 166, 0.5) 100%)"></span>
                     </button>
                 </div>
             </section>
