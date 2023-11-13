@@ -48,7 +48,7 @@ export interface ConfirmationOptions {
     /**
      * Callback to execute when action is rejected.
      */
-    reject?(): void;
+    reject?: () => void;
     /**
      * Callback to execute when dialog is hidden.
      */
