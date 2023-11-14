@@ -1,15 +1,21 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptm('root', getPTOptions())"
-        data-pc-name="splitter">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptm('root', getPTOptions())" data-pc-name="splitter">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
-            <div v-if="i !== panels.length - 1" ref="gutter" :class="cx('gutter')" role="separator" tabindex="-1"
-                @mousedown="onGutterMouseDown($event, i)" @touchstart="onGutterTouchStart($event, i)"
-                @touchmove="onGutterTouchMove($event, i)" @touchend="onGutterTouchEnd($event, i)"
-                :data-p-gutter-resizing="false" v-bind="ptm('gutter')">
-                <div :class="cx('gutterHandler')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout"
-                    :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)"
-                    v-bind="ptm('gutterHandler')"></div>
+            <div
+                v-if="i !== panels.length - 1"
+                ref="gutter"
+                :class="cx('gutter')"
+                role="separator"
+                tabindex="-1"
+                @mousedown="onGutterMouseDown($event, i)"
+                @touchstart="onGutterTouchStart($event, i)"
+                @touchmove="onGutterTouchMove($event, i)"
+                @touchend="onGutterTouchEnd($event, i)"
+                :data-p-gutter-resizing="false"
+                v-bind="ptm('gutter')"
+            >
+                <div :class="cx('gutterHandler')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandler')"></div>
             </div>
         </template>
     </div>
@@ -373,4 +379,5 @@ export default {
         }
     }
 };
+
 </script>
