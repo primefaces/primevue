@@ -71,18 +71,18 @@ export default {
         <InputGroup>
             <Button label="Search" />
             <InputText placeholder="Keyword" />
-        </div>
+        </InputGroup>
 
         <InputGroup>
             <InputText placeholder="Keyword" />
             <Button icon="pi pi-search" severity="warning" />
-        </div>
+        </InputGroup>
 
         <InputGroup>
             <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
             <Button icon="pi pi-times" severity="danger" />
-        </div>
+        </InputGroup>
     </div>
 </template>
 `
