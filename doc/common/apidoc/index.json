@@ -37133,6 +37133,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "container",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 text-primary-700 line-through\">onClose</span>: <span class=\"text-primary-500 line-through\">() &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close overlay panel function.</span>\n\t <span class=\"ml-3 text-primary-700 line-through\">onKeydown</span>: <span class=\"text-primary-500 line-through\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300 line-through\">// Close button keydown function.</span>\n\t <span class=\"ml-3 text-primary-700\">closeCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Close overlay panel function.</span>\n\t <span class=\"ml-3 text-primary-700\">keydownCallback</span>: <span class=\"text-primary-500\">(<span class=\"text-primary-700\">event</span>: Event) &rArr; void</span>, <span class=\"text-primary-300\">// Close button keydown function.</span>\n}",
+                                    "description": "container slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom container slot."
                         }
                     ]
                 },
@@ -37152,19 +37165,6 @@
                             "parameters": [],
                             "returnType": "void",
                             "description": "Callback to invoke when the overlay is hidden."
-                        },
-                        {
-                            "name": "container",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "Object",
-                                    "description": "container slot's params."
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom container slot."
                         }
                     ]
                 }
