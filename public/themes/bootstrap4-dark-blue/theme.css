@@ -2877,10 +2877,6 @@
     border: 0 none;
     padding: 0;
   }
-  .p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
-    border: 1px solid #3f4b5b;
-    border-width: 1px 0 0 0;
-  }
   .p-dataview .p-dataview-footer {
     background: #2a323d;
     color: rgba(255, 255, 255, 0.87);
