@@ -56,6 +56,10 @@ export default {
             default: 1
         },
         responsiveOptions: Array,
+        breakpoint: {
+            type: String,
+            default: '769px'
+        },
         view: {
             type: String,
             default: 'date'

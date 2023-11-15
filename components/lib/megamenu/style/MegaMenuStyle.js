@@ -111,6 +111,12 @@ const css = `
     .p-megamenu-col-12 {
         width: 100%;
     }
+
+    .p-megamenu-mobile .p-megamenu-grid {
+        flex-wrap: wrap;
+        overflow: auto;
+        max-height: 90%;
+    }
 }
 `;
 
@@ -122,6 +128,7 @@ const classes = {
     root: ({ instance }) => [
         'p-megamenu p-component',
         {
+            'p-megamenu-mobile': instance.queryMatches,
             'p-megamenu-horizontal': instance.horizontal,
             'p-megamenu-vertical': instance.vertical
         }
@@ -153,26 +160,29 @@ const classes = {
         let length = instance.isItemGroup(processedItem) ? processedItem.items.length : 0;
         let columnClass;
 
-        switch (length) {
-            case 2:
-                columnClass = 'p-megamenu-col-6';
-                break;
+        if (instance.$parentInstance.queryMatches) columnClass = 'p-megamenu-col-12';
+        else {
+            switch (length) {
+                case 2:
+                    columnClass = 'p-megamenu-col-6';
+                    break;
 
-            case 3:
-                columnClass = 'p-megamenu-col-4';
-                break;
+                case 3:
+                    columnClass = 'p-megamenu-col-4';
+                    break;
 
-            case 4:
-                columnClass = 'p-megamenu-col-3';
-                break;
+                case 4:
+                    columnClass = 'p-megamenu-col-3';
+                    break;
 
-            case 6:
-                columnClass = 'p-megamenu-col-2';
-                break;
+                case 6:
+                    columnClass = 'p-megamenu-col-2';
+                    break;
 
-            default:
-                columnClass = 'p-megamenu-col-12';
-                break;
+                default:
+                    columnClass = 'p-megamenu-col-12';
+                    break;
+            }
         }
 
         return columnClass;

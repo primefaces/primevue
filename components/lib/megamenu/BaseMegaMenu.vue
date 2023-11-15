@@ -14,6 +14,10 @@ export default {
             type: String,
             default: 'horizontal'
         },
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         disabled: {
             type: Boolean,
             default: false

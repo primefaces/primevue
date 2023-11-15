@@ -538,7 +538,8 @@ export default {
             pm: null,
             focused: false,
             overlayVisible: false,
-            currentView: this.view
+            currentView: this.view,
+            queryMatches: false
         };
     },
     watch: {
@@ -588,6 +589,13 @@ export default {
     },
     mounted() {
         this.createResponsiveStyle();
+        const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+        this.queryMatches = query.matches;
+
+        query.addEventListener('change', () => {
+            this.queryMatches = query.matches;
+        });
 
         if (this.inline) {
             this.overlay && this.overlay.setAttribute(this.attributeSelector, '');

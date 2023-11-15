@@ -7639,6 +7639,14 @@
                             "description": "An array of options for responsive design."
                         },
                         {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "769px",
+                            "description": "The breakpoint to define the maximum width boundary for datepicker panel."
+                        },
+                        {
                             "name": "view",
                             "optional": true,
                             "readonly": false,
@@ -20356,22 +20364,6 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "grid",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataViewPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the grid's DOM element."
-                        },
-                        {
-                            "name": "column",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataViewPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the column's DOM element."
-                        },
-                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -20612,7 +20604,14 @@
                         },
                         {
                             "name": "empty",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">layout</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Layout of the items.</span>\n }",
+                                    "description": "empty slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom empty template."
                         },
@@ -20634,7 +20633,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">data</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Value of the component</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the grid</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">items</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Value of the component</span>\n }",
                                     "description": "list slot's params."
                                 }
                             ],
@@ -20647,7 +20646,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">data</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Value of the component</span>\n  \t <span class=\"ml-3 text-primary-700\">index</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Index of the grid</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">items</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Value of the component</span>\n }",
                                     "description": "list slot's params."
                                 }
                             ],
@@ -22557,6 +22556,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Inline style of the element."
+                        },
+                        {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
                         },
                         {
                             "name": "exact",
@@ -32160,6 +32167,14 @@
                             "description": "Defines the orientation."
                         },
                         {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
+                        },
+                        {
                             "name": "exact",
                             "optional": true,
                             "readonly": false,
@@ -33384,6 +33399,14 @@
                             "type": "MenuItem[]",
                             "default": "",
                             "description": "An array of menuitems."
+                        },
+                        {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
                         },
                         {
                             "name": "exact",

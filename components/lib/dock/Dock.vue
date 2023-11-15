@@ -11,6 +11,20 @@ import DockSub from './DockSub.vue';
 export default {
     name: 'Dock',
     extends: BaseDock,
+    data() {
+        return {
+            queryMatches: false
+        };
+    },
+    mounted() {
+        const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+        this.queryMatches = query.matches;
+
+        query.addEventListener('change', () => {
+            this.queryMatches = query.matches;
+        });
+    },
     computed: {
         containerClass() {
             return [this.class, this.cx('root')];

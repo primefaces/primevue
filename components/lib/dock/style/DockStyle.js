@@ -111,7 +111,13 @@ const css = `
 `;
 
 const classes = {
-    root: ({ props }) => ['p-dock p-component', `p-dock-${props.position}`],
+    root: ({ instance, props }) => [
+        'p-dock p-component',
+        `p-dock-${props.position}`,
+        {
+            'p-dock-mobile': instance.queryMatches
+        }
+    ],
     container: 'p-dock-list-container',
     menu: 'p-dock-list',
     menuitem: ({ instance, processedItem, index, id }) => [

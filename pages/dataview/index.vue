@@ -17,7 +17,6 @@ import ImportDoc from '@/doc/dataview/ImportDoc.vue';
 import LayoutDoc from '@/doc/dataview/LayoutDoc.vue';
 import LoadingDoc from '@/doc/dataview/LoadingDoc.vue';
 import PaginationDoc from '@/doc/dataview/PaginationDoc.vue';
-import PrimeFlexDoc from '@/doc/dataview/PrimeFlexDoc.vue';
 import SortingDoc from '@/doc/dataview/SortingDoc.vue';
 import PTComponent from '@/doc/dataview/pt/index.vue';
 import ThemingDoc from '@/doc/dataview/theming/index.vue';
@@ -30,11 +29,6 @@ export default {
                     id: 'import',
                     label: 'Import',
                     component: ImportDoc
-                },
-                {
-                    id: 'primeflex',
-                    label: 'PrimeFlex',
-                    component: PrimeFlexDoc
                 },
                 {
                     id: 'basic',
