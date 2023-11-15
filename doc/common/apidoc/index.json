@@ -23958,7 +23958,7 @@
             }
         }
     },
-    "dynamicdialog/style/AccordionStyle": {
+    "dynamicdialog/style/DynamicDialogStyle": {
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
