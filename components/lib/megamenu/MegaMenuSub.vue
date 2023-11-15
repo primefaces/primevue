@@ -49,6 +49,7 @@
                                 :items="submenu.items"
                                 :templates="templates"
                                 :level="level + 1"
+                                :mobileActive="mobileActive"
                                 :pt="pt"
                                 :unstyled="unstyled"
                                 @item-click="$emit('item-click', $event)"
@@ -99,6 +100,10 @@ export default {
         submenu: {
             type: Object,
             default: null
+        },
+        mobileActive: {
+            type: Boolean,
+            default: false
         },
         items: {
             type: Array,

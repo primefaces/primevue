@@ -45,6 +45,14 @@ const css = `
         list-style: none;
     }
 
+    .p-megamenu-button {
+        display: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
     /* Horizontal */
     .p-megamenu-horizontal {
         align-items: center;
@@ -112,7 +120,37 @@ const css = `
         width: 100%;
     }
 
-    .p-megamenu-mobile .p-megamenu-grid {
+    .p-megamenu.p-megamenu-mobile .p-megamenu-button {
+        display: flex;
+    }
+
+    .p-megamenu.p-megamenu-mobile .p-megamenu-root-list {
+        position: absolute;
+        display: none;
+        width: 100%;
+    }
+
+    .p-megamenu.p-megamenu-mobile .p-submenu-list {
+        width: 100%;
+        position: static;
+        box-shadow: none;
+        border: 0 none;
+    }
+
+    .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-menuitem {
+        width: 100%;
+        position: static;
+    }
+
+    .p-megamenu.p-megamenu-mobile-active .p-megamenu-root-list {
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+    }
+
+    .p-megamenu.p-megamenu-mobile .p-megamenu-grid {
         flex-wrap: wrap;
         overflow: auto;
         max-height: 90%;
@@ -129,11 +167,13 @@ const classes = {
         'p-megamenu p-component',
         {
             'p-megamenu-mobile': instance.queryMatches,
+            'p-megamenu-mobile-active': instance.mobileActive,
             'p-megamenu-horizontal': instance.horizontal,
             'p-megamenu-vertical': instance.vertical
         }
     ],
     start: 'p-megamenu-start',
+    menubutton: 'p-megamenu-button',
     menu: 'p-megamenu-root-list',
     submenuHeader: ({ instance, processedItem }) => [
         'p-megamenu-submenu-header p-submenu-header',
