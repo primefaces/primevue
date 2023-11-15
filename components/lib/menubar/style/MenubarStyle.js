@@ -73,6 +73,40 @@ const css = `
         justify-content: center;
         text-decoration: none;
     }
+
+    .p-menubar.p-menubar-mobile {
+        position: relative; 
+    }
+
+    .p-menubar.p-menubar-mobile .p-menubar-button {
+        display: flex;
+    }
+
+    .p-menubar.p-menubar-mobile .p-menubar-root-list {
+        position: absolute;
+        display: none;
+        width: 100%;
+    }
+
+    .p-menubar.p-menubar-mobile .p-submenu-list {
+        width: 100%;
+        position: static;
+        box-shadow: none;
+        border: 0 none;
+    }
+
+    .p-menubar.p-menubar-mobile .p-menubar-root-list .p-menuitem {
+        width: 100%;
+        position: static;
+    }
+
+    .p-menubar.p-menubar-mobile-active .p-menubar-root-list {
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+    }
 }
 `;
 
@@ -84,6 +118,7 @@ const classes = {
     root: ({ instance }) => [
         'p-menubar p-component',
         {
+            'p-menubar-mobile': instance.queryMatches,
             'p-menubar-mobile-active': instance.mobileActive
         }
     ],

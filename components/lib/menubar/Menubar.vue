@@ -68,7 +68,8 @@ export default {
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
-            dirty: false
+            dirty: false,
+            queryMatches: false
         };
     },
     watch: {
@@ -90,6 +91,13 @@ export default {
     menubar: null,
     mounted() {
         this.id = this.id || UniqueComponentId();
+        const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+        this.queryMatches = query.matches;
+
+        query.addEventListener('change', () => {
+            this.queryMatches = query.matches;
+        });
     },
     beforeUnmount() {
         this.mobileActive = false;

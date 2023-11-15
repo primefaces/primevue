@@ -14,6 +14,10 @@ export default {
             type: null,
             default: null
         },
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         'aria-labelledby': {
             type: String,
             default: null
