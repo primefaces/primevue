@@ -171,6 +171,7 @@ const classes = {
     panel: ({ instance, props, state }) => [
         'p-datepicker p-component',
         {
+            'p-datepicker-mobile': instance.queryMatches,
             'p-datepicker-inline': props.inline,
             'p-disabled': props.disabled,
             'p-datepicker-timeonly': props.timeOnly,

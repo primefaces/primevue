@@ -627,6 +627,9 @@
   .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {
     padding-right: 0;
   }
+  .p-datepicker.p-datepicker-mobile table th, .p-datepicker.p-datepicker-mobile table td {
+    padding: 0;
+  }
   .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
     background: #e9ecef;
   }
@@ -652,11 +655,6 @@
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
   }
 
-  @media screen and (max-width: 769px) {
-    .p-datepicker table th, .p-datepicker table td {
-      padding: 0;
-    }
-  }
   .p-cascadeselect {
     background: #ffffff;
     border: 1px solid #ced4da;
