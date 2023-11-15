@@ -26,16 +26,14 @@
             </template>
         </DVPaginator>
         <div :class="cx('content')" v-bind="ptm('content')">
-            <div :class="cx('grid')" v-bind="ptm('grid')">
-                <template v-for="(item, index) of items" :key="getKey(item, index)">
-                    <slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
-                    <slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
-                </template>
-                <div v-if="empty" :class="cx('column')" v-bind="ptm('column')">
-                    <div :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
-                        <slot name="empty"></slot>
-                    </div>
-                </div>
+            <template v-if="!empty">
+                <slot v-if="$slots.list && layout === 'list'" name="list" :items="items"></slot>
+                <slot v-if="$slots.grid && layout === 'grid'" name="grid" :items="items"></slot>
+            </template>
+            <div v-else :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
+                <slot name="empty" :layout="layout">
+                    {{ emptyMessageText }}
+                </slot>
             </div>
         </div>
         <DVPaginator
@@ -136,6 +134,9 @@ export default {
         },
         empty() {
             return !this.value || this.value.length === 0;
+        },
+        emptyMessageText() {
+            return this.$primevue.config?.locale?.emptyMessage || '';
         },
         paginatorTop() {
             return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');

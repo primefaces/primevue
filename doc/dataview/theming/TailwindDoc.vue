@@ -62,24 +62,24 @@ export default {
             <template #list="slotProps">
                 <div class="flex-initial shrink-0 w-full">
                     <div class="flex flex-col xl:flex-row xl:items-start p-4 gap-4 bg-white dark:bg-gray-900">
-                        <img class="w-3/4 sm:w-64 xl:w-40 shadow-md block xl:block mx-auto rounded-md " :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.name" />
+                        <img class="w-3/4 sm:w-64 xl:w-40 shadow-md block xl:block mx-auto rounded-md " :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.items.image}\`" :alt="slotProps.items.name" />
                         <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-4">
                             <div class="flex flex-col items-center sm:items-start gap-3">
                                 <div class="text-2xl font-bold text-gray-700 dark:text-white/80">
-                                    {{ slotProps.data.name }}
+                                    {{ slotProps.items.name }}
                                 </div>
-                                <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
+                                <Rating :modelValue="slotProps.items.rating" readonly :cancel="false"></Rating>
                                 <div class="flex items-center gap-3">
                                     <span class="flex items-center gap-2">
                                         <i class="pi pi-tag text-gray-700 dark:text-white/80"></i>
-                                        <span class="font-semibold text-gray-700 dark:text-white/80">{{ slotProps.data.category }}</span>
+                                        <span class="font-semibold text-gray-700 dark:text-white/80">{{ slotProps.items.category }}</span>
                                     </span>
-                                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)"></Tag>
+                                    <Tag :value="slotProps.items.inventoryStatus" :severity="getSeverity(slotProps.items)"></Tag>
                                 </div>
                             </div>
                             <div class="flex sm:flex-col items-center sm:align-end gap-3 sm:gap-2">
-                                <span class="text-2xl font-semibold text-gray-700 dark:text-white/80">\${{ slotProps.data.price }}</span>
-                                <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                                <span class="text-2xl font-semibold text-gray-700 dark:text-white/80">\${{ slotProps.items.price }}</span>
+                                <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.items.inventoryStatus === 'OUTOFSTOCK'"></Button>
                             </div>
                         </div>
                     </div>
@@ -92,18 +92,18 @@ export default {
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <div class="flex items-center gap-2">
                                 <i class="pi pi-tag text-gray-700 dark:text-white/80"></i>
-                                <span class="font-semibold text-gray-700 dark:text-white/80">{{ slotProps.data.category }}</span>
+                                <span class="font-semibold text-gray-700 dark:text-white/80">{{ slotProps.items.category }}</span>
                             </div>
-                            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)"></Tag>
+                            <Tag :value="slotProps.items.inventoryStatus" :severity="getSeverity(slotProps.items)"></Tag>
                         </div>
                         <div class="flex flex-col items-center gap-3 py-5">
-                            <img class="w-3/4 shadow-md rounded-md" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.name" />
-                            <div class="text-2xl font-bold text-gray-700 dark:text-white/80">{{ slotProps.data.name }}</div>
-                            <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
+                            <img class="w-3/4 shadow-md rounded-md" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.items.image}\`" :alt="slotProps.items.name" />
+                            <div class="text-2xl font-bold text-gray-700 dark:text-white/80">{{ slotProps.items.name }}</div>
+                            <Rating :modelValue="slotProps.items.rating" readonly :cancel="false"></Rating>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-semibold text-gray-700 dark:text-white/80">\${{ slotProps.data.price }}</span>
-                            <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                            <span class="text-2xl font-semibold text-gray-700 dark:text-white/80">\${{ slotProps.items.price }}</span>
+                            <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.items.inventoryStatus === 'OUTOFSTOCK'"></Button>
                         </div>
                     </div>
                 </div>

@@ -82,14 +82,6 @@ export interface DataViewPassThroughOptions {
      */
     content?: DataViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the grid's DOM element.
-     */
-    grid?: DataViewPassThroughOptionType;
-    /**
-     * Used to pass attributes to the column's DOM element.
-     */
-    column?: DataViewPassThroughOptionType;
-    /**
      * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataViewPassThroughOptionType;
@@ -253,8 +245,14 @@ export interface DataViewSlots {
     footer(): VNode[];
     /**
      * Custom empty template.
+     * @param {Object} scope - empty slot's params.
      */
-    empty(): VNode[];
+    empty(scope: {
+        /**
+         * Layout of the items.
+         */
+        layout?: string | undefined;
+    }): VNode[];
     /**
      * Custom paginator start template.
      */
@@ -271,11 +269,7 @@ export interface DataViewSlots {
         /**
          * Value of the component
          */
-        data: any;
-        /**
-         * Index of the grid
-         */
-        index: number;
+        items: any;
     }): VNode[];
     /**
      * Custom list template.
@@ -285,11 +279,7 @@ export interface DataViewSlots {
         /**
          * Value of the component
          */
-        data: any;
-        /**
-         * Index of the grid
-         */
-        index: number;
+        items: any;
     }): VNode[];
 }
 
