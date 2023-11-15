@@ -182,20 +182,6 @@ export interface OverlayPanelSlots {
      * Custom close icon template.
      */
     closeicon(): VNode[];
-}
-
-/**
- * Defines valid emits in OverlayPanel component.
- */
-export interface OverlayPanelEmits {
-    /**
-     * Callback to invoke when the overlay is shown.
-     */
-    show(): void;
-    /**
-     * Callback to invoke when the overlay is hidden.
-     */
-    hide(): void;
     /**
      * Custom container slot.
      * @param {Object} scope - container slot's params.
@@ -222,6 +208,20 @@ export interface OverlayPanelEmits {
          */
         keydownCallback: (event: Event) => void;
     }): VNode[];
+}
+
+/**
+ * Defines valid emits in OverlayPanel component.
+ */
+export interface OverlayPanelEmits {
+    /**
+     * Callback to invoke when the overlay is shown.
+     */
+    show(): void;
+    /**
+     * Callback to invoke when the overlay is hidden.
+     */
+    hide(): void;
 }
 
 /**
