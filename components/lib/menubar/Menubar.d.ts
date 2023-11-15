@@ -228,6 +228,11 @@ export interface MenubarProps {
      */
     model?: MenuItem[] | undefined;
     /**
+     * The breakpoint to define the maximum width boundary.
+     * @defaultValue 960px
+     */
+    breakpoint?: string | undefined;
+    /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
      * @deprecated since v3.40.0.
      * @defaultValue true

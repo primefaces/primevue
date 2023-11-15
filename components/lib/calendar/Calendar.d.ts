@@ -510,6 +510,11 @@ export interface CalendarProps {
      */
     responsiveOptions?: CalendarResponsiveOptions[];
     /**
+     * The breakpoint to define the maximum width boundary for datepicker panel.
+     * @defaultValue 769px
+     */
+    breakpoint?: string | undefined;
+    /**
      * Type of view to display.
      * @defaultValue date
      */
