@@ -7639,6 +7639,14 @@
                             "description": "An array of options for responsive design."
                         },
                         {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "769px",
+                            "description": "The breakpoint to define the maximum width boundary for datepicker panel."
+                        },
+                        {
                             "name": "view",
                             "optional": true,
                             "readonly": false,
@@ -22550,6 +22558,14 @@
                             "description": "Inline style of the element."
                         },
                         {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
+                        },
+                        {
                             "name": "exact",
                             "optional": true,
                             "readonly": false,
@@ -32151,6 +32167,14 @@
                             "description": "Defines the orientation."
                         },
                         {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
+                        },
+                        {
                             "name": "exact",
                             "optional": true,
                             "readonly": false,
@@ -33375,6 +33399,14 @@
                             "type": "MenuItem[]",
                             "default": "",
                             "description": "An array of menuitems."
+                        },
+                        {
+                            "name": "breakpoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary."
                         },
                         {
                             "name": "exact",
