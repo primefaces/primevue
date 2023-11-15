@@ -14,6 +14,10 @@ export default {
             type: Object,
             default: null
         },
+        multiple: {
+            type: Boolean,
+            default: false
+        },
         tabindex: {
             type: Number,
             default: 0

@@ -67,7 +67,8 @@ export default {
     data() {
         return {
             id: this.$attrs.id,
-            activeItem: null
+            activeItem: null,
+            activeItems: []
         };
     },
     watch: {
@@ -96,7 +97,7 @@ export default {
             });
         },
         isItemActive(item) {
-            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : ObjectUtils.equals(item, this.activeItem);
+            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : this.multiple ? this.activeItems.some((subItem) => ObjectUtils.equals(item, subItem)) : ObjectUtils.equals(item, this.activeItem);
         },
         isItemVisible(item) {
             return this.getItemProp(item, 'visible') !== false;
@@ -218,6 +219,16 @@ export default {
                 const eventName = !active ? 'panel-open' : 'panel-close';
 
                 this.activeItem = selfActive ? item : this.activeItem && ObjectUtils.equals(item, this.activeItem) ? null : item;
+
+                if (this.multiple) {
+                    // activeItem and activeItems should be separated because it should be only one focused root item
+                    if (this.activeItems.some((subItem) => ObjectUtils.equals(item, subItem))) {
+                        this.activeItems = this.activeItems.filter((subItem) => !ObjectUtils.equals(item, subItem));
+                    } else {
+                        this.activeItems.push(item);
+                    }
+                }
+
                 this.changeExpandedKeys({ item, expanded: !active });
                 this.$emit(eventName, { originalEvent: event, item });
             }

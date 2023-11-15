@@ -257,6 +257,11 @@ export interface PanelMenuProps {
      */
     expandedKeys?: PanelMenuExpandedKeys;
     /**
+     * When enabled, multiple root menuitems can be activated at the same time.
+     * @defaultValue false
+     */
+    multiple?: boolean | undefined;
+    /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
      * @deprecated since v3.40.0.
      * @defaultValue true
