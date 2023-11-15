@@ -331,7 +331,9 @@ export default {
             }
         },
         saveState() {
-            this.getStorage().setItem(this.stateKey, JSON.stringify(this.panelSizes));
+            if(ObjectUtils.isArray(this.panelSizes)) {                
+                this.getStorage().setItem(this.stateKey, JSON.stringify(this.panelSizes));
+            }
         },
         restoreState() {
             const storage = this.getStorage();
