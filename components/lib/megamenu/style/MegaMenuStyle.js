@@ -120,11 +120,11 @@ const css = `
         width: 100%;
     }
 
-    .p-megamenu.p-megamenu-mobile .p-megamenu-button {
+    .p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-button {
         display: flex;
     }
 
-    .p-megamenu.p-megamenu-mobile .p-megamenu-root-list {
+    .p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list {
         position: absolute;
         display: none;
         width: 100%;
