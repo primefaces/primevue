@@ -31951,6 +31951,14 @@
                             "description": "Used to pass attributes to the separator's DOM element."
                         },
                         {
+                            "name": "menubutton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the mobile popup menu button's DOM element."
+                        },
+                        {
                             "name": "start",
                             "optional": true,
                             "readonly": false,
