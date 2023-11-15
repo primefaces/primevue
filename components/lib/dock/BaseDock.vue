@@ -22,6 +22,10 @@ export default {
             type: Number,
             default: 0
         },
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         'aria-label': {
             type: String,
             default: null
