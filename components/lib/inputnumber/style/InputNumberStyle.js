@@ -109,7 +109,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-inputnumber p-component p-inputwrapper',
         {
-            'p-inputwrapper-filled': instance.filled,
+            'p-inputwrapper-filled': instance.filled || props.allowEmpty === false,
             'p-inputwrapper-focus': instance.focused,
             'p-inputnumber-buttons-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-buttons-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
