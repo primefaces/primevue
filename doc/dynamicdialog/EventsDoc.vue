@@ -34,7 +34,7 @@ const showProducts = () => {
 const emit = defineEmits(['onCancel', 'onSave'])
 
 function buttonClick() {
-  emit('onCancel', {user: 'primetime'});
+    emit('onCancel', {user: 'primetime'});
 }
 <\/script>
 `

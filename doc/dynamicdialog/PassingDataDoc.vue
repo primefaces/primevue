@@ -35,7 +35,7 @@ import { inject, onMounted } from "vue";
 const dialogRef = inject('dialogRef');
 
 onMounted(() => {
-    const params = this.dialogRef.data; // {user: 'primetime'}
+    const params = dialogRef.value.data; // {user: 'primetime'}
 })
 `
             },
