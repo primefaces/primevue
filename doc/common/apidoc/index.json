@@ -38722,6 +38722,14 @@
                             "description": "A map of keys to represent the expansion state in controlled mode."
                         },
                         {
+                            "name": "multiple",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, multiple root menuitems can be activated at the same time."
+                        },
+                        {
                             "name": "exact",
                             "optional": true,
                             "readonly": false,
