@@ -1,6 +1,6 @@
 <script>
 import BaseIconStyle from 'primevue/baseicon/style';
-import BaseComponent from 'primevue/basecomponent'
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
