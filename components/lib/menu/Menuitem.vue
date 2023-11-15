@@ -39,7 +39,6 @@ export default {
     props: {
         item: null,
         templates: null,
-
         id: null,
         focusedOptionId: null,
         index: null
