@@ -40,7 +40,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
                                     : DomHandler.getFirstFocusableElement(el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
                                 : DomHandler.getFirstFocusableElement(_el);
 
-                            return ObjectUtils.isNotEmpty(focusableElement) ? focusableElement : findNextFocusableElement(_el.nextSibling);
+                            return ObjectUtils.isNotEmpty(focusableElement) ? focusableElement : _el.nextSibling && findNextFocusableElement(_el.nextSibling);
                         };
 
                         DomHandler.focus(findNextFocusableElement(mutation.nextSibling));
