@@ -11,6 +11,10 @@ const css = `
         display: inline;
     }
 
+    .p-inplace-content-close{
+        margin-left: 0.25rem;
+    }
+
     .p-fluid .p-inplace.p-inplace-closable .p-inplace-content {
         display: flex;
     }
@@ -25,7 +29,8 @@ const css = `
 const classes = {
     root: ({ props }) => ['p-inplace p-component', { 'p-inplace-closable': props.closable }],
     display: ({ props }) => ['p-inplace-display', { 'p-disabled': props.disabled }],
-    content: 'p-inplace-content'
+    content: 'p-inplace-content',
+    closeButton: 'p-inplace-content-close'
 };
 
 export default BaseStyle.extend({
