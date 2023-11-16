@@ -4,6 +4,7 @@ const css = `
 @layer primevue {
     .p-splitter-panel {
         flex-grow: 1;
+        overflow: hidden;
     }
 
     .p-splitter-panel-nested {
