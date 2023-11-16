@@ -28,11 +28,14 @@ const css = `
 
     .p-megamenu-panel {
         display: none;
-        position: absolute;
         width: auto;
         z-index: 1;
         left: 0;
         min-width: 100%;
+    }
+
+    .p-megamenu-panel:not(.p-megamenu-mobile) {
+        position: absolute;
     }
 
     .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
@@ -78,7 +81,7 @@ const css = `
         flex-direction: column;
     }
 
-    .p-megamenu-vertical .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
+    .p-megamenu-vertical:not(.p-megamenu-mobile) .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
         left: 100%;
         top: 0;
     }
@@ -120,11 +123,11 @@ const css = `
         width: 100%;
     }
 
-    .p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-button {
+    .p-megamenu.p-megamenu-mobile .p-megamenu-button {
         display: flex;
     }
 
-    .p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list {
+    .p-megamenu.p-megamenu-mobile .p-megamenu-root-list {
         position: absolute;
         display: none;
         width: 100%;

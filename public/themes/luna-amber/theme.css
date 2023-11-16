@@ -4433,50 +4433,54 @@
   .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
     color: #dedede;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-button {
+  .p-megamenu.p-megamenu-mobile.p-megamenu-vertical {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .p-megamenu.p-megamenu-mobile .p-megamenu-button {
     width: 2rem;
     height: 2rem;
     color: #dedede;
     border-radius: 50%;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-button:hover {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-button:hover {
     color: #dedede;
     background: #4c4c4c;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-button:focus {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-button:focus {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 0.1rem white;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list {
     padding: 0;
     background: #252525;
     border: 1px solid #191919;
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-menuitem-separator {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-menuitem-separator {
     border-top: 1px solid #4b4b4b;
     margin: 0;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-submenu-icon {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-submenu-icon {
     font-size: 0.875rem;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
     margin-left: auto;
     transition: transform 0.2s;
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-menuitem.p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-menuitem.p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
     transform: rotate(-180deg);
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-submenu-icon {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-submenu-icon {
     transition: transform 0.2s;
     transform: rotate(90deg);
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
     transform: rotate(-90deg);
   }
-  .p-megamenu.p-megamenu-horizontal.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link {
+  .p-megamenu.p-megamenu-mobile .p-megamenu-root-list .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link {
     padding-left: 2.571rem;
   }
 
