@@ -139,7 +139,7 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
         onListFocus(event) {
-            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
+            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]') || DomHandler.findSingle(this.list, '[data-pc-section="item"]');
 
             if (selectedFirstItem) {
                 const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
