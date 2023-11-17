@@ -47,7 +47,7 @@ export default {
                 {
                     id: 'theming',
                     label: 'Theming',
-                    description: 'PrimeVue has two theming has modes; styled or unstyled.',
+                    description: 'PrimeVue has two theming modes; styled or unstyled.',
                     children: [
                         {
                             id: 'styled',
