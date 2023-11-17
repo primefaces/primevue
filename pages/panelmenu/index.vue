@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/panelmenu/BasicDoc.vue';
 import CommandDoc from '@/doc/panelmenu/CommandDoc.vue';
 import ControlledDoc from '@/doc/panelmenu/ControlledDoc.vue';
 import ImportDoc from '@/doc/panelmenu/ImportDoc.vue';
+import MultipleDoc from '@/doc/panelmenu/MultipleDoc.vue';
 import RouterDoc from '@/doc/panelmenu/RouterDoc.vue';
 import TemplateDoc from '@/doc/panelmenu/TemplateDoc.vue';
 import PTComponent from '@/doc/panelmenu/pt/index.vue';
@@ -34,6 +35,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
                 },
                 {
                     id: 'controlled',
