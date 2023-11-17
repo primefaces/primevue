@@ -122,7 +122,7 @@ const classes = {
         }
     ],
     checkboxIcon: 'p-checkbox-icon',
-    nodeIcon: ({ instance }) => ['p-treenode-icon', instance.node.icon],
+    nodeIcon: 'p-treenode-icon',
     label: 'p-treenode-label',
     subgroup: 'p-treenode-children'
 };
