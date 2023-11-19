@@ -43,7 +43,7 @@ const classes = {
     header: ({ instance, item }) => [
         'p-panelmenu-header',
         {
-            'p-highlight': instance.isItemActive(item),
+            'p-highlight': instance.isItemActive(item) && !!item.items,
             'p-disabled': instance.isItemDisabled(item)
         }
     ],
