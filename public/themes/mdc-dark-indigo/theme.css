@@ -6125,7 +6125,6 @@
   }
   .p-input-filled .p-calendar.p-invalid .p-inputtext:enabled:hover {
     border-color: transparent;
-    background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
   .p-input-filled .p-calendar.p-invalid .p-inputtext:enabled:focus {
     box-shadow: none;
