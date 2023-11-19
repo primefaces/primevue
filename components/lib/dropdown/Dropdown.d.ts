@@ -456,6 +456,14 @@ export interface DropdownProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Used to control auto dropdown when mouse hover.
+     */
+    dropWhenHover?: boolean;
+    /**
+     * Used to control auto dropdown delay when mouse hover.
+     */
+    dropHoverDelay?: number;
 }
 
 /**

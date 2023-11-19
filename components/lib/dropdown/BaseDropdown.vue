@@ -153,7 +153,15 @@ export default {
         'aria-labelledby': {
             type: String,
             default: null
-        }
+        },
+        dropWhenHover: {
+            type: Boolean,
+            default: false
+        },
+        dropHoverDelay: {
+            type: Number,
+            default: 500
+        },
     },
     style: DropdownStyle,
     provide() {
