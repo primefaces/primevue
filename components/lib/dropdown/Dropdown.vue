@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="dropdown">
+    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" @mouseenter="onHover" @mouseleave="onLeave" v-bind="ptm('root')" data-pc-name="dropdown">
         <input
             v-if="editable"
             ref="focusInput"
@@ -402,6 +402,28 @@ export default {
             !matched && (this.focusedOptionIndex = -1);
 
             this.updateModel(event, value);
+        },
+        onHover() {
+            if (this.dropWhenHover) {
+                if (this.dropHoverDelay) {
+                    if (this.dropTimeout) {
+                        clearTimeout(this.dropTimeout);
+                    }
+
+                    this.dropTimeout = setTimeout(() => {
+                        this.show();
+                    }, this.dropHoverDelay);
+                } else {
+                    this.show();
+                }
+            }
+        },
+        onLeave() {
+            if (this.dropWhenHover) {
+                if (this.dropTimeout) {
+                    clearTimeout(this.dropTimeout);
+                }
+            }
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
