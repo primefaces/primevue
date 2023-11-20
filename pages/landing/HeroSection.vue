@@ -21,23 +21,35 @@
                 <div class="flex">
                     <div class="flex flex-column w-6 gap-5 pt-8 pr-3">
                         <div class="box p-4 fadein animation-duration-500">
-                            <span class="text-secondary font-medium block mb-3">Balance</span>
-                            <div class="flex flex-wrap lg:flex-nowrap justify-content-start gap-3">
-                                <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
-                                <InputNumber v-model="value2" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
+                            <div class="flex gap-3">
+                                <div class="w-6rem">
+                                    <span class="text-secondary font-medium block mb-3">Amount</span>
+                                    <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
+                                </div>
+                                <div class="flex-1">
+                                    <span class="text-secondary font-semibold block mb-3">Beneficiary</span>
+                                    <Dropdown v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
+                                        <template #option="slotProps">
+                                            <div class="flex align-items-center gap-2">
+                                                <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" width="28" />
+                                                <span>{{ slotProps.option.name }}</span>
+                                            </div>
+                                        </template>
+                                    </Dropdown>
+                                </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-5 mb-3">Category</span>
+                            <span class="text-secondary font-medium block mt-5 mb-3">Account</span>
                             <div class="flex flex-wrap gap-3">
                                 <div class="flex align-items-center">
-                                    <RadioButton id="category1" v-model="radioValue" value="C" name="radiovalue" @change="setCategory('C')" />
-                                    <label for="category1" class="ml-2 font-medium">Clothing</label>
+                                    <RadioButton id="category1" v-model="radioValue" value="S" name="radiovalue" @change="setCategory('S')" />
+                                    <label for="category1" class="ml-2 font-medium">Savings</label>
                                 </div>
                                 <div class="flex align-items-center">
-                                    <RadioButton id="category2" v-model="radioValue" value="E" name="radiovalue" @change="setCategory('E')" />
-                                    <label for="category2" class="ml-2 font-medium">Electronics</label>
+                                    <RadioButton id="category2" v-model="radioValue" value="C" name="radiovalue" @change="setCategory('C')" />
+                                    <label for="category2" class="ml-2 font-medium">Checking</label>
                                 </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-5 mb-3">Order Date</span>
+                            <span class="text-secondary font-medium block mt-5 mb-3">Date</span>
                             <Calendar v-model="dateValue" :showWeek="true" class="w-full" />
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
@@ -121,8 +133,7 @@ export default {
     themeChangeListener: null,
     data() {
         return {
-            value1: 240,
-            value2: 356,
+            value1: 24,
             category: 'C',
             chartData: {},
             chartOptions: {},
@@ -132,7 +143,7 @@ export default {
             pbValue4: 75,
             pbValue5: 60,
             activeTabIndex: 0,
-            radioValue: 'C',
+            radioValue: 'S',
             nodes: null,
             switchValue: true,
             selectButtonValue: { name: 'Styled', value: 1 },
@@ -145,6 +156,12 @@ export default {
             selectButtonOptions: [
                 { name: 'Styled', value: 1 },
                 { name: 'Unstyled', value: 2 }
+            ],
+            user: null,
+            users: [
+                { name: 'Amy Elsner', image: 'amyelsner.png' },
+                { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
+                { name: 'Onyama Limba', image: 'onyamalimba.png' }
             ]
         };
     },
