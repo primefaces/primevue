@@ -21,12 +21,12 @@
                 <div class="flex">
                     <div class="flex flex-column w-6 gap-5 pt-8 pr-3">
                         <div class="box p-4 fadein animation-duration-500">
-                            <div class="flex gap-3">
-                                <div class="w-6rem">
+                            <div class="flex gap-2">
+                                <div class="w-6rem flex-shrink-0">
                                     <span class="text-secondary font-medium block mb-3">Amount</span>
-                                    <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="lg:w-6" />
+                                    <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="w-full" />
                                 </div>
-                                <div class="flex-1">
+                                <div class="flex-auto" style="width: 1%">
                                     <span class="text-secondary font-semibold block mb-3">Beneficiary</span>
                                     <Dropdown v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
                                         <template #option="slotProps">
