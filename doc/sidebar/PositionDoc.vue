@@ -10,23 +10,19 @@
             <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
         </div>
 
-        <Sidebar v-model:visible="visibleLeft">
-            <h2>Left Sidebar</h2>
+        <Sidebar v-model:visible="visibleLeft" header="Left Sidebar">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleRight" position="right">
-            <h2>Right Sidebar</h2>
+        <Sidebar v-model:visible="visibleRight" header="Right Sidebar" position="right">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
-            <h2>Top Sidebar</h2>
+        <Sidebar v-model:visible="visibleTop" header="Top Sidebar" position="top" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
-            <h2>Bottom Sidebar</h2>
+        <Sidebar v-model:visible="visibleBottom" header="Bottom Sidebar" position="bottom" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
     </div>
@@ -50,23 +46,19 @@ export default {
     <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
 </div>
 
-<Sidebar v-model:visible="visibleLeft">
-    <h2>Left Sidebar</h2>
+<Sidebar v-model:visible="visibleLeft" header="Left Sidebar">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 
-<Sidebar v-model:visible="visibleRight" position="right">
-    <h2>Right Sidebar</h2>
+<Sidebar v-model:visible="visibleRight" header="Right Sidebar" position="right">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 
-<Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
-    <h2>Top Sidebar</h2>
+<Sidebar v-model:visible="visibleTop" header="Top Sidebar" position="top" style="height: auto">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 
-<Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
-    <h2>Bottom Sidebar</h2>
+<Sidebar v-model:visible="visibleBottom" header="Bottom Sidebar" position="bottom" style="height: auto">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 `,
@@ -80,23 +72,19 @@ export default {
             <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
         </div>
 
-        <Sidebar v-model:visible="visibleLeft">
-            <h2>Left Sidebar</h2>
+        <Sidebar v-model:visible="visibleLeft" header="Left Sidebar">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleRight" position="right">
-            <h2>Right Sidebar</h2>
+        <Sidebar v-model:visible="visibleRight" header="Right Sidebar" position="right">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
-            <h2>Top Sidebar</h2>
+        <Sidebar v-model:visible="visibleTop" header="Top Sidebar" position="top" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
-            <h2>Bottom Sidebar</h2>
+        <Sidebar v-model:visible="visibleBottom" header="Bottom Sidebar" position="bottom" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
     </div>
@@ -125,23 +113,19 @@ export default {
             <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
         </div>
 
-        <Sidebar v-model:visible="visibleLeft">
-            <h2>Left Sidebar</h2>
+        <Sidebar v-model:visible="visibleLeft" header="Left Sidebar">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleRight" position="right">
-            <h2>Right Sidebar</h2>
+        <Sidebar v-model:visible="visibleRight" header="Right Sidebar" position="right">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" position="top" style="height: auto">
-            <h2>Top Sidebar</h2>
+        <Sidebar v-model:visible="visibleTop" header="Top Sidebar" position="top" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" position="bottom" style="height: auto">
-            <h2>Bottom Sidebar</h2>
+        <Sidebar v-model:visible="visibleBottom" header="Bottom Sidebar" position="bottom" style="height: auto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </Sidebar>
     </div>
