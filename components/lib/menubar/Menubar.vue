@@ -97,6 +97,7 @@ export default {
 
         query.addEventListener('change', () => {
             this.queryMatches = query.matches;
+            this.mobileActive = false;
         });
     },
     beforeUnmount() {
