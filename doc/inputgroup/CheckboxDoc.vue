@@ -113,25 +113,25 @@ export default {
             <InputText placeholder="Price" />
             <InputGroupAddon>
                 <RadioButton v-model="radioValue1" name="rb1" value="rb1" />
-            </span>
-        </div>
+            </InputGroupAddon>
+        </InputGroup>
 
         <InputGroup>
             <InputGroupAddon>
                 <Checkbox v-model="checked1" :binary="true" />
-            </span>
+            </InputGroupAddon>
             <InputText placeholder="Username" />
-        </div>
+        </InputGroup>
 
         <InputGroup>
             <InputGroupAddon>
                 <Checkbox v-model="checked2" :binary="true" />
-            </span>
+            </InputGroupAddon>
             <InputText placeholder="Website" />
             <InputGroupAddon>
                 <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
-            </span>
-        </div>
+            </InputGroupAddon>
+        </InputGroup>
     </div>
 </template>
 
