@@ -72,6 +72,9 @@ export default {
                 index: index
             });
         },
+        isActive(item) {
+            return this.activeRoute.startsWith(item.to);
+        },
         getItemClass(item, index) {
             return ['p-tabmenuitem', item.class, {
                 'p-highlight':  this.d_activeIndex === index,
@@ -113,6 +116,11 @@ export default {
                 this.$refs.inkbar.style.left =  '0px';
             }
 
+        }
+    },
+    computed: {
+        activeRoute() {
+            return this.$route.path;
         }
     },
     directives: {
