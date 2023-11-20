@@ -38,7 +38,7 @@ export default {
     },
     data() {
         return {
-            tableTheme: 'lara-light-teal'
+            tableTheme: 'lara-light-green'
         };
     },
     themeChangeListener: null,
@@ -53,11 +53,11 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal');
+        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-green' : 'lara-light-green');
     },
     methods: {
         onDarkModeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-teal' : 'lara-dark-teal';
+            const newTheme = this.$appState.darkTheme ? 'lara-light-green' : 'lara-dark-green';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });

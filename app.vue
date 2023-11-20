@@ -15,7 +15,7 @@ export default {
         $route: {
             handler(to) {
                 if (to.name === 'index') {
-                    this.themeChangeListener({ theme: this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal', dark: this.$appState.darkTheme });
+                    this.themeChangeListener({ theme: this.$appState.darkTheme ? 'lara-dark-green' : 'lara-light-green', dark: this.$appState.darkTheme });
                 }
             }
         }

@@ -52,12 +52,12 @@ export default defineNuxtConfig({
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'styles/landing/themes/lara-light-teal/theme.css'
+                    href: baseUrl + 'styles/landing/themes/lara-light-green/theme.css'
                 },
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-teal/theme.css'
+                    href: baseUrl + 'themes/lara-light-green/theme.css'
                 },
                 { rel: 'icon', href: baseUrl + 'favicon.ico' }
             ],
