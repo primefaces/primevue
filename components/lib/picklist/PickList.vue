@@ -617,6 +617,8 @@ export default {
                     if (event.ctrlKey) {
                         this.d_selection = [...this.modelValue];
                         this.$emit('update:selection', this.d_selection);
+
+                        event.preventDefault();
                     }
 
                 default:
@@ -658,7 +660,7 @@ export default {
         onSpaceKey(event, listType) {
             event.preventDefault();
 
-            if (event.shiftKey) {
+            if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
                 const listId = listType === 'sourceList' ? 0 : 1;
                 const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[listId][0], [...this.modelValue[listId]]);
@@ -667,6 +669,10 @@ export default {
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.onEnterKey(event, listType);
             }
@@ -680,6 +686,10 @@ export default {
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(0, matchedOptionIndex + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(0, listType);
             }
@@ -696,6 +706,10 @@ export default {
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(items.length - 1, listType);
             }

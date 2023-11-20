@@ -187,6 +187,8 @@ export default {
                     if (event.ctrlKey) {
                         this.d_selection = [...this.modelValue];
                         this.$emit('update:selection', this.d_selection);
+
+                        event.preventDefault();
                     }
 
                 default:
@@ -227,6 +229,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(0, matchedOptionIndex + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(0);
             }
@@ -241,6 +247,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(DomHandler.find(this.list, '[data-pc-section="item"]').length - 1);
             }
@@ -257,7 +267,9 @@ export default {
             event.preventDefault();
         },
         onSpaceKey(event) {
-            if (event.shiftKey) {
+            event.preventDefault();
+
+            if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
                 const items = DomHandler.find(this.list, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[0], [...this.modelValue]);
                 const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
@@ -265,6 +277,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.onEnterKey(event);
             }
