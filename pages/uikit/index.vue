@@ -147,7 +147,7 @@
             <div class="card mb-5" style="border-radius: 50px">
                 <div class="text-900 font-bold text-5xl mb-4 text-center">Pricing</div>
                 <div class="mb-2 text-center line-height-3 text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
-                <a href="https://www.primefaces.org/uikit/licenses" class="mb-6 text-primary-500 no-underline hover:underline text-center block">View License Details</a>
+                <a href="https://www.primefaces.org/uikit/licenses" class="mb-6 text-primary font-medium no-underline hover:underline text-center block">View License Details</a>
 
                 <div class="grid">
                     <div class="col-12 lg:col-4">
@@ -157,7 +157,8 @@
                                 <div class="text-600 font-medium">For individual designers</div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <div class="flex flex-wrap gap-3">
-                                    <span class="text-2xl font-bold text-900">$99</span>
+                                    <span class="text-2xl font-medium text-500 line-through">$99</span>
+                                    <span class="text-2xl font-bold text-900">$49</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -201,7 +202,8 @@
                                 <div class="text-600 font-medium">For small teams</div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <div class="flex flex-wrap gap-3">
-                                    <span class="text-2xl font-bold text-900">$249</span>
+                                    <span class="text-2xl font-medium text-500 line-through">$249</span>
+                                    <span class="text-2xl font-bold text-900">$149</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -301,7 +303,7 @@
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
                         <div class="text-xl text-900 line-height-3 mb-2 text-900">We're a reseller, are we able to purchase a license on behalf of our client?</div>
                         <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">
-                            Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="text-primary-500 no-underline hover:underline">contact us</a> so we can transfer the license to your client.
+                            Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="text-primary font-medium no-underline hover:underline">contact us</a> so we can transfer the license to your client.
                         </p>
 
                         <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Does the enterprise license include contractors within the organization?</div>
@@ -316,8 +318,8 @@
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
                         <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">How can I get support?</div>
                         <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">
-                            Support is provided by PrimeTek via <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="text-primary-500 no-underline hover:underline">a dedicated forum channel monitored</a> by PrimeTek
-                            support staff.
+                            Support is provided by PrimeTek via
+                            <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="text-primary font-medium no-underline hover:underline">a dedicated forum channel monitored</a> by PrimeTek support staff.
                         </p>
 
                         <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">What does lifetime support mean?</div>
