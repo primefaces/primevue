@@ -10,8 +10,8 @@
                 <div class="doc-intro">
                     <h1>UnoCSS</h1>
                     <p>
-                        <a href="https://unocss.dev" class="font-semibold hover:underline text-primary">UnoCSS</a> is an instant atomic CSS engine designed to be flexible and extensible. The core is un-opinionated and all the CSS utilities are
-                        provided via presets.
+                        <a href="https://unocss.dev" class="font-medium hover:underline text-primary">UnoCSS</a> is an instant atomic CSS engine designed to be flexible and extensible. The core is un-opinionated and all the CSS utilities are provided
+                        via presets.
                     </p>
                 </div>
                 <DocSections :docs="docs" />
