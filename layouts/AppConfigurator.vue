@@ -376,9 +376,9 @@ export default {
                 this.changeTheme(tokens[0].substring(0, 2), tokens[2]);
             }
         },
-        isThemeActive(theme, color) {
+        isThemeActive(themeFamily, color) {
             let themeName;
-            let themePrefix = this.compactMaterial ? 'mdc' : theme;
+            let themePrefix = themeFamily === 'md' && this.compactMaterial ? 'mdc' : themeFamily;
 
             if (this.lightOnlyThemes.includes(themePrefix)) {
                 themeName = themePrefix;
