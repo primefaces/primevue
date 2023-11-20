@@ -14,6 +14,10 @@ export default {
             type: String,
             default: 'left'
         },
+        header: {
+            type: null,
+            default: null
+        },
         baseZIndex: {
             type: Number,
             default: 0

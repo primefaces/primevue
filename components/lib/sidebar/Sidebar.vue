@@ -6,9 +6,9 @@
                     <slot v-if="$slots.container" name="container" :onClose="hide" :closeCallback="hide"></slot>
                     <template v-else>
                         <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
-                            <div v-if="$slots.header" :class="cx('headerContent')" v-bind="ptm('headerContent')">
-                                <slot name="header"></slot>
-                            </div>
+                            <slot name="header" :class="cx('title')">
+                                <div v-if="header" :class="cx('title')" v-bind="ptm('title')">{{ header }}</div>
+                            </slot>
                             <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
                                 <slot name="closeicon" :class="cx('closeIcon')">
                                     <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>

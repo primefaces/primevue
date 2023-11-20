@@ -4054,6 +4054,10 @@
   .p-sidebar .p-sidebar-header {
     padding: 1rem;
   }
+  .p-sidebar .p-sidebar-header .p-sidebar-header-content {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
   .p-sidebar .p-sidebar-header .p-sidebar-close,
 .p-sidebar .p-sidebar-header .p-sidebar-icon {
     width: 2.5rem;

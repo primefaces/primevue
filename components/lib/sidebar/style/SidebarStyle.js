@@ -34,7 +34,7 @@ const css = `
     .p-sidebar-header {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
         flex-shrink: 0;
     }
 
@@ -191,7 +191,7 @@ const classes = {
         }
     ],
     header: 'p-sidebar-header',
-    headerContent: 'p-sidebar-header-content',
+    title: 'p-sidebar-header-content',
     closeButton: 'p-sidebar-close p-sidebar-icon p-link',
     closeIcon: 'p-sidebar-close-icon',
     content: 'p-sidebar-content'
