@@ -15905,7 +15905,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headerTitle",
+                            "name": "title",
                             "optional": true,
                             "readonly": false,
                             "type": "ConfirmDialogPassThroughOptionType",
@@ -15913,7 +15913,7 @@
                             "description": "Used to pass attributes to the header title's DOM element."
                         },
                         {
-                            "name": "headerIcons",
+                            "name": "icons",
                             "optional": true,
                             "readonly": false,
                             "type": "ConfirmDialogPassThroughOptionType",
@@ -21377,7 +21377,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headerTitle",
+                            "name": "title",
                             "optional": true,
                             "readonly": false,
                             "type": "DialogPassThroughOptionType",
@@ -21385,7 +21385,7 @@
                             "description": "Used to pass attributes to the header title's DOM element."
                         },
                         {
-                            "name": "headerIcons",
+                            "name": "icons",
                             "optional": true,
                             "readonly": false,
                             "type": "DialogPassThroughOptionType",
