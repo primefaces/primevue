@@ -54,11 +54,11 @@ export interface DialogPassThroughOptions {
     /**
      * Used to pass attributes to the header title's DOM element.
      */
-    headerTitle?: DialogPassThroughOptionType;
+    title?: DialogPassThroughOptionType;
     /**
      * Used to pass attributes to the header icons' DOM element.
      */
-    headerIcons?: DialogPassThroughOptionType;
+    icons?: DialogPassThroughOptionType;
     /**
      * Used to pass attributes to the maximizable button's DOM element.
      */

@@ -54,11 +54,11 @@ export interface ConfirmDialogPassThroughOptions {
     /**
      * Used to pass attributes to the header title's DOM element.
      */
-    headerTitle?: ConfirmDialogPassThroughOptionType;
+    title?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the header icons' DOM element.
      */
-    headerIcons?: ConfirmDialogPassThroughOptionType;
+    icons?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the close button's component.
      */
