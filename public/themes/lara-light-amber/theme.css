@@ -1100,7 +1100,7 @@
     box-shadow: 0 0 0 0.2rem #fef08a;
   }
   .p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
-    background: #b9bfc8;
+    background: #b7bcc5;
   }
   .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
     background: #f59e0b;
