@@ -1,5 +1,47 @@
 # Changelog
 
+## [3.41.0](https://github.com/primefaces/primevue/tree/3.41.0) (2023-11-20)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.40.1...3.41.0)
+
+**Breaking Changes:**
+
+-   Dialog: PT options rename [\#4848](https://github.com/primefaces/primevue/issues/4848)
+-   Sidebar: header templating updates [\#4845](https://github.com/primefaces/primevue/issues/4845)
+-   Remove primeflex dependency from DataView [\#4818](https://github.com/primefaces/primevue/issues/4818)
+-   Lara theme enhancements [\#4807](https://github.com/primefaces/primevue/issues/4807)
+
+**Fixed bugs:**
+
+-   OrderList / PickList: defect on first tab focus [\#4839](https://github.com/primefaces/primevue/issues/4839)
+-   Inplace: console logs error on close [\#4824](https://github.com/primefaces/primevue/issues/4824)
+-   Menu: submenuheader slot options TypeScript defect [\#4809](https://github.com/primefaces/primevue/issues/4809)
+-   FileUpload: missing fileSizeTypes locale breaks the file select process [\#4808](https://github.com/primefaces/primevue/issues/4808)
+-   DataTable | cmd + A highlights page (Accessibility) [\#4804](https://github.com/primefaces/primevue/issues/4804)
+-   Splitter: stateString is undefined [\#4797](https://github.com/primefaces/primevue/issues/4797)
+-   BaseIcon: SpinnerIcon component isn't spinning. [\#4791](https://github.com/primefaces/primevue/issues/4791)
+-   OverlayPanel: wrongly typed slot prop [\#4774](https://github.com/primefaces/primevue/issues/4774)
+-   MultiSelect: loading spinner is not animated [\#4741](https://github.com/primefaces/primevue/issues/4741)
+-   AutoComplete: Primitive value 0 or reference value 0 does not display correctly [\#4749](https://github.com/primefaces/primevue/issues/4749)
+-   InputNumber: float label initially broken if allowEmpty = false [\#4516](https://github.com/primefaces/primevue/issues/4516)
+-   Paginator: Responsive Templating showing multiple layouts on break points [\#4458](https://github.com/primefaces/primevue/issues/4458)
+-   DataTable VirtualScroller: resizableColumns broken [\#4394](https://github.com/primefaces/primevue/issues/4394)
+
+**Implemented New Features and Enhancements:**
+
+-   PickList OrderList | Keyboard Support Enhancements [\#4850](https://github.com/primefaces/primevue/issues/4850)
+-   TreeSelect: Accessibility Improvements [\#4841](https://github.com/primefaces/primevue/issues/4841)
+-   MegaMenu responsiveness updates [\#4819](https://github.com/primefaces/primevue/issues/4819)
+-   PanelMenu: new multiple property [\#4826](https://github.com/primefaces/primevue/issues/4826)
+-   Calendar responsiveness updates [\#4822](https://github.com/primefaces/primevue/issues/4822)
+-   Dock responsiveness updates [\#4821](https://github.com/primefaces/primevue/issues/4821)
+-   Menubar responsiveness updates [\#4820](https://github.com/primefaces/primevue/issues/4820)
+-   Chore: Duplicated Tailwind Classes [\#4806](https://github.com/primefaces/primevue/issues/4806)
+-   fix: import nuxt composables from #imports [\#4775](https://github.com/primefaces/primevue/issues/4775)
+-   Ovarlay / Dialog: Height is not working when use Tailwind [\#4653](https://github.com/primefaces/primevue/issues/4653)
+-   Media / Image : In preview mode toolbar is not showing when using tailwind unstyled [\#4650](https://github.com/primefaces/primevue/issues/4650)
+-   Splitter: blocked by content [\#4513](https://github.com/primefaces/primevue/issues/4513)
+
 ## [3.40.1](https://github.com/primefaces/primevue/tree/3.40.1) (2023-11-09)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.40.0...3.40.1)
