@@ -43655,7 +43655,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headerContent",
+                            "name": "title",
                             "optional": true,
                             "readonly": false,
                             "type": "SidebarPassThroughOptionType",
@@ -43762,6 +43762,14 @@
                             "description": "Specifies the position of the sidebar."
                         },
                         {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Title content of the dialog."
+                        },
+                        {
                             "name": "baseZIndex",
                             "optional": true,
                             "readonly": false,
@@ -43858,7 +43866,14 @@
                         },
                         {
                             "name": "header",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the header title</span>\n }",
+                                    "description": "header slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom header template."
                         },
