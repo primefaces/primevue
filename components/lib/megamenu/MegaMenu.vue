@@ -65,6 +65,7 @@ export default {
     emits: ['focus', 'blur'],
     outsideClickListener: null,
     resizeListener: null,
+    matchMediaListener: null,
     container: null,
     menubar: null,
     searchTimeout: null,
@@ -77,6 +78,7 @@ export default {
             focusedItemInfo: { index: -1, key: '', parentKey: '' },
             activeItem: null,
             dirty: false,
+            query: null,
             queryMatches: false
         };
     },
@@ -96,19 +98,13 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
-        const query = matchMedia(`(max-width: ${this.breakpoint})`);
-
-        this.queryMatches = query.matches;
-
-        query.addEventListener('change', () => {
-            this.queryMatches = query.matches;
-            this.mobileActive = false;
-        });
+        this.bindMatchMediaListener();
     },
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
     },
     methods: {
         getItemProp(item, name) {
@@ -488,6 +484,27 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                    this.mobileActive = false;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
             }
         },
         isItemMatched(processedItem) {
