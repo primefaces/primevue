@@ -416,11 +416,6 @@ export default {
             }
         }
     },
-    beforeMount() {
-        if (this.isStateful()) {
-            this.restoreState();
-        }
-    },
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
@@ -428,8 +423,10 @@ export default {
             this.createResponsiveStyle();
         }
 
-        if (this.isStateful() && this.resizableColumns) {
-            this.restoreColumnWidths();
+        if (this.isStateful()) {
+            this.restoreState();
+
+            this.resizableColumns && this.restoreColumnWidths();
         }
 
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
