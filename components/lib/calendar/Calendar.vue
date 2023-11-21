@@ -520,6 +520,7 @@ export default {
     outsideClickListener: null,
     maskClickListener: null,
     resizeListener: null,
+    matchMediaListener: null,
     overlay: null,
     input: null,
     mask: null,
@@ -539,6 +540,7 @@ export default {
             focused: false,
             overlayVisible: false,
             currentView: this.view,
+            query: null,
             queryMatches: false
         };
     },
@@ -589,13 +591,7 @@ export default {
     },
     mounted() {
         this.createResponsiveStyle();
-        const query = matchMedia(`(max-width: ${this.breakpoint})`);
-
-        this.queryMatches = query.matches;
-
-        query.addEventListener('change', () => {
-            this.queryMatches = query.matches;
-        });
+        this.bindMatchMediaListener();
 
         if (this.inline) {
             this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
@@ -638,6 +634,7 @@ export default {
 
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -1020,6 +1017,27 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                    this.mobileActive = false;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
             }
         },
         isOutsideClicked(event) {
