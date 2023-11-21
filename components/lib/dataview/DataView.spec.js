@@ -54,22 +54,24 @@ describe('DataView.vue', () => {
             slots: {
                 grid: `
                     <template #grid="slotProps">
-                        <div class="col-12 md:col-4">
-                            <div class="product-grid-item card">
-                                <div class="product-grid-item-top">
-                                    <div>
-                                        <i class="pi pi-tag product-category-icon"></i>
-                                        <span class="product-category">{{slotProps.data.category}}</span>
+                        <div class="grid grid-nogutter">
+                            <div v-for="(item, index) in slotProps.items" :key="index"  class="col-12 md:col-4">
+                                <div class="product-grid-item card">
+                                    <div class="product-grid-item-top">
+                                        <div>
+                                            <i class="pi pi-tag product-category-icon"></i>
+                                            <span class="product-category">{{item.category}}</span>
+                                        </div>
+                                        <span :class="'product-badge status-'+item.inventoryStatus.toLowerCase()">{{item.inventoryStatus}}</span>
                                     </div>
-                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                </div>
-                                <div class="product-grid-item-content">
-                                    <img :src="'images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
-                                    <div class="product-name">{{slotProps.data.name}}</div>
-                                    <div class="product-description">{{slotProps.data.description}}</div>
-                                </div>
-                                <div class="product-grid-item-bottom">
-                                    <span class="product-price">\${{slotProps.data.price}}</span>
+                                    <div class="product-grid-item-content">
+                                        <img :src="'images/product/' + item.image" :alt="item.name"/>
+                                        <div class="product-name">{{item.name}}</div>
+                                        <div class="product-description">{{item.description}}</div>
+                                    </div>
+                                    <div class="product-grid-item-bottom">
+                                        <span class="product-price">\${{item.price}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
