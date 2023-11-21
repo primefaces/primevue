@@ -11,19 +11,41 @@ import DockSub from './DockSub.vue';
 export default {
     name: 'Dock',
     extends: BaseDock,
+    matchMediaListener: null,
     data() {
         return {
+            query: null,
             queryMatches: false
         };
     },
     mounted() {
-        const query = matchMedia(`(max-width: ${this.breakpoint})`);
+        this.bindMatchMediaListener();
+    },
+    beforeUnmount() {
+        this.unbindMatchMediaListener();
+    },
+    methods: {
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
 
-        this.queryMatches = query.matches;
+                this.query = query;
+                this.queryMatches = query.matches;
 
-        query.addEventListener('change', () => {
-            this.queryMatches = query.matches;
-        });
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                    this.mobileActive = false;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
+            }
+        }
     },
     computed: {
         containerClass() {
