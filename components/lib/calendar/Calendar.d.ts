@@ -773,7 +773,7 @@ export interface CalendarSlots {
          * Number of the week
          */
         weekNumber: number;
-    });
+    }): VNode[];
     /**
      * Custom dropdown icon template.
      * @param {Object} scope - dropdown icon slot's params.
