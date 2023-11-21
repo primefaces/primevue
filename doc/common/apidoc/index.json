@@ -7050,6 +7050,14 @@
                             "description": "Used to pass attributes to the week header's DOM element."
                         },
                         {
+                            "name": "weekHeaderLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the week header label's DOM element."
+                        },
+                        {
                             "name": "tableHeaderCell",
                             "optional": true,
                             "readonly": false,
@@ -8046,6 +8054,25 @@
                             "description": "Custom decade template."
                         },
                         {
+                            "name": "weekheaderlabel",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom week header label template."
+                        },
+                        {
+                            "name": "weeklabel",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">weekNumber</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Number of the week</span>\n }",
+                                    "description": "weeklabel slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom week label template."
+                        },
+                        {
                             "name": "dropdownicon",
                             "parameters": [
                                 {
@@ -8109,25 +8136,6 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom decrement icon template."
-                        },
-                        {
-                            "name": "showWeekHeader",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom header for the showWeek"
-                        },
-                        {
-                            "name": "showWeek",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">date</span>: <span class=\"text-primary-500\">undefined</span>, <span class=\"text-primary-300\">// Date information corresponding to first day of week</span>\n  \t <span class=\"ml-3 text-primary-700\">weekNumber</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Internally calculated week number</span>\n }",
-                                    "description": "showWeek slot params"
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom showWeek template"
                         }
                     ]
                 },
