@@ -183,6 +183,10 @@ export interface CalendarPassThroughOptions {
      */
     weekHeader?: CalendarPassThroughOptionType;
     /**
+     * Used to pass attributes to the week header label's DOM element.
+     */
+    weekHeaderLabel?: CalendarPassThroughOptionType;
+    /**
      * Used to pass attributes to the table header cell's DOM element.
      */
     tableHeaderCell?: CalendarPassThroughOptionType;
@@ -757,6 +761,20 @@ export interface CalendarSlots {
         years: string[] | undefined;
     }): VNode[];
     /**
+     * Custom week header label template.
+     */
+    weekheaderlabel(): VNode[];
+    /**
+     * Custom week label template.
+     * @param {Object} scope - weeklabel slot's params.
+     */
+    weeklabel(scope: {
+        /**
+         * Number of the week
+         */
+        weekNumber: number;
+    });
+    /**
      * Custom dropdown icon template.
      * @param {Object} scope - dropdown icon slot's params.
      */
@@ -805,30 +823,6 @@ export interface CalendarSlots {
          * Style class of the decrement icon
          */
         class: any;
-    }): VNode[];
-    /**
-     * Custom header for the showWeek
-     */
-    showWeekHeader(): VNode[];
-    /**
-     * Custom showWeek template
-     * @param {Object} scope - showWeek slot params
-     */
-    showWeek(scope: {
-        /**
-         * Date information corresponding to first day of week
-         */
-        date: {
-            day: number;
-            month: number;
-            year: number;
-            today: boolean;
-            selectable: boolean;
-        };
-        /**
-         * Internally calculated week number
-         */
-        weekNumber: number;
     }): VNode[];
 }
 
