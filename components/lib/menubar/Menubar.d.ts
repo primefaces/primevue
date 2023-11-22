@@ -83,13 +83,13 @@ export interface MenubarPassThroughOptions {
      */
     separator?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile popup menu button's DOM element.
+     * Used to pass attributes to the mobile menu button's DOM element.
      */
     button?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile popup menu button icon's DOM element.
+     * Used to pass attributes to the mobile menu button icon's DOM element.
      */
-    popupIcon?: MenubarPassThroughOptionType;
+    menubuttonicon?: MenubarPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
@@ -306,9 +306,33 @@ export interface MenubarSlots {
         hasSubmenu: boolean;
     }): VNode[];
     /**
+     * Custom menu button template on responsive mode.
+     * @param {Object} scope - menu button slot's params.
+     */
+    menubutton(scope: {
+        /**
+         * Current id state as a string
+         */
+        id: string;
+        /**
+         * Style class of component
+         */
+        class: string;
+        /**
+         *
+         * Toggle event
+         */
+        toggleCallback: () => void;
+    }): VNode[];
+    /**
      * Custom popup icon template on responsive mode.
+     * @deprecated since v3.42.0. Use 'menubuttonicon' slot instead.
      */
     popupicon(): VNode[];
+    /**
+     * Custom menu button icon template on responsive mode.
+     */
+    menubuttonicon(): VNode[];
     /**
      * Custom submenu icon template.
      * @param {Object} scope - submenuicon slot's params.

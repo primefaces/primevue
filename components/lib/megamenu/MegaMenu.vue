@@ -3,24 +3,26 @@
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
-        <a
-            v-if="model && model.length > 0"
-            ref="menubutton"
-            role="button"
-            tabindex="0"
-            :class="cx('menubutton')"
-            :aria-haspopup="model.length && model.length > 0 ? true : false"
-            :aria-expanded="mobileActive"
-            :aria-controls="id"
-            :aria-label="$primevue.config.locale.aria?.navigation"
-            @click="menuButtonClick($event)"
-            @keydown="menuButtonKeydown($event)"
-            v-bind="ptm('menubutton')"
-        >
-            <slot name="menubuttonicon">
-                <BarsIcon v-bind="ptm('menubuttonicon')" />
-            </slot>
-        </a>
+        <slot :id="id" name="menubutton" :class="cx('menubutton')" :toggleCallback="(event) => menuButtonClick(event)">
+            <a
+                v-if="model && model.length > 0"
+                ref="menubutton"
+                role="button"
+                tabindex="0"
+                :class="cx('menubutton')"
+                :aria-haspopup="model.length && model.length > 0 ? true : false"
+                :aria-expanded="mobileActive"
+                :aria-controls="id"
+                :aria-label="$primevue.config.locale.aria?.navigation"
+                @click="menuButtonClick($event)"
+                @keydown="menuButtonKeydown($event)"
+                v-bind="ptm('menubutton')"
+            >
+                <slot name="menubuttonicon">
+                    <BarsIcon v-bind="ptm('menubuttonicon')" />
+                </slot>
+            </a>
+        </slot>
         <MegaMenuSub
             :ref="menubarRef"
             :id="id + '_list'"

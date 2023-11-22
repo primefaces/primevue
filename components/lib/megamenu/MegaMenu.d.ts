@@ -319,6 +319,29 @@ export interface MegaMenuSlots {
         hasSubmenu: boolean;
     }): VNode[];
     /**
+     * Custom menu button template on responsive mode.
+     * @param {Object} scope - menu button slot's params.
+     */
+    menubutton(scope: {
+        /**
+         * Current id state as a string
+         */
+        id: string;
+        /**
+         * Style class of component
+         */
+        class: string;
+        /**
+         *
+         * Toggle event
+         */
+        toggleCallback: () => void;
+    }): VNode[];
+    /**
+     * Custom menu button icon template on responsive mode.
+     */
+    menubuttonicon(): VNode[];
+    /**
      * Custom submenu icon template.
      * @param {Object} scope - submenuicon slot's params.
      */

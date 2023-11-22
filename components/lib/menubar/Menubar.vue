@@ -3,24 +3,26 @@
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
-        <a
-            v-if="model && model.length > 0"
-            ref="menubutton"
-            role="button"
-            tabindex="0"
-            :class="cx('button')"
-            :aria-haspopup="model.length && model.length > 0 ? true : false"
-            :aria-expanded="mobileActive"
-            :aria-controls="id"
-            :aria-label="$primevue.config.locale.aria?.navigation"
-            @click="menuButtonClick($event)"
-            @keydown="menuButtonKeydown($event)"
-            v-bind="{ ...buttonProps, ...ptm('button') }"
-        >
-            <slot name="popupicon">
-                <BarsIcon v-bind="ptm('popupIcon')" />
-            </slot>
-        </a>
+        <slot :id="id" name="menubutton" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
+            <a
+                v-if="model && model.length > 0"
+                ref="menubutton"
+                role="button"
+                tabindex="0"
+                :class="cx('button')"
+                :aria-haspopup="model.length && model.length > 0 ? true : false"
+                :aria-expanded="mobileActive"
+                :aria-controls="id"
+                :aria-label="$primevue.config.locale.aria?.navigation"
+                @click="menuButtonClick($event)"
+                @keydown="menuButtonKeydown($event)"
+                v-bind="{ ...buttonProps, ...ptm('button') }"
+            >
+                <slot name="menubuttonicon">
+                    <BarsIcon v-bind="ptm('menubuttonicon')" />
+                </slot>
+            </a>
+        </slot>
         <MenubarSub
             :ref="menubarRef"
             :id="id"
@@ -422,10 +424,10 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.menubar && !this.menubar.contains(event.target);
-                    const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton ? this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target) : true;
+                    const isOutsideContainer = this.container && !this.container.contains(event.target);
+                    const isOutsideTarget = !(this.target && (this.target === event.target || this.target.contains(event.target)));
 
-                    if (isOutsideMenuButton && isOutsideContainer) {
+                    if (isOutsideContainer && isOutsideTarget) {
                         this.hide();
                     }
                 };
