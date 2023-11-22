@@ -30,6 +30,10 @@ export default {
             type: String,
             default: null
         },
+        badgeSeverity: {
+            type: String,
+            default: null
+        },
         loading: {
             type: Boolean,
             default: false
