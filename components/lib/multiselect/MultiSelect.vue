@@ -760,7 +760,7 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
+            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)) || event.target.className.includes("p-multiselect-item"));
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
