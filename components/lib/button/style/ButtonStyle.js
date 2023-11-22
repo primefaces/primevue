@@ -27,7 +27,9 @@ const classes = {
             'p-button-icon-left': props.iconPos === 'left' && props.label,
             'p-button-icon-right': props.iconPos === 'right' && props.label,
             'p-button-icon-top': props.iconPos === 'top' && props.label,
-            'p-button-icon-bottom': props.iconPos === 'bottom' && props.label
+            'p-button-icon-bottom': props.iconPos === 'bottom' && props.label,
+            'p-button-sm': props.size === 'small',
+            'p-button-lg': props.size === 'large'
         }
     ],
     label: 'p-button-label'

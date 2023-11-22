@@ -1859,6 +1859,15 @@
     border-radius: 50%;
     height: 2.357rem;
   }
+  .p-button.p-button-icon-only.p-button-sm {
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+  }
+  .p-button.p-button-icon-only.p-button-lg {
+    height: 4rem;
+    width: 4rem;
+  }
   .p-button.p-button-sm {
     font-size: 0.875rem;
     padding: 0.375375rem 0.875rem;
