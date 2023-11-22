@@ -46846,6 +46846,15 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
+                            "description": "Style class to add when item begins to get displayed.",
+                            "deprecated": "since v3.41.0. Use 'enterFromClass' option instead."
+                        },
+                        {
+                            "name": "enterFromClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
                             "description": "Style class to add when item begins to get displayed."
                         },
                         {
@@ -46866,6 +46875,15 @@
                         },
                         {
                             "name": "leaveClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Style class to add when item begins to get hidden.",
+                            "deprecated": "since v3.41.0. Use 'leaveFromClass' option instead."
+                        },
+                        {
+                            "name": "leaveFromClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
