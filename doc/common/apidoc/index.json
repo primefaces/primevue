@@ -13708,7 +13708,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">sorted</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current sort state.</span>\n  \t <span class=\"ml-3 text-primary-700\">sortOrder</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Current sort order state.</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of the sort icon.</span>\n  \t <span class=\"ml-3 text-primary-700\">sorted</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current sort state.</span>\n  \t <span class=\"ml-3 text-primary-700\">sortOrder</span>: <span class=\"text-primary-500\">number</span>, <span class=\"text-primary-300\">// Current sort order state.</span>\n }",
                                     "description": "sort icon slot's params."
                                 }
                             ],
