@@ -32308,6 +32308,25 @@
                             "description": "Custom item template."
                         },
                         {
+                            "name": "menubutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">id</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Current id state as a string</span>\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of component</span>\n \t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Toggle event</span>\n}",
+                                    "description": "menu button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button template on responsive mode."
+                        },
+                        {
+                            "name": "menubuttonicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button icon template on responsive mode."
+                        },
+                        {
                             "name": "submenuicon",
                             "parameters": [
                                 {
@@ -33193,15 +33212,15 @@
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the mobile popup menu button's DOM element."
+                            "description": "Used to pass attributes to the mobile menu button's DOM element."
                         },
                         {
-                            "name": "popupIcon",
+                            "name": "menubuttonicon",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the mobile popup menu button icon's DOM element."
+                            "description": "Used to pass attributes to the mobile menu button icon's DOM element."
                         },
                         {
                             "name": "submenu",
@@ -33534,10 +33553,30 @@
                             "description": "Custom item template."
                         },
                         {
+                            "name": "menubutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">id</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Current id state as a string</span>\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">string</span>, <span class=\"text-primary-300\">// Style class of component</span>\n \t <span class=\"ml-3 text-primary-700\">toggleCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Toggle event</span>\n}",
+                                    "description": "menu button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button template on responsive mode."
+                        },
+                        {
                             "name": "popupicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom popup icon template on responsive mode."
+                            "description": "Custom popup icon template on responsive mode.",
+                            "deprecated": "since v3.42.0. Use 'menubuttonicon' slot instead."
+                        },
+                        {
+                            "name": "menubuttonicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button icon template on responsive mode."
                         },
                         {
                             "name": "submenuicon",
