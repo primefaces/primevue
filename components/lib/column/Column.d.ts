@@ -949,6 +949,10 @@ export interface ColumnSlots {
      */
     sorticon(scope: {
         /**
+         * Style class of the sort icon.
+         */
+        class: string;
+        /**
          * Current sort state.
          */
         sorted: boolean;
