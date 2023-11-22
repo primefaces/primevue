@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.41.1](https://github.com/primefaces/primevue/tree/3.41.1) (2023-11-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.41.0...3.41.1)
+
+**Breaking Changes:**
+
+-  StyleClass: deprecate enterClass/leaveClass use enterFromClass/leaveFromClass  [\#4866](https://github.com/primefaces/primevue/issues/486&)
+-  Listbox: metaKeySelection default changed as true  [\#4865](https://github.com/primefaces/primevue/issues/4865)
+
+**Fixed bugs:**
+
+-  DataTable: restore state defect   [\#4855](https://github.com/primefaces/primevue/issues/4855)
+-  PanelMenu: Menu items with no sub-items toggling border radius  [\#4816](https://github.com/primefaces/primevue/issues/4816)
+-  Column: Missing typing for sorticon  [\#4423](https://github.com/primefaces/primevue/issues/4423)
+
+**Implemented New Features and Enhancements:**
+
+-  Button: new badgeSeverity property   [\#4863](https://github.com/primefaces/primevue/issues/4863)
+-  MegaMenu / Menubar: menubutton templating  [\#4862](https://github.com/primefaces/primevue/issues/4862)
+-  Calendar: Week Number customization  [\#4669](https://github.com/primefaces/primevue/issues/4669)
+
 ## [3.41.0](https://github.com/primefaces/primevue/tree/3.41.0) (2023-11-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.40.1...3.41.0)
@@ -2193,6 +2214,21 @@
 -   Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 -   Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 -   BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+## [2.10.3](https://github.com/primefaces/primevue/tree/2.10.3) (2023-11-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.10.2...2.10.3)
+
+**Implemented New Features and Enhancements:**
+
+- v2 DataTable: Frozen column improvements [\#4795](https://github.com/primefaces/primevue/issues/4795)
+- TreeTable: Add custom header for column [\#2941](https://github.com/primefaces/primevue/issues/2941)
+
+**Fixed bugs:**
+
+- OrderList: order of selection reversed when moving multiple items to top or bottom [\#4700](https://github.com/primefaces/primevue/issues/4700)
+- Calendar: Crashes when Tab pressed and calendar overlay is not showing [\#4586](https://github.com/primefaces/primevue/issues/4586)
+- Calendar: Months are not highlighted with selection-mode="multiple" [\#3988](https://github.com/primefaces/primevue/issues/3988)
 
 ## [2.10.2](https://github.com/primefaces/primevue/tree/2.10.2) (2023-08-16)
 
