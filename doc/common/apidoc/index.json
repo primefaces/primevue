@@ -6508,6 +6508,14 @@
                             "description": "Style class of the badge."
                         },
                         {
+                            "name": "badgeSeverity",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | string",
+                            "default": "",
+                            "description": "Severity type of the badge."
+                        },
+                        {
                             "name": "loading",
                             "optional": true,
                             "readonly": false,
