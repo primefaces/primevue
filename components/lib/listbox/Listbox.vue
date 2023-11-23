@@ -203,7 +203,7 @@ export default {
 
             const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
-            this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
+            this.$refs.lastHiddenFocusableElement.tabIndex = DomHandler.isElement(firstFocusableEl) ? undefined : -1;
             this.$refs.firstHiddenFocusableElement.tabIndex = -1;
         },
         onLastHiddenFocus(event) {
