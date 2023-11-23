@@ -480,6 +480,11 @@ export interface CalendarProps {
      */
     showIcon?: boolean | undefined;
     /**
+     * Icon position of the component. This only applies if the showIcon option is set to true.
+     * @defaultValue 'button'
+     */
+    iconDisplay?: 'button' | 'input' | undefined;
+    /**
      * Icon of the calendar button.
      * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
@@ -781,6 +786,16 @@ export interface CalendarSlots {
     dropdownicon(scope: {
         /**
          * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom input icon template.
+     * @param {Object} scope - input icon slot's params.
+     */
+    inputicon(scope: {
+        /**
+         * Style class of the input icon
          */
         class: any;
     }): VNode[];

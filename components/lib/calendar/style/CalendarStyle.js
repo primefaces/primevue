@@ -22,6 +22,10 @@ const css = `
         border-bottom-left-radius: 0;
     }
 
+    .p-calendar .p-datepicker-trigger-icon {
+        cursor: pointer;
+    }
+
     /* Fluid */
     .p-fluid .p-calendar {
         display: flex;
@@ -158,7 +162,8 @@ const classes = {
     root: ({ props, state }) => [
         'p-calendar p-component p-inputwrapper',
         {
-            'p-calendar-w-btn': props.showIcon,
+            'p-calendar-w-btn': props.showIcon && props.iconDisplay === 'button',
+            'p-input-icon-right': props.showIcon && props.iconDisplay === 'input',
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-inputwrapper-filled': props.modelValue,
@@ -168,6 +173,7 @@ const classes = {
     ],
     input: 'p-inputtext p-component',
     dropdownButton: 'p-datepicker-trigger',
+    inputIcon: 'p-datepicker-trigger-icon',
     panel: ({ instance, props, state }) => [
         'p-datepicker p-component',
         {

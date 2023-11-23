@@ -28,7 +28,7 @@
             v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <CalendarButton
-            v-if="showIcon"
+            v-if="showIcon && iconDisplay === 'button'"
             :class="cx('dropdownButton')"
             :disabled="disabled"
             @click="onButtonClick"
@@ -47,6 +47,11 @@
                 </slot>
             </template>
         </CalendarButton>
+        <template v-else-if="showIcon && iconDisplay === 'input'">
+            <slot name="inputicon" :class="cx('inputIcon')">
+                <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
+            </slot>
+        </template>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave" v-bind="ptm('transition')">
                 <div
