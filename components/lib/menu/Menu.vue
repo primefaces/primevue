@@ -272,7 +272,11 @@ export default {
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.container, this.target);
-            this.container.style.minWidth = DomHandler.getOuterWidth(this.target) + 'px';
+            const targetWidth = DomHandler.getOuterWidth(this.target);
+
+            if (targetWidth > DomHandler.getOuterWidth(this.container)) {
+                this.container.style.minWidth = DomHandler.getOuterWidth(this.target) + 'px';
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
