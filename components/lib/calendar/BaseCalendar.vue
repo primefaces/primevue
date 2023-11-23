@@ -31,6 +31,10 @@ export default {
             type: Boolean,
             default: false
         },
+        iconDisplay: {
+            type: String,
+            default: 'button'
+        },
         icon: {
             type: String,
             default: undefined
