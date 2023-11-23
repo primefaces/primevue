@@ -7594,6 +7594,14 @@
                             "description": "When enabled, displays a button with icon next to input."
                         },
                         {
+                            "name": "iconDisplay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"input\" | \"button\"",
+                            "default": "'button'",
+                            "description": "Icon position of the component. This only applies if the showIcon option is set to true."
+                        },
+                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
@@ -8092,6 +8100,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom dropdown icon template."
+                        },
+                        {
+                            "name": "inputicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the input icon</span>\n }",
+                                    "description": "input icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom input icon template."
                         },
                         {
                             "name": "previousicon",
