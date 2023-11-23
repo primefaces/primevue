@@ -96,7 +96,7 @@
                     </slot>
                 </template>
             </PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" :pt="ptm('moveAllToSourceButton')" v-bind="moveAllToSourceProps" :unstyled="unstyled">
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveAllDisabled('targetList')" :pt="ptm('moveAllToSourceButton')" v-bind="moveAllToSourceProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltosourceicon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('moveAllToSourceButton')['icon']" data-pc-section="movealltosourceicon" />
@@ -839,9 +839,6 @@ export default {
         },
         moveAllDisabled(list) {
             return ObjectUtils.isEmpty(this[list]);
-        },
-        moveSourceDisabled() {
-            return ObjectUtils.isEmpty(this.targetList);
         }
     },
     computed: {
