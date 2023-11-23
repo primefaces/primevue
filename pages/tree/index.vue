@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tree Component" header="Tree" description="Tree is used to display hierarchical data." :componentDocs="docs" :apiDocs="['Tree']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Tree Component" header="Tree" description="Tree is used to display hierarchical data." :componentDocs="docs" :apiDocs="['Tree', 'TreeNode']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/tree/AccessibilityDoc.vue';

@@ -324,14 +324,14 @@ export default {
             return interfaces;
         },
         findOptions(values, docName) {
-            const validOptionsDocNames = ['MenuItem', 'ConfirmationOptions'];
+            const validOptionsDocNames = ['MenuItem', 'ConfirmationOptions', 'TreeNode'];
 
             if (!validOptionsDocNames.includes(docName)) return;
 
             const options = [];
 
             for (const key of Object.keys(values)) {
-                if (key === 'MenuItem' || key === 'ConfirmationOptions') {
+                if (key === 'MenuItem' || key === 'ConfirmationOptions' || key === 'TreeNode') {
                     options.push({ key, values: values[key] });
                 }
             }

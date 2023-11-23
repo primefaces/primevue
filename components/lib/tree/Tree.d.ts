@@ -10,6 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
+import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes | string) | string | null | undefined;
@@ -38,66 +39,6 @@ export interface TreePassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
-}
-
-/**
- * Custom TreeNode metadata.
- */
-export interface TreeNode {
-    /**
-     * Mandatory unique key of the node.
-     */
-    key?: string;
-    /**
-     * Label of the node.
-     */
-    label?: string;
-    /**
-     * Data represented by the node.
-     */
-    data?: any;
-    /**
-     * Type of the node to match a template.
-     */
-    type?: string;
-    /**
-     * Icon of the node to display next to content.
-     */
-    icon?: string;
-    /**
-     * An array of treenodes as children.
-     */
-    children?: TreeNode[];
-    /**
-     * Inline style of the node.
-     */
-    style?: any;
-    /**
-     * Style class of the node.
-     */
-    styleClass?: string;
-    /**
-     * Whether the node is selectable when selection mode is enabled.
-     * @defaultValue false
-     */
-    selectable?: boolean;
-    /**
-     * Specifies if the node has children. Used in lazy loading.
-     * @defaultValue false
-     */
-    leaf?: boolean;
-    /**
-     * Optional
-     */
-    [key: string]: any;
-    /**
-     * Icon to use in expanded state.
-     */
-    expandedIcon?: string;
-    /**
-     * Icon to use in collapsed state.
-     */
-    collapsedIcon?: string;
 }
 
 /**
