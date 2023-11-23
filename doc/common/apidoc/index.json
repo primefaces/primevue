@@ -52034,115 +52034,6 @@
                     ],
                     "methods": []
                 },
-                "TreeNode": {
-                    "description": "Custom TreeNode metadata.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "key",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Mandatory unique key of the node."
-                        },
-                        {
-                            "name": "label",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Label of the node."
-                        },
-                        {
-                            "name": "data",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Data represented by the node."
-                        },
-                        {
-                            "name": "type",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Type of the node to match a template."
-                        },
-                        {
-                            "name": "icon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon of the node to display next to content."
-                        },
-                        {
-                            "name": "children",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeNode[]",
-                            "default": "",
-                            "description": "An array of treenodes as children."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the node."
-                        },
-                        {
-                            "name": "styleClass",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Style class of the node."
-                        },
-                        {
-                            "name": "selectable",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether the node is selectable when selection mode is enabled."
-                        },
-                        {
-                            "name": "leaf",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Specifies if the node has children. Used in lazy loading."
-                        },
-                        {
-                            "name": "expandedIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to use in expanded state."
-                        },
-                        {
-                            "name": "collapsedIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to use in collapsed state."
-                        },
-                        {
-                            "name": "[key: string]",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any"
-                        }
-                    ],
-                    "methods": []
-                },
                 "TreeExpandedKeys": {
                     "description": "Custom expanded keys metadata.",
                     "relatedProp": "",
@@ -52791,6 +52682,126 @@
                     ],
                     "methods": [],
                     "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "treenode": {
+        "description": "PrimeVue tree components share a common api to specify the node.",
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TreeNode": {
+                    "description": "Custom TreeNode metadata.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "key",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Mandatory unique key of the node."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Label of the node."
+                        },
+                        {
+                            "name": "data",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Data represented by the node."
+                        },
+                        {
+                            "name": "type",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Type of the node to match a template."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon of the node to display next to content."
+                        },
+                        {
+                            "name": "children",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": "",
+                            "description": "An array of treenodes as children."
+                        },
+                        {
+                            "name": "style",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Inline style of the node."
+                        },
+                        {
+                            "name": "styleClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Style class of the node."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether the node is selectable when selection mode is enabled."
+                        },
+                        {
+                            "name": "leaf",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Specifies if the node has children. Used in lazy loading."
+                        },
+                        {
+                            "name": "expandedIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to use in expanded state."
+                        },
+                        {
+                            "name": "collapsedIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to use in collapsed state."
+                        },
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
                 }
             }
         }
