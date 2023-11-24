@@ -67,7 +67,6 @@ export default {
     name: 'ConfirmPopup',
     extends: BaseConfirmPopup,
     inheritAttrs: false,
-
     data() {
         return {
             visible: false,
