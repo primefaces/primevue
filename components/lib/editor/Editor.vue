@@ -75,6 +75,9 @@ export default {
                 this.reRenderColorKey++;
                 this.renderValue(newValue);
             }
+        },
+        readonly() {
+            this.handleReadOnlyChange();
         }
     },
     mounted() {
@@ -165,6 +168,9 @@ export default {
             if (this.quill && this.quill.getModule('toolbar')) {
                 this.$emit('load', { instance: this.quill });
             }
+        },
+        handleReadOnlyChange() {
+            if (this.quill) this.quill.enable(!this.readonly);
         }
     }
 };
