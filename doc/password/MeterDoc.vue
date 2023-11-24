@@ -3,7 +3,7 @@
         <p>Strength meter is displayed as a popup while a value is being entered.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Password v-model="value" />
+        <Password v-model="value" :feedback="true" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,7 +20,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Password v-model="value" />
+        <Password v-model="value" :feedback="true" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Password v-model="value" />
+        <Password v-model="value" :feedback="true" />
     </div>
 </template>
 
