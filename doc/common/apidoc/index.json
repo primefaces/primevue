@@ -3790,7 +3790,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -3798,7 +3798,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -4362,7 +4362,7 @@
                             "description": "Shape of the element."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -4370,7 +4370,7 @@
                             "description": "Establishes a string value that labels the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -6150,7 +6150,7 @@
                             "deprecated": "since v3.40.0."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -6158,7 +6158,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -7986,7 +7986,7 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -7994,7 +7994,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -9873,7 +9873,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -9881,7 +9881,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -10762,7 +10762,7 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -10770,7 +10770,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -11648,7 +11648,7 @@
                             "description": "Placeholder text for the input."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -11656,7 +11656,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -17081,7 +17081,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -17089,7 +17089,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -22655,7 +22655,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -22663,7 +22663,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -23587,7 +23587,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -23595,7 +23595,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -29713,7 +29713,7 @@
                             "description": "Used to pass all properties of the HTMLButtonElement to decrement button inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -29721,7 +29721,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -30103,7 +30103,7 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -30111,7 +30111,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -30817,7 +30817,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -30825,7 +30825,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -31524,7 +31524,7 @@
                             "deprecated": "since v3.27.0. Use 'filtericon' slot."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -31532,7 +31532,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -32264,7 +32264,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -32272,7 +32272,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -32889,7 +32889,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -32897,7 +32897,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -33509,7 +33509,7 @@
                             "description": "Used to pass all properties of the HTMLButtonElement to the menu button."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -33517,7 +33517,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -35205,7 +35205,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -35213,7 +35213,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -36063,7 +36063,7 @@
                             "description": "Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -36071,7 +36071,7 @@
                             "description": "Defines a string value that labels an interactive list element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -39524,7 +39524,7 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -39532,7 +39532,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -41592,7 +41592,7 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -41600,7 +41600,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -43491,7 +43491,7 @@
                             "description": "Whether selection can be cleared."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -44558,7 +44558,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -44566,7 +44566,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -45120,7 +45120,7 @@
                             "description": "Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -45128,7 +45128,7 @@
                             "description": "Defines a string value that labels an interactive list element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -47325,7 +47325,7 @@
                             "description": "Active index of menuitem."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -47333,7 +47333,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -49646,7 +49646,7 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -49654,7 +49654,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -51166,7 +51166,7 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -51174,7 +51174,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -51470,7 +51470,7 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -52412,7 +52412,7 @@
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -52420,7 +52420,7 @@
                             "description": "Defines a string value that labels an interactive element."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -53166,7 +53166,7 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -53174,7 +53174,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -55216,7 +55216,7 @@
                             "deprecated": "since v3.26.0. Use 'pt' property."
                         },
                         {
-                            "name": "aria-labelledby",
+                            "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -55224,7 +55224,7 @@
                             "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
                         },
                         {
-                            "name": "aria-label",
+                            "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
