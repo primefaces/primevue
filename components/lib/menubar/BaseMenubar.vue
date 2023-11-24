@@ -18,11 +18,11 @@ export default {
             type: String,
             default: '960px'
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

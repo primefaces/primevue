@@ -57,11 +57,11 @@ export default {
         tooltipOptions: null,
         style: null,
         class: null,
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }
