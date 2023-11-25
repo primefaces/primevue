@@ -317,7 +317,10 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            if (this.disabled) {
+            // Android keyboard event
+            const isAndroidKeyboardEvent = event.isComposing || event.keyCode === 229;
+
+            if (this.disabled || isAndroidKeyboardEvent) {
                 event.preventDefault();
 
                 return;
@@ -402,6 +405,8 @@ export default {
             !matched && (this.focusedOptionIndex = -1);
 
             this.updateModel(event, value);
+
+            !this.overlayVisible && this.show();
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
