@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Any time of image can be used as an icon.</p>
+        <p>Any type of image can be used as an icon.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
 </template>
