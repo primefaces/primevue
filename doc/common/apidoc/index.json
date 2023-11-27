@@ -18113,7 +18113,7 @@
                             "name": "data",
                             "optional": false,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "any",
                             "default": "",
                             "description": "Expanded row data"
                         }
@@ -18137,7 +18137,7 @@
                             "name": "data",
                             "optional": false,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "any",
                             "default": "",
                             "description": "Expanded row data"
                         }
