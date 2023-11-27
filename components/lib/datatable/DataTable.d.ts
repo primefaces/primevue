@@ -378,7 +378,7 @@ export interface DataTableRowExpandEvent {
     /**
      * Expanded row data
      */
-    data: any[];
+    data: any;
 }
 
 /**
