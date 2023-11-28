@@ -798,6 +798,10 @@ export interface CalendarSlots {
          * Style class of the input icon
          */
         class: any;
+        /**
+         * Click callback
+         */
+        clickCallback: () => void;
     }): VNode[];
     /**
      * Custom previous icon template.
