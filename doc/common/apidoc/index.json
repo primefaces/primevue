@@ -52787,6 +52787,14 @@
                             "description": "Specifies if the node has children. Used in lazy loading."
                         },
                         {
+                            "name": "loading",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Specifies the node loading. Used in Tree and TreeTable."
+                        },
+                        {
                             "name": "expandedIcon",
                             "optional": true,
                             "readonly": false,
