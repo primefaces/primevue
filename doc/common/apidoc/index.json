@@ -52364,6 +52364,14 @@
                             "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
+                            "name": "loadingMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"mask\" | \"icon\"",
+                            "default": "mask",
+                            "description": "Loading mode display."
+                        },
+                        {
                             "name": "filter",
                             "optional": true,
                             "readonly": false,
@@ -54378,6 +54386,14 @@
                             "default": "",
                             "description": "The icon to show while indicating data load is in progress.",
                             "deprecated": "since v3.27.0. Use 'loadingicon' slot."
+                        },
+                        {
+                            "name": "loadingMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"mask\" | \"icon\"",
+                            "default": "mask",
+                            "description": "Loading mode display."
                         },
                         {
                             "name": "rowHover",
