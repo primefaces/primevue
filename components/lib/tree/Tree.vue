@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tree">
-        <template v-if="loading">
+        <template v-if="loading && loadingMode === 'mask'">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
@@ -29,6 +29,7 @@
                     :selectionMode="selectionMode"
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
+                    :loadingMode="loadingMode"
                     :pt="pt"
                     :unstyled="unstyled"
                 ></TreeNode>

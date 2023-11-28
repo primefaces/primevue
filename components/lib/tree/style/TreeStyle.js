@@ -113,6 +113,7 @@ const classes = {
     ],
     toggler: 'p-tree-toggler p-link',
     togglerIcon: 'p-tree-toggler-icon',
+    nodeTogglerIcon: 'p-tree-node-toggler-icon',
     checkboxContainer: 'p-checkbox p-component',
     checkbox: ({ instance }) => [
         'p-checkbox-box',

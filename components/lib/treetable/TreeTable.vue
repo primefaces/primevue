@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
-        <div v-if="loading" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
+        <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
@@ -94,6 +94,7 @@
                             :ariaSetSize="dataToRender.length"
                             :ariaPosInset="index + 1"
                             :tabindex="setTabindex(node, index)"
+                            :loadingMode="loadingMode"
                             :templates="$slots"
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"

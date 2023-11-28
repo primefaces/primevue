@@ -233,6 +233,11 @@ export interface TreeProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
+    /**
      * When specified, displays an input field to filter the items.
      * @defaultValue false
      */

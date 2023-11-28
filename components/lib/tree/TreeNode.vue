@@ -16,9 +16,15 @@
     >
         <div :class="cx('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
-                <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
-                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
-                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                <template v-if="node.loading && loadingMode === 'icon'">
+                    <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
+                </template>
+                <template v-else>
+                    <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
+                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                </template>
             </button>
             <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
                 <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
@@ -57,6 +63,7 @@ import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
+import SpinnerIcon from 'primevue/icons/spinner';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 
@@ -74,6 +81,10 @@ export default {
             type: null,
             default: null
         },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         selectionKeys: {
             type: null,
             default: null
@@ -90,10 +101,7 @@ export default {
             type: Number,
             default: null
         },
-        index: {
-            type: Number,
-            default: null
-        }
+        index: null
     },
     nodeTouched: false,
     toggleClicked: false,
@@ -435,7 +443,8 @@ export default {
         ChevronDownIcon: ChevronDownIcon,
         ChevronRightIcon: ChevronRightIcon,
         CheckIcon: CheckIcon,
-        MinusIcon: MinusIcon
+        MinusIcon: MinusIcon,
+        SpinnerIcon: SpinnerIcon
     },
     directives: {
         ripple: Ripple

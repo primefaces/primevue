@@ -475,6 +475,11 @@ export interface TreeTableProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
+    /**
      * When enabled, background of the rows change on hover.
      * @defaultValue false
      */

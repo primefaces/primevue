@@ -78,6 +78,10 @@ export default {
             type: String,
             default: undefined
         },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         rowHover: {
             type: Boolean,
             default: false
