@@ -53,7 +53,7 @@ export default {
                 }
                 else {
                     let left = 0;
-                    let prev = this.$el.previousElementSibling;
+                    let prev = DomHandler.getPreviousElementSibling(this.$el, '.p-frozen-column');
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
                     }
