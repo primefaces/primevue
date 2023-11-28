@@ -133,13 +133,12 @@ export default {
                 newNextPanelSize = this.nextPanelSize - newPos;
             }
 
-            this.prevSize = parseFloat(newPrevPanelSize).toFixed(4);
-
             if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
                 this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
                 this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
                 this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
                 this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
+                this.prevSize = parseFloat(newPrevPanelSize).toFixed(4);
             }
 
             this.$emit('resize', { originalEvent: event, sizes: this.panelSizes });
