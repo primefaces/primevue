@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime <i>paging</i>, <i>sorting</i> and <i>filtering</i> occurs. Sample below
-            imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection.
+            imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Using basic <i>paging</i>, <i>sorting</i> and <i>filtering</i> while this property is set to true will not work.
         </p>
         <p>
             Enabling the <i>lazy</i> property and assigning the logical number of rows to <i>totalRecords</i> by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records
