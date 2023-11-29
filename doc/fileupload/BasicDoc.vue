@@ -14,13 +14,13 @@ export default {
         return {
             code: {
                 basic: `
-<FileUpload mode="basic" name="demo[]" url="/api/upload"accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+<FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <FileUpload mode="basic" name="demo[]" url="/api/upload"accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
     </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <FileUpload mode="basic" name="demo[]" url="/api/upload"accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
     </div>
 </template>
 
