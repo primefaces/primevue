@@ -27047,6 +27047,22 @@
                             "description": "Used to pass all properties of the HTMLButtonElement to the next navigation button."
                         },
                         {
+                            "name": "ariaLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Defines a string value that labels an interactive element."
+                        },
+                        {
+                            "name": "ariaRoledescription",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Defines a string value that description for the role of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
