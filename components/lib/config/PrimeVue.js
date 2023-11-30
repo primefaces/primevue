@@ -92,7 +92,7 @@ export const defaultOptions = {
             moveToSource: 'Move to Source',
             moveAllToTarget: 'Move All to Target',
             moveAllToSource: 'Move All to Source',
-            pageLabel: '{page}',
+            pageLabel: 'Page {page}',
             firstPageLabel: 'First Page',
             lastPageLabel: 'Last Page',
             nextPageLabel: 'Next Page',

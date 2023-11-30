@@ -358,7 +358,7 @@
                     </tr>
                     <tr>
                         <td>aria.pageLabel</td>
-                        <td>{page}</td>
+                        <td>Page {page}</td>
                     </tr>
                     <tr>
                         <td>aria.firstPageLabel</td>
