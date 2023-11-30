@@ -353,6 +353,8 @@ export default {
             pageEvent.pageCount = event.pageCount;
             pageEvent.page = event.page;
 
+            this.d_expandedKeys = {};
+            this.$emit('update:expandedKeys', this.d_expandedKeys);
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
