@@ -44,8 +44,8 @@ describe('Tree.vue', () => {
     it('emits update:filterValue on filter input', async () => {
         wrapper = mount(Tree, {
             props: {
-                filter: true,
-            },
+                filter: true
+            }
         });
 
         let searchField = wrapper.find('input.p-tree-filter');
@@ -53,5 +53,5 @@ describe('Tree.vue', () => {
         await searchField.trigger('keydown.space');
 
         expect(wrapper.emitted('filter')).toBeTruthy();
-    })
+    });
 });

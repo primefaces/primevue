@@ -52076,6 +52076,29 @@
                     ],
                     "methods": []
                 },
+                "TreeFilterEvent": {
+                    "description": "Custom filter event.",
+                    "relatedProp": "TreeEmits.filter",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Original event"
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Filter value"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "TreeProps.pt",
@@ -52578,9 +52601,10 @@
                             "name": "update:selectionKeys",
                             "parameters": [
                                 {
-                                    "name": "event",
+                                    "name": "value",
                                     "optional": false,
-                                    "type": "TreeSelectionKeys"
+                                    "type": "TreeSelectionKeys",
+                                    "description": "New selection keys."
                                 }
                             ],
                             "returnType": "void",
@@ -52637,6 +52661,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
+                            "name": "filter",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeFilterEvent",
+                                    "description": "Custom filter event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on filter input."
                         }
                     ]
                 }
