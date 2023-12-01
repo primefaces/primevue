@@ -1272,10 +1272,10 @@ export default {
             let formattedValue = null;
 
             if (date) {
-               formattedValue = this.formatDate(date, this.datePattern);
+                formattedValue = this.formatDate(date, this.datePattern);
 
                 if (this.showTime || this.timeOnly) {
-                   formattedValue += ' ' + this.formatTime(date);
+                    formattedValue += ' ' + this.formatTime(date);
                 }
             }
 
