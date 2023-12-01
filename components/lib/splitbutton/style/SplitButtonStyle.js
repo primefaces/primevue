@@ -9,7 +9,8 @@ const css = `
 
     .p-splitbutton .p-splitbutton-defaultbutton,
     .p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
-    .p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button {
+    .p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button,
+    .p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button-outlined.p-button:hover {
         flex: 1 1 auto;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
