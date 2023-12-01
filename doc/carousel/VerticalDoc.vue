@@ -4,7 +4,7 @@
     </DocSectionText>
 
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" containerStyle="max-width: 30rem" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" contentClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
@@ -35,8 +35,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" 
-    containerStyle="max-width: 30rem" contentClass="flex align-items-center">
+<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" contentClass="flex align-items-center">
     <template #item="slotProps">
         <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
             <div class="mb-3">
@@ -58,8 +57,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px"
-            containerStyle="max-width: 30rem" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" contentClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
@@ -115,8 +113,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" 
-            containerStyle="max-width: 30rem" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="360px" contentClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
@@ -167,7 +164,7 @@ const getSeverity = (status) => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',
