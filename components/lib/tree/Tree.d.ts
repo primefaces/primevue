@@ -62,6 +62,21 @@ export interface TreeSelectionKeys {
 }
 
 /**
+ * Custom filter event.
+ * @see {@link TreeEmits.filter}
+ */
+export interface TreeFilterEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Filter value
+     */
+    value: string;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
@@ -370,7 +385,7 @@ export interface TreeEmits {
      * Emitted when the selection keys change.
      * @param {TreeSelectionKeys} value - New selection keys.
      */
-    'update:selectionKeys'(event: TreeSelectionKeys): void;
+    'update:selectionKeys'(value: TreeSelectionKeys): void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
@@ -391,6 +406,11 @@ export interface TreeEmits {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse'(node: TreeNode): void;
+    /**
+     * Callback to invoke on filter input.
+     * @param {TreeFilterEvent} event - Custom filter event.
+     */
+    'filter'(event: TreeFilterEvent): void;
 }
 
 /**

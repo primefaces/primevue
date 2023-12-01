@@ -48,7 +48,7 @@ import TreeNode from './TreeNode.vue';
 export default {
     name: 'Tree',
     extends: BaseTree,
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter'],
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -167,6 +167,8 @@ export default {
             if (event.code === 'Enter') {
                 event.preventDefault();
             }
+
+            this.$emit('filter', { originalEvent: event, value: event.target.value });
         },
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
