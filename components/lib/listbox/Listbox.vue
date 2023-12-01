@@ -304,7 +304,7 @@ export default {
 
             this.multiple ? this.onOptionSelectMultiple(event, option) : this.onOptionSelectSingle(event, option);
             this.optionTouched = false;
-            index !== -1 && (this.focusedOptionIndex = index);
+            index !== -1 && this.focusedOptionIndex !== -1 && (this.focusedOptionIndex = index);
         },
         onOptionMouseDown(event, index) {
             this.changeFocusedOptionIndex(event, index);
@@ -349,17 +349,16 @@ export default {
             }
         },
         onOptionSelectMultiple(event, option) {
-            let selected = this.isSelected(option);
+            const selected = this.isSelected(option);
             let value = null;
-            let metaSelection = this.optionTouched ? false : this.metaKeySelection;
+            const metaSelection = this.optionTouched ? false : this.metaKeySelection;
 
             if (metaSelection) {
-                let metaKey = event.metaKey || event.ctrlKey;
-
                 if (selected) {
-                    value = metaKey ? this.removeOption(option) : [this.getOptionValue(option)];
+                    value = this.removeOption(option);
+                    this.focusedOptionIndex = -1;
                 } else {
-                    value = metaKey ? this.modelValue || [] : [];
+                    value = this.modelValue ?? [];
                     value = [...value, this.getOptionValue(option)];
                 }
             } else {
