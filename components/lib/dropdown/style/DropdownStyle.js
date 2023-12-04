@@ -116,7 +116,7 @@ const classes = {
             'p-dropdown-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
         }
     ],
-    clearIcon: 'p-dropdown-clear-icon',
+    clearIcon: ({ props }) => [{ 'p-dropdown-clear-icon': !props.disabled }],
     trigger: 'p-dropdown-trigger',
     loadingicon: 'p-dropdown-trigger-icon',
     dropdownIcon: 'p-dropdown-trigger-icon',
