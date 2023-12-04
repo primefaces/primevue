@@ -130,7 +130,7 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
-            :pt="pt"
+            :pt="ptm('paginator')"
             data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
