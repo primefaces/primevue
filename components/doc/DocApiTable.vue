@@ -36,7 +36,7 @@
                             <template v-else-if="k === 'options'">
                                 <template v-for="val in v" :key="val.name">
                                     <div class="doc-option-type-options-container">
-                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type === 'T' || val.type.includes(`"<T>"`) ? 'any' : val.type }}</span>
+                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type === 'T' || (val.type.includes('<T') && !val.type.includes('<Tr')) ? 'any' : val.type }}</span>
                                     </div>
                                 </template>
                             </template>
