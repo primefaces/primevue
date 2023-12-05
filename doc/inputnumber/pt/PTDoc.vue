@@ -12,17 +12,13 @@
             currency="EUR"
             :pt="{
                 decrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-orange-500 border-orange-500'
-                        };
+                    root: {
+                        class: 'bg-orange-500 border-orange-500'
                     }
                 },
                 incrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-teal-500 border-teal-500'
-                        };
+                    root: {
+                        class: 'bg-teal-500 border-teal-500'
                     }
                 }
             }"
@@ -49,17 +45,13 @@ export default {
     currency="EUR"
     :pt="{
         decrementButton: {
-            root: () => {
-                return {
-                    class: 'bg-orange-500 border-orange-500'
-                };
+            root: {
+                class: 'bg-orange-500 border-orange-500'
             }
         },
         incrementButton: {
-            root: () => {
-                return {
-                    class: 'bg-teal-500 border-teal-500'
-                };
+            root: {
+                class: 'bg-teal-500 border-teal-500'
             }
         }
     }"
@@ -79,17 +71,13 @@ export default {
             currency="EUR"
             :pt="{
                 decrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-orange-500 border-orange-500'
-                        };
+                    root: {
+                        class: 'bg-orange-500 border-orange-500'
                     }
                 },
                 incrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-teal-500 border-teal-500'
-                        };
+                    root: {
+                        class: 'bg-teal-500 border-teal-500'
                     }
                 }
             }"
@@ -121,17 +109,13 @@ export default {
             currency="EUR"
             :pt="{
                 decrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-orange-500 border-orange-500'
-                        };
+                    root: {
+                        class: 'bg-orange-500 border-orange-500'
                     }
                 },
                 incrementButton: {
-                    root: () => {
-                        return {
-                            class: 'bg-teal-500 border-teal-500'
-                        };
+                    root: {
+                        class: 'bg-teal-500 border-teal-500'
                     }
                 }
             }"
