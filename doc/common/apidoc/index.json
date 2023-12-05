@@ -45,6 +45,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -485,9 +493,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "AccordionPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -3067,6 +3075,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -4264,9 +4280,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "AvatarGroupPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -4955,6 +4971,14 @@
                             "readonly": false,
                             "type": "BadgeContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -5715,6 +5739,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -5993,6 +6025,14 @@
                             "type": "BreadcrumbContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -6836,6 +6876,14 @@
                             "type": "CalendarContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -8742,6 +8790,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -9385,6 +9441,14 @@
                             "type": "CascadeSelectState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -10272,6 +10336,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -10604,6 +10676,14 @@
                             "type": "CheckboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -11084,6 +11164,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -11416,6 +11504,14 @@
                             "type": "ChipsState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -11939,6 +12035,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -12370,9 +12474,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTablePassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -13953,9 +14057,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTablePassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -16007,6 +16111,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -16435,6 +16547,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -16842,6 +16962,14 @@
                             "type": "ContextMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -17492,6 +17620,14 @@
                             "type": "DataTableContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -20480,6 +20616,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -21042,6 +21186,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -21335,6 +21487,14 @@
                             "type": "DeferredContentState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -22287,6 +22447,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -22536,6 +22704,14 @@
                             "type": "DockContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -24449,6 +24625,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -25023,6 +25207,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -25405,6 +25597,14 @@
                             "type": "FileUploadState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -26609,6 +26809,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -27631,6 +27839,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -28133,6 +28349,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -28396,6 +28620,14 @@
                             "type": "InplaceState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -28757,6 +28989,14 @@
                             "description": "Defines instance."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -28958,6 +29198,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Defines instance."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -29177,6 +29425,14 @@
                             "type": "InputMaskContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -30204,6 +30460,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -30838,6 +31102,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -31281,6 +31553,14 @@
                             "type": "ListboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -32135,6 +32415,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -32839,6 +33127,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -33410,6 +33706,14 @@
                             "type": "MenubarContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -34622,6 +34926,14 @@
                             "type": "MultiSelectContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -35975,6 +36287,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -36647,6 +36967,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -37302,6 +37630,14 @@
                             "type": "OverlayPanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -38314,6 +38650,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -38743,6 +39087,14 @@
                             "type": "PanelMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -39471,6 +39823,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -40124,6 +40484,14 @@
                             "type": "PickListContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -41564,6 +41932,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -41807,6 +42183,14 @@
                             "type": "RadioButtonState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -42186,6 +42570,14 @@
                             "type": "RatingContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -42858,9 +43250,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "ColumnGroupPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -43073,6 +43465,14 @@
                             "type": "ScrollPanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -43366,6 +43766,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -43651,6 +44059,14 @@
                             "type": "SelectButtonContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -44098,6 +44514,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -44522,6 +44946,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -44765,6 +45197,14 @@
                             "type": "SliderProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -45153,6 +45593,14 @@
                             "type": "SpeedDialContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -45784,6 +46232,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -46292,6 +46748,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -46699,6 +47163,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -46940,6 +47412,14 @@
                             "type": "StepsContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -47534,6 +48014,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -47953,20 +48441,20 @@
                             "description": "Defines valid properties."
                         },
                         {
-                            "name": "parent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "TabViewPassThroughOptions",
-                            "default": "",
-                            "description": "Defines parent instance."
-                        },
-                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TabPanelContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -48800,6 +49288,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -49065,6 +49561,14 @@
                             "type": "TerminalState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -49441,6 +49945,14 @@
                             "type": "TextareaContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -50355,6 +50867,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -50705,6 +51225,14 @@
                             "type": "ToastState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -51372,6 +51900,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -51828,6 +52364,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -52056,6 +52600,14 @@
                             "readonly": false,
                             "type": "TooltipContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -53346,6 +53898,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -54057,6 +54617,14 @@
                             "type": "TreeTableContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -55570,6 +56138,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -56276,6 +56852,14 @@
                             "type": "VirtualScrollerState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
