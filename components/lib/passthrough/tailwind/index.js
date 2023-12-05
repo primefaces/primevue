@@ -3147,73 +3147,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         moveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3255,73 +3263,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         sourcemoveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3358,73 +3374,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         movetotargetbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movealltotargetbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movetosourcebutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movealltosourcebutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3433,73 +3457,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         targetmoveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
