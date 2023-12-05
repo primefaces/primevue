@@ -11,8 +11,20 @@
             mode="currency"
             currency="EUR"
             :pt="{
-                incrementButton: { class: 'bg-teal-500 border-teal-500' },
-                decrementButton: { class: 'bg-orange-500 border-orange-500' }
+                decrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-orange-500 border-orange-500'
+                        };
+                    }
+                },
+                incrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-teal-500 border-teal-500'
+                        };
+                    }
+                }
             }"
         />
     </div>
@@ -36,8 +48,20 @@ export default {
     mode="currency"
     currency="EUR"
     :pt="{
-        incrementButton: { class: 'bg-teal-500 border-teal-500' },
-        decrementButton: { class: 'bg-orange-500 border-orange-500' }
+        decrementButton: {
+            root: () => {
+                return {
+                    class: 'bg-orange-500 border-orange-500'
+                };
+            }
+        },
+        incrementButton: {
+            root: () => {
+                return {
+                    class: 'bg-teal-500 border-teal-500'
+                };
+            }
+        }
     }"
 />
 `,
@@ -54,8 +78,20 @@ export default {
             mode="currency"
             currency="EUR"
             :pt="{
-                incrementButton: { class: 'bg-teal-500 border-teal-500' },
-                decrementButton: { class: 'bg-orange-500 border-orange-500' }
+                decrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-orange-500 border-orange-500'
+                        };
+                    }
+                },
+                incrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-teal-500 border-teal-500'
+                        };
+                    }
+                }
             }"
         />
     </div>
@@ -84,8 +120,20 @@ export default {
             mode="currency"
             currency="EUR"
             :pt="{
-                incrementButton: { class: 'bg-teal-500 border-teal-500' },
-                decrementButton: { class: 'bg-orange-500 border-orange-500' }
+                decrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-orange-500 border-orange-500'
+                        };
+                    }
+                },
+                incrementButton: {
+                    root: () => {
+                        return {
+                            class: 'bg-teal-500 border-teal-500'
+                        };
+                    }
+                }
             }"
         />
     </div>
