@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.43.0](https://github.com/primefaces/primevue/tree/3.43.0) (2023-12-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.42.0...3.43.0)
+
+**Fixed bugs:**
+
+-   Calendar: Overwrites date when in time-only mode [\#4901](https://github.com/primefaces/primevue/issues/4901)
+-   Binding and ordering pt options defect [\#4921](https://github.com/primefaces/primevue/issues/4921)
+-   Some icons are not displaying from PrimeIcons.js Api file [\#4897](https://github.com/primefaces/primevue/issues/4897)
+-   Treetable lazy load plus pagination toggler icon remain as open [\#4441](https://github.com/primefaces/primevue/issues/4441)
+
+**Implemented New Features and Enhancements:**
+
+-   Add parent param to all pt method options [\#4929](https://github.com/primefaces/primevue/issues/4929)
+-   Media components Accessibility Improvements [\#4908](https://github.com/primefaces/primevue/issues/4908)
+-   Tree: Missing 'filter' event on search [\#4876](https://github.com/primefaces/primevue/issues/4876)
+
 ## [3.42.0](https://github.com/primefaces/primevue/tree/3.42.0) (2023-11-28)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.41.1...3.42.0)
