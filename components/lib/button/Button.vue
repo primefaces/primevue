@@ -26,10 +26,6 @@ export default {
     methods: {
         getPTOptions(key) {
             return this.ptm(key, {
-                parent: {
-                    props: this.$parent?.$props,
-                    state: this.$parent?.$data
-                },
                 context: {
                     disabled: this.disabled
                 }

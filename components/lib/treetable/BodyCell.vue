@@ -33,8 +33,8 @@ import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
-import Ripple from 'primevue/ripple';
 import SpinnerIcon from 'primevue/icons/spinner';
+import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -120,6 +120,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -145,6 +146,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },

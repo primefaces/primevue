@@ -1,10 +1,10 @@
 <template>
-    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="getPTOptions('root')" data-pc-name="avatar">
+    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')" data-pc-name="avatar">
         <slot>
-            <span v-if="label" :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
+            <span v-if="label" :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />
-            <span v-else-if="icon" :class="[cx('icon'), icon]" v-bind="getPTOptions('icon')" />
-            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="getPTOptions('image')" />
+            <span v-else-if="icon" :class="[cx('icon'), icon]" v-bind="ptm('icon')" />
+            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="ptm('image')" />
         </slot>
     </div>
 </template>
@@ -19,13 +19,6 @@ export default {
     methods: {
         onError(event) {
             this.$emit('error', event);
-        },
-        getPTOptions(key) {
-            return this.ptm(key, {
-                parent: {
-                    instance: this.$parent
-                }
-            });
         }
     }
 };

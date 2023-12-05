@@ -202,7 +202,20 @@ export default {
             return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
         $params() {
-            return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };
+            const parentInstance = this.$parentInstance || this.$parent;
+
+            return {
+                instance: this,
+                props: this.$props,
+                state: this.$data,
+                parent: {
+                    instance: parentInstance,
+                    props: parentInstance?.$props,
+                    state: parentInstance?.$data
+                },
+                /* @deprecated since v3.43.0. Use the `parent.instance` instead of the `parentInstance`.*/
+                parentInstance
+            };
         },
         $style() {
             return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };

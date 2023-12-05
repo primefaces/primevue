@@ -310,6 +310,7 @@ export default {
         getColumnPT(key) {
             const columnMetaData = {
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 }

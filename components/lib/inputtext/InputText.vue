@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root', ptmParams)" data-pc-name="inputtext" />
+    <input :class="cx('root')" :value="modelValue" @input="onInput" v-bind="getPTOptions('root')" data-pc-name="inputtext" />
 </template>
 
 <script>
@@ -18,17 +18,13 @@ export default {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
         },
-        ptmParams() {
-            return {
-                parent: {
-                    props: this.$parent?.$props,
-                    state: this.$parent?.$data
-                },
+        getPTOptions(key) {
+            return this.ptm(key, {
                 context: {
                     filled: this.filled,
                     disabled: this.$attrs.disabled || this.$attrs.disabled === ''
                 }
-            };
+            });
         }
     }
 };

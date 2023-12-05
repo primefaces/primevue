@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="inputnumber">
+    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="inputnumber">
         <INInputText
             ref="input"
             :id="inputId"
@@ -27,7 +27,7 @@
             :unstyled="unstyled"
             data-pc-section="input"
         />
-        <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="getPTOptions('buttonGroup')">
+        <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
             <INButton
                 :class="[cx('incrementButton'), incrementButtonClass]"
                 v-on="upButtonListeners"
@@ -173,14 +173,6 @@ export default {
         this.constructParser();
     },
     methods: {
-        getPTOptions(key) {
-            return this.ptm(key, {
-                parent: {
-                    props: this.$parent?.$props,
-                    state: this.$parent?.$data
-                }
-            });
-        },
         getOptions() {
             return {
                 localeMatcher: this.localeMatcher,

@@ -33,9 +33,9 @@ export interface ColumnPassThroughMethodOptions {
      */
     props: ColumnProps;
     /**
-     * Defines parent instance.
+     * Defines parent options.
      */
-    parent: DataTablePassThroughOptions;
+    parent: any;
     /**
      * Defines current options.
      */

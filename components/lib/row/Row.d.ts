@@ -6,7 +6,6 @@
  * @module row
  */
 import { ComponentHooks } from '../basecomponent';
-import { ColumnGroupPassThroughOptions } from '../columngroup';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes | string) | string | null | undefined;
@@ -24,9 +23,9 @@ export interface RowPassThroughMethodOptions {
      */
     props: RowProps;
     /**
-     * Defines parent instance.
+     * Defines parent options.
      */
-    parent: ColumnGroupPassThroughOptions;
+    parent: any;
     /**
      * Defines current options.
      */

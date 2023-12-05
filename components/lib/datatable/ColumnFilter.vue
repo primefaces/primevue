@@ -330,6 +330,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },

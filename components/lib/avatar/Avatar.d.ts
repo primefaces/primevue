@@ -7,7 +7,6 @@
  * @module avatar
  */
 import { VNode } from 'vue';
-import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -27,9 +26,9 @@ export interface AvatarPassThroughMethodOptions {
      */
     props: AvatarProps;
     /**
-     * Defines parent instance.
+     * Defines parent options.
      */
-    parent: AvatarGroupPassThroughOptions;
+    parent: any;
     /**
      * Defines passthrough(pt) options in global config.
      */

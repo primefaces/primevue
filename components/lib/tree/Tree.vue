@@ -1,21 +1,21 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="tree">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tree">
         <template v-if="loading && loadingMode === 'mask'">
-            <div :class="cx('loadingOverlay')" v-bind="getPTOptions('loadingOverlay')">
+            <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
-                    <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="getPTOptions('loadingIcon')" />
-                    <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="getPTOptions('loadingIcon')" />
+                    <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </template>
-        <div v-if="filter" :class="cx('filterContainer')" v-bind="getPTOptions('filterContainer')">
-            <input v-model="filterValue" type="text" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="getPTOptions('input')" />
+        <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
+            <input v-model="filterValue" type="text" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
             <slot name="searchicon" :class="cx('searchIcon')">
-                <SearchIcon :class="cx('searchIcon')" v-bind="getPTOptions('searchIcon')" />
+                <SearchIcon :class="cx('searchIcon')" v-bind="ptm('searchIcon')" />
             </slot>
         </div>
-        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="getPTOptions('wrapper')">
-            <ul :class="cx('container')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="getPTOptions('container')">
+        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+            <ul :class="cx('container')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('container')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
                     :key="node.key"
@@ -61,14 +61,6 @@ export default {
         }
     },
     methods: {
-        getPTOptions(key) {
-            return this.ptm(key, {
-                parent: {
-                    props: this.$parent?.$props,
-                    state: this.$parent?.$data
-                }
-            });
-        },
         onNodeToggle(node) {
             const key = node.key;
 

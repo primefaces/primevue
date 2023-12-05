@@ -106,6 +106,7 @@ export default {
             const tabMetaData = {
                 props: tab.props || {},
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
