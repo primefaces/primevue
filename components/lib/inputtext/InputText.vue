@@ -20,6 +20,10 @@ export default {
         },
         ptmParams() {
             return {
+                parent: {
+                    props: this.$parent?.$props,
+                    state: this.$parent?.$data
+                },
                 context: {
                     filled: this.filled,
                     disabled: this.$attrs.disabled || this.$attrs.disabled === ''
