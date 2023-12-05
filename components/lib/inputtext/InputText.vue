@@ -10,14 +10,6 @@ export default {
     extends: BaseInputText,
     emits: ['update:modelValue'],
     methods: {
-        onInput(event) {
-            this.$emit('update:modelValue', event.target.value);
-        }
-    },
-    computed: {
-        filled() {
-            return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
@@ -25,6 +17,14 @@ export default {
                     disabled: this.$attrs.disabled || this.$attrs.disabled === ''
                 }
             });
+        },
+        onInput(event) {
+            this.$emit('update:modelValue', event.target.value);
+        }
+    },
+    computed: {
+        filled() {
+            return this.modelValue != null && this.modelValue.toString().length > 0;
         }
     }
 };
