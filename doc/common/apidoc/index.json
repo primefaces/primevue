@@ -53459,7 +53459,7 @@
                             "name": "tree",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType<TreeSelectSharedPassThroughMethodOptions>",
+                            "type": "TreePassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to Tree component."
                         },
