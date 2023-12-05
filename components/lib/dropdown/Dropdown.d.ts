@@ -13,14 +13,14 @@ import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
+export declare type DropdownPassThroughOptionType<T = any> = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions<T>) => DropdownPassThroughAttributes | string) | string | null | undefined;
 
-export declare type DropdownPassThroughTransitionType = TransitionProps | ((options: DropdownPassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type DropdownPassThroughTransitionType<T = any> = TransitionProps | ((options: DropdownPassThroughMethodOptions<T>) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface DropdownPassThroughMethodOptions {
+export interface DropdownPassThroughMethodOptions<T> {
     /**
      * Defines instance.
      */
@@ -33,6 +33,10 @@ export interface DropdownPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: DropdownState;
+    /**
+     * Defines parent instance.
+     */
+    parent: T | any;
     /**
      * Defines current options.
      */
@@ -77,51 +81,51 @@ export interface DropdownFilterEvent {
  * Custom passthrough(pt) options.
  * @see {@link DropdownProps.pt}
  */
-export interface DropdownPassThroughOptions {
+export interface DropdownPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: DropdownPassThroughOptionType;
+    root?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the input's DOM element.
      */
-    input?: DropdownPassThroughOptionType;
+    input?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the clear icon's DOM element.
      */
-    clearIcon?: DropdownPassThroughOptionType;
+    clearIcon?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the trigger' DOM element.
      */
-    trigger?: DropdownPassThroughOptionType;
+    trigger?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
-    loadingIcon?: DropdownPassThroughOptionType;
+    loadingIcon?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
-    panel?: DropdownPassThroughOptionType;
+    panel?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header's DOM element.
      */
-    header?: DropdownPassThroughOptionType;
+    header?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter container's DOM element.
      */
-    filterContainer?: DropdownPassThroughOptionType;
+    filterContainer?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter input's DOM element.
      */
-    filterInput?: DropdownPassThroughOptionType;
+    filterInput?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
-    filterIcon?: DropdownPassThroughOptionType;
+    filterIcon?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
-    wrapper?: DropdownPassThroughOptionType;
+    wrapper?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -130,39 +134,39 @@ export interface DropdownPassThroughOptions {
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    list?: DropdownPassThroughOptionType;
+    list?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the item group's DOM element.
      */
-    itemGroup?: DropdownPassThroughOptionType;
+    itemGroup?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the item's DOM element.
      */
-    item?: DropdownPassThroughOptionType;
+    item?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
-    emptyMessage?: DropdownPassThroughOptionType;
+    emptyMessage?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden first focusable element's DOM element.
      */
-    hiddenFirstFocusableEl?: DropdownPassThroughOptionType;
+    hiddenFirstFocusableEl?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden filter result's DOM element.
      */
-    hiddenFilterResult?: DropdownPassThroughOptionType;
+    hiddenFilterResult?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden empty message's DOM element.
      */
-    hiddenEmptyMessage?: DropdownPassThroughOptionType;
+    hiddenEmptyMessage?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden selected message's DOM element.
      */
-    hiddenSelectedMessage?: DropdownPassThroughOptionType;
+    hiddenSelectedMessage?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden last focusable element's DOM element.
      */
-    hiddenLastFocusableEl?: DropdownPassThroughOptionType;
+    hiddenLastFocusableEl?: DropdownPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

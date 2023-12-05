@@ -40,6 +40,20 @@ export interface SplitButtonPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface SplitButtonSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: SplitButtonProps;
+    /**
+     * Defines current inline state.
+     */
+    state: SplitButtonState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link SplitButtonProps.pt}
  */
@@ -56,12 +70,12 @@ export interface SplitButtonPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    menuButton?: ButtonPassThroughOptions;
+    menuButton?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
-    menu?: TieredMenuPassThroughOptions;
+    menu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

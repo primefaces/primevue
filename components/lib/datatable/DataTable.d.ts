@@ -48,6 +48,20 @@ export interface DataTablePassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DataTableSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DataTableProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DataTableState;
+}
+
+/**
  * Custom datatable export metadata.
  */
 export interface DataTableExportFunctionOptions {
@@ -582,7 +596,7 @@ export interface DataTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType;
+    paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */

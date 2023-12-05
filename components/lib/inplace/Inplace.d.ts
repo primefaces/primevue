@@ -39,6 +39,20 @@ export interface InplacePassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface InplaceSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: InplaceProps;
+    /**
+     * Defines current inline state.
+     */
+    state: InplaceState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link InplaceProps.pt}
  */
@@ -59,7 +73,7 @@ export interface InplacePassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    closeButton?: ButtonPassThroughOptions;
+    closeButton?: ButtonPassThroughOptions<InplaceSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

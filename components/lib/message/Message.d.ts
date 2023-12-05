@@ -12,14 +12,14 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | string) | string | null | undefined;
+export declare type MessagePassThroughOptionType<T = any> = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions<T>) => MessagePassThroughAttributes | string) | string | null | undefined;
 
-export declare type MessagePassThroughTransitionType = TransitionProps | ((options: MessagePassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type MessagePassThroughTransitionType<T = any> = TransitionProps | ((options: MessagePassThroughMethodOptions<T>) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface MessagePassThroughMethodOptions {
+export interface MessagePassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -33,6 +33,10 @@ export interface MessagePassThroughMethodOptions {
      */
     state: MessageState;
     /**
+     * Defines parent instance.
+     */
+    parent: T;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -42,41 +46,41 @@ export interface MessagePassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link MessageProps.pt}
  */
-export interface MessagePassThroughOptions {
+export interface MessagePassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: MessagePassThroughOptionType;
+    root?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
-    wrapper?: MessagePassThroughOptionType;
+    wrapper?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the icon's DOM element.
      */
-    icon?: MessagePassThroughOptionType;
+    icon?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the text's DOM element.
      */
-    text?: MessagePassThroughOptionType;
+    text?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button's DOM element.
      * @deprecated since v3.30.2. Use 'closeButton' option.
      */
-    button?: MessagePassThroughOptionType;
+    button?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button's DOM element.
      */
-    closeButton?: MessagePassThroughOptionType;
+    closeButton?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button icon's DOM element.
      * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
-    buttonIcon?: MessagePassThroughOptionType;
+    buttonIcon?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button icon's DOM element.
      */
-    closeIcon?: MessagePassThroughOptionType;
+    closeIcon?: MessagePassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -85,7 +89,7 @@ export interface MessagePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: MessagePassThroughTransitionType;
+    transition?: MessagePassThroughTransitionType<T>;
 }
 
 /**

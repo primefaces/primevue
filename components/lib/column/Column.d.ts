@@ -11,7 +11,7 @@
 
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptionType } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { PassThroughOptions } from '../passthrough';
@@ -44,6 +44,20 @@ export interface ColumnPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ColumnSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ColumnProps;
+    /**
+     * Defines parent instance.
+     */
+    parent: DataTablePassThroughOptions;
 }
 
 /**
@@ -194,7 +208,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
-    filterOperatorDropdown?: DropdownPassThroughOptionType;
+    filterOperatorDropdown?: DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter constraints' DOM element.
      */
@@ -207,39 +221,39 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
-    filterMatchModeDropdown?: DropdownPassThroughOptionType;
+    filterMatchModeDropdown?: DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter remove button container's DOM element.
      */
     filterRemove?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    filterRemoveButton?: ButtonPassThroughOptionType;
+    filterRemoveButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter add rule's DOM element.
      */
     filterAddRule?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    filterAddRuleButton?: ButtonPassThroughOptionType;
+    filterAddRuleButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter buttonbar's DOM element.
      */
     filterButtonbar?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    filterClearButton?: ButtonPassThroughOptionType;
+    filterClearButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    filterApplyButton?: ButtonPassThroughOptionType;
+    filterApplyButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the body cell's DOM element.
      */

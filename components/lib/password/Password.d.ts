@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { InputTextPassThroughOptionType } from '../inputtext';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
@@ -40,6 +40,20 @@ export interface PasswordPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface PasswordSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: PasswordProps;
+    /**
+     * Defines current inline state.
+     */
+    state: PasswordState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link PasswordProps.pt}
  */
@@ -50,9 +64,9 @@ export interface PasswordPassThroughOptions {
     root?: PasswordPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
-     * @see {@link InputTextPassThroughOptionType}
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: PasswordPassThroughOptionType;
+    input?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the hide icon's DOM element.
      */

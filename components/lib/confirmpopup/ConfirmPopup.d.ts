@@ -41,6 +41,20 @@ export interface ConfirmPopupPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ConfirmPopupSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ConfirmPopupProps;
+    /**
+     * Defines current inline state.
+     */
+    state: ConfirmPopupState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link ConfirmPopupProps.pt}
  */
@@ -69,12 +83,12 @@ export interface ConfirmPopupPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    rejectButton?: ButtonPassThroughOptions;
+    rejectButton?: ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    acceptButton?: ButtonPassThroughOptions;
+    acceptButton?: ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

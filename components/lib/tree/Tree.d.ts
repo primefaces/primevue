@@ -13,12 +13,12 @@ import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes | string) | string | null | undefined;
+export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface TreePassThroughMethodOptions {
+export interface TreePassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -31,6 +31,10 @@ export interface TreePassThroughMethodOptions {
      * Defines current inline state.
      */
     state: TreeState;
+    /**
+     * Defines parent instance.
+     */
+    parent: T;
     /**
      * Defines current options.
      */
@@ -80,79 +84,79 @@ export interface TreeFilterEvent {
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
-export interface TreePassThroughOptions {
+export interface TreePassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: TreePassThroughOptionType;
+    root?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter container's DOM element.
      */
-    filterContainer?: TreePassThroughOptionType;
+    filterContainer?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the input's DOM element.
      */
-    input?: TreePassThroughOptionType;
+    input?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the search icon's DOM element.
      */
-    searchIcon?: TreePassThroughOptionType;
+    searchIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
-    wrapper?: TreePassThroughOptionType;
+    wrapper?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
-    container?: TreePassThroughOptionType;
+    container?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node's DOM element.
      */
-    node?: TreePassThroughOptionType;
+    node?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
-    content?: TreePassThroughOptionType;
+    content?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the toggler's DOM element.
      */
-    toggler?: TreePassThroughOptionType;
+    toggler?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the toggler icon's DOM element.
      */
-    togglerIcon?: TreePassThroughOptionType;
+    togglerIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the checkbox container's DOM element.
      */
-    checkboxContainer?: TreePassThroughOptionType;
+    checkboxContainer?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    checkbox?: TreePassThroughOptionType;
+    checkbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the checkbox icon's DOM element.
      */
-    checkboxIcon?: TreePassThroughOptionType;
+    checkboxIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */
-    nodeIcon?: TreePassThroughOptionType;
+    nodeIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: TreePassThroughOptionType;
+    label?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the subgroup's DOM element.
      */
-    subgroup?: TreePassThroughOptionType;
+    subgroup?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading overlay's DOM element.
      */
-    loadingOverlay?: TreePassThroughOptionType;
+    loadingOverlay?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
-    loadingIcon?: TreePassThroughOptionType;
+    loadingIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

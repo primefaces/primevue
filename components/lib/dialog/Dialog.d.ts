@@ -12,14 +12,14 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type DialogPassThroughOptionType = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes | string) | string | null | undefined;
+export declare type DialogPassThroughOptionType<T = any> = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions<T>) => DialogPassThroughAttributes | string) | string | null | undefined;
 
-export declare type DialogPassThroughTransitionType = TransitionProps | ((options: DialogPassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type DialogPassThroughTransitionType<T = any> = TransitionProps | ((options: DialogPassThroughMethodOptions<T>) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface DialogPassThroughMethodOptions {
+export interface DialogPassThroughMethodOptions<T> {
     /**
      * Defines instance.
      */
@@ -33,6 +33,10 @@ export interface DialogPassThroughMethodOptions {
      */
     state: DialogState;
     /**
+     * Defines parent instance.
+     */
+    parent: T;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -42,51 +46,51 @@ export interface DialogPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link DialogProps.pt}
  */
-export interface DialogPassThroughOptions {
+export interface DialogPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: DialogPassThroughOptionType;
+    root?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header's DOM element.
      */
-    header?: DialogPassThroughOptionType;
+    header?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header title's DOM element.
      */
-    title?: DialogPassThroughOptionType;
+    title?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header icons' DOM element.
      */
-    icons?: DialogPassThroughOptionType;
+    icons?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the maximizable button's DOM element.
      */
-    maximizableButton?: DialogPassThroughOptionType;
+    maximizableButton?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the maximizable icon's DOM element.
      */
-    maximizableIcon?: DialogPassThroughOptionType;
+    maximizableIcon?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the close button's component.
      */
-    closeButton?: DialogPassThroughOptionType;
+    closeButton?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the close button icon's component.
      */
-    closeButtonIcon?: DialogPassThroughOptionType;
+    closeButtonIcon?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
-    content?: DialogPassThroughOptionType;
+    content?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the footer's DOM element.
      */
-    footer?: DialogPassThroughOptionType;
+    footer?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the mask's DOM element.
      */
-    mask?: DialogPassThroughOptionType;
+    mask?: DialogPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -95,7 +99,7 @@ export interface DialogPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: DialogPassThroughTransitionType;
+    transition?: DialogPassThroughTransitionType<T>;
 }
 
 /**

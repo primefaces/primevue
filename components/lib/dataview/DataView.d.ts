@@ -36,6 +36,21 @@ export interface DataViewPassThroughMethodOptions {
      */
     global: object | undefined;
 }
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DataViewSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DataViewProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DataViewState;
+}
+
 /**
  * Custom page event.
  * @see {@link DataViewEmits.page}
@@ -76,7 +91,7 @@ export interface DataViewPassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType;
+    paginator?: PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */

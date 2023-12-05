@@ -41,6 +41,20 @@ export interface TreeSelectPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface TreeSelectSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: TreeSelectProps;
+    /**
+     * Defines current inline state.
+     */
+    state: TreeSelectState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeSelectProps.pt}
  */
@@ -85,7 +99,7 @@ export interface TreeSelectPassThroughOptions {
      * Used to pass attributes to Tree component.
      * @see {@link TreePassThroughOptionType}
      */
-    tree?: TreePassThroughOptionType;
+    tree?: TreePassThroughOptionType<TreeSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
