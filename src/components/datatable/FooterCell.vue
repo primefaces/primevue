@@ -47,7 +47,7 @@ export default {
                     let right = 0;
                     let next = DomHandler.getNextElementSibling(this.$el, '.p-frozen-column');
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right|| 0);
                     }
                     this.styleObject.right = right + 'px';
                 }
@@ -55,7 +55,7 @@ export default {
                     let left = 0;
                     let prev = DomHandler.getPreviousElementSibling(this.$el, '.p-frozen-column');
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left|| 0);
                     }
                     this.styleObject.left = left + 'px';
                 }
