@@ -6,6 +6,12 @@ const TreeTableProps = [
         description: 'An array of treenodes.'
     },
     {
+        name: 'dataKey',
+        type: 'string|function',
+        default: 'null',
+        description: 'Name of the field that uniquely identifies the a record in the data.'
+    },
+    {
         name: 'expandedKeys',
         type: 'array',
         default: 'null',
