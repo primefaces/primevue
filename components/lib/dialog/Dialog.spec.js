@@ -104,7 +104,8 @@ describe('maximizable', () => {
             },
             data() {
                 return {
-                    containerVisible: true
+                    containerVisible: true,
+                    containerMaximized: true
                 };
             }
         });
