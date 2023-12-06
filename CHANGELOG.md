@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.4](https://github.com/primefaces/primevue/tree/2.10.4) (2023-12-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.10.3...2.10.4)
+
+**Fixed bugs:**
+
+- v2 DataTable: Frozen column table left and right calculation defects [\#4890](https://github.com/primefaces/primevue/issues/4890)
+
 ## [2.10.3](https://github.com/primefaces/primevue/tree/2.10.3) (2023-11-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.10.2...2.10.3)
@@ -8,7 +16,6 @@
 
 - v2 DataTable: Frozen column improvements [\#4795](https://github.com/primefaces/primevue/issues/4795)
 - TreeTable: Add custom header for column [\#2941](https://github.com/primefaces/primevue/issues/2941)
-
 
 **Fixed bugs:**
 
