@@ -38,6 +38,10 @@ export default {
             type: Boolean,
             default: null
         },
+        maximized: {
+            type: Boolean,
+            default: false
+        },
         maximizable: {
             type: Boolean,
             default: false

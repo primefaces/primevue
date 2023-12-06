@@ -122,7 +122,7 @@ export interface DialogState {
      * Current maximized state as a boolean.
      * @defaultValue false
      */
-    maximized: boolean;
+    containerMaximized: boolean;
 }
 
 /**
@@ -227,7 +227,12 @@ export interface DialogProps {
      */
     position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
     /**
-     * Whether the dialog can be displayed full screen.
+     * Whether the dialog is displayed full screen.
+     * @defaultValue false
+     */
+    maximized?: boolean | undefined;
+    /**
+     * Whether the dialog can be toggled from/to full screen.
      * @defaultValue false
      */
     maximizable?: boolean | undefined;
@@ -385,6 +390,11 @@ export interface DialogEmits {
      * Callback to invoke when dialog is shown.
      */
     show(): void;
+    /**
+     * Emitted when the maximized changes.
+     * @param {boolean} value - New value.
+     */
+    'update:maximized'(value: boolean): void;
     /**
      * Fired when a dialog gets maximized.
      * @param {event} event - Browser event.

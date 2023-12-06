@@ -86,6 +86,40 @@ describe('closable', () => {
 });
 
 describe('maximizable', () => {
+    it('start maximized', async () => {
+        const wrapper = mount(Dialog, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                maximized: true,
+                maximizable: true,
+                maximizeIcon: 'pi pi-discord',
+                minimizeIcon: 'pi pi-facebook',
+                showHeader: true,
+                visible: false
+            },
+            data() {
+                return {
+                    containerVisible: true
+                };
+            }
+        });
+
+        await wrapper.setProps({ visible: true });
+
+        const icon = wrapper.find('.p-dialog-header-maximize-icon');
+
+        expect(icon.classes()).toContain('pi-facebook');
+
+        await wrapper.setData({ maximized: false });
+
+        expect(icon.classes()).toContain('pi-discord');
+    });
+
     it('should have custom maximize and minimize icons when provided', async () => {
         const wrapper = mount(Dialog, {
             global: {

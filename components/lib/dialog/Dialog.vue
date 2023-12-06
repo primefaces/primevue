@@ -22,8 +22,8 @@
                                     v-bind="ptm('maximizableButton')"
                                     data-pc-group-section="headericon"
                                 >
-                                    <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
-                                        <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
+                                    <slot name="maximizeicon" :maximized="containerMaximized" :class="cx('maximizableIcon')">
+                                        <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), containerMaximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
                                     </slot>
                                 </button>
                                 <button
@@ -72,7 +72,7 @@ export default {
     name: 'Dialog',
     extends: BaseDialog,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
+    emits: ['update:visible', 'show', 'hide', 'after-hide', 'update:maximized', 'maximize', 'unmaximize', 'dragend'],
     provide() {
         return {
             dialogRef: computed(() => this._instance)
@@ -81,7 +81,7 @@ export default {
     data() {
         return {
             containerVisible: this.visible,
-            maximized: false,
+            containerMaximized: this.maximized,
             focusableMax: null,
             focusableClose: null
         };
@@ -103,6 +103,9 @@ export default {
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
+        }
+        if (this.maximized) {
+            this.containerMaximized = this.maximized;
         }
     },
     beforeUnmount() {
@@ -194,25 +197,25 @@ export default {
             }
         },
         maximize(event) {
-            if (this.maximized) {
-                this.maximized = false;
+            if (this.containerMaximized) {
+                this.$emit('update:maximized', false);
                 this.$emit('unmaximize', event);
             } else {
-                this.maximized = true;
+                this.$emit('update:maximized', true);
                 this.$emit('maximize', event);
             }
 
             if (!this.modal) {
-                this.maximized ? DomHandler.blockBodyScroll() : DomHandler.unblockBodyScroll();
+                this.containerMaximized ? DomHandler.blockBodyScroll() : DomHandler.unblockBodyScroll();
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.containerMaximized)) {
                 DomHandler.blockBodyScroll();
             }
         },
         unbindDocumentState() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.containerMaximized)) {
                 DomHandler.unblockBodyScroll();
             }
         },
@@ -376,7 +379,7 @@ export default {
     },
     computed: {
         maximizeIconComponent() {
-            return this.maximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
+            return this.containerMaximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
         },
 
         ariaId() {
