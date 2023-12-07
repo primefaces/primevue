@@ -449,10 +449,6 @@
                             "to": "/theming"
                         },
                         {
-                            "name": "Visual Editor",
-                            "href": "https://designer.primevue.org"
-                        },
-                        {
                             "name": "Colors",
                             "to": "/colors"
                         },
