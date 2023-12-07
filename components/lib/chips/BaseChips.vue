@@ -34,6 +34,10 @@ export default {
             type: Boolean,
             default: false
         },
+        addButton: {
+            type: Boolean,
+            default: false
+        },
         inputId: {
             type: String,
             default: null

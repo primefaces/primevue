@@ -96,6 +96,14 @@ export interface ChipsPassThroughOptions {
      */
     input?: ChipsPassThroughOptionType;
     /**
+     * Used to pass attributes to the add button wrapper's DOM element.
+     */
+    addButtonWrapper?: ChipsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the add button's DOM element.
+     */
+    addButton?: ChipsPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -189,6 +197,11 @@ export interface ChipsProps {
      */
     placeholder?: string | undefined;
     /**
+     * Add an indicative button at the end of input.
+     * @defaultValue false
+     */
+    addButton?: boolean | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
@@ -250,6 +263,25 @@ export interface ChipsSlots {
          * @param {Event} event - Browser event
          */
         removeCallback: (event: Event, index: number) => void;
+    }): VNode[];
+    /**
+     * Custom add button template.
+     * @param {Object} scope - add button's params.
+     */
+    addButton(scope: {
+        /**
+         * Style class of the button.
+         */
+        class: string;
+        /**
+         * Text input value for conditional rendering.
+         */
+        inputValue: string | undefined;
+        /**
+         * Add function of the button.
+         * @param {Event} event - Browser event
+         */
+        onClick: (event: Event) => void;
     }): VNode[];
 }
 /**
