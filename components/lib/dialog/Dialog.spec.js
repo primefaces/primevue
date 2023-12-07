@@ -116,7 +116,7 @@ describe('maximizable', () => {
 
         expect(icon.classes()).toContain('pi-facebook');
 
-        await wrapper.setData({ maximized: false });
+        await wrapper.setData({ containerMaximized: false });
 
         expect(icon.classes()).toContain('pi-discord');
     });
@@ -144,13 +144,13 @@ describe('maximizable', () => {
         });
 
         await wrapper.setProps({ visible: true });
-        await wrapper.setData({ maximized: false });
+        await wrapper.setData({ containerMaximized: false });
 
         const icon = wrapper.find('.p-dialog-header-maximize-icon');
 
         expect(icon.classes()).toContain('pi-discord');
 
-        await wrapper.setData({ maximized: true });
+        await wrapper.setData({ containerMaximized: true });
 
         expect(icon.classes()).toContain('pi-facebook');
     });
