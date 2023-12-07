@@ -54,16 +54,7 @@
             </li>
             <li v-if="addButton" :class="cx('addButtonWrapper')" role="option" v-bind="ptm('addButtonWrapper')">
                 <slot name="addButton" :class="cx('addButton')" :inputValue="inputValue" :onClick="(event) => addItem(event, inputValue, true)">
-                    <button
-                        v-if="inputValue && inputValue.trim().length"
-                        v-ripple
-                        label="Add"
-                        :disabled="maxedOut"
-                        :class="cx('addButton')"
-                        type="button"
-                        @click="addItem($event, inputValue, true)"
-                        v-bind="ptm('addButton')"
-                    >Add</button>
+                    <button v-if="inputValue && inputValue.trim().length" v-ripple label="Add" :disabled="maxedOut" :class="cx('addButton')" type="button" @click="addItem($event, inputValue, true)" v-bind="ptm('addButton')">Add</button>
                 </slot>
             </li>
         </ul>
