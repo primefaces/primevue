@@ -29,6 +29,17 @@
                 </div>
                 <div class="w-6 lg:w-3 flex">
                     <ul class="list-none p-0 m-0">
+                        <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
+                        <li class="mb-4">
+                            <router-link to="/theming" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</router-link>
+                        </li>
+                        <li class="mb-4">
+                            <router-link to="/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</router-link>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-6 lg:w-3 flex">
+                    <ul class="list-none p-0 m-0">
                         <li class="font-bold mt-5 lg:mt-0 mb-5">Resources</li>
                         <li class="mb-4">
                             <a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer"
@@ -52,20 +63,6 @@
                         </li>
                         <li class="mb-4">
                             <a href="mailto:contact@primetek.com.tr" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="w-6 lg:w-3 flex">
-                    <ul class="list-none p-0 m-0">
-                        <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
-                        <li class="mb-4">
-                            <router-link to="/theming" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Guide</router-link>
-                        </li>
-                        <li class="mb-4">
-                            <a href="https://designer.primevue.org" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Designer</a>
-                        </li>
-                        <li class="mb-4">
-                            <router-link to="/colors" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Colors</router-link>
                         </li>
                     </ul>
                 </div>
