@@ -104,6 +104,7 @@ export default {
         if (this.visible) {
             this.containerVisible = this.visible;
         }
+
         if (this.maximized) {
             this.containerMaximized = this.maximized;
         }
