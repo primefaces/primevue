@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tree">
-        <template v-if="loading">
+        <template v-if="loading && loadingMode === 'mask'">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
@@ -29,6 +29,7 @@
                     :selectionMode="selectionMode"
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
+                    :loadingMode="loadingMode"
                     :pt="pt"
                     :unstyled="unstyled"
                 ></TreeNode>
@@ -47,7 +48,7 @@ import TreeNode from './TreeNode.vue';
 export default {
     name: 'Tree',
     extends: BaseTree,
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter'],
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -166,6 +167,8 @@ export default {
             if (event.code === 'Enter') {
                 event.preventDefault();
             }
+
+            this.$emit('filter', { originalEvent: event, value: event.target.value });
         },
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {

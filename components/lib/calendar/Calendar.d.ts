@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptionType } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -38,9 +38,27 @@ export interface CalendarPassThroughMethodOptions {
      */
     context: CalendarContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface CalendarSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: CalendarProps;
+    /**
+     * Defines current inline state.
+     */
+    state: CalendarState;
 }
 
 /**
@@ -117,9 +135,9 @@ export interface CalendarPassThroughOptions {
     input?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    dropdownButton?: ButtonPassThroughOptionType;
+    dropdownButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -138,9 +156,9 @@ export interface CalendarPassThroughOptions {
     header?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    previousButton?: ButtonPassThroughOptionType;
+    previousButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the title's DOM element.
      */
@@ -159,9 +177,9 @@ export interface CalendarPassThroughOptions {
     decadeTitle?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    nextButton?: ButtonPassThroughOptionType;
+    nextButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -288,14 +306,14 @@ export interface CalendarPassThroughOptions {
     buttonbar?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    todayButton?: ButtonPassThroughOptionType;
+    todayButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
+     * @see {@link ButtonPassThroughOptions}
      */
-    clearButton?: ButtonPassThroughOptionType;
+    clearButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the aria selected day's DOM element.
      */
@@ -798,6 +816,10 @@ export interface CalendarSlots {
          * Style class of the input icon
          */
         class: any;
+        /**
+         * Click callback
+         */
+        clickCallback: () => void;
     }): VNode[];
     /**
      * Custom previous icon template.

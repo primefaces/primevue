@@ -9,7 +9,7 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptionType } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -38,9 +38,27 @@ export interface OrderListPassThroughMethodOptions {
      */
     context: OrderListContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface OrderListSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: OrderListProps;
+    /**
+     * Defines current inline state.
+     */
+    state: OrderListState;
 }
 
 /**
@@ -93,19 +111,19 @@ export interface OrderListPassThroughOptions {
     /**
      * Used to pass attributes to the Button component.
      */
-    moveUpButton?: ButtonPassThroughOptionType;
+    moveUpButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveTopButton?: ButtonPassThroughOptionType;
+    moveTopButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveDownButton?: ButtonPassThroughOptionType;
+    moveDownButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveBottomButton?: ButtonPassThroughOptionType;
+    moveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */

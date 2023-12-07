@@ -1,6 +1,6 @@
 <template>
     <Portal v-if="fullScreen">
-        <div v-if="containerVisible" :ref="maskRef" :class="[cx('mask'), maskClass]" :role="fullScreen ? 'dialog' : 'region'" :aria-modal="fullScreen ? 'true' : undefined" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" :class="[cx('mask'), maskClass]" role="dialog" :aria-modal="fullScreen ? 'true' : undefined" v-bind="ptm('mask')">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" :unstyled="unstyled" v-bind="$props" />
             </transition>

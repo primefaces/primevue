@@ -19,6 +19,10 @@ export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThro
 export interface BadgePassThroughMethodOptions {
     context: BadgeContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;

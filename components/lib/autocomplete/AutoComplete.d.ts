@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptionType } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
@@ -39,9 +39,27 @@ export interface AutoCompletePassThroughMethodOptions {
      */
     context: AutoCompleteContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface AutoCompleteSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: AutoCompleteProps;
+    /**
+     * Defines current inline state.
+     */
+    state: AutoCompleteState;
 }
 
 /**
@@ -150,8 +168,9 @@ export interface AutoCompletePassThroughOptions {
     loadingIcon?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
-    dropdownButton?: ButtonPassThroughOptionType;
+    dropdownButton?: ButtonPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the panel's DOM element.
      */

@@ -29,14 +29,14 @@
                                 <template v-for="(value, i) in getType(v)" :key="value">
                                     <span v-if="i !== 0" class="doc-option-type">{{ ' | ' }}</span>
                                     <NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-type doc-option-link">{{ value }}</NuxtLink
-                                    ><span v-else class="doc-option-type">{{ value }}</span>
+                                    ><span v-else class="doc-option-type">{{ value === 'T' ? 'any' : value }}</span>
                                 </template>
                             </template>
 
                             <template v-else-if="k === 'options'">
                                 <template v-for="val in v" :key="val.name">
                                     <div class="doc-option-type-options-container">
-                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type }}</span>
+                                        {{ val.name }}: <span class="doc-option-type-options doc-option-type">{{ val.type === 'T' || (val.type.includes('<T') && !val.type.includes('<Tr')) ? 'any' : val.type }}</span>
                                     </div>
                                 </template>
                             </template>
@@ -111,7 +111,7 @@ export default {
             });
         },
         isLinkType(value) {
-            if (this.label === 'Slots') return false;
+            if (this.label === 'Slots' || value.includes('SharedPassThroughOption') || value.includes('PassThrough<')) return false;
             const validValues = ['confirmationoptions', 'toastmessageoptions'];
 
             return value.toLowerCase().includes(this.id.split('.')[1]) || validValues.includes(value.toLowerCase());

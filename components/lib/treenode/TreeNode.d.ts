@@ -53,9 +53,9 @@ export interface TreeNode {
      */
     leaf?: boolean;
     /**
-     * Optional
+     * Specifies the node loading. Used in Tree and TreeTable.
      */
-    [key: string]: any;
+    loading?: boolean;
     /**
      * Icon to use in expanded state.
      */
@@ -64,4 +64,8 @@ export interface TreeNode {
      * Icon to use in collapsed state.
      */
     collapsedIcon?: string;
+    /**
+     * Optional
+     */
+    [key: string]: any;
 }

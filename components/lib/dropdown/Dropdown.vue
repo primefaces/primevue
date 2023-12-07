@@ -125,7 +125,7 @@
                                             :data-p-highlight="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
-                                            v-bind="getPTOptions(option, getItemOptions, i, 'item')"
+                                            v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
@@ -253,7 +253,7 @@ export default {
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
         },
-        getPTOptions(option, itemOptions, index, key) {
+        getPTItemOptions(option, itemOptions, index, key) {
             return this.ptm(key, {
                 context: {
                     selected: this.isSelected(option),

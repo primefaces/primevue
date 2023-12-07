@@ -37,6 +37,10 @@ export interface GalleriaPassThroughMethodOptions {
      */
     context: GalleriaContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -390,6 +394,14 @@ export interface GalleriaProps {
      * Used to pass all properties of the HTMLButtonElement to the next navigation button.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    ariaLabel?: string | undefined;
+    /**
+     * Defines a string value that description for the role of the component.
+     */
+    ariaRoledescription?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {GalleriaPassThroughOptions}

@@ -42,9 +42,27 @@ export interface DataTablePassThroughMethodOptions {
      */
     context: DataTableContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DataTableSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DataTableProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DataTableState;
 }
 
 /**
@@ -378,7 +396,7 @@ export interface DataTableRowExpandEvent {
     /**
      * Expanded row data
      */
-    data: any[];
+    data: any;
 }
 
 /**
@@ -582,7 +600,7 @@ export interface DataTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType;
+    paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */

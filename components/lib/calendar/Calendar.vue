@@ -48,7 +48,7 @@
             </template>
         </CalendarButton>
         <template v-else-if="showIcon && iconDisplay === 'input'">
-            <slot name="inputicon" :class="cx('inputIcon')">
+            <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                 <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
             </slot>
         </template>
@@ -1272,14 +1272,10 @@ export default {
             let formattedValue = null;
 
             if (date) {
-                if (this.timeOnly) {
-                    formattedValue = this.formatTime(date);
-                } else {
-                    formattedValue = this.formatDate(date, this.datePattern);
+                formattedValue = this.formatDate(date, this.datePattern);
 
-                    if (this.showTime) {
-                        formattedValue += ' ' + this.formatTime(date);
-                    }
+                if (this.showTime || this.timeOnly) {
+                    formattedValue += ' ' + this.formatTime(date);
                 }
             }
 
@@ -1798,18 +1794,13 @@ export default {
             let date;
             let parts = text.split(' ');
 
-            if (this.timeOnly) {
-                date = new Date();
-                this.populateTime(date, parts[0], parts[1]);
-            } else {
-                const dateFormat = this.datePattern;
+            const dateFormat = this.datePattern;
 
-                if (this.showTime) {
-                    date = this.parseDate(parts[0], dateFormat);
-                    this.populateTime(date, parts[1], parts[2]);
-                } else {
-                    date = this.parseDate(text, dateFormat);
-                }
+            if (this.showTime || this.timeOnly) {
+                date = this.parseDate(parts[0], dateFormat);
+                this.populateTime(date, parts[1], parts[2]);
+            } else {
+                date = this.parseDate(text, dateFormat);
             }
 
             return date;

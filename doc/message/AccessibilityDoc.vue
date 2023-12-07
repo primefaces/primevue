@@ -2,7 +2,7 @@
     <DocSectionText id="accessibility" label="Accessibility" v-bind="$attrs">
         <h3>Screen Reader</h3>
         <p>
-            Message components use <i>alert</i> role that implicitly defines <i>aria-live</i> as "assertive" and <i>aria-atomic</i> as "true". Since any attribute is passed to the root element, attributes like <i>aria-labelledby</i> and
+            Message component uses <i>alert</i> role that implicitly defines <i>aria-live</i> as "assertive" and <i>aria-atomic</i> as "true". Since any attribute is passed to the root element, attributes like <i>aria-labelledby</i> and
             <i>aria-label</i> can optionally be used as well.
         </p>
 
@@ -38,41 +38,3 @@
         </div>
     </DocSectionText>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            code1: {
-                basic: `
-<ConfirmDialog id="confirm" />
-
-<Button @click="openDialog()" label="Confirm" :aria-expanded="visible" :aria-controls="visible ? 'confirm' : null"></Button>
-
-`
-            },
-            code2: {
-                basic: `
-<script setup>
-const confirm = useConfirm();
-const isVisible = ref(false);
-
-const openDialog = () => {
-    confirm.require({
-        message: 'Are you sure you want to proceed?',
-        header: 'Confirmation',
-        onShow: () => {
-            isVisible.value = true;
-        },
-        onHide: () => {
-            isVisible.value = false;
-        }
-    });
-};
-<\/script>
-`
-            }
-        };
-    }
-};
-</script>

@@ -33,6 +33,7 @@
                 @node-toggle="$emit('node-toggle', $event)"
                 @checkbox-toggle="toggleCheckbox"
                 :index="i"
+                :loadingMode="loadingMode"
                 :pt="pt"
             ></TTBodyCell>
         </template>
@@ -114,6 +115,10 @@ export default {
         ariaPosInset: {
             type: Number,
             default: null
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
         },
         templates: {
             type: Object,

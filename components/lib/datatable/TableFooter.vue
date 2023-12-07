@@ -43,6 +43,7 @@ export default {
             const columnGroupMetaData = {
                 props: this.getColumnGroupProps(),
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -61,6 +62,7 @@ export default {
             const rowMetaData = {
                 props: row.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },

@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
+export declare type ProgressBarPassThroughOptionType<T = any> = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions<T>) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ProgressBarPassThroughMethodOptions {
+export interface ProgressBarPassThroughMethodOptions<T> {
     /**
      * Defines instance.
      */
@@ -30,25 +30,29 @@ export interface ProgressBarPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+    /**
+     * Defines parent instance.
+     */
+    parent: T;
 }
 
 /**
  * Custom passthrough(pt) options.
  * @see {@link ProgressBarProps.pt}
  */
-export interface ProgressBarPassThroughOptions {
+export interface ProgressBarPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ProgressBarPassThroughOptionType;
+    root?: ProgressBarPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the value's DOM element.
      */
-    value?: ProgressBarPassThroughOptionType;
+    value?: ProgressBarPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: ProgressBarPassThroughOptionType;
+    label?: ProgressBarPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

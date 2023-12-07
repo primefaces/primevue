@@ -45,6 +45,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -485,9 +493,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "AccordionPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -3067,12 +3075,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "AutoCompleteSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AutoCompleteProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AutoCompleteState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -3266,7 +3305,7 @@
                             "name": "dropdownButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -4241,9 +4280,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "AvatarGroupPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -4722,6 +4761,14 @@
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
                         }
                     ],
                     "methods": []
@@ -4747,7 +4794,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughOptionType",
+                            "type": "BadgePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -4794,7 +4841,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<BadgePassThroughOptions>",
+                            "type": "PassThrough<BadgePassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -4924,6 +4971,14 @@
                             "readonly": false,
                             "type": "BadgeContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -5684,6 +5739,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -5962,6 +6025,14 @@
                             "type": "BreadcrumbContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -6356,7 +6427,7 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T",
                             "default": "",
                             "description": "Defines parent instance."
                         },
@@ -6379,7 +6450,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -6387,7 +6458,7 @@
                             "name": "loadingIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
@@ -6395,7 +6466,7 @@
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
                         },
@@ -6403,7 +6474,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the label's DOM element."
                         },
@@ -6411,7 +6482,7 @@
                             "name": "badge",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the badge's DOM element."
                         },
@@ -6599,7 +6670,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<ButtonPassThroughOptions>",
+                            "type": "PassThrough<ButtonPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -6807,12 +6878,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -6933,7 +7035,7 @@
                             "name": "dropdownButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -6973,7 +7075,7 @@
                             "name": "previousButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -7013,7 +7115,7 @@
                             "name": "nextButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -7269,7 +7371,7 @@
                             "name": "todayButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -7277,7 +7379,7 @@
                             "name": "clearButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -8107,7 +8209,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the input icon</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">class</span>: <span class=\"text-primary-500\">any</span>, <span class=\"text-primary-300\">// Style class of the input icon</span>\n \t <span class=\"ml-3 text-primary-700\">clickCallback</span>: <span class=\"text-primary-500\">() &rArr; void</span>, <span class=\"text-primary-300\">// Click callback</span>\n}",
                                     "description": "input icon slot's params."
                                 }
                             ],
@@ -8686,6 +8788,14 @@
                             "type": "CarouselContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -9331,6 +9441,14 @@
                             "type": "CascadeSelectState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -10218,6 +10336,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -10550,6 +10676,14 @@
                             "type": "CheckboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -11030,6 +11164,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -11362,6 +11504,14 @@
                             "type": "ChipsState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -11885,6 +12035,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -12316,9 +12474,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTablePassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -12335,6 +12493,29 @@
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptions",
+                            "default": "",
+                            "description": "Defines parent instance."
                         }
                     ],
                     "methods": []
@@ -12663,7 +12844,7 @@
                             "name": "filterOperatorDropdown",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Dropdown component."
                         },
@@ -12687,7 +12868,7 @@
                             "name": "filterMatchModeDropdown",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Dropdown component."
                         },
@@ -12703,7 +12884,7 @@
                             "name": "filterRemoveButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -12719,7 +12900,7 @@
                             "name": "filterAddRuleButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -12735,7 +12916,7 @@
                             "name": "filterClearButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -12743,7 +12924,7 @@
                             "name": "filterApplyButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -13876,9 +14057,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTablePassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -14254,7 +14435,7 @@
                             "name": "badge",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<BadgePassThroughOptions>",
+                            "type": "DefaultPassThrough<BadgePassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14275,7 +14456,7 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<ButtonPassThroughOptions>",
+                            "type": "DefaultPassThrough<ButtonPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14415,7 +14596,7 @@
                             "name": "dialog",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<DialogPassThroughOptions>",
+                            "type": "DefaultPassThrough<DialogPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14429,14 +14610,14 @@
                             "name": "dropdown",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<DropdownPassThroughOptions>",
+                            "type": "DefaultPassThrough<DropdownPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
                             "name": "dynamicdialog",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<DialogPassThroughOptions>",
+                            "type": "DefaultPassThrough<DialogPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14499,7 +14680,7 @@
                             "name": "inputnumber",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<InputNumberPassThroughOptions>",
+                            "type": "DefaultPassThrough<InputNumberPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14513,7 +14694,7 @@
                             "name": "inputtext",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<InputTextPassThroughOptions>",
+                            "type": "DefaultPassThrough<InputTextPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14555,7 +14736,7 @@
                             "name": "message",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<MessagePassThroughOptions>",
+                            "type": "DefaultPassThrough<MessagePassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14590,7 +14771,7 @@
                             "name": "paginator",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<PaginatorPassThroughOptions>",
+                            "type": "DefaultPassThrough<PaginatorPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14625,7 +14806,7 @@
                             "name": "progressbar",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<ProgressBarPassThroughOptions>",
+                            "type": "DefaultPassThrough<ProgressBarPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14779,7 +14960,7 @@
                             "name": "tieredmenu",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<TieredMenuPassThroughOptions>",
+                            "type": "DefaultPassThrough<TieredMenuPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -14814,7 +14995,7 @@
                             "name": "tree",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<TreePassThroughOptions>",
+                            "type": "DefaultPassThrough<TreePassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -15930,12 +16111,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmDialogSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmDialogProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmDialogState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -16028,7 +16240,7 @@
                             "name": "rejectButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -16036,7 +16248,7 @@
                             "name": "acceptButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -16335,12 +16547,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmPopupSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmPopupProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmPopupState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -16393,7 +16636,7 @@
                             "name": "rejectButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -16401,7 +16644,7 @@
                             "name": "acceptButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -16719,6 +16962,14 @@
                             "type": "ContextMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -17371,12 +17622,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataTableSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTableProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTableState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -18113,7 +18395,7 @@
                             "name": "data",
                             "optional": false,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "any",
                             "default": "",
                             "description": "Expanded row data"
                         }
@@ -18137,7 +18419,7 @@
                             "name": "data",
                             "optional": false,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "any",
                             "default": "",
                             "description": "Expanded row data"
                         }
@@ -18591,7 +18873,7 @@
                             "name": "paginator",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Paginator component."
                         },
@@ -20334,12 +20616,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -20407,7 +20720,7 @@
                             "name": "paginator",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Paginator component."
                         },
@@ -20873,6 +21186,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -21168,6 +21489,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -21402,6 +21731,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -21420,7 +21757,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -21428,7 +21765,7 @@
                             "name": "header",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the header's DOM element."
                         },
@@ -21436,7 +21773,7 @@
                             "name": "title",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the header title's DOM element."
                         },
@@ -21444,7 +21781,7 @@
                             "name": "icons",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the header icons' DOM element."
                         },
@@ -21452,7 +21789,7 @@
                             "name": "maximizableButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the maximizable button's DOM element."
                         },
@@ -21460,7 +21797,7 @@
                             "name": "maximizableIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the maximizable icon's DOM element."
                         },
@@ -21468,7 +21805,7 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the close button's component."
                         },
@@ -21476,7 +21813,7 @@
                             "name": "closeButtonIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the close button icon's component."
                         },
@@ -21484,7 +21821,7 @@
                             "name": "content",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the content's DOM element."
                         },
@@ -21492,7 +21829,7 @@
                             "name": "footer",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the footer's DOM element."
                         },
@@ -21500,7 +21837,7 @@
                             "name": "mask",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "DialogPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the mask's DOM element."
                         },
@@ -21516,7 +21853,7 @@
                             "name": "transition",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughTransitionType",
+                            "type": "DialogPassThroughTransitionType<T>",
                             "default": "",
                             "description": "Used to control Vue Transition API."
                         }
@@ -21799,7 +22136,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<DialogPassThroughOptions>",
+                            "type": "PassThrough<DialogPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -22110,6 +22447,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -22359,6 +22704,14 @@
                             "type": "DockContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -22879,6 +23232,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
@@ -22951,7 +23312,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -22959,7 +23320,7 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the input's DOM element."
                         },
@@ -22967,7 +23328,7 @@
                             "name": "clearIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the clear icon's DOM element."
                         },
@@ -22975,7 +23336,7 @@
                             "name": "trigger",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the trigger' DOM element."
                         },
@@ -22983,7 +23344,7 @@
                             "name": "loadingIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
@@ -22991,7 +23352,7 @@
                             "name": "panel",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the panel's DOM element."
                         },
@@ -22999,7 +23360,7 @@
                             "name": "header",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the header's DOM element."
                         },
@@ -23007,7 +23368,7 @@
                             "name": "filterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
@@ -23015,7 +23376,7 @@
                             "name": "filterInput",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the filter input's DOM element."
                         },
@@ -23023,7 +23384,7 @@
                             "name": "filterIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
@@ -23031,7 +23392,7 @@
                             "name": "wrapper",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the wrapper's DOM element."
                         },
@@ -23047,7 +23408,7 @@
                             "name": "list",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the list's DOM element."
                         },
@@ -23055,7 +23416,7 @@
                             "name": "itemGroup",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the item group's DOM element."
                         },
@@ -23063,7 +23424,7 @@
                             "name": "item",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the item's DOM element."
                         },
@@ -23071,7 +23432,7 @@
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the empty message's DOM element."
                         },
@@ -23079,7 +23440,7 @@
                             "name": "hiddenFirstFocusableEl",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden first focusable element's DOM element."
                         },
@@ -23087,7 +23448,7 @@
                             "name": "hiddenFilterResult",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden filter result's DOM element."
                         },
@@ -23095,7 +23456,7 @@
                             "name": "hiddenEmptyMessage",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden empty message's DOM element."
                         },
@@ -23103,7 +23464,7 @@
                             "name": "hiddenSelectedMessage",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden selected message's DOM element."
                         },
@@ -23111,7 +23472,7 @@
                             "name": "hiddenLastFocusableEl",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden last focusable element's DOM element."
                         },
@@ -23127,7 +23488,7 @@
                             "name": "transition",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughTransitionType",
+                            "type": "DropdownPassThroughTransitionType<any>",
                             "default": "",
                             "description": "Used to control Vue Transition API."
                         }
@@ -23606,7 +23967,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<DropdownPassThroughOptions>",
+                            "type": "PassThrough<DropdownPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -24264,6 +24625,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -24838,6 +25207,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -25222,6 +25599,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -25487,7 +25872,7 @@
                             "name": "uploadButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the upload button's DOM element."
                         },
@@ -25495,7 +25880,7 @@
                             "name": "cancelButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the cancel button's DOM element."
                         },
@@ -25519,7 +25904,7 @@
                             "name": "message",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptions",
+                            "type": "MessagePassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the messages' DOM element."
                         },
@@ -25567,9 +25952,9 @@
                             "name": "badge",
                             "optional": true,
                             "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
+                            "type": "BadgePassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the badge's DOM element."
+                            "description": "Used to pass attributes to the Badge component."
                         },
                         {
                             "name": "actions",
@@ -25583,7 +25968,7 @@
                             "name": "removeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the remove button's DOM element."
                         },
@@ -26424,6 +26809,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -27047,6 +27440,22 @@
                             "description": "Used to pass all properties of the HTMLButtonElement to the next navigation button."
                         },
                         {
+                            "name": "ariaLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Defines a string value that labels an interactive element."
+                        },
+                        {
+                            "name": "ariaRoledescription",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Defines a string value that description for the role of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
@@ -27428,6 +27837,14 @@
                             "type": "ImageState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -27932,6 +28349,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -28197,12 +28622,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InplaceSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InplaceProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InplaceState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -28239,7 +28695,7 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<InplaceSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -28533,6 +28989,14 @@
                             "description": "Defines instance."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -28734,6 +29198,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Defines instance."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -28953,6 +29425,14 @@
                             "type": "InputMaskContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -29303,12 +29783,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputNumberSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputNumberProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputNumberState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -29367,7 +29878,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputNumberPassThroughOptionType",
+                            "type": "InputNumberPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -29375,15 +29886,15 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptionType",
+                            "type": "InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the Input component."
+                            "description": "Used to pass attributes to the InputText component."
                         },
                         {
                             "name": "buttonGroup",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputNumberPassThroughOptionType",
+                            "type": "InputNumberPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the button group's DOM element."
                         },
@@ -29391,7 +29902,7 @@
                             "name": "incrementButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<InputNumberSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -29399,7 +29910,7 @@
                             "name": "decrementButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<InputNumberSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -29732,7 +30243,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<InputNumberPassThroughOptions>",
+                            "type": "PassThrough<InputNumberPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -29947,6 +30458,14 @@
                             "type": "InputSwitchState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -30325,6 +30844,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -30343,7 +30870,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptionType",
+                            "type": "InputTextPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -30418,7 +30945,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<InputTextPassThroughOptions>",
+                            "type": "PassThrough<InputTextPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -30573,6 +31100,14 @@
                             "type": "KnobState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -31018,6 +31553,14 @@
                             "type": "ListboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -31872,6 +32415,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -32576,6 +33127,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -33147,6 +33706,14 @@
                             "type": "MenubarContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -33914,6 +34481,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -33932,7 +34507,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -33940,7 +34515,7 @@
                             "name": "wrapper",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the wrapper's DOM element."
                         },
@@ -33948,7 +34523,7 @@
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
                         },
@@ -33956,7 +34531,7 @@
                             "name": "text",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the text's DOM element."
                         },
@@ -33964,7 +34539,7 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the button's DOM element.",
                             "deprecated": "since v3.30.2. Use 'closeButton' option."
@@ -33973,7 +34548,7 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the button's DOM element."
                         },
@@ -33981,7 +34556,7 @@
                             "name": "buttonIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the button icon's DOM element.",
                             "deprecated": "since v3.30.2. Use 'closeIcon' option."
@@ -33990,7 +34565,7 @@
                             "name": "closeIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptionType",
+                            "type": "MessagePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the button icon's DOM element."
                         },
@@ -34006,7 +34581,7 @@
                             "name": "transition",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughTransitionType",
+                            "type": "MessagePassThroughTransitionType<T>",
                             "default": "",
                             "description": "Used to control Vue Transition API."
                         }
@@ -34106,7 +34681,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<MessagePassThroughOptions>",
+                            "type": "PassThrough<MessagePassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -34351,6 +34926,14 @@
                             "type": "MultiSelectContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -35704,12 +36287,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrderListSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -35792,7 +36406,7 @@
                             "name": "moveUpButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -35800,7 +36414,7 @@
                             "name": "moveTopButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -35808,7 +36422,7 @@
                             "name": "moveDownButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -35816,7 +36430,7 @@
                             "name": "moveBottomButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -36351,6 +36965,14 @@
                             "type": "OrganizationChartContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -37010,6 +37632,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -37382,6 +38012,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
@@ -37400,6 +38038,29 @@
                     ],
                     "methods": []
                 },
+                "PaginatorSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PaginatorProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PaginatorState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PaginatorPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "PaginatorProps.pt",
@@ -37408,7 +38069,7 @@
                             "name": "paginatorWrapper",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "any",
                             "default": "",
                             "description": "Used to pass attributes to the paginator wrapper's DOM element."
                         },
@@ -37416,7 +38077,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -37424,7 +38085,7 @@
                             "name": "start",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the start's DOM element."
                         },
@@ -37432,7 +38093,7 @@
                             "name": "firstPageButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the first page button's DOM element."
                         },
@@ -37440,7 +38101,7 @@
                             "name": "firstPageIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the first page icon's DOM element."
                         },
@@ -37448,7 +38109,7 @@
                             "name": "previousPageButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the prev page button's DOM element."
                         },
@@ -37456,7 +38117,7 @@
                             "name": "previousPageIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the prev page icon's DOM element."
                         },
@@ -37464,7 +38125,7 @@
                             "name": "nextPageButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the next page button's DOM element."
                         },
@@ -37472,7 +38133,7 @@
                             "name": "nextPageIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the next page icon's DOM element."
                         },
@@ -37480,7 +38141,7 @@
                             "name": "lastPageButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the last page button's DOM element."
                         },
@@ -37488,7 +38149,7 @@
                             "name": "lastPageIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the last page icon's DOM element."
                         },
@@ -37496,7 +38157,7 @@
                             "name": "pages",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the pages's DOM element."
                         },
@@ -37504,7 +38165,7 @@
                             "name": "pageButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the page button's DOM element."
                         },
@@ -37512,7 +38173,7 @@
                             "name": "current",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the current's DOM element."
                         },
@@ -37520,7 +38181,7 @@
                             "name": "rowPerPageDropdown",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Dropdown component."
                         },
@@ -37528,7 +38189,7 @@
                             "name": "jumpToPageDropdown",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
+                            "type": "DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Dropdown component."
                         },
@@ -37536,7 +38197,7 @@
                             "name": "jumpToPageInput",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputNumberPassThroughOptionType",
+                            "type": "InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Dropdown component."
                         },
@@ -37544,7 +38205,7 @@
                             "name": "end",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the end's DOM element."
                         },
@@ -37729,7 +38390,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<PaginatorPassThroughOptions>",
+                            "type": "PassThrough<PaginatorPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37987,6 +38648,14 @@
                             "type": "PanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -38418,6 +39087,14 @@
                             "type": "PanelMenuContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -39146,12 +39823,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PasswordSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PasswordProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PasswordState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -39172,7 +39880,7 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "PasswordPassThroughOptionType",
+                            "type": "InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
                         },
@@ -39778,12 +40486,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PickListSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PickListProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PickListState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -39970,7 +40709,7 @@
                             "name": "sourceMoveUpButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -39978,7 +40717,7 @@
                             "name": "sourceMoveTopButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -39986,7 +40725,7 @@
                             "name": "sourceMoveDownButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -39994,7 +40733,7 @@
                             "name": "sourceMoveBottomButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40034,7 +40773,7 @@
                             "name": "moveToTargetButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40042,7 +40781,7 @@
                             "name": "moveAllToTargetButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40050,7 +40789,7 @@
                             "name": "moveToSourceButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40058,7 +40797,7 @@
                             "name": "moveAllToSourceButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40106,7 +40845,7 @@
                             "name": "targetMoveUpButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40114,7 +40853,7 @@
                             "name": "targetMoveTopButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40122,7 +40861,7 @@
                             "name": "targetMoveDownButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40130,7 +40869,7 @@
                             "name": "targetMoveBottomButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -40947,6 +41686,14 @@
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
                         }
                     ],
                     "methods": []
@@ -40959,7 +41706,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ProgressBarPassThroughOptionType",
+                            "type": "ProgressBarPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -40967,7 +41714,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "ProgressBarPassThroughOptionType",
+                            "type": "ProgressBarPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the value's DOM element."
                         },
@@ -40975,7 +41722,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "ProgressBarPassThroughOptionType",
+                            "type": "ProgressBarPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the label's DOM element."
                         },
@@ -41035,7 +41782,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<ProgressBarPassThroughOptions>",
+                            "type": "PassThrough<ProgressBarPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -41183,6 +41930,14 @@
                             "type": "ProgressSpinnerProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -41428,6 +42183,14 @@
                             "type": "RadioButtonState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -41807,6 +42570,14 @@
                             "type": "RatingContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -42479,9 +43250,9 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "ColumnGroupPassThroughOptions",
+                            "type": "any",
                             "default": "",
-                            "description": "Defines parent instance."
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "context",
@@ -42694,6 +43465,14 @@
                             "type": "ScrollPanelState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -42987,6 +43766,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -43272,6 +44059,14 @@
                             "type": "SelectButtonContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -43719,6 +44514,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -44143,6 +44946,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -44386,6 +45197,14 @@
                             "type": "SliderProps",
                             "default": "",
                             "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -44776,12 +45595,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SpeedDialSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SpeedDialProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SpeedDialState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -44802,7 +45652,7 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -45382,12 +46232,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitButtonSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitButtonProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitButtonState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -45416,7 +46297,7 @@
                             "name": "menuButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
                         },
@@ -45424,7 +46305,7 @@
                             "name": "menu",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptions",
+                            "type": "TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the TieredMenu component."
                         },
@@ -45867,6 +46748,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -46274,6 +47163,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -46515,6 +47412,14 @@
                             "type": "StepsContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -47109,6 +48014,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -47528,20 +48441,20 @@
                             "description": "Defines valid properties."
                         },
                         {
-                            "name": "parent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "TabViewPassThroughOptions",
-                            "default": "",
-                            "description": "Defines parent instance."
-                        },
-                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TabPanelContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -48375,6 +49288,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -48640,6 +49561,14 @@
                             "type": "TerminalState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -49018,6 +49947,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -49278,6 +50215,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
@@ -49304,7 +50249,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -49312,7 +50257,7 @@
                             "name": "menu",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the list's DOM element."
                         },
@@ -49320,7 +50265,7 @@
                             "name": "menuitem",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the list item's DOM element."
                         },
@@ -49328,7 +50273,7 @@
                             "name": "content",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the content's DOM element."
                         },
@@ -49336,7 +50281,7 @@
                             "name": "action",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the action's DOM element."
                         },
@@ -49344,7 +50289,7 @@
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
                         },
@@ -49352,7 +50297,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the label's DOM element."
                         },
@@ -49360,7 +50305,7 @@
                             "name": "submenuIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the submenu icon's DOM element."
                         },
@@ -49368,7 +50313,7 @@
                             "name": "separator",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the separator's DOM element."
                         },
@@ -49376,7 +50321,7 @@
                             "name": "submenu",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the submenu's DOM element."
                         },
@@ -49392,7 +50337,7 @@
                             "name": "transition",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughTransitionType",
+                            "type": "TieredMenuPassThroughTransitionType<any>",
                             "default": "",
                             "description": "Used to control Vue Transition API."
                         }
@@ -49665,7 +50610,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<TieredMenuPassThroughOptions>",
+                            "type": "PassThrough<TieredMenuPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -49920,6 +50865,14 @@
                             "type": "TimelineContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -50272,6 +51225,14 @@
                             "type": "ToastState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -50939,6 +51900,14 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -51395,6 +52364,14 @@
                             "description": "Defines valid properties."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -51623,6 +52600,14 @@
                             "readonly": false,
                             "type": "TooltipContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -52016,6 +53001,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
@@ -52060,6 +53053,29 @@
                     ],
                     "methods": []
                 },
+                "TreeFilterEvent": {
+                    "description": "Custom filter event.",
+                    "relatedProp": "TreeEmits.filter",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Original event"
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Filter value"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "TreeProps.pt",
@@ -52068,7 +53084,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -52076,7 +53092,7 @@
                             "name": "filterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
@@ -52084,7 +53100,7 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the input's DOM element."
                         },
@@ -52092,7 +53108,7 @@
                             "name": "searchIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the search icon's DOM element."
                         },
@@ -52100,7 +53116,7 @@
                             "name": "wrapper",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the wrapper's DOM element."
                         },
@@ -52108,7 +53124,7 @@
                             "name": "container",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the container's DOM element."
                         },
@@ -52116,7 +53132,7 @@
                             "name": "node",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the node's DOM element."
                         },
@@ -52124,7 +53140,7 @@
                             "name": "content",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the content's DOM element."
                         },
@@ -52132,7 +53148,7 @@
                             "name": "toggler",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the toggler's DOM element."
                         },
@@ -52140,7 +53156,7 @@
                             "name": "togglerIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the toggler icon's DOM element."
                         },
@@ -52148,7 +53164,7 @@
                             "name": "checkboxContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox container's DOM element."
                         },
@@ -52156,7 +53172,7 @@
                             "name": "checkbox",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox's DOM element."
                         },
@@ -52164,7 +53180,7 @@
                             "name": "checkboxIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox icon's DOM element."
                         },
@@ -52172,7 +53188,7 @@
                             "name": "nodeIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the node icon's DOM element."
                         },
@@ -52180,7 +53196,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the label's DOM element."
                         },
@@ -52188,7 +53204,7 @@
                             "name": "subgroup",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the subgroup's DOM element."
                         },
@@ -52196,7 +53212,7 @@
                             "name": "loadingOverlay",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the loading overlay's DOM element."
                         },
@@ -52204,7 +53220,7 @@
                             "name": "loadingIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
@@ -52364,6 +53380,14 @@
                             "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
+                            "name": "loadingMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"mask\" | \"icon\"",
+                            "default": "mask",
+                            "description": "Loading mode display."
+                        },
+                        {
                             "name": "filter",
                             "optional": true,
                             "readonly": false,
@@ -52431,7 +53455,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<TreePassThroughOptions>",
+                            "type": "PassThrough<TreePassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -52554,9 +53578,10 @@
                             "name": "update:selectionKeys",
                             "parameters": [
                                 {
-                                    "name": "event",
+                                    "name": "value",
                                     "optional": false,
-                                    "type": "TreeSelectionKeys"
+                                    "type": "TreeSelectionKeys",
+                                    "description": "New selection keys."
                                 }
                             ],
                             "returnType": "void",
@@ -52613,6 +53638,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
+                            "name": "filter",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeFilterEvent",
+                                    "description": "Custom filter event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on filter input."
                         }
                     ]
                 }
@@ -52779,6 +53817,14 @@
                             "description": "Specifies if the node has children. Used in lazy loading."
                         },
                         {
+                            "name": "loading",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Specifies the node loading. Used in Tree and TreeTable."
+                        },
+                        {
                             "name": "expandedIcon",
                             "optional": true,
                             "readonly": false,
@@ -52852,12 +53898,43 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeSelectSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeSelectProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeSelectState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -52942,7 +54019,7 @@
                             "name": "tree",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType",
+                            "type": "TreePassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to Tree component."
                         },
@@ -53542,12 +54619,43 @@
                             "description": "Defines current options."
                         },
                         {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeTableSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableState",
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -53948,7 +55056,7 @@
                             "name": "paginator",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
+                            "type": "PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Paginator component."
                         },
@@ -54378,6 +55486,14 @@
                             "default": "",
                             "description": "The icon to show while indicating data load is in progress.",
                             "deprecated": "since v3.27.0. Use 'loadingicon' slot."
+                        },
+                        {
+                            "name": "loadingMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"mask\" | \"icon\"",
+                            "default": "mask",
+                            "description": "Loading mode display."
                         },
                         {
                             "name": "rowHover",
@@ -55020,6 +56136,14 @@
                             "type": "TriStateCheckboxContext",
                             "default": "",
                             "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -55728,6 +56852,14 @@
                             "type": "VirtualScrollerState",
                             "default": "",
                             "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",

@@ -37,9 +37,27 @@ export interface SpeedDialPassThroughMethodOptions {
      */
     context: SpeedDialContext;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface SpeedDialSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: SpeedDialProps;
+    /**
+     * Defines current inline state.
+     */
+    state: SpeedDialState;
 }
 
 /**
@@ -55,7 +73,7 @@ export interface SpeedDialPassThroughOptions {
      * Used to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
-    button?: ButtonPassThroughOptions;
+    button?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the menu's DOM element.
      */

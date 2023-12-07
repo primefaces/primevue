@@ -113,6 +113,14 @@ export default {
         nextButtonProps: {
             type: null,
             default: null
+        },
+        ariaLabel: {
+            type: String,
+            default: null
+        },
+        ariaRoledescription: {
+            type: String,
+            default: null
         }
     },
     style: GalleriaStyle,

@@ -160,7 +160,7 @@ export default {
             code2: {
                 composition: `
 <template>
-    <div class="card flex justify-center flex-wrap">
+    <div class="card flex justify-center flex-wrap gap-2">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" class="mb-2"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" severity="secondary" class="mb-2"></SplitButton>

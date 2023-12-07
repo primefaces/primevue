@@ -1,9 +1,19 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using <i>loading</i> property and <i>node-expand</i> method.</p>
+        <p>
+            Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using <i>loading</i> property and <i>node-expand</i> method. Default value of <i>loadingMode</i> is <i>mask</i> and also
+            <i>icon</i> is available.
+        </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+    <div class="card flex flex-wrap p-fluid gap-3">
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+        </div>
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+        </div>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -13,15 +23,24 @@ export default {
     data() {
         return {
             nodes: null,
+            nodes2: null,
             loading: false,
             code: {
                 basic: `
 <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+    <div class="card flex flex-wrap p-fluid gap-3">
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+        </div>
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+        </div>
     </div>
 </template>
 
@@ -30,15 +49,18 @@ export default {
     data() {
         return {
             nodes: null,
+            nodes2: null,
             loading: false
         };
     },
     mounted() {
         this.loading = true;
+        this.nodes2 = this.initateNodes2();
 
         setTimeout(() => {
             this.nodes = this.initateNodes();
             this.loading = false;
+            this.nodes2.map((node) => (node.loading = false));
         }, 2000);
     },
     methods: {
@@ -66,6 +88,30 @@ export default {
                 }, 500);
             }
         },
+        onNodeExpand2(node) {
+            if (!node.children) {
+                node.loading = true;
+
+                setTimeout(() => {
+                    let _node = { ...node };
+
+                    _node.children = [];
+
+                    for (let i = 0; i < 3; i++) {
+                        _node.children.push({
+                            key: node.key + '-' + i,
+                            label: 'Lazy ' + node.label + '-' + i
+                        });
+                    }
+
+                    let _nodes = { ...this.nodes2 };
+
+                    _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
+
+                    this.nodes2 = _nodes;
+                }, 500);
+            }
+        },
         initateNodes() {
             return [
                 {
@@ -84,6 +130,28 @@ export default {
                     leaf: false
                 }
             ];
+        },
+        initateNodes2() {
+            return [
+                {
+                    key: '0',
+                    label: 'Node 0',
+                    leaf: false,
+                    loading: true
+                },
+                {
+                    key: '1',
+                    label: 'Node 1',
+                    leaf: false,
+                    loading: true
+                },
+                {
+                    key: '2',
+                    label: 'Node 2',
+                    leaf: false,
+                    loading: true
+                }
+            ];
         }
     }
 }
@@ -91,8 +159,15 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+    <div class="card flex flex-wrap p-fluid gap-3">
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+        </div>
+        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+        </div>
     </div>
 </template>
 
@@ -100,14 +175,17 @@ export default {
 import { ref, onMounted } from 'vue';
 
 const nodes = ref(null);
+const nodes2 = ref(null);
 const loading = ref(false);
 
 onMounted(() => {
     loading.value = true;
+    nodes2.value = initiateNodes2();
 
     setTimeout(() => {
         nodes.value = initateNodes();
         loading.value = false;
+        nodes2.value.map((node) => (node.loading = false));
     }, 2000);
 });
 
@@ -136,6 +214,31 @@ const onNodeExpand = (node) => {
     }
 };
 
+const onNodeExpand2 = (node) => {
+    if (!node.children) {
+        node.loading = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            let _nodes = { ...nodes2.value };
+
+            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
+
+            nodes2.value = _nodes;
+        }, 500);
+    }
+};
+
 const initateNodes = () => {
     return [
         {
@@ -152,6 +255,29 @@ const initateNodes = () => {
             key: '2',
             label: 'Node 2',
             leaf: false
+        }
+    ];
+};
+
+const initateNodes2 = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false,
+            loading: true
         }
     ];
 };
@@ -189,10 +315,12 @@ const initateNodes = () => {
     },
     mounted() {
         this.loading = true;
+        this.nodes2 = this.initateNodes2();
 
         setTimeout(() => {
             this.nodes = this.initateNodes();
             this.loading = false;
+            this.nodes2.map((node) => (node.loading = false));
         }, 2000);
     },
     methods: {
@@ -221,6 +349,30 @@ const initateNodes = () => {
                 }, 500);
             }
         },
+        onNodeExpand2(node) {
+            if (!node.children) {
+                node.loading = true;
+
+                setTimeout(() => {
+                    let _node = { ...node };
+
+                    _node.children = [];
+
+                    for (let i = 0; i < 3; i++) {
+                        _node.children.push({
+                            key: node.key + '-' + i,
+                            label: 'Lazy ' + node.label + '-' + i
+                        });
+                    }
+
+                    let _nodes = { ...this.nodes2 };
+
+                    _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
+
+                    this.nodes2 = _nodes;
+                }, 500);
+            }
+        },
         initateNodes() {
             return [
                 {
@@ -237,6 +389,28 @@ const initateNodes = () => {
                     key: '2',
                     label: 'Node 2',
                     leaf: false
+                }
+            ];
+        },
+        initateNodes2() {
+            return [
+                {
+                    key: '0',
+                    label: 'Node 0',
+                    leaf: false,
+                    loading: true
+                },
+                {
+                    key: '1',
+                    label: 'Node 1',
+                    leaf: false,
+                    loading: true
+                },
+                {
+                    key: '2',
+                    label: 'Node 2',
+                    leaf: false,
+                    loading: true
                 }
             ];
         }

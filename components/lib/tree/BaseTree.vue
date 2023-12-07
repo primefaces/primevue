@@ -34,6 +34,10 @@ export default {
             type: String,
             default: undefined
         },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         filter: {
             type: Boolean,
             default: false

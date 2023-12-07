@@ -22,7 +22,8 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            v-bind="inputProps"
+            :pt="ptm('input')"
             :unstyled="unstyled"
             data-pc-section="input"
         />
@@ -33,7 +34,8 @@
                 :disabled="disabled"
                 :tabindex="-1"
                 aria-hidden="true"
-                v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+                v-bind="incrementButtonProps"
+                :pt="ptm('incrementButton')"
                 :unstyled="unstyled"
                 data-pc-section="incrementbutton"
             >
@@ -49,7 +51,8 @@
                 :disabled="disabled"
                 :tabindex="-1"
                 aria-hidden="true"
-                v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+                v-bind="decrementButtonProps"
+                :pt="ptm('decrementButton')"
                 :unstyled="unstyled"
                 data-pc-section="decrementbutton"
             >
@@ -67,7 +70,8 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+            v-bind="incrementButtonProps"
+            :pt="ptm('incrementButton')"
             :unstyled="unstyled"
             data-pc-section="incrementbutton"
         >
@@ -84,7 +88,8 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+            v-bind="decrementButtonProps"
+            :pt="ptm('decrementButton')"
             :unstyled="unstyled"
             data-pc-section="decrementbutton"
         >

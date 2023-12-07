@@ -1,25 +1,65 @@
 # Changelog
 
+## [3.43.0](https://github.com/primefaces/primevue/tree/3.43.0) (2023-12-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.42.0...3.43.0)
+
+**Fixed bugs:**
+
+-   Calendar: Overwrites date when in time-only mode [\#4901](https://github.com/primefaces/primevue/issues/4901)
+-   Binding and ordering pt options defect [\#4921](https://github.com/primefaces/primevue/issues/4921)
+-   Some icons are not displaying from PrimeIcons.js Api file [\#4897](https://github.com/primefaces/primevue/issues/4897)
+-   Treetable lazy load plus pagination toggler icon remain as open [\#4441](https://github.com/primefaces/primevue/issues/4441)
+
+**Implemented New Features and Enhancements:**
+
+-   Add parent param to all pt method options [\#4929](https://github.com/primefaces/primevue/issues/4929)
+-   Media components Accessibility Improvements [\#4908](https://github.com/primefaces/primevue/issues/4908)
+-   Tree: Missing 'filter' event on search [\#4876](https://github.com/primefaces/primevue/issues/4876)
+
+## [3.42.0](https://github.com/primefaces/primevue/tree/3.42.0) (2023-11-28)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.41.1...3.42.0)
+
+**Breaking Changes:**
+
+-   Menu components: width changed as min-width [\#4870](https://github.com/primefaces/primevue/issues/4870)
+
+**Fixed bugs:**
+
+-   Splitter: aria-valuenow calculation defect [\#4889](https://github.com/primefaces/primevue/issues/4889)
+-   Listbox: select-on-focus causes a crash [\#4881](https://github.com/primefaces/primevue/issues/4881)
+-   Listbox: Tab key support defect when filter mode is on [\#4875](https://github.com/primefaces/primevue/issues/4875)
+-   Editor: Readonly prop does not react to any change [\#4872](https://github.com/primefaces/primevue/issues/4872)
+-   DataTable: Type definition doesn't match document [\#4662](https://github.com/primefaces/primevue/issues/4662)
+-   Wrong types issue with aria-label and aria-labelledby Props [\#4511](https://github.com/primefaces/primevue/issues/4511)
+
+**Implemented New Features and Enhancements:**
+
+-   Tree / TreeTable: new loadingMode property [\#4886](https://github.com/primefaces/primevue/issues/4886)
+-   Improve InlineMessage Implementation for Accessibility [\#4880](https://github.com/primefaces/primevue/issues/4880)
+-   Calendar: new iconDisplay property [\#4871](https://github.com/primefaces/primevue/issues/4871)
+
 ## [3.41.1](https://github.com/primefaces/primevue/tree/3.41.1) (2023-11-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.41.0...3.41.1)
 
 **Breaking Changes:**
 
--  StyleClass: deprecate enterClass/leaveClass use enterFromClass/leaveFromClass  [\#4866](https://github.com/primefaces/primevue/issues/486&)
--  Listbox: metaKeySelection default changed as true  [\#4865](https://github.com/primefaces/primevue/issues/4865)
+-   StyleClass: deprecate enterClass/leaveClass use enterFromClass/leaveFromClass [\#4866](https://github.com/primefaces/primevue/issues/486&)
+-   Listbox: metaKeySelection default changed as true [\#4865](https://github.com/primefaces/primevue/issues/4865)
 
 **Fixed bugs:**
 
--  DataTable: restore state defect   [\#4855](https://github.com/primefaces/primevue/issues/4855)
--  PanelMenu: Menu items with no sub-items toggling border radius  [\#4816](https://github.com/primefaces/primevue/issues/4816)
--  Column: Missing typing for sorticon  [\#4423](https://github.com/primefaces/primevue/issues/4423)
+-   DataTable: restore state defect [\#4855](https://github.com/primefaces/primevue/issues/4855)
+-   PanelMenu: Menu items with no sub-items toggling border radius [\#4816](https://github.com/primefaces/primevue/issues/4816)
+-   Column: Missing typing for sorticon [\#4423](https://github.com/primefaces/primevue/issues/4423)
 
 **Implemented New Features and Enhancements:**
 
--  Button: new badgeSeverity property   [\#4863](https://github.com/primefaces/primevue/issues/4863)
--  MegaMenu / Menubar: menubutton templating  [\#4862](https://github.com/primefaces/primevue/issues/4862)
--  Calendar: Week Number customization  [\#4669](https://github.com/primefaces/primevue/issues/4669)
+-   Button: new badgeSeverity property [\#4863](https://github.com/primefaces/primevue/issues/4863)
+-   MegaMenu / Menubar: menubutton templating [\#4862](https://github.com/primefaces/primevue/issues/4862)
+-   Calendar: Week Number customization [\#4669](https://github.com/primefaces/primevue/issues/4669)
 
 ## [3.41.0](https://github.com/primefaces/primevue/tree/3.41.0) (2023-11-20)
 
@@ -2221,14 +2261,14 @@
 
 **Implemented New Features and Enhancements:**
 
-- v2 DataTable: Frozen column improvements [\#4795](https://github.com/primefaces/primevue/issues/4795)
-- TreeTable: Add custom header for column [\#2941](https://github.com/primefaces/primevue/issues/2941)
+-   v2 DataTable: Frozen column improvements [\#4795](https://github.com/primefaces/primevue/issues/4795)
+-   TreeTable: Add custom header for column [\#2941](https://github.com/primefaces/primevue/issues/2941)
 
 **Fixed bugs:**
 
-- OrderList: order of selection reversed when moving multiple items to top or bottom [\#4700](https://github.com/primefaces/primevue/issues/4700)
-- Calendar: Crashes when Tab pressed and calendar overlay is not showing [\#4586](https://github.com/primefaces/primevue/issues/4586)
-- Calendar: Months are not highlighted with selection-mode="multiple" [\#3988](https://github.com/primefaces/primevue/issues/3988)
+-   OrderList: order of selection reversed when moving multiple items to top or bottom [\#4700](https://github.com/primefaces/primevue/issues/4700)
+-   Calendar: Crashes when Tab pressed and calendar overlay is not showing [\#4586](https://github.com/primefaces/primevue/issues/4586)
+-   Calendar: Months are not highlighted with selection-mode="multiple" [\#3988](https://github.com/primefaces/primevue/issues/3988)
 
 ## [2.10.2](https://github.com/primefaces/primevue/tree/2.10.2) (2023-08-16)
 

@@ -27,6 +27,10 @@ export interface DividerPassThroughMethodOptions {
      */
     props: DividerProps;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;

@@ -20,7 +20,8 @@
             @blur="onBlur"
             @keyup="onKeyUp"
             @invalid="onInvalid"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            v-bind="inputProps"
+            :pt="ptm('input')"
             :unstyled="unstyled"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">

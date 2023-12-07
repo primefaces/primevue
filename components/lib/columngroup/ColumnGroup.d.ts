@@ -6,7 +6,6 @@
  * @module columngroup
  */
 import { ComponentHooks } from '../basecomponent';
-import { DataTablePassThroughOptions } from '../datatable';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -25,9 +24,9 @@ export interface ColumnGroupPassThroughMethodOptions {
      */
     props: ColumnGroupProps;
     /**
-     * Defines parent instance.
+     * Defines parent options.
      */
-    parent: DataTablePassThroughOptions;
+    parent: any;
     /**
      * Defines current options.
      */

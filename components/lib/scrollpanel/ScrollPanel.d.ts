@@ -31,6 +31,10 @@ export interface ScrollPanelPassThroughMethodOptions {
      */
     state: ScrollPanelState;
     /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;

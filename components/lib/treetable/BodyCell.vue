@@ -1,9 +1,15 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" :data-p-frozen-column="columnProp('frozen')">
         <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggler')" data-pc-group-section="rowactionbutton">
-            <component v-if="column.children && column.children.rowtogglericon" :is="column.children && column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('rowTogglerIcon')" />
-            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
-            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+            <template v-if="node.loading && loadingMode === 'icon'">
+                <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
+                <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
+            </template>
+            <template v-else>
+                <component v-if="column.children && column.children.rowtogglericon" :is="column.children && column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('rowTogglerIcon')" />
+                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+            </template>
         </button>
         <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnCheckboxPT('checkboxWrapper')">
             <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
@@ -27,6 +33,7 @@ import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
+import SpinnerIcon from 'primevue/icons/spinner';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
@@ -80,6 +87,10 @@ export default {
         index: {
             type: Number,
             default: null
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
         }
     },
     data() {
@@ -109,6 +120,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -134,6 +146,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -208,7 +221,8 @@ export default {
         ChevronRightIcon: ChevronRightIcon,
         ChevronDownIcon: ChevronDownIcon,
         CheckIcon: CheckIcon,
-        MinusIcon: MinusIcon
+        MinusIcon: MinusIcon,
+        SpinnerIcon: SpinnerIcon
     },
     directives: {
         ripple: Ripple

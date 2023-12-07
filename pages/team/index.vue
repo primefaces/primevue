@@ -88,6 +88,11 @@
                     <span class="mb-2 text-xl font-bold">Burak Sağlam</span>
                     <span>Front-End Developer</span>
                 </div>
+                <div class="flex flex-column align-items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/taner.jpg" class="border-circle mb-4" alt="Taner Engin" />
+                    <span class="mb-2 text-xl font-bold">Taner Engin</span>
+                    <span>Front-End Developer</span>
+                </div>
             </div>
         </div>
     </div>
