@@ -14,6 +14,10 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus through the bar.</td>
+                    </tr>
+                    <tr>
                         <td><i>down arrow</i></td>
                         <td>Scrolls content down when vertical scrolling is available.</td>
                     </tr>
