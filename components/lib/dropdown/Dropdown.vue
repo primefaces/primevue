@@ -317,10 +317,7 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            // Android keyboard event
-            const isAndroidKeyboardEvent = event.isComposing || event.keyCode === 229;
-
-            if (this.disabled || isAndroidKeyboardEvent) {
+            if (this.disabled || DomHandler.isAndroid()) {
                 event.preventDefault();
 
                 return;
