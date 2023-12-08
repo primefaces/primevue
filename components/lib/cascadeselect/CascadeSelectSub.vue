@@ -73,7 +73,10 @@ export default {
         optionDisabled: null,
         optionGroupIcon: String,
         optionGroupLabel: String,
-        optionGroupChildren: Array,
+        optionGroupChildren: {
+            type: [String, Array],
+            default: null
+        },
         activeOptionPath: Array,
         level: Number,
         templates: null,
