@@ -7408,6 +7408,14 @@
                             "description": "Used to pass attributes to the aria year's DOM element."
                         },
                         {
+                            "name": "datepickerMask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the datepicker mask's DOM element."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
