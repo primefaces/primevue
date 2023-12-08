@@ -14,6 +14,17 @@ import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
+export declare type RoundingMode = 
+    | 'ceil'
+    | 'floor'
+    | 'expand'
+    | 'trunc'
+    | 'halfCeil'
+    | 'halfFloor'
+    | 'halfExpand'
+    | 'halfTrunc'
+    | 'halfEven';
+
 export declare type InputNumberPassThroughOptionType<T = any> = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions<T>) => InputNumberPassThroughAttributes | string) | string | null | undefined;
 
 /**
@@ -232,6 +243,11 @@ export interface InputNumberProps {
      * the default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information).
      */
     maxFractionDigits?: number | undefined;
+    /**
+     * How decimals should be rounded.
+     * The default value is `"halfExpand"`, [further information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode).
+     */
+    roundingMode?: RoundingMode;
     /**
      * Mininum boundary value.
      */

@@ -181,7 +181,8 @@ export default {
                 currencyDisplay: this.currencyDisplay,
                 useGrouping: this.useGrouping,
                 minimumFractionDigits: this.minFractionDigits,
-                maximumFractionDigits: this.maxFractionDigits
+                maximumFractionDigits: this.maxFractionDigits,
+                roundingMode: this.roundingMode,
             };
         },
         constructParser() {
@@ -225,7 +226,7 @@ export default {
         },
         getCurrencyExpression() {
             if (this.currency) {
-                const formatter = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                const formatter = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: this.roundingMode });
 
                 return new RegExp(`[${formatter.format(1).replace(/\s/g, '').replace(this._numeral, '').replace(this._group, '')}]`, 'g');
             }
@@ -247,7 +248,7 @@ export default {
             if (this.suffix) {
                 this.suffixChar = this.suffix;
             } else {
-                const formatter = new Intl.NumberFormat(this.locale, { style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                const formatter = new Intl.NumberFormat(this.locale, { style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: this.roundingMode });
 
                 this.suffixChar = formatter.format(1).split('1')[1];
             }
