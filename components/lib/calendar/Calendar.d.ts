@@ -327,6 +327,10 @@ export interface CalendarPassThroughOptions {
      */
     hiddenYear?: CalendarPassThroughOptionType;
     /**
+     * Used to pass attributes to the datepicker mask's DOM element.
+     */
+    datepickerMask?: CalendarPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
