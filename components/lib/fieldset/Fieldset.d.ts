@@ -33,6 +33,10 @@ export interface FieldsetPassThroughMethodOptions {
      */
     state: FieldsetState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

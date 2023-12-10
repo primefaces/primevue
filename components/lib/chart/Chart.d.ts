@@ -27,6 +27,10 @@ export interface ChartPassThroughMethodOptions {
      */
     props: ChartProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

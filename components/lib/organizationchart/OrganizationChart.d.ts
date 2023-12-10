@@ -35,6 +35,10 @@ export interface OrganizationChartPassThroughMethodOptions {
      */
     context: OrganizationChartContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

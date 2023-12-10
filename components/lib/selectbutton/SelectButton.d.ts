@@ -35,6 +35,10 @@ export interface SelectButtonPassThroughMethodOptions {
      */
     context: SelectButtonContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

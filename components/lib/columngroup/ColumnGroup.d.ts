@@ -24,6 +24,10 @@ export interface ColumnGroupPassThroughMethodOptions {
      */
     props: ColumnGroupProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

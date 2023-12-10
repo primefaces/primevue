@@ -35,6 +35,10 @@ export interface SplitterPassThroughMethodOptions {
      */
     context: SplitterContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

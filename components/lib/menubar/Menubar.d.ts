@@ -36,6 +36,10 @@ export interface MenubarPassThroughMethodOptions {
      */
     context: MenubarContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

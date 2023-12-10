@@ -31,6 +31,10 @@ export interface VirtualScrollerPassThroughMethodOptions {
      */
     state: VirtualScrollerState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -33,6 +33,10 @@ export interface ColumnPassThroughMethodOptions {
      */
     props: ColumnProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -37,6 +37,10 @@ export interface SpeedDialPassThroughMethodOptions {
      */
     context: SpeedDialContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -34,6 +34,10 @@ export interface SplitButtonPassThroughMethodOptions {
      */
     state: SplitButtonState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

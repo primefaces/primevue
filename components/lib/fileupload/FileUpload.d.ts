@@ -34,6 +34,10 @@ export interface FileUploadPassThroughMethodOptions {
      */
     state: FileUploadState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

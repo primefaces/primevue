@@ -31,6 +31,10 @@ export interface ChipsPassThroughMethodOptions {
      */
     state: ChipsState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

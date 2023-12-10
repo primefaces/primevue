@@ -35,6 +35,10 @@ export interface ConfirmPopupPassThroughMethodOptions {
      */
     state: ConfirmPopupState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

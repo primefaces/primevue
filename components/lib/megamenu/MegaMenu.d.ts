@@ -36,6 +36,10 @@ export interface MegaMenuPassThroughMethodOptions {
      */
     context: MegaMenuContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

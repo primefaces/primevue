@@ -23,6 +23,10 @@ export interface InputGroupAddonPassThroughMethodOptions {
      */
     instance: any;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

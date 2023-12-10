@@ -35,6 +35,10 @@ export interface CheckboxPassThroughMethodOptions {
      */
     context: CheckboxContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

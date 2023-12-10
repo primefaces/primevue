@@ -31,6 +31,10 @@ export interface InlineMessagePassThroughMethodOptions {
      */
     state: InlineMessageState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

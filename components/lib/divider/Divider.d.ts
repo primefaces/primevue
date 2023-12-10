@@ -27,6 +27,10 @@ export interface DividerPassThroughMethodOptions {
      */
     props: DividerProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

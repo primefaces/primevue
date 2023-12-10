@@ -28,6 +28,10 @@ export interface AccordionTabPassThroughMethodOptions {
      */
     props: AccordionTabProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -38,6 +38,10 @@ export interface PanelMenuPassThroughMethodOptions {
      */
     context: PanelMenuContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

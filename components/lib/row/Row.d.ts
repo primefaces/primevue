@@ -23,6 +23,10 @@ export interface RowPassThroughMethodOptions {
      */
     props: RowProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

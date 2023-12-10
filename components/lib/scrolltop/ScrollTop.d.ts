@@ -33,6 +33,10 @@ export interface ScrollTopPassThroughMethodOptions {
      */
     state: ScrollTopState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

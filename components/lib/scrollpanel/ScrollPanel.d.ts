@@ -31,6 +31,10 @@ export interface ScrollPanelPassThroughMethodOptions {
      */
     state: ScrollPanelState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

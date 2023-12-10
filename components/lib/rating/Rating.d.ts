@@ -35,6 +35,10 @@ export interface RatingPassThroughMethodOptions {
      */
     context: RatingContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

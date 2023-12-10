@@ -30,6 +30,10 @@ export interface TerminalPassThroughMethodOptions {
      */
     state: TerminalState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

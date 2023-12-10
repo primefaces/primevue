@@ -35,6 +35,10 @@ export interface ToggleButtonPassThroughMethodOptions {
      */
     context: ToggleButtonContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -31,6 +31,10 @@ export interface DeferredContentPassThroughMethodOptions {
      */
     state: DeferredContentState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

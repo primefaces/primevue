@@ -31,6 +31,10 @@ export interface RadioButtonPassThroughMethodOptions {
      */
     state: RadioButtonState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

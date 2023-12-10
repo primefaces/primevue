@@ -33,6 +33,10 @@ export interface SidebarPassThroughMethodOptions {
      */
     state: SidebarState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

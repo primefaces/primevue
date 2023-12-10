@@ -208,10 +208,12 @@ export default {
                 instance: this,
                 props: this.$props,
                 state: this.$data,
+                attrs: this.$attrs,
                 parent: {
                     instance: parentInstance,
                     props: parentInstance?.$props,
-                    state: parentInstance?.$data
+                    state: parentInstance?.$data,
+                    attrs: this.$attrs
                 },
                 /* @deprecated since v3.43.0. Use the `parent.instance` instead of the `parentInstance`.*/
                 parentInstance

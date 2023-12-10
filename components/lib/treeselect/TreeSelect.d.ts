@@ -35,6 +35,10 @@ export interface TreeSelectPassThroughMethodOptions {
      */
     state: TreeSelectState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

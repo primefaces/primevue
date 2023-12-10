@@ -31,6 +31,10 @@ export interface EditorPassThroughMethodOptions {
      */
     state: EditorState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

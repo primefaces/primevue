@@ -26,6 +26,10 @@ export interface AvatarPassThroughMethodOptions {
      */
     props: AvatarProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

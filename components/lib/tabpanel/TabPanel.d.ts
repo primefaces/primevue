@@ -31,6 +31,10 @@ export interface TabPanelPassThroughMethodOptions {
      */
     context: TabPanelContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

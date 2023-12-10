@@ -26,6 +26,10 @@ export interface SkeletonPassThroughMethodOptions {
      */
     props: SkeletonProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

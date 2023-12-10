@@ -33,6 +33,10 @@ export interface CascadeSelectPassThroughMethodOptions {
      */
     state: CascadeSelectState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

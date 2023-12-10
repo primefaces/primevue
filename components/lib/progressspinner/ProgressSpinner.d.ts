@@ -26,6 +26,10 @@ export interface ProgressSpinnerPassThroughMethodOptions {
      */
     props: ProgressSpinnerProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

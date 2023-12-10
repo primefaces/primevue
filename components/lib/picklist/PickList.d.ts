@@ -38,6 +38,10 @@ export interface PickListPassThroughMethodOptions {
      */
     context: PickListContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

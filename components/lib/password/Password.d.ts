@@ -34,6 +34,10 @@ export interface PasswordPassThroughMethodOptions {
      */
     state: PasswordState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

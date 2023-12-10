@@ -36,6 +36,10 @@ export interface ListboxPassThroughMethodOptions {
      */
     context: ListboxContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

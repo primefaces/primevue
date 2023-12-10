@@ -27,6 +27,10 @@ export interface ToolbarPassThroughMethodOptions {
      */
     props: ToolbarProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

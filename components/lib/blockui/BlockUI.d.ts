@@ -31,6 +31,10 @@ export interface BlockUIPassThroughMethodOptions {
      */
     state: BlockUIState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

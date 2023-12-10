@@ -33,6 +33,10 @@ export interface ColorPickerPassThroughMethodOptions {
      */
     state: ColorPickerState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -38,6 +38,10 @@ export interface OrderListPassThroughMethodOptions {
      */
     context: OrderListContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

@@ -39,6 +39,10 @@ export interface ContextMenuPassThroughMethodOptions {
      */
     context: ContextMenuContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

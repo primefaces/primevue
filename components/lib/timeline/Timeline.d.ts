@@ -30,6 +30,10 @@ export interface TimelinePassThroughMethodOptions {
      */
     context: TimelineContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

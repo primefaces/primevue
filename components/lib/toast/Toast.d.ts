@@ -33,6 +33,10 @@ export interface ToastPassThroughMethodOptions {
      */
     state: ToastState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

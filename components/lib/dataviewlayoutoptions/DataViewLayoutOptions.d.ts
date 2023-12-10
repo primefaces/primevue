@@ -36,6 +36,10 @@ export interface DataViewLayoutOptionsPassThroughMethodOptions {
      */
     state: DataViewLayoutOptionsState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;

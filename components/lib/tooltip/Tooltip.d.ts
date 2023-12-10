@@ -20,6 +20,10 @@ export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePass
 export interface TooltipPassThroughMethodOptions {
     context: TooltipContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent options.
      */
     parent: any;
