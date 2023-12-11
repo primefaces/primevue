@@ -1272,10 +1272,14 @@ export default {
             let formattedValue = null;
 
             if (date) {
-                formattedValue = this.formatDate(date, this.datePattern);
+                if (this.timeOnly) {
+                    formattedValue = this.formatTime(date);
+                } else {
+                    formattedValue = this.formatDate(date, this.datePattern);
 
-                if (this.showTime || this.timeOnly) {
-                    formattedValue += ' ' + this.formatTime(date);
+                    if (this.showTime) {
+                        formattedValue += ' ' + this.formatTime(date);
+                    }
                 }
             }
 
@@ -1798,13 +1802,18 @@ export default {
             let date;
             let parts = text.split(' ');
 
-            const dateFormat = this.datePattern;
-
-            if (this.showTime || this.timeOnly) {
-                date = this.parseDate(parts[0], dateFormat);
-                this.populateTime(date, parts[1], parts[2]);
+            if (this.timeOnly) {
+                date = new Date(this.modelValue);
+                this.populateTime(date, parts[0], parts[1]);
             } else {
-                date = this.parseDate(text, dateFormat);
+                const dateFormat = this.datePattern;
+
+                if (this.showTime) {
+                    date = this.parseDate(parts[0], dateFormat);
+                    this.populateTime(date, parts[1], parts[2]);
+                } else {
+                    date = this.parseDate(text, dateFormat);
+                }
             }
 
             return date;
