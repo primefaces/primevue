@@ -83,6 +83,7 @@ export default {
             }
 
             event.preventDefault();
+            event.stopPropagation();
         },
         onFocus() {
             this.focused = true;
