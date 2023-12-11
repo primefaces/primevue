@@ -233,7 +233,7 @@ export default {
             if (this.element) {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
-                const { scrollTop, scrollLeft } = this.element.scrollTop;
+                const { scrollTop, scrollLeft } = this.element;
 
                 if (both) {
                     firstInViewport = { rows: calculateFirstInViewport(scrollTop, this.itemSize[0]), cols: calculateFirstInViewport(scrollLeft, this.itemSize[1]) };
