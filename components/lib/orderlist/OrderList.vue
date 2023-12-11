@@ -116,9 +116,10 @@ export default {
             this.reorderDirection = null;
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.responsive) {
             this.createStyle();
         }

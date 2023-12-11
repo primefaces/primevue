@@ -214,9 +214,10 @@ export default {
             this.autoUpdateModel();
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         this.autoUpdateModel();
     },
     updated() {

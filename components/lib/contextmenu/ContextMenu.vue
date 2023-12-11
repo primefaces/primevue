@@ -76,9 +76,10 @@ export default {
             }
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.global) {
             this.bindDocumentContextMenuListener();
         }
