@@ -424,7 +424,8 @@ export default {
             if (this.forceSelection) {
                 let valid = false;
 
-                if (this.visibleOptions) {
+                // when forceSelection is on, prevent called twice onOptionSelect()
+                if (this.visibleOptions && !this.multiple) {
                     const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.value || ''));
 
                     if (matchedValue !== undefined) {
