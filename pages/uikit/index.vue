@@ -127,7 +127,7 @@
 
             <div class="flex flex-column md:flex-row gap-4 md:gap-8 mb-5">
                 <a
-                    href="https://www.figma.com/file/Q7lwa8MLIcA0ts9bd9wiw2/Preview-%7C-PrimeOne-%7C-2.1.1?type=design&node-id=806%3A36648&mode=design&t=yXUcTsp5wucRdpXy-1"
+                    href="https://www.figma.com/file/96Tql1EywmMtVlSFTkQ2MB/Preview-%7C-PrimeOne-%7C-2.2.0?type=design&node-id=806%3A36648&mode=design&t=CPR8n1g9WLc5D2Hs-1"
                     class="p-5 w-full md:w-6 bg-white flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
                     style="border-radius: 50px"
                 >
@@ -135,7 +135,7 @@
                     <img alt="Figma Light" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-4rem" />
                 </a>
                 <a
-                    href="https://www.figma.com/file/Br6Z9SxeYKGZWwKXUcUkGA/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.1.1?type=design&node-id=806%3A36648&mode=design&t=GhlXi6oKNtsPtiS6-1"
+                    href="https://www.figma.com/file/ujRD6FFCWw1bE0h4wIebxl/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.2.0?type=design&node-id=806%3A36648&mode=design&t=bG7aorZhOFIqX1qz-1"
                     class="p-5 w-full md:w-6 bg-gray-900 flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300"
                     style="border-radius: 50px"
                 >
