@@ -1,8 +1,8 @@
 {
-    "id": 47,
-    "content": "Sakai Free Admin Template",
-    "linkText": "View Demo",
-    "linkHref": "https://sakai.primevue.org",
+    "id": 50,
+    "content": "Introducing Tailwind CSS Components 🚀",
+    "linkText": "Learn More",
+    "linkHref": "https://tailwind.primevue.org",
     "backgroundStyle": "background-color:var(--primary-color)",
     "textStyle": "color:var(--primary-color-text);font-weight:500",
     "linkStyle": "color:var(--primary-color-text);font-weight:700;text-decoration: underline;"
