@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['InputGroup', 'InputGroupAddon']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -17,6 +18,7 @@ import CheckboxDoc from '@/doc/inputgroup/CheckboxDoc.vue';
 import ImportDoc from '@/doc/inputgroup/ImportDoc.vue';
 import MultipleDoc from '@/doc/inputgroup/MultipleDoc.vue';
 import PTComponent from '@/doc/inputgroup/pt/index.vue';
+import ThemingDoc from '@/doc/inputgroup/theming/index.vue';
 
 export default {
     data() {
@@ -53,7 +55,8 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
