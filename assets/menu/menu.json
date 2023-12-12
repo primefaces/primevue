@@ -489,7 +489,8 @@
         {
             "name": "Tailwind",
             "icon": "pi pi-heart",
-            "to": "/tailwind"
+            "href": "https://tailwind.primevue.org/",
+            "badge": "NEW"
         },
         {
             "name": "Figma UI Kit",
