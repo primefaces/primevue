@@ -341,5 +341,29 @@ export default {
 
             return o;
         }, []);
+    },
+
+    stringify(value, indent = 2, currentIndent = 0) {
+        const currentIndentStr = ' '.repeat(currentIndent);
+        const nextIndentStr = ' '.repeat(currentIndent + indent);
+
+        if (this.isArray(value)) {
+            return '[' + value.map((v) => this.stringify(v, indent, currentIndent + indent)).join(', ') + ']';
+        } else if (this.isDate(value)) {
+            return value.toISOString();
+        } else if (this.isFunction(value)) {
+            return value.toString();
+        } else if (this.isObject(value)) {
+            return (
+                '{\n' +
+                Object.entries(value)
+                    .map(([k, v]) => `${nextIndentStr}${k}: ${this.stringify(v, indent, currentIndent + indent)}`)
+                    .join(',\n') +
+                `\n${currentIndentStr}` +
+                '}'
+            );
+        } else {
+            return JSON.stringify(value);
+        }
     }
 };

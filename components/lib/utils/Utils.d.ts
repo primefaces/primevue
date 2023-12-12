@@ -99,6 +99,7 @@ export declare class ObjectUtils {
     static sort(value1: any, value2: any, order: number, comparator: (a: any, b: any) => any, nullSortOrder: number): number;
     static compare(value1: any, value2: any, comparator: (a: any, b: any) => any, order: number): number;
     static nestedKeys(obj: object, parentKey?: string): string[];
+    static stringify(value: any, indent?: number, currentIndent?: number): string;
 }
 
 export declare namespace ZIndexUtils {
