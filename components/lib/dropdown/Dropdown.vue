@@ -403,7 +403,7 @@ export default {
 
             this.updateModel(event, value);
 
-            !this.overlayVisible && this.show();
+            !this.overlayVisible && ObjectUtils.isNotEmpty(value) && this.show();
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
