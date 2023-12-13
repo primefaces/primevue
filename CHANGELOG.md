@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.44.0](https://github.com/primefaces/primevue/tree/3.44.0) (2023-12-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.43.0...3.44.0)
+
+**Fixed bugs:**
+
+-   Calendar: Time only mode does not work [\#4952](https://github.com/primefaces/primevue/issues/4952)
+-   Calendar PT: mask defect [\#4947](https://github.com/primefaces/primevue/issues/4947)
+-   CascadeSelect: optionGroupChildren doesn't work in string type [\#4944](https://github.com/primefaces/primevue/issues/4944)
+-   Dropdown: Overlapping Clear Icon while disabled [\#4923](https://github.com/primefaces/primevue/issues/4923)
+-   VirtualScroller: getRenderedRange viewport calculation is broken [\#4803](https://github.com/primefaces/primevue/issues/4803)
+-   Dropdown: Editable dropdown doesn't open when typing on a mobile device [\#4509](https://github.com/primefaces/primevue/issues/4509)
+-   DynamicDialog: passing pt when opening new dialogs [\#4443](https://github.com/primefaces/primevue/issues/4443)
+-   Data Table row checkboxes propagate click events when a checkbox is unchecked [\#4100](https://github.com/primefaces/primevue/issues/4100)
+-   AutoComplete: Duplicate Value [\#3379](https://github.com/primefaces/primevue/issues/3379)
+
+**Implemented New Features and Enhancements:**
+
+-   Add attrs param to all pt functions [\#4951](https://github.com/primefaces/primevue/issues/4951)
+
 ## [3.43.0](https://github.com/primefaces/primevue/tree/3.43.0) (2023-12-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.42.0...3.43.0)
@@ -2254,6 +2274,14 @@
 -   Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 -   Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 -   BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+## [2.10.4](https://github.com/primefaces/primevue/tree/2.10.4) (2023-12-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.10.3...2.10.4)
+
+**Fixed bugs:**
+
+-   v2 DataTable: Frozen column table left and right calculation defects [\#4890](https://github.com/primefaces/primevue/issues/4890)
 
 ## [2.10.3](https://github.com/primefaces/primevue/tree/2.10.3) (2023-11-22)
 
