@@ -177,6 +177,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onEnterKey(event, item);
                     break;

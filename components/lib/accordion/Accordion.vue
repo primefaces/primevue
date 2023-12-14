@@ -144,6 +144,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onTabEnterKey(event, tab, index);
                     break;

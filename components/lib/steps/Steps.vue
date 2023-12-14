@@ -115,7 +115,7 @@ export default {
                     break;
 
                 case 'Enter':
-
+                case 'NumpadEnter':
                 case 'Space': {
                     this.onItemClick(event, item);
                     event.preventDefault();

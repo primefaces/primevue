@@ -153,6 +153,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onHeaderEnterKey(event, item);
                     break;

@@ -2185,7 +2185,7 @@ export default {
                 }
 
                 case 'Enter':
-
+                case 'NumpadEnter':
                 case 'Space': {
                     this.onDateSelect(event, date);
                     event.preventDefault();
@@ -2361,7 +2361,7 @@ export default {
                 }
 
                 case 'Enter':
-
+                case 'NumpadEnter':
                 case 'Space': {
                     this.onMonthSelect(event, index);
                     event.preventDefault();
@@ -2454,7 +2454,7 @@ export default {
                 }
 
                 case 'Enter':
-
+                case 'NumpadEnter':
                 case 'Space': {
                     this.onYearSelect(event, index);
                     event.preventDefault();

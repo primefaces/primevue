@@ -230,6 +230,7 @@ export default {
 
                 case 'Space':
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
