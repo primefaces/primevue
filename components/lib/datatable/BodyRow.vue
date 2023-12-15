@@ -73,7 +73,7 @@
                 />
             </template>
         </tr>
-        <tr v-if="templates['expansion'] && isRowExpanded" :id="expandedRowId + '_' + rowIndex + '_expansion'" :class="cx('rowExpansion')" role="row" v-bind="ptm('rowExpansion')">
+        <tr v-if="templates['expansion'] && expandedRows && isRowExpanded" :id="expandedRowId + '_' + rowIndex + '_expansion'" :class="cx('rowExpansion')" role="row" v-bind="ptm('rowExpansion')">
             <td :colspan="columnsLength" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowExpansionCell') }">
                 <component :is="templates['expansion']" :data="rowData" :index="rowIndex" />
             </td>
@@ -536,7 +536,7 @@ export default {
             return false;
         },
         isRowExpanded() {
-            if (this.rowData) {
+            if (this.rowData && this.expandedRows) {
                 if (this.dataKey) return this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
                 else return this.findIndex(this.rowData, this.expandedRows) > -1;
             }

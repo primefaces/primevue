@@ -1545,33 +1545,6 @@ export default {
 
             this.$emit('update:expandedRows', expandedRows);
             expanded ? this.$emit('row-collapse', rest) : this.$emit('row-expand', rest);
-
-            // @todo
-            /*let rowData = event.data;
-            let expanded;
-            let expandedRowIndex;
-            let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
-
-            if (this.dataKey) {
-                expanded = this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
-            } else {
-                expandedRowIndex = this.findIndex(rowData, this.expandedRows);
-                expanded = expandedRowIndex > -1;
-            }
-
-            if (expanded) {
-                if (expandedRowIndex == null) {
-                    expandedRowIndex = this.findIndex(rowData, this.expandedRows);
-                }
-
-                _expandedRows.splice(expandedRowIndex, 1);
-                this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-collapse', event);
-            } else {
-                _expandedRows.push(rowData);
-                this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-expand', event);
-            }*/
         },
         toggleRowGroup(e) {
             const event = e.originalEvent;
