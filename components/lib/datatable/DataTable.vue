@@ -396,11 +396,6 @@ export default {
                 }
             }
         },
-        expandedRows(newValue) {
-            if (this.dataKey) {
-                this.updateExpandedRowKeys(newValue);
-            }
-        },
         editingRows: {
             immediate: true,
             handler(newValue) {
@@ -1087,17 +1082,6 @@ export default {
                 this.d_selectionKeys[String(ObjectUtils.resolveFieldData(selection, this.dataKey))] = 1;
             }
         },
-        updateExpandedRowKeys(expandedRows) {
-            if (expandedRows && expandedRows.length) {
-                this.d_expandedRowKeys = {};
-
-                for (let data of expandedRows) {
-                    this.d_expandedRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
-                }
-            } else {
-                this.d_expandedRowKeys = null;
-            }
-        },
         updateEditingRowKeys(editingRows) {
             if (editingRows && editingRows.length) {
                 this.d_editingRowKeys = {};
@@ -1557,7 +1541,13 @@ export default {
             event.preventDefault();
         },
         toggleRow(event) {
-            let rowData = event.data;
+            const { expandedRows, expanded, ...rest } = event;
+
+            this.$emit('update:expandedRows', expandedRows);
+            expanded ? this.$emit('row-collapse', rest) : this.$emit('row-expand', rest);
+
+            // @todo
+            /*let rowData = event.data;
             let expanded;
             let expandedRowIndex;
             let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
@@ -1581,7 +1571,7 @@ export default {
                 _expandedRows.push(rowData);
                 this.$emit('update:expandedRows', _expandedRows);
                 this.$emit('row-expand', event);
-            }
+            }*/
         },
         toggleRowGroup(e) {
             const event = e.originalEvent;
@@ -1655,6 +1645,7 @@ export default {
 
             if (this.expandedRows) {
                 state.expandedRows = this.expandedRows;
+                // @todo
                 state.expandedRowKeys = this.d_expandedRowKeys;
             }
 
@@ -1717,6 +1708,7 @@ export default {
                 }
 
                 if (restoredState.expandedRows) {
+                    // @todo
                     this.d_expandedRowKeys = restoredState.expandedRowKeys;
                     this.$emit('update:expandedRows', restoredState.expandedRows);
                 }
