@@ -95,7 +95,7 @@
 import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
-import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BodyCell from './BodyCell.vue';
 
@@ -263,6 +263,14 @@ export default {
         isVirtualScrollerDisabled: {
             type: Boolean,
             default: false
+        },
+        expandedRowId: {
+            type: String,
+            default: null
+        },
+        nameAttributeSelector: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -351,14 +359,15 @@ export default {
         },
         calculateRowGroupSize(column) {
             if (this.isGrouped(column)) {
+                let index = this.rowIndex;
                 const field = this.columnProp(column, 'field');
-                const currentRowFieldData = ObjectUtils.resolveFieldData(this.value[this.rowIndex], field);
+                const currentRowFieldData = ObjectUtils.resolveFieldData(this.value[index], field);
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
-                    let nextRowData = this.value[++this.rowIndex];
+                    let nextRowData = this.value[++index];
 
                     if (nextRowData) {
                         nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, field);
@@ -608,12 +617,6 @@ export default {
             });
 
             return this.columns ? this.columns.length - hiddenColLength : 0;
-        },
-        expandedRowId() {
-            return UniqueComponentId();
-        },
-        nameAttributeSelector() {
-            return UniqueComponentId();
         }
     },
     components: {

@@ -37,6 +37,8 @@
                     :isVirtualScrollerDisabled="isVirtualScrollerDisabled"
                     :editingMeta="editingMeta"
                     :rowGroupHeaderStyle="rowGroupHeaderStyle"
+                    :expandedRowId="expandedRowId"
+                    :nameAttributeSelector="nameAttributeSelector"
                     @rowgroup-toggle="$emit('rowgroup-toggle', $event)"
                     @row-click="$emit('row-click', $event)"
                     @row-dblclick="$emit('row-dblclick', $event)"
@@ -70,7 +72,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import BodyRow from './BodyRow.vue';
 
 export default {
@@ -288,6 +290,12 @@ export default {
                     scrollable: this.$parentInstance?.$parentInstance?.scrollable
                 }
             };
+        },
+        expandedRowId() {
+            return UniqueComponentId();
+        },
+        nameAttributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {
