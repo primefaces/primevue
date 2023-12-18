@@ -27,7 +27,6 @@
                     :expandedRowIcon="expandedRowIcon"
                     :collapsedRowIcon="collapsedRowIcon"
                     :expandedRows="expandedRows"
-                    :expandedRowKeys="expandedRowKeys"
                     :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows"
                     :editingRowKeys="editingRowKeys"
@@ -153,11 +152,7 @@ export default {
             default: null
         },
         expandedRows: {
-            type: Array,
-            default: null
-        },
-        expandedRowKeys: {
-            type: null,
+            type: [Array, Object],
             default: null
         },
         selection: {

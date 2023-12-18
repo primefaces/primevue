@@ -124,7 +124,6 @@
                             :expandedRowIcon="expandedRowIcon"
                             :collapsedRowIcon="collapsedRowIcon"
                             :expandedRows="expandedRows"
-                            :expandedRowKeys="d_expandedRowKeys"
                             :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
@@ -181,7 +180,6 @@
                             :expandedRowIcon="expandedRowIcon"
                             :collapsedRowIcon="collapsedRowIcon"
                             :expandedRows="expandedRows"
-                            :expandedRowKeys="d_expandedRowKeys"
                             :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
@@ -345,7 +343,6 @@ export default {
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_groupRowsSortMeta: null,
             d_selectionKeys: null,
-            d_expandedRowKeys: null,
             d_columnOrder: null,
             d_editingRowKeys: null,
             d_editingMeta: {},
@@ -1541,10 +1538,22 @@ export default {
             event.preventDefault();
         },
         toggleRow(event) {
-            const { expandedRows, expanded, ...rest } = event;
+            const { expanded, ...rest } = event;
+            const rowData = event.data;
+            let expandedRows;
+
+            if (this.dataKey) {
+                const value = ObjectUtils.resolveFieldData(rowData, this.dataKey);
+
+                expandedRows = this.expandedRows ? { ...this.expandedRows } : {};
+                expanded ? (expandedRows[value] = true) : delete expandedRows[value];
+            } else {
+                expandedRows = this.expandedRows ? [...this.expandedRows] : [];
+                expanded ? expandedRows.push(rowData) : (expandedRows = expandedRows.filter((d) => !this.equals(rowData, d)));
+            }
 
             this.$emit('update:expandedRows', expandedRows);
-            expanded ? this.$emit('row-collapse', rest) : this.$emit('row-expand', rest);
+            expanded ? this.$emit('row-expand', rest) : this.$emit('row-collapse', rest);
         },
         toggleRowGroup(e) {
             const event = e.originalEvent;
@@ -1618,8 +1627,6 @@ export default {
 
             if (this.expandedRows) {
                 state.expandedRows = this.expandedRows;
-                // @todo
-                state.expandedRowKeys = this.d_expandedRowKeys;
             }
 
             if (this.expandedRowGroups) {
@@ -1681,8 +1688,6 @@ export default {
                 }
 
                 if (restoredState.expandedRows) {
-                    // @todo
-                    this.d_expandedRowKeys = restoredState.expandedRowKeys;
                     this.$emit('update:expandedRows', restoredState.expandedRows);
                 }
 

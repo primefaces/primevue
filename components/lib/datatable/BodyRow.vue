@@ -55,7 +55,7 @@
                     :virtualScrollerContentProps="virtualScrollerContentProps"
                     :ariaControls="expandedRowId + '_' + rowIndex + '_expansion'"
                     :name="nameAttributeSelector"
-                    :isRowExpanded="isRowExpanded"
+                    :isRowExpanded="d_rowExpanded"
                     :expandedRowIcon="expandedRowIcon"
                     :collapsedRowIcon="collapsedRowIcon"
                     @radio-change="onRadioChange"
@@ -73,7 +73,7 @@
                 />
             </template>
         </tr>
-        <tr v-if="templates['expansion'] && expandedRows && isRowExpanded" :id="expandedRowId + '_' + rowIndex + '_expansion'" :class="cx('rowExpansion')" role="row" v-bind="ptm('rowExpansion')">
+        <tr v-if="templates['expansion'] && expandedRows && d_rowExpanded" :id="expandedRowId + '_' + rowIndex + '_expansion'" :class="cx('rowExpansion')" role="row" v-bind="ptm('rowExpansion')">
             <td :colspan="columnsLength" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowExpansionCell') }">
                 <component :is="templates['expansion']" :data="rowData" :index="rowIndex" />
             </td>
@@ -185,11 +185,7 @@ export default {
             default: null
         },
         expandedRows: {
-            type: Array,
-            default: null
-        },
-        expandedRowKeys: {
-            type: null,
+            type: [Array, Object],
             default: null
         },
         selection: {
@@ -275,34 +271,15 @@ export default {
     },
     data() {
         return {
-            d_expandedRowKeys: this.expandedRowKeys
+            d_rowExpanded: false
         };
     },
     watch: {
         expandedRows(newValue) {
-            if (this.dataKey) {
-                this.updateExpandedRowKeys(newValue);
-            }
-        },
-        expandedRowKeys(newValue, oldValue) {
-            if (newValue !== oldValue) {
-                this.d_expandedRowKeys = newValue;
-            }
+            this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
         }
     },
     methods: {
-        updateExpandedRowKeys(expandedRows) {
-            // @todo
-            if (expandedRows && expandedRows.length) {
-                this.d_expandedRowKeys = {};
-
-                for (let data of expandedRows) {
-                    this.d_expandedRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
-                }
-            } else {
-                this.d_expandedRowKeys = null;
-            }
-        },
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
@@ -448,31 +425,9 @@ export default {
             this.$emit('row-drop', event);
         },
         onRowToggle(event) {
-            let rowData = event.data;
-            let expanded;
-            let expandedRowIndex;
-            let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
+            this.d_rowExpanded = !this.d_rowExpanded;
 
-            if (this.dataKey) {
-                expanded = this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
-            } else {
-                expandedRowIndex = this.findIndex(rowData, _expandedRows);
-                expanded = expandedRowIndex > -1;
-            }
-
-            if (expanded) {
-                if (expandedRowIndex == null) {
-                    expandedRowIndex = this.findIndex(rowData, _expandedRows);
-                }
-
-                _expandedRows.splice(expandedRowIndex, 1);
-            } else {
-                _expandedRows.push(rowData);
-            }
-
-            this.updateExpandedRowKeys(_expandedRows);
-
-            this.$emit('row-toggle', { ...event, expandedRows: _expandedRows, expanded });
+            this.$emit('row-toggle', { ...event, expanded: this.d_rowExpanded });
         },
         onRadioChange(event) {
             this.$emit('radio-change', event);
@@ -540,14 +495,6 @@ export default {
             if (this.rowData && this.editingRows) {
                 if (this.dataKey) return this.editingRowKeys ? this.editingRowKeys[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
                 else return this.findIndex(this.rowData, this.editingRows) > -1;
-            }
-
-            return false;
-        },
-        isRowExpanded() {
-            if (this.rowData && this.expandedRows) {
-                if (this.dataKey) return this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
-                else return this.findIndex(this.rowData, this.expandedRows) > -1;
             }
 
             return false;
