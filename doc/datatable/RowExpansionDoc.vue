@@ -10,7 +10,7 @@
         </p>
     </DocSectionText>
     <div class="card">
-        <DataTable v-model:expandAllRows="expandAllRows" :expandedRows="expandedRows" :value="products" dataKey="id" @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
+        <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
             <template #header>
                 <div class="flex flex-wrap justify-content-end gap-2">
                     <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
@@ -77,7 +77,6 @@ export default {
     data() {
         return {
             products: null,
-            expandAllRows: null,
             expandedRows: [],
             code: {
                 basic: `
@@ -438,12 +437,10 @@ const getOrderSeverity = (order) => {
             this.$toast.add({ severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000 });
         },
         expandAll() {
-            //this.expandedRows = this.products.filter((p) => p.id);
-            this.expandAllRows = true;
+            this.expandedRows = this.products.filter((p) => p.id);
         },
         collapseAll() {
-            this.expandAllRows = null;
-            //this.expandedRows = null;
+            this.expandedRows = null;
         },
         formatCurrency(value) {
             return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
