@@ -368,7 +368,7 @@ const classes = {
     rowgroupHeader: 'p-rowgroup-header',
     rowGroupToggler: 'p-row-toggler p-link',
     rowGroupTogglerIcon: 'p-row-toggler-icon',
-    row: ({ instance, props, rowData }) => {
+    row: ({ instance, props }) => {
         let rowStyleClass = [];
 
         if (props.selectionMode) {
@@ -377,13 +377,13 @@ const classes = {
 
         if (props.selection) {
             rowStyleClass.push({
-                'p-highlight': instance.isSelected(rowData)
+                'p-highlight': instance.isSelected
             });
         }
 
         if (props.contextMenuSelection) {
             rowStyleClass.push({
-                'p-highlight-contextmenu': instance.isSelectedWithContextMenu(rowData)
+                'p-highlight-contextmenu': instance.isSelectedWithContextMenu
             });
         }
 
