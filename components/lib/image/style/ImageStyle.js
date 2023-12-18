@@ -50,6 +50,10 @@ const css = `
         justify-content: center;
         align-items: center;
     }
+    
+    .p-image-action.p-disabled {
+        pointer-events: auto;
+    }
 
     .p-image-preview {
         transition: transform 0.15s;
