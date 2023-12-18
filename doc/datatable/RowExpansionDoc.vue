@@ -437,7 +437,7 @@ const getOrderSeverity = (order) => {
             this.$toast.add({ severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000 });
         },
         expandAll() {
-            this.expandedRows = this.products.filter((p) => p.id);
+            this.expandedRows = this.products.reduce((acc, p) => (acc[p.id] = true) && acc, {});
         },
         collapseAll() {
             this.expandedRows = null;
