@@ -458,7 +458,9 @@ export default {
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
-            this.$emit('value-change', this.processedData);
+            this.$nextTick(() => {
+                this.$emit('value-change', this.processedData);
+            });
         },
         onColumnHeaderClick(e) {
             const event = e.originalEvent;
@@ -507,7 +509,9 @@ export default {
                     }
 
                     this.$emit('sort', this.createLazyLoadEvent(event));
-                    this.$emit('value-change', this.processedData);
+                    this.$nextTick(() => {
+                        this.$emit('value-change', this.processedData);
+                    });
                 }
             }
         },
@@ -683,7 +687,9 @@ export default {
 
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
-            this.$emit('value-change', filteredValue);
+            this.$nextTick(() => {
+                this.$emit('value-change', this.processedData);
+            });
 
             return filteredValue;
         },
