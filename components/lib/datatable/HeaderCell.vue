@@ -294,8 +294,10 @@ export default {
                 if (filterRow) {
                     let index = DomHandler.index(this.$el);
 
-                    filterRow.children[index].style.left = this.styleObject.left;
-                    filterRow.children[index].style.right = this.styleObject.right;
+                    if (filterRow.children[index]) {
+                        filterRow.children[index].style.left = this.styleObject.left;
+                        filterRow.children[index].style.right = this.styleObject.right;
+                    }
                 }
             }
         },
