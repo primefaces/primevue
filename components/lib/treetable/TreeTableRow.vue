@@ -186,7 +186,10 @@ export default {
 
                 case 'Enter':
                 case 'Space':
-                    this.onEnterKey(event, item);
+                    if (!DomHandler.isClickable(event.target)) {
+                        this.onEnterKey(event, item);
+                    }
+
                     break;
 
                 case 'Tab':
