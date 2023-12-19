@@ -237,16 +237,16 @@ export default {
             this.$emit('column-mousedown', { originalEvent: event, column: this.column });
         },
         onDragStart(event) {
-            this.$emit('column-dragstart', event);
+            this.$emit('column-dragstart', { originalEvent: event, column: this.column });
         },
         onDragOver(event) {
-            this.$emit('column-dragover', event);
+            this.$emit('column-dragover', { originalEvent: event, column: this.column });
         },
         onDragLeave(event) {
-            this.$emit('column-dragleave', event);
+            this.$emit('column-dragleave', { originalEvent: event, column: this.column });
         },
         onDrop(event) {
-            this.$emit('column-drop', event);
+            this.$emit('column-drop', { originalEvent: event, column: this.column });
         },
         onResizeStart(event) {
             this.$emit('column-resizestart', event);

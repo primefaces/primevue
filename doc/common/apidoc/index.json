@@ -55975,6 +55975,14 @@
                             "description": "An array of treenodes."
                         },
                         {
+                            "name": "dataKey",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | Function",
+                            "default": "\"key\"",
+                            "description": "Name of the field that uniquely identifies the a record in the data."
+                        },
+                        {
                             "name": "expandedKeys",
                             "optional": true,
                             "readonly": false,

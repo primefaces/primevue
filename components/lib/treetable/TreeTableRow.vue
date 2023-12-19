@@ -41,7 +41,8 @@
     <template v-if="expanded && node.children && node.children.length">
         <TreeTableRow
             v-for="childNode of node.children"
-            :key="childNode.key"
+            :key="nodeKey(childNode)"
+            :dataKey="dataKey"
             :columns="columns"
             :node="childNode"
             :parentNode="node"
@@ -75,6 +76,10 @@ export default {
         node: {
             type: null,
             default: null
+        },
+        dataKey: {
+            type: [String, Function],
+            default: 'key'
         },
         parentNode: {
             type: null,
@@ -149,6 +154,9 @@ export default {
         },
         onTouchEnd() {
             this.nodeTouched = true;
+        },
+        nodeKey(node) {
+            return ObjectUtils.resolveFieldData(node, this.dataKey);
         },
         onKeyDown(event, item) {
             switch (event.code) {
@@ -320,8 +328,8 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check) selectionKeys[node.key] = { checked: true, partialChecked: false };
-            else delete selectionKeys[node.key];
+            if (check) selectionKeys[this.nodeKey(node)] = { checked: true, partialChecked: false };
+            else delete selectionKeys[this.nodeKey(node)];
 
             if (node.children && node.children.length) {
                 for (let child of node.children) {
@@ -336,19 +344,19 @@ export default {
             let childPartialSelected = false;
 
             for (let child of this.node.children) {
-                if (_selectionKeys[child.key] && _selectionKeys[child.key].checked) checkedChildCount++;
-                else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
+                if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].checked) checkedChildCount++;
+                else if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].partialChecked) childPartialSelected = true;
             }
 
             if (check && checkedChildCount === this.node.children.length) {
-                _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
+                _selectionKeys[this.nodeKey(this.node)] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
-                    delete _selectionKeys[this.node.key];
+                    delete _selectionKeys[this.nodeKey(this.node)];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
-                else _selectionKeys[this.node.key] = { checked: false, partialChecked: false };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
+                else _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: false };
             }
 
             this.$emit('checkbox-change', {
@@ -364,19 +372,19 @@ export default {
             let childPartialSelected = false;
 
             for (let child of this.node.children) {
-                if (_selectionKeys[child.key] && _selectionKeys[child.key].checked) checkedChildCount++;
-                else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
+                if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].checked) checkedChildCount++;
+                else if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].partialChecked) childPartialSelected = true;
             }
 
             if (check && checkedChildCount === this.node.children.length) {
-                _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
+                _selectionKeys[this.nodeKey(this.node)] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
-                    delete _selectionKeys[this.node.key];
+                    delete _selectionKeys[this.nodeKey(this.node)];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
-                else _selectionKeys[this.node.key] = { checked: false, partialChecked: false };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
+                else _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: false };
             }
 
             this.$emit('checkbox-change', {
@@ -402,19 +410,19 @@ export default {
             return [this.node.styleClass, this.cx('row')];
         },
         expanded() {
-            return this.expandedKeys && this.expandedKeys[this.node.key] === true;
+            return this.expandedKeys && this.expandedKeys[this.nodeKey(this.node)] === true;
         },
         leaf() {
             return this.node.leaf === false ? false : !(this.node.children && this.node.children.length);
         },
         selected() {
-            return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.nodeKey(this.node)] === true : false;
         },
         checked() {
-            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked : false;
+            return this.selectionKeys ? this.selectionKeys[this.nodeKey(this.node)] && this.selectionKeys[this.nodeKey(this.node)].checked : false;
         },
         partialChecked() {
-            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
+            return this.selectionKeys ? this.selectionKeys[this.nodeKey(this.node)] && this.selectionKeys[this.nodeKey(this.node)].partialChecked : false;
         },
         getAriaSelected() {
             return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : null;

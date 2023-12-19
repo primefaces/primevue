@@ -83,7 +83,8 @@
                     <template v-if="!empty">
                         <TTRow
                             v-for="(node, index) of dataToRender"
-                            :key="node.key"
+                            :key="nodeKey(node)"
+                            :dataKey="dataKey"
                             :columns="columns"
                             :node="node"
                             :level="0"
@@ -252,8 +253,7 @@ export default {
             };
         },
         onNodeToggle(node) {
-            const key = node.key;
-
+            const key = this.nodeKey(node);
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
                 this.$emit('node-collapse', node);
@@ -273,9 +273,13 @@ export default {
                 this.$emit('update:selectionKeys', _selectionKeys);
             }
         },
+        nodeKey(node) {
+            return ObjectUtils.resolveFieldData(node, this.dataKey);
+        },
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
             const node = event.node;
+            const nodeKey = this.nodeKey(node);
             const metaKey = originalEvent.metaKey || originalEvent.ctrlKey;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
@@ -285,7 +289,7 @@ export default {
                     _selectionKeys = {};
                 } else {
                     _selectionKeys = { ...this.selectionKeys };
-                    delete _selectionKeys[node.key];
+                    delete _selectionKeys[nodeKey];
                 }
 
                 this.$emit('node-unselect', node);
@@ -296,7 +300,7 @@ export default {
                     _selectionKeys = !metaKey ? {} : this.selectionKeys ? { ...this.selectionKeys } : {};
                 }
 
-                _selectionKeys[node.key] = true;
+                _selectionKeys[nodeKey] = true;
                 this.$emit('node-select', node);
             }
 
@@ -304,6 +308,7 @@ export default {
         },
         handleSelectionWithoutMetaKey(event) {
             const node = event.node;
+            const nodeKey = this.nodeKey(node);
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
 
@@ -313,18 +318,18 @@ export default {
                     this.$emit('node-unselect', node);
                 } else {
                     _selectionKeys = {};
-                    _selectionKeys[node.key] = true;
+                    _selectionKeys[nodeKey] = true;
                     this.$emit('node-select', node);
                 }
             } else {
                 if (selected) {
                     _selectionKeys = { ...this.selectionKeys };
-                    delete _selectionKeys[node.key];
+                    delete _selectionKeys[nodeKey];
 
                     this.$emit('node-unselect', node);
                 } else {
                     _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
-                    _selectionKeys[node.key] = true;
+                    _selectionKeys[nodeKey] = true;
 
                     this.$emit('node-select', node);
                 }
@@ -572,7 +577,7 @@ export default {
             return matched;
         },
         isNodeSelected(node) {
-            return this.selectionMode && this.selectionKeys ? this.selectionKeys[node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.nodeKey(node)] === true : false;
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);

@@ -167,7 +167,7 @@ export default {
             default: false
         },
         expandedRows: {
-            type: Array,
+            type: [Array, Object],
             default: null
         },
         expandedRowIcon: {

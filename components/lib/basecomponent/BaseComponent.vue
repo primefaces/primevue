@@ -202,7 +202,7 @@ export default {
             return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
         $params() {
-            const parentInstance = this.$parentInstance || this.$parent;
+            const parentInstance = this._getHostInstance(this) || this.$parent;
 
             return {
                 instance: this,
