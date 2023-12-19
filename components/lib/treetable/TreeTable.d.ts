@@ -396,6 +396,11 @@ export interface TreeTableProps {
      */
     value?: TreeNode[] | undefined;
     /**
+     * Name of the field that uniquely identifies the a record in the data.
+     * @defaultValue "key"
+     */
+    dataKey?: string | ((item: any) => string) | undefined;
+    /**
      * A map of keys to represent the state of the tree expansion state in controlled mode.
      * @see TreeTableExpandedKeys
      */
