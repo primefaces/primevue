@@ -34680,15 +34680,6 @@
                             "description": "Icon of the item."
                         },
                         {
-                            "name": "to",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RouteLocationRaw",
-                            "default": "",
-                            "description": "Route configuration such as path, name and parameters.",
-                            "deprecated": "since v3.33.0."
-                        },
-                        {
                             "name": "command",
                             "optional": true,
                             "readonly": false,
