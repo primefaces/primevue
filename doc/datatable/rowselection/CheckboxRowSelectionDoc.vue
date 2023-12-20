@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            More than one row is selectable by setting <i>selectionMode</i> to <i>multiple</i>. By default in multiple selection mode, metaKey press (e.g. <i>⌘</i>) is necessary to add to existing selections however this can be configured with
-            disabling the <i>metaKeySelection</i> property. Note that in touch enabled devices, DataTable always ignores metaKey.
-        </p>
+        <p>Specifying <i>selectionMode</i> as <i>multiple</i> on a Column, displays a checkbox inside that column for selection.</p>
         <p>The header checkbox toggles the selection state of the whole dataset by default, when paginator is enabled you may add <i>selectAll</i> property and <i>select-all-change</i> event to only control the selection of visible rows.</p>
     </DocSectionText>
     <div class="card">

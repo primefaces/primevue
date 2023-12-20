@@ -28,7 +28,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         rows: {
             type: Number,

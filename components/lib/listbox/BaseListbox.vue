@@ -25,7 +25,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         filter: Boolean,
         filterPlaceholder: String,

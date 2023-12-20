@@ -24,7 +24,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         responsive: {
             type: Boolean,

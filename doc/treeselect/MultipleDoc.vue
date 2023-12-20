@@ -1,14 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            More than one node is selectable by setting <i>selectionMode</i> to <i>multiple</i>. By default in multiple selection mode, metaKey press (e.g. <i>⌘</i>) is necessary to add to existing selections however this can be configured with
-            disabling the <i>metaKeySelection</i> property. Note that in touch enabled devices, TreeSelect always ignores metaKey.
+            More than one node is selectable by setting <i>selectionMode</i> to <i>multiple</i>. By default in multiple selection mode, metaKey press (e.g. <i>⌘</i>) is not necessary to add to existing selections. When the optional
+            <i>metaKeySelection</i> is present, behavior is changed in a way that selecting a new node requires meta key to be present. Note that in touch enabled devices, TreeSelect always ignores metaKey.
         </p>
         <p>In multiple selection mode, value binding should be a key-value pair where key is the node key and value is a boolean to indicate selection.</p>
     </DocSectionText>
     <DocSectionCode :code="activeNodes" hideToggleCode importCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Items" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Items" class="md:w-20rem w-full" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -30,12 +30,12 @@ export default {
             },
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
+<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 

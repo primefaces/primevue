@@ -42,7 +42,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         inputId: {
             type: String,
