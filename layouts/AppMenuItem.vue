@@ -15,7 +15,7 @@
             <span>{{ menuitem.name }}</span>
             <Badge v-if="menuitem.badge" :value="menuitem.badge" class="ml-auto"></Badge>
         </a>
-        <PrimeVueNuxtLink v-if="menuitem.to" :to="menuitem.to" :class="{ 'router-link-active': menuitem.to === $route.fullPath }" rel="canonical">
+        <PrimeVueNuxtLink v-if="menuitem.to" :to="menuitem.to" :class="{ 'router-link-active': menuitem.to === $route.fullPath }">
             <span v-if="menuitem.icon && root" class="menu-icon">
                 <i :class="menuitem.icon"></i>
             </span>
