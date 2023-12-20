@@ -1780,7 +1780,6 @@ export default {
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
                     this.$refs.table.style.width = this.tableWidthState;
                     this.$refs.table.style.minWidth = this.tableWidthState;
-                    this.$el.style.width = this.tableWidthState;
                 }
 
                 if (ObjectUtils.isNotEmpty(widths)) {
