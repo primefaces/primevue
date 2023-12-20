@@ -41,11 +41,11 @@
                             <span class="text-secondary font-medium block mt-5 mb-3">Account</span>
                             <div class="flex flex-wrap gap-3">
                                 <div class="flex align-items-center">
-                                    <RadioButton id="category1" v-model="radioValue" value="S" name="radiovalue" @change="setCategory('S')" />
+                                    <RadioButton v-model="radioValue" inputId="category1" value="S" name="radiovalue" @change="setCategory('S')" />
                                     <label for="category1" class="ml-2 font-medium">Savings</label>
                                 </div>
                                 <div class="flex align-items-center">
-                                    <RadioButton id="category2" v-model="radioValue" value="C" name="radiovalue" @change="setCategory('C')" />
+                                    <RadioButton v-model="radioValue" inputId="category2" value="C" name="radiovalue" @change="setCategory('C')" />
                                     <label for="category2" class="ml-2 font-medium">Checking</label>
                                 </div>
                             </div>
