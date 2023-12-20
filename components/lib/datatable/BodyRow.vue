@@ -33,6 +33,7 @@
             @dragend="onRowDragEnd"
             @drop="onRowDrop"
             v-bind="getBodyRowPTOptions('bodyRow')"
+            :data-p-index="rowIndex"
             :data-p-selectable-row="selectionMode ? true : false"
             :data-p-highlight="selection && isSelected"
             :data-p-highlight-contextmenu="contextMenuSelection && isSelectedWithContextMenu"
@@ -482,7 +483,7 @@ export default {
                 }
             }
 
-            return [this.cx('row', { rowData: this.rowData }), rowStyleClass];
+            return [this.cx('row', { rowData: this.rowData, index: this.rowIndex }), rowStyleClass];
         },
         rowTabindex() {
             if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {

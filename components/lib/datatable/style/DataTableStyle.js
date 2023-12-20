@@ -368,7 +368,7 @@ const classes = {
     rowgroupHeader: 'p-rowgroup-header',
     rowGroupToggler: 'p-row-toggler p-link',
     rowGroupTogglerIcon: 'p-row-toggler-icon',
-    row: ({ instance, props }) => {
+    row: ({ instance, props, index }) => {
         let rowStyleClass = [];
 
         if (props.selectionMode) {
@@ -386,6 +386,8 @@ const classes = {
                 'p-highlight-contextmenu': instance.isSelectedWithContextMenu
             });
         }
+
+        rowStyleClass.push(index % 2 === 0 ? 'p-row-even' : 'p-row-odd');
 
         return rowStyleClass;
     },
