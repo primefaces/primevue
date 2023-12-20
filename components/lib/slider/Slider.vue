@@ -99,7 +99,7 @@ export default {
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
 
             if (this.step) {
-                const oldValue = this.range ? this.modelValue[this.handleIndex] : this.modelValue;
+                const oldValue = this.range ? this.value[this.handleIndex] : this.value;
                 const diff = newValue - oldValue;
 
                 if (diff < 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
@@ -115,7 +115,7 @@ export default {
             let modelValue;
 
             if (this.range) {
-                modelValue = this.modelValue ? [...this.modelValue] : [];
+                modelValue = this.value ? [...this.value] : [];
 
                 if (this.handleIndex == 0) {
                     if (newValue < this.min) newValue = this.min;
@@ -147,7 +147,7 @@ export default {
             this.dragging = true;
             this.updateDomData();
 
-            if (this.range && this.modelValue[0] === this.max) {
+            if (this.range && this.value[0] === this.max) {
                 this.handleIndex = 0;
             } else {
                 this.handleIndex = index;
@@ -166,7 +166,7 @@ export default {
             if (this.dragging) {
                 this.dragging = false;
                 this.$el.setAttribute('data-p-sliding', false);
-                this.$emit('slideend', { originalEvent: event, value: this.modelValue });
+                this.$emit('slideend', { originalEvent: event, value: this.value });
             }
         },
         onBarClick(event) {
@@ -227,12 +227,12 @@ export default {
             let newValue;
 
             if (this.range) {
-                if (this.step) newValue = this.modelValue[index] - this.step;
-                else newValue = this.modelValue[index] - 1;
+                if (this.step) newValue = this.value[index] - this.step;
+                else newValue = this.value[index] - 1;
             } else {
-                if (this.step) newValue = this.modelValue - this.step;
-                else if (!this.step && pageKey) newValue = this.modelValue - 10;
-                else newValue = this.modelValue - 1;
+                if (this.step) newValue = this.value - this.step;
+                else if (!this.step && pageKey) newValue = this.value - 10;
+                else newValue = this.value - 1;
             }
 
             this.updateModel(event, newValue);
@@ -242,12 +242,12 @@ export default {
             let newValue;
 
             if (this.range) {
-                if (this.step) newValue = this.modelValue[index] + this.step;
-                else newValue = this.modelValue[index] + 1;
+                if (this.step) newValue = this.value[index] + this.step;
+                else newValue = this.value[index] + 1;
             } else {
-                if (this.step) newValue = this.modelValue + this.step;
-                else if (!this.step && pageKey) newValue = this.modelValue + 10;
-                else newValue = this.modelValue + 1;
+                if (this.step) newValue = this.value + this.step;
+                else if (!this.step && pageKey) newValue = this.value + 10;
+                else newValue = this.value + 1;
             }
 
             this.updateModel(event, newValue);
@@ -277,6 +277,13 @@ export default {
         }
     },
     computed: {
+        value() {
+            if (this.range) {
+                return [this.modelValue?.[0] ?? this.min, this.modelValue?.[1] ?? this.max];
+            }
+
+            return this.modelValue ?? this.min;
+        },
         horizontal() {
             return this.orientation === 'horizontal';
         },
@@ -300,16 +307,16 @@ export default {
             else return { bottom: this.handlePosition + '%' };
         },
         handlePosition() {
-            if (this.modelValue < this.min) return 0;
-            else if (this.modelValue > this.max) return 100;
-            else return ((this.modelValue - this.min) * 100) / (this.max - this.min);
+            if (this.value < this.min) return 0;
+            else if (this.value > this.max) return 100;
+            else return ((this.value - this.min) * 100) / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.modelValue && this.modelValue[0]) return ((this.modelValue[0] < this.min ? 0 : this.modelValue[0] - this.min) * 100) / (this.max - this.min);
+            if (this.value && this.value[0]) return ((this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100) / (this.max - this.min);
             else return 0;
         },
         rangeEndPosition() {
-            if (this.modelValue && this.modelValue.length === 2) return ((this.modelValue[1] > this.max ? 100 : this.modelValue[1] - this.min) * 100) / (this.max - this.min);
+            if (this.value && this.value.length === 2) return ((this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100) / (this.max - this.min);
             else return 100;
         },
         rangeStartHandleStyle() {
