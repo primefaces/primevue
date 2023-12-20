@@ -149,6 +149,7 @@ export default {
         onIndicatorKeyDown(event, index) {
             switch (event.code) {
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.stopSlideShow();
 

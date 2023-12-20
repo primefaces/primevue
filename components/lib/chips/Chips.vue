@@ -110,6 +110,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     if (inputValue && inputValue.trim().length && !this.maxedOut) {
                         this.addItem(event, inputValue, true);
                     }

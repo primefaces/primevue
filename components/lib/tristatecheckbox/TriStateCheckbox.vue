@@ -83,7 +83,7 @@ export default {
             this.$refs.input.focus();
         },
         onKeyDown(event) {
-            if (event.code === 'Enter') {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.updateModel();
                 this.$emit('keydown', event);
                 event.preventDefault();

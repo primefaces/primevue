@@ -185,6 +185,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     if (!DomHandler.isClickable(event.target)) {
                         this.onEnterKey(event, item);

@@ -121,6 +121,7 @@ export default {
                 }
 
                 case 'Space':
+                case 'NumpadEnter':
 
                 case 'Enter': {
                     this.onItemClick(event, item, index);

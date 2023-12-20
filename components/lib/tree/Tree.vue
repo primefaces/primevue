@@ -164,7 +164,7 @@ export default {
             return node.leaf === false ? false : !(node.children && node.children.length);
         },
         onFilterKeydown(event) {
-            if (event.code === 'Enter') {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
                 event.preventDefault();
             }
 

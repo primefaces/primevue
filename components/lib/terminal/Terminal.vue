@@ -43,7 +43,7 @@ export default {
             this.$refs.input.focus();
         },
         onKeydown(event) {
-            if (event.code === 'Enter' && this.commandText) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && this.commandText) {
                 this.commands.push({ text: this.commandText });
                 TerminalService.emit('command', this.commandText);
                 this.commandText = '';

@@ -211,6 +211,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
@@ -292,7 +293,7 @@ export default {
             this.toggle(event);
         },
         menuButtonKeydown(event) {
-            (event.code === 'Enter' || event.code === 'Space') && this.menuButtonClick(event);
+            (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && this.menuButtonClick(event);
         },
         onArrowDownKey(event) {
             const processedItem = this.visibleItems[this.focusedItemInfo.index];

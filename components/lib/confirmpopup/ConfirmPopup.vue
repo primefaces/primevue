@@ -152,14 +152,14 @@ export default {
             this.visible = false;
         },
         onAcceptKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter') {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.accept();
                 DomHandler.focus(this.target);
                 event.preventDefault();
             }
         },
         onRejectKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter') {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.reject();
                 DomHandler.focus(this.target);
                 event.preventDefault();
