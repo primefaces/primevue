@@ -104,13 +104,9 @@ export default {
             this.previewClick = true;
         },
         onMaskClick(event) {
-            const isActionbarTarget = [event.target.classList].includes('p-image-action') || event.target.closest('.p-image-action');
+            const isBarActionsClicked = DomHandler.isAttributeEquals(event.target, 'data-pc-section-group', 'action') || event.target.closest('[data-pc-section-group="action"]');
 
-            if (isActionbarTarget) {
-                return;
-            }
-
-            if (!this.previewClick) {
+            if (!this.previewClick && !isBarActionsClicked) {
                 this.previewVisible = false;
                 this.rotate = 0;
                 this.scale = 1;
