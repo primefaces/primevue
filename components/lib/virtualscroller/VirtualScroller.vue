@@ -83,8 +83,10 @@ export default {
         numToleratedItems(newValue) {
             this.d_numToleratedItems = newValue;
         },
-        loading(newValue) {
-            this.d_loading = newValue;
+        loading(newValue, oldValue) {
+            if (this.lazy && newValue !== oldValue && newValue !== this.d_loading) {
+                this.d_loading = newValue;
+            }
         },
         items(newValue, oldValue) {
             if (!oldValue || oldValue.length !== (newValue || []).length) {
@@ -506,26 +508,28 @@ export default {
         onScroll(event) {
             this.$emit('scroll', event);
 
-            if (this.delay && this.isPageChanged()) {
+            if (this.delay) {
                 if (this.scrollTimeout) {
                     clearTimeout(this.scrollTimeout);
                 }
 
-                if (!this.d_loading && this.showLoader) {
-                    const { isRangeChanged } = this.onScrollPositionChange(event);
-                    const changed = isRangeChanged || (this.step ? this.isPageChanged() : false);
+                if (this.isPageChanged()) {
+                    if (!this.d_loading && this.showLoader) {
+                        const { isRangeChanged } = this.onScrollPositionChange(event);
+                        const changed = isRangeChanged || (this.step ? this.isPageChanged() : false);
 
-                    changed && (this.d_loading = true);
-                }
-
-                this.scrollTimeout = setTimeout(() => {
-                    this.onScrollChange(event);
-
-                    if (this.d_loading && this.showLoader && (!this.lazy || this.loading === undefined)) {
-                        this.d_loading = false;
-                        this.page = this.getPageByFirst();
+                        changed && (this.d_loading = true);
                     }
-                }, this.delay);
+
+                    this.scrollTimeout = setTimeout(() => {
+                        this.onScrollChange(event);
+
+                        if (this.d_loading && this.showLoader && (!this.lazy || this.loading === undefined)) {
+                            this.d_loading = false;
+                            this.page = this.getPageByFirst();
+                        }
+                    }, this.delay);
+                }
             } else {
                 this.onScrollChange(event);
             }
