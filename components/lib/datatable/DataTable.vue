@@ -2045,7 +2045,7 @@ export default {
         processedData() {
             let data = this.value || [];
 
-            if (!this.lazy) {
+            if (!this.lazy && !this.virtualScrollerOptions?.lazy) {
                 if (data && data.length) {
                     if (this.hasFilters) {
                         data = this.filter(data);
