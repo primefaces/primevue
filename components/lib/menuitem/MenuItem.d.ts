@@ -5,7 +5,6 @@
  * @module menuitem
  *
  */
-import { RouteLocationRaw } from 'vue-router';
 
 /**
  * Custom command event.
@@ -38,11 +37,6 @@ export interface MenuItem {
      * Icon of the item.
      */
     icon?: string | undefined;
-    /**
-     * Route configuration such as path, name and parameters.
-     * @deprecated since v3.33.0.
-     */
-    to?: RouteLocationRaw | undefined;
     /**
      * Callback to execute when item is clicked.
      * @param {MenuItemCommandEvent} event - Custom command event.
