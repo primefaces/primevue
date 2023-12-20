@@ -254,6 +254,7 @@ export default {
         },
         onNodeToggle(node) {
             const key = this.nodeKey(node);
+
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
                 this.$emit('node-collapse', node);
