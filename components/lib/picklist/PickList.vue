@@ -579,7 +579,7 @@ export default {
 
             this.itemTouched = false;
             const selectionList = this.d_selection[listIndex];
-            const selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
+            const selectedIndex = ObjectUtils.findIndexInList(item, selectionList);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
             const selectedId = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
