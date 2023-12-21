@@ -26,7 +26,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Defines instance."
+                            "description": "Defines instances."
                         },
                         {
                             "name": "props",
