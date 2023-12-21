@@ -170,7 +170,7 @@
 import { FilterService } from 'primevue/api';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { DomHandler, HelperSet, ObjectUtils } from 'primevue/utils';
 import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';
@@ -196,10 +196,11 @@ export default {
         'filter',
         'column-resize-end'
     ],
-    documentColumnResizeListener: null,
-    documentColumnResizeEndListener: null,
-    lastResizeHelperX: null,
-    resizeColumnElement: null,
+    provide() {
+        return {
+            $columns: this.d_columns
+        };
+    },
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -208,9 +209,14 @@ export default {
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
-            hasASelectedNode: false
+            hasASelectedNode: false,
+            d_columns: new HelperSet({ type: 'Column' })
         };
     },
+    documentColumnResizeListener: null,
+    documentColumnResizeEndListener: null,
+    lastResizeHelperX: null,
+    resizeColumnElement: null,
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
@@ -240,6 +246,9 @@ export default {
         if (this.scrollable && this.scrollDirection !== 'vertical') {
             this.updateScrollWidth();
         }
+    },
+    beforeUnmount() {
+        this.d_columns.clear();
     },
     methods: {
         columnProp(col, prop) {
@@ -763,15 +772,7 @@ export default {
     },
     computed: {
         columns() {
-            let cols = [];
-            let children = this.$slots.default();
-
-            children.forEach((child) => {
-                if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
-                else if (child.type.name === 'Column') cols.push(child);
-            });
-
-            return cols;
+            return this.d_columns.get(this);
         },
         processedData() {
             if (this.lazy) {

@@ -102,6 +102,15 @@ export declare class ObjectUtils {
     static stringify(value: any, indent?: number, currentIndent?: number): string;
 }
 
+export declare class HelperSet {
+    constructor(options: { init?: any; type?: string });
+    add(instance: any): void;
+    update(): void;
+    delete(instance: any): void;
+    clear(): void;
+    get(parentInstance?: any, slots?: any): any[] | null | undefined;
+}
+
 export declare namespace ZIndexUtils {
     export function get(el?: HTMLElement): number;
     export function set(key: string, el: HTMLElement, baseZIndex?: number): void;

@@ -17,7 +17,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { ObjectUtils } from 'primevue/utils';
+import { HelperSet, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import FooterCell from './FooterCell.vue';
 
@@ -34,6 +34,22 @@ export default {
             type: Object,
             default: null
         }
+    },
+    provide() {
+        return {
+            $rows: this.d_footerRows,
+            $columns: this.d_footerColumns
+        };
+    },
+    data() {
+        return {
+            d_footerRows: new HelperSet({ type: 'Row' }),
+            d_footerColumns: new HelperSet({ type: 'Column' })
+        };
+    },
+    beforeUnmount() {
+        this.d_footerRows.clear();
+        this.d_footerColumns.clear();
     },
     methods: {
         columnProp(col, prop) {
@@ -77,33 +93,10 @@ export default {
             return row.props && row.props.pt ? row.props.pt : undefined; //@todo
         },
         getFooterRows() {
-            let rows = [];
-
-            let columnGroup = this.columnGroup;
-
-            if (columnGroup.children && columnGroup.children.default) {
-                for (let child of columnGroup.children.default()) {
-                    if (child.type.name === 'Row') {
-                        rows.push(child);
-                    } else if (child.children && child.children instanceof Array) {
-                        rows = child.children;
-                    }
-                }
-
-                return rows;
-            }
+            return this.d_footerRows?.get(this.columnGroup, this.columnGroup.children);
         },
         getFooterColumns(row) {
-            let cols = [];
-
-            if (row.children && row.children.default) {
-                row.children.default().forEach((child) => {
-                    if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
-                    else if (child.type.name === 'Column') cols.push(child);
-                });
-
-                return cols;
-            }
+            return this.d_footerColumns?.get(row, row.children);
         }
     },
     computed: {

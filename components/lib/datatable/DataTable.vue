@@ -283,7 +283,7 @@ import ArrowDownIcon from 'primevue/icons/arrowdown';
 import ArrowUpIcon from 'primevue/icons/arrowup';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, HelperSet, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseDataTable from './BaseDataTable.vue';
 import TableBody from './TableBody.vue';
@@ -333,6 +333,12 @@ export default {
         'row-edit-save',
         'row-edit-cancel'
     ],
+    provide() {
+        return {
+            $columns: this.d_columns,
+            $columnGroups: this.d_columnGroups
+        };
+    },
     data() {
         return {
             d_first: this.first,
@@ -346,7 +352,9 @@ export default {
             d_columnOrder: null,
             d_editingRowKeys: null,
             d_editingMeta: {},
-            d_filters: this.cloneFilters(this.filters)
+            d_filters: this.cloneFilters(this.filters),
+            d_columns: new HelperSet({ type: 'Column' }),
+            d_columnGroups: new HelperSet({ type: 'ColumnGroup' })
         };
     },
     rowTouched: false,
@@ -430,6 +438,9 @@ export default {
         this.unbindColumnResizeEvents();
         this.destroyStyleElement();
         this.destroyResponsiveStyle();
+
+        this.d_columns.clear();
+        this.d_columnGroups.clear();
     },
     updated() {
         if (this.isStateful()) {
@@ -1852,9 +1863,6 @@ export default {
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
-        getChildren() {
-            return this.$slots.default ? this.$slots.default() : null;
-        },
         onFilterChange(filters) {
             this.d_filters = filters;
         },
@@ -1952,23 +1960,6 @@ export default {
                 this.styleElement = null;
             }
         },
-        recursiveGetChildren(children, results) {
-            if (!results) {
-                results = [];
-            }
-
-            if (children && children.length) {
-                children.forEach((child) => {
-                    if (child.children instanceof Array) {
-                        results.concat(this.recursiveGetChildren(child.children, results));
-                    } else if (child.type.name == 'Column') {
-                        results.push(child);
-                    }
-                });
-            }
-
-            return results;
-        },
         dataToRender(data) {
             const _data = data || this.processedData;
 
@@ -1989,13 +1980,7 @@ export default {
     },
     computed: {
         columns() {
-            let children = this.getChildren();
-
-            if (!children) {
-                return;
-            }
-
-            const cols = this.recursiveGetChildren(children, []);
+            const cols = this.d_columns.get(this);
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
@@ -2013,31 +1998,14 @@ export default {
 
             return cols;
         },
+        columnGroups() {
+            return this.d_columnGroups.get(this);
+        },
         headerColumnGroup() {
-            const children = this.getChildren();
-
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'header') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.columnGroups?.find((group) => this.columnProp(group, 'type') === 'header');
         },
         footerColumnGroup() {
-            const children = this.getChildren();
-
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'footer') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.columnGroups?.find((group) => this.columnProp(group, 'type') === 'footer');
         },
         hasFilters() {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;

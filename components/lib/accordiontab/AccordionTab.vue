@@ -7,6 +7,13 @@ import BaseAccordionTab from './BaseAccordionTab.vue';
 
 export default {
     name: 'AccordionTab',
-    extends: BaseAccordionTab
+    extends: BaseAccordionTab,
+    inject: ['$accordionTabs'],
+    mounted() {
+        this.$accordionTabs?.add(this.$);
+    },
+    unmounted() {
+        this.$accordionTabs?.delete(this.$);
+    }
 };
 </script>
