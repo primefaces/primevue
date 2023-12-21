@@ -159,7 +159,7 @@ export interface ConfirmDialogBreakpoints {
      *
      * @media screen and (max-width: ${breakpoint[key]}) {
      *      .p-dialog[attributeSelector] {
-     *          width: ${breakpoint[value]} !important;
+     *          width: ${breakpoint[value]};
      *      }
      * }
      */

@@ -1911,12 +1911,12 @@ export default {
 @media screen and (max-width: ${this.breakpoint}) {
     ${selector} > .p-datatable-thead > tr > th,
     ${selector} > .p-datatable-tfoot > tr > td {
-        display: none !important;
+        display: none;
     }
 
     ${selector} > .p-datatable-tbody > tr > td {
         display: flex;
-        width: 100% !important;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
     }

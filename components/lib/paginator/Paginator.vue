@@ -175,22 +175,22 @@ export default {
                             @media screen ${minValue} {
                                 .paginator[${this.attributeSelector}],
                                 .p-paginator-default{
-                                    display: flex !important;
+                                    display: flex;
                                 }
                             }
                         `;
                     } else {
                         innerHTML += `
 .paginator[${this.attributeSelector}], .p-paginator-${key} {
-    display: none !important;
+    display: none;
 }
 @media screen ${minValue} and (max-width: ${key}) {
     .paginator[${this.attributeSelector}], .p-paginator-${key} {
-        display: flex !important;
+        display: flex;
     }
     .paginator[${this.attributeSelector}],
     .p-paginator-default{
-        display: none !important;
+        display: none;
     }
 }
                     `;

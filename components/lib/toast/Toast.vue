@@ -127,7 +127,7 @@ export default {
                     let breakpointStyle = '';
 
                     for (let styleProp in this.breakpoints[breakpoint]) {
-                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
+                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + ';';
                     }
 
                     innerHTML += `

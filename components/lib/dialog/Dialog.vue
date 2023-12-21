@@ -267,7 +267,7 @@ export default {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-dialog[${this.attributeSelector}] {
-                                width: ${this.breakpoints[breakpoint]} !important;
+                                width: ${this.breakpoints[breakpoint]};
                             }
                         }
                     `;
