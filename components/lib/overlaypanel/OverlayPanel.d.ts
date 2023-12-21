@@ -111,7 +111,7 @@ export interface OverlayPanelBreakpoints {
      *
      * @media screen and (max-width: ${breakpoint[key]}) {
      *      .p-overlaypanel[attributeSelector] {
-     *          width: ${breakpoint[value]};
+     *          width: ${breakpoint[value]} !important;
      *      }
      * }
      */

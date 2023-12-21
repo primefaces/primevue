@@ -281,7 +281,7 @@ export default {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-overlaypanel[${this.attributeSelector}] {
-                                width: ${this.breakpoints[breakpoint]};
+                                width: ${this.breakpoints[breakpoint]} !important;
                             }
                         }
                     `;
