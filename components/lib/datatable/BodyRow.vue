@@ -310,7 +310,9 @@ export default {
             });
         },
         shouldRenderBodyCell(column) {
-            if (this.rowGroupMode) {
+            const isHidden = this.columnProp(column, 'hidden');
+
+            if (this.rowGroupMode && !isHidden) {
                 const field = this.columnProp(column, 'field');
 
                 if (this.rowGroupMode === 'subheader') {
@@ -332,7 +334,7 @@ export default {
                     }
                 }
             } else {
-                return !this.columnProp(column, 'hidden');
+                return !isHidden;
             }
         },
         calculateRowGroupSize(column) {
