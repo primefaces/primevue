@@ -151,6 +151,10 @@ export interface ColumnPassThroughOptions {
     /**
      * Used to pass attributes to the sort badge's DOM element.
      */
+    sortIcon?: ColumnPassThroughOptionType;
+    /**
+     * Used to pass attributes to the sort badge's DOM element.
+     */
     sortBadge?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the checkbox wrapper's DOM element.
