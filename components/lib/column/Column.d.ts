@@ -149,7 +149,7 @@ export interface ColumnPassThroughOptions {
      */
     sort?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the sort badge's DOM element.
+     * Used to pass attributes to the sort icon's DOM element.
      */
     sortIcon?: ColumnPassThroughOptionType;
     /**
