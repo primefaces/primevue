@@ -31,7 +31,8 @@ export default {
         partialChecked: false,
         checked: true
     }
-}`
+}
+`
             },
             code: {
                 basic: `
