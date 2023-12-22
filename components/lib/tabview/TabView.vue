@@ -130,9 +130,6 @@ export default {
     updated() {
         this.updateInkBar();
     },
-    beforeUnmount() {
-        this.d_tabPanels.clear();
-    },
     methods: {
         isTabPanel(child) {
             return child.type.name === 'TabPanel';
