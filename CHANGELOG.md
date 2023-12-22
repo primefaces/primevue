@@ -1,5 +1,47 @@
 # Changelog
 
+## [3.45.0](https://github.com/primefaces/primevue/tree/3.45.0) (2023-12-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.44.0...3.45.0)
+
+**Breaking Changes:**
+
+-   metaKeySelection default type is changed as false [\#4985](https://github.com/primefaces/primevue/issues/4985)
+
+**Fixed bugs:**
+
+-   DataTable - sortable header with InputText [\#4988](https://github.com/primefaces/primevue/issues/4988)
+-   PickList: metaKeySelection does not work as expected [\#4984](https://github.com/primefaces/primevue/issues/4984)
+-   Datatable rowGroupMode: columns can't be hidden with setting hidden = true [\#4982](https://github.com/primefaces/primevue/issues/4982)
+-   Table: Sort icons are not showing correct amount directions [\#4981](https://github.com/primefaces/primevue/issues/4981)
+-   Lara Light Teal: $highlightBg implementation defect [\#4980](https://github.com/primefaces/primevue/issues/4980)
+-   Image: Preview popup closes on 2nd click of disabled zoomOut and zoomIn in preview [\#4968](https://github.com/primefaces/primevue/issues/4968)
+-   Knob: Chrome touchstart 'passive' warnings [\#4963](https://github.com/primefaces/primevue/issues/4963)
+-   Datatable: stripedRows do not work correctly with virtual scroll [\#4957](https://github.com/primefaces/primevue/issues/4957)
+-   Datatable: Column resize expand mode and Stateful loses scroll [\#4950](https://github.com/primefaces/primevue/issues/4950)
+-   DataTable or Column leak computed properties to their children through VirtualScroller [\#4924](https://github.com/primefaces/primevue/issues/4924)
+-   Datatable Slider filter: Filtering breaks after clearing filter when using slider in docs and elsewhere [\#4913](https://github.com/primefaces/primevue/issues/4913)
+-   DataTable: #loading templates broken with lazy virtual scroller [\#4723](https://github.com/primefaces/primevue/issues/4723)
+-   DataTable: VirtualScroller breaks when sort is applied [\#4434](https://github.com/primefaces/primevue/issues/4434)
+-   Treetable: InputText in body Slot does not allow space character [\#4045](https://github.com/primefaces/primevue/issues/4045)
+-   DataTable:When using ColumnGroup in a table with more than two frozen columns [\#3967](https://github.com/primefaces/primevue/issues/3967)
+-   DataTable: Pass sorted data on sort event Type: Bug [\#3818](https://github.com/primefaces/primevue/issues/3818)
+-   DataTable: dataKey Property not relevant for expanding rows [\#3718](https://github.com/primefaces/primevue/issues/3718)
+-   [DataTable with virtual scroll] Using primevue inside shadow-dom [\#3037](https://github.com/primefaces/primevue/issues/3037)
+-   DataTable Column Resizing incompatible with Column Reordering [\#2188](https://github.com/primefaces/primevue/issues/2188)
+
+**Implemented New Features and Enhancements:**
+
+-   Image: Toolbar is hidden when the image is zoomed [\#4986](https://github.com/primefaces/primevue/issues/4986)
+-   Improve performance of row expansion feature on DataTable [\#4977](https://github.com/primefaces/primevue/issues/4977)
+-   InputNumber: Support roundingMode for the InputNumber [\#4945](https://github.com/primefaces/primevue/issues/4945)
+-   BaseIcon: p-icon and p-icon-spin classes in unstyled mode [\#4692](https://github.com/primefaces/primevue/issues/4692)
+-   Add custom wrapper support for helper components on DataTable and TreeTable [\#4646](https://github.com/primefaces/primevue/issues/4646)
+-   Component Styles: Remove use of !important now that @layer is used [\#4637](https://github.com/primefaces/primevue/issues/4637)
+-   DropDown: Labels unassociated from DropDown unless :editable="true" [\#4567](https://github.com/primefaces/primevue/issues/4567)
+-   TreeTable: Missing dataKey property [\#4273](https://github.com/primefaces/primevue/issues/4273)
+-   Keyboard support: Numpad enter [\#3602](https://github.com/primefaces/primevue/issues/3602)
+
 ## [3.44.0](https://github.com/primefaces/primevue/tree/3.44.0) (2023-12-13)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.43.0...3.44.0)
