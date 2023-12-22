@@ -57,7 +57,7 @@
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler, HelperSet, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
 
@@ -65,16 +65,10 @@ export default {
     name: 'Accordion',
     extends: BaseAccordion,
     emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
-    provide() {
-        return {
-            $accordionTabs: this.d_accordionTabs
-        };
-    },
     data() {
         return {
             id: this.$attrs.id,
-            d_activeIndex: this.activeIndex,
-            d_accordionTabs: new HelperSet({ type: 'AccordionTab' })
+            d_activeIndex: this.activeIndex
         };
     },
     watch: {
@@ -88,10 +82,10 @@ export default {
     mounted() {
         this.id = this.id || UniqueComponentId();
     },
-    beforeUnmount() {
-        this.d_accordionTabs.clear();
-    },
     methods: {
+        isAccordionTab(child) {
+            return child.type.name === 'AccordionTab';
+        },
         isTabActive(index) {
             return this.multiple ? this.d_activeIndex && this.d_activeIndex.includes(index) : this.d_activeIndex === index;
         },
@@ -241,7 +235,19 @@ export default {
     },
     computed: {
         tabs() {
-            return this.d_accordionTabs.get(this);
+            return this.$slots.default().reduce((tabs, child) => {
+                if (this.isAccordionTab(child)) {
+                    tabs.push(child);
+                } else if (child.children && child.children instanceof Array) {
+                    child.children.forEach((nestedChild) => {
+                        if (this.isAccordionTab(nestedChild)) {
+                            tabs.push(nestedChild);
+                        }
+                    });
+                }
+
+                return tabs;
+            }, []);
         }
     },
     components: {

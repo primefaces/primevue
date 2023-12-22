@@ -95,7 +95,7 @@
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler, HelperSet, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseTabView from './BaseTabView.vue';
 
@@ -103,18 +103,12 @@ export default {
     name: 'TabView',
     extends: BaseTabView,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
-    provide() {
-        return {
-            $tabPanels: this.d_tabPanels
-        };
-    },
     data() {
         return {
             id: this.$attrs.id,
             d_activeIndex: this.activeIndex,
             isPrevButtonDisabled: true,
-            isNextButtonDisabled: false,
-            d_tabPanels: new HelperSet({ type: 'TabPanel' })
+            isNextButtonDisabled: false
         };
     },
     watch: {
@@ -140,6 +134,9 @@ export default {
         this.d_tabPanels.clear();
     },
     methods: {
+        isTabPanel(child) {
+            return child.type.name === 'TabPanel';
+        },
         isTabActive(index) {
             return this.d_activeIndex === index;
         },
@@ -348,7 +345,19 @@ export default {
     },
     computed: {
         tabs() {
-            return this.d_tabPanels.get(this);
+            return this.$slots.default().reduce((tabs, child) => {
+                if (this.isTabPanel(child)) {
+                    tabs.push(child);
+                } else if (child.children && child.children instanceof Array) {
+                    child.children.forEach((nestedChild) => {
+                        if (this.isTabPanel(nestedChild)) {
+                            tabs.push(nestedChild);
+                        }
+                    });
+                }
+
+                return tabs;
+            }, []);
         },
         prevButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.previous : undefined;
