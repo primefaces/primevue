@@ -1,8 +1,8 @@
 {
-    "id": 50,
-    "content": "Introducing Tailwind CSS Components 🚀",
-    "linkText": "Learn More",
-    "linkHref": "https://tailwind.primevue.org",
+    "id": 51,
+    "content": "New Year Sale is Here! 🎉",
+    "linkText": "Visit Store",
+    "linkHref": "https://primefaces.org/store",
     "backgroundStyle": "background-color:var(--primary-color)",
     "textStyle": "color:var(--primary-color-text);font-weight:500",
     "linkStyle": "color:var(--primary-color-text);font-weight:700;text-decoration: underline;"
