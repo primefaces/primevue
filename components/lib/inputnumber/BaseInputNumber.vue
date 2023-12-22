@@ -82,17 +82,7 @@ export default {
             type: String,
             default: 'halfExpand',
             validator(value) {
-                return [
-                    'ceil',
-                    'floor',
-                    'expand',
-                    'trunc',
-                    'halfCeil',
-                    'halfFloor',
-                    'halfExpand',
-                    'halfTrunc',
-                    'halfEven'
-                ].includes(value);
+                return ['ceil', 'floor', 'expand', 'trunc', 'halfCeil', 'halfFloor', 'halfExpand', 'halfTrunc', 'halfEven'].includes(value);
             }
         },
         min: {

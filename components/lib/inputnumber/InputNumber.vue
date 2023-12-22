@@ -182,7 +182,7 @@ export default {
                 useGrouping: this.useGrouping,
                 minimumFractionDigits: this.minFractionDigits,
                 maximumFractionDigits: this.maxFractionDigits,
-                roundingMode: this.roundingMode,
+                roundingMode: this.roundingMode
             };
         },
         constructParser() {

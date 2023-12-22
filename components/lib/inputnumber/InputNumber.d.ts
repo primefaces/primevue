@@ -14,16 +14,7 @@ import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
-export declare type RoundingMode = 
-    | 'ceil'
-    | 'floor'
-    | 'expand'
-    | 'trunc'
-    | 'halfCeil'
-    | 'halfFloor'
-    | 'halfExpand'
-    | 'halfTrunc'
-    | 'halfEven';
+export declare type RoundingMode = 'ceil' | 'floor' | 'expand' | 'trunc' | 'halfCeil' | 'halfFloor' | 'halfExpand' | 'halfTrunc' | 'halfEven';
 
 export declare type InputNumberPassThroughOptionType<T = any> = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions<T>) => InputNumberPassThroughAttributes | string) | string | null | undefined;
 

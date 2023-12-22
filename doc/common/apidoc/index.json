@@ -19747,7 +19747,7 @@
                             "name": "columnResizeMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"fit\" | \"expand\"",
+                            "type": "\"expand\" | \"fit\"",
                             "default": "fit",
                             "description": "Defines whether the overall table width."
                         },
@@ -30408,6 +30408,14 @@
                             "description": "The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3;\nthe default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information)."
                         },
                         {
+                            "name": "roundingMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RoundingMode",
+                            "default": "",
+                            "description": "How decimals should be rounded.\nThe default value is  `\"halfExpand\"` , [further information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode)."
+                        },
+                        {
                             "name": "min",
                             "optional": true,
                             "readonly": false,
@@ -30645,6 +30653,9 @@
         "types": {
             "description": "Defines the custom types used by the module.",
             "values": {
+                "RoundingMode": {
+                    "values": "\"ceil\" | \"floor\" | \"expand\" | \"trunc\" | \"halfCeil\" | \"halfFloor\" | \"halfExpand\" | \"halfTrunc\" | \"halfEven\""
+                },
                 "InputNumberPassThroughOptionType": {
                     "values": "InputNumberPassThroughAttributes | (options: InputNumberPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
@@ -56218,7 +56229,7 @@
                             "name": "columnResizeMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"fit\" | \"expand\"",
+                            "type": "\"expand\" | \"fit\"",
                             "default": "fit",
                             "description": "Defines whether the overall table width should change on column resize."
                         },
