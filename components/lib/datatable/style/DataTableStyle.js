@@ -230,7 +230,7 @@ const css = `
     }
 
     .p-datatable .p-virtualscroller .p-virtualscroller-loading {
-        transform: none;
+        transform: none !important;
         min-height: 0;
         position: sticky;
         top: 0;
