@@ -12857,6 +12857,14 @@
                             "description": "Used to pass attributes to the sort's DOM element."
                         },
                         {
+                            "name": "sortIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the sort icon's DOM element."
+                        },
+                        {
                             "name": "sortBadge",
                             "optional": true,
                             "readonly": false,
