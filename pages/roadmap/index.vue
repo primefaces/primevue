@@ -165,8 +165,16 @@
                         <div class="flex-1 flex gap-3 flex-column"></div>
                     </div>
                     <div class="flex gap-3 border-bottom-1 surface-border pb-3">
-                        <div class="flex-shrink-0 p-3 bg-pink-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">Designer</div>
-                        <div class="flex-1 flex gap-3 flex-column"></div>
+                        <div class="flex-shrink-0 p-3 bg-pink-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">Design</div>
+                        <div class="flex-1 flex gap-3 flex-column">
+                            <div class="p-3 surface-card border-round border-pink-500" style="border-left: 6px solid">
+                                <h2 class="text-lg font-bold mt-0 mb-2">New UI Theme</h2>
+                                <p class="mt-0 mb-3 line-height-3">Brand new default theme with a modern and attractive design.</p>
+                                <div class="surface-200 border-round">
+                                    <div class="bg-pink-500 border-round" style="width: 0%; height: 4px"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="flex-1 flex gap-3 flex-column">
                             <div class="p-3 surface-card border-round border-pink-500" style="border-left: 6px solid">
                                 <h2 class="text-lg font-bold mt-0 mb-2">New UI Based Theme Editor</h2>
