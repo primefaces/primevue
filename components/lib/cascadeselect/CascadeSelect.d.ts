@@ -41,6 +41,10 @@ export interface CascadeSelectPassThroughMethodOptions {
      */
     parent: any;
     /**
+     * Defines current options.
+     */
+    context: CascadeSelectContext;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -192,6 +196,43 @@ export interface CascadeSelectState {
      * @defaultValue false
      */
     overlayVisible: boolean;
+}
+
+/**
+ * Defines current options in CascadeSelect component.
+ */
+export interface CascadeSelectContext {
+    /**
+     * Current option.
+     */
+    item: any;
+    /**
+     * Index of the option.
+     */
+    index: number;
+    /**
+     * Level of the option.
+     */
+    level: number;
+    /**
+     * Current item group state of option as a boolean.
+     */
+    itemGroup: boolean;
+    /**
+     * Current active state of option as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of option as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of option as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
