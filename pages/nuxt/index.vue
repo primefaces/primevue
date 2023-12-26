@@ -1,15 +1,14 @@
 <template>
     <div>
         <Head>
-            <Title>Nuxt Module - PrimeVue</Title>
-            <Meta name="description" content="PrimeVue has seamless integration with Nuxt using an exclusive module." />
+            <Title>Install PrimeVue with Nuxt</Title>
+            <Meta name="description" content="Setting up PrimeVue in a Nuxt project" />
         </Head>
-
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Nuxt</h1>
-                    <p>PrimeVue has seamless integration with Nuxt using the official module.</p>
+                    <h1>Install PrimeVue with Nuxt</h1>
+                    <p>Setting up PrimeVue in a Nuxt project.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -20,9 +19,12 @@
 
 <script>
 import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
-import ExampleDoc from '@/doc/nuxt/ExampleDoc.vue';
-import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
-import StyleDoc from '@/doc/nuxt/StyleDoc.vue';
+import ExamplesDoc from '@/doc/nuxt/ExamplesDoc.vue';
+import ModuleSetupDoc from '@/doc/nuxt/ModuleSetupDoc.vue';
+import StyledModeDoc from '@/doc/nuxt/StyledModeDoc.vue';
+import UnstyledModeDoc from '@/doc/nuxt/UnstyledModeDoc.vue';
+import UsageDoc from '@/doc/nuxt/UsageDoc.vue';
+import VideoDoc from '@/doc/nuxt/VideoDoc.vue';
 import CSSLayerOrderDoc from '@/doc/nuxt/configuration/CSSLayerOrderDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
 import ComposablesDoc from '@/doc/nuxt/configuration/ComposablesDoc.vue';
@@ -30,7 +32,6 @@ import DirectivesDoc from '@/doc/nuxt/configuration/DirectivesDoc.vue';
 import ImportPTDoc from '@/doc/nuxt/configuration/ImportPTDoc.vue';
 import OptionsDoc from '@/doc/nuxt/configuration/OptionsDoc.vue';
 import UsePrimeVueDoc from '@/doc/nuxt/configuration/UsePrimeVueDoc.vue';
-import VideoDoc from '../../doc/nuxt/VideoDoc.vue';
 
 export default {
     data() {
@@ -42,13 +43,35 @@ export default {
                     component: DownloadDoc
                 },
                 {
-                    id: 'setup',
-                    label: 'Setup',
-                    component: SetupDoc
+                    id: 'module-setup',
+                    label: 'Module Setup',
+                    component: ModuleSetupDoc
+                },
+                {
+                    id: 'theming',
+                    label: 'Theming',
+                    description: 'PrimeVue has two theming modes; styled or unstyled.',
+                    children: [
+                        {
+                            id: 'styled',
+                            label: 'Styled Mode',
+                            component: StyledModeDoc
+                        },
+                        {
+                            id: 'unstyled',
+                            label: 'Unstyled Mode',
+                            component: UnstyledModeDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'usage',
+                    label: 'Usage',
+                    component: UsageDoc
                 },
                 {
                     id: 'configuration',
-                    label: 'Configuration',
+                    label: 'Module Configuration',
                     children: [
                         {
                             id: 'useprimevue',
@@ -88,14 +111,9 @@ export default {
                     ]
                 },
                 {
-                    id: 'styles',
-                    label: 'Styles',
-                    component: StyleDoc
-                },
-                {
-                    id: 'example',
-                    label: 'Example',
-                    component: ExampleDoc
+                    id: 'examples',
+                    label: 'Examples',
+                    component: ExamplesDoc
                 },
                 {
                     id: 'video',

@@ -5,16 +5,20 @@
             "icon": "pi pi-home",
             "children": [
                 {
-                    "name": "Installation",
-                    "to": "/installation"
+                    "name": "Introduction",
+                    "to": "/introduction"
+                },
+                {
+                    "name": "Vite Setup",
+                    "to": "/vite"
+                },
+                {
+                    "name": "Nuxt Setup",
+                    "to": "/nuxt"
                 },
                 {
                     "name": "Configuration",
                     "to": "/configuration"
-                },
-                {
-                    "name": "Nuxt",
-                    "to": "/nuxt"
                 },
                 {
                     "name": "Playground",
