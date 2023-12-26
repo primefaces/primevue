@@ -22,17 +22,28 @@ export default {
     },
     mounted() {
         this.themeChangeListener = (event) => {
-            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
-                this.$appState.theme = event.theme;
-                this.$appState.darkTheme = event.dark;
-                EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
-            });
+            if (!document.startViewTransition) {
+                this.applyTheme(event);
+
+                return;
+            }
+
+            document.startViewTransition(() => this.applyTheme(event));
         };
 
         EventBus.on('theme-change', this.themeChangeListener);
     },
     beforeUnmount() {
         EventBus.off('theme-change', this.themeChangeListener);
+    },
+    methods: {
+        applyTheme(event) {
+            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
+                this.$appState.theme = event.theme;
+                this.$appState.darkTheme = event.dark;
+                EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
+            });
+        }
     }
 };
 </script>
