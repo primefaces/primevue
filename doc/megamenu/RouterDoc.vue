@@ -71,7 +71,7 @@ export default {
                                     {
                                         label: 'Installation',
                                         command: () => {
-                                            this.$router.push('/installation');
+                                            this.$router.push('/introduction');
                                         }
                                     }
                                 ]
@@ -147,7 +147,7 @@ const items = ref([
                         {
                             label: 'Installation',
                             command: () => {
-                                $router.push('/installation');
+                                $router.push('/introduction');
                             }
                         }
                     ]

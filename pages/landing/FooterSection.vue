@@ -6,7 +6,7 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mb-5">General</li>
                         <li class="mb-4">
-                            <router-link to="/installation" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Get Started</router-link>
+                            <PrimeVueNuxtLink to="/introduction" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Get Started</PrimeVueNuxtLink>
                         </li>
                         <li class="mb-4">
                             <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Examples</a>
@@ -23,7 +23,7 @@
                             <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Discord</a>
                         </li>
                         <li class="mb-4">
-                            <router-link to="/support" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">PRO Support</router-link>
+                            <PrimeVueNuxtLink to="/support" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">PRO Support</PrimeVueNuxtLink>
                         </li>
                     </ul>
                 </div>
@@ -31,10 +31,10 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
                         <li class="mb-4">
-                            <router-link to="/theming" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</router-link>
+                            <PrimeVueNuxtLink to="/theming" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</PrimeVueNuxtLink>
                         </li>
                         <li class="mb-4">
-                            <router-link to="/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</router-link>
+                            <PrimeVueNuxtLink to="/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</PrimeVueNuxtLink>
                         </li>
                     </ul>
                 </div>
