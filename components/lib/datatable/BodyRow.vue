@@ -298,7 +298,7 @@ export default {
         },
         //@todo - update this method
         getBodyRowPTOptions(key) {
-            const datatable = this.$parentInstance?.$parentInstance?.$parentInstance;
+            const datatable = this.$parentInstance?.$parentInstance;
 
             return this.ptm(key, {
                 context: {
