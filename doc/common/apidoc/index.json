@@ -9539,6 +9539,14 @@
                             "description": "Defines parent options."
                         },
                         {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CascadeSelectContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
                             "name": "global",
                             "optional": false,
                             "readonly": false,
@@ -9819,6 +9827,69 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current overlay visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CascadeSelectContext": {
+                    "description": "Defines current options in CascadeSelect component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current option."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the option."
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Level of the option."
+                        },
+                        {
+                            "name": "itemGroup",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current item group state of option as a boolean."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of option as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of option as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of option as a boolean."
                         }
                     ],
                     "methods": []
