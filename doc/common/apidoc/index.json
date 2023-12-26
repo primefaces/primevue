@@ -50793,6 +50793,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
