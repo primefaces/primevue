@@ -14,7 +14,7 @@
         <div class="card flex justify-content-center">
             <InputSwitch v-model="checked" :pt="{ slider: 'my-switch-slider' }" />
         </div>
-        <DocSectionCode :code="code" />
+        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
         <p>Layers also make it possible to use CSS Modules, view the <NuxtLink to="/theming/#cssmodules">CSS Modules</NuxtLink> guide for examples.</p>
     </DocSectionText>
 </template>
