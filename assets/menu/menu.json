@@ -14,13 +14,11 @@
                 },
                 {
                     "name": "Nuxt",
-                    "to": "/nuxt",
-                    "badge": "NEW"
+                    "to": "/nuxt"
                 },
                 {
                     "name": "Playground",
-                    "to": "/playground",
-                    "badge": "NEW"
+                    "to": "/playground"
                 }
             ]
         },
@@ -522,14 +520,23 @@
             "href": "https://blocks.primevue.org"
         },
         {
-            "name": "PrimeFlex CSS",
-            "icon": "pi pi-table",
-            "href": "https://primeflex.org"
-        },
-        {
-            "name": "Accessibility",
-            "icon": "pi pi-users",
-            "to": "/accessibility"
+            "name": "Guides",
+            "icon": "pi pi-book",
+            "children": [
+                {
+                    "name": "Accessibility",
+                    "to": "/guides/accessibility"
+                },
+                {
+                    "name": "CSS Layer",
+                    "to": "/guides/csslayer"
+                },
+                {
+                    "name": "PrimeTV",
+                    "icon": "pi pi-youtube",
+                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                }
+            ]
         },
         {
             "name": "Support",
@@ -548,11 +555,6 @@
                     "to": "/support"
                 }
             ]
-        },
-        {
-            "name": "PrimeTV",
-            "icon": "pi pi-youtube",
-            "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
         },
         {
             "name": "Discover",
@@ -589,6 +591,11 @@
                 {
                     "name": "PrimeGear",
                     "href": "https://gear.primefaces.org"
+                },
+                {
+                    "name": "PrimeFlex CSS",
+                    "icon": "pi pi-table",
+                    "href": "https://primeflex.org"
                 }
             ]
         }
