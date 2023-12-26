@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     nitro: {
         alias: aliasConfig.resolve.alias
     },
+    routeRules: {
+        '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
+        '/installation': { redirect: { to: '/vite', statusCode: 301 } }
+    },
     primevue: {
         options: {
             ripple: true
