@@ -15,15 +15,7 @@ export default defineNuxtConfig({
     ],
     vite: aliasConfig,
     nitro: {
-        alias: aliasConfig.resolve.alias,
-        routeRules: {
-            '/accessibility': {
-                redirect: {
-                    to: '/guides/accessibility',
-                    statusCode: 301
-                }
-            }
-        }
+        alias: aliasConfig.resolve.alias
     },
     primevue: {
         options: {

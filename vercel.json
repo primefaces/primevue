@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      { 
+        "source": "/accessibility",
+        "destination": "/guides/accessibility", 
+        "permanent": true
+      }
+    ]
+  }
