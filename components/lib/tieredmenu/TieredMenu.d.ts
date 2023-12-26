@@ -34,6 +34,10 @@ export interface TieredMenuPassThroughMethodOptions<T> {
      */
     state: TieredMenuState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
      * Defines parent instance.
      */
     parent: T;
