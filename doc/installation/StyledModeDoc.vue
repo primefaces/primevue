@@ -23,15 +23,15 @@ export default {
             },
             code2: {
                 basic: `
-@layer tailwind-base, primereact, tailwind-utilities;
+/* Order */
+@layer reset, primevue;
 
-@layer tailwind-base {
-  @tailwind base;
-}
-
-@layer tailwind-utilities {
-  @tailwind components;
-  @tailwind utilities;
+/* Reset CSS */
+@layer reset {
+    button,
+    input {
+        /* CSS to Reset */
+    }
 }
 `
             }
