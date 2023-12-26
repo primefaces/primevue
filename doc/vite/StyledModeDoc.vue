@@ -6,9 +6,9 @@
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p>
-            The classes of PrimeVue is defined under the <i>primevue</i> CSS layer to be easier to customize by having low specificity. If you are using a CSS library that styles default HTML elements such as Tailwind Preflight, Bootstrap, Normalize
-            or similar a custom CSS layer configuration might be necessary. Note that this only applies to Styled Mode as Unstyled Mode does not use any default styles or layers. Here is an example with Tailwind, visit the
-            <NuxtLink to="/guides/csslayer">CSS Layer</NuxtLink> for more information.
+            The style classes of PrimeVue are defined under the <i>primevue</i> CSS layer to be easier to customize by having low specificity. If you are using a CSS library that styles default HTML elements such as Tailwind Preflight, Bootstrap,
+            Normalize, or similar, a custom CSS layer configuration might be necessary. This only applies to Styled Mode as Unstyled Mode does not use any default styles or layers. View the <NuxtLink to="/guides/csslayer">CSS Layer</NuxtLink> guide
+            for more information.
         </p>
         <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     </DocSectionText>
@@ -19,7 +19,10 @@ export default {
     data() {
         return {
             code1: {
-                basic: "\nimport 'primevue/resources/themes/lara-light-green/theme.css'\n"
+                basic: `
+//in main.js
+import 'primevue/resources/themes/lara-light-green/theme.css'
+`
             },
             code2: {
                 basic: `

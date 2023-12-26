@@ -1,13 +1,13 @@
 <template>
     <Head>
-        <Title>Getting Started - PrimeVue</Title>
-        <Meta name="description" content="PrimeVue is a rich set of open source components for Vue." />
+        <Title>Install PrimeVue with Vite</Title>
+        <Meta name="description" content="Setting up PrimeVue in a Vite project" />
     </Head>
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Installation</h1>
-                <p>PrimeVue is a rich set of open source UI components for Vue.</p>
+                <h1>Install PrimeVue with Vite</h1>
+                <p>Setting up PrimeVue in a Vite project.</p>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -16,14 +16,13 @@
 </template>
 
 <script>
-import DownloadDoc from '@/doc/installation/DownloadDoc.vue';
-import ExamplesDoc from '@/doc/installation/ExamplesDoc.vue';
-import PluginDoc from '@/doc/installation/PluginDoc.vue';
-import PropCasesDoc from '@/doc/installation/PropCasesDoc.vue';
-import StyledModeDoc from '@/doc/installation/StyledModeDoc.vue';
-import UnstyledModeDoc from '@/doc/installation/UnstyledModeDoc.vue';
-import UsageDoc from '@/doc/installation/UsageDoc.vue';
-import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc.vue';
+import DownloadDoc from '@/doc/vite/DownloadDoc.vue';
+import ExamplesDoc from '@/doc/vite/ExamplesDoc.vue';
+import PluginDoc from '@/doc/vite/PluginDoc.vue';
+import StyledModeDoc from '@/doc/vite/StyledModeDoc.vue';
+import UnstyledModeDoc from '@/doc/vite/UnstyledModeDoc.vue';
+import UsageDoc from '@/doc/vite/UsageDoc.vue';
+import CreateVueDoc from '@/doc/vite/videos/CreateVueDoc.vue';
 
 export default {
     data() {
@@ -38,11 +37,6 @@ export default {
                     id: 'plugin',
                     label: 'Plugin',
                     component: PluginDoc
-                },
-                {
-                    id: 'usage',
-                    label: 'Usage',
-                    component: UsageDoc
                 },
                 {
                     id: 'theming',
@@ -62,9 +56,9 @@ export default {
                     ]
                 },
                 {
-                    id: 'propcases',
-                    label: 'Prop Cases',
-                    component: PropCasesDoc
+                    id: 'usage',
+                    label: 'Usage',
+                    component: UsageDoc
                 },
                 {
                     id: 'examples',
