@@ -24,6 +24,8 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onInput"
+            @compositionstart="isComposing = true"
+            @compositionend="isComposing = false"
             @change="onChange"
             v-bind="{ ...inputProps, ...ptm('input') }"
         />
@@ -38,6 +40,8 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
+            @compositionstart="isComposing = true"
+            @compositionend="isComposing = false"
             v-bind="ptm('container')"
         >
             <li
@@ -199,6 +203,7 @@ export default {
     searchTimeout: null,
     focusOnHover: false,
     dirty: false,
+    isComposing: false,
     data() {
         return {
             id: this.$attrs.id,
@@ -413,7 +418,9 @@ export default {
                     this.focusedOptionIndex = -1;
 
                     this.searchTimeout = setTimeout(() => {
-                        this.search(event, query, 'input');
+                        if(!this.isComposing){
+                            this.search(event, query, 'input');
+                        }
                     }, this.delay);
                 } else {
                     this.hide();
