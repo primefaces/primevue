@@ -281,10 +281,6 @@ export default {
                     DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
-                } else {
-                    if (this.focusedOptionIndex !== -1) {
-                        this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
-                    }
                 }
             }
         },
