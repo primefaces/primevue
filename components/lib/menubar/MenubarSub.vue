@@ -24,7 +24,7 @@
                         <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                            <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
+                            <span :id="getItemLabelId(processedItem)" :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
                             <template v-if="getItemProp(processedItem, 'items')">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :root="root" :active="isItemActive(processedItem)" :class="cx('submenuIcon')" />
                                 <component v-else :is="root ? 'AngleDownIcon' : 'AngleRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
@@ -44,6 +44,7 @@
                     :activeItemPath="activeItemPath"
                     :templates="templates"
                     :level="level + 1"
+                    :aria-labelledby="getItemLabelId(processedItem)"
                     :pt="pt"
                     :unstyled="unstyled"
                     @item-click="$emit('item-click', $event)"
@@ -126,6 +127,9 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getItemLabelId(processedItem) {
+            return `${this.menuId}_${processedItem.key}_label`;
         },
         getPTOptions(processedItem, index, key) {
             return this.ptm(key, {
