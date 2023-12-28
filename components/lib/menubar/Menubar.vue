@@ -311,8 +311,9 @@ export default {
                 const itemIndex = this.focusedItemInfo.index !== -1 ? this.findNextItemIndex(this.focusedItemInfo.index) : this.findFirstFocusedItemIndex();
 
                 this.changeFocusedItemIndex(event, itemIndex);
-                event.preventDefault();
             }
+
+            event.preventDefault();
         },
         onArrowUpKey(event) {
             const processedItem = this.visibleItems[this.focusedItemInfo.index];
