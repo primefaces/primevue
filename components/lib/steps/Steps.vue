@@ -48,7 +48,7 @@ export default {
     mounted() {
         const firstItem = this.findFirstItem();
 
-        firstItem.tabIndex = '0';
+        firstItem && (firstItem.tabIndex = '0');
     },
     methods: {
         getPTOptions(key, item, index) {
