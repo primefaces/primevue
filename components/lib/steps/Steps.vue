@@ -6,6 +6,7 @@
                     v-if="visible(item)"
                     :class="[cx('menuitem', { item, index }), item.class]"
                     :style="item.style"
+                    :aria-current="isActive(index) ? 'step' : undefined"
                     @click="onItemClick($event, item, index)"
                     @keydown="onItemKeydown($event, item, index)"
                     v-bind="getPTOptions('menuitem', item, index)"
