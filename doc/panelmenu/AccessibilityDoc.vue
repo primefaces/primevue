@@ -8,8 +8,8 @@
         <p>The content of an accordion panel uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
 
         <p>
-            The tree elements has a <i>tree</i> as the role and each menu item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container element of a treenode has the
-            <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.
+            The tree elements has a <i>tree</i> as the role and each menu item has a <i>treeitem</i> role along with <i>aria-label</i> and <i>aria-expanded</i> attributes. The container element of a treenode has the <i>group</i> role. The
+            <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.
         </p>
 
         <h3>Header Keyboard Support</h3>
