@@ -25,7 +25,7 @@
                             <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                                <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
+                                <span :id="getItemLabelId(processedItem)" :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
                                 <template v-if="getItemProp(processedItem, 'items')">
                                     <component v-if="templates.submenuicon" :is="templates.submenuicon" :class="cx('submenuIcon')" :active="isItemActive(processedItem)" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
                                     <AngleRightIcon v-else :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
@@ -38,6 +38,7 @@
                         v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
                         :id="getItemId(processedItem) + '_list'"
                         :style="sx('submenu', true, { processedItem })"
+                        :aria-labelledby="getItemLabelId(processedItem)"
                         role="menu"
                         :menuId="menuId"
                         :focusedItemId="focusedItemId"
@@ -124,6 +125,9 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getItemLabelId(processedItem) {
+            return `${this.menuId}_${processedItem.key}_label`;
         },
         getPTOptions(processedItem, index, key) {
             return this.ptm(key, {
