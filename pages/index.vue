@@ -53,13 +53,21 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-green' : 'lara-light-green');
+        const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
+        const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
+            this.replaceTableTheme('lara-dark-green');
+        } else {
+            this.replaceTableTheme('lara-light-green');
+        }
     },
     methods: {
         onDarkModeToggle() {
             const newTheme = this.$appState.darkTheme ? 'lara-light-green' : 'lara-dark-green';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
+            localStorage.setItem(this.$appState.colorSchemeKey, this.$appState.darkTheme ? 'light' : 'dark');
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
             this.replaceTableTheme(newTableTheme);
         },

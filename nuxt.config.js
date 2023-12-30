@@ -52,19 +52,7 @@ export default defineNuxtConfig({
                 { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
                 { property: 'og:ttl', content: '604800' }
             ],
-            link: [
-                {
-                    id: 'home-table-link',
-                    rel: 'stylesheet',
-                    href: baseUrl + 'styles/landing/themes/lara-light-green/theme.css'
-                },
-                {
-                    id: 'theme-link',
-                    rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-green/theme.css'
-                },
-                { rel: 'icon', href: baseUrl + 'favicon.ico' }
-            ],
+            link: [{ rel: 'icon', href: baseUrl + 'favicon.ico' }],
             script: [
                 {
                     src: baseUrl + 'scripts/prism.js',

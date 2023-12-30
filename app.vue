@@ -8,9 +8,6 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
-    themeChangeListener: null,
-    newsActivate: null,
-    newsService: null,
     watch: {
         $route: {
             handler(to) {
@@ -20,16 +17,29 @@ export default {
             }
         }
     },
+    created() {
+        useServerHead({
+            link: [
+                {
+                    id: 'theme-link',
+                    rel: 'stylesheet',
+                    href: '/themes/lara-light-green/theme.css'
+                },
+                {
+                    id: 'home-table-link',
+                    rel: 'stylesheet',
+                    href: '/styles/landing/themes/lara-light-green/theme.css'
+                }
+            ]
+        });
+    },
     mounted() {
-        this.themeChangeListener = (event) => {
-            if (!document.startViewTransition) {
-                this.applyTheme(event);
+        const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
+        const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-                return;
-            }
-
-            document.startViewTransition(() => this.applyTheme(event));
-        };
+        if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
+            this.applyTheme({ theme: 'lara-dark-green', dark: true });
+        }
 
         EventBus.on('theme-change', this.themeChangeListener);
     },
@@ -37,10 +47,20 @@ export default {
         EventBus.off('theme-change', this.themeChangeListener);
     },
     methods: {
+        themeChangeListener(event) {
+            if (!document.startViewTransition) {
+                this.applyTheme(event);
+
+                return;
+            }
+
+            document.startViewTransition(() => this.applyTheme(event));
+        },
         applyTheme(event) {
             this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
                 this.$appState.theme = event.theme;
                 this.$appState.darkTheme = event.dark;
+
                 EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
             });
         }
