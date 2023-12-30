@@ -1370,7 +1370,7 @@ export default {
 
             this.draggedColumn = column;
             this.draggedColumnElement = this.findParentHeader(event.target);
-            event.dataTransfer.setData('text', 'b'); // Firefox requires this to make dragging possible
+            event.dataTransfer.setData('text', column.field || 'b'); // Firefox requires this to make dragging possible
         },
         onColumnHeaderDragOver(e) {
             const { originalEvent: event, column } = e;
