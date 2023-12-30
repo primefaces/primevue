@@ -559,14 +559,18 @@ export default {
             }
         },
         columnsLength() {
-            let hiddenColLength = 0;
+            if (this.columns) {
+                let hiddenColLength = 0;
 
-            this.columns.forEach((column) => {
-                if (this.columnProp(column, 'selectionMode') === 'single') hiddenColLength--;
-                if (this.columnProp(column, 'hidden')) hiddenColLength++;
-            });
+                this.columns.forEach((column) => {
+                    if (this.columnProp(column, 'selectionMode') === 'single') hiddenColLength--;
+                    if (this.columnProp(column, 'hidden')) hiddenColLength++;
+                });
 
-            return this.columns ? this.columns.length - hiddenColLength : 0;
+                return this.columns.length - hiddenColLength;
+            }
+
+            return 0;
         }
     },
     components: {
