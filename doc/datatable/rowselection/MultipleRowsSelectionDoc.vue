@@ -5,18 +5,20 @@
             <i>metaKeySelection</i> is present, behavior is changed in a way that selecting a new row requires meta key to be present. Note that in touch enabled devices, DataTable always ignores metaKey.
         </p>
     </DocSectionText>
-    <div class="card">
-        <div class="flex justify-content-center align-items-center mb-4 gap-2">
-            <InputSwitch v-model="metaKey" inputId="input-metakey" />
-            <label for="input-metakey">MetaKey</label>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="flex justify-content-center align-items-center mb-4 gap-2">
+                <InputSwitch v-model="metaKey" inputId="input-metakey" />
+                <label for="input-metakey">MetaKey</label>
+            </div>
+            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
         </div>
-        <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
-        </DataTable>
-    </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -121,8 +123,10 @@ const metaKey = ref(true);
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        }
     }
 };
 </script>

@@ -6,12 +6,14 @@
             the rows after reorder completes.
         </p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="products" reorderableColumns @column-reorder="onColReorder" @row-reorder="onRowReorder" tableStyle="min-width: 50rem">
-            <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
-            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="products" reorderableColumns @column-reorder="onColReorder" @row-reorder="onRowReorder" tableStyle="min-width: 50rem">
+                <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
+                <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -72,7 +74,7 @@ export default {
         }
     }
 }
-<\/script>                  
+<\/script>
 
 `,
                 composition: `
@@ -112,7 +114,7 @@ const onRowReorder = (event) => {
     toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
 };
 
-<\/script>                  
+<\/script>
 `,
                 data: `
 {
@@ -139,10 +141,10 @@ const onRowReorder = (event) => {
             { field: 'quantity', header: 'Quantity' }
         ];
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
-    },
     methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        },
         onColReorder() {
             this.$toast.add({ severity: 'success', summary: 'Column Reordered', life: 3000 });
         },

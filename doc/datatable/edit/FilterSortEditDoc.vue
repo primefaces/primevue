@@ -2,32 +2,34 @@
     <DocSectionText v-bind="$attrs">
         <p>Cell Editing with Sorting and Filter</p>
     </DocSectionText>
-    <div class="card p-fluid">
-        <DataTable
-            v-model:filters="filters"
-            :value="products"
-            editMode="cell"
-            @cell-edit-complete="onCellEditComplete"
-            filterDisplay="row"
-            :pt="{
-                table: { style: 'min-width: 50rem' },
-                column: {
-                    bodycell: ({ state }) => ({
-                        class: [{ 'pt-0 pb-0': state['d_editing'] }]
-                    })
-                }
-            }"
-        >
-            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
-                <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
-                </template>
-                <template #editor="{ data, field }">
-                    <InputText v-model="data[field]" autofocus />
-                </template>
-            </Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card p-fluid">
+            <DataTable
+                v-model:filters="filters"
+                :value="products"
+                editMode="cell"
+                @cell-edit-complete="onCellEditComplete"
+                filterDisplay="row"
+                :pt="{
+                    table: { style: 'min-width: 50rem' },
+                    column: {
+                        bodycell: ({ state }) => ({
+                            class: [{ 'pt-0 pb-0': state['d_editing'] }]
+                        })
+                    }
+                }"
+            >
+                <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
+                    <template #filter="{ filterModel, filterCallback }">
+                        <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
+                    </template>
+                    <template #editor="{ data, field }">
+                        <InputText v-model="data[field]" autofocus />
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" :dependencies="{ sass: '1.45.0', 'sass-loader': '8.0.2' }" />
 </template>
 
@@ -271,10 +273,10 @@ const  isPositiveInteger = (val) => {
             { field: 'price', header: 'Price' }
         ];
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
-    },
     methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        },
         onCellEditComplete(event) {
             let { data, newValue, field } = event;
 

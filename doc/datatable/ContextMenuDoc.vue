@@ -4,19 +4,21 @@
             DataTable has exclusive integration with ContextMenu using the <i>contextMenu</i> event to open a menu on right click alont with <i>contextMenuSelection</i> property and <i>row-contextmenu</i> event to control the selection via the menu.
         </p>
     </DocSectionText>
-    <div class="card">
-        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
-        <DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="price" header="Price">
-                <template #body="slotProps">
-                    {{ formatCurrency(slotProps.data.price) }}
-                </template>
-            </Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
+            <DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="price" header="Price">
+                    <template #body="slotProps">
+                        {{ formatCurrency(slotProps.data.price) }}
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -51,7 +53,7 @@ export default {
 <template>
     <div class="card">
         <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
-        <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" 
+        <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct"
                 @rowContextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -174,10 +176,10 @@ const formatCurrency = (value) => {
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
-    },
     methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        },
         onRowContextMenu(event) {
             this.$refs.cm.show(event.originalEvent);
         },

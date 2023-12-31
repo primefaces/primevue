@@ -2,20 +2,22 @@
     <DocSectionText v-bind="$attrs">
         <p>Particular rows and cells can be styled based on conditions. The <i>rowClass</i> receives a row data as a parameter to return a style class for a row whereas cells are customized using the <i>body</i> template.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity">
-                <template #body="slotProps">
-                    <div :class="stockClass(slotProps.data)">
-                        {{ slotProps.data.quantity }}
-                    </div>
-                </template>
-            </Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity">
+                    <template #body="slotProps">
+                        <div :class="stockClass(slotProps.data)">
+                            {{ slotProps.data.quantity }}
+                        </div>
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -119,7 +121,7 @@ import { ProductService } from '@/service/ProductService';
 onMounted(() => {
     ProductService.getProductsSmall().then((data) => (this.products = data));
 });
-            
+
 const products = ref();
 
 const rowClass = (data) => {
@@ -160,10 +162,10 @@ const stockClass = (data) => {
             }
         };
     },
-    mounted() {
-        ProductService.getProductsSmall().then((data) => (this.products = data));
-    },
     methods: {
+        loadDemoData() {
+            ProductService.getProductsSmall().then((data) => (this.products = data));
+        },
         rowClass(data) {
             return [{ 'bg-primary': data.category === 'Fitness' }];
         },

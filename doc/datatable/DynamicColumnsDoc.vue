@@ -2,11 +2,13 @@
     <DocSectionText v-bind="$attrs">
         <p>Columns can be created programmatically.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="products" tableStyle="min-width: 50rem">
-            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="products" tableStyle="min-width: 50rem">
+                <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -110,8 +112,10 @@ const columns = [
             { field: 'quantity', header: 'Quantity' }
         ];
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        }
     }
 };
 </script>

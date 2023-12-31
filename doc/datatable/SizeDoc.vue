@@ -2,17 +2,19 @@
     <DocSectionText v-bind="$attrs">
         <p>In addition to a regular table, alternatives with alternative sizes are available.</p>
     </DocSectionText>
-    <div class="card">
-        <div class="flex justify-content-center mb-4">
-            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="flex justify-content-center mb-4">
+                <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+            </div>
+            <DataTable :value="products" :size="size.value" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
         </div>
-        <DataTable :value="products" :size="size.value" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
-        </DataTable>
-    </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -126,8 +128,10 @@ const sizeOptions = ref([
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        }
     }
 };
 </script>
