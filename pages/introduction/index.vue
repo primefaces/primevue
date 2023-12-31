@@ -39,7 +39,7 @@ export default {
                 },
                 {
                     id: 'passthrough',
-                    label: 'PassThrough',
+                    label: 'Pass Through',
                     component: PassThroughDoc
                 },
                 {

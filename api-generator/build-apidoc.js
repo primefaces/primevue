@@ -395,18 +395,18 @@ if (project) {
 
                                                         child.type?.declaration?.signatures[0]?.parameters.map((param, index) => {
                                                             if (index !== 0) functionParameters += `, `;
-                                                            functionParameters += `<span class="text-primary-700">${param.name}</span>: ${param.type?.name}`;
+                                                            functionParameters += `<span class="doc-option-parameter-name">${param.name}</span>: ${param.type?.name}`;
                                                         });
 
                                                         if (child.type?.declaration?.signatures[0]?.comment?.getTag('@deprecated')?.content[0]?.text) {
-                                                            type += `\t <span class="ml-3 text-primary-700 line-through">${child.name}</span>: <span class="text-primary-500 line-through">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300 line-through">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                            type += `\t <span class="ml-3 doc-option-parameter-name line-through">${child.name}</span>: <span class="doc-option-parameter-type line-through">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="doc-option-parameter-type line-through">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
                                                         } else {
-                                                            type += `\t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="text-primary-300">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
+                                                            type += `\t <span class="ml-3 doc-option-parameter-name">${child.name}</span>: <span class="doc-option-parameter-type">(${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}</span>, <span class="doc-option-parameter-type">// ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}</span>\n`;
                                                         }
                                                     } else {
                                                         const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 
-                                                        type += ` \t <span class="ml-3 text-primary-700">${child.name}</span>: <span class="text-primary-500">${childType}</span>, <span class="text-primary-300">// ${child.comment?.summary[0]?.text}</span>\n `;
+                                                        type += ` \t <span class="ml-3 doc-option-parameter-name">${child.name}</span>: <span class="doc-option-parameter-type">${childType}</span>, <span class="doc-option-parameter-type">// ${child.comment?.summary[0]?.text}</span>\n `;
                                                     }
                                                 }
                                             });
