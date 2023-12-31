@@ -1,51 +1,53 @@
 <template>
     <DocSectionText v-bind="$attrs"></DocSectionText>
-    <div class="card">
-        <DataTable
-            :value="products"
-            sortMode="multiple"
-            :pt="{
-                table: { style: { minWidth: '50rem' } }
-            }"
-        >
-            <Column
-                field="code"
-                header="Code"
-                sortable
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable
+                :value="products"
+                sortMode="multiple"
                 :pt="{
-                    sortBadge: { class: 'bg-primary' },
-                    headerCell: { style: { width: '25%' } }
+                    table: { style: { minWidth: '50rem' } }
                 }"
-            />
-            <Column
-                field="name"
-                header="Name"
-                sortable
-                :pt="{
-                    sortBadge: { class: 'bg-primary' },
-                    headerCell: { style: { width: '25%' } }
-                }"
-            />
-            <Column
-                field="category"
-                header="Category"
-                sortable
-                :pt="{
-                    sortBadge: { class: 'bg-primary' },
-                    headerCell: { style: { width: '25%' } }
-                }"
-            />
-            <Column
-                field="quantity"
-                header="Quantity"
-                sortable
-                :pt="{
-                    sortBadge: { class: 'bg-primary' },
-                    headerCell: { style: { width: '25%' } }
-                }"
-            />
-        </DataTable>
-    </div>
+            >
+                <Column
+                    field="code"
+                    header="Code"
+                    sortable
+                    :pt="{
+                        sortBadge: { class: 'bg-primary' },
+                        headerCell: { style: { width: '25%' } }
+                    }"
+                />
+                <Column
+                    field="name"
+                    header="Name"
+                    sortable
+                    :pt="{
+                        sortBadge: { class: 'bg-primary' },
+                        headerCell: { style: { width: '25%' } }
+                    }"
+                />
+                <Column
+                    field="category"
+                    header="Category"
+                    sortable
+                    :pt="{
+                        sortBadge: { class: 'bg-primary' },
+                        headerCell: { style: { width: '25%' } }
+                    }"
+                />
+                <Column
+                    field="quantity"
+                    header="Quantity"
+                    sortable
+                    :pt="{
+                        sortBadge: { class: 'bg-primary' },
+                        headerCell: { style: { width: '25%' } }
+                    }"
+                />
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -248,8 +250,10 @@ const products = ref();
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        }
     }
 };
 </script>

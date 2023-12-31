@@ -5,46 +5,48 @@
             <i>rowgroup-collapse</i> events.
         </p>
     </DocSectionText>
-    <div class="card">
-        <DataTable
-            v-model:expandedRowGroups="expandedRowGroups"
-            :value="customers"
-            expandableRowGroups
-            rowGroupMode="subheader"
-            groupRowsBy="representative.name"
-            sortMode="single"
-            sortField="representative.name"
-            :sortOrder="1"
-            @rowgroup-expand="onRowGroupExpand"
-            @rowgroup-collapse="onRowGroupCollapse"
-            tableStyle="min-width: 50rem"
-        >
-            <template #groupheader="slotProps">
-                <img :alt="slotProps.data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`" width="32" style="vertical-align: middle" class="ml-2" />
-                <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
-            </template>
-            <Column field="representative.name" header="Representative"></Column>
-            <Column field="name" header="Name" style="width: 20%"></Column>
-            <Column field="country" header="Country" style="width: 20%">
-                <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
-                        <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.data.country.code}`" style="width: 24px" />
-                        <span>{{ slotProps.data.country.name }}</span>
-                    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable
+                v-model:expandedRowGroups="expandedRowGroups"
+                :value="customers"
+                expandableRowGroups
+                rowGroupMode="subheader"
+                groupRowsBy="representative.name"
+                sortMode="single"
+                sortField="representative.name"
+                :sortOrder="1"
+                @rowgroup-expand="onRowGroupExpand"
+                @rowgroup-collapse="onRowGroupCollapse"
+                tableStyle="min-width: 50rem"
+            >
+                <template #groupheader="slotProps">
+                    <img :alt="slotProps.data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`" width="32" style="vertical-align: middle" class="ml-2" />
+                    <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
                 </template>
-            </Column>
-            <Column field="company" header="Company" style="width: 20%"></Column>
-            <Column field="status" header="Status" style="width: 20%">
-                <template #body="slotProps">
-                    <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
+                <Column field="representative.name" header="Representative"></Column>
+                <Column field="name" header="Name" style="width: 20%"></Column>
+                <Column field="country" header="Country" style="width: 20%">
+                    <template #body="slotProps">
+                        <div class="flex align-items-center gap-2">
+                            <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.data.country.code}`" style="width: 24px" />
+                            <span>{{ slotProps.data.country.name }}</span>
+                        </div>
+                    </template>
+                </Column>
+                <Column field="company" header="Company" style="width: 20%"></Column>
+                <Column field="status" header="Status" style="width: 20%">
+                    <template #body="slotProps">
+                        <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
+                    </template>
+                </Column>
+                <Column field="date" header="Date" style="width: 20%"></Column>
+                <template #groupfooter="slotProps">
+                    <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
                 </template>
-            </Column>
-            <Column field="date" header="Date" style="width: 20%"></Column>
-            <template #groupfooter="slotProps">
-                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
-            </template>
-        </DataTable>
-    </div>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['CustomerService']" />
 </template>
 
@@ -240,7 +242,7 @@ const calculateCustomerTotal = (name) => {
             }
         }
     }
-    
+
     return total;
 };
 const getSeverity = (status) => {
@@ -286,10 +288,10 @@ const getSeverity = (status) => {
             }
         };
     },
-    mounted() {
-        CustomerService.getCustomersMedium().then((data) => (this.customers = data));
-    },
     methods: {
+        loadDemoData() {
+            CustomerService.getCustomersMedium().then((data) => (this.customers = data));
+        },
         onRowGroupExpand(event) {
             this.$toast.add({ severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000 });
         },

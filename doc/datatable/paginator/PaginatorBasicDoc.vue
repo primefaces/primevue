@@ -2,14 +2,16 @@
     <DocSectionText v-bind="$attrs">
         <p>Pagination is enabled by adding <i>paginator</i> property and defining <i>rows</i> per page.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="customers" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
-            <Column field="name" header="Name" style="width: 25%"></Column>
-            <Column field="country.name" header="Country" style="width: 25%"></Column>
-            <Column field="company" header="Company" style="width: 25%"></Column>
-            <Column field="representative.name" header="Representative" style="width: 25%"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="customers" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
+                <Column field="name" header="Name" style="width: 25%"></Column>
+                <Column field="country.name" header="Country" style="width: 25%"></Column>
+                <Column field="company" header="Company" style="width: 25%"></Column>
+                <Column field="representative.name" header="Representative" style="width: 25%"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['CustomerService']" />
 </template>
 
@@ -104,8 +106,10 @@ const customers = ref();
             }
         };
     },
-    mounted() {
-        CustomerService.getCustomersMedium().then((data) => (this.customers = data));
+    methods: {
+        loadDemoData() {
+            CustomerService.getCustomersMedium().then((data) => (this.customers = data));
+        }
     }
 };
 </script>

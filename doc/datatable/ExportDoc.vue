@@ -2,19 +2,21 @@
     <DocSectionText v-bind="$attrs">
         <p>DataTable can export its data to CSV format.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
-            <template #header>
-                <div style="text-align: left">
-                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
-                </div>
-            </template>
-            <Column field="code" header="Code" exportHeader="Product Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
+                <template #header>
+                    <div style="text-align: left">
+                        <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                    </div>
+                </template>
+                <Column field="code" header="Code" exportHeader="Product Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -127,10 +129,10 @@ const exportCSV = () => {
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
-    },
     methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        },
         exportCSV() {
             this.$refs.dt.exportCSV();
         }

@@ -2,14 +2,16 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>removableSort</i> is present, the third click removes the sorting from the column.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="products" removableSort tableStyle="min-width: 50rem">
-            <Column field="code" header="Code" sortable style="width: 25%"></Column>
-            <Column field="name" header="Name" sortable style="width: 25%"></Column>
-            <Column field="category" header="Category" sortable style="width: 25%"></Column>
-            <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="products" removableSort tableStyle="min-width: 50rem">
+                <Column field="code" header="Code" sortable style="width: 25%"></Column>
+                <Column field="name" header="Name" sortable style="width: 25%"></Column>
+                <Column field="category" header="Category" sortable style="width: 25%"></Column>
+                <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
@@ -98,8 +100,10 @@ const products = ref();
             }
         };
     },
-    mounted() {
-        ProductService.getProductsMini().then((data) => (this.products = data));
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        }
     }
 };
 </script>
