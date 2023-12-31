@@ -50,8 +50,8 @@
 
         &.doc-tabmenu-active {
             button {
-                border-bottom-color: var(--primary-color);
-                color: var(--primary-color);
+                border-bottom-color: var(--primary-color-default);
+                color: var(--primary-color-default);
             }
         }
     }
@@ -80,7 +80,15 @@
         font-size: 1.125rem;
         color: var(--surface-900);
         margin: 0;
+
+        a {
+            @include doc-link();
+        }
     }
+}
+
+.doc-link {
+    @include doc-link();
 }
 
 .doc-section-label {
@@ -89,7 +97,7 @@
     scroll-margin-top: 6.5rem;
 
     > a {
-        color: var(--primary-color);
+        color: var(--primary-color-default);
         opacity: 0.7;
         margin-left: 1rem;
         display: none;
@@ -125,15 +133,7 @@
         }
 
         a {
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: all .2s;
-            border-radius: var(--border-radius);
-            @include focus-visible();
-
-            &:hover {
-                text-decoration: underline;
-            }
+            @include doc-link();
         }
     }
 
@@ -197,10 +197,10 @@
 
         &.active-navbar-item {
             > .navbar-item-content {
-                border-color: var(--primary-color);
+                border-color: var(--primary-color-default);
 
                 .px-link {
-                    color: var(--primary-color);
+                    color: var(--primary-color-default);
                 }
             }
         }
@@ -312,14 +312,14 @@
             scroll-margin-top: 6.5rem;
 
             &:first-child {
-                color: var(--primary-color);
+                color: var(--primary-color-default);
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 font-weight: 600;
             }
 
             .doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-500);
+                color: var(--primary-color-default);
                 font-weight: 500;
 
                 .doc-option-type-options-container {
@@ -355,7 +355,7 @@
                     position: absolute;
                     top: 0;
                     right: -1.5rem;
-                    color: var(--primary-color);
+                    color: var(--primary-color-default);
                     opacity: 0.7;
                     display: none;
                     transition: opacity 0.3s, colors 0.3s;
@@ -389,12 +389,11 @@
 
             .doc-option-parameter-name {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-700);
             }
 
             .doc-option-parameter-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-500);
+                color: var(--primary-color-default);
             }
 
             .doc-option-params {

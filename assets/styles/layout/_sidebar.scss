@@ -67,7 +67,7 @@
                 &:hover {
                     .menu-icon {
                         i {
-                            color: var(--primary-color);
+                            color: var(--primary-color-default);
                         }
                     }
 
@@ -77,11 +77,11 @@
                 }
 
                 &.router-link-active {
-                    color: var(--primary-color);
+                    color: var(--primary-color-default);
         
                     > .menu-icon {
                         i {
-                            color: var(--primary-color);
+                            color: var(--primary-color-default);
                         }
                     }
                 }
@@ -117,8 +117,8 @@
                             }
 
                             &.router-link-active {
-                                color: var(--primary-color);
-                                border-left-color: var(--primary-color);
+                                color: var(--primary-color-default);
+                                border-left-color: var(--primary-color-default);
                             }
                         }
 
@@ -126,8 +126,6 @@
                             margin: 0;
                             padding: 0;
                         }
-
-
 
                         &:has(.menu-child-category) {
                             margin-top: 1rem;

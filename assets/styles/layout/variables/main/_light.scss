@@ -1,4 +1,6 @@
 .layout-light {
+    --primary-color-default:var(--primary-600);
+    --primary-color-inverse-default:var(--surface-0);
     --topbar-sticky-bg:rgba(255,255,255,.7);
     --card-border: 1px solid var(--surface-border);
     --card-bg: var(--surface-card);

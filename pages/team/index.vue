@@ -3,10 +3,9 @@
         <div class="doc-intro">
             <h1>Meet the Team</h1>
             <p>
-                <a href="https://www.primetek.com.tr" class="text-primary hover:underline font-medium"> PrimeTek </a> is a world renowned vendor of popular UI Component suites including
-                <a href="https://primefaces.org" class="text-primary hover:underline font-medium"> PrimeFaces </a>, <a href="https://primeng.org" class="text-primary hover:underline font-medium"> PrimeNG </a>,
-                <a href="https://primereact.org" class="text-primary hover:underline font-medium"> PrimeReact </a> and
-                <a href="https://primevue.org" class="text-primary hover:underline font-medium"> PrimeVue </a>
+                <a href="https://www.primetek.com.tr"> PrimeTek </a> is a world renowned vendor of popular UI Component suites including <a href="https://primefaces.org"> PrimeFaces </a>, <a href="https://primeng.org"> PrimeNG </a>,
+                <a href="https://primereact.org"> PrimeReact </a> and
+                <a href="https://primevue.org"> PrimeVue </a>
                 . All the members in our team are full time employees of PrimeTek who share the same passion and vision for open source to create awesome UI libraries.
             </p>
         </div>
