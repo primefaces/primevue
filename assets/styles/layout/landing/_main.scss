@@ -7,6 +7,52 @@
         border: 1px solid var(--home-border-color);
         border-radius: 10px;
         background-color: var(--home-box-bg);
+        position: relative;
+        z-index: 0;
+        
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid var(--home-box-ring-color);
+            transition: all .5s;
+            animation: clippath 3s infinite linear;
+            border-radius: 10px;
+            opacity: 0;
+            z-index: -1;
+        }
+        
+        &::after {
+            animation: clippath 3s infinite -1.5s linear;
+        }
+
+        &:hover {
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    @keyframes clippath {
+        0%,
+        100% {
+            clip-path: inset(0 0 98% 0);
+        }
+        
+        25% {
+            clip-path: inset(0 98% 0 0);
+        }
+        50% {
+            clip-path: inset(98% 0 0 0);
+        }
+        75% {
+            clip-path: inset(0 0 0 98%);
+        }
     }
 
     .linkbox {

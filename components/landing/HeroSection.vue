@@ -10,7 +10,7 @@
                     class="bg-yellow-300 border-1 border-yellow-400 text-yellow-900 py-1 px-3 xl:align-self-start font-semibold text-lg transition-colors transition-duration-300 hover:border-yellow-600"
                     >🎉 Introducing the Tailwind CSS Presets <i class="pi pi-arrow-right text-sm"></i
                 ></a>
-                <h1 class="text-6xl font-bold text-center xl:text-left">The Most Complete UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
+                <h1 class="text-6xl font-bold text-center xl:text-left">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <span class="text-secondary font-medium block mt-5 mb-3">Date</span>
-                            <Calendar v-model="dateValue" :showWeek="true" class="w-full" />
+                            <Calendar v-model="dateValue" :showWeek="true" class="w-full" showIcon iconDisplay="input" />
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
                             <Chart type="line" :data="chartData" :options="chartOptions" />
@@ -72,7 +72,7 @@
                             <div class="mt-5 flex justify-content-center">
                                 <SelectButton v-model="selectButtonValue" :options="selectButtonOptions" optionLabel="name" />
                             </div>
-                            <div class="mt-5">
+                            <div class="mt-5 pt-1 pb-2">
                                 <Slider v-model="rangeValues" range class="w-full" />
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                     <div class="flex flex-column w-6 gap-5 pl-3">
                         <div class="box p-4 fadein animation-duration-500">
                             <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan.png" alt="Watch" class="w-14rem" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan.png" alt="Watch" class="w-10rem" />
                             </div>
                             <div class="flex align-items-center mb-4">
                                 <div class="flex flex-column">
@@ -124,6 +124,27 @@
                             </ul>
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
+                            <div class="flex justify-content-between align-items-center mb-5">
+                                <span class="inline-flex align-items-center">
+                                    <Checkbox id="cbox" v-model="checked" :binary="true" />
+                                    <label for="cbox" class="ml-2">Confirm</label>
+                                </span>
+                                <SplitButton
+                                    label="Save"
+                                    icon="pi pi-plus"
+                                    :model="splitButtonItems"
+                                    outlined
+                                    :pt="{
+                                        button: {
+                                            root: 'p-2'
+                                        },
+                                        menuButton: {
+                                            width: 'auto',
+                                            root: 'p-2'
+                                        }
+                                    }"
+                                />
+                            </div>
                             <TabMenu v-model:activeIndex="activeTabIndex" :model="items" />
                         </div>
                     </div>
@@ -157,9 +178,20 @@ export default {
             selectButtonValue: { name: 'Styled', value: 1 },
             dateValue: null,
             rangeValues: [20, 80],
+            checked: false,
+            splitButtonItems: [
+                {
+                    label: 'Update',
+                    icon: 'pi pi-refresh'
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-times'
+                }
+            ],
             items: [
                 { label: 'Home', icon: 'pi pi-fw pi-home' },
-                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' }
+                { label: 'Inbox', icon: 'pi pi-fw pi-inbox' }
             ],
             selectButtonOptions: [
                 { name: 'Styled', value: 1 },
