@@ -24,7 +24,10 @@ export default {
         },
         surface: {
             200: 'var(--p-gray-200)'
-        }
+        },
+        borderRadius: '6px',
+        transitionDuration: '.2s',
+        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}'
     },
     components: {
         global,

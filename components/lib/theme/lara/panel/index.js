@@ -2,21 +2,88 @@ export default {
     variables: {
         common: {
             header: {
-                //border: '1px solid var(--p-panel-header-border-color)',
-                border: {
-                    width: '1px', // --p-panel-header-border-width: 1px;
-                    style: 'solid' // --p-panel-header-border-color: solid;
-                }
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                paddingX: '1.25rem',
+                paddingY: '1.25rem',
+                fontWeight: 700
+            },
+            headerIcon: {
+                width: '2rem',
+                height: '2rem',
+                borderWidth: '0',
+                borderStyle: 'none',
+                borderRadius: '50%'
+            },
+            toggleableHeader: {
+                paddingX: '1.25rem',
+                paddingY: '0.75rem'
+            },
+            content: {
+                paddingX: '1.25rem',
+                paddingY: '1.25rem',
+                borderWidth: '1px',
+                borderStyle: 'solid'
+            },
+            footer: {
+                paddingX: '1.25rem',
+                paddingY: '0.75rem',
+                borderWidth: '1px',
+                borderStyle: 'solid'
             }
         },
         light: {
             header: {
-                bg: '{blue.500}'
+                borderColor: '{shade.300}',
+                background: '{shade.100}',
+                color: '{shade.800}'
+            },
+            headerIcon: {
+                color: '{shade.600}',
+                borderColor: 'transparent',
+                background: 'transparent'
+            },
+            headerIconHover: {
+                color: '{shade.800}',
+                borderColor: 'transparent',
+                background: '{shade.200}'
+            },
+            content: {
+                borderColor: '{shade.300}',
+                background: '{shade.0}',
+                color: '{shade.700}'
+            },
+            footer: {
+                borderColor: '{shade.300}',
+                background: '{shade.0}',
+                color: '{shade.700}'
             }
         },
         dark: {
             header: {
-                bg: '{blue.200}' // --p-panel-header-bg: var(--p-blue-200);
+                borderColor: '{shade.600}',
+                background: '{shade.800}',
+                color: '{shade.0}'
+            },
+            headerIcon: {
+                color: '{shade.100}',
+                borderColor: 'transparent',
+                background: 'transparent'
+            },
+            headerIconHover: {
+                color: '{shade.0}',
+                borderColor: 'transparent',
+                background: 'rgba(255,255,255,.03)'
+            },
+            content: {
+                borderColor: '{shade.600}',
+                background: '{shade.800}',
+                color: '{shade.0}'
+            },
+            footer: {
+                borderColor: '{shade.600}',
+                background: '{shade.800}',
+                color: '{shade.0}'
             }
         }
     },
@@ -25,10 +92,10 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: var(--p-panel-header-border);
-    padding: var(--p-panel-header-padding);
-    background: var(--p-panel-header-bg);
-    color: var(--p-panel-header-text-color);
+    border: var(--p-panel-header-border-width) var(--p-panel-header-border-style) var(--p-panel-header-border-color);
+    padding: var(--p-panel-header-padding-y) var(--p-panel-header-padding-x);
+    background: var(--p-panel-header-background);
+    color: var(--p-panel-header-color);
     border-top-right-radius: var(--p-border-radius);
     border-top-left-radius: var(--p-border-radius);
 }
@@ -44,32 +111,32 @@ export default {
     text-decoration: none;
     overflow: hidden;
     position: relative;
-    width: var(--p-action-icon-width);
-    height: var(--p-action-icon-height);
-    color: var(--p-action-icon-color);
-    border: var(--p-action-icon-border);
-    background: var(--p-action-icon-bg);
-    border-radius: var(--p-action-icon-border-radius);
-    transition: var(--p-action-icon-transition);
+    width: var(--p-panel-header-icon-width);
+    height: var(--p-panel-header-icon-height);
+    color: var(--p-panel-header-icon-color);
+    border: var(--p-panel-header-icon-border-width) var(--p-panel-header-icon-border-style) var(--p-panel-header-icon-border-color);
+    background: var(--p-panel-header-icon-background);
+    border-radius: var(--p-border-radius);
+    transition: var(--p-transition);
 }
 .p-panel-header-icon:enabled:hover {
-    color: var(--p-action-icon-hover-color);
-    border-color: var(--p-action-icon-hover-border-color);
-    background: var(--p-action-icon-hover-bg);
+    color: var(--p-panel-header-icon-hover-color);
+    border-color: var(--p-panel-header-icon-hover-border-color);
+    background: var(--p-panel-header-icon-hover-background);
 }
 .p-panel-header-icon:focus-visible {
-    outline: var(--p-focus-outline);
+    outline: var(--p-focus-outline); /* @todo */
     outline-offset: var(--p-focus-outline-offset);
     box-shadow: var(--p-focus-shadow);
 }
-.p-panel-toggleable .p-panel-header {
-    padding: var(--p-panel-toggleable-header-padding);
+.p-panel-toggleable > .p-panel-header {
+    padding: var(--p-panel-toggleable-header-padding-y) var(--p-panel-toggleable-header-padding-x);
 }
 .p-panel-content {
-    padding: var(--p-panel-content-padding);
-    border: var(--p-panel-content-border);
-    background: var(--p-panel-content-bg);
-    color: var(--p-panel-content-text-color);
+    padding: var(--p-panel-content-padding-y) var(--p-panel-content-padding-x);
+    border: var(--p-panel-content-border-width) var(--p-panel-content-border-style) var(--p-panel-content-border-color);
+    background: var(--p-panel-content-background);
+    color: var(--p-panel-content-color);
     border-top: 0;
 }
 .p-panel-content:last-child {
@@ -77,10 +144,10 @@ export default {
     border-bottom-left-radius: var(--p-border-radius);
 }
 .p-panel-footer {
-    padding: var(--p-panel-footer-padding);
-    border: var(--p-panel-footer-border);
-    background: var(--p-panel-footer-bg);
-    color: var(--p-panel-footer-text-color);
+    padding: var(--p-panel-footer-padding-y) var(--p-panel-footer-padding-x);
+    border: var(--p-panel-footer-border-width) var(--p-panel-footer-border-style) var(--p-panel-footer-border-color);
+    background: var(--p-panel-footer-background);
+    color: var(--p-panel-footer-color);
     border-bottom-right-radius: var(--p-border-radius);
     border-bottom-left-radius: var(--p-border-radius);
     border-top: 0;
