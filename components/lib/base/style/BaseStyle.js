@@ -35,6 +35,9 @@ export default {
     loadStyle(options = {}) {
         return this.css ? useStyle(this.css, { name: this.name, ...options }) : {};
     },
+    loadTheme(theme, options = {}) {
+        return theme ? useStyle(theme, { name: `${this.name}-style`, ...options }) : {};
+    },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
             const _props = Object.entries(props)

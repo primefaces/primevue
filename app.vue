@@ -20,11 +20,11 @@ export default {
     created() {
         useServerHead({
             link: [
-                {
+                /*{
                     id: 'theme-link',
                     rel: 'stylesheet',
                     href: '/themes/lara-light-green/theme.css'
-                },
+                }*/
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
@@ -57,12 +57,16 @@ export default {
             document.startViewTransition(() => this.applyTheme(event));
         },
         applyTheme(event) {
-            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
+            /*this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
                 this.$appState.theme = event.theme;
                 this.$appState.darkTheme = event.dark;
 
                 EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
-            });
+            });*/
+            // @todo
+            this.$appState.theme = event.theme;
+            this.$appState.darkTheme = event.dark;
+            document.documentElement.className = this.$appState.darkTheme ? 'p-dark' : '';
         }
     }
 };

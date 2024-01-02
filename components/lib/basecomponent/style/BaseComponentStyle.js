@@ -357,5 +357,6 @@ ${radioButtonCSS}
 export default BaseStyle.extend({
     name: 'common',
     css,
-    loadGlobalStyle: (globalCSS, options = {}) => useStyle(globalCSS, { name: 'global', ...options })
+    loadGlobalStyle: (globalCSS, options = {}) => useStyle(globalCSS, { name: 'global', ...options }),
+    loadGlobalTheme: (globalTheme, options = {}) => useStyle(globalTheme, { name: 'global-style', ...options })
 });

@@ -1,4 +1,5 @@
 import { FilterMatchMode } from 'primevue/api';
+import Lara from 'primevue/theme/lara';
 import { inject, reactive } from 'vue';
 
 export const defaultOptions = {
@@ -133,6 +134,10 @@ export const defaultOptions = {
         menu: 1000,
         tooltip: 1100
     },
+    theme: {
+        preset: Lara,
+        options: undefined
+    },
     pt: undefined,
     ptOptions: {
         mergeSections: true,
@@ -159,20 +164,23 @@ export function usePrimeVue() {
 function switchTheme(currentTheme, newTheme, linkElementId, callback) {
     if (currentTheme !== newTheme) {
         const linkElement = document.getElementById(linkElementId);
-        const cloneLinkElement = linkElement.cloneNode(true);
-        const newThemeUrl = linkElement.getAttribute('href').replace(currentTheme, newTheme);
 
-        cloneLinkElement.setAttribute('id', linkElementId + '-clone');
-        cloneLinkElement.setAttribute('href', newThemeUrl);
-        cloneLinkElement.addEventListener('load', () => {
-            linkElement.remove();
-            cloneLinkElement.setAttribute('id', linkElementId);
+        if (linkElement) {
+            const cloneLinkElement = linkElement.cloneNode(true);
+            const newThemeUrl = linkElement.getAttribute('href').replace(currentTheme, newTheme);
 
-            if (callback) {
-                callback();
-            }
-        });
-        linkElement.parentNode && linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+            cloneLinkElement.setAttribute('id', linkElementId + '-clone');
+            cloneLinkElement.setAttribute('href', newThemeUrl);
+            cloneLinkElement.addEventListener('load', () => {
+                linkElement.remove();
+                cloneLinkElement.setAttribute('id', linkElementId);
+
+                if (callback) {
+                    callback();
+                }
+            });
+            linkElement.parentNode && linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+        }
     }
 }
 

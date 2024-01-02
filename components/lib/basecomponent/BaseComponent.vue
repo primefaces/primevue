@@ -1,5 +1,6 @@
 <script>
 import BaseStyle from 'primevue/base/style';
+import { toVariables } from 'primevue/theme';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
@@ -32,6 +33,24 @@ export default {
                 if (!newValue) {
                     BaseComponentStyle.loadStyle({ nonce: this.$config?.csp?.nonce });
                     this.$options.style && this.$style.loadStyle({ nonce: this.$config?.csp?.nonce });
+                }
+            }
+        },
+        $globalTheme: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    const { variables, css } = this.$globalTheme;
+                    /* variables */
+                    const { dark, ...rest } = variables || {};
+
+                    // common + light
+                    this.$style?.loadTheme(toVariables({ [this.$style.name]: rest }).css, { name: `${this.$style.name}-variables`, nonce: this.$config?.csp?.nonce });
+                    // dark
+                    this.$style?.loadTheme(toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css, { name: `${this.$style.name}-dark-variables`, nonce: this.$config?.csp?.nonce });
+
+                    /* css */
+                    this.$style?.loadTheme(css, { useStyleOptions: this.$styleOptions });
                 }
             }
         }
@@ -96,6 +115,19 @@ export default {
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
             ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, { nonce: this.$config?.csp?.nonce });
+
+            this._loadThemeVariables();
+
+            BaseComponentStyle.loadGlobalTheme(this.$presetTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
+        },
+        _loadThemeVariables() {
+            const { components, ...rest } = this.$presetTheme;
+
+            Object.entries(rest).forEach(([key, value]) => {
+                const v = toVariables({ [key]: value });
+
+                BaseStyle.loadTheme(v.css, { name: `${key}-variables`, nonce: this.$config?.csp?.nonce });
+            });
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -201,6 +233,14 @@ export default {
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
+        $presetTheme() {
+            const { preset, options } = this.$config?.theme || {};
+
+            return ObjectUtils.getItemValue(preset, options);
+        },
+        $globalTheme() {
+            return ObjectUtils.getItemValue(this.$presetTheme?.components?.[this.$style.name], this.$params);
+        },
         $params() {
             const parentInstance = this._getHostInstance(this) || this.$parent;
 
@@ -221,6 +261,9 @@ export default {
         },
         $style() {
             return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+        },
+        $styleOptions() {
+            return { nonce: this.$config?.csp?.nonce };
         },
         $config() {
             return this.$primevue?.config;
