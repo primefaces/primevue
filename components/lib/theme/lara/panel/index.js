@@ -34,56 +34,63 @@ export default {
         },
         light: {
             header: {
-                borderColor: '{shade.300}',
-                background: '{shade.100}',
-                color: '{shade.800}'
+                borderColor: '{surface.200}',
+                background: '{surface.50}',
+                color: '{surface.700}'
             },
             headerIcon: {
-                color: '{shade.600}',
+                color: '{surface.600}',
                 borderColor: 'transparent',
-                background: 'transparent'
-            },
-            headerIconHover: {
-                color: '{shade.800}',
-                borderColor: 'transparent',
-                background: '{shade.200}'
+                background: 'transparent',
+                states: {
+                    hover: {
+                        color: '{surface.800}',
+                        borderColor: 'transparent',
+                        background: '{surface.100}'
+                    },
+                    focus: {
+                        
+                    }
+                }
             },
             content: {
-                borderColor: '{shade.300}',
-                background: '{shade.0}',
-                color: '{shade.700}'
+                borderColor: '{surface.200}',
+                background: '{surface.0}',
+                color: '{surface.700}'
             },
             footer: {
-                borderColor: '{shade.300}',
-                background: '{shade.0}',
-                color: '{shade.700}'
+                borderColor: '{surface.200}',
+                background: '{surface.0}',
+                color: '{surface.700}'
             }
         },
         dark: {
             header: {
-                borderColor: '{shade.600}',
-                background: '{shade.800}',
-                color: '{shade.0}'
+                borderColor: '{surface.200}',
+                background: '{surface.50}',
+                color: '{surface.700}'
             },
             headerIcon: {
-                color: '{shade.100}',
+                color: '{surface.600}',
                 borderColor: 'transparent',
-                background: 'transparent'
-            },
-            headerIconHover: {
-                color: '{shade.0}',
-                borderColor: 'transparent',
-                background: 'rgba(255,255,255,.03)'
+                background: 'transparent',
+                states: {
+                    hover: {
+                        color: '{surface.800}',
+                        borderColor: 'transparent',
+                        background: '{surface.100}'
+                    }
+                }
             },
             content: {
-                borderColor: '{shade.600}',
-                background: '{shade.800}',
-                color: '{shade.0}'
+                borderColor: '{surface.200}',
+                background: '{surface.0}',
+                color: '{surface.700}'
             },
             footer: {
-                borderColor: '{shade.600}',
-                background: '{shade.800}',
-                color: '{shade.0}'
+                borderColor: '{surface.200}',
+                background: '{surface.0}',
+                color: '{surface.700}'
             }
         }
     },
