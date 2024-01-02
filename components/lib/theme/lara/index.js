@@ -1,3 +1,5 @@
+import accordion from 'primevue/theme/lara/accordion';
+import card from 'primevue/theme/lara/card';
 import global from 'primevue/theme/lara/global';
 import panel from 'primevue/theme/lara/panel';
 
@@ -58,13 +60,16 @@ export default {
             900: '{slate.900}',
             950: '{slate.950}'
         },
-        fontFamily: 'Inter var',
+        fontFamily: '"Inter var", sans-serif',
         borderRadius: '6px',
+        gap: '.5rem', // inline-spacing
         transitionDuration: '.2s',
-        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}'
+        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}'
     },
     components: {
         global,
+        accordion,
+        card,
         panel
     }
 };

@@ -10,11 +10,11 @@ const css = `
         position: relative;
         text-decoration: none;
     }
-    
+
     .p-accordion-header-action:focus {
         z-index: 1;
     }
-    
+
     .p-accordion-header-text {
         line-height: 1;
     }
@@ -47,6 +47,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'accordion',
-    css,
+    //css, // @todo
     classes
 });
