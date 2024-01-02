@@ -42,6 +42,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'panel',
-    css,
+    //css, // @todo remove
     classes
 });
