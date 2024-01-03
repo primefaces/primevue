@@ -74,13 +74,15 @@ export default {
             if (this.isString(value)) {
                 const regex = /{([^}]*)}/g;
                 const val = value.trim();
+                const px = prefix.trim();
 
                 if (this.test(regex, val)) {
+                    const computedPx = this.isNotEmpty(px) ? `${px}-` : px;
                     const _val = val.replaceAll(regex, (v) => {
                         const path = v.replace(/{|}/g, '');
                         const keys = path.split('.').filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)));
 
-                        return `var(--${prefix}-${this.toKebabCase(keys.join('-'))})`;
+                        return `var(--${computedPx}${this.toKebabCase(keys.join('-'))})`;
                     });
 
                     const calculationRegex = /(\d+\s+[\+\-\*\/]\s+\d+)/g;
