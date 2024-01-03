@@ -4,8 +4,8 @@ export default {
             header: {
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                paddingX: '1.25rem',
-                paddingY: '1.25rem',
+                paddingX: '{p.5}',
+                paddingY: '{p.5}',
                 fontWeight: 700
             },
             headerIcon: {
@@ -16,18 +16,18 @@ export default {
                 borderRadius: '50%'
             },
             toggleableHeader: {
-                paddingX: '1.25rem',
-                paddingY: '0.75rem'
+                paddingX: '{p.5}',
+                paddingY: '{p.3}'
             },
             content: {
-                paddingX: '1.25rem',
-                paddingY: '1.25rem',
+                paddingX: '{p.5}',
+                paddingY: '{p.5}',
                 borderWidth: '1px',
                 borderStyle: 'solid'
             },
             footer: {
-                paddingX: '1.25rem',
-                paddingY: '0.75rem',
+                paddingX: '{p.5}',
+                paddingY: '{p.3}',
                 borderWidth: '1px',
                 borderStyle: 'solid'
             }
@@ -48,9 +48,7 @@ export default {
                         borderColor: 'transparent',
                         background: '{surface.100}'
                     },
-                    focus: {
-                        
-                    }
+                    focus: {}
                 }
             },
             content: {
@@ -123,7 +121,7 @@ export default {
     color: var(--p-panel-header-icon-color);
     border: var(--p-panel-header-icon-border-width) var(--p-panel-header-icon-border-style) var(--p-panel-header-icon-border-color);
     background: var(--p-panel-header-icon-background);
-    border-radius: var(--p-border-radius);
+    border-radius: var(--p-panel-header-icon-border-radius);
     transition: var(--p-transition);
 }
 .p-panel-header-icon:enabled:hover {

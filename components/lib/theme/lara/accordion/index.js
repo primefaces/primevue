@@ -2,15 +2,15 @@ export default {
     variables: {
         common: {
             header: {
-                paddingX: '1.25rem',
-                paddingY: '1.25rem',
+                paddingX: '{p.5}',
+                paddingY: '{p.5}',
                 borderWidth: '1px',
                 borderStyle: 'solid',
                 fontWeight: 700
             },
             content: {
-                paddingX: '1.25rem',
-                paddingY: '1.25rem',
+                paddingX: '{p.5}',
+                paddingY: '{p.5}',
                 borderWidth: '1px',
                 borderStyle: 'solid'
             },
@@ -32,12 +32,14 @@ export default {
                     active: {
                         background: '{shade.100}',
                         borderColor: '{shade.300}',
-                        color: '{shade.800}'
-                    },
-                    activeHover: {
-                        borderColor: '{shade.300}',
-                        background: '{shade.200}',
-                        color: '{shade.800}'
+                        color: '{shade.800}',
+                        states: {
+                            hover: {
+                                borderColor: '{shade.300}',
+                                background: '{shade.200}',
+                                color: '{shade.800}'
+                            }
+                        }
                     }
                 }
             },
@@ -100,7 +102,7 @@ export default {
     line-height: 1;
 }
 .p-accordion-toggle-icon {
-    margin-right: var(--p-gap);
+    margin-right: var(--p-inline-gap);
 }
 .p-accordion-header:not(.p-disabled) .p-accordion-header-action:focus-visible {
     outline: var(--p-focus-outline); /* @todo */

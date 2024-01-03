@@ -5,6 +5,20 @@ import panel from 'primevue/theme/lara/panel';
 
 export default {
     primitive: {
+        /*** @todo Remove ***/
+        shade: {
+            0: '#ffffff',
+            100: '#f9fafb',
+            200: '#f3f4f6',
+            300: '#e5e7eb',
+            400: '#d1d5db',
+            500: '#9ca3af',
+            600: '#6b7280',
+            700: '#4b5563',
+            800: '#374151',
+            900: '#1f2937'
+        },
+        /********************/
         emerald: {
             50: '#ecfdf5',
             100: '#d1fae5',
@@ -30,6 +44,42 @@ export default {
             800: '#1e293b',
             900: '#0f172a',
             950: '#020617'
+        },
+        gap: {
+            1: '0.25rem',
+            2: '0.5rem',
+            3: '0.75rem',
+            4: '1rem',
+            5: '1.25rem',
+            6: '1.5rem'
+        },
+        p: {
+            1: '0.25rem',
+            2: '0.5rem',
+            3: '0.75rem',
+            4: '1rem',
+            5: '1.25rem',
+            6: '1.5rem',
+            7: '1.75rem',
+            8: '2rem'
+        },
+        m: {
+            1: '0.25rem',
+            2: '0.5rem',
+            3: '0.75rem',
+            4: '1rem',
+            5: '1.25rem',
+            6: '1.5rem',
+            7: '1.75rem',
+            8: '2rem'
+        },
+        text: {
+            xs: '0.75rem',
+            sm: '0.875rem',
+            base: '1rem',
+            lg: '1.125rem',
+            xl: '1.25rem',
+            '2xl': '1.5rem'
         }
     },
     semantic: {
@@ -62,7 +112,7 @@ export default {
         },
         fontFamily: '"Inter var", sans-serif',
         borderRadius: '6px',
-        gap: '.5rem', // inline-spacing
+        inlineGap: '{gap.2}', // inline-spacing
         transitionDuration: '.2s',
         transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}'
     },

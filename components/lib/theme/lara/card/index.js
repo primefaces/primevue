@@ -2,24 +2,19 @@ export default {
     variables: {
         common: {
             body: {
-                paddingX: '1.25rem',
-                paddingY: '1.25rem'
+                paddingX: '{p.5}',
+                paddingY: '{p.5}',
+                gap: '{gap.5}'
+            },
+            caption: {
+                gap: '{gap.2}'
             },
             title: {
-                fontSize: '1.5rem',
+                fontSize: '{text.2xl}',
                 fontWeight: 700
             },
             subtitle: {
                 fontWeight: 400
-            },
-            content: {
-                paddingX: '0',
-                paddingY: '1.25rem'
-            },
-            footer: {
-                // 1.25rem 0 0 0
-                paddingX: '',
-                paddingY: ''
             }
         },
         light: {
@@ -51,23 +46,23 @@ export default {
     border-radius: var(--p-border-radius);
 }
 .p-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-card-body-gap);
     padding: var(--p-card-body-padding-y) var(--p-card-body-padding-x);
+}
+.p-card-caption {
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-card-caption-gap);
 }
 .p-card-title {
     font-size: var(--p-card-title-font-size);
     font-weight: var(--p-card-title-font-weight);
-    margin-bottom: var(--p-gap);
 }
 .p-card-subtitle {
     font-weight: var(--p-card-subtitle-font-weight);
-    margin-bottom: var(--p-gap);
     color: var(--p-card-subtitle-color);
-}
-.p-card-content {
-    padding: var(--p-card-content-padding-y) var(--p-card-content-padding-x);
-}
-.p-card-footer {
-    padding: var(--p-card-footer-padding-y) var(--p-card-footer-padding-x);
 }
     `
 };
