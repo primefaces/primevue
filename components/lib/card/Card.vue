@@ -4,11 +4,13 @@
             <slot name="header"></slot>
         </div>
         <div :class="cx('body')" v-bind="ptm('body')">
-            <div v-if="$slots.title" :class="cx('title')" v-bind="ptm('title')">
-                <slot name="title"></slot>
-            </div>
-            <div v-if="$slots.subtitle" :class="cx('subtitle')" v-bind="ptm('subtitle')">
-                <slot name="subtitle"></slot>
+            <div v-if="$slots.title || $slots.subtitle" :class="cx('caption')" v-bind="ptm('caption')">
+                <div v-if="$slots.title" :class="cx('title')" v-bind="ptm('title')">
+                    <slot name="title"></slot>
+                </div>
+                <div v-if="$slots.subtitle" :class="cx('subtitle')" v-bind="ptm('subtitle')">
+                    <slot name="subtitle"></slot>
+                </div>
             </div>
             <div :class="cx('content')" v-bind="ptm('content')">
                 <slot name="content"></slot>
