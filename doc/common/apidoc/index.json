@@ -8609,6 +8609,14 @@
                             "description": "Used to pass attributes to the body's DOM element."
                         },
                         {
+                            "name": "caption",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the caption's DOM element."
+                        },
+                        {
                             "name": "title",
                             "optional": true,
                             "readonly": false,
