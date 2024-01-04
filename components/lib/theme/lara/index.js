@@ -114,7 +114,13 @@ export default {
         borderRadius: '6px',
         inlineGap: '{gap.2}', // inline-spacing
         transitionDuration: '.2s',
-        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}'
+        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}, outline-color {transitionDuration}',
+        focusRing: {
+            width: '2px',
+            style: 'solid',
+            color: '{primary.500}',
+            offset: '2px'
+        }
     },
     components: {
         global,

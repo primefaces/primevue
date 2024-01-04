@@ -123,6 +123,7 @@ export default {
     background: var(--p-panel-header-icon-background);
     border-radius: var(--p-panel-header-icon-border-radius);
     transition: var(--p-transition);
+    outline-color: transparent;
 }
 .p-panel-header-icon:enabled:hover {
     color: var(--p-panel-header-icon-hover-color);
@@ -130,9 +131,8 @@ export default {
     background: var(--p-panel-header-icon-hover-background);
 }
 .p-panel-header-icon:focus-visible {
-    outline: var(--p-focus-outline); /* @todo */
-    outline-offset: var(--p-focus-outline-offset);
-    box-shadow: var(--p-focus-shadow);
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: var(--p-focus-ring-offset);
 }
 .p-panel-toggleable > .p-panel-header {
     padding: var(--p-panel-toggleable-header-padding-y) var(--p-panel-toggleable-header-padding-x);
