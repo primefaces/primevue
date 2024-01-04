@@ -27,7 +27,7 @@ export default {
             code1: {
                 basic: `
 <script>
-import 'primevue/resources/themes/lara-light-green/theme.csss'
+import 'primevue/resources/themes/lara-light-green/theme.css'
 <\/script>
 `
             },
