@@ -8,7 +8,7 @@
                         <div :class="cx('content')" v-bind="ptm('content')">
                             <slot name="icon">
                                 <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />
-                                <span v-else-if="confirmation.icon" :class="cx('icon')" v-bind="ptm('icon')" />
+                                <span v-else-if="confirmation.icon" :class="[confirmation.icon, cx('icon')]" v-bind="ptm('icon')" />
                             </slot>
                             <span :class="cx('message')" v-bind="ptm('message')">{{ confirmation.message }}</span>
                         </div>
