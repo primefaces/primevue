@@ -956,6 +956,10 @@ export default {
             input.value = this.formatValue(newValue);
             input.setAttribute('aria-valuenow', newValue);
             this.updateModel(event, newValue);
+
+            if (!this.disabled && !this.readonly && this.highlightOnFocus) {
+                DomHandler.clearSelection();
+            }
         },
         clearTimer() {
             if (this.timer) {
