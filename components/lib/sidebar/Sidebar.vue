@@ -72,7 +72,7 @@ export default {
         onEnter() {
             this.$emit('show');
             this.focus();
-            this.bindDocumentKeyDownListener()
+            this.bindDocumentKeyDownListener();
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
