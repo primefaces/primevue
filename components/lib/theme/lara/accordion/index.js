@@ -94,9 +94,7 @@ export default {
     font-weight: var(--p-accordion-header-font-weight);
     border-radius: var(--p-border-radius);
     transition: var(--p-transition);
-}
-.p-accordion-header-action:focus {
-    z-index: 1;
+    outline-color: transparent;
 }
 .p-accordion-header-text {
     line-height: 1;
@@ -105,9 +103,9 @@ export default {
     margin-right: var(--p-inline-gap);
 }
 .p-accordion-header:not(.p-disabled) .p-accordion-header-action:focus-visible {
-    outline: var(--p-focus-outline); /* @todo */
-    outline-offset: var(--p-focus-outline-offset);
-    box-shadow: inset var(--p-focus-shadow);
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: var(--p-focus-ring-offset);
+    z-index: 1;
 }
 .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-action {
     background: var(--p-accordion-header-hover-background);

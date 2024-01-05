@@ -47,8 +47,7 @@ export default {
                         color: '{surface.800}',
                         borderColor: 'transparent',
                         background: '{surface.100}'
-                    },
-                    focus: {}
+                    }
                 }
             },
             content: {
