@@ -12551,7 +12551,7 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when a chip is added."
+                            "description": "Callback to invoke when a color is selected."
                         },
                         {
                             "name": "show",
