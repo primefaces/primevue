@@ -2,7 +2,7 @@
     <Portal>
         <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
             <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" v-bind="{ ...$attrs, ...ptm('root') }">
                     <slot v-if="$slots.container" name="container" :onClose="hide" :closeCallback="hide"></slot>
                     <template v-else>
                         <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
@@ -49,6 +49,7 @@ export default {
     headerContainer: null,
     closeButton: null,
     outsideClickListener: null,
+    documentKeydownListener: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -71,6 +72,7 @@ export default {
         onEnter() {
             this.$emit('show');
             this.focus();
+            this.bindDocumentKeyDownListener();
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
@@ -92,6 +94,7 @@ export default {
                 ZIndexUtils.clear(this.mask);
             }
 
+            this.unbindDocumentKeyDownListener();
             this.containerVisible = false;
             this.disableDocumentSettings();
             this.$emit('after-hide');
@@ -153,6 +156,18 @@ export default {
         },
         closeButtonRef(el) {
             this.closeButton = el;
+        },
+        bindDocumentKeyDownListener() {
+            if (!this.documentKeydownListener) {
+                this.documentKeydownListener = this.onKeydown;
+                document.addEventListener('keydown', this.documentKeydownListener);
+            }
+        },
+        unbindDocumentKeyDownListener() {
+            if (this.documentKeydownListener) {
+                document.removeEventListener('keydown', this.documentKeydownListener);
+                this.documentKeydownListener = null;
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
