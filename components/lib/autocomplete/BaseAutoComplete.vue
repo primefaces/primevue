@@ -66,7 +66,7 @@ export default {
             default: 300
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         forceSelection: {

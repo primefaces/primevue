@@ -29,7 +29,7 @@ export default {
             default: 'single'
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         emptyMessage: {

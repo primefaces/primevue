@@ -79,7 +79,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         loading: {

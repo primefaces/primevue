@@ -173,7 +173,7 @@ export default {
             default: true
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         disabled: {
