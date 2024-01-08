@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.46.0](https://github.com/primefaces/primevue/tree/3.45.0) (2023-12-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.45.0...3.46.0)
+
+**Fixed bugs:**
+
+-   SVG clip path attribute should be clip-path and not clipPath [\#5036](https://github.com/primefaces/primevue/issues/5036)
+-   Tooltip arrow is broken [\#5033](https://github.com/primefaces/primevue/issues/5033)
+-   ConfirmDialog & ConfirmPopup: icon option class pt implementation defect [\#5028](https://github.com/primefaces/primevue/issues/5028)
+-   Sidebar: Escape key doesn't close the Slidebar [\#5016](https://github.com/primefaces/primevue/issues/5016)
+-   BodyRow: Cannot read propertie of null (reading 'forEach) [\#5005](https://github.com/primefaces/primevue/issues/5005)
+-   InputNumber: highlight on focus don't work on multiple inputs with the same value [\#5003](https://github.com/primefaces/primevue/issues/5003)
+-   TreeSelect: tab key control defect [\#4998](https://github.com/primefaces/primevue/issues/4998)
+-   bodyRow broken pt context options [\#4996](https://github.com/primefaces/primevue/issues/4996)
+-   VirtualScroller loading is not working on DataTable [\#4993](https://github.com/primefaces/primevue/issues/4993)
+-   added sortIcon property to type ColumnPassThroughOptionType [\#4992](https://github.com/primefaces/primevue/issues/4992)
+-   wrong type appendTo props [\#4905](https://github.com/primefaces/primevue/issues/4905)
+
+**Implemented New Features and Enhancements:**
+
+-   Add caption option to passthrough options on Card [\#5020](https://github.com/primefaces/primevue/issues/5020)
+-   CascadeSelect: context options improvements for pt [\#4995](https://github.com/primefaces/primevue/issues/4995)
+
 ## [3.45.0](https://github.com/primefaces/primevue/tree/3.45.0) (2023-12-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.44.0...3.45.0)
