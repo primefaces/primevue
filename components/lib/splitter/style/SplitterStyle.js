@@ -62,7 +62,7 @@ const inlineStyles = {
 
 export default BaseStyle.extend({
     name: 'splitter',
-    css,
+    //css,
     classes,
     inlineStyles
 });

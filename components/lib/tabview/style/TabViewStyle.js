@@ -105,6 +105,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tabview',
-    css,
+    //css,
     classes
 });

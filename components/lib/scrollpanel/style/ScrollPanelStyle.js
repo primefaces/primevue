@@ -70,6 +70,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'scrollpanel',
-    css,
+    //css,
     classes
 });

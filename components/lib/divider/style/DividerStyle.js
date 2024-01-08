@@ -90,7 +90,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'divider',
-    css,
+    //css,
     classes,
     inlineStyles
 });

@@ -39,6 +39,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'fieldset',
-    css,
+    //css,
     classes
 });

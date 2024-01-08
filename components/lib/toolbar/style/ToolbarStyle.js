@@ -33,6 +33,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'toolbar',
-    css,
+    //css,
     classes
 });
