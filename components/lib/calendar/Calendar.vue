@@ -2665,6 +2665,14 @@ export default {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
+            } else if (this.overlayVisible && event.code === 'Enter' && this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
+                try {
+                    if (this.isValidSelection(this.parseValue(event.target.value))) {
+                        this.overlayVisible = false;
+                    }
+                } catch (err) {
+                    /* NoOp */
+                }
             }
         },
         overlayRef(el) {
