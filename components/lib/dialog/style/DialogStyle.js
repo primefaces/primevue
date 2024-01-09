@@ -120,8 +120,8 @@ const css = `
         transform: none;
         width: 100vw !important;
         height: 100vh !important;
-        top: 0px;
-        left: 0px;
+        top: 0px !important;
+        left: 0px !important;
         max-height: 100%;
         height: 100%;
     }
