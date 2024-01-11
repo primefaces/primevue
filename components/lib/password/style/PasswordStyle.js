@@ -42,7 +42,6 @@ const classes = {
             'p-inputwrapper-filled': instance.filled,
             'p-inputwrapper-focus': instance.focused,
             'p-input-icon-right': props.toggleMask,
-            'p-filled': instance.filled,
             'p-inputtext-sm': props.size === 'small',
             'p-inputtext-lg': props.size === 'large'
         }
