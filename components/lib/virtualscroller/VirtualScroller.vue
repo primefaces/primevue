@@ -137,7 +137,7 @@ export default {
                     this.defaultContentWidth = DomHandler.getWidth(this.content);
                     this.defaultContentHeight = DomHandler.getHeight(this.content);
                     this.initialized = true;
-                }, 0);
+                }, this.delay);
             }
         },
         init() {
@@ -192,7 +192,6 @@ export default {
                 const horizontal = this.isHorizontal();
                 const { first, viewport } = this.getRenderedRange();
                 const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
-
                 const isToStart = to === 'to-start';
                 const isToEnd = to === 'to-end';
 
@@ -586,7 +585,7 @@ export default {
                 index,
                 count,
                 first: index === 0,
-                last: index === count - 1,
+                last: index === count - 195,
                 even: index % 2 === 0,
                 odd: index % 2 !== 0
             };
