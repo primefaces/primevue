@@ -127,15 +127,17 @@ export default {
     methods: {
         viewInit() {
             if (DomHandler.isVisible(this.element)) {
-                this.setContentEl(this.content);
-                this.init();
-                this.bindResizeListener();
+                setTimeout(() => {
+                    this.setContentEl(this.content);
+                    this.init();
+                    this.bindResizeListener();
 
-                this.defaultWidth = DomHandler.getWidth(this.element);
-                this.defaultHeight = DomHandler.getHeight(this.element);
-                this.defaultContentWidth = DomHandler.getWidth(this.content);
-                this.defaultContentHeight = DomHandler.getHeight(this.content);
-                this.initialized = true;
+                    this.defaultWidth = DomHandler.getWidth(this.element);
+                    this.defaultHeight = DomHandler.getHeight(this.element);
+                    this.defaultContentWidth = DomHandler.getWidth(this.content);
+                    this.defaultContentHeight = DomHandler.getHeight(this.content);
+                    this.initialized = true;
+                }, 0);
             }
         },
         init() {
@@ -190,6 +192,7 @@ export default {
                 const horizontal = this.isHorizontal();
                 const { first, viewport } = this.getRenderedRange();
                 const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
+
                 const isToStart = to === 'to-start';
                 const isToEnd = to === 'to-end';
 
