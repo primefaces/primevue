@@ -5742,8 +5742,10 @@
     color: #ffffff;
   }
   .p-tag .p-tag-icon {
-    margin-right: 0.25rem;
     font-size: 0.75rem;
+  }
+  .p-tag .p-tag-icon:not(:last-child) {
+    margin-right: 0.25rem;
   }
   .p-tag .p-tag-icon.p-icon {
     width: 0.75rem;
