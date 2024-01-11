@@ -585,7 +585,7 @@ export default {
                 index,
                 count,
                 first: index === 0,
-                last: index === count - 195,
+                last: index === count - 1,
                 even: index % 2 === 0,
                 odd: index % 2 !== 0
             };
