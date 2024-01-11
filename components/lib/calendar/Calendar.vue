@@ -2665,13 +2665,9 @@ export default {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
-            } else if (this.overlayVisible && event.code === 'Enter' && this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
-                try {
-                    if (this.isValidSelection(this.parseValue(event.target.value))) {
-                        this.overlayVisible = false;
-                    }
-                } catch (err) {
-                    /* NoOp */
+            } else if (event.code === 'Enter') {
+                if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '' && this.isValidSelection(this.parseValue(event.target.value))) {
+                    this.overlayVisible = false;
                 }
             }
         },
