@@ -60,6 +60,7 @@ const STYLE_ALIAS = {
     'primevue/menu/style': path.resolve(__dirname, './components/lib/menu/style/MenuStyle.js'),
     'primevue/menubar/style': path.resolve(__dirname, './components/lib/menubar/style/MenubarStyle.js'),
     'primevue/message/style': path.resolve(__dirname, './components/lib/message/style/MessageStyle.js'),
+    'primevue/metergroup/style': path.resolve(__dirname, './components/lib/metergroup/style/MeterGroupStyle.js'),
     'primevue/multiselect/style': path.resolve(__dirname, './components/lib/multiselect/style/MultiSelectStyle.js'),
     'primevue/orderlist/style': path.resolve(__dirname, './components/lib/orderlist/style/OrderListStyle.js'),
     'primevue/organizationchart/style': path.resolve(__dirname, './components/lib/organizationchart/style/OrganizationChartStyle.js'),
