@@ -400,6 +400,11 @@
                             "to": "/inplace"
                         },
                         {
+                            "name": "MeterGroup",
+                            "to": "/metergroup",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "ScrollTop",
                             "to": "/scrolltop"
                         },
