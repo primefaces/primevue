@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/password/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/password/BasicDoc.vue';
+import SizesDoc from '@/doc/password/SizesDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/password/ImportDoc.vue';
@@ -30,6 +31,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'meter',

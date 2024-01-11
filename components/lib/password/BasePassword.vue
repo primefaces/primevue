@@ -102,6 +102,10 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        size: {
+            type: String,
+            default: null
         }
     },
     style: PasswordStyle,

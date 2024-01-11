@@ -290,6 +290,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
 }
 
 /**
