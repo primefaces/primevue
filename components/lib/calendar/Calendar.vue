@@ -2666,8 +2666,16 @@ export default {
                     this.overlayVisible = false;
                 }
             } else if (event.code === 'Enter') {
-                if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '' && this.isValidSelection(this.parseValue(event.target.value))) {
-                    this.overlayVisible = false;
+                if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
+                    try {
+                        let value = this.parseValue(event.target.value);
+
+                        if (this.isValidSelection(value)) {
+                            this.overlayVisible = false;
+                        }
+                    } catch (err) {
+                        /* NoOp */
+                    }
                 }
             }
         },
