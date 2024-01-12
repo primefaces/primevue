@@ -62,7 +62,7 @@ export default {
         percent(meter) {
             const percentOfItem = ((meter - this.min) / (this.max - this.min)) * 100;
 
-            return Math.max(0, Math.min(100, percentOfItem));
+            return Math.round(Math.max(0, Math.min(100, percentOfItem)));
         },
         percentValue(meter) {
             return this.percent(meter) + '%';
