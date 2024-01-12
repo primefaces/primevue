@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tabview">
+    <div :class="cx('root')" role="tablist" v-bind="ptm('root')" data-pc-name="tabview">
         <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
@@ -18,7 +18,7 @@
                 </slot>
             </button>
             <div ref="content" :class="cx('navContent')" @scroll="onScroll" v-bind="ptm('navContent')">
-                <ul ref="nav" :class="cx('nav')" role="tablist" v-bind="ptm('nav')">
+                <ul ref="nav" :class="cx('nav')" v-bind="ptm('nav')">
                     <li
                         v-for="(tab, index) of tabs"
                         :key="getKey(tab, index)"
