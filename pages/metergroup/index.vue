@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/metergroup/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/metergroup/BasicDoc.vue';
+import MultipleDoc from '@/doc/metergroup/MultipleDoc.vue';
 import ImportDoc from '@/doc/metergroup/ImportDoc.vue';
 import VerticalDoc from '@/doc/metergroup/VerticalDoc.vue';
 import LabelDoc from '@/doc/metergroup/LabelDoc.vue';
@@ -28,14 +29,19 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'vertical',
-                    label: 'Vertical',
-                    component: VerticalDoc
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
                 },
                 {
                     id: 'label',
                     label: 'Label',
                     component: LabelDoc
+                },
+                {
+                    id: 'vertical',
+                    label: 'Vertical',
+                    component: VerticalDoc
                 },
                 {
                     id: 'minmax',

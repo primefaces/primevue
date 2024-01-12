@@ -12,7 +12,11 @@
 export default {
     data() {
         return {
-            value: [{ label: 'Space used', value: 15 }],
+            value: [
+                { color: '#239EF0', label: 'Mortgage', value: 25 },
+                { color: '#FAA419', label: 'Loan', value: 15 },
+                { color: '#EE5879', label: 'Credit Card', value: 20 }
+            ],
             code: {
                 basic: `
 <MeterGroup :value="value" />
@@ -28,7 +32,11 @@ export default {
 export default {
     data() {
         return {
-            value: [{ label: 'Space used', value: 15 }],
+            value: [
+                { color: '#239EF0', label: 'Mortgage', value: 25 },
+                { color: '#FAA419', label: 'Loan', value: 15 },
+                { color: '#EE5879', label: 'Credit Card', value: 20 }
+            ]
         };
     }
 };
@@ -44,7 +52,11 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const value = ref([{ label: 'Space used', value: 15 }]);
+const value = ref([
+    { color: '#239EF0', label: 'Mortgage', value: 25 },
+    { color: '#FAA419', label: 'Loan', value: 15 },
+    { color: '#EE5879', label: 'Credit Card', value: 20 }
+]);
 <\/script>
 `
             }

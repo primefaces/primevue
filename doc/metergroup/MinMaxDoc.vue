@@ -12,7 +12,7 @@
 export default {
     data() {
         return {
-            value: [{ label: 'Space used', value: 15 }],
+            value: [{ label: 'Space used', value: 15, color: '#FDBB74' }],
             code: {
                 basic: `
 <MeterGroup :value="value" :min="-50" :max="50" />
