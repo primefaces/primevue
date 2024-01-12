@@ -7,21 +7,29 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: null,
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        readonly: {
             type: Boolean,
             default: false
         },
         tabindex: {
             type: Number,
-            default: 0
+            default: null
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: [String, Object],
+            default: null
+        },
+        inputStyle: {
+            type: Object,
+            default: null
         },
         ariaLabelledby: {
             type: String,

@@ -153,7 +153,6 @@ export default {
                 this.handleIndex = index;
             }
 
-            event.currentTarget.focus();
             event.preventDefault();
         },
         onDrag(event) {

@@ -1,25 +1,25 @@
 <template>
-    <div :class="cx('root')" @click="onClick($event)" v-bind="getPTOptions('root')" data-pc-name="checkbox">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-            <input
-                ref="input"
-                :id="inputId"
-                type="checkbox"
-                :value="value"
-                :name="name"
-                :checked="checked"
-                :tabindex="tabindex"
-                :disabled="disabled"
-                :readonly="readonly"
-                :required="required"
-                :aria-labelledby="ariaLabelledby"
-                :aria-label="ariaLabel"
-                @focus="onFocus($event)"
-                @blur="onBlur($event)"
-                v-bind="ptm('hiddenInput')"
-            />
-        </div>
-        <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...getPTOptions('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="checkbox" :data-p-highlight="checked" :data-p-disabled="disabled">
+        <input
+            :id="inputId"
+            type="checkbox"
+            :class="[cx('input'), inputClass]"
+            :style="inputStyle"
+            :value="value"
+            :name="name"
+            :checked="checked"
+            :tabindex="tabindex"
+            :disabled="disabled"
+            :readonly="readonly"
+            :required="required"
+            :aria-labelledby="ariaLabelledby"
+            :aria-label="ariaLabel"
+            @focus="onFocus"
+            @blur="onBlur"
+            @change="onChange"
+            v-bind="getPTOptions('input')"
+        />
+        <div :class="cx('box')" v-bind="getPTOptions('box')">
             <slot name="icon" :checked="checked" :class="cx('icon')">
                 <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
             </slot>
@@ -35,23 +35,17 @@ import BaseCheckbox from './BaseCheckbox.vue';
 export default {
     name: 'Checkbox',
     extends: BaseCheckbox,
-    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
-    data() {
-        return {
-            focused: false
-        };
-    },
+    emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
                     checked: this.checked,
-                    focused: this.focused,
                     disabled: this.disabled
                 }
             });
         },
-        onClick(event) {
+        onChange(event) {
             if (!this.disabled && !this.readonly) {
                 let newModelValue;
 
@@ -62,19 +56,14 @@ export default {
                     else newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value];
                 }
 
-                this.$emit('click', event);
                 this.$emit('update:modelValue', newModelValue);
                 this.$emit('change', event);
-                this.$emit('input', newModelValue);
-                this.$refs.input.focus();
             }
         },
         onFocus(event) {
-            this.focused = true;
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
             this.$emit('blur', event);
         }
     },
@@ -84,7 +73,7 @@ export default {
         }
     },
     components: {
-        CheckIcon: CheckIcon
+        CheckIcon
     }
 };
 </script>

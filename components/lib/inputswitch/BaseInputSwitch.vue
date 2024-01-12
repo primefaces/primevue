@@ -22,6 +22,14 @@ export default {
             type: Boolean,
             default: false
         },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: Number,
+            default: null
+        },
         inputId: {
             type: String,
             default: null
@@ -32,10 +40,6 @@ export default {
         },
         inputStyle: {
             type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
             default: null
         },
         ariaLabelledby: {

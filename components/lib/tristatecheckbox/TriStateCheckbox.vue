@@ -1,32 +1,31 @@
 <template>
-    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="tristatecheckbox">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-            <input
-                ref="input"
-                :id="inputId"
-                type="checkbox"
-                :checked="modelValue === true"
-                :tabindex="tabindex"
-                :disabled="disabled"
-                :aria-labelledby="ariaLabelledby"
-                :aria-label="ariaLabel"
-                @keydown="onKeyDown($event)"
-                @focus="onFocus($event)"
-                @blur="onBlur($event)"
-                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
-            />
-        </div>
-        <span role="status" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="cx('checkbox')" v-bind="getPTOptions('checkbox')" :data-p-highlight="modelValue != null" :data-p-disabled="disabled" :data-p-focused="focused">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="tristatecheckbox" :data-p-highlight="active" :data-p-disabled="disabled">
+        <input
+            :id="inputId"
+            type="checkbox"
+            :class="[cx('input'), inputClass]"
+            :style="inputStyle"
+            :value="modelValue"
+            :checked="checked"
+            :tabindex="tabindex"
+            :disabled="disabled"
+            :readonly="readonly"
+            :aria-labelledby="ariaLabelledby"
+            :aria-label="ariaLabel"
+            @focus="onFocus"
+            @blur="onBlur"
+            @change="onChange"
+            v-bind="getPTOptions('input')"
+        />
+        <span role="status" class="p-hidden-accessible" aria-live="polite" v-bind="getPTOptions('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
+        <div :class="cx('box')" v-bind="getPTOptions('box')">
             <slot v-if="modelValue === true" name="checkicon" :class="cx('checkIcon')">
-                <component :is="'CheckIcon'" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
+                <CheckIcon :class="cx('checkIcon')" v-bind="getPTOptions('checkIcon')" />
             </slot>
             <slot v-else-if="modelValue === false" name="uncheckicon" :class="cx('uncheckIcon')">
-                <component :is="'TimesIcon'" :class="cx('uncheckIcon')" v-bind="ptm('uncheckIcon')" />
+                <TimesIcon :class="cx('uncheckIcon')" v-bind="getPTOptions('uncheckIcon')" />
             </slot>
-            <slot v-else name="nullableicon" :class="cx('nullableIcon')">
-                <span :class="cx('nullableIcon')" v-bind="ptm('nullableIcon')"></span>
-            </slot>
+            <slot v-else name="nullableicon" :class="cx('nullableIcon')" />
         </div>
     </div>
 </template>
@@ -39,73 +38,62 @@ import BaseTriStateCheckbox from './BaseTriStateCheckbox.vue';
 export default {
     name: 'TriStateCheckbox',
     extends: BaseTriStateCheckbox,
-    emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
-    data() {
-        return {
-            focused: false
-        };
-    },
+    emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
-                    active: this.modelValue !== null,
-                    focused: this.focused,
+                    active: this.active,
                     disabled: this.disabled
                 }
             });
         },
         updateModel() {
-            if (!this.disabled) {
-                let newValue;
+            let newValue;
 
-                switch (this.modelValue) {
-                    case true:
-                        newValue = false;
-                        break;
+            switch (this.modelValue) {
+                case true:
+                    newValue = false;
+                    break;
 
-                    case false:
-                        newValue = null;
-                        break;
+                case false:
+                    newValue = null;
+                    break;
 
-                    default:
-                        newValue = true;
-                        break;
-                }
-
-                this.$emit('update:modelValue', newValue);
+                default:
+                    newValue = true;
+                    break;
             }
+
+            this.$emit('update:modelValue', newValue);
         },
-        onClick(event) {
-            this.updateModel();
-            this.$emit('click', event);
-            this.$emit('change', event);
-            this.$refs.input.focus();
-        },
-        onKeyDown(event) {
-            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        onChange(event) {
+            if (!this.disabled && !this.readonly) {
                 this.updateModel();
-                this.$emit('keydown', event);
-                event.preventDefault();
+                this.$emit('change', event);
             }
         },
         onFocus(event) {
-            this.focused = true;
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
             this.$emit('blur', event);
         }
     },
     computed: {
+        active() {
+            return this.modelValue != null;
+        },
+        checked() {
+            return this.modelValue === true;
+        },
         ariaValueLabel() {
             return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel;
         }
     },
     components: {
-        CheckIcon: CheckIcon,
-        TimesIcon: TimesIcon
+        CheckIcon,
+        TimesIcon
     }
 };
 </script>

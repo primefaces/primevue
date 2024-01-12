@@ -49,10 +49,6 @@ export default {
             type: Object,
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
         ariaLabelledby: {
             type: String,
             default: null

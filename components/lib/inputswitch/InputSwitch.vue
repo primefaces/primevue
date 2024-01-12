@@ -1,24 +1,24 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="inputswitch">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-            <input
-                ref="input"
-                :id="inputId"
-                type="checkbox"
-                role="switch"
-                :class="inputClass"
-                :style="inputStyle"
-                :checked="checked"
-                :disabled="disabled"
-                :aria-checked="checked"
-                :aria-labelledby="ariaLabelledby"
-                :aria-label="ariaLabel"
-                @focus="onFocus($event)"
-                @blur="onBlur($event)"
-                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
-            />
-        </div>
-        <span :class="cx('slider')" v-bind="ptm('slider')"></span>
+    <div :class="cx('root')" :style="sx('root')" v-bind="getPTOptions('root')" data-pc-name="inputswitch" :data-p-highlight="checked" :data-p-disabled="disabled">
+        <input
+            :id="inputId"
+            type="checkbox"
+            role="switch"
+            :class="[cx('input'), inputClass]"
+            :style="inputStyle"
+            :checked="checked"
+            :tabindex="tabindex"
+            :disabled="disabled"
+            :readonly="readonly"
+            :aria-checked="checked"
+            :aria-labelledby="ariaLabelledby"
+            :aria-label="ariaLabel"
+            @focus="onFocus"
+            @blur="onBlur"
+            @change="onChange"
+            v-bind="getPTOptions('input')"
+        />
+        <span :class="cx('slider')" v-bind="getPTOptions('slider')"></span>
     </div>
 </template>
 
@@ -28,30 +28,28 @@ import BaseInputSwitch from './BaseInputSwitch.vue';
 export default {
     name: 'InputSwitch',
     extends: BaseInputSwitch,
-    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
-    data() {
-        return {
-            focused: false
-        };
-    },
+    emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
-        onClick(event) {
-            if (!this.disabled) {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    checked: this.checked,
+                    disabled: this.disabled
+                }
+            });
+        },
+        onChange(event) {
+            if (!this.disabled && !this.readonly) {
                 const newValue = this.checked ? this.falseValue : this.trueValue;
 
-                this.$emit('click', event);
                 this.$emit('update:modelValue', newValue);
                 this.$emit('change', event);
-                this.$emit('input', newValue);
-                this.$refs.input.focus();
             }
         },
         onFocus(event) {
-            this.focused = true;
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
             this.$emit('blur', event);
         }
     },

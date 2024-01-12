@@ -71,26 +71,6 @@ const buttonCSS = `
 }
 `;
 
-const checkboxCSS = `
-.p-checkbox {
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: bottom;
-    position: relative;
-}
-
-.p-checkbox.p-checkbox-disabled {
-    cursor: default;
-}
-
-.p-checkbox-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-`;
-
 const inputTextCSS = `
 .p-fluid .p-inputtext {
     width: 100%;
@@ -190,39 +170,6 @@ const inputTextCSS = `
 .p-fluid .p-input-icon-right {
     display: block;
     width: 100%;
-}
-`;
-
-const radioButtonCSS = `
-.p-radiobutton {
-    position: relative;
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: bottom;
-}
-
-.p-radiobutton.p-radiobutton-disabled {
-    cursor: default;
-}
-
-.p-radiobutton-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.p-radiobutton-icon {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0) scale(.1);
-    border-radius: 50%;
-    visibility: hidden;
-}
-
-.p-radiobutton-box.p-highlight .p-radiobutton-icon {
-    transform: translateZ(0) scale(1.0, 1.0);
-    visibility: visible;
 }
 `;
 
@@ -348,9 +295,7 @@ const css = `
     transition: max-height 1s ease-in-out;
 }
 ${buttonCSS}
-${checkboxCSS}
 ${inputTextCSS}
-${radioButtonCSS}
 }
 `;
 
