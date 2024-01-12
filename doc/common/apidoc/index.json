@@ -38411,6 +38411,12 @@
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": [
                         {
+                            "name": "alignOverlay",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Aligns overlay panel based on the current position of the container."
+                        },
+                        {
                             "name": "toggle",
                             "parameters": [
                                 {
