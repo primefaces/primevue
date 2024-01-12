@@ -4,7 +4,7 @@
             <ol :class="cx('labellist')" v-bind="ptm('labellist')">
                 <li v-for="(val, index) in value" :key="index + '_label'" :class="cx('labellistitem')" v-bind="ptm('labellistitem')">
                     <slot name="icon" :value="val" :class="cx('labelicon')">
-                        <i v-if="val.icon" :class="[val.icon, cx('labelicon')]" v-bind="ptm('labelicon')" />
+                        <i v-if="val.icon" :class="[val.icon, cx('labelicon')]" :style="{ color: val.color }" v-bind="ptm('labelicon')" />
                         <span v-else :class="cx('labellisttype')" :style="{ backgroundColor: val.color }" v-bind="ptm('labellisttype')" />
                     </slot>
                     <span :class="cx('label')" v-bind="ptm('label')">{{ val.label }} ({{ percentValue(val.value) }})</span>
