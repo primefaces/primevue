@@ -67,8 +67,6 @@ export default {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--surface-100), rgba(255, 255, 255, 0));
 }
 
-
-
 @keyframes deferred-demo-loading {
     from {
         transform: translateX(-100%);
