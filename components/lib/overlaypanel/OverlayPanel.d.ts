@@ -245,6 +245,10 @@ export interface OverlayPanelEmits {
  */
 declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
     /**
+     * Aligns overlay panel based on the current position of the container.
+     */
+    alignOverlay(): void;
+    /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
      * @param {*} [target] - Optional target if event.currentTarget should not be used.
