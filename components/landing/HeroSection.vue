@@ -144,7 +144,7 @@
                                         },
                                         menu: {
                                             root: {
-                                                style: 'width: 10rem; min-width: auto',
+                                                style: 'width: 10rem; min-width: auto'
                                             },
                                             action: 'p-2'
                                         }
