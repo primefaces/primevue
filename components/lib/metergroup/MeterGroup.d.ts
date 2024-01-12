@@ -223,6 +223,19 @@ export interface MeterGroupSlots {
         totalPercent: string;
     }): VNode[];
     /**
+     * Custom icon template.
+     */
+    icon(scope: {
+        /**
+         * Current value of the component
+         */
+        value: MeterItemOptions;
+        /**
+         * Style class of the icon
+         */
+        class: string;
+    }): VNode[];
+    /**
      * Custom start template.
      */
     start(scope: {

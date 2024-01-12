@@ -26,12 +26,16 @@ const css = `
         list-style-type: none;
     }
 
-    .p-metergroup-label-list-horizontal {
+    .p-metergroup-vertical .p-metergroup-label-list {
+        align-items: start;
+    }
+
+    .p-metergroup-horizontal .p-metergroup-label-list-vertical {
         flex-direction: column;
     }
 
-    .p-metergroup-vertical .p-metergroup-label-list-vertical {
-        align-items: start;
+    .p-metergroup-vertical .p-metergroup-label-list-horizontal {
+        flex-direction: column;
     }
 
     .p-metergroup-label-list-item {
@@ -41,6 +45,12 @@ const css = `
 
     .p-metergroup-label-type {
         display: inline-block;
+    }
+
+    .p-metergroup-label-icon {
+        width: 1rem;
+        height: 1rem;
+        margin-right: .5rem;
     }
 }
 `;
@@ -65,6 +75,7 @@ const classes = {
         }
     ],
     labellistitem: 'p-metergroup-label-list-item',
+    labelicon: 'p-metergroup-label-icon',
     labellisttype: 'p-metergroup-label-type',
     label: 'p-metergroup-label'
 };
