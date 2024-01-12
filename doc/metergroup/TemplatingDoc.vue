@@ -20,7 +20,7 @@
             <template #start="{ totalPercent }">
                 <div class="flex justify-content-between mt-3 mb-2">
                     <span>Account </span>
-                    <span :style="{ 'margin-left': totalPercent }" class="absolute">{{ totalPercent }}</span>
+                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
@@ -52,8 +52,9 @@ export default {
         </div>
     </template>
     <template #start="{ totalPercent }">
-        <div class="flex mt-3 mb-2 justify-content-between">
-            <span>Total spent: {{ totalPercent }}</span>
+        <div class="flex justify-content-between mt-3 mb-2">
+            <span>Account </span>
+            <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
             <span>Savings: 1000$ </span>
         </div>
     </template>
@@ -74,8 +75,9 @@ export default {
                 </div>
             </template>
             <template #start="{ totalPercent }">
-                <div class="flex mt-3 mb-2 justify-content-between">
-                    <span>Total spent: {{ totalPercent }}</span>
+                <div class="flex justify-content-between mt-3 mb-2">
+                    <span>Account </span>
+                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
@@ -112,8 +114,9 @@ export default {
                 </div>
             </template>
             <template #start="{ totalPercent }">
-                <div class="flex mt-3 mb-2 justify-content-between">
-                    <span>Total spent: {{ totalPercent }}</span>
+                <div class="flex justify-content-between mt-3 mb-2">
+                    <span>Account </span>
+                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
