@@ -10952,12 +10952,10 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "[key: string]",
                             "optional": false,
                             "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focus state as a boolean."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -11071,14 +11069,6 @@
                             "description": "Inline style of the input field."
                         },
                         {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
-                        },
-                        {
                             "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
@@ -11134,14 +11124,6 @@
                             "description": "Current checked state of the item as a boolean."
                         },
                         {
-                            "name": "focused",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focus state of the item as a boolean."
-                        },
-                        {
                             "name": "disabled",
                             "optional": false,
                             "readonly": false,
@@ -11191,19 +11173,6 @@
                             "description": "Emitted when the page changes."
                         },
                         {
-                            "name": "click",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "optional": false,
-                                    "type": "MouseEvent",
-                                    "description": "Browser event."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Callback to invoke on value click."
-                        },
-                        {
                             "name": "change",
                             "parameters": [
                                 {
@@ -11217,17 +11186,30 @@
                             "description": "Callback to invoke on value change."
                         },
                         {
-                            "name": "input",
+                            "name": "focus",
                             "parameters": [
                                 {
-                                    "name": "value",
+                                    "name": "event",
                                     "optional": false,
-                                    "type": "boolean",
-                                    "description": "New value."
+                                    "type": "Event",
+                                    "description": "Browser event."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke on value change."
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
                         }
                     ]
                 }
