@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Default layout of MeterGroup is <i>horizontal</i>, and also <i>orientation</i> property can be set as <i>vertical</i>.In addition, position of the label can be changed using <i>labelPosition</i> property that the default value is
+            Default layout of MeterGroup is <i>horizontal</i>, and also <i>labelOrientation</i> property can be set as <i>vertical</i>.In addition, position of the label can be changed using <i>labelPosition</i> property that the default value is
             <i>end</i> and also <i>start</i> option is available.
         </p>
     </DocSectionText>
     <div class="card">
-        <MeterGroup :value="value" labelOrientation="vertical" labelPosition="start" />
+        <MeterGroup :value="value" labelPosition="start" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,18 +16,19 @@ export default {
     data() {
         return {
             value: [
-                { color: '#239EF0', label: 'Mortgage', value: 25 },
-                { color: '#FAA419', label: 'Loan', value: 15 },
-                { color: '#EE5879', label: 'Credit Card', value: 20 }
+                { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
+                { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
+                { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
+                { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
             ],
             code: {
                 basic: `
-<MeterGroup :value="value" labelOrientation="vertical" labelPosition="start" />
+<MeterGroup :value="value" labelPosition="start" />
 `,
                 options: `
 <template>
     <div class="card">
-        <MeterGroup :value="value" labelOrientation="vertical" labelPosition="start" />
+        <MeterGroup :value="value" labelPosition="start" />
     </div>
 </template>
 
@@ -36,9 +37,10 @@ export default {
     data() {
         return {
             value: [
-                { color: '#239EF0', label: 'Mortgage', value: 25 },
-                { color: '#FAA419', label: 'Loan', value: 15 },
-                { color: '#EE5879', label: 'Credit Card', value: 20 }
+                { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
+                { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
+                { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
+                { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
             ]
         };
     }
@@ -48,7 +50,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <MeterGroup :value="value" labelOrientation="vertical" labelPosition="start" />
+        <MeterGroup :value="value" labelPosition="start" />
     </div>
 </template>
 
@@ -56,9 +58,10 @@ export default {
 import { ref } from "vue";
 
 const value = ref([
-    { color: '#239EF0', label: 'Mortgage', value: 25 },
-    { color: '#FAA419', label: 'Loan', value: 15 },
-    { color: '#EE5879', label: 'Credit Card', value: 20 }
+    { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
+    { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
+    { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
+    { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
 ]);
 <\/script>
 `
