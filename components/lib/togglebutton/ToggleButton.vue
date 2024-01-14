@@ -1,5 +1,5 @@
 <template>
-    <div v-ripple :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="togglebutton" :data-p-highlight="active" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="togglebutton" :data-p-highlight="active" :data-p-disabled="disabled">
         <input
             :id="inputId"
             type="checkbox"
@@ -18,10 +18,12 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <slot name="icon" :value="modelValue" :class="cx('icon')">
-            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
-        </slot>
-        <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
+        <div v-ripple :class="cx('box')" v-bind="getPTOptions('box')">
+            <slot name="icon" :value="modelValue" :class="cx('icon')">
+                <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
+            </slot>
+            <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
+        </div>
     </div>
 </template>
 
