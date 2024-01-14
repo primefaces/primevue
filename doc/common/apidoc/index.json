@@ -43161,6 +43161,14 @@
                             "description": "Name of the input element."
                         },
                         {
+                            "name": "binary",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Allows to select a boolean value."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
