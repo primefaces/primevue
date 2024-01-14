@@ -68,16 +68,12 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" :class="cx('header')" v-bind="ptm('header')">
-                        <div v-if="showToggleAll && selectionLimit == null" :class="cx('headerCheckboxContainer')" @click="onToggleAll" v-bind="ptm('headerCheckboxContainer')">
-                            <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-                                <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" v-bind="ptm('headerCheckbox')" />
-                            </div>
-                            <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
-                                <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
-                                    <component v-show="allSelected" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
-                                </slot>
-                            </div>
-                        </div>
+                        <Checkbox v-if="showToggleAll && selectionLimit == null" :modelValue="allSelected" :binary="true" :disabled="disabled" :aria-label="toggleAllAriaLabel" @change="onToggleAll" :pt="getHeaderCheckboxPTOptions('headerCheckbox')">
+                            <template #icon="slotProps">
+                                <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
+                                <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox.icon')" />
+                            </template>
+                        </Checkbox>
                         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
                             <input
                                 ref="filterInput"
@@ -135,18 +131,17 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <div :class="cx('checkboxContainer')" v-bind="ptm('checkboxContainer')">
-                                                <div :class="cx('checkbox', { option })" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
-                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" :class="cx('checkboxIcon')">
-                                                        <component
-                                                            v-show="isSelected(option)"
-                                                            :is="checkboxIcon ? 'span' : 'CheckIcon'"
-                                                            :class="[cx('checkboxIcon'), { [checkboxIcon]: isSelected(option) }]"
-                                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"
-                                                        />
-                                                    </slot>
-                                                </div>
-                                            </div>
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                                <template #icon="slotProps">
+                                                    <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
+                                                    <component
+                                                        v-else-if="slotProps.checked"
+                                                        :is="checkboxIcon ? 'span' : 'CheckIcon'"
+                                                        :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]"
+                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox.icon')"
+                                                    />
+                                                </template>
+                                            </Checkbox>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
                                                 <span v-bind="ptm('option')">{{ getOptionLabel(option) }}</span>
                                             </slot>
@@ -191,6 +186,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
@@ -224,7 +220,6 @@ export default {
             id: this.$attrs.id,
             focused: false,
             focusedOptionIndex: -1,
-            headerCheckboxFocused: false,
             filterValue: null,
             overlayVisible: false
         };
@@ -272,8 +267,7 @@ export default {
         getHeaderCheckboxPTOptions(key) {
             return this.ptm(key, {
                 context: {
-                    selected: this.allSelected,
-                    focused: this.headerCheckboxFocused
+                    selected: this.allSelected
                 }
             });
         },
@@ -437,12 +431,6 @@ export default {
         },
         onCloseClick() {
             this.hide(true);
-        },
-        onHeaderCheckboxFocus() {
-            this.headerCheckboxFocused = true;
-        },
-        onHeaderCheckboxBlur() {
-            this.headerCheckboxFocused = false;
         },
         onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
@@ -788,8 +776,6 @@ export default {
 
                 this.updateModel(event, value);
             }
-
-            this.headerCheckboxFocused = true;
         },
         removeOption(event, optionValue) {
             let value = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
@@ -1061,14 +1047,15 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        TimesIcon: TimesIcon,
-        SearchIcon: SearchIcon,
-        TimesCircleIcon: TimesCircleIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        CheckIcon: CheckIcon
+        Checkbox,
+        VirtualScroller,
+        Portal,
+        TimesIcon,
+        SearchIcon,
+        TimesCircleIcon,
+        ChevronDownIcon,
+        SpinnerIcon,
+        CheckIcon
     }
 };
 </script>

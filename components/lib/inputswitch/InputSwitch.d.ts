@@ -31,6 +31,10 @@ export interface InputSwitchPassThroughMethodOptions {
      */
     state: InputSwitchState;
     /**
+     * Defines current options.
+     */
+    context: InputSwitchContext;
+    /**
      * Defines valid attributes.
      */
     attrs: any;
@@ -54,17 +58,13 @@ export interface InputSwitchPassThroughOptions {
      */
     root?: InputSwitchPassThroughOptionType;
     /**
+     * Used to pass attributes to the input's DOM element.
+     */
+    input?: InputSwitchPassThroughOptionType;
+    /**
      * Used to pass attributes to the slider's DOM element.
      */
     slider?: InputSwitchPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: InputSwitchPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: InputSwitchPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -83,11 +83,7 @@ export interface InputSwitchPassThroughAttributes {
  * Defines current inline state in InputSwitch component.
  */
 export interface InputSwitchState {
-    /**
-     * Current focus state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
+    [key: string]: any;
 }
 
 /**
@@ -114,6 +110,15 @@ export interface InputSwitchProps {
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * When present, it specifies that an input field is read-only.
+     * @default false
+     */
+    readonly?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
     /**
      * 	Identifier of the underlying input element.
      */
@@ -155,6 +160,22 @@ export interface InputSwitchProps {
     unstyled?: boolean;
 }
 
+/**
+ * Defines current options in InputSwitch component.
+ */
+export interface InputSwitchContext {
+    /**
+     * Current checked state of the item as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
 export interface InputSwitchSlots {}
 
 /**
@@ -167,20 +188,20 @@ export interface InputSwitchEmits {
      */
     'update:modelValue'(value: boolean): void;
     /**
-     * Callback to invoke on click.
-     * @param {Event} event - Browser event.
-     */
-    click(event: Event): void;
-    /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
     change(event: Event): void;
     /**
-     * Callback to invoke on value change.
-     * @param {boolean} value - New value.
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
      */
-    input(value: boolean): void;
+    focus(event: Event): void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur(event: Event): void;
 }
 
 /**

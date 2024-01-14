@@ -146,10 +146,6 @@ export interface MultiSelectPassThroughOptions {
      */
     header?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the header checkbox container's DOM element.
-     */
-    headerCheckboxContainer?: MultiSelectPassThroughOptionType;
-    /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
     headerCheckbox?: MultiSelectPassThroughOptionType;
@@ -195,17 +191,9 @@ export interface MultiSelectPassThroughOptions {
      */
     item?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the item checkbox's DOM element.
      */
-    checkboxContainer?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox's DOM element.
-     */
-    checkbox?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: MultiSelectPassThroughOptionType;
+    itemCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the option's DOM element.
      */
@@ -214,10 +202,6 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden input's DOM element.
      */

@@ -235,21 +235,12 @@ const classes = {
     ],
     rowToggler: 'p-treetable-toggler p-link',
     rowTogglerIcon: 'p-tree-toggler-icon',
-    checkboxWrapper: ({ instance }) => [
-        'p-checkbox p-treetable-checkbox p-component',
+    rowCheckbox: ({ instance }) => [
+        'p-treetable-checkbox',
         {
-            'p-checkbox-focused': instance.checkboxFocused
-        }
-    ],
-    checkbox: ({ instance }) => [
-        'p-checkbox-box',
-        {
-            'p-highlight': instance.checked,
-            'p-focus': instance.checkboxFocused,
             'p-indeterminate': instance.partialChecked
         }
     ],
-    checkboxicon: 'p-checkbox-icon',
     //treetable
     emptyMessage: 'p-treetable-emptymessage',
     tfoot: 'p-treetable-tfoot',

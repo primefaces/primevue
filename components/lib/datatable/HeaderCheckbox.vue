@@ -1,29 +1,16 @@
 <template>
-    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
-        <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
-            <input
-                ref="input"
-                type="checkbox"
-                :checked="checked"
-                :disabled="disabled"
-                :tabindex="disabled ? null : '0'"
-                :aria-label="headerCheckboxAriaLabel"
-                @focus="onFocus($event)"
-                @blur="onBlur($event)"
-                v-bind="getColumnPT('hiddenHeaderInput')"
-            />
-        </div>
-        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPT('headerCheckbox')">
-            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cx('headerCheckboxIcon')" />
-            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPT('headerCheckboxIcon')" />
-        </div>
-    </div>
+    <Checkbox :modelValue="checked" :binary="true" :disabled="disabled" :aria-label="headerCheckboxAriaLabel" @change="onChange" :pt="getColumnPT('headerCheckbox')">
+        <template #icon="slotProps">
+            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="slotProps.checked" :class="slotProps.class" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('headerCheckbox.icon')" />
+        </template>
+    </Checkbox>
 </template>
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
-import { DomHandler } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
 export default {
@@ -40,11 +27,6 @@ export default {
             default: null
         }
     },
-    data() {
-        return {
-            focused: false
-        };
-    },
     methods: {
         getColumnPT(key) {
             const columnMetaData = {
@@ -56,7 +38,6 @@ export default {
                 },
                 context: {
                     checked: this.checked,
-                    focused: this.focused,
                     disabled: this.disabled
                 }
             };
@@ -66,21 +47,11 @@ export default {
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
-        onClick(event) {
-            if (!this.disabled) {
-                this.$emit('change', {
-                    originalEvent: event,
-                    checked: !this.checked
-                });
-
-                DomHandler.focus(this.$refs.input);
-            }
-        },
-        onFocus() {
-            this.focused = true;
-        },
-        onBlur() {
-            this.focused = false;
+        onChange(event) {
+            this.$emit('change', {
+                originalEvent: event,
+                checked: !this.checked
+            });
         }
     },
     computed: {
@@ -89,7 +60,8 @@ export default {
         }
     },
     components: {
-        CheckIcon: CheckIcon
+        CheckIcon,
+        Checkbox
     }
 };
 </script>

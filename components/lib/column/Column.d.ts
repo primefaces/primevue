@@ -12,9 +12,11 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
+import { CheckboxPassThroughOptionType } from '../checkbox';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { PassThroughOptions } from '../passthrough';
+import { RadioButtonPassThroughOptionType } from '../radiobutton';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
@@ -157,17 +159,9 @@ export interface ColumnPassThroughOptions {
      */
     sortBadge?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the checkbox wrapper's DOM element.
-     */
-    headerCheckboxWrapper?: ColumnPassThroughOptionType;
-    /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
-    headerCheckbox?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the header checkbox icon's DOM element.
-     */
-    headerCheckboxIcon?: ColumnPassThroughOptionType;
+    headerCheckbox?: CheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the column filter's DOM element.
      */
@@ -279,29 +273,13 @@ export interface ColumnPassThroughOptions {
      */
     columnTitle?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the radiobutton wrapper's DOM element.
-     */
-    radiobuttonWrapper?: ColumnPassThroughOptionType;
-    /**
      * Used to pass attributes to the radiobutton's DOM element.
      */
-    radiobutton?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the radiobutton icon's DOM element.
-     */
-    radiobuttonIcon?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox wrapper's DOM element.
-     */
-    checkboxWrapper?: ColumnPassThroughOptionType;
+    rowRadioButton?: RadioButtonPassThroughOptionType;
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    checkbox?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: ColumnPassThroughOptionType;
+    rowCheckbox?: CheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the rowtoggler's DOM element.
      */
@@ -342,22 +320,6 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the body cell content's DOM element.
      */
     bodyCellContent?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenHeaderInputWrapper?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenHeaderInput?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: ColumnPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: ColumnPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

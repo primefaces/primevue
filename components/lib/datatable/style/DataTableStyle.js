@@ -297,23 +297,6 @@ const classes = {
     headerTitle: 'p-column-title',
     sortIcon: 'p-sortable-column-icon',
     sortBadge: 'p-sortable-column-badge',
-    //headercheckbox
-    headerCheckboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused,
-            'p-disabled': instance.disabled
-        }
-    ],
-    headerCheckbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    headerCheckboxIcon: 'p-checkbox-icon',
     // columnfilter
     columnFilter: ({ props }) => [
         'p-column-filter p-fluid',
@@ -413,38 +396,6 @@ const classes = {
     rowEditorSaveIcon: 'p-row-editor-save-icon',
     rowEditorCancelButton: 'p-row-editor-cancel p-link',
     rowEditorCancelIcon: 'p-row-editor-cancel-icon',
-    //rowcheckbox
-    checkboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused
-        }
-    ],
-    checkbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    checkboxIcon: 'p-checkbox-icon',
-    //rowradiobutton
-    radiobuttonWrapper: ({ instance }) => [
-        'p-radiobutton p-component',
-        {
-            'p-radiobutton-focused': instance.focused
-        }
-    ],
-    radiobutton: ({ instance }) => [
-        'p-radiobutton-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    radiobuttonIcon: 'p-radiobutton-icon',
     //tablefooter
     tfoot: 'p-datatable-tfoot',
     //footercell

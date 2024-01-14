@@ -62,17 +62,13 @@ export interface CheckboxPassThroughOptions {
      */
     input?: CheckboxPassThroughOptionType;
     /**
+     * Used to pass attributes to the box's DOM element.
+     */
+    box?: CheckboxPassThroughOptionType;
+    /**
      * Used to pass attributes to the icon's DOM element.
      */
     icon?: CheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: CheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: CheckboxPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -222,10 +218,10 @@ export interface CheckboxSlots {
  */
 export interface CheckboxEmits {
     /**
-     * Emitted when the page changes.
-     * @param {*} value - New page value.
+     * Emitted when the value changes.
+     * @param {*} value - New value.
      */
-    'update:page'(value: any): void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.

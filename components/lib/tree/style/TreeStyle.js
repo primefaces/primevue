@@ -114,15 +114,11 @@ const classes = {
     toggler: 'p-tree-toggler p-link',
     togglerIcon: 'p-tree-toggler-icon',
     nodeTogglerIcon: 'p-tree-node-toggler-icon',
-    checkboxContainer: 'p-checkbox p-component',
-    checkbox: ({ instance }) => [
-        'p-checkbox-box',
+    nodeCheckbox: ({ instance }) => [
         {
-            'p-highlight': instance.checked,
             'p-indeterminate': instance.partialChecked
         }
     ],
-    checkboxIcon: 'p-checkbox-icon',
     nodeIcon: 'p-treenode-icon',
     label: 'p-treenode-label',
     subgroup: 'p-treenode-children'

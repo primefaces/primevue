@@ -148,21 +148,6 @@ const classes = {
         }
     ],
     header: 'p-multiselect-header',
-    headerCheckboxContainer: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-checked': instance.allSelected,
-            'p-checkbox-focused': instance.headerCheckboxFocused
-        }
-    ],
-    headerCheckbox: ({ instance }) => [
-        'p-checkbox-box',
-        {
-            'p-highlight': instance.allSelected,
-            'p-focus': instance.headerCheckboxFocused
-        }
-    ],
-    headerCheckboxIcon: 'p-checkbox-icon',
     filterContainer: 'p-multiselect-filter-container',
     filterInput: 'p-multiselect-filter p-inputtext p-component',
     filterIcon: 'p-multiselect-filter-icon',
@@ -179,9 +164,6 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    checkboxContainer: 'p-checkbox p-component',
-    checkbox: ({ instance, option }) => ['p-checkbox-box', { 'p-highlight': instance.isSelected(option) }],
-    checkboxIcon: 'p-checkbox-icon',
     emptyMessage: 'p-multiselect-empty-message'
 };
 

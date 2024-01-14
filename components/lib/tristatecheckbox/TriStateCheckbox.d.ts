@@ -7,7 +7,7 @@
  * @module tristatecheckbox
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
@@ -58,9 +58,13 @@ export interface TriStateCheckboxPassThroughOptions {
      */
     root?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the checkbox box's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
-    checkbox?: TriStateCheckboxPassThroughOptionType;
+    input?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Used to pass attributes to the box's DOM element.
+     */
+    box?: TriStateCheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the check icon's DOM element.
      */
@@ -73,14 +77,6 @@ export interface TriStateCheckboxPassThroughOptions {
      * Used to pass attributes to the nullable icon's DOM element.
      */
     nullableIcon?: TriStateCheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: TriStateCheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: TriStateCheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden value label's DOM element.
      */
@@ -103,10 +99,7 @@ export interface TriStateCheckboxPassThroughAttributes {
  * Defines current inline state in TriStateCheckbox component.
  */
 export interface TriStateCheckboxState {
-    /**
-     * Focused state as a boolean.
-     */
-    focused: boolean;
+    [key: string]: any;
 }
 
 /**
@@ -118,11 +111,6 @@ export interface TriStateCheckboxContext {
      * @defaultValue false
      */
     active: boolean;
-    /**
-     * Current focused state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
     /**
      * Current disabled state as a boolean.
      * @defaultValue false
@@ -145,6 +133,11 @@ export interface TriStateCheckboxProps {
      */
     disabled?: boolean | undefined;
     /**
+     * When present, it specifies that an input field is read-only.
+     * @default false
+     */
+    readonly?: boolean | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: string | undefined;
@@ -153,10 +146,13 @@ export interface TriStateCheckboxProps {
      */
     inputId?: string | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     * @deprecated since v3.26.0. Use 'pt' property.
+     * Style class of the input field.
      */
-    inputProps?: InputHTMLAttributes | undefined;
+    inputClass?: object | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: string | object | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -227,6 +223,21 @@ export interface TriStateCheckboxEmits {
      * @param {boolean|null|undefined} value - New value.
      */
     'update:modelValue'(value: Nullable<boolean>): void;
+    /**
+     * Callback to invoke on value change.
+     * @param {Event} event - Browser event.
+     */
+    change(event: Event): void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus(event: Event): void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur(event: Event): void;
 }
 
 /**

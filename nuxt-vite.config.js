@@ -176,6 +176,8 @@ export default {
             ...ICON_ALIAS,
             'primevue/button': path.resolve(__dirname, './components/lib/button/Button.vue'),
             'primevue/inputtext': path.resolve(__dirname, './components/lib/inputtext/InputText.vue'),
+            'primevue/checkbox': path.resolve(__dirname, './components/lib/checkbox/Checkbox.vue'),
+            'primevue/radiobutton': path.resolve(__dirname, './components/lib/radiobutton/RadioButton.vue'),
             'primevue/dialog': path.resolve(__dirname, './components/lib/dialog/Dialog.vue'),
             'primevue/menu': path.resolve(__dirname, './components/lib/menu/Menu.vue'),
             'primevue/tieredmenu': path.resolve(__dirname, './components/lib/tieredmenu/TieredMenu.vue'),

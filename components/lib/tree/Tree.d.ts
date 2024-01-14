@@ -126,17 +126,9 @@ export interface TreePassThroughOptions<T = any> {
      */
     togglerIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the checkbox container's DOM element.
-     */
-    checkboxContainer?: TreePassThroughOptionType<T>;
-    /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    checkbox?: TreePassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: TreePassThroughOptionType<T>;
+    nodeCheckbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */

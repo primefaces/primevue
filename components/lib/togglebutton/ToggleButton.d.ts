@@ -7,7 +7,7 @@
  * @module togglebutton
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -58,6 +58,10 @@ export interface ToggleButtonPassThroughOptions {
      */
     root?: ToggleButtonPassThroughOptionType;
     /**
+     * Used to pass attributes to the input's DOM element.
+     */
+    input?: ToggleButtonPassThroughOptionType;
+    /**
      * Used to pass attributes to the icon's DOM element.
      */
     icon?: ToggleButtonPassThroughOptionType;
@@ -65,14 +69,6 @@ export interface ToggleButtonPassThroughOptions {
      * Used to pass attributes to the label's DOM element.
      */
     label?: ToggleButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: ToggleButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: ToggleButtonPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -91,10 +87,7 @@ export interface ToggleButtonPassThroughAttributes {
  * Defines current inline state in ToggleButton component.
  */
 export interface ToggleButtonState {
-    /**
-     * Focused state as a boolean.
-     */
-    focused: boolean;
+    [key: string]: any;
 }
 
 /**
@@ -102,20 +95,15 @@ export interface ToggleButtonState {
  */
 export interface ToggleButtonContext {
     /**
-     * Current focused state as a boolean.
+     * Current highlighted state as a boolean.
      * @defaultValue false
      */
-    focused: boolean;
+    active: boolean;
     /**
      * Current disabled state as a boolean.
      * @defaultValue false
      */
     disabled: boolean;
-    /**
-     * Current highlighted state as a boolean.
-     * @defaultValue false
-     */
-    highlighted: boolean;
 }
 
 /**
@@ -158,6 +146,11 @@ export interface ToggleButtonProps {
      */
     disabled?: boolean | undefined;
     /**
+     * When present, it specifies that an input field is read-only.
+     * @default false
+     */
+    readonly?: boolean | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: string | undefined;
@@ -173,10 +166,6 @@ export interface ToggleButtonProps {
      * Inline style of the input field.
      */
     inputStyle?: object | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
