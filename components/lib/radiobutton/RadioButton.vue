@@ -43,7 +43,9 @@ export default {
         },
         onChange(event) {
             if (!this.disabled && !this.readonly) {
-                this.$emit('update:modelValue', this.value);
+                const newModelValue = this.binary ? !this.checked : this.value;
+
+                this.$emit('update:modelValue', newModelValue);
                 this.$emit('change', event);
             }
         },
@@ -56,7 +58,7 @@ export default {
     },
     computed: {
         checked() {
-            return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
+            return this.modelValue != null && (this.binary ? !!this.modelValue : ObjectUtils.equals(this.modelValue, this.value));
         }
     }
 };

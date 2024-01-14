@@ -106,6 +106,11 @@ export interface RadioButtonProps {
      */
     name?: string | undefined;
     /**
+     * Allows to select a boolean value.
+     * @default false
+     */
+    binary?: boolean;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */

@@ -1,5 +1,5 @@
 <template>
-    <RadioButton :modelValue="checked" :disabled="$attrs.disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('rowRadiobutton')" />
+    <RadioButton :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('rowRadiobutton')" />
 </template>
 
 <script>
@@ -20,10 +20,6 @@ export default {
         index: {
             type: Number,
             default: null
-        },
-        unstyled: {
-            type: Boolean,
-            default: undefined
         }
     },
     methods: {

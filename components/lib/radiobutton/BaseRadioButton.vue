@@ -8,6 +8,7 @@ export default {
     props: {
         value: null,
         modelValue: null,
+        binary: Boolean,
         name: {
             type: String,
             default: null
