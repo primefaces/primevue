@@ -196,6 +196,8 @@ const CORE_DEPENDENCIES = {
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/inputnumber': 'primevue.inputnumber',
+    'primevue/checkbox': 'primevue.checkbox',
+    'primevue/radiobutton': 'primevue.radiobutton',
     'primevue/message': 'primevue.message',
     'primevue/progressbar': 'primevue.progressbar',
     'primevue/dropdown': 'primevue.dropdown',
