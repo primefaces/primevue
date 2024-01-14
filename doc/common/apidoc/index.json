@@ -10900,28 +10900,20 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
+                            "name": "box",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the box's DOM element."
+                        },
+                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -11160,17 +11152,17 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "update:page",
+                            "name": "update:modelValue",
                             "parameters": [
                                 {
                                     "name": "value",
                                     "optional": false,
                                     "type": "any",
-                                    "description": "New page value."
+                                    "description": "New value."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Emitted when the page changes."
+                            "description": "Emitted when the value changes."
                         },
                         {
                             "name": "change",
@@ -12934,28 +12926,12 @@
                             "description": "Used to pass attributes to the sort badge's DOM element."
                         },
                         {
-                            "name": "headerCheckboxWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox wrapper's DOM element."
-                        },
-                        {
                             "name": "headerCheckbox",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
+                            "type": "CheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the header checkbox's DOM element."
-                        },
-                        {
-                            "name": "headerCheckboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the header checkbox icon's DOM element."
                         },
                         {
                             "name": "columnFilter",
@@ -13166,52 +13142,20 @@
                             "description": "Used to pass attributes to the column title's DOM element."
                         },
                         {
-                            "name": "radiobuttonWrapper",
+                            "name": "rowRadioButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the radiobutton wrapper's DOM element."
-                        },
-                        {
-                            "name": "radiobutton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
+                            "type": "RadioButtonPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the radiobutton's DOM element."
                         },
                         {
-                            "name": "radiobuttonIcon",
+                            "name": "rowCheckbox",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the radiobutton icon's DOM element."
-                        },
-                        {
-                            "name": "checkboxWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox wrapper's DOM element."
-                        },
-                        {
-                            "name": "checkbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
+                            "type": "CheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox's DOM element."
-                        },
-                        {
-                            "name": "checkboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox icon's DOM element."
                         },
                         {
                             "name": "rowToggler",
@@ -13292,38 +13236,6 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the body cell content's DOM element."
-                        },
-                        {
-                            "name": "hiddenHeaderInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenHeaderInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -30836,6 +30748,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
                             "name": "attrs",
                             "optional": false,
                             "readonly": false,
@@ -30875,28 +30795,20 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input's DOM element."
+                        },
+                        {
                             "name": "slider",
                             "optional": true,
                             "readonly": false,
                             "type": "InputSwitchPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the slider's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputSwitchPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputSwitchPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -30927,12 +30839,10 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "[key: string]",
                             "optional": false,
                             "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focus state as a boolean."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -30972,6 +30882,22 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
+                            "name": "tabindex",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the element in tabbing order."
                         },
                         {
                             "name": "inputId",
@@ -31048,6 +30974,29 @@
                     ],
                     "methods": []
                 },
+                "InputSwitchContext": {
+                    "description": "Defines current options in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "InputSwitchSlots": {
                     "relatedProp": "",
                     "props": [],
@@ -31072,19 +31021,6 @@
                             "description": "Emitted when the value changes."
                         },
                         {
-                            "name": "click",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "optional": false,
-                                    "type": "Event",
-                                    "description": "Browser event."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Callback to invoke on click."
-                        },
-                        {
                             "name": "change",
                             "parameters": [
                                 {
@@ -31098,17 +31034,30 @@
                             "description": "Callback to invoke on value change."
                         },
                         {
-                            "name": "input",
+                            "name": "focus",
                             "parameters": [
                                 {
-                                    "name": "value",
+                                    "name": "event",
                                     "optional": false,
-                                    "type": "boolean",
-                                    "description": "New value."
+                                    "type": "Event",
+                                    "description": "Browser event."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke on value change."
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
                         }
                     ]
                 }
@@ -35961,14 +35910,6 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headerCheckboxContainer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the header checkbox container's DOM element."
-                        },
-                        {
                             "name": "headerCheckbox",
                             "optional": true,
                             "readonly": false,
@@ -36057,28 +35998,12 @@
                             "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "checkboxContainer",
+                            "name": "itemCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the checkbox container's DOM element."
-                        },
-                        {
-                            "name": "checkbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox's DOM element."
-                        },
-                        {
-                            "name": "checkboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox icon's DOM element."
+                            "description": "Used to pass attributes to the item checkbox's DOM element."
                         },
                         {
                             "name": "option",
@@ -36095,14 +36020,6 @@
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the emptyMessage's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
                         },
                         {
                             "name": "hiddenInput",
@@ -43108,6 +43025,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RadioButtonContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
                             "name": "attrs",
                             "optional": false,
                             "readonly": false,
@@ -43155,28 +43080,20 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
+                            "name": "box",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the box's DOM element."
+                        },
+                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
                             "type": "RadioButtonPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RadioButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden accessible DOM element wrapper."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RadioButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden accessible DOM element."
                         },
                         {
                             "name": "hooks",
@@ -43207,12 +43124,10 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "[key: string]",
                             "optional": false,
                             "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focused state as a boolean."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -43254,6 +43169,22 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
+                            "name": "tabindex",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the element in tabbing order."
+                        },
+                        {
                             "name": "inputId",
                             "optional": true,
                             "readonly": false,
@@ -43276,14 +43207,6 @@
                             "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
-                        },
-                        {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
                             "name": "ariaLabelledby",
@@ -43328,6 +43251,29 @@
                     ],
                     "methods": []
                 },
+                "RadioButtonContext": {
+                    "description": "Defines current options in RadioButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "RadioButtonSlots": {
                     "relatedProp": "",
                     "props": [],
@@ -43352,19 +43298,6 @@
                             "description": "Emitted when the value changes."
                         },
                         {
-                            "name": "click",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "optional": false,
-                                    "type": "Event",
-                                    "description": "Browser event."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Callback to invoke on radio button click."
-                        },
-                        {
                             "name": "change",
                             "parameters": [
                                 {
@@ -43376,6 +43309,32 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke on radio button value change."
+                        },
+                        {
+                            "name": "focus",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
                         }
                     ]
                 }
@@ -53038,6 +52997,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input's DOM element."
+                        },
+                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
@@ -53052,22 +53019,6 @@
                             "type": "ToggleButtonPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the label's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToggleButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToggleButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -53098,12 +53049,10 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "[key: string]",
                             "optional": false,
                             "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Focused state as a boolean."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -53113,12 +53062,12 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "active",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current focused state as a boolean."
+                            "description": "Current highlighted state as a boolean."
                         },
                         {
                             "name": "disabled",
@@ -53127,14 +53076,6 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current disabled state as a boolean."
-                        },
-                        {
-                            "name": "highlighted",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current highlighted state as a boolean."
                         }
                     ],
                     "methods": []
@@ -53202,6 +53143,14 @@
                             "description": "When present, it specifies that the element should be disabled."
                         },
                         {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
                             "name": "tabindex",
                             "optional": true,
                             "readonly": false,
@@ -53232,14 +53181,6 @@
                             "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
-                        },
-                        {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
                             "name": "ariaLabelledby",
@@ -54284,28 +54225,12 @@
                             "description": "Used to pass attributes to the toggler icon's DOM element."
                         },
                         {
-                            "name": "checkboxContainer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreePassThroughOptionType<T>",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox container's DOM element."
-                        },
-                        {
-                            "name": "checkbox",
+                            "name": "nodeCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox's DOM element."
-                        },
-                        {
-                            "name": "checkboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreePassThroughOptionType<T>",
-                            "default": "",
-                            "description": "Used to pass attributes to the checkbox icon's DOM element."
                         },
                         {
                             "name": "nodeIcon",
@@ -57324,12 +57249,20 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "checkbox",
+                            "name": "input",
                             "optional": true,
                             "readonly": false,
                             "type": "TriStateCheckboxPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the checkbox box's DOM element."
+                            "description": "Used to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "box",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the box's DOM element."
                         },
                         {
                             "name": "checkIcon",
@@ -57354,22 +57287,6 @@
                             "type": "TriStateCheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the nullable icon's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "hiddenValueLabel",
@@ -57408,12 +57325,10 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "focused",
+                            "name": "[key: string]",
                             "optional": false,
                             "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Focused state as a boolean."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -57429,14 +57344,6 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current active state as a boolean."
-                        },
-                        {
-                            "name": "focused",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focused state as a boolean."
                         },
                         {
                             "name": "disabled",
@@ -57470,6 +57377,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
                             "name": "tabindex",
                             "optional": true,
                             "readonly": false,
@@ -57486,13 +57401,20 @@
                             "description": "Identifier of the underlying input element."
                         },
                         {
-                            "name": "inputProps",
+                            "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputHTMLAttributes",
+                            "type": "object",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.",
-                            "deprecated": "since v3.26.0. Use 'pt' property."
+                            "description": "Style class of the input field."
+                        },
+                        {
+                            "name": "inputStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Inline style of the input field."
                         },
                         {
                             "name": "ariaLabelledby",
@@ -57600,6 +57522,45 @@
                             ],
                             "returnType": "void",
                             "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on value change."
+                        },
+                        {
+                            "name": "focus",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
                         }
                     ]
                 }
