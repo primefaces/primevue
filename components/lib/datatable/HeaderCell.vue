@@ -213,7 +213,7 @@ export default {
                 },
                 context: {
                     index: this.index,
-                    sortable: this.column?.props?.sortable === '' || this.column?.props?.sortable,
+                    sortable: this.columnProp('sortable') === '' || this.columnProp('sortable'),
                     sorted: this.isColumnSorted(),
                     resizable: this.resizableColumns,
                     size: this.$parentInstance?.$parentInstance?.size,
