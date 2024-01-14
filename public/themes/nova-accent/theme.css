@@ -1782,14 +1782,7 @@
     background-color: #f4f4f4;
   }
 
-  .p-togglebutton.p-button {
-    background: #dadada;
-    border: 1px solid #dadada;
-    color: #333333;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    outline-color: transparent;
-  }
-  .p-togglebutton.p-button .p-togglebutton-input {
+  .p-togglebutton .p-togglebutton-input {
     appearance: none;
     position: absolute;
     top: 0;
@@ -1804,44 +1797,51 @@
     border: 1px solid #dadada;
     border-radius: 3px;
   }
-  .p-togglebutton.p-button .p-button-icon-left,
-.p-togglebutton.p-button .p-button-icon-right {
+  .p-togglebutton .p-button {
+    background: #dadada;
+    border: 1px solid #dadada;
+    color: #333333;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    outline-color: transparent;
+  }
+  .p-togglebutton .p-button .p-button-icon-left,
+.p-togglebutton .p-button .p-button-icon-right {
     color: #666666;
   }
-  .p-togglebutton.p-button.p-highlight {
+  .p-togglebutton.p-highlight .p-button {
     background: #007ad9;
     border-color: #007ad9;
     color: #ffffff;
   }
-  .p-togglebutton.p-button.p-highlight .p-button-icon-left,
-.p-togglebutton.p-button.p-highlight .p-button-icon-right {
+  .p-togglebutton.p-highlight .p-button .p-button-icon-left,
+.p-togglebutton.p-highlight .p-button .p-button-icon-right {
     color: #ffffff;
   }
-  .p-togglebutton.p-button:not(.p-disabled):hover:not(.p-highlight) {
+  .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button {
     background: #c8c8c8;
     border-color: #c8c8c8;
     color: #333333;
   }
-  .p-togglebutton.p-button:not(.p-disabled):hover:not(.p-highlight) .p-button-icon-left,
-.p-togglebutton.p-button:not(.p-disabled):hover:not(.p-highlight) .p-button-icon-right {
+  .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button .p-button-icon-left,
+.p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button .p-button-icon-right {
     color: #212121;
   }
-  .p-togglebutton.p-button:not(.p-disabled):hover.p-highlight {
+  .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover).p-highlight .p-button {
     background: #116fbf;
     border-color: #116fbf;
     color: #ffffff;
   }
-  .p-togglebutton.p-button:not(.p-disabled):hover.p-highlight .p-button-icon-left,
-.p-togglebutton.p-button:not(.p-disabled):hover.p-highlight .p-button-icon-right {
+  .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover).p-highlight .p-button .p-button-icon-left,
+.p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover).p-highlight .p-button .p-button-icon-right {
     color: #ffffff;
   }
-  .p-togglebutton.p-button:not(.p-disabled):has(.p-togglebutton-input:focus-visible) {
+  .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:focus-visible) .p-button {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #8dcdff;
     border-color: #007ad9;
   }
-  .p-togglebutton.p-button.p-invalid {
+  .p-togglebutton.p-invalid > .p-button {
     border-color: #a80000;
   }
 
