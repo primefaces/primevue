@@ -53005,6 +53005,14 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
+                            "name": "box",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the box's DOM element."
+                        },
+                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
