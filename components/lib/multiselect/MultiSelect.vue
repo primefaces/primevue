@@ -68,7 +68,16 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" :class="cx('header')" v-bind="ptm('header')">
-                        <Checkbox v-if="showToggleAll && selectionLimit == null" :modelValue="allSelected" :binary="true" :disabled="disabled" :aria-label="toggleAllAriaLabel" @change="onToggleAll" :pt="getHeaderCheckboxPTOptions('headerCheckbox')">
+                        <Checkbox
+                            v-if="showToggleAll && selectionLimit == null"
+                            :modelValue="allSelected"
+                            :binary="true"
+                            :disabled="disabled"
+                            :aria-label="toggleAllAriaLabel"
+                            @change="onToggleAll"
+                            :unstyled="unstyled"
+                            :pt="getHeaderCheckboxPTOptions('headerCheckbox')"
+                        >
                             <template #icon="slotProps">
                                 <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                 <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox.icon')" />
@@ -131,7 +140,7 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component

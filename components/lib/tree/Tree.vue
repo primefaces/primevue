@@ -30,8 +30,8 @@
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
                     :loadingMode="loadingMode"
-                    :pt="pt"
                     :unstyled="unstyled"
+                    :pt="pt"
                 ></TreeNode>
             </ul>
         </div>

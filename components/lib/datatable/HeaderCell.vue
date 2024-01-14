@@ -37,6 +37,7 @@
                 :disabled="empty"
                 :headerCheckboxIconTemplate="column.children && column.children.headercheckboxicon"
                 :column="column"
+                :unstyled="unstyled"
                 :pt="pt"
             />
             <DTColumnFilter

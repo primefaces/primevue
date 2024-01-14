@@ -68,6 +68,7 @@
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
                                 :index="i"
+                                :unstyled="unstyled"
                                 :pt="pt"
                             ></TTHeaderCell>
                         </template>
@@ -101,6 +102,7 @@
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         ></TTRow>
                     </template>
@@ -113,7 +115,7 @@
                 <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :pt="pt"></TTFooterCell>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :unstyled="unstyled" :pt="pt"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>

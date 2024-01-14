@@ -34,6 +34,7 @@
                 @checkbox-toggle="toggleCheckbox"
                 :index="i"
                 :loadingMode="loadingMode"
+                :unstyled="unstyled"
                 :pt="pt"
             ></TTBodyCell>
         </template>
@@ -57,6 +58,7 @@
             @node-toggle="$emit('node-toggle', $event)"
             @node-click="$emit('node-click', $event)"
             @checkbox-change="onCheckboxChange"
+            :unstyled="unstyled"
             :pt="pt"
         />
     </template>
