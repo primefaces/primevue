@@ -18,6 +18,7 @@
             :class="cx('rowCheckbox')"
             @change="toggleCheckbox"
             :pt="getColumnCheckboxPT('rowCheckbox')"
+            :data-p-highlight="checked"
             :data-p-checked="checked"
             :data-p-partialchecked="partialChecked"
         >
