@@ -4120,10 +4120,6 @@
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
   }
-  .p-dialog .p-dialog-footer button {
-    margin: 0 0.5rem 0 0;
-    width: auto;
-  }
   .p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
     font-size: 2rem;
   }
