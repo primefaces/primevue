@@ -186,6 +186,12 @@ const DropdownProps = [
         description: 'Clears the filter value when hiding the dropdown.'
     },
     {
+        name: 'resetFilterOnClear',
+        type: 'boolean',
+        default: 'false',
+        description: 'Clears the filter value when clicking on the clear icon.'
+    },
+    {
         name: 'virtualScrollerOptions',
         type: 'object',
         default: 'null',
