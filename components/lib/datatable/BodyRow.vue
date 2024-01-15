@@ -276,8 +276,11 @@ export default {
         };
     },
     watch: {
-        expandedRows(newValue) {
-            this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
+        expandedRows: {
+            immediate: true,
+            handler(newValue) {
+                this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
+            }
         }
     },
     methods: {
