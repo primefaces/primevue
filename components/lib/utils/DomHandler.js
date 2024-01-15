@@ -395,7 +395,7 @@ export default {
     getParentNode(element) {
         let parent = element?.parentNode;
 
-        if (parent && parent.host) {
+        if (parent && parent instanceof ShadowRoot && parent.host) {
             parent = parent.host;
         }
 
