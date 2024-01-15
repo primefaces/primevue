@@ -48,7 +48,7 @@ export default {
                     component: CheckboxDoc
                 },
                 {
-                    id: 'float-label',
+                    id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
                 },
