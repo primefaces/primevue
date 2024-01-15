@@ -46,12 +46,6 @@ const css = `
     .p-metergroup-label-type {
         display: inline-block;
     }
-
-    .p-metergroup-label-icon {
-        width: 1rem;
-        height: 1rem;
-        margin-right: .5rem;
-    }
 }
 `;
 
