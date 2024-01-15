@@ -399,13 +399,39 @@ export interface CalendarState {
 }
 
 /**
+ * Defines current date options in Calendar component.
+ */
+export interface CalendarDateContext {
+    /**
+     * Current date.
+     */
+    day: number;
+    /**
+     * Current month state.
+     */
+    month: number;
+    /**
+     * Current year state.
+     */
+    year: number;
+    /**
+     * Current today state of the calendar's day.
+     */
+    today: boolean;
+    /**
+     * Selectable state of the day.
+     */
+    selectable: boolean;
+}
+
+/**
  * Defines current options in Calendar component.
  */
 export interface CalendarContext {
     /**
      * Current date.
      */
-    date: string | Date | string[] | Date[] | undefined | null;
+    date: CalendarDateContext;
     /**
      * Current today state of the calendar's day.
      * @defaultValue false
@@ -760,6 +786,31 @@ export interface CalendarProps {
      */
     unstyled?: boolean;
 }
+/**
+ * Defines valid options of the date slot in Calendar component.
+ */
+export interface CalendarDateSlotOptions {
+    /**
+     * Current date.
+     */
+    day: number;
+    /**
+     * Current month state.
+     */
+    month: number;
+    /**
+     * Current year state.
+     */
+    year: number;
+    /**
+     * Current today state of the calendar's day.
+     */
+    today: boolean;
+    /**
+     * Selectable state of the day.
+     */
+    selectable: boolean;
+}
 
 /**
  * Defines valid slots in Calendar component.
@@ -780,7 +831,7 @@ export interface CalendarSlots {
         /**
          * Value of the component.
          */
-        date: { day: number; month: number; year: number; today: boolean; selectable: boolean };
+        date: CalendarDateSlotOptions;
     }): VNode[];
     /**
      * Custom decade template.
