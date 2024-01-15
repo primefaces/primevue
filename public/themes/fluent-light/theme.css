@@ -5742,15 +5742,20 @@
   .p-metergroup .p-metergroup-label-list .p-metergroup-label-list-item {
     line-height: 2px;
   }
-  .p-metergroup .p-metergroup-label-type {
+  .p-metergroup .p-metergroup-label-list .p-metergroup-label-type {
     background: #0078d4;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 100%;
     margin-right: 0.5rem;
   }
-  .p-metergroup .p-metergroup-label {
+  .p-metergroup .p-metergroup-label-list .p-metergroup-label {
     margin-right: 1rem;
+  }
+  .p-metergroup .p-metergroup-label-list .p-metergroup-label-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
   }
   .p-metergroup.p-metergroup-horizontal .p-metergroup-meter-container {
     height: 0.5rem;
