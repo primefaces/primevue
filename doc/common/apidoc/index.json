@@ -7590,6 +7590,53 @@
                     ],
                     "methods": []
                 },
+                "CalendarDateContext": {
+                    "description": "Defines current date options in Calendar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "day",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current date."
+                        },
+                        {
+                            "name": "month",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current month state."
+                        },
+                        {
+                            "name": "year",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current year state."
+                        },
+                        {
+                            "name": "today",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current today state of the calendar's day."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Selectable state of the day."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CalendarContext": {
                     "description": "Defines current options in Calendar component.",
                     "relatedProp": "",
@@ -7598,7 +7645,7 @@
                             "name": "date",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | null | string | string[] | Date | Date[]",
+                            "type": "CalendarDateContext",
                             "default": "",
                             "description": "Current date."
                         },
@@ -8202,6 +8249,53 @@
                     ],
                     "methods": []
                 },
+                "CalendarDateSlotOptions": {
+                    "description": "Defines valid options of the date slot in Calendar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "day",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current date."
+                        },
+                        {
+                            "name": "month",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current month state."
+                        },
+                        {
+                            "name": "year",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current year state."
+                        },
+                        {
+                            "name": "today",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current today state of the calendar's day."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Selectable state of the day."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CalendarSlots": {
                     "description": "Defines valid slots in Calendar component.",
                     "relatedProp": "",
@@ -8225,7 +8319,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">date</span>: <span class=\"doc-option-parameter-type\">undefined</span>, <span class=\"doc-option-parameter-type\">// Value of the component.</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">date</span>: <span class=\"doc-option-parameter-type\">CalendarDateSlotOptions</span>, <span class=\"doc-option-parameter-type\">// Value of the component.</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
