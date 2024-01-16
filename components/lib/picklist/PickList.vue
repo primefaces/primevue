@@ -276,9 +276,10 @@ export default {
         this.destroyStyle();
         this.destroyMedia();
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.responsive) {
             this.createStyle();
             this.initMedia();

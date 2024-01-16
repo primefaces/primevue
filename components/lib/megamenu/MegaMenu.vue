@@ -98,8 +98,10 @@ export default {
             }
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
+    },
+    mounted() {
         this.bindMatchMediaListener();
     },
     beforeUnmount() {
