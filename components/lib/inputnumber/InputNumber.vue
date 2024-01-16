@@ -107,7 +107,7 @@ import Button from 'primevue/button';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 import BaseInputNumber from './BaseInputNumber.vue';
 
 export default {
@@ -533,17 +533,19 @@ export default {
                     break;
 
                 case 'Home':
-                    if (this.min) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.min)) {
                         this.updateModel(event, this.min);
-                        event.preventDefault();
                     }
 
                     break;
 
                 case 'End':
-                    if (this.max) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.max)) {
                         this.updateModel(event, this.max);
-                        event.preventDefault();
                     }
 
                     break;
