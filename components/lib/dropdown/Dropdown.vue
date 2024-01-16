@@ -421,6 +421,7 @@ export default {
         },
         onClearClick(event) {
             this.updateModel(event, null);
+            this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;

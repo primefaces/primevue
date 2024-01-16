@@ -106,6 +106,10 @@ export default {
             type: Boolean,
             default: false
         },
+        resetFilterOnClear: {
+            type: Boolean,
+            default: false
+        },
         virtualScrollerOptions: {
             type: Object,
             default: null

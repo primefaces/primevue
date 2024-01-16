@@ -24159,6 +24159,14 @@
                             "description": "Clears the filter value when hiding the dropdown."
                         },
                         {
+                            "name": "resetFilterOnClear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Clears the filter value when clicking on the dropdown."
+                        },
+                        {
                             "name": "virtualScrollerOptions",
                             "optional": true,
                             "readonly": false,

@@ -390,6 +390,11 @@ export interface DropdownProps {
      */
     resetFilterOnHide?: boolean;
     /**
+     * Clears the filter value when clicking on the clear icon.
+     * @defaultValue false
+     */
+    resetFilterOnClear?: boolean;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      */
     virtualScrollerOptions?: VirtualScrollerProps;
