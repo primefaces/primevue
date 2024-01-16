@@ -24164,7 +24164,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Clears the filter value when clicking on the dropdown."
+                            "description": "Clears the filter value when clicking on the clear icon."
                         },
                         {
                             "name": "virtualScrollerOptions",
