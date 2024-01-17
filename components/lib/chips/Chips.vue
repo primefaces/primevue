@@ -140,11 +140,12 @@ export default {
         },
         onPaste(event) {
             if (this.separator) {
+                let separator = this.separator.replace('\\n', '\n').replace('\\r', '\r').replace('\\t', '\t');
                 let pastedData = (event.clipboardData || window['clipboardData']).getData('Text');
 
                 if (pastedData) {
                     let value = this.modelValue || [];
-                    let pastedValues = pastedData.split(this.separator);
+                    let pastedValues = pastedData.split(separator);
 
                     pastedValues = pastedValues.filter((val) => this.allowDuplicate || value.indexOf(val) === -1);
                     value = [...value, ...pastedValues];
