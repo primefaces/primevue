@@ -22,7 +22,8 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            v-bind="inputProps"
+            :pt="ptm('input')"
             :unstyled="unstyled"
             data-pc-section="input"
         />
@@ -33,7 +34,8 @@
                 :disabled="disabled"
                 :tabindex="-1"
                 aria-hidden="true"
-                v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+                v-bind="incrementButtonProps"
+                :pt="ptm('incrementButton')"
                 :unstyled="unstyled"
                 data-pc-section="incrementbutton"
             >
@@ -49,7 +51,8 @@
                 :disabled="disabled"
                 :tabindex="-1"
                 aria-hidden="true"
-                v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+                v-bind="decrementButtonProps"
+                :pt="ptm('decrementButton')"
                 :unstyled="unstyled"
                 data-pc-section="decrementbutton"
             >
@@ -67,7 +70,8 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+            v-bind="incrementButtonProps"
+            :pt="ptm('incrementButton')"
             :unstyled="unstyled"
             data-pc-section="incrementbutton"
         >
@@ -84,7 +88,8 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+            v-bind="decrementButtonProps"
+            :pt="ptm('decrementButton')"
             :unstyled="unstyled"
             data-pc-section="decrementbutton"
         >
@@ -102,7 +107,7 @@ import Button from 'primevue/button';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 import BaseInputNumber from './BaseInputNumber.vue';
 
 export default {
@@ -176,7 +181,8 @@ export default {
                 currencyDisplay: this.currencyDisplay,
                 useGrouping: this.useGrouping,
                 minimumFractionDigits: this.minFractionDigits,
-                maximumFractionDigits: this.maxFractionDigits
+                maximumFractionDigits: this.maxFractionDigits,
+                roundingMode: this.roundingMode
             };
         },
         constructParser() {
@@ -220,7 +226,7 @@ export default {
         },
         getCurrencyExpression() {
             if (this.currency) {
-                const formatter = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                const formatter = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: this.roundingMode });
 
                 return new RegExp(`[${formatter.format(1).replace(/\s/g, '').replace(this._numeral, '').replace(this._group, '')}]`, 'g');
             }
@@ -242,7 +248,7 @@ export default {
             if (this.suffix) {
                 this.suffixChar = this.suffix;
             } else {
-                const formatter = new Intl.NumberFormat(this.locale, { style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                const formatter = new Intl.NumberFormat(this.locale, { style: this.mode, currency: this.currency, currencyDisplay: this.currencyDisplay, minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: this.roundingMode });
 
                 this.suffixChar = formatter.format(1).split('1')[1];
             }
@@ -527,17 +533,19 @@ export default {
                     break;
 
                 case 'Home':
-                    if (this.min) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.min)) {
                         this.updateModel(event, this.min);
-                        event.preventDefault();
                     }
 
                     break;
 
                 case 'End':
-                    if (this.max) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.max)) {
                         this.updateModel(event, this.max);
-                        event.preventDefault();
                     }
 
                     break;
@@ -957,6 +965,10 @@ export default {
             input.value = this.formatValue(newValue);
             input.setAttribute('aria-valuenow', newValue);
             this.updateModel(event, newValue);
+
+            if (!this.disabled && !this.readonly && this.highlightOnFocus) {
+                DomHandler.clearSelection();
+            }
         },
         clearTimer() {
             if (this.timer) {

@@ -9,7 +9,7 @@
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
             </slot>
             <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
-            <Badge v-if="badge" :value="badge" :class="badgeClass" :unstyled="unstyled" v-bind="ptm('badge')"></Badge>
+            <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" v-bind="ptm('badge')"></Badge>
         </slot>
     </button>
 </template>
@@ -26,10 +26,6 @@ export default {
     methods: {
         getPTOptions(key) {
             return this.ptm(key, {
-                parent: {
-                    props: this.$parent?.$props,
-                    state: this.$parent?.$data
-                },
                 context: {
                     disabled: this.disabled
                 }
@@ -41,7 +37,7 @@ export default {
             return this.$attrs.disabled || this.$attrs.disabled === '' || this.loading;
         },
         defaultAriaLabel() {
-            return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label'];
+            return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs.ariaLabel;
         },
         hasIcon() {
             return this.icon || this.$slots.icon;

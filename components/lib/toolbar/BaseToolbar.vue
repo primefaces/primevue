@@ -6,7 +6,7 @@ export default {
     name: 'BaseToolbar',
     extends: BaseComponent,
     props: {
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         }

@@ -43,12 +43,17 @@ const css = `
         top: 0;
         right: 0;
         display: flex;
+        z-index: 1;
     }
 
     .p-image-action.p-link {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    
+    .p-image-action.p-disabled {
+        pointer-events: auto;
     }
 
     .p-image-preview {

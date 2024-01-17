@@ -25,7 +25,7 @@
                             <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
-                                <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
+                                <span :id="getItemLabelId(processedItem)" :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                                 <template v-if="getItemProp(processedItem, 'items')">
                                     <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" :class="cx('submenuIcon')" />
                                     <AngleRightIcon v-else :class="cx('submenuIcon')" v-bind="getPTOptions('submenuicon', processedItem, index)" />
@@ -50,6 +50,7 @@
                         :unstyled="unstyled"
                         @item-click="$emit('item-click', $event)"
                         @item-mouseenter="$emit('item-mouseenter', $event)"
+                        :aria-labelledby="getItemLabelId(processedItem)"
                         v-bind="ptm('submenu')"
                     />
                 </li>
@@ -129,6 +130,9 @@ export default {
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
         },
+        getItemLabelId(processedItem) {
+            return `${this.menuId}_${processedItem.key}_label`;
+        },
         getPTOptions(key, processedItem, index) {
             return this.ptm(key, {
                 context: {
@@ -202,6 +206,7 @@ export default {
             };
         }
     },
+
     components: {
         AngleRightIcon: AngleRightIcon
     },

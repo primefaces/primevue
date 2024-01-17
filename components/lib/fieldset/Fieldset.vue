@@ -66,7 +66,7 @@ export default {
             });
         },
         onKeyDown(event) {
-            if (event.code === 'Enter' || event.code === 'Space') {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
                 this.toggle(event);
                 event.preventDefault();
             }
@@ -77,7 +77,7 @@ export default {
             return UniqueComponentId();
         },
         buttonAriaLabel() {
-            return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.legend;
+            return this.toggleButtonProps && this.toggleButtonProps.ariaLabel ? this.toggleButtonProps.ariaLabel : this.legend;
         }
     },
     directives: {

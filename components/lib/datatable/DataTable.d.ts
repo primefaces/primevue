@@ -42,9 +42,31 @@ export interface DataTablePassThroughMethodOptions {
      */
     context: DataTableContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DataTableSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DataTableProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DataTableState;
 }
 
 /**
@@ -378,7 +400,7 @@ export interface DataTableRowExpandEvent {
     /**
      * Expanded row data
      */
-    data: any[];
+    data: any;
 }
 
 /**
@@ -582,7 +604,7 @@ export interface DataTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType;
+    paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
@@ -944,7 +966,7 @@ export interface DataTableProps {
     /**
      * Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
-     * @defaultValue true
+     * @defaultValue false
      */
     metaKeySelection?: boolean | undefined;
     /**

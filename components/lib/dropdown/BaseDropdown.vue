@@ -79,7 +79,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         loading: {
@@ -103,6 +103,10 @@ export default {
             default: undefined
         },
         resetFilterOnHide: {
+            type: Boolean,
+            default: false
+        },
+        resetFilterOnClear: {
             type: Boolean,
             default: false
         },
@@ -146,11 +150,11 @@ export default {
             type: Number,
             default: 0
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         }

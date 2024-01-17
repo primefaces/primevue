@@ -330,6 +330,7 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -401,6 +402,7 @@ export default {
         onToggleButtonKeyDown(event) {
             switch (event.code) {
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.toggleMenu(event);
 

@@ -7,7 +7,6 @@
  * @module avatar
  */
 import { VNode } from 'vue';
-import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -27,9 +26,13 @@ export interface AvatarPassThroughMethodOptions {
      */
     props: AvatarProps;
     /**
-     * Defines parent instance.
+     * Defines valid attributes.
      */
-    parent: AvatarGroupPassThroughOptions;
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -101,11 +104,11 @@ export interface AvatarProps {
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarPassThroughOptions}

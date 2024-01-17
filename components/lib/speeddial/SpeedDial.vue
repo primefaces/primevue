@@ -84,9 +84,10 @@ export default {
             this.d_visible = newValue;
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
@@ -197,6 +198,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onEnterKey(event);
                     break;

@@ -16,17 +16,23 @@
     >
         <div :class="cx('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
-                <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
-                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
-                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                <template v-if="node.loading && loadingMode === 'icon'">
+                    <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
+                </template>
+                <template v-else>
+                    <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
+                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                </template>
             </button>
-            <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
-                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
-                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
-                </div>
-            </div>
-            <span :class="cx('nodeIcon')" v-bind="getPTOptions('nodeIcon')"></span>
+            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :class="cx('nodeCheckbox')" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
+                <template #icon="slotProps">
+                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
+                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getPTOptions('nodeCheckbox.icon')" />
+                </template>
+            </Checkbox>
+            <span :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('label')" v-bind="getPTOptions('label')" @keydown.stop>
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
                 <template v-else>{{ label(node) }}</template>
@@ -45,6 +51,7 @@
                 :selectionMode="selectionMode"
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
+                :unstyled="unstyled"
                 :pt="pt"
             />
         </ul>
@@ -53,10 +60,12 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
+import SpinnerIcon from 'primevue/icons/spinner';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 
@@ -74,6 +83,10 @@ export default {
             type: null,
             default: null
         },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         selectionKeys: {
             type: null,
             default: null
@@ -90,10 +103,7 @@ export default {
             type: Number,
             default: null
         },
-        index: {
-            type: Number,
-            default: null
-        }
+        index: null
     },
     nodeTouched: false,
     toggleClicked: false,
@@ -177,6 +187,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onEnterKey(event);
 
@@ -432,10 +443,12 @@ export default {
         }
     },
     components: {
-        ChevronDownIcon: ChevronDownIcon,
-        ChevronRightIcon: ChevronRightIcon,
-        CheckIcon: CheckIcon,
-        MinusIcon: MinusIcon
+        Checkbox,
+        ChevronDownIcon,
+        ChevronRightIcon,
+        CheckIcon,
+        MinusIcon,
+        SpinnerIcon
     },
     directives: {
         ripple: Ripple

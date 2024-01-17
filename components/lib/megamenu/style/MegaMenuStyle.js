@@ -76,6 +76,10 @@ const css = `
     .p-megamenu-vertical {
         flex-direction: column;
     }
+    
+    .p-megamenu-vertical:not(.p-megamenu-mobile) {
+        display: inline-flex;
+    }
 
     .p-megamenu-vertical .p-megamenu-root-list {
         flex-direction: column;

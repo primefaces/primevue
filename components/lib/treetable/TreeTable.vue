@@ -1,6 +1,7 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
-        <div v-if="loading" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
+        <slot></slot>
+        <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
@@ -67,6 +68,7 @@
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
                                 :index="i"
+                                :unstyled="unstyled"
                                 :pt="pt"
                             ></TTHeaderCell>
                         </template>
@@ -83,7 +85,8 @@
                     <template v-if="!empty">
                         <TTRow
                             v-for="(node, index) of dataToRender"
-                            :key="node.key"
+                            :key="nodeKey(node)"
+                            :dataKey="dataKey"
                             :columns="columns"
                             :node="node"
                             :level="0"
@@ -94,10 +97,12 @@
                             :ariaSetSize="dataToRender.length"
                             :ariaPosInset="index + 1"
                             :tabindex="setTabindex(node, index)"
+                            :loadingMode="loadingMode"
                             :templates="$slots"
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         ></TTRow>
                     </template>
@@ -110,7 +115,7 @@
                 <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :pt="pt"></TTFooterCell>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :unstyled="unstyled" :pt="pt"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>
@@ -129,7 +134,7 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
-            :pt="pt"
+            :pt="ptm('paginator')"
             data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
@@ -168,7 +173,7 @@
 import { FilterService } from 'primevue/api';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { DomHandler, HelperSet, ObjectUtils } from 'primevue/utils';
 import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';
@@ -194,10 +199,11 @@ export default {
         'filter',
         'column-resize-end'
     ],
-    documentColumnResizeListener: null,
-    documentColumnResizeEndListener: null,
-    lastResizeHelperX: null,
-    resizeColumnElement: null,
+    provide() {
+        return {
+            $columns: this.d_columns
+        };
+    },
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -206,9 +212,14 @@ export default {
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
-            hasASelectedNode: false
+            hasASelectedNode: false,
+            d_columns: new HelperSet({ type: 'Column' })
         };
     },
+    documentColumnResizeListener: null,
+    documentColumnResizeEndListener: null,
+    lastResizeHelperX: null,
+    resizeColumnElement: null,
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
@@ -239,6 +250,9 @@ export default {
             this.updateScrollWidth();
         }
     },
+    beforeUnmount() {
+        this.d_columns.clear();
+    },
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
@@ -251,7 +265,7 @@ export default {
             };
         },
         onNodeToggle(node) {
-            const key = node.key;
+            const key = this.nodeKey(node);
 
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
@@ -272,9 +286,13 @@ export default {
                 this.$emit('update:selectionKeys', _selectionKeys);
             }
         },
+        nodeKey(node) {
+            return ObjectUtils.resolveFieldData(node, this.dataKey);
+        },
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
             const node = event.node;
+            const nodeKey = this.nodeKey(node);
             const metaKey = originalEvent.metaKey || originalEvent.ctrlKey;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
@@ -284,7 +302,7 @@ export default {
                     _selectionKeys = {};
                 } else {
                     _selectionKeys = { ...this.selectionKeys };
-                    delete _selectionKeys[node.key];
+                    delete _selectionKeys[nodeKey];
                 }
 
                 this.$emit('node-unselect', node);
@@ -295,7 +313,7 @@ export default {
                     _selectionKeys = !metaKey ? {} : this.selectionKeys ? { ...this.selectionKeys } : {};
                 }
 
-                _selectionKeys[node.key] = true;
+                _selectionKeys[nodeKey] = true;
                 this.$emit('node-select', node);
             }
 
@@ -303,6 +321,7 @@ export default {
         },
         handleSelectionWithoutMetaKey(event) {
             const node = event.node;
+            const nodeKey = this.nodeKey(node);
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
 
@@ -312,18 +331,18 @@ export default {
                     this.$emit('node-unselect', node);
                 } else {
                     _selectionKeys = {};
-                    _selectionKeys[node.key] = true;
+                    _selectionKeys[nodeKey] = true;
                     this.$emit('node-select', node);
                 }
             } else {
                 if (selected) {
                     _selectionKeys = { ...this.selectionKeys };
-                    delete _selectionKeys[node.key];
+                    delete _selectionKeys[nodeKey];
 
                     this.$emit('node-unselect', node);
                 } else {
                     _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
-                    _selectionKeys[node.key] = true;
+                    _selectionKeys[nodeKey] = true;
 
                     this.$emit('node-select', node);
                 }
@@ -352,6 +371,8 @@ export default {
             pageEvent.pageCount = event.pageCount;
             pageEvent.page = event.page;
 
+            this.d_expandedKeys = {};
+            this.$emit('update:expandedKeys', this.d_expandedKeys);
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
@@ -569,7 +590,7 @@ export default {
             return matched;
         },
         isNodeSelected(node) {
-            return this.selectionMode && this.selectionKeys ? this.selectionKeys[node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.nodeKey(node)] === true : false;
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
@@ -709,7 +730,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if (event.code === 'Enter' && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },
@@ -754,15 +775,7 @@ export default {
     },
     computed: {
         columns() {
-            let cols = [];
-            let children = this.$slots.default();
-
-            children.forEach((child) => {
-                if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
-                else if (child.type.name === 'Column') cols.push(child);
-            });
-
-            return cols;
+            return this.d_columns.get(this);
         },
         processedData() {
             if (this.lazy) {

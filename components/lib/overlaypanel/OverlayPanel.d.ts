@@ -33,6 +33,14 @@ export interface OverlayPanelPassThroughMethodOptions {
      */
     state: OverlayPanelState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -236,6 +244,10 @@ export interface OverlayPanelEmits {
  * @group Component
  */
 declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
+    /**
+     * Aligns overlay panel based on the current position of the container.
+     */
+    alignOverlay(): void;
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.

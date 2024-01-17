@@ -25,7 +25,7 @@ export default {
         index: null
     },
     methods: {
-        onClick(event, navigate) {
+        onClick(event) {
             if (this.item.command) {
                 this.item.command({
                     originalEvent: event,

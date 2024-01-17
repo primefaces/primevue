@@ -6,6 +6,7 @@
                     v-if="visible(item)"
                     :class="[cx('menuitem', { item, index }), item.class]"
                     :style="item.style"
+                    :aria-current="isActive(index) ? 'step' : undefined"
                     @click="onItemClick($event, item, index)"
                     @keydown="onItemKeydown($event, item, index)"
                     v-bind="getPTOptions('menuitem', item, index)"
@@ -47,7 +48,7 @@ export default {
     mounted() {
         const firstItem = this.findFirstItem();
 
-        firstItem.tabIndex = '0';
+        firstItem && (firstItem.tabIndex = '0');
     },
     methods: {
         getPTOptions(key, item, index) {
@@ -115,6 +116,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
 
                 case 'Space': {
                     this.onItemClick(event, item);

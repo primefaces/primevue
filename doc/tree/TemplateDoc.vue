@@ -141,27 +141,22 @@ const nodes = ref([
                 data: `
 {
     key: '0',
-    label: 'Documents',
-    data: 'Documents Folder',
-    icon: 'pi pi-fw pi-inbox',
+    label: 'Introduction',
     children: [
-        {
-            key: '0-0',
-            label: 'Work',
-            data: 'Work Folder',
-            icon: 'pi pi-fw pi-cog',
-            children: [
-                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
-                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
-            ]
-        },
-        {
-            key: '0-1',
-            label: 'Home',
-            data: 'Home Folder',
-            icon: 'pi pi-fw pi-home',
-            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
-        }
+        { key: '0-0', label: 'What is Vue.js?', data: 'https://vuejs.org/guide/introduction.html#what-is-vue', type: 'url' },
+        { key: '0-1', label: 'Quick Start', data: 'https://vuejs.org/guide/quick-start.html#quick-start', type: 'url' },
+        { key: '0-2', label: 'Creating a Vue Application', data: 'https://vuejs.org/guide/essentials/application.html#creating-a-vue-application', type: 'url' },
+        { key: '0-3', label: 'Conditional Rendering', data: 'https://vuejs.org/guide/essentials/conditional.html#conditional-rendering', type: 'url' }
+    ]
+},
+{
+    key: '1',
+    label: 'Components In-Depth',
+    children: [
+        { key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/guide/components/registration.html#component-registration', type: 'url' },
+        { key: '1-1', label: 'Props', data: 'https://vuejs.org/guide/components/props.html#props', type: 'url' },
+        { key: '1-2', label: 'Components Events', data: 'https://vuejs.org/guide/components/events.html#component-events', type: 'url' },
+        { key: '1-3', label: 'Slots', data: 'https://vuejs.org/guide/components/slots.html#slots', type: 'url' }
     ]
 },
 ...`

@@ -10,9 +10,9 @@
                     :root="true"
                     :tabindex="tabindex"
                     aria-orientation="vertical"
-                    :aria-activedescendant="focused ? focusedItemId : undefined"
+                    :aria-activedescendant="focused ? focusedItemIdx : undefined"
                     :menuId="id"
-                    :focusedItemId="focused ? focusedItemId : undefined"
+                    :focusedItemId="focused ? focusedItemIdx : undefined"
                     :items="processedItems"
                     :templates="$slots"
                     :activeItemPath="activeItemPath"
@@ -76,9 +76,10 @@ export default {
             }
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.global) {
             this.bindDocumentContextMenuListener();
         }
@@ -181,6 +182,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
@@ -308,7 +310,7 @@ export default {
         },
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
-                const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemId}`}"]`);
+                const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
                 const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
@@ -532,7 +534,7 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
+            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemIdx;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
             if (element) {
@@ -576,13 +578,13 @@ export default {
 
             return processedItem ? processedItem.items : this.processedItems;
         },
-        focusedItemId() {
+        focusedItemIdx() {
             return this.focusedItemInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {
-        ContextMenuSub: ContextMenuSub,
-        Portal: Portal
+        ContextMenuSub,
+        Portal
     }
 };
 </script>

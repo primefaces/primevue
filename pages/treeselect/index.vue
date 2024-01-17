@@ -4,7 +4,7 @@
         header="TreeSelect"
         description="TreeSelect is a form component to choose from hierarchical data."
         :componentDocs="docs"
-        :apiDocs="['TreeSelect']"
+        :apiDocs="['TreeSelect', 'TreeNode']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />
@@ -48,7 +48,7 @@ export default {
                     component: CheckboxDoc
                 },
                 {
-                    id: 'float-label',
+                    id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
                 },

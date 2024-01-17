@@ -7,20 +7,20 @@
             <div>Please choose your ingredient.</div>
             <div class="flex flex-wrap gap-3">
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient1" name="pizza2" value="Cheese" />
-                    <label for="ingredient1" class="ml-2">Cheese</label>
+                    <RadioButton v-model="value" inputId="ingredient_1" name="pizza2" value="Cheese" />
+                    <label for="ingredient_1" class="ml-2">Cheese</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient2" name="pizza2" value="Mushroom" />
-                    <label for="ingredient2" class="ml-2">Mushroom</label>
+                    <RadioButton v-model="value" inputId="ingredient_2" name="pizza2" value="Mushroom" />
+                    <label for="ingredient_2" class="ml-2">Mushroom</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient3" name="pizza2" value="Pepper" />
-                    <label for="ingredient3" class="ml-2">Pepper</label>
+                    <RadioButton v-model="value" inputId="ingredient_3" name="pizza2" value="Pepper" />
+                    <label for="ingredient_3" class="ml-2">Pepper</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient4" name="pizza2" value="Onion" />
-                    <label for="ingredient4" class="ml-2">Onion</label>
+                    <RadioButton v-model="value" inputId="ingredient_4" name="pizza2" value="Onion" />
+                    <label for="ingredient_4" class="ml-2">Onion</label>
                 </div>
             </div>
 
@@ -66,20 +66,20 @@ export default {
         <div>Please choose your ingredient.</div>
         <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">
-                <RadioButton v-model="value" inputId="ingredient1" name="pizza2" value="Cheese" />
-                <label for="ingredient1" class="ml-2">Cheese</label>
+                <RadioButton v-model="value" inputId="ingredient_1" name="pizza2" value="Cheese" />
+                <label for="ingredient_1" class="ml-2">Cheese</label>
             </div>
             <div class="flex align-items-center">
-                <RadioButton v-model="value" inputId="ingredient2" name="pizza2" value="Mushroom" />
-                <label for="ingredient2" class="ml-2">Mushroom</label>
+                <RadioButton v-model="value" inputId="ingredient_2" name="pizza2" value="Mushroom" />
+                <label for="ingredient_2" class="ml-2">Mushroom</label>
             </div>
             <div class="flex align-items-center">
-                <RadioButton v-model="value" inputId="ingredient3" name="pizza2" value="Pepper" />
-                <label for="ingredient3" class="ml-2">Pepper</label>
+                <RadioButton v-model="value" inputId="ingredient_3" name="pizza2" value="Pepper" />
+                <label for="ingredient_3" class="ml-2">Pepper</label>
             </div>
             <div class="flex align-items-center">
-                <RadioButton v-model="value" inputId="ingredient4" name="pizza2" value="Onion" />
-                <label for="ingredient4" class="ml-2">Onion</label>
+                <RadioButton v-model="value" inputId="ingredient_4" name="pizza2" value="Onion" />
+                <label for="ingredient_4" class="ml-2">Onion</label>
             </div>
         </div>
 
@@ -95,20 +95,20 @@ export default {
             <div>Please choose your ingredient.</div>
             <div class="flex flex-wrap gap-3">
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient1" name="pizza2" value="Cheese" />
-                    <label for="ingredient1" class="ml-2">Cheese</label>
+                    <RadioButton v-model="value" inputId="ingredient_1" name="pizza2" value="Cheese" />
+                    <label for="ingredient_1" class="ml-2">Cheese</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient2" name="pizza2" value="Mushroom" />
-                    <label for="ingredient2" class="ml-2">Mushroom</label>
+                    <RadioButton v-model="value" inputId="ingredient_2" name="pizza2" value="Mushroom" />
+                    <label for="ingredient_2" class="ml-2">Mushroom</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient3" name="pizza2" value="Pepper" />
-                    <label for="ingredient3" class="ml-2">Pepper</label>
+                    <RadioButton v-model="value" inputId="ingredient_3" name="pizza2" value="Pepper" />
+                    <label for="ingredient_3" class="ml-2">Pepper</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient4" name="pizza2" value="Onion" />
-                    <label for="ingredient4" class="ml-2">Onion</label>
+                    <RadioButton v-model="value" inputId="ingredient_4" name="pizza2" value="Onion" />
+                    <label for="ingredient_4" class="ml-2">Onion</label>
                 </div>
             </div>
 
@@ -155,20 +155,20 @@ export default {
             <div>Please choose your ingredient.</div>
             <div class="flex flex-wrap gap-3">
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient1" name="pizza2" value="Cheese" />
-                    <label for="ingredient1" class="ml-2">Cheese</label>
+                    <RadioButton v-model="value" inputId="ingredient_1" name="pizza2" value="Cheese" />
+                    <label for="ingredient_1" class="ml-2">Cheese</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient2" name="pizza2" value="Mushroom" />
-                    <label for="ingredient2" class="ml-2">Mushroom</label>
+                    <RadioButton v-model="value" inputId="ingredient_2" name="pizza2" value="Mushroom" />
+                    <label for="ingredient_2" class="ml-2">Mushroom</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient3" name="pizza2" value="Pepper" />
-                    <label for="ingredient3" class="ml-2">Pepper</label>
+                    <RadioButton v-model="value" inputId="ingredient_3" name="pizza2" value="Pepper" />
+                    <label for="ingredient_3" class="ml-2">Pepper</label>
                 </div>
                 <div class="flex align-items-center">
-                    <RadioButton v-model="value" inputId="ingredient4" name="pizza2" value="Onion" />
-                    <label for="ingredient4" class="ml-2">Onion</label>
+                    <RadioButton v-model="value" inputId="ingredient_4" name="pizza2" value="Onion" />
+                    <label for="ingredient_4" class="ml-2">Onion</label>
                 </div>
             </div>
 

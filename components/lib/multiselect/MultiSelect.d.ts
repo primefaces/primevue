@@ -38,6 +38,14 @@ export interface MultiSelectPassThroughMethodOptions {
      */
     context: MultiSelectContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -138,10 +146,6 @@ export interface MultiSelectPassThroughOptions {
      */
     header?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the header checkbox container's DOM element.
-     */
-    headerCheckboxContainer?: MultiSelectPassThroughOptionType;
-    /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
     headerCheckbox?: MultiSelectPassThroughOptionType;
@@ -187,17 +191,9 @@ export interface MultiSelectPassThroughOptions {
      */
     item?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the item checkbox's DOM element.
      */
-    checkboxContainer?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox's DOM element.
-     */
-    checkbox?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: MultiSelectPassThroughOptionType;
+    itemCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the option's DOM element.
      */
@@ -206,10 +202,6 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden input's DOM element.
      */
@@ -518,11 +510,11 @@ export interface MultiSelectProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {MultiSelectPassThroughOptions}

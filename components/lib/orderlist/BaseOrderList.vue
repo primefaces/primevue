@@ -24,7 +24,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         responsive: {
             type: Boolean,
@@ -62,11 +62,11 @@ export default {
             type: null,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

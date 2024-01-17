@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
-export declare type InputTextPassThroughOptionType = InputTextPassThroughAttributes | ((options: InputTextPassThroughMethodOptions) => InputTextPassThroughAttributes | string) | string | null | undefined;
+export declare type InputTextPassThroughOptionType<T = any> = InputTextPassThroughAttributes | ((options: InputTextPassThroughMethodOptions<T>) => InputTextPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface InputTextPassThroughMethodOptions {
+export interface InputTextPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -31,6 +31,10 @@ export interface InputTextPassThroughMethodOptions {
      */
     context: InputTextContext;
     /**
+     * Defines parent instance.
+     */
+    parent: T;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -40,11 +44,11 @@ export interface InputTextPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link InputTextProps.pt}
  */
-export interface InputTextPassThroughOptions {
+export interface InputTextPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: InputTextPassThroughOptionType;
+    root?: InputTextPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

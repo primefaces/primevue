@@ -2,7 +2,7 @@ import pkg from '../../../package.json';
 import { services } from './services';
 
 const PrimeVue = {
-    version: '^3.40.0',
+    version: '^3.45.0',
     description:
         'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
 };
@@ -60,7 +60,7 @@ const getVueApp = (props = {}, sourceType) => {
 
     if (embedded) {
         // main.js
-        unstyled += `, unstyled: true, pt: Tailwind, ptOptions: { mergeProps: true }`;
+        unstyled += `, unstyled: true, pt: Tailwind`;
         imports += `import Tailwind from 'primevue/passthrough/tailwind';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
         element += `app.component('ThemeSwitcher', ThemeSwitcher);`;
@@ -79,7 +79,7 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
     } else {
         // main.js
         pvTheme += `import "primeflex/primeflex.css";
-import "primevue/resources/themes/lara-light-teal/theme.css";`;
+import "primevue/resources/themes/lara-light-green/theme.css";`;
 
         // package.json
         dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';
@@ -187,6 +187,8 @@ import Galleria from 'primevue/galleria';
 import Image from 'primevue/image';
 import InlineMessage from 'primevue/inlinemessage';
 import Inplace from 'primevue/inplace';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputSwitch from 'primevue/inputswitch';
 import InputText from 'primevue/inputtext';
 import InputMask from 'primevue/inputmask';
@@ -296,6 +298,8 @@ app.component('Galleria', Galleria);
 app.component('Image', Image);
 app.component('InlineMessage', InlineMessage);
 app.component('Inplace', Inplace);
+app.component('InputGroup', InputGroup);
+app.component('InputGroupAddon', InputGroupAddon);
 app.component('InputMask', InputMask);
 app.component('InputNumber', InputNumber);
 app.component('InputSwitch', InputSwitch);

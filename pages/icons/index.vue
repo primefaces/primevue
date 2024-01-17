@@ -10,7 +10,7 @@
                 <div class="doc-intro">
                     <h1>Icons</h1>
                     <p>
-                        <a href="https://github.com/primefaces/primeicons" class="text-primary hover:underline font-semibold"> PrimeIcons </a>
+                        <a href="https://github.com/primefaces/primeicons"> PrimeIcons </a>
                         is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
                     </p>
                 </div>

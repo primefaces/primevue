@@ -3,10 +3,9 @@
         <div class="doc-intro">
             <h1>Meet the Team</h1>
             <p>
-                <a href="https://www.primetek.com.tr" class="text-primary hover:underline font-semibold"> PrimeTek </a> is a world renowned vendor of popular UI Component suites including
-                <a href="https://primefaces.org" class="text-primary hover:underline font-semibold"> PrimeFaces </a>, <a href="https://primeng.org" class="text-primary hover:underline font-semibold"> PrimeNG </a>,
-                <a href="https://primereact.org" class="text-primary hover:underline font-semibold"> PrimeReact </a> and
-                <a href="https://primevue.org" class="text-primary hover:underline font-semibold"> PrimeVue </a>
+                <a href="https://www.primetek.com.tr"> PrimeTek </a> is a world renowned vendor of popular UI Component suites including <a href="https://primefaces.org"> PrimeFaces </a>, <a href="https://primeng.org"> PrimeNG </a>,
+                <a href="https://primereact.org"> PrimeReact </a> and
+                <a href="https://primevue.org"> PrimeVue </a>
                 . All the members in our team are full time employees of PrimeTek who share the same passion and vision for open source to create awesome UI libraries.
             </p>
         </div>
@@ -59,13 +58,23 @@
                     <span>UI/UX Designer</span>
                 </div>
                 <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/bugra.jpg" class="border-circle mb-4" alt="Buğra Beydüz" />
-                    <span class="mb-2 text-xl font-bold">Buğra Beydüz</span>
+                    <img src="https://primefaces.org/cdn/primevue/images/team/aliriza.jpg" class="border-circle mb-4" alt="Alirıza Gücal" />
+                    <span class="mb-2 text-xl font-bold">Alirıza Gücal</span>
                     <span>Front-End Developer</span>
                 </div>
                 <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/aliriza.jpg" class="border-circle mb-4" alt="Alirıza Gücal" />
-                    <span class="mb-2 text-xl font-bold">Alirıza Gücal</span>
+                    <img src="https://primefaces.org/cdn/primevue/images/team/umit.jpg" class="border-circle mb-4" alt="Ümit Çelik" />
+                    <span class="mb-2 text-xl font-bold">Ümit Çelik</span>
+                    <span>UI/UX Designer</span>
+                </div>
+                <div class="flex flex-column align-items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/toprak.jpg" class="border-circle mb-4" alt="Toprak Koç" />
+                    <span class="mb-2 text-xl font-bold">Toprak Koç</span>
+                    <span>Front-End Developer</span>
+                </div>
+                <div class="flex flex-column align-items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/mehmet.jpg" class="border-circle mb-4" alt="Mehmet Çetin" />
+                    <span class="mb-2 text-xl font-bold">Mehmet Çetin</span>
                     <span>Front-End Developer</span>
                 </div>
                 <div class="flex flex-column align-items-center flex-auto">
@@ -79,9 +88,9 @@
                     <span>Front-End Developer</span>
                 </div>
                 <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/umit.jpg" class="border-circle mb-4" alt="Ümit Çelik" />
-                    <span class="mb-2 text-xl font-bold">Ümit Çelik</span>
-                    <span>UI/UX Designer</span>
+                    <img src="https://primefaces.org/cdn/primevue/images/team/taner.jpg" class="border-circle mb-4" alt="Taner Engin" />
+                    <span class="mb-2 text-xl font-bold">Taner Engin</span>
+                    <span>Front-End Developer</span>
                 </div>
             </div>
         </div>

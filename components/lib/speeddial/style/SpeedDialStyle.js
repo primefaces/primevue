@@ -84,8 +84,8 @@ const css = `
 /* Direction */
 const inlineStyles = {
     root: ({ props }) => ({
-        alignItems: props.direction === 'up' || props.direction === 'down' ? 'center' : '',
-        justifyContent: props.direction === 'left' || props.direction === 'right' ? 'center' : '',
+        alignItems: (props.direction === 'up' || props.direction === 'down') && 'center',
+        justifyContent: (props.direction === 'left' || props.direction === 'right') && 'center',
         flexDirection: props.direction === 'up' ? 'column-reverse' : props.direction === 'down' ? 'column' : props.direction === 'left' ? 'row-reverse' : props.direction === 'right' ? 'row' : null
     }),
     menu: ({ props }) => ({

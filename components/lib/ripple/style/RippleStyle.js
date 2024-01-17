@@ -28,7 +28,7 @@ const css = `
     }
 
     .p-ripple-disabled .p-ink {
-        display: none !important;
+        display: none;
     }
 }
 `;

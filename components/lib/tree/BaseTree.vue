@@ -24,7 +24,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         loading: {
             type: Boolean,
@@ -33,6 +33,10 @@ export default {
         loadingIcon: {
             type: String,
             default: undefined
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
         },
         filter: {
             type: Boolean,
@@ -62,11 +66,11 @@ export default {
             type: Number,
             default: 0
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

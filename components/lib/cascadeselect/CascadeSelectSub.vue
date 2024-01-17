@@ -11,19 +11,19 @@
                 :aria-level="level + 1"
                 :aria-setsize="options.length"
                 :aria-posinset="index + 1"
-                v-bind="ptm('item')"
+                v-bind="getPTOptions(processedOption, index, 'item')"
                 :data-p-item-group="isOptionGroup(processedOption)"
                 :data-p-highlight="isOptionActive(processedOption)"
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" v-bind="ptm('content')">
+                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'content')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else :class="cx('text')" v-bind="ptm('text')">{{ getOptionLabelToRender(processedOption) }}</span>
+                    <span v-else :class="cx('text')" v-bind="getPTOptions(processedOption, index, 'text')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
                         <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />
-                        <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="ptm('groupIcon')" />
-                        <AngleRightIcon v-else :class="cx('groupIcon')" aria-hidden="true" v-bind="ptm('groupIcon')" />
+                        <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
+                        <AngleRightIcon v-else :class="cx('groupIcon')" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
                     </template>
                 </div>
                 <CascadeSelectSub
@@ -73,7 +73,10 @@ export default {
         optionDisabled: null,
         optionGroupIcon: String,
         optionGroupLabel: String,
-        optionGroupChildren: Array,
+        optionGroupChildren: {
+            type: [String, Array],
+            default: null
+        },
         activeOptionPath: Array,
         level: Number,
         templates: null,
@@ -105,6 +108,19 @@ export default {
         },
         getOptionValue(processedOption) {
             return this.optionValue ? ObjectUtils.resolveFieldData(processedOption.option, this.optionValue) : processedOption.option;
+        },
+        getPTOptions(processedOption, index, key) {
+            return this.ptm(key, {
+                context: {
+                    item: processedOption,
+                    index,
+                    level: this.level,
+                    itemGroup: this.isOptionGroup(processedOption),
+                    active: this.isOptionActive(processedOption),
+                    focused: this.isOptionFocused(processedOption),
+                    disabled: this.isOptionDisabled(processedOption)
+                }
+            });
         },
         isOptionDisabled(processedOption) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(processedOption.option, this.optionDisabled) : false;

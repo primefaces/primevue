@@ -2,7 +2,7 @@
     <DocComponent
         title="Vue SelectButton Component"
         header="SelectButton"
-        description="Slider is a component to provide input with a drag handle."
+        description="SelectButton is used to choose single or multiple items from a list using buttons."
         :componentDocs="docs"
         :apiDocs="['SelectButton']"
         :ptTabComponent="ptComponent"

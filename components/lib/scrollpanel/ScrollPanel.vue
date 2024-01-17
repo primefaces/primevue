@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="scrollpanel">
         <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
-            <div ref="content" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
+            <div ref="content" :id="contentId" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
             </div>
         </div>
@@ -11,6 +11,7 @@
             tabindex="0"
             role="scrollbar"
             aria-orientation="horizontal"
+            :aria-controls="contentId"
             :aria-valuenow="lastScrollLeft"
             @mousedown="onXBarMouseDown"
             @keydown="onKeyDown($event)"
@@ -26,6 +27,7 @@
             tabindex="0"
             role="scrollbar"
             aria-orientation="vertical"
+            :aria-controls="contentId"
             :aria-valuenow="lastScrollTop"
             @mousedown="onYBarMouseDown"
             @keydown="onKeyDown($event)"
@@ -356,6 +358,11 @@ export default {
                 window.removeEventListener('resize', this.documentResizeListener);
                 this.documentResizeListener = null;
             }
+        }
+    },
+    computed: {
+        contentId() {
+            return UniqueComponentId() + '_content';
         }
     }
 };

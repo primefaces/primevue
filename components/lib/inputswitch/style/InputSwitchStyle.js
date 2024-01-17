@@ -6,6 +6,10 @@ const css = `
         display: inline-block;
     }
 
+    .p-inputswitch-input {
+        cursor: pointer;
+    }
+
     .p-inputswitch-slider {
         position: absolute;
         cursor: pointer;
@@ -32,11 +36,11 @@ const classes = {
     root: ({ instance, props }) => [
         'p-inputswitch p-component',
         {
-            'p-inputswitch-checked': instance.checked,
-            'p-disabled': props.disabled,
-            'p-focus': instance.focused
+            'p-highlight': instance.checked,
+            'p-disabled': props.disabled
         }
     ],
+    input: 'p-inputswitch-input',
     slider: 'p-inputswitch-slider'
 };
 

@@ -124,7 +124,7 @@ export default {
         },
         metaKeySelection: {
             type: Boolean,
-            default: true
+            default: false
         },
         contextMenu: {
             type: Boolean,
@@ -167,7 +167,7 @@ export default {
             default: false
         },
         expandedRows: {
-            type: Array,
+            type: [Array, Object],
             default: null
         },
         expandedRowIcon: {

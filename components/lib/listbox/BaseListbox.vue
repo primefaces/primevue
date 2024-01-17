@@ -14,10 +14,19 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         listStyle: null,
-        disabled: Boolean,
+        disabled: {
+            type: Boolean,
+            default: false
+        },
         dataKey: null,
-        multiple: Boolean,
-        metaKeySelection: Boolean,
+        multiple: {
+            type: Boolean,
+            default: false
+        },
+        metaKeySelection: {
+            type: Boolean,
+            default: false
+        },
         filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,
@@ -70,11 +79,11 @@ export default {
             type: Number,
             default: 0
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         }

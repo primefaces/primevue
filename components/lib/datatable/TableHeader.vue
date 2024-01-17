@@ -36,6 +36,7 @@
                         @constraint-add="$emit('constraint-add', $event)"
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
+                        :unstyled="unstyled"
                         :pt="pt"
                     />
                 </template>
@@ -48,7 +49,7 @@
                         :class="getFilterColumnHeaderClass(col)"
                         v-bind="{ ...getColumnPT(col, 'root', i), ...getColumnPT(col, 'headerCell', i) }"
                     >
-                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" :column="col" :pt="pt" />
+                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" :column="col" :unstyled="unstyled" :pt="pt" />
                         <DTColumnFilter
                             v-if="col.children && col.children.filter"
                             :field="columnProp(col, 'filterField') || columnProp(col, 'field')"
@@ -118,6 +119,7 @@
                         @constraint-add="$emit('constraint-add', $event)"
                         @constraint-remove="$emit('constraint-remove', $event)"
                         @apply-click="$emit('apply-click', $event)"
+                        :unstyled="unstyled"
                         :pt="pt"
                     />
                 </template>
@@ -128,7 +130,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { ObjectUtils } from 'primevue/utils';
+import { HelperSet, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import ColumnFilter from './ColumnFilter.vue';
 import HeaderCell from './HeaderCell.vue';
@@ -226,6 +228,22 @@ export default {
             default: null
         }
     },
+    provide() {
+        return {
+            $rows: this.d_headerRows,
+            $columns: this.d_headerColumns
+        };
+    },
+    data() {
+        return {
+            d_headerRows: new HelperSet({ type: 'Row' }),
+            d_headerColumns: new HelperSet({ type: 'Column' })
+        };
+    },
+    beforeUnmount() {
+        this.d_headerRows.clear();
+        this.d_headerColumns.clear();
+    },
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
@@ -234,6 +252,7 @@ export default {
             const columnGroupMetaData = {
                 props: this.getColumnGroupProps(),
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -252,6 +271,7 @@ export default {
             const rowMetaData = {
                 props: row.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -269,6 +289,7 @@ export default {
             const columnMetaData = {
                 props: column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
@@ -289,33 +310,10 @@ export default {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
         },
         getHeaderRows() {
-            let rows = [];
-
-            let columnGroup = this.columnGroup;
-
-            if (columnGroup.children && columnGroup.children.default) {
-                for (let child of columnGroup.children.default()) {
-                    if (child.type.name === 'Row') {
-                        rows.push(child);
-                    } else if (child.children && child.children instanceof Array) {
-                        rows = child.children;
-                    }
-                }
-
-                return rows;
-            }
+            return this.d_headerRows?.get(this.columnGroup, this.columnGroup.children);
         },
         getHeaderColumns(row) {
-            let cols = [];
-
-            if (row.children && row.children.default) {
-                row.children.default().forEach((child) => {
-                    if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
-                    else if (child.type.name === 'Column') cols.push(child);
-                });
-
-                return cols;
-            }
+            return this.d_headerColumns?.get(row, row.children);
         }
     },
     computed: {

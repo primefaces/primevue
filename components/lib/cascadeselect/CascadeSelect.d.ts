@@ -33,6 +33,18 @@ export interface CascadeSelectPassThroughMethodOptions {
      */
     state: CascadeSelectState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
+     * Defines current options.
+     */
+    context: CascadeSelectContext;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -187,6 +199,43 @@ export interface CascadeSelectState {
 }
 
 /**
+ * Defines current options in CascadeSelect component.
+ */
+export interface CascadeSelectContext {
+    /**
+     * Current option.
+     */
+    item: any;
+    /**
+     * Index of the option.
+     */
+    index: number;
+    /**
+     * Level of the option.
+     */
+    level: number;
+    /**
+     * Current item group state of option as a boolean.
+     */
+    itemGroup: boolean;
+    /**
+     * Current active state of option as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of option as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of option as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
+/**
  * Defines valid properties in CascadeSelect component.
  */
 export interface CascadeSelectProps {
@@ -330,11 +379,11 @@ export interface CascadeSelectProps {
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {CascadeSelectPassThroughOptions}

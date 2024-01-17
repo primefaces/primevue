@@ -33,7 +33,7 @@ const css = `
 
     .p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
     .p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
-        transition: none !important;
+        transition: none;
     }
 }
 `;

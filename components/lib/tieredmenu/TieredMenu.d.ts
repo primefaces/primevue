@@ -13,14 +13,14 @@ import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
+export declare type TieredMenuPassThroughOptionType<T = any> = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions<T>) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
 
-export declare type TieredMenuPassThroughTransitionType = TransitionProps | ((options: TieredMenuPassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type TieredMenuPassThroughTransitionType<T = any> = TransitionProps | ((options: TieredMenuPassThroughMethodOptions<T>) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface TieredMenuPassThroughMethodOptions {
+export interface TieredMenuPassThroughMethodOptions<T> {
     /**
      * Defines instance.
      */
@@ -33,6 +33,14 @@ export interface TieredMenuPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: TieredMenuState;
+    /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent instance.
+     */
+    parent: T;
     /**
      * Defines current options.
      */
@@ -47,47 +55,47 @@ export interface TieredMenuPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link TieredMenuProps.pt}
  */
-export interface TieredMenuPassThroughOptions {
+export interface TieredMenuPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: TieredMenuPassThroughOptionType;
+    root?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    menu?: TieredMenuPassThroughOptionType;
+    menu?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the list item's DOM element.
      */
-    menuitem?: TieredMenuPassThroughOptionType;
+    menuitem?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
-    content?: TieredMenuPassThroughOptionType;
+    content?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the action's DOM element.
      */
-    action?: TieredMenuPassThroughOptionType;
+    action?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the icon's DOM element.
      */
-    icon?: TieredMenuPassThroughOptionType;
+    icon?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: TieredMenuPassThroughOptionType;
+    label?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the submenu icon's DOM element.
      */
-    submenuIcon?: TieredMenuPassThroughOptionType;
+    submenuIcon?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the separator's DOM element.
      */
-    separator?: TieredMenuPassThroughOptionType;
+    separator?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
-    submenu?: TieredMenuPassThroughOptionType;
+    submenu?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -251,11 +259,11 @@ export interface TieredMenuProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Identifier of the underlying menu element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TieredMenuPassThroughOptions}

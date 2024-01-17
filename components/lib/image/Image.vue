@@ -3,7 +3,7 @@
         <slot name="image" :onError="onError" :errorCallback="onError">
             <img :style="imageStyle" :class="[cx('image'), imageClass]" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
-        <button v-if="preview" ref="previewButton" type="button" :class="cx('button')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('button') }">
+        <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('button')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('button') }">
             <slot name="indicatoricon">
                 <component :is="indicatorIcon ? 'i' : 'EyeIcon'" :class="cx('icon')" v-bind="ptm('icon')" />
             </slot>
@@ -104,13 +104,9 @@ export default {
             this.previewClick = true;
         },
         onMaskClick(event) {
-            const isActionbarTarget = [event.target.classList].includes('p-image-action') || event.target.closest('.p-image-action');
+            const isBarActionsClicked = DomHandler.isAttributeEquals(event.target, 'data-pc-section-group', 'action') || event.target.closest('[data-pc-section-group="action"]');
 
-            if (isActionbarTarget) {
-                return;
-            }
-
-            if (!this.previewClick) {
+            if (!this.previewClick && !isBarActionsClicked) {
                 this.previewVisible = false;
                 this.rotate = 0;
                 this.scale = 1;
@@ -211,6 +207,9 @@ export default {
         },
         zoomOutAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.zoomOut : undefined;
+        },
+        zoomImageAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.zoomImage : undefined;
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;

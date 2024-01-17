@@ -8,7 +8,6 @@
  *
  */
 import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
-import { AccordionPassThroughOptions } from '../accordion';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -29,9 +28,13 @@ export interface AccordionTabPassThroughMethodOptions {
      */
     props: AccordionTabProps;
     /**
-     * Defines parent instance.
+     * Defines valid attributes.
      */
-    parent: AccordionPassThroughOptions;
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
     /**
      * Defines current options.
      */

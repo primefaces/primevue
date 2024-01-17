@@ -30,6 +30,7 @@ const css = `
         height: 0;
         border-color: transparent;
         border-style: solid;
+        scale: 2;
     }
 
     .p-tooltip-right .p-tooltip-arrow {

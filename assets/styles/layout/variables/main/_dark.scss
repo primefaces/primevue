@@ -1,4 +1,6 @@
 .layout-dark {
+    --primary-color-default:var(--primary-400);
+    --primary-color-inverse-default:var(--gray-900);
     --topbar-sticky-bg:rgba(0,0,0,.3);
     --card-border: 0 none;
     --card-bg: var(--surface-card);

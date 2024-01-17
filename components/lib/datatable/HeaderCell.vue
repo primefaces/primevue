@@ -27,7 +27,7 @@
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
-                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" data-pc-section="sorticon" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" />
+                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" data-pc-section="sorticon" />
             </span>
             <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox
@@ -37,6 +37,7 @@
                 :disabled="empty"
                 :headerCheckboxIconTemplate="column.children && column.children.headercheckboxicon"
                 :column="column"
+                :unstyled="unstyled"
                 :pt="pt"
             />
             <DTColumnFilter
@@ -206,11 +207,13 @@ export default {
             const columnMetaData = {
                 props: this.column.props,
                 parent: {
+                    instance: this,
                     props: this.$props,
                     state: this.$data
                 },
                 context: {
                     index: this.index,
+                    sortable: this.columnProp('sortable') === '' || this.columnProp('sortable'),
                     sorted: this.isColumnSorted(),
                     resizable: this.resizableColumns,
                     size: this.$parentInstance?.$parentInstance?.size,
@@ -227,7 +230,7 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if ((event.code === 'Enter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
                 event.preventDefault();
             }
@@ -236,16 +239,16 @@ export default {
             this.$emit('column-mousedown', { originalEvent: event, column: this.column });
         },
         onDragStart(event) {
-            this.$emit('column-dragstart', event);
+            this.$emit('column-dragstart', { originalEvent: event, column: this.column });
         },
         onDragOver(event) {
-            this.$emit('column-dragover', event);
+            this.$emit('column-dragover', { originalEvent: event, column: this.column });
         },
         onDragLeave(event) {
-            this.$emit('column-dragleave', event);
+            this.$emit('column-dragleave', { originalEvent: event, column: this.column });
         },
         onDrop(event) {
-            this.$emit('column-drop', event);
+            this.$emit('column-drop', { originalEvent: event, column: this.column });
         },
         onResizeStart(event) {
             this.$emit('column-resizestart', event);
@@ -293,8 +296,10 @@ export default {
                 if (filterRow) {
                     let index = DomHandler.index(this.$el);
 
-                    filterRow.children[index].style.left = this.styleObject.left;
-                    filterRow.children[index].style.right = this.styleObject.right;
+                    if (filterRow.children[index]) {
+                        filterRow.children[index].style.left = this.styleObject.left;
+                        filterRow.children[index].style.right = this.styleObject.right;
+                    }
                 }
             }
         },

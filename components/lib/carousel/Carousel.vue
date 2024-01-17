@@ -101,7 +101,7 @@ import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueComponentId, ObjectUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BaseCarousel from './BaseCarousel.vue';
 
 export default {
@@ -453,6 +453,8 @@ export default {
 
                 case 'ArrowUp':
                 case 'ArrowDown':
+                case 'PageUp':
+                case 'PageDown':
                     event.preventDefault();
                     break;
 
@@ -481,7 +483,7 @@ export default {
             this.changedFocusedIndicator(activeIndex, 0);
         },
         onEndKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]r')];
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, indicators.length - 1);

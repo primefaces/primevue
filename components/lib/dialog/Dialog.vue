@@ -6,10 +6,10 @@
                     <slot v-if="$slots.container" name="container" :onClose="close" :onMaximize="(event) => maximize(event)" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
                     <template v-else>
                         <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
-                            <slot name="header" :class="cx('headerTitle')">
-                                <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
+                            <slot name="header" :class="cx('title')">
+                                <span v-if="header" :id="ariaLabelledById" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
                             </slot>
-                            <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
+                            <div :class="cx('icons')" v-bind="ptm('icons')">
                                 <button
                                     v-if="maximizable"
                                     :ref="maximizableRef"
@@ -283,7 +283,7 @@ export default {
             }
         },
         initDrag(event) {
-            if (event.target.closest('div').getAttribute('data-pc-section') === 'headericons') {
+            if (event.target.closest('div').getAttribute('data-pc-section') === 'icons') {
                 return;
             }
 

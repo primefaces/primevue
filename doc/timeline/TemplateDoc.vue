@@ -120,10 +120,10 @@ export default {
 @media screen and (max-width: 960px) {
     ::v-deep(.customized-timeline) {
         .p-timeline-event:nth-child(even) {
-            flex-direction: row !important;
+            flex-direction: row;
 
             .p-timeline-event-content {
-                text-align: left !important;
+                text-align: left;
             }
         }
 
@@ -181,10 +181,10 @@ const events = ref([
 @media screen and (max-width: 960px) {
     ::v-deep(.customized-timeline) {
         .p-timeline-event:nth-child(even) {
-            flex-direction: row !important;
+            flex-direction: row;
 
             .p-timeline-event-content {
-                text-align: left !important;
+                text-align: left;
             }
         }
 

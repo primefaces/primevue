@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { InputTextPassThroughOptionType } from '../inputtext';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
@@ -34,9 +34,31 @@ export interface PasswordPassThroughMethodOptions {
      */
     state: PasswordState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface PasswordSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: PasswordProps;
+    /**
+     * Defines current inline state.
+     */
+    state: PasswordState;
 }
 
 /**
@@ -50,9 +72,9 @@ export interface PasswordPassThroughOptions {
     root?: PasswordPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
-     * @see {@link InputTextPassThroughOptionType}
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: PasswordPassThroughOptionType;
+    input?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the hide icon's DOM element.
      */
@@ -248,11 +270,11 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {PasswordPassThroughOptions}

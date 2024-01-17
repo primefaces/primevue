@@ -114,9 +114,10 @@ export default {
             this.autoUpdateModel();
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -147,7 +148,7 @@ export default {
             return this.optionGroupLabel ? ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel) : null;
         },
         getOptionGroupChildren(optionGroup, level) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren[level]);
+            return ObjectUtils.isString(this.optionGroupChildren) ? ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren) : ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren[level]);
         },
         isOptionGroup(option, level) {
             return Object.prototype.hasOwnProperty.call(option, this.optionGroupChildren[level]);
@@ -243,6 +244,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 

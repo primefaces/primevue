@@ -2,28 +2,28 @@
     <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('controls')" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveUpButton')" v-bind="moveUpButtonProps" data-pc-section="moveupbutton" :unstyled="unstyled">
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps" :pt="ptm('moveUpButton')" :unstyled="unstyled" data-pc-section="moveupbutton">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" data-pc-section="moveupicon" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="moveTopButtonProps" data-pc-section="movetopbutton" :unstyled="unstyled">
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps" :pt="ptm('moveTopButton')" :unstyled="unstyled" data-pc-section="movetopbutton">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" data-pc-section="movetopicon" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveDownButton')" v-bind="moveDownButtonProps" data-pc-section="movedownbutton" :unstyled="unstyled">
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps" :pt="ptm('moveDownButton')" :unstyled="unstyled" data-pc-section="movedownbutton">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" data-pc-section="movedownicon" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveBottomButton')" v-bind="moveBottomButtonProps" data-pc-section="movebottombutton" :unstyled="unstyled">
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps" :pt="ptm('moveBottomButton')" :unstyled="unstyled" data-pc-section="movebottombutton">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" data-pc-section="movebottomicon" />
@@ -116,9 +116,10 @@ export default {
             this.reorderDirection = null;
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         if (this.responsive) {
             this.createStyle();
         }
@@ -139,7 +140,7 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
         onListFocus(event) {
-            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
+            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]') || DomHandler.findSingle(this.list, '[data-pc-section="item"]');
 
             if (selectedFirstItem) {
                 const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
@@ -176,6 +177,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
@@ -187,6 +189,8 @@ export default {
                     if (event.ctrlKey) {
                         this.d_selection = [...this.modelValue];
                         this.$emit('update:selection', this.d_selection);
+
+                        event.preventDefault();
                     }
 
                 default:
@@ -227,6 +231,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(0, matchedOptionIndex + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(0);
             }
@@ -241,6 +249,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.changeFocusedOptionIndex(DomHandler.find(this.list, '[data-pc-section="item"]').length - 1);
             }
@@ -257,7 +269,9 @@ export default {
             event.preventDefault();
         },
         onSpaceKey(event) {
-            if (event.shiftKey) {
+            event.preventDefault();
+
+            if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
                 const items = DomHandler.find(this.list, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[0], [...this.modelValue]);
                 const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
@@ -265,6 +279,10 @@ export default {
 
                 this.d_selection = [...this.modelValue].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
+                this.$emit('selection-change', {
+                    originalEvent: event,
+                    value: this.d_selection
+                });
             } else {
                 this.onEnterKey(event);
             }

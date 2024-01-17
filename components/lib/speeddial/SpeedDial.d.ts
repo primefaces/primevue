@@ -37,9 +37,31 @@ export interface SpeedDialPassThroughMethodOptions {
      */
     context: SpeedDialContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface SpeedDialSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: SpeedDialProps;
+    /**
+     * Defines current inline state.
+     */
+    state: SpeedDialState;
 }
 
 /**
@@ -55,7 +77,7 @@ export interface SpeedDialPassThroughOptions {
      * Used to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
-    button?: ButtonPassThroughOptions;
+    button?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the menu's DOM element.
      */
@@ -247,11 +269,11 @@ export interface SpeedDialProps {
     /**
      * Defines a string value that labels an interactive list element.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Identifier of the underlying list element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {SpeedDialPassThroughOptions}

@@ -25,6 +25,10 @@ export default {
             type: Boolean,
             default: false
         },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
         tabindex: {
             type: Number,
             default: null
@@ -41,15 +45,11 @@ export default {
             type: Object,
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

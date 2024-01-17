@@ -15,7 +15,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         autoZIndex: {
@@ -34,11 +34,11 @@ export default {
             type: Number,
             default: 0
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

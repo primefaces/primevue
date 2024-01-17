@@ -39,7 +39,7 @@ const css = `
     .p-message.p-message-leave-to {
         max-height: 0;
         opacity: 0;
-        margin: 0 !important;
+        margin: 0;
     }
 
     .p-message-leave-active {

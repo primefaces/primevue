@@ -78,6 +78,13 @@ export default {
             type: Number,
             default: undefined
         },
+        roundingMode: {
+            type: String,
+            default: 'halfExpand',
+            validator(value) {
+                return ['ceil', 'floor', 'expand', 'trunc', 'halfCeil', 'halfFloor', 'halfExpand', 'halfTrunc', 'halfEven'].includes(value);
+            }
+        },
         min: {
             type: Number,
             default: null
@@ -134,11 +141,11 @@ export default {
             type: null,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

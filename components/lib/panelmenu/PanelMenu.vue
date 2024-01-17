@@ -76,7 +76,7 @@ export default {
             this.id = newValue || UniqueComponentId();
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
     },
     methods: {
@@ -153,6 +153,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onHeaderEnterKey(event, item);
                     break;

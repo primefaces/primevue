@@ -1,6 +1,4 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from 'primevue/config';
-import { nextTick } from 'vue';
 import Tree from './Tree.vue';
 
 describe('Tree.vue', () => {
@@ -41,5 +39,19 @@ describe('Tree.vue', () => {
         await textInput.trigger('keydown.space');
 
         expect(wrapper.emitted('keydown')).toBeFalsy();
+    });
+
+    it('emits update:filterValue on filter input', async () => {
+        wrapper = mount(Tree, {
+            props: {
+                filter: true
+            }
+        });
+
+        let searchField = wrapper.find('input.p-tree-filter');
+
+        await searchField.trigger('keydown.space');
+
+        expect(wrapper.emitted('filter')).toBeTruthy();
     });
 });

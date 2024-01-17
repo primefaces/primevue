@@ -36,12 +36,22 @@
                     <button
                         :class="[
                             'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('lara', 'teal'), 'hover:border-500 surface-border': !isThemeActive('lara', 'teal') }
+                            { 'border-primary': isThemeActive('lara', 'green'), 'hover:border-500 surface-border': !isThemeActive('lara', 'green') }
                         ]"
                         style="border-radius: 30px"
-                        @click="changeTheme('lara', 'teal')"
+                        @click="changeTheme('lara', 'green')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'cyan'), 'hover:border-500 surface-border': !isThemeActive('lara', 'cyan') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'cyan')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #06b6d4 0%, rgba(6, 182, 212, 0.5) 100%)"></span>
                     </button>
                     <button
                         :class="[
@@ -63,6 +73,8 @@
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #585fe0 0%, rgba(88, 95, 224, 0.5) 100%)"></span>
                     </button>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3">
                     <button
                         :class="[
                             'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
@@ -73,8 +85,6 @@
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #7758e4 0%, rgba(119, 88, 228, 0.5) 100%)"></span>
                     </button>
-                </div>
-                <div class="flex align-items-center justify-content-between gap-3">
                     <button
                         :class="[
                             'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
@@ -88,32 +98,22 @@
                     <button
                         :class="[
                             'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'teal'), 'hover:border-500 surface-border': !isThemeActive('lara', 'teal') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('lara', 'teal')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #14b8a6 0%, rgba(20, 184, 166, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
                             { 'border-primary': isThemeActive('lara', 'pink'), 'hover:border-500 surface-border': !isThemeActive('lara', 'pink') }
                         ]"
                         style="border-radius: 30px"
                         @click="changeTheme('lara', 'pink')"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #ec4899 0%, rgba(236, 72, 153, 0.5) 100%)"></span>
-                    </button>
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('lara', 'cyan'), 'hover:border-500 surface-border': !isThemeActive('lara', 'cyan') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('lara', 'cyan')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #06b6d4 0%, rgba(6, 182, 212, 0.5) 100%)"></span>
-                    </button>
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('lara', 'turquoise'), 'hover:border-500 surface-border': !isThemeActive('lara', 'turquoise') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('lara', 'turquoise')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #14b8a6 0%, rgba(20, 184, 166, 0.5) 100%)"></span>
                     </button>
                 </div>
             </section>
@@ -376,9 +376,9 @@ export default {
                 this.changeTheme(tokens[0].substring(0, 2), tokens[2]);
             }
         },
-        isThemeActive(theme, color) {
+        isThemeActive(themeFamily, color) {
             let themeName;
-            let themePrefix = this.compactMaterial ? 'mdc' : theme;
+            let themePrefix = themeFamily === 'md' && this.compactMaterial ? 'mdc' : themeFamily;
 
             if (this.lightOnlyThemes.includes(themePrefix)) {
                 themeName = themePrefix;

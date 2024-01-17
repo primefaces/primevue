@@ -179,8 +179,8 @@ const classes = {
         }
     ],
     header: 'p-dialog-header',
-    headerTitle: 'p-dialog-title',
-    headerIcons: 'p-dialog-header-icons',
+    title: 'p-dialog-title',
+    icons: 'p-dialog-header-icons',
     maximizableButton: 'p-dialog-header-icon p-dialog-header-maximize p-link',
     maximizableIcon: 'p-dialog-header-maximize-icon',
     closeButton: 'p-dialog-header-icon p-dialog-header-close p-link',

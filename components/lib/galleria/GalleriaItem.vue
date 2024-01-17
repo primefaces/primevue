@@ -14,12 +14,11 @@
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
             </div>
         </div>
-        <ul v-if="showIndicators" :class="cx('indicators')" v-bind="ptm('indicators')">
+        <ul v-if="showIndicators" ref="indicatorContent" :class="cx('indicators')" v-bind="ptm('indicators')">
             <li
                 v-for="(item, index) of value"
                 :key="`p-galleria-indicator-${index}`"
                 :class="cx('indicator', { index })"
-                tabindex="0"
                 :aria-label="ariaPageLabel(index + 1)"
                 :aria-selected="activeIndex === index"
                 :aria-controls="id + '_item_' + index"
@@ -29,7 +28,7 @@
                 v-bind="ptm('indicator', getIndicatorPTOptions(index))"
                 :data-p-highlight="isIndicatorItemActive(index)"
             >
-                <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton', getIndicatorPTOptions(index))"></button>
+                <button v-if="!templates['indicator']" type="button" :tabindex="activeIndex === index ? '0' : '-1'" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton', getIndicatorPTOptions(index))"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
             </li>
         </ul>
@@ -41,6 +40,7 @@ import BaseComponent from 'primevue/basecomponent';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'GalleriaItem',
@@ -149,6 +149,7 @@ export default {
         onIndicatorKeyDown(event, index) {
             switch (event.code) {
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.stopSlideShow();
 
@@ -156,14 +157,83 @@ export default {
                     event.preventDefault();
                     break;
 
+                case 'ArrowRight':
+                    this.onRightKey();
+                    break;
+
+                case 'ArrowLeft':
+                    this.onLeftKey();
+                    break;
+
+                case 'Home':
+                    this.onHomeKey();
+                    event.preventDefault();
+                    break;
+
+                case 'End':
+                    this.onEndKey();
+                    event.preventDefault();
+                    break;
+
+                case 'Tab':
+                    this.onTabKey();
+                    break;
+
                 case 'ArrowDown':
                 case 'ArrowUp':
+                case 'PageUp':
+                case 'PageDown':
                     event.preventDefault();
                     break;
 
                 default:
                     break;
             }
+        },
+        onRightKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
+        },
+        onLeftKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex - 1 <= 0 ? 0 : activeIndex - 1);
+        },
+        onHomeKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, 0);
+        },
+        onEndKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, indicators.length - 1);
+        },
+        onTabKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-highlight') === true);
+
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+            const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+
+            indicators[activeIndex].children[0].tabIndex = '-1';
+            indicators[highlightedIndex].children[0].tabIndex = '0';
+        },
+        findFocusedIndicatorIndex() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+
+            return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+        },
+        changedFocusedIndicator(prevInd, nextInd) {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+
+            indicators[prevInd].children[0].tabIndex = '-1';
+            indicators[nextInd].children[0].tabIndex = '0';
+            indicators[nextInd].children[0].focus();
         },
         isIndicatorItemActive(index) {
             return this.activeIndex === index;

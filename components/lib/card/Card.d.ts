@@ -32,6 +32,10 @@ export interface CardPassThroughOptions {
      */
     body?: CardPassThroughOptionType;
     /**
+     * Used to pass attributes to the caption's DOM element.
+     */
+    caption?: CardPassThroughOptionType;
+    /**
      * Used to pass attributes to the title's DOM element.
      */
     title?: CardPassThroughOptionType;

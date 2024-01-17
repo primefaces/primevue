@@ -12,8 +12,8 @@
                 :size="size"
                 :aria-label="label"
                 @click="onDefaultButtonClick"
-                :pt="ptm('button')"
                 v-bind="buttonProps"
+                :pt="ptm('button')"
                 :unstyled="unstyled"
                 data-pc-section="button"
             >
@@ -37,12 +37,12 @@
             :aria-controls="ariaId + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
-            :pt="ptm('menuButton')"
             :severity="severity"
             :text="text"
             :outlined="outlined"
             :size="size"
             v-bind="menuButtonProps"
+            :pt="ptm('menuButton')"
             :unstyled="unstyled"
             data-pc-section="menubutton"
         >

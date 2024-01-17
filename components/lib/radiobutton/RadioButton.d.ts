@@ -7,7 +7,6 @@
  * @module radiobutton
  *
  */
-import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -31,6 +30,18 @@ export interface RadioButtonPassThroughMethodOptions {
      */
     state: RadioButtonState;
     /**
+     * Defines current options.
+     */
+    context: RadioButtonContext;
+    /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -50,17 +61,13 @@ export interface RadioButtonPassThroughOptions {
      */
     input?: RadioButtonPassThroughOptionType;
     /**
+     * Used to pass attributes to the box's DOM element.
+     */
+    box?: RadioButtonPassThroughOptionType;
+    /**
      * Used to pass attributes to the icon's DOM element.
      */
     icon?: RadioButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden accessible DOM element wrapper.
-     */
-    hiddenInputWrapper?: RadioButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden accessible DOM element.
-     */
-    hiddenInput?: RadioButtonPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -79,11 +86,7 @@ export interface RadioButtonPassThroughAttributes {
  * Defines current inline state in RadioButton component.
  */
 export interface RadioButtonState {
-    /**
-     * Current focused state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
+    [key: string]: any;
 }
 
 /**
@@ -103,10 +106,24 @@ export interface RadioButtonProps {
      */
     name?: string | undefined;
     /**
+     * Allows to select a boolean value.
+     * @default false
+     */
+    binary?: boolean;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * When present, it specifies that an input field is read-only.
+     * @default false
+     */
+    readonly?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
     /**
      * Identifier of the underlying input element.
      */
@@ -120,17 +137,13 @@ export interface RadioButtonProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
-    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {RadioButtonPassThroughOptions}
@@ -148,6 +161,22 @@ export interface RadioButtonProps {
     unstyled?: boolean;
 }
 
+/**
+ * Defines current options in RadioButton component.
+ */
+export interface RadioButtonContext {
+    /**
+     * Current checked state of the item as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
 export interface RadioButtonSlots {}
 
 /**
@@ -160,15 +189,20 @@ export interface RadioButtonEmits {
      */
     'update:modelValue'(value: any): void;
     /**
-     * Callback to invoke on radio button click.
-     * @param {Event} event - Browser event.
-     */
-    click(event: Event): void;
-    /**
      * Callback to invoke on radio button value change.
      * @param {Event} event - Browser event.
      */
     change(event: Event): void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus(event: Event): void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur(event: Event): void;
 }
 
 /**

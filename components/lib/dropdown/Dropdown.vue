@@ -125,7 +125,7 @@
                                             :data-p-highlight="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
-                                            v-bind="getPTOptions(option, getItemOptions, i, 'item')"
+                                            v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
@@ -187,6 +187,7 @@ export default {
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
+    labelClickListener: null,
     overlay: null,
     list: null,
     virtualScroller: null,
@@ -214,10 +215,12 @@ export default {
             this.autoUpdateModel();
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         this.autoUpdateModel();
+        this.bindLabelClickListener();
     },
     updated() {
         if (this.overlayVisible && this.isModelValueChanged) {
@@ -229,6 +232,7 @@ export default {
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindLabelClickListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -253,7 +257,7 @@ export default {
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
         },
-        getPTOptions(option, itemOptions, index, key) {
+        getPTItemOptions(option, itemOptions, index, key) {
             return this.ptm(key, {
                 context: {
                     selected: this.isSelected(option),
@@ -317,7 +321,7 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            if (this.disabled) {
+            if (this.disabled || DomHandler.isAndroid()) {
                 event.preventDefault();
 
                 return;
@@ -402,6 +406,8 @@ export default {
             !matched && (this.focusedOptionIndex = -1);
 
             this.updateModel(event, value);
+
+            !this.overlayVisible && ObjectUtils.isNotEmpty(value) && this.show();
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
@@ -416,6 +422,7 @@ export default {
         },
         onClearClick(event) {
             this.updateModel(event, null);
+            this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -471,6 +478,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
@@ -702,6 +710,28 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindLabelClickListener() {
+            if (!this.editable && !this.labelClickListener) {
+                const label = document.querySelector(`label[for="${this.inputId}"]`);
+
+                if (label && DomHandler.isVisible(label)) {
+                    this.labelClickListener = () => {
+                        DomHandler.focus(this.$refs.focusInput);
+                    };
+
+                    label.addEventListener('click', this.labelClickListener);
+                }
+            }
+        },
+        unbindLabelClickListener() {
+            if (this.labelClickListener) {
+                const label = document.querySelector(`label[for="${this.inputId}"]`);
+
+                if (label && DomHandler.isVisible(label)) {
+                    label.removeEventListener('click', this.labelClickListener);
+                }
             }
         },
         hasFocusableElements() {

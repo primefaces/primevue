@@ -35,6 +35,14 @@ export interface SelectButtonPassThroughMethodOptions {
      */
     context: SelectButtonContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -168,7 +176,7 @@ export interface SelectButtonProps {
     /**
      * Identifier of the underlying element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {SelectButtonPassThroughOptions}

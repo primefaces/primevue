@@ -83,7 +83,7 @@ const classes = {
         }
     ],
     content: 'p-confirm-popup-content',
-    icon: ({ instance }) => ['p-confirm-popup-icon', instance.confirmation ? instance.confirmation.icon : null],
+    icon: 'p-confirm-popup-icon',
     message: 'p-confirm-popup-message',
     footer: 'p-confirm-popup-footer',
     rejectButton: ({ instance }) => ['p-confirm-popup-reject', instance.confirmation && !instance.confirmation.rejectClass ? 'p-button-sm p-button-text' : null],

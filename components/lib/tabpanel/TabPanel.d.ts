@@ -10,7 +10,6 @@
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
@@ -28,13 +27,17 @@ export interface TabPanelPassThroughMethodOptions {
      */
     props: TabPanelProps;
     /**
-     * Defines parent instance.
-     */
-    parent: TabViewPassThroughOptions;
-    /**
      * Defines current options.
      */
     context: TabPanelContext;
+    /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
     /**
      * Defines passthrough(pt) options in global config.
      */

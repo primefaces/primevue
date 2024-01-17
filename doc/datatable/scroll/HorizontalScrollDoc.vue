@@ -2,23 +2,25 @@
     <DocSectionText v-bind="$attrs">
         <p>Horizontal scrollbar is displayed when table width exceeds the parent width.</p>
     </DocSectionText>
-    <div class="card">
-        <DataTable :value="customers" scrollable scrollHeight="400px">
-            <Column field="id" header="Id" footer="Id" style="min-width: 100px"></Column>
-            <Column field="name" header="Name" footer="Name" style="min-width: 200px"></Column>
-            <Column field="country.name" header="Country" footer="Country" style="min-width: 200px"></Column>
-            <Column field="date" header="Date" footer="Date" style="min-width: 200px"></Column>
-            <Column field="balance" header="Balance" footer="Balance" style="min-width: 200px">
-                <template #body="{ data }">
-                    {{ formatCurrency(data.balance) }}
-                </template>
-            </Column>
-            <Column field="company" header="Company" footer="Company" style="min-width: 200px"></Column>
-            <Column field="status" header="Status" footer="Status" style="min-width: 200px"></Column>
-            <Column field="activity" header="Activity" footer="Activity" style="min-width: 200px"></Column>
-            <Column field="representative.name" header="Representative" footer="Representative" style="min-width: 200px"></Column>
-        </DataTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <DataTable :value="customers" scrollable scrollHeight="400px">
+                <Column field="id" header="Id" footer="Id" style="min-width: 100px"></Column>
+                <Column field="name" header="Name" footer="Name" style="min-width: 200px"></Column>
+                <Column field="country.name" header="Country" footer="Country" style="min-width: 200px"></Column>
+                <Column field="date" header="Date" footer="Date" style="min-width: 200px"></Column>
+                <Column field="balance" header="Balance" footer="Balance" style="min-width: 200px">
+                    <template #body="{ data }">
+                        {{ formatCurrency(data.balance) }}
+                    </template>
+                </Column>
+                <Column field="company" header="Company" footer="Company" style="min-width: 200px"></Column>
+                <Column field="status" header="Status" footer="Status" style="min-width: 200px"></Column>
+                <Column field="activity" header="Activity" footer="Activity" style="min-width: 200px"></Column>
+                <Column field="representative.name" header="Representative" footer="Representative" style="min-width: 200px"></Column>
+            </DataTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['CustomerService']" />
 </template>
 
@@ -152,12 +154,12 @@ const formatCurrency = (value) => {
             }
         };
     },
-    mounted() {
-        CustomerService.getCustomersMedium().then((data) => {
-            this.customers = data;
-        });
-    },
     methods: {
+        loadDemoData() {
+            CustomerService.getCustomersMedium().then((data) => {
+                this.customers = data;
+            });
+        },
         formatCurrency(value) {
             return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         }

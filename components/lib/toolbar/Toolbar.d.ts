@@ -27,6 +27,14 @@ export interface ToolbarPassThroughMethodOptions {
      */
     props: ToolbarProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -74,7 +82,7 @@ export interface ToolbarProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ToolbarPassThroughOptions}

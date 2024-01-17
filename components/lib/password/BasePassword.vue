@@ -36,7 +36,7 @@ export default {
             default: true
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         toggleMask: {
@@ -95,11 +95,11 @@ export default {
             type: null,
             default: null
         },
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         },
-        'aria-label': {
+        ariaLabel: {
             type: String,
             default: null
         }

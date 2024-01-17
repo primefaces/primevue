@@ -22,7 +22,7 @@ export default {
         },
         disabled: Boolean,
         dataKey: null,
-        'aria-labelledby': {
+        ariaLabelledby: {
             type: String,
             default: null
         }

@@ -47,7 +47,7 @@ export default {
                     label: 'Programmatic',
                     icon: 'pi pi-link',
                     command: () => {
-                        this.$router.push('/installation');
+                        this.$router.push('/introduction');
                     }
                 },
                 {
@@ -131,7 +131,7 @@ export default {
                     label: 'Programmatic',
                     icon: 'pi pi-link',
                     command: () => {
-                        this.$router.push('/installation');
+                        this.$router.push('/introduction');
                     }
                 },
                 {
@@ -204,7 +204,7 @@ const items = ref([
         label: 'Programmatic',
         icon: 'pi pi-link',
         command: () => {
-            router.push('/installation');
+            router.push('/introduction');
         }
     },
     {

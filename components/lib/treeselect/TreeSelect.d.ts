@@ -10,7 +10,8 @@
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
+import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
+import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
@@ -34,9 +35,31 @@ export interface TreeSelectPassThroughMethodOptions {
      */
     state: TreeSelectState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface TreeSelectSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: TreeSelectProps;
+    /**
+     * Defines current inline state.
+     */
+    state: TreeSelectState;
 }
 
 /**
@@ -82,9 +105,9 @@ export interface TreeSelectPassThroughOptions {
     wrapper?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to Tree component.
-     * @see {@link TreePassThroughOptionType}
+     * @see {@link TreePassThroughOptions}
      */
-    tree?: TreePassThroughOptionType;
+    tree?: TreePassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
@@ -191,7 +214,7 @@ export interface TreeSelectProps {
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
-     * @defaultValue true
+     * @defaultValue false
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -213,11 +236,11 @@ export interface TreeSelectProps {
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Establishes a string value that labels the component.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}

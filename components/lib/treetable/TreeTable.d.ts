@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
-import { TreeNode } from '../tree';
+import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
@@ -38,9 +38,31 @@ export interface TreeTablePassThroughMethodOptions {
      */
     context: TreeTableContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface TreeTableSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: TreeTableProps;
+    /**
+     * Defines current inline state.
+     */
+    state: TreeTableState;
 }
 
 /**
@@ -214,7 +236,7 @@ export interface TreeTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType;
+    paginator?: PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
@@ -374,6 +396,11 @@ export interface TreeTableProps {
      */
     value?: TreeNode[] | undefined;
     /**
+     * Name of the field that uniquely identifies the a record in the data.
+     * @defaultValue "key"
+     */
+    dataKey?: string | ((item: any) => string) | undefined;
+    /**
      * A map of keys to represent the state of the tree expansion state in controlled mode.
      * @see TreeTableExpandedKeys
      */
@@ -390,7 +417,7 @@ export interface TreeTableProps {
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
-     * @defaultValue true
+     * @defaultValue false
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -474,6 +501,11 @@ export interface TreeTableProps {
      * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
     /**
      * When enabled, background of the rows change on hover.
      * @defaultValue false

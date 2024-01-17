@@ -7,9 +7,9 @@
                 <i class="pi pi-github absolute text-200" style="bottom: -50px; right: -50px; font-size: 200px; transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg)"></i>
                 <div class="text-2xl text-900 font-semibold mb-3 relative">Community Support</div>
                 <p class="m-0 line-height-3 relative text-lg text-800">
-                    <a href="https://github.com/orgs/primefaces/discussions" class="font-semibold hover:underline text-primary">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY" class="font-semibold hover:underline text-primary">Discord</a> are
-                    where the community users gather to seek support, post topics and discuss the technology. GitHub issue tracker is the channel where community users can create tickets however PrimeTek does not guarantee a response time although
-                    they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PRO support instead.
+                    <a href="https://github.com/orgs/primefaces/discussions" class="doc-link">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY" class="doc-link">Discord</a> are where the community users gather to seek support, post topics and
+                    discuss the technology. GitHub issue tracker is the channel where community users can create tickets however PrimeTek does not guarantee a response time although they are monitored and maintained by our staff. If you need to
+                    secure our response within 1 business day, you may consider PRO support instead.
                 </p>
             </div>
             <div class="card m-0 xl:w-9 text-white bg-cover" style="background-image: url('https://primefaces.org/cdn/primevue/images/support/card-pro.jpg')">
@@ -80,10 +80,6 @@
                         <i class="pi pi-check-circle mr-3 text-green-500"></i>
                         <span class="line-height-3">Figma to Theme Generator (Soon)</span>
                     </li>
-                    <li class="flex align-items-center mb-3">
-                        <i class="pi pi-check-circle mr-3 text-green-500"></i>
-                        <span class="line-height-3">PrimeIcons PRO - (Soon)</span>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -91,8 +87,9 @@
         <div class="card mb-5">
             <div class="text-2xl text-900 font-semibold mb-3">Enhancement Credits</div>
             <p class="m-0 line-height-3 mb-5 text-secondary text-lg text-800">
-                New features and enhancement requests are not available in core services and provided via a credit based model instead named PrimeCredit. When you have a feature request, we offer an initial estimate in terms of credits and once this
-                estimate is confirmed by you then implementation will be delivered by our team within an estimated timeframe.
+                New features and enhancement requests are not available in core services and provided via a credit based model instead named PrimeCredit. When you have an enhancement request, initially our team will review your requirement to verify
+                if it is suitable to be included in the open source core library. We cannot guarantee that all requests can be accepted depending on the project roadmap, workload at the time and type of the requirement. After successful verification,
+                we prepare an initial estimate in terms of credits and once this estimate is confirmed by you, implementation will be delivered by our team within an estimated timeframe.
             </p>
 
             <div class="flex flex-column md:flex-row gap-5">
@@ -131,7 +128,7 @@
                     <div class="text-xl text-900 line-height-3 mb-2 font-medium">Are all of our requests guaranteed to be implemented with PrimeCredits?</div>
                     <p class="mt-0 mb-5 p-0 line-height-3 text-800">No, PrimeTek does not guarantee the implementation so it is suggested to confirm with us before purchasing credits.</p>
 
-                    <div class="text-900 line-height-3 mb-2 font-medium">Can we get PrimeCredits without PRO support?</div>
+                    <div class="text-xl text-900 line-height-3 mb-2 font-medium">Can we get PrimeCredits without PRO support?</div>
                     <p class="mt-0 p-0 line-height-3 text-800">No, feature development is exclusive to PRO members.</p>
                 </div>
                 <div class="w-full lg:w-4 p-5">

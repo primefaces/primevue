@@ -298,7 +298,7 @@ export default {
             }
         },
         onThumbnailKeydown(event, index) {
-            if (event.code === 'Enter' || event.code === 'Space') {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
                 this.onItemClick(index);
                 event.preventDefault();
             }

@@ -3,8 +3,8 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <span class="p-float-label w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </span>
     </div>
@@ -21,16 +21,16 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<span class="p-float-label">
-    <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+<span class="p-float-label w-full md:w-20rem">
+    <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
     <label>Tree Select</label>
 </span>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <span class="p-float-label w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </span>
     </div>
@@ -55,8 +55,8 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <span class="p-float-label w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </span>
     </div>

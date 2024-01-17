@@ -2,14 +2,14 @@
     <div>
         <Head>
             <Title>Bulma - PrimeVue</Title>
-            <Meta name="description" content="Bulma is a free, open source framework that provides ready-to-use frontend copmponents and utilities.." />
+            <Meta name="description" content="Bulma is a free, open source framework that provides ready-to-use frontend components and utilities.." />
         </Head>
 
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Bulma</h1>
-                    <p><a href="https://bulma.io/" class="font-semibold hover:underline text-primary">Bulma</a> is a free, open source framework that provides ready-to-use frontend copmponents and utilities.</p>
+                    <p><a href="https://bulma.io/">Bulma</a> is a free, open source framework that provides ready-to-use frontend components and utilities.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>

@@ -13,16 +13,16 @@
 </template>
 
 <script>
+import BlockSection from '@/components/landing/BlockSection.vue';
+import FeaturesSection from '@/components/landing/FeaturesSection.vue';
+import FooterSection from '@/components/landing/FooterSection.vue';
+import HeroSection from '@/components/landing/HeroSection.vue';
+import TemplateSection from '@/components/landing/TemplateSection.vue';
+import ThemeSection from '@/components/landing/ThemeSection.vue';
+import UsersSection from '@/components/landing/UsersSection.vue';
 import EventBus from '@/layouts/AppEventBus';
 import AppNews from '@/layouts/AppNews';
 import AppTopBar from '@/layouts/AppTopBar.vue';
-import BlockSection from './landing/BlockSection.vue';
-import FeaturesSection from './landing/FeaturesSection.vue';
-import FooterSection from './landing/FooterSection.vue';
-import HeroSection from './landing/HeroSection.vue';
-import TemplateSection from './landing/TemplateSection.vue';
-import ThemeSection from './landing/ThemeSection.vue';
-import UsersSection from './landing/UsersSection.vue';
 
 export default {
     setup() {
@@ -38,7 +38,7 @@ export default {
     },
     data() {
         return {
-            tableTheme: 'lara-light-teal'
+            tableTheme: 'lara-light-green'
         };
     },
     themeChangeListener: null,
@@ -53,13 +53,21 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-teal' : 'lara-light-teal');
+        const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
+        const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
+            this.replaceTableTheme('lara-dark-green');
+        } else {
+            this.replaceTableTheme('lara-light-green');
+        }
     },
     methods: {
         onDarkModeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-teal' : 'lara-dark-teal';
+            const newTheme = this.$appState.darkTheme ? 'lara-light-green' : 'lara-dark-green';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
+            localStorage.setItem(this.$appState.colorSchemeKey, this.$appState.darkTheme ? 'light' : 'dark');
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
             this.replaceTableTheme(newTableTheme);
         },

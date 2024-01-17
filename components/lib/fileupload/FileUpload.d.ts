@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { BadgePassThroughOptions } from '../badge';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
@@ -33,9 +34,31 @@ export interface FileUploadPassThroughMethodOptions {
      */
     state: FileUploadState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface FileUploadPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: FileUploadProps;
+    /**
+     * Defines current inline state.
+     */
+    state: FileUploadState;
 }
 
 /**
@@ -199,12 +222,12 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the upload button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    uploadButton?: ButtonPassThroughOptions;
+    uploadButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the cancel button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    cancelButton?: ButtonPassThroughOptions;
+    cancelButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -217,7 +240,7 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the messages' DOM element.
      * @see {@link MessagePassThroughOptions}
      */
-    message?: MessagePassThroughOptions;
+    message?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the file's DOM element.
      */
@@ -239,9 +262,10 @@ export interface FileUploadPassThroughOptions {
      */
     fileSize?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the badge's DOM element.
+     * Used to pass attributes to the Badge component.
+     * @see {@link BadgePassThroughOptions}
      */
-    badge?: FileUploadPassThroughOptionType;
+    badge?: BadgePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the actions's DOM element.
      */
@@ -250,7 +274,7 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the remove button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    removeButton?: ButtonPassThroughOptions;
+    removeButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the empty's DOM element.
      */

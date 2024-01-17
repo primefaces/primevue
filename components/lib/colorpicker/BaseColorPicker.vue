@@ -39,7 +39,7 @@ export default {
             default: 0
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         panelClass: null

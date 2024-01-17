@@ -19,7 +19,7 @@ export default {
             code1: {
                 basic: `
 export default defineNuxtConfig({
-    css: ['primevue/resources/themes/lara-dark-teal/theme.css']
+    css: ['primevue/resources/themes/lara-dark-green/theme.css']
 })
 `
             }

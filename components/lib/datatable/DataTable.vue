@@ -124,7 +124,6 @@
                             :expandedRowIcon="expandedRowIcon"
                             :collapsedRowIcon="collapsedRowIcon"
                             :expandedRows="expandedRows"
-                            :expandedRowKeys="d_expandedRowKeys"
                             :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
@@ -181,7 +180,6 @@
                             :expandedRowIcon="expandedRowIcon"
                             :collapsedRowIcon="collapsedRowIcon"
                             :expandedRows="expandedRows"
-                            :expandedRowKeys="d_expandedRowKeys"
                             :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
@@ -285,7 +283,7 @@ import ArrowDownIcon from 'primevue/icons/arrowdown';
 import ArrowUpIcon from 'primevue/icons/arrowup';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, HelperSet, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseDataTable from './BaseDataTable.vue';
 import TableBody from './TableBody.vue';
@@ -335,6 +333,12 @@ export default {
         'row-edit-save',
         'row-edit-cancel'
     ],
+    provide() {
+        return {
+            $columns: this.d_columns,
+            $columnGroups: this.d_columnGroups
+        };
+    },
     data() {
         return {
             d_first: this.first,
@@ -345,11 +349,12 @@ export default {
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             d_groupRowsSortMeta: null,
             d_selectionKeys: null,
-            d_expandedRowKeys: null,
             d_columnOrder: null,
             d_editingRowKeys: null,
             d_editingMeta: {},
-            d_filters: this.cloneFilters(this.filters)
+            d_filters: this.cloneFilters(this.filters),
+            d_columns: new HelperSet({ type: 'Column' }),
+            d_columnGroups: new HelperSet({ type: 'ColumnGroup' })
         };
     },
     rowTouched: false,
@@ -363,6 +368,7 @@ export default {
     colReorderIconWidth: null,
     colReorderIconHeight: null,
     draggedColumn: null,
+    draggedColumnElement: null,
     draggedRowIndex: null,
     droppedRowIndex: null,
     rowDragging: null,
@@ -396,11 +402,6 @@ export default {
                 }
             }
         },
-        expandedRows(newValue) {
-            if (this.dataKey) {
-                this.updateExpandedRowKeys(newValue);
-            }
-        },
         editingRows: {
             immediate: true,
             handler(newValue) {
@@ -416,11 +417,6 @@ export default {
             }
         }
     },
-    beforeMount() {
-        if (this.isStateful()) {
-            this.restoreState();
-        }
-    },
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
@@ -428,8 +424,10 @@ export default {
             this.createResponsiveStyle();
         }
 
-        if (this.isStateful() && this.resizableColumns) {
-            this.restoreColumnWidths();
+        if (this.isStateful()) {
+            this.restoreState();
+
+            this.resizableColumns && this.restoreColumnWidths();
         }
 
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
@@ -440,6 +438,9 @@ export default {
         this.unbindColumnResizeEvents();
         this.destroyStyleElement();
         this.destroyResponsiveStyle();
+
+        this.d_columns.clear();
+        this.d_columnGroups.clear();
     },
     updated() {
         if (this.isStateful()) {
@@ -468,7 +469,9 @@ export default {
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
-            this.$emit('value-change', this.processedData);
+            this.$nextTick(() => {
+                this.$emit('value-change', this.processedData);
+            });
         },
         onColumnHeaderClick(e) {
             const event = e.originalEvent;
@@ -485,7 +488,7 @@ export default {
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
-                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]'))
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]') && !DomHandler.isClickable(event.target))
                 ) {
                     DomHandler.clearSelection();
 
@@ -517,7 +520,9 @@ export default {
                     }
 
                     this.$emit('sort', this.createLazyLoadEvent(event));
-                    this.$emit('value-change', this.processedData);
+                    this.$nextTick(() => {
+                        this.$emit('value-change', this.processedData);
+                    });
                 }
             }
         },
@@ -693,7 +698,9 @@ export default {
 
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
-            this.$emit('value-change', filteredValue);
+            this.$nextTick(() => {
+                this.$emit('value-change', this.processedData);
+            });
 
             return filteredValue;
         },
@@ -843,6 +850,7 @@ export default {
                         break;
 
                     case 'Enter':
+                    case 'NumpadEnter':
                         this.onEnterKey(event, rowData, rowIndex);
                         break;
 
@@ -1088,17 +1096,6 @@ export default {
                 }
             } else {
                 this.d_selectionKeys[String(ObjectUtils.resolveFieldData(selection, this.dataKey))] = 1;
-            }
-        },
-        updateExpandedRowKeys(expandedRows) {
-            if (expandedRows && expandedRows.length) {
-                this.d_expandedRowKeys = {};
-
-                for (let data of expandedRows) {
-                    this.d_expandedRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
-                }
-            } else {
-                this.d_expandedRowKeys = null;
             }
         },
         updateEditingRowKeys(editingRows) {
@@ -1359,7 +1356,9 @@ export default {
                 else event.currentTarget.draggable = true;
             }
         },
-        onColumnHeaderDragStart(event) {
+        onColumnHeaderDragStart(e) {
+            const { originalEvent: event, column } = e;
+
             if (this.columnResizing) {
                 event.preventDefault();
 
@@ -1369,18 +1368,20 @@ export default {
             this.colReorderIconWidth = DomHandler.getHiddenElementOuterWidth(this.$refs.reorderIndicatorUp);
             this.colReorderIconHeight = DomHandler.getHiddenElementOuterHeight(this.$refs.reorderIndicatorUp);
 
-            this.draggedColumn = this.findParentHeader(event.target);
+            this.draggedColumn = column;
+            this.draggedColumnElement = this.findParentHeader(event.target);
             event.dataTransfer.setData('text', 'b'); // Firefox requires this to make dragging possible
         },
-        onColumnHeaderDragOver(event) {
+        onColumnHeaderDragOver(e) {
+            const { originalEvent: event, column } = e;
             let dropHeader = this.findParentHeader(event.target);
 
-            if (this.reorderableColumns && this.draggedColumn && dropHeader) {
+            if (this.reorderableColumns && this.draggedColumnElement && dropHeader && !this.columnProp(column, 'frozen')) {
                 event.preventDefault();
                 let containerOffset = DomHandler.getOffset(this.$el);
                 let dropHeaderOffset = DomHandler.getOffset(dropHeader);
 
-                if (this.draggedColumn !== dropHeader) {
+                if (this.draggedColumnElement !== dropHeader) {
                     let targetLeft = dropHeaderOffset.left - containerOffset.left;
                     let columnCenter = dropHeaderOffset.left + dropHeader.offsetWidth / 2;
 
@@ -1402,18 +1403,22 @@ export default {
                 }
             }
         },
-        onColumnHeaderDragLeave(event) {
-            if (this.reorderableColumns && this.draggedColumn) {
+        onColumnHeaderDragLeave(e) {
+            const { originalEvent: event } = e;
+
+            if (this.reorderableColumns && this.draggedColumnElement) {
                 event.preventDefault();
                 this.$refs.reorderIndicatorUp.style.display = 'none';
                 this.$refs.reorderIndicatorDown.style.display = 'none';
             }
         },
-        onColumnHeaderDrop(event) {
+        onColumnHeaderDrop(e) {
+            const { originalEvent: event, column } = e;
+
             event.preventDefault();
 
-            if (this.draggedColumn) {
-                let dragIndex = DomHandler.index(this.draggedColumn);
+            if (this.draggedColumnElement) {
+                let dragIndex = DomHandler.index(this.draggedColumnElement);
                 let dropIndex = DomHandler.index(this.findParentHeader(event.target));
                 let allowDrop = dragIndex !== dropIndex;
 
@@ -1422,19 +1427,42 @@ export default {
                 }
 
                 if (allowDrop) {
-                    ObjectUtils.reorderArray(this.columns, dragIndex, dropIndex);
+                    let isSameColumn = (col1, col2) =>
+                        this.columnProp(col1, 'columnKey') || this.columnProp(col2, 'columnKey') ? this.columnProp(col1, 'columnKey') === this.columnProp(col2, 'columnKey') : this.columnProp(col1, 'field') === this.columnProp(col2, 'field');
+                    let dragColIndex = this.columns.findIndex((child) => isSameColumn(child, this.draggedColumn));
+                    let dropColIndex = this.columns.findIndex((child) => isSameColumn(child, column));
+                    let widths = [];
+                    let headers = DomHandler.find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
+
+                    headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
+                    const movedItem = widths.find((_, index) => index === dragColIndex);
+                    const remainingItems = widths.filter((_, index) => index !== dragColIndex);
+                    const reorderedWidths = [...remainingItems.slice(0, dropColIndex), movedItem, ...remainingItems.slice(dropColIndex)];
+
+                    this.addColumnWidthStyles(reorderedWidths);
+
+                    if (dropColIndex < dragColIndex && this.dropPosition === 1) {
+                        dropColIndex++;
+                    }
+
+                    if (dropColIndex > dragColIndex && this.dropPosition === -1) {
+                        dropColIndex--;
+                    }
+
+                    ObjectUtils.reorderArray(this.columns, dragColIndex, dropColIndex);
                     this.updateReorderableColumns();
 
                     this.$emit('column-reorder', {
                         originalEvent: event,
-                        dragIndex: dragIndex,
-                        dropIndex: dropIndex
+                        dragIndex: dragColIndex,
+                        dropIndex: dropColIndex
                     });
                 }
 
                 this.$refs.reorderIndicatorUp.style.display = 'none';
                 this.$refs.reorderIndicatorDown.style.display = 'none';
-                this.draggedColumn.draggable = false;
+                this.draggedColumnElement.draggable = false;
+                this.draggedColumnElement = null;
                 this.draggedColumn = null;
                 this.dropPosition = null;
             }
@@ -1560,31 +1588,22 @@ export default {
             event.preventDefault();
         },
         toggleRow(event) {
-            let rowData = event.data;
-            let expanded;
-            let expandedRowIndex;
-            let _expandedRows = this.expandedRows ? [...this.expandedRows] : [];
+            const { expanded, ...rest } = event;
+            const rowData = event.data;
+            let expandedRows;
 
             if (this.dataKey) {
-                expanded = this.d_expandedRowKeys ? this.d_expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                const value = ObjectUtils.resolveFieldData(rowData, this.dataKey);
+
+                expandedRows = this.expandedRows ? { ...this.expandedRows } : {};
+                expanded ? (expandedRows[value] = true) : delete expandedRows[value];
             } else {
-                expandedRowIndex = this.findIndex(rowData, this.expandedRows);
-                expanded = expandedRowIndex > -1;
+                expandedRows = this.expandedRows ? [...this.expandedRows] : [];
+                expanded ? expandedRows.push(rowData) : (expandedRows = expandedRows.filter((d) => !this.equals(rowData, d)));
             }
 
-            if (expanded) {
-                if (expandedRowIndex == null) {
-                    expandedRowIndex = this.findIndex(rowData, this.expandedRows);
-                }
-
-                _expandedRows.splice(expandedRowIndex, 1);
-                this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-collapse', event);
-            } else {
-                _expandedRows.push(rowData);
-                this.$emit('update:expandedRows', _expandedRows);
-                this.$emit('row-expand', event);
-            }
+            this.$emit('update:expandedRows', expandedRows);
+            expanded ? this.$emit('row-expand', rest) : this.$emit('row-collapse', rest);
         },
         toggleRowGroup(e) {
             const event = e.originalEvent;
@@ -1658,7 +1677,6 @@ export default {
 
             if (this.expandedRows) {
                 state.expandedRows = this.expandedRows;
-                state.expandedRowKeys = this.d_expandedRowKeys;
             }
 
             if (this.expandedRowGroups) {
@@ -1720,7 +1738,6 @@ export default {
                 }
 
                 if (restoredState.expandedRows) {
-                    this.d_expandedRowKeys = restoredState.expandedRowKeys;
                     this.$emit('update:expandedRows', restoredState.expandedRows);
                 }
 
@@ -1747,6 +1764,26 @@ export default {
                 state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px';
             }
         },
+        addColumnWidthStyles(widths) {
+            this.createStyleElement();
+
+            let innerHTML = '';
+            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+
+            widths.forEach((width, index) => {
+                let style = `width: ${width}px !important; max-width: ${width}px !important`;
+
+                innerHTML += `
+        ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
+        ${selector} > tbody[data-pc-section="tbody"] > tr > td:nth-child(${index + 1}),
+        ${selector} > tfoot[data-pc-section="tfoot"] > tr > td:nth-child(${index + 1}) {
+            ${style}
+        }
+    `;
+            });
+
+            this.styleElement.innerHTML = innerHTML;
+        },
         restoreColumnWidths() {
             if (this.columnWidthsState) {
                 let widths = this.columnWidthsState.split(',');
@@ -1754,28 +1791,10 @@ export default {
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
                     this.$refs.table.style.width = this.tableWidthState;
                     this.$refs.table.style.minWidth = this.tableWidthState;
-                    this.$el.style.width = this.tableWidthState;
                 }
 
                 if (ObjectUtils.isNotEmpty(widths)) {
-                    this.createStyleElement();
-
-                    let innerHTML = '';
-                    let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
-
-                    widths.forEach((width, index) => {
-                        let style = `width: ${width}px !important; max-width: ${width}px !important`;
-
-                        innerHTML += `
-                            ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
-                            ${selector} > tbody[data-pc-section="tbody"] > tr > td:nth-child(${index + 1}),
-                            ${selector} > tfoot[data-pc-section="tfoot"] > tr > td:nth-child(${index + 1}) {
-                                ${style}
-                            }
-                        `;
-                    });
-
-                    this.styleElement.innerHTML = innerHTML;
+                    this.addColumnWidthStyles(widths);
                 }
             }
         },
@@ -1844,9 +1863,6 @@ export default {
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
-        getChildren() {
-            return this.$slots.default ? this.$slots.default() : null;
-        },
         onFilterChange(filters) {
             this.d_filters = filters;
         },
@@ -1903,12 +1919,12 @@ export default {
 @media screen and (max-width: ${this.breakpoint}) {
     ${selector} > .p-datatable-thead > tr > th,
     ${selector} > .p-datatable-tfoot > tr > td {
-        display: none !important;
+        display: none;
     }
 
     ${selector} > .p-datatable-tbody > tr > td {
         display: flex;
-        width: 100% !important;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
     }
@@ -1944,23 +1960,6 @@ export default {
                 this.styleElement = null;
             }
         },
-        recursiveGetChildren(children, results) {
-            if (!results) {
-                results = [];
-            }
-
-            if (children && children.length) {
-                children.forEach((child) => {
-                    if (child.children instanceof Array) {
-                        results.concat(this.recursiveGetChildren(child.children, results));
-                    } else if (child.type.name == 'Column') {
-                        results.push(child);
-                    }
-                });
-            }
-
-            return results;
-        },
         dataToRender(data) {
             const _data = data || this.processedData;
 
@@ -1981,13 +1980,7 @@ export default {
     },
     computed: {
         columns() {
-            let children = this.getChildren();
-
-            if (!children) {
-                return;
-            }
-
-            const cols = this.recursiveGetChildren(children, []);
+            const cols = this.d_columns.get(this);
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
@@ -2005,31 +1998,14 @@ export default {
 
             return cols;
         },
+        columnGroups() {
+            return this.d_columnGroups.get(this);
+        },
         headerColumnGroup() {
-            const children = this.getChildren();
-
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'header') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.columnGroups?.find((group) => this.columnProp(group, 'type') === 'header');
         },
         footerColumnGroup() {
-            const children = this.getChildren();
-
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'footer') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.columnGroups?.find((group) => this.columnProp(group, 'type') === 'footer');
         },
         hasFilters() {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
@@ -2037,7 +2013,7 @@ export default {
         processedData() {
             let data = this.value || [];
 
-            if (!this.lazy) {
+            if (!this.lazy && !this.virtualScrollerOptions?.lazy) {
                 if (data && data.length) {
                     if (this.hasFilters) {
                         data = this.filter(data);

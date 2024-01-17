@@ -46,7 +46,7 @@ Styled mode is based on pre-skinned components with opinionated themes like Mate
 
 ```javascript
 // theme
-import 'primevue/resources/themes/lara-light-teal/theme.css';
+import 'primevue/resources/themes/lara-light-green/theme.css';
 ```
 
 **Unstyled Mode**
@@ -138,7 +138,7 @@ In styled mode, the theme can be defined at Nuxt configuration with the css prop
 
 ```javascript
 export default defineNuxtConfig({
-    css: ['primevue/resources/themes/lara-dark-teal/theme.css']
+    css: ['primevue/resources/themes/lara-dark-green/theme.css']
 });
 ```
 
@@ -147,24 +147,6 @@ For detailed [information](https://primevue.org/nuxt)
 ## Example
 
 We've created various samples for the popular options in the Vue ecosystem. Visit the [primevue-examples](https://github.com/primefaces/primevue-examples) repository for the samples.
-
-### Vite
-
-<a href="https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart">
-  <img src="https://primefaces.org/cdn/primevue/images/logos/vite.svg" alt="vite" width="112" height="112">
-</a>
-
-### Nuxt
-
-<a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt-quickstart">
-  <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="nuxt" width="112" height="112">
-</a>
-
-### Astro
-
-<a href="https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart">
-  <img src="https://primefaces.org/cdn/primevue/images/logos/astro.svg" alt="astro" width="112" height="112">
-</a>
 
 ## Contributors
 

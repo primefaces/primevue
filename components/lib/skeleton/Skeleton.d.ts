@@ -26,6 +26,14 @@ export interface SkeletonPassThroughMethodOptions {
      */
     props: SkeletonProps;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;

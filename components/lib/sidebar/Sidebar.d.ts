@@ -33,6 +33,14 @@ export interface SidebarPassThroughMethodOptions {
      */
     state: SidebarState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -54,7 +62,7 @@ export interface SidebarPassThroughOptions {
     /**
      * Used to pass attributes to the header content's DOM element.
      */
-    headerContent?: SidebarPassThroughOptionType;
+    title?: SidebarPassThroughOptionType;
     /**
      * Used to pass attributes to the close button's DOM element.
      */
@@ -114,6 +122,10 @@ export interface SidebarProps {
      * @defaultValue left
      */
     position?: 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
+    /**
+     * Title content of the dialog.
+     */
+    header?: string | undefined;
     /**
      * Base zIndex value to use in layering.
      * @defaultValue 0
@@ -176,8 +188,14 @@ export interface SidebarSlots {
     default(): VNode[];
     /**
      * Custom header template.
+     *  @param {Object} scope - header slot's params.
      */
-    header(): VNode[];
+    header(scope: {
+        /**
+         * Style class of the header title
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom close icon template.
      * @param {Object} scope - close icon slot's params.

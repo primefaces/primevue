@@ -838,16 +838,24 @@ export default {
             class: 'absolute flex'
         },
         button: {
-            root: ({ parent }) => ({
-                class: [
-                    'w-16 !h-16 !rounded-full justify-center z-10',
-                    {
-                        'rotate-45': parent.state.d_visible
-                    }
-                ]
-            }),
-            label: {
-                class: 'hidden'
+            root: ({ parent }) => {
+                return {
+                    class: [
+                        'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]',
+                        'flex items-center justify-center',
+                        'transition duration-200 ease-in-out',
+                        'focus:outline-none focus:outline-offset-0',
+                        'w-16 !h-16 !rounded-full justify-center z-10',
+                        {
+                            'rotate-45': parent.state.d_visible
+                        }
+                    ]
+                };
+            },
+            label: () => {
+                return {
+                    class: 'hidden'
+                };
             }
         },
         menu: {
@@ -884,19 +892,155 @@ export default {
             class: ['inline-flex relative', 'rounded-md', { 'shadow-lg': props.raised }]
         }),
         button: {
-            root: ({ parent }) => ({
-                class: ['rounded-r-none border-r-0', { 'rounded-l-full': parent.props.rounded }]
-            }),
-            icon: {
-                class: 'mr-2'
+            root: ({ props, parent }) => {
+                return {
+                    class: [
+                        'rounded-r-none border-r-0',
+                        { 'rounded-l-full': parent.props.rounded },
+                        {
+                            'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                !parent.props.link && parent.props.severity === null && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                            'text-blue-600 bg-transparent border-transparent focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                parent.props.link
+                        },
+                        {
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(176,185,198,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(203,213,225,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'secondary',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(136,234,172,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(134,239,172,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'success',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'info',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(250,207,133,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,211,77,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'warning',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(212,170,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(216,180,254,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'help',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(247,162,162,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,165,165,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'danger'
+                        },
+                        {
+                            'text-white dark:text-gray-900 bg-gray-500 dark:bg-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-600 dark:hover:bg-gray-500 hover:border-gray-600 dark:hover:border-gray-500':
+                                props.severity === 'secondary' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-green-500 dark:bg-green-400 border border-green-500 dark:border-green-400 hover:bg-green-600 dark:hover:bg-green-500 hover:border-green-600 dark:hover:border-green-500':
+                                props.severity === 'success' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 dark:bg-blue-400 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 hover:border-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500':
+                                props.severity === 'info' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-orange-500 dark:bg-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-600 dark:hover:bg-orange-500 hover:border-orange-600 dark:hover:border-orange-500':
+                                props.severity === 'warning' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-purple-500 dark:bg-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-600 dark:hover:bg-purple-500 hover:border-purple-600 dark:hover:border-purple-500':
+                                props.severity === 'help' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-red-500 dark:bg-red-400 border border-red-500 dark:border-red-400 hover:bg-red-600 dark:hover:bg-red-500 hover:border-red-600 dark:hover:border-red-500':
+                                props.severity === 'danger' && !props.text && !props.outlined && !props.plain
+                        },
+                        { 'shadow-lg': props.raised },
+                        { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
+                        {
+                            'bg-transparent border-transparent': props.text && !props.plain,
+                            'text-blue-500 dark:text-blue-400 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
+                            'text-gray-500 dark:text-gray-400 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
+                            'text-green-500 dark:text-green-400 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
+                            'text-orange-500 dark:text-orange-400 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
+                            'text-purple-500 dark:text-purple-400 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
+                            'text-red-500 dark:text-red-400 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
+                        },
+                        { 'shadow-lg': props.raised && props.text },
+                        {
+                            'text-gray-500 hover:bg-gray-300/20': props.plain && props.text,
+                            'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.plain && props.outlined,
+                            'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.plain && !props.outlined && !props.text
+                        },
+                        {
+                            'bg-transparent border': props.outlined && !props.plain,
+                            'text-blue-500 dark:text-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-300/20': props.outlined && (props.severity === null || props.severity === 'info') && !props.plain,
+                            'text-gray-500 dark:text-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
+                            'text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
+                            'text-orange-500 dark:text-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
+                            'text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
+                            'text-red-500 dark:text-red-400 border border-red-500 dark:border-red-400 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
+                        },
+                        { 'px-4 py-3 text-base': props.size === null, 'text-xs py-2 px-3': props.size === 'small', 'text-xl py-3 px-4': props.size === 'large' }
+                    ]
+                };
+            },
+            icon: () => {
+                return {
+                    class: 'mr-2'
+                };
             }
         },
         menubutton: {
-            root: ({ parent }) => ({
-                class: ['rounded-l-none', { 'rounded-r-full': parent.props.rounded }]
-            }),
-            label: {
-                class: 'hidden'
+            root: ({ props, parent }) => {
+                return {
+                    class: [
+                        'rounded-l-none',
+                        { 'rounded-r-full': parent.props.rounded },
+                        {
+                            'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                !parent.props.link && parent.props.severity === null && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                            'text-blue-600 bg-transparent border-transparent focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                parent.props.link
+                        },
+                        {
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(176,185,198,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(203,213,225,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'secondary',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(136,234,172,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(134,239,172,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'success',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'info',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(250,207,133,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,211,77,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'warning',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(212,170,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(216,180,254,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'help',
+                            'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(247,162,162,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,165,165,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                                props.severity === 'danger'
+                        },
+                        {
+                            'text-white dark:text-gray-900 bg-gray-500 dark:bg-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-600 dark:hover:bg-gray-500 hover:border-gray-600 dark:hover:border-gray-500':
+                                props.severity === 'secondary' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-green-500 dark:bg-green-400 border border-green-500 dark:border-green-400 hover:bg-green-600 dark:hover:bg-green-500 hover:border-green-600 dark:hover:border-green-500':
+                                props.severity === 'success' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 dark:bg-blue-400 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 hover:border-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500':
+                                props.severity === 'info' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-orange-500 dark:bg-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-600 dark:hover:bg-orange-500 hover:border-orange-600 dark:hover:border-orange-500':
+                                props.severity === 'warning' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-purple-500 dark:bg-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-600 dark:hover:bg-purple-500 hover:border-purple-600 dark:hover:border-purple-500':
+                                props.severity === 'help' && !props.text && !props.outlined && !props.plain,
+                            'text-white dark:text-gray-900 bg-red-500 dark:bg-red-400 border border-red-500 dark:border-red-400 hover:bg-red-600 dark:hover:bg-red-500 hover:border-red-600 dark:hover:border-red-500':
+                                props.severity === 'danger' && !props.text && !props.outlined && !props.plain
+                        },
+                        { 'shadow-lg': props.raised },
+                        { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
+                        {
+                            'bg-transparent border-transparent': props.text && !props.plain,
+                            'text-blue-500 dark:text-blue-400 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
+                            'text-gray-500 dark:text-gray-400 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
+                            'text-green-500 dark:text-green-400 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
+                            'text-orange-500 dark:text-orange-400 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
+                            'text-purple-500 dark:text-purple-400 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
+                            'text-red-500 dark:text-red-400 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
+                        },
+                        { 'shadow-lg': props.raised && props.text },
+                        {
+                            'text-gray-500 hover:bg-gray-300/20': props.plain && props.text,
+                            'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.plain && props.outlined,
+                            'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.plain && !props.outlined && !props.text
+                        },
+                        {
+                            'bg-transparent border': props.outlined && !props.plain,
+                            'text-blue-500 dark:text-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-300/20': props.outlined && (props.severity === null || props.severity === 'info') && !props.plain,
+                            'text-gray-500 dark:text-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
+                            'text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
+                            'text-orange-500 dark:text-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
+                            'text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
+                            'text-red-500 dark:text-red-400 border border-red-500 dark:border-red-400 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
+                        },
+                        { 'px-4 py-3 text-base': props.size === null, 'text-xs py-2 px-3': props.size === 'small', 'text-xl py-3 px-4': props.size === 'large' }
+                    ]
+                };
+            },
+            label: () => {
+                return {
+                    class: 'hidden'
+                };
             }
         }
     },
@@ -922,44 +1066,73 @@ export default {
         root: {
             class: 'w-full inline-flex'
         },
-        input: ({ props }) => ({
-            class: [
-                {
-                    'rounded-tr-none rounded-br-none': props.showButtons && props.buttonLayout == 'stacked'
-                },
-                {
-                    'order-2': props.buttonLayout == 'horizontal'
-                }
-            ]
-        }),
+        input: {
+            root: ({ parent }) => {
+                return {
+                    class: [
+                        // { test: parent }
+                        'm-0',
+                        'font-sans text-gray-600 dark:text-white/80 bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg',
+                        'p-3 text-base',
+                        {
+                            'rounded-tr-none rounded-br-none': parent.props.showButtons && parent.props.buttonLayout == 'stacked'
+                        },
+                        {
+                            'order-2': parent.props.buttonLayout == 'horizontal'
+                        }
+                    ]
+                };
+            }
+        },
         buttongroup: ({ props }) => ({
             class: [{ 'flex flex-col': props.showButtons && props.buttonLayout == 'stacked' }]
         }),
-        incrementbutton: ({ props }) => ({
-            class: [
-                'flex !items-center !justify-center',
-                {
-                    'rounded-br-none rounded-bl-none rounded-bl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
-                },
-                {
-                    'order-3': props.buttonLayout == 'horizontal'
-                }
-            ]
-        }),
-        label: {
-            class: 'hidden'
+        incrementbutton: {
+            root: ({ parent }) => {
+                return {
+                    class: [
+                        'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]',
+                        'flex items-center justify-center',
+                        'transition duration-200 ease-in-out',
+                        'focus:outline-none focus:outline-offset-0',
+                        {
+                            'rounded-md rounded-br-none rounded-bl-none rounded-bl-none !p-0 flex-1 w-[3rem]': parent.props.showButtons && parent.props.buttonLayout == 'stacked'
+                        },
+                        {
+                            'order-3 px-4 py-3 text-base rounded-md': parent.props.buttonLayout == 'horizontal'
+                        }
+                    ]
+                };
+            },
+            label: () => {
+                return {
+                    class: 'hidden'
+                };
+            }
         },
-        decrementbutton: ({ props }) => ({
-            class: [
-                'flex !items-center !justify-center',
-                {
-                    'rounded-tr-none rounded-tl-none rounded-tl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
-                },
-                {
-                    'order-1': props.buttonLayout == 'horizontal'
-                }
-            ]
-        })
+        decrementbutton: {
+            root: ({ parent }) => {
+                return {
+                    class: [
+                        'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]',
+                        'flex items-center justify-center',
+                        'transition duration-200 ease-in-out',
+                        'focus:outline-none focus:outline-offset-0',
+                        {
+                            'rounded-md rounded-tr-none rounded-tl-none rounded-tl-none !p-0 flex-1 w-[3rem]': parent.props.showButtons && parent.props.buttonLayout == 'stacked'
+                        },
+                        {
+                            'order-1 px-4 py-3 text-base rounded-md': parent.props.buttonLayout == 'horizontal'
+                        }
+                    ]
+                };
+            },
+            label: () => {
+                return {
+                    class: 'hidden'
+                };
+            }
+        }
     },
     knob: {
         root: ({ props }) => ({
@@ -1382,11 +1555,20 @@ export default {
                 { 'rounded-lg': !props.showIcon, 'border-r-0 rounded-l-lg': props.showIcon }
             ]
         }),
-        dropdownbutton: ({ props }) => ({
-            root: {
-                class: [{ 'rounded-l-none': props.showIcon }]
+        dropdownbutton: {
+            root: ({ parent }) => {
+                return {
+                    class: [
+                        'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]',
+                        'flex items-center justify-center',
+                        'transition duration-200 ease-in-out',
+                        'focus:outline-none focus:outline-offset-0',
+                        'px-4 py-3 text-base rounded-md',
+                        { 'rounded-l-none': parent.props.showIcon }
+                    ]
+                };
             }
-        }),
+        },
         panel: ({ props }) => ({
             class: [
                 'bg-white dark:bg-gray-900',
@@ -2965,73 +3147,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         moveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3073,73 +3263,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         sourcemoveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         sourcemovebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3176,73 +3374,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         movetotargetbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movealltotargetbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movetosourcebutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         movealltosourcebutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -3251,73 +3457,81 @@ export default {
             class: 'flex flex-col justify-center p-5'
         },
         targetmoveupbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovetopbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovedownbutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
         },
         targetmovebottombutton: {
-            root: ({ context }) => ({
-                class: [
-                    'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
-                    'text-white bg-blue-500 border border-blue-500 rounded-md',
-                    'transition duration-200 ease-in-out',
-                    'justify-center px-0 py-3', // icon only
-                    'mb-2 w-12', // orderlist button
-                    'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
-                    {
-                        'cursor-default pointer-events-none opacity-60': context.disabled
-                    }
-                ]
-            }),
+            root: ({ context }) => {
+                return {
+                    class: [
+                        'relative inline-flex cursor-pointer select-none items-center align-bottom text-center overflow-hidden m-0', // button component
+                        'text-white bg-blue-500 border border-blue-500 rounded-md',
+                        'transition duration-200 ease-in-out',
+                        'justify-center px-0 py-3', // icon only
+                        'mb-2 w-12', // orderlist button
+                        'dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900', //Dark Mode
+                        {
+                            'cursor-default pointer-events-none opacity-60': context.disabled
+                        }
+                    ]
+                };
+            },
             label: {
                 class: 'flex-initial w-0'
             }
@@ -4034,12 +4248,6 @@ export default {
         },
         resizehelper: {
             class: 'absolute hidden w-px z-10 bg-blue-500 dark:bg-blue-300'
-        }
-    },
-    // CHART
-    chart: {
-        root: {
-            class: 'relative'
         }
     }
 };

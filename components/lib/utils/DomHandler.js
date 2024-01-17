@@ -114,7 +114,7 @@ export default {
 
     index(element) {
         if (element) {
-            let children = element.parentNode.childNodes;
+            let children = this.getParentNode(element)?.childNodes;
             let num = 0;
 
             for (let i = 0; i < children.length; i++) {
@@ -392,8 +392,20 @@ export default {
         }
     },
 
+    getParentNode(element) {
+        let parent = element?.parentNode;
+
+        if (parent && parent instanceof ShadowRoot && parent.host) {
+            parent = parent.host;
+        }
+
+        return parent;
+    },
+
     getParents(element, parents = []) {
-        return element['parentNode'] === null ? parents : this.getParents(element.parentNode, parents.concat([element.parentNode]));
+        const parent = this.getParentNode(element);
+
+        return parent === null ? parents : this.getParents(parent, parents.concat([parent]));
     },
 
     getScrollableParents(element) {
@@ -649,7 +661,7 @@ export default {
     },
 
     isExist(element) {
-        return !!(element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode);
+        return !!(element !== null && typeof element !== 'undefined' && element.nodeName && this.getParentNode(element));
     },
 
     isClient() {

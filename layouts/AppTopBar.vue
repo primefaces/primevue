@@ -173,7 +173,7 @@ export default {
                 },
                 {
                     name: 'v2',
-                    version: '2.10.1',
+                    version: '2.10.4',
                     url: 'https://www.primefaces.org/primevue-v2'
                 }
             ]

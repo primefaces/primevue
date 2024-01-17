@@ -9,7 +9,7 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Bootstrap</h1>
-                    <p><a href="https://getbootstrap.com" class="font-semibold hover:underline text-primary">Bootstrap</a> is a well-known CSS library to build responsive and mobile first web projects.</p>
+                    <p><a href="https://getbootstrap.com">Bootstrap</a> is a well-known CSS library to build responsive and mobile first web projects.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>

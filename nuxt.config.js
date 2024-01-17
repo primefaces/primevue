@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     nitro: {
         alias: aliasConfig.resolve.alias
     },
+    routeRules: {
+        '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
+        '/installation': { redirect: { to: '/vite', statusCode: 301 } }
+    },
     primevue: {
         options: {
             ripple: true
@@ -48,19 +52,7 @@ export default defineNuxtConfig({
                 { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
                 { property: 'og:ttl', content: '604800' }
             ],
-            link: [
-                {
-                    id: 'home-table-link',
-                    rel: 'stylesheet',
-                    href: baseUrl + 'styles/landing/themes/lara-light-teal/theme.css'
-                },
-                {
-                    id: 'theme-link',
-                    rel: 'stylesheet',
-                    href: baseUrl + 'themes/lara-light-teal/theme.css'
-                },
-                { rel: 'icon', href: baseUrl + 'favicon.ico' }
-            ],
+            link: [{ rel: 'icon', href: baseUrl + 'favicon.ico' }],
             script: [
                 {
                     src: baseUrl + 'scripts/prism.js',

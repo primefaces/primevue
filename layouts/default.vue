@@ -92,9 +92,12 @@ export default {
 
             if (this.$appState.darkTheme) {
                 newTheme = currentTheme.replace('dark', 'light');
+                localStorage.setItem(this.$appState.colorSchemeKey, 'light');
             } else {
                 if (currentTheme.includes('light') && currentTheme !== 'fluent-light') newTheme = currentTheme.replace('light', 'dark');
-                else newTheme = 'lara-dark-teal'; //fallback
+                else newTheme = 'lara-dark-green'; //fallback
+
+                localStorage.setItem(this.$appState.colorSchemeKey, 'dark');
             }
 
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });

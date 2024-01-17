@@ -4,7 +4,7 @@
         header="TreeTable"
         description="TreeTable is used to display hierarchical data in tabular format."
         :componentDocs="docs"
-        :apiDocs="['TreeTable', 'Column']"
+        :apiDocs="['TreeTable', 'Column', 'TreeNode']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />

@@ -156,9 +156,10 @@ export default {
             this.autoUpdateModel();
         }
     },
-    mounted() {
+    beforeMount() {
         this.id = this.id || UniqueComponentId();
-
+    },
+    mounted() {
         this.autoUpdateModel();
     },
     methods: {
@@ -203,7 +204,7 @@ export default {
 
             const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
-            this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
+            this.$refs.lastHiddenFocusableElement.tabIndex = DomHandler.isElement(firstFocusableEl) ? undefined : -1;
             this.$refs.firstHiddenFocusableElement.tabIndex = -1;
         },
         onLastHiddenFocus(event) {
@@ -228,6 +229,7 @@ export default {
         onListFocus(event) {
             this.focused = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.autoUpdateModel();
             this.$emit('focus', event);
         },
         onListBlur(event) {
@@ -265,6 +267,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onSpaceKey(event);
                     break;
@@ -327,7 +330,7 @@ export default {
             let metaSelection = this.optionTouched ? false : this.metaKeySelection;
 
             if (metaSelection) {
-                let metaKey = event.metaKey || event.ctrlKey;
+                let metaKey = event && (event.metaKey || event.ctrlKey);
 
                 if (selected) {
                     if (metaKey) {
@@ -413,6 +416,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
@@ -632,7 +636,7 @@ export default {
             }
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption && !this.multiple) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption && !this.multiple && this.focused) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex]);
             }

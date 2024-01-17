@@ -98,7 +98,7 @@ const css = `
 
     .p-datatable .p-column-resizer {
         display: block;
-        position: absolute !important;
+        position: absolute;
         top: 0;
         right: 0;
         margin: 0;
@@ -297,23 +297,6 @@ const classes = {
     headerTitle: 'p-column-title',
     sortIcon: 'p-sortable-column-icon',
     sortBadge: 'p-sortable-column-badge',
-    //headercheckbox
-    headerCheckboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused,
-            'p-disabled': instance.disabled
-        }
-    ],
-    headerCheckbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    headerCheckboxIcon: 'p-checkbox-icon',
     // columnfilter
     columnFilter: ({ props }) => [
         'p-column-filter p-fluid',
@@ -368,7 +351,7 @@ const classes = {
     rowgroupHeader: 'p-rowgroup-header',
     rowGroupToggler: 'p-row-toggler p-link',
     rowGroupTogglerIcon: 'p-row-toggler-icon',
-    row: ({ instance, props, rowData }) => {
+    row: ({ instance, props, index }) => {
         let rowStyleClass = [];
 
         if (props.selectionMode) {
@@ -377,15 +360,17 @@ const classes = {
 
         if (props.selection) {
             rowStyleClass.push({
-                'p-highlight': instance.isSelected(rowData)
+                'p-highlight': instance.isSelected
             });
         }
 
         if (props.contextMenuSelection) {
             rowStyleClass.push({
-                'p-highlight-contextmenu': instance.isSelectedWithContextMenu(rowData)
+                'p-highlight-contextmenu': instance.isSelectedWithContextMenu
             });
         }
+
+        rowStyleClass.push(index % 2 === 0 ? 'p-row-even' : 'p-row-odd');
 
         return rowStyleClass;
     },
@@ -411,38 +396,6 @@ const classes = {
     rowEditorSaveIcon: 'p-row-editor-save-icon',
     rowEditorCancelButton: 'p-row-editor-cancel p-link',
     rowEditorCancelIcon: 'p-row-editor-cancel-icon',
-    //rowcheckbox
-    checkboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused
-        }
-    ],
-    checkbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    checkboxIcon: 'p-checkbox-icon',
-    //rowradiobutton
-    radiobuttonWrapper: ({ instance }) => [
-        'p-radiobutton p-component',
-        {
-            'p-radiobutton-focused': instance.focused
-        }
-    ],
-    radiobutton: ({ instance }) => [
-        'p-radiobutton-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    radiobuttonIcon: 'p-radiobutton-icon',
     //tablefooter
     tfoot: 'p-datatable-tfoot',
     //footercell

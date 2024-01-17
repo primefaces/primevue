@@ -8,7 +8,7 @@
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 
-        <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
+        <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }" @show="onShow">
             <DataTable :value="customers" scrollable scrollHeight="flex" tableStyle="min-width: 50rem">
                 <Column field="name" header="Name"></Column>
                 <Column field="country.name" header="Country"></Column>
@@ -140,10 +140,12 @@ onMounted(() => {
             }
         };
     },
-    mounted() {
-        CustomerService.getCustomersMedium().then((data) => {
-            this.customers = data;
-        });
+    methods: {
+        onShow() {
+            CustomerService.getCustomersMedium().then((data) => {
+                this.customers = data;
+            });
+        }
     }
 };
 </script>

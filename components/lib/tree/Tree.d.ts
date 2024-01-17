@@ -10,14 +10,15 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
+import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes | string) | string | null | undefined;
+export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface TreePassThroughMethodOptions {
+export interface TreePassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -31,6 +32,10 @@ export interface TreePassThroughMethodOptions {
      */
     state: TreeState;
     /**
+     * Defines parent instance.
+     */
+    parent: T;
+    /**
      * Defines current options.
      */
     context: TreeContext;
@@ -38,66 +43,6 @@ export interface TreePassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
-}
-
-/**
- * Custom TreeNode metadata.
- */
-export interface TreeNode {
-    /**
-     * Mandatory unique key of the node.
-     */
-    key?: string;
-    /**
-     * Label of the node.
-     */
-    label?: string;
-    /**
-     * Data represented by the node.
-     */
-    data?: any;
-    /**
-     * Type of the node to match a template.
-     */
-    type?: string;
-    /**
-     * Icon of the node to display next to content.
-     */
-    icon?: string;
-    /**
-     * An array of treenodes as children.
-     */
-    children?: TreeNode[];
-    /**
-     * Inline style of the node.
-     */
-    style?: any;
-    /**
-     * Style class of the node.
-     */
-    styleClass?: string;
-    /**
-     * Whether the node is selectable when selection mode is enabled.
-     * @defaultValue false
-     */
-    selectable?: boolean;
-    /**
-     * Specifies if the node has children. Used in lazy loading.
-     * @defaultValue false
-     */
-    leaf?: boolean;
-    /**
-     * Optional
-     */
-    [key: string]: any;
-    /**
-     * Icon to use in expanded state.
-     */
-    expandedIcon?: string;
-    /**
-     * Icon to use in collapsed state.
-     */
-    collapsedIcon?: string;
 }
 
 /**
@@ -121,82 +66,89 @@ export interface TreeSelectionKeys {
 }
 
 /**
+ * Custom filter event.
+ * @see {@link TreeEmits.filter}
+ */
+export interface TreeFilterEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Filter value
+     */
+    value: string;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
-export interface TreePassThroughOptions {
+export interface TreePassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: TreePassThroughOptionType;
+    root?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter container's DOM element.
      */
-    filterContainer?: TreePassThroughOptionType;
+    filterContainer?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the input's DOM element.
      */
-    input?: TreePassThroughOptionType;
+    input?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the search icon's DOM element.
      */
-    searchIcon?: TreePassThroughOptionType;
+    searchIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
-    wrapper?: TreePassThroughOptionType;
+    wrapper?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
-    container?: TreePassThroughOptionType;
+    container?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node's DOM element.
      */
-    node?: TreePassThroughOptionType;
+    node?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
-    content?: TreePassThroughOptionType;
+    content?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the toggler's DOM element.
      */
-    toggler?: TreePassThroughOptionType;
+    toggler?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the toggler icon's DOM element.
      */
-    togglerIcon?: TreePassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox container's DOM element.
-     */
-    checkboxContainer?: TreePassThroughOptionType;
+    togglerIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    checkbox?: TreePassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: TreePassThroughOptionType;
+    nodeCheckbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */
-    nodeIcon?: TreePassThroughOptionType;
+    nodeIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: TreePassThroughOptionType;
+    label?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the subgroup's DOM element.
      */
-    subgroup?: TreePassThroughOptionType;
+    subgroup?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading overlay's DOM element.
      */
-    loadingOverlay?: TreePassThroughOptionType;
+    loadingOverlay?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
-    loadingIcon?: TreePassThroughOptionType;
+    loadingIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -278,7 +230,7 @@ export interface TreeProps {
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
-     * @defaultValue true
+     * @defaultValue false
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -291,6 +243,11 @@ export interface TreeProps {
      * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
     /**
      * When specified, displays an input field to filter the items.
      * @defaultValue false
@@ -321,11 +278,11 @@ export interface TreeProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Identifier of the underlying menu element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreePassThroughOptions}
@@ -424,7 +381,7 @@ export interface TreeEmits {
      * Emitted when the selection keys change.
      * @param {TreeSelectionKeys} value - New selection keys.
      */
-    'update:selectionKeys'(event: TreeSelectionKeys): void;
+    'update:selectionKeys'(value: TreeSelectionKeys): void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
@@ -445,6 +402,11 @@ export interface TreeEmits {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse'(node: TreeNode): void;
+    /**
+     * Callback to invoke on filter input.
+     * @param {TreeFilterEvent} event - Custom filter event.
+     */
+    'filter'(event: TreeFilterEvent): void;
 }
 
 /**

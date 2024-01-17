@@ -33,9 +33,31 @@ export interface ConfirmDialogPassThroughMethodOptions {
      */
     state: ConfirmDialogState;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ConfirmDialogSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ConfirmDialogProps;
+    /**
+     * Defines current inline state.
+     */
+    state: ConfirmDialogState;
 }
 
 /**
@@ -54,11 +76,11 @@ export interface ConfirmDialogPassThroughOptions {
     /**
      * Used to pass attributes to the header title's DOM element.
      */
-    headerTitle?: ConfirmDialogPassThroughOptionType;
+    title?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the header icons' DOM element.
      */
-    headerIcons?: ConfirmDialogPassThroughOptionType;
+    icons?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the close button's component.
      */
@@ -87,12 +109,12 @@ export interface ConfirmDialogPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    rejectButton?: ButtonPassThroughOptions;
+    rejectButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    acceptButton?: ButtonPassThroughOptions;
+    acceptButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -137,7 +159,7 @@ export interface ConfirmDialogBreakpoints {
      *
      * @media screen and (max-width: ${breakpoint[key]}) {
      *      .p-dialog[attributeSelector] {
-     *          width: ${breakpoint[value]} !important;
+     *          width: ${breakpoint[value]};
      *      }
      * }
      */

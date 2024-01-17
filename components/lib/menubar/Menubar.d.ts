@@ -36,6 +36,14 @@ export interface MenubarPassThroughMethodOptions {
      */
     context: MenubarContext;
     /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
@@ -83,13 +91,13 @@ export interface MenubarPassThroughOptions {
      */
     separator?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile popup menu button's DOM element.
+     * Used to pass attributes to the mobile menu button's DOM element.
      */
     button?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile popup menu button icon's DOM element.
+     * Used to pass attributes to the mobile menu button icon's DOM element.
      */
-    popupIcon?: MenubarPassThroughOptionType;
+    menubuttonicon?: MenubarPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
@@ -245,11 +253,11 @@ export interface MenubarProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    'aria-label'?: string | undefined;
+    ariaLabel?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    'aria-labelledby'?: string | undefined;
+    ariaLabelledby?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {MenubarPassThroughOptions}
@@ -306,9 +314,33 @@ export interface MenubarSlots {
         hasSubmenu: boolean;
     }): VNode[];
     /**
+     * Custom menu button template on responsive mode.
+     * @param {Object} scope - menu button slot's params.
+     */
+    menubutton(scope: {
+        /**
+         * Current id state as a string
+         */
+        id: string;
+        /**
+         * Style class of component
+         */
+        class: string;
+        /**
+         *
+         * Toggle event
+         */
+        toggleCallback: () => void;
+    }): VNode[];
+    /**
      * Custom popup icon template on responsive mode.
+     * @deprecated since v3.42.0. Use 'menubuttonicon' slot instead.
      */
     popupicon(): VNode[];
+    /**
+     * Custom menu button icon template on responsive mode.
+     */
+    menubuttonicon(): VNode[];
     /**
      * Custom submenu icon template.
      * @param {Object} scope - submenuicon slot's params.
