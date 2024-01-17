@@ -37477,6 +37477,14 @@
                             "description": "Defines whether metaKey is requred or not for the selection.\nWhen true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
                         },
                         {
+                            "name": "autoOptionFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to focus on the first visible or selected element."
+                        },
+                        {
                             "name": "listStyle",
                             "optional": true,
                             "readonly": false,
@@ -41966,6 +41974,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Defines whether metaKey is requred or not for the selection.\nWhen true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+                        },
+                        {
+                            "name": "autoOptionFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to focus on the first visible or selected element."
                         },
                         {
                             "name": "listStyle",
