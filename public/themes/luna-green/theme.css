@@ -3143,24 +3143,31 @@
   .p-orderlist .p-orderlist-controls .p-button {
     margin-bottom: 0.5rem;
   }
-  .p-orderlist .p-orderlist-header {
-    background: #191919;
-    color: #dedede;
+  .p-orderlist .p-orderlist-list-container {
+    background: #323232;
     border: 1px solid #191919;
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    outline-color: transparent;
+  }
+  .p-orderlist .p-orderlist-list-container.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.1rem white;
+    border-color: #C5E1A5;
+  }
+  .p-orderlist .p-orderlist-header {
+    color: #dedede;
     padding: 0.857rem 1rem;
     font-weight: 700;
-    border-bottom: 0 none;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
   }
   .p-orderlist .p-orderlist-list {
-    border: 1px solid #191919;
-    background: #323232;
     color: #dedede;
     padding: 0;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
     outline: 0 none;
+  }
+  .p-orderlist .p-orderlist-list:not(:first-child) {
+    border-top: 1px solid #191919;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item {
     padding: 0.429rem 0.857rem;
@@ -3326,24 +3333,31 @@
   .p-picklist .p-picklist-buttons .p-button {
     margin-bottom: 0.5rem;
   }
-  .p-picklist .p-picklist-header {
-    background: #191919;
-    color: #dedede;
+  .p-picklist .p-picklist-list-wrapper {
+    background: #323232;
     border: 1px solid #191919;
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    outline-color: transparent;
+  }
+  .p-picklist .p-picklist-list-wrapper.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.1rem white;
+    border-color: #C5E1A5;
+  }
+  .p-picklist .p-picklist-header {
+    color: #dedede;
     padding: 0.857rem 1rem;
     font-weight: 700;
-    border-bottom: 0 none;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
   }
   .p-picklist .p-picklist-list {
-    border: 1px solid #191919;
-    background: #323232;
     color: #dedede;
     padding: 0;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
     outline: 0 none;
+  }
+  .p-picklist .p-picklist-list:not(:first-child) {
+    border-top: 1px solid #191919;
   }
   .p-picklist .p-picklist-list .p-picklist-item {
     padding: 0.429rem 0.857rem;

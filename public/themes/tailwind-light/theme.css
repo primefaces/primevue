@@ -3166,24 +3166,31 @@
   .p-orderlist .p-orderlist-controls .p-button {
     margin-bottom: 0.5rem;
   }
-  .p-orderlist .p-orderlist-header {
-    background: #fafafa;
-    color: #3f3f46;
+  .p-orderlist .p-orderlist-list-container {
+    background: #ffffff;
     border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    transition: none;
+    outline-color: transparent;
+  }
+  .p-orderlist .p-orderlist-list-container.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 1px #6366F1;
+    border-color: #4F46E5;
+  }
+  .p-orderlist .p-orderlist-header {
+    color: #3f3f46;
     padding: 1.25rem;
     font-weight: 700;
-    border-bottom: 0 none;
-    border-top-right-radius: 0.375rem;
-    border-top-left-radius: 0.375rem;
   }
   .p-orderlist .p-orderlist-list {
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
     color: #3f3f46;
     padding: 0.25rem 0;
-    border-bottom-right-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
     outline: 0 none;
+  }
+  .p-orderlist .p-orderlist-list:not(:first-child) {
+    border-top: 1px solid #e5e7eb;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item {
     padding: 0.75rem 1rem;
@@ -3349,24 +3356,31 @@
   .p-picklist .p-picklist-buttons .p-button {
     margin-bottom: 0.5rem;
   }
-  .p-picklist .p-picklist-header {
-    background: #fafafa;
-    color: #3f3f46;
+  .p-picklist .p-picklist-list-wrapper {
+    background: #ffffff;
     border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    transition: none;
+    outline-color: transparent;
+  }
+  .p-picklist .p-picklist-list-wrapper.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 1px #6366F1;
+    border-color: #4F46E5;
+  }
+  .p-picklist .p-picklist-header {
+    color: #3f3f46;
     padding: 1.25rem;
     font-weight: 700;
-    border-bottom: 0 none;
-    border-top-right-radius: 0.375rem;
-    border-top-left-radius: 0.375rem;
   }
   .p-picklist .p-picklist-list {
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
     color: #3f3f46;
     padding: 0.25rem 0;
-    border-bottom-right-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
     outline: 0 none;
+  }
+  .p-picklist .p-picklist-list:not(:first-child) {
+    border-top: 1px solid #e5e7eb;
   }
   .p-picklist .p-picklist-list .p-picklist-item {
     padding: 0.75rem 1rem;
