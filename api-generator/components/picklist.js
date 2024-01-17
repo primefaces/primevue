@@ -19,6 +19,12 @@ const PickListProps = [
             'Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.'
     },
     {
+        name: 'autoOptionFocus',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to focus on the first visible or selected element when the overlay panel is shown.'
+    },
+    {
         name: 'dataKey',
         type: 'string',
         default: 'null',

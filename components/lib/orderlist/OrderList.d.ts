@@ -226,6 +226,11 @@ export interface OrderListProps {
      */
     metaKeySelection?: boolean | undefined;
     /**
+     * Whether to focus on the first visible or selected element.
+     * @defaultValue false
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
      * Inline style of the the list element.
      */
     listStyle?: any;
