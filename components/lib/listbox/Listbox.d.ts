@@ -293,7 +293,7 @@ export interface ListboxProps {
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element.
-     * @defaultValue true
+     * @defaultValue false
      */
     autoOptionFocus?: boolean | undefined;
     /**

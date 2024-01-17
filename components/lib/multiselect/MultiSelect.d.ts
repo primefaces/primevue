@@ -470,7 +470,7 @@ export interface MultiSelectProps {
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * @defaultValue true
+     * @defaultValue false
      */
     autoOptionFocus?: boolean | undefined;
     /**

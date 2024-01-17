@@ -45,7 +45,7 @@ export default {
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         selectOnFocus: {
             type: Boolean,
