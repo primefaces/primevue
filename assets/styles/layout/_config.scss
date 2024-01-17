@@ -5,16 +5,6 @@
     .p-selectbutton {
         .p-button {
             padding: 0.5rem 1rem;
-
-            &:first-child {
-                border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-    
-            &:last-child {
-                border-top-right-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
         }
     }
 

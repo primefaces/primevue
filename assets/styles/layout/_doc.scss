@@ -78,7 +78,7 @@
 
     p {
         font-size: 1.125rem;
-        color: var(--surface-900);
+        color: var(--text-color);
         margin: 0;
 
         a {
@@ -119,8 +119,8 @@
 
 .doc-section-description {
     > p {
-        font-size: 1.125rem;
-        color: var(--surface-900);
+        font-size: 1rem;
+        color: var(--text-color);
 
         i {
             border-radius: 6px;
