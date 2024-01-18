@@ -479,6 +479,11 @@ export interface MultiSelectProps {
      */
     autoFilterFocus?: boolean | undefined;
     /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'
      */

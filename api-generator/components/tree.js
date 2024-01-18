@@ -73,6 +73,12 @@ const TreeProps = [
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
     },
     {
+        name: 'highlightOnSelect',
+        type: 'boolean',
+        default: 'false',
+        description: 'Highlights automatically the first item.'
+    },
+    {
         name: 'scrollHeight',
         type: 'string',
         default: 'null',

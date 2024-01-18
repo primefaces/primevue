@@ -272,6 +272,11 @@ export interface TreeProps {
      */
     filterLocale?: string | undefined;
     /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */
     scrollHeight?: 'flex' | string | undefined;

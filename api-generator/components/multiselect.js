@@ -246,6 +246,12 @@ const MultiSelectProps = [
         description: 'Whether to focus on the filter element when the overlay panel is shown.'
     },
     {
+        name: 'highlightOnSelect',
+        type: 'boolean',
+        default: 'false',
+        description: 'Highlights automatically the first item.'
+    },
+    {
         name: 'filterMessage',
         type: 'string',
         default: '{0} results are available',
