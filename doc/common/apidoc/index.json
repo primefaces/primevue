@@ -19995,6 +19995,14 @@
                             "description": "Whether to displays rows with alternating colors."
                         },
                         {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Highlights automatically the first item."
+                        },
+                        {
                             "name": "size",
                             "optional": true,
                             "readonly": false,
@@ -36624,6 +36632,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether to focus on the filter element when the overlay panel is shown."
+                        },
+                        {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Highlights automatically the first item."
                         },
                         {
                             "name": "filterMessage",
@@ -54622,6 +54638,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+                        },
+                        {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Highlights automatically the first item."
                         },
                         {
                             "name": "scrollHeight",
