@@ -50,22 +50,23 @@ const css = `
 `;
 
 const classes = {
-    root: ({ instance }) => [
+    root: ({ props }) => [
         'p-metergroup p-component',
         {
-            'p-metergroup-horizontal': instance.orientation === 'horizontal',
-            'p-metergroup-vertical': instance.orientation === 'vertical'
+            'p-metergroup-horizontal': props.orientation === 'horizontal',
+            'p-metergroup-vertical': props.orientation === 'vertical'
         }
     ],
     metercontainer: 'p-metergroup-meter-container',
     meter: 'p-metergroup-meter',
-    labellist: ({ instance }) => [
+    labellist: ({ props }) => [
         'p-metergroup-label-list',
+
         {
-            'p-metergroup-label-list-start': instance.labelPosition === 'start',
-            'p-metergroup-label-list-end': instance.labelPosition === 'end',
-            'p-metergroup-label-list-vertical': instance.labelOrientation === 'vertical',
-            'p-metergroup-label-list-horizontal': instance.labelOrientation === 'horizontal'
+            'p-metergroup-label-list-start': props.labelPosition === 'start',
+            'p-metergroup-label-list-end': props.labelPosition === 'end',
+            'p-metergroup-label-list-vertical': props.labelOrientation === 'vertical',
+            'p-metergroup-label-list-horizontal': props.labelOrientation === 'horizontal'
         }
     ],
     labellistitem: 'p-metergroup-label-list-item',

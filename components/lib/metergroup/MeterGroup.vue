@@ -1,51 +1,26 @@
 <template>
     <div :class="cx('root')" role="meter" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="totalPercent" v-bind="ptm('root')" data-pc-name="metergroup">
-        <slot v-if="labelPosition === 'start'" name="label" :value="value" :totalPercent="totalPercentValue()">
-            <ol :class="cx('labellist')" v-bind="ptm('labellist')">
-                <li v-for="(val, index) in value" :key="index + '_label'" :class="cx('labellistitem')" v-bind="ptm('labellistitem')">
-                    <slot name="icon" :value="val" :class="cx('labelicon')">
-                        <i v-if="val.icon" :class="[val.icon, cx('labelicon')]" :style="{ color: val.color }" v-bind="ptm('labelicon')" />
-                        <span v-else :class="cx('labellisttype')" :style="{ backgroundColor: val.color }" v-bind="ptm('labellisttype')" />
-                    </slot>
-                    <span :class="cx('label')" v-bind="ptm('label')">{{ val.label }} ({{ percentValue(val.value) }})</span>
-                </li>
-            </ol>
+        <slot v-if="labelPosition === 'start'" name="label" :value="value" :totalPercent="totalPercent" :percentages="percentages">
+            <MeterGroupLabel :value="value" :labelPosition="labelPosition" :labelOrientation="labelOrientation" :unstyled="unstyled" :pt="pt" />
         </slot>
-        <slot name="start" :value="value" :totalPercent="totalPercentValue()" />{{}}
+        <slot name="start" :value="value" :totalPercent="totalPercent" :percentages="percentages" />
         <div :class="cx('metercontainer')" v-bind="ptm('metercontainer')">
             <template v-for="(val, index) in value" :key="index">
-                <slot
-                    name="meter"
-                    :value="val"
-                    :index="index"
-                    :class="cx('meter')"
-                    :orientation="orientation"
-                    :width="orientation === 'horizontal' && percentValue(val.value)"
-                    :height="orientation === 'vertical' && percentValue(val.value)"
-                    :totalPercent="totalPercentValue()"
-                >
-                    <span
-                        :class="cx('meter')"
-                        :style="{ backgroundColor: val.color, width: orientation === 'horizontal' && percentValue(val.value), height: orientation === 'vertical' && percentValue(val.value) }"
-                        v-bind="getPTOptions('meter', val, index)"
-                    />
+                <slot name="meter" :value="val" :index="index" :class="cx('meter')" :orientation="orientation" :size="percentValue(val.value)" :totalPercent="totalPercent">
+                    <span :class="cx('meter')" :style="meterSize(val)" v-bind="getPTOptions('meter', val, index)" />
                 </slot>
             </template>
         </div>
-        <slot name="end" :value="value" :totalPercent="totalPercentValue()" />
-        <slot v-if="labelPosition === 'end'" name="label" :value="value" :totalPercent="totalPercentValue()">
-            <ol :class="cx('labellist')" v-bind="ptm('labellist')">
-                <li v-for="(val, index) in value" :key="index + '_label'" :class="cx('labellistitem')" v-bind="ptm('labellistitem')">
-                    <span :class="cx('labellisttype')" :style="{ backgroundColor: val.color }" v-bind="ptm('labellisttype')" />
-                    <span :class="cx('label')" v-bind="ptm('label')">{{ val.label }} ({{ percentValue(val.value) }})</span>
-                </li>
-            </ol>
+        <slot name="end" :value="value" :totalPercent="totalPercent" :percentages="percentages" />
+        <slot v-if="labelPosition === 'end'" name="label" :value="value" :totalPercent="totalPercent" :percentages="percentages">
+            <MeterGroupLabel :value="value" :labelPosition="labelPosition" :labelOrientation="labelOrientation" :unstyled="unstyled" :pt="pt" />
         </slot>
     </div>
 </template>
 
 <script>
 import BaseMeterGroup from './BaseMeterGroup.vue';
+import MeterGroupLabel from './MeterGroupLabel.vue';
 
 export default {
     name: 'MeterGroup',
@@ -59,7 +34,7 @@ export default {
                 }
             });
         },
-        percent(meter) {
+        percent(meter = 0) {
             const percentOfItem = ((meter - this.min) / (this.max - this.min)) * 100;
 
             return Math.round(Math.max(0, Math.min(100, percentOfItem)));
@@ -67,14 +42,32 @@ export default {
         percentValue(meter) {
             return this.percent(meter) + '%';
         },
-        totalPercentValue() {
-            return this.totalPercent + '%';
+        meterSize(val) {
+            return {
+                backgroundColor: val.color,
+                width: this.orientation === 'horizontal' && this.percentValue(val.value),
+                height: this.orientation === 'vertical' && this.percentValue(val.value)
+            };
         }
     },
     computed: {
         totalPercent() {
             return this.percent(this.value.reduce((total, val) => total + val.value, 0));
+        },
+        percentages() {
+            let sum = 0;
+            const sumsArray = [];
+
+            this.value.forEach((item) => {
+                sum += item.value;
+                sumsArray.push(sum);
+            });
+
+            return sumsArray;
         }
+    },
+    components: {
+        MeterGroupLabel
     }
 };
 </script>

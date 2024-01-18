@@ -117,6 +117,10 @@ export interface MeterItemOptions {
      */
     color: string;
     /**
+     * Current icon of the meter item.
+     */
+    icon: string;
+    /**
      * Optional keys.
      */
     [key: string]: any;
@@ -187,7 +191,11 @@ export interface MeterGroupSlots {
         /**
          * Total percent of the metergroup items
          */
-        totalPercent: string;
+        totalPercent: number;
+        /**
+         * Array of sequential sum of values of metergroup items
+         */
+        percentages: number[];
     }): VNode[];
     /**
      * Custom meter template.
@@ -212,15 +220,11 @@ export interface MeterGroupSlots {
         /**
          * Current width of the meter item
          */
-        width: string;
-        /**
-         * Current height of the meter item
-         */
-        height: string;
+        size: string;
         /**
          * Total percent of the metergroup items
          */
-        totalPercent: string;
+        totalPercent: number;
     }): VNode[];
     /**
      * Custom icon template.
@@ -246,7 +250,11 @@ export interface MeterGroupSlots {
         /**
          * Total percent of the metergroup items
          */
-        totalPercent: string;
+        totalPercent: number;
+        /**
+         * Array of sequential sum of values of metergroup items
+         */
+        percentages: number[];
     }): VNode[];
     /**
      * Custom end template.
@@ -259,7 +267,11 @@ export interface MeterGroupSlots {
         /**
          * Total percent of the metergroup items
          */
-        totalPercent: string;
+        totalPercent: number;
+        /**
+         * Array of sequential sum of values of metergroup items
+         */
+        percentages: number[];
     }): VNode[];
 }
 
