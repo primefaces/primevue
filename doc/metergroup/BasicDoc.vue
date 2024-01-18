@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>MeterGroup is used with the <i>value</i> property.</p>
+        <p>MeterGroup requires <i>value</i> as the data to display.</p>
     </DocSectionText>
     <div class="card">
         <MeterGroup :value="value" />

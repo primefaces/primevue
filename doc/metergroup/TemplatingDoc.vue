@@ -20,12 +20,12 @@
             <template #start="{ totalPercent }">
                 <div class="flex justify-content-between mt-3 mb-2">
                     <span>Account </span>
-                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
+                    <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
             <template #meter="slotProps">
-                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.width }" />
+                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.size }" />
             </template>
         </MeterGroup>
     </div>
@@ -45,21 +45,24 @@ export default {
                 basic: `
 <MeterGroup :value="value" labelPosition="start">
     <template #label="{ value }">
-        <div class="flex flex-column text-sm">
+        <div class="flex flex-column text-sm gap-2">
             <template v-for="(val, i) of value" :key="i">
-                <span :style="{ color: val.color }" class="mt-2">- {{ val.label }} ({{ val.value }}%)</span>
+                <span :style="{ color: val.color }" class="flex gap-2">
+                    <i :class="val.icon" />
+                    {{ val.label }} ({{ val.value }}%)</span
+                >
             </template>
         </div>
     </template>
     <template #start="{ totalPercent }">
         <div class="flex justify-content-between mt-3 mb-2">
             <span>Account </span>
-            <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
+            <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
             <span>Savings: 1000$ </span>
         </div>
     </template>
     <template #meter="slotProps">
-        <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.width }" />
+        <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.size }" />
     </template>
 </MeterGroup>
 `,
@@ -68,21 +71,24 @@ export default {
     <div class="card">
         <MeterGroup :value="value" labelPosition="start">
             <template #label="{ value }">
-                <div class="flex flex-column text-sm">
+                <div class="flex flex-column text-sm gap-2">
                     <template v-for="(val, i) of value" :key="i">
-                        <span :style="{ color: val.color }" class="mt-2">- {{ val.label }} ({{ val.value }}%)</span>
+                        <span :style="{ color: val.color }" class="flex gap-2">
+                            <i :class="val.icon" />
+                            {{ val.label }} ({{ val.value }}%)</span
+                        >
                     </template>
                 </div>
             </template>
             <template #start="{ totalPercent }">
                 <div class="flex justify-content-between mt-3 mb-2">
                     <span>Account </span>
-                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
+                    <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
             <template #meter="slotProps">
-                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.width }" />
+                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.size }" />
             </template>
         </MeterGroup>
     </div>
@@ -107,21 +113,24 @@ export default {
     <div class="card">
         <MeterGroup :value="value" labelPosition="start">
             <template #label="{ value }">
-                <div class="flex flex-column text-sm">
+                <div class="flex flex-column text-sm gap-2">
                     <template v-for="(val, i) of value" :key="i">
-                        <span :style="{ color: val.color }" class="mt-2">- {{ val.label }} ({{ val.value }}%)</span>
+                        <span :style="{ color: val.color }" class="flex gap-2">
+                            <i :class="val.icon" />
+                            {{ val.label }} ({{ val.value }}%)</span
+                        >
                     </template>
                 </div>
             </template>
             <template #start="{ totalPercent }">
                 <div class="flex justify-content-between mt-3 mb-2">
                     <span>Account </span>
-                    <span :style="{ width: totalPercent }" class="absolute text-right">{{ totalPercent }}</span>
+                    <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span>Savings: 1000$ </span>
                 </div>
             </template>
             <template #meter="slotProps">
-                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.width }" />
+                <span :class="slotProps.class" :style="{ backgroundColor: slotProps.value.color, width: slotProps.size }" />
             </template>
         </MeterGroup>
     </div>
