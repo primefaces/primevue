@@ -75,6 +75,10 @@ const MessageEvents = [
                 description: 'Browser event'
             }
         ]
+    },
+    {
+        name: 'life-end',
+        description: "Callback to invoke when the message's timeout is over."
     }
 ];
 

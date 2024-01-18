@@ -25,13 +25,13 @@ describe('ToggleButton', () => {
         expect(wrapper.find('span.pi-check').exists()).toBe(true);
     });
 
-    it('should click works', async () => {
-        await wrapper.vm.onClick({});
+    it('should change works', async () => {
+        await wrapper.vm.onChange({});
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([true]);
 
         await wrapper.setProps({ modelValue: true });
-        await wrapper.vm.onClick({});
+        await wrapper.vm.onChange({});
 
         expect(wrapper.emitted()['update:modelValue'][1]).toEqual([false]);
     });

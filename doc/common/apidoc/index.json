@@ -35239,6 +35239,12 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a message is closed."
+                        },
+                        {
+                            "name": "life-end",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the message's timeout is over."
                         }
                     ]
                 }
