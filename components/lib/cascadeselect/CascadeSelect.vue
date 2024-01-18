@@ -153,13 +153,13 @@ export default {
         isOptionGroup(option, level) {
             return Object.prototype.hasOwnProperty.call(option, this.optionGroupChildren[level]);
         },
-        getProccessedOptionLabel(processedOption) {
+        getProccessedOptionLabel(processedOption = {}) {
             const grouped = this.isProccessedOptionGroup(processedOption);
 
             return grouped ? this.getOptionGroupLabel(processedOption.option, processedOption.level) : this.getOptionLabel(processedOption.option);
         },
         isProccessedOptionGroup(processedOption) {
-            return ObjectUtils.isNotEmpty(processedOption.children);
+            return ObjectUtils.isNotEmpty(processedOption?.children);
         },
         show(isFocus) {
             this.$emit('before-show');
@@ -285,14 +285,14 @@ export default {
 
             activeOptionPath.push(processedOption);
 
-            this.focusedOptionInfo = { index, level, parentKey };
+            this.focusedOptionInfo = originalEvent?.type === 'click' ? { index: -1, level, parentKey } : { index, level, parentKey };
             this.activeOptionPath = activeOptionPath;
 
             grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onOptionSelect(event, processedOption, isHide = true) {
-            const value = this.getOptionValue(processedOption.option);
+            const value = this.getOptionValue(processedOption?.option);
 
             this.activeOptionPath.forEach((p) => (p.selected = true));
             this.updateModel(event, value);
@@ -361,9 +361,9 @@ export default {
         onArrowLeftKey(event) {
             if (this.overlayVisible) {
                 const processedOption = this.visibleOptions[this.focusedOptionInfo.index];
-                const parentOption = this.activeOptionPath.find((p) => p.key === processedOption.parentKey);
+                const parentOption = this.activeOptionPath.find((p) => p.key === processedOption?.parentKey);
                 const matched = this.focusedOptionInfo.parentKey === '' || (parentOption && parentOption.key === this.focusedOptionInfo.parentKey);
-                const root = ObjectUtils.isEmpty(processedOption.parent);
+                const root = ObjectUtils.isEmpty(processedOption?.parent);
 
                 if (matched) {
                     this.activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== this.focusedOptionInfo.parentKey);
@@ -384,10 +384,10 @@ export default {
                 const grouped = this.isProccessedOptionGroup(processedOption);
 
                 if (grouped) {
-                    const matched = this.activeOptionPath.some((p) => processedOption.key === p.key);
+                    const matched = this.activeOptionPath.some((p) => processedOption?.key === p.key);
 
                     if (matched) {
-                        this.focusedOptionInfo = { index: -1, parentKey: processedOption.key };
+                        this.focusedOptionInfo = { index: -1, parentKey: processedOption?.key };
                         this.searchValue = '';
                         this.onArrowDownKey(event);
                     } else {

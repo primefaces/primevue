@@ -586,7 +586,7 @@ export default {
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
             const selectedId = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
 
-            this.focusedOptionIndex = selectedId;
+            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
             let _selection;
 
             if (metaSelection) {

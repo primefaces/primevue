@@ -306,7 +306,7 @@ export default {
 
             this.multiple ? this.onOptionSelectMultiple(event, option) : this.onOptionSelectSingle(event, option);
             this.optionTouched = false;
-            index !== -1 && (this.focusedOptionIndex = index);
+            index !== -1 && (this.focusedOptionIndex = event?.type === 'click' ? -1 : index);
         },
         onOptionMouseDown(event, index) {
             this.changeFocusedOptionIndex(event, index);

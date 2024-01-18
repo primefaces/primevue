@@ -454,7 +454,7 @@ export default {
             else value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            index !== -1 && (this.focusedOptionIndex = index);
+            index !== -1 && (this.focusedOptionIndex = event?.type === 'click' ? -1 : index);
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onOptionMouseMove(event, index) {

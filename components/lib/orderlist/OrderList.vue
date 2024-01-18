@@ -431,7 +431,7 @@ export default {
 
             const selectedId = DomHandler.find(this.list, '[data-pc-section="item"]')[index].getAttribute('id');
 
-            this.focusedOptionIndex = selectedId;
+            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
 
             if (metaSelection) {
                 const metaKey = event.metaKey || event.ctrlKey;
