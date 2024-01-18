@@ -140,7 +140,7 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component

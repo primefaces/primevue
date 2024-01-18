@@ -26,7 +26,7 @@
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
                 </template>
             </button>
-            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :class="cx('nodeCheckbox')" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
+            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
                 <template #icon="slotProps">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                     <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getPTOptions('nodeCheckbox.icon')" />

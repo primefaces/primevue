@@ -17,6 +17,7 @@
             :binary="true"
             :class="cx('rowCheckbox')"
             @change="toggleCheckbox"
+            :tabindex="-1"
             :unstyled="unstyled"
             :pt="getColumnCheckboxPT('rowCheckbox')"
             :data-p-highlight="checked"
