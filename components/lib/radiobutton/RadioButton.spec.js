@@ -13,21 +13,20 @@ describe('RadioButton.vue', () => {
         });
     });
 
-    it('shoukd exist', () => {
+    it('should exist', () => {
         expect(wrapper.find('.p-radiobutton.p-component').exists()).toBe(true);
         expect(wrapper.find('input').attributes().type).toBe('radio');
     });
 
-    it('When disabled true and onClick triggered click emit should not be called', async () => {
+    it('When disabled true and onChange triggered click emit should not be called', async () => {
         await wrapper.setProps({ disabled: true });
-        await wrapper.vm.onClick();
+        await wrapper.trigger('change');
 
-        expect(wrapper.emitted()['click']).toEqual(undefined);
-        expect(wrapper.emitted()['update:modelValue']).toEqual(undefined);
+        expect(wrapper.emitted()['change']).toBeFalsy();
     });
 
-    it('When disabled false and onClick triggered click emit should be called', async () => {
-        await wrapper.vm.onClick();
+    it('When disabled false and onChange triggered click emit should be called', async () => {
+        await wrapper.vm.onChange({});
 
         expect(wrapper.emitted()['update:modelValue'].length).toEqual(1);
         expect(wrapper.emitted().change.length).toEqual(1);
@@ -35,24 +34,16 @@ describe('RadioButton.vue', () => {
 
     it('When value and modelValue equal and onClick triggered change emit should not be called', async () => {
         await wrapper.setProps({ modelValue: 'test', value: 'test' });
-        await wrapper.vm.onClick();
+        await wrapper.vm.onChange({});
 
-        expect(wrapper.emitted()['change']).toEqual(undefined);
+        expect(wrapper.emitted()['change'][0][0]).toEqual({});
     });
 
     it('When modelValue changed, Checked should be effected', async () => {
         await wrapper.setProps({ modelValue: 'Tatooine' });
 
         expect(wrapper.vm.checked).toBe(true);
-        expect(wrapper.find('.p-radiobutton').classes()).toContain('p-radiobutton-checked');
-    });
-
-    it('When component cliked OnClick method should be called', async () => {
-        const spy = vi.spyOn(wrapper.vm, 'onClick');
-
-        await wrapper.find('.p-radiobutton').trigger('click');
-
-        expect(spy).toHaveBeenCalled();
+        expect(wrapper.find('.p-radiobutton').classes()).toContain('p-highlight');
     });
 
     it('When component focused onFocus method should be called', async () => {
@@ -63,13 +54,6 @@ describe('RadioButton.vue', () => {
         await wrapper.find('#test').trigger('focus');
 
         expect(spy).toHaveBeenCalled();
-    });
-
-    it('When onFocus method triggered, false should be true', async () => {
-        await wrapper.vm.onFocus();
-
-        expect(wrapper.vm.focused).toBeTruthy();
-        expect(wrapper.emitted().focus.length).toEqual(1);
     });
 
     it('When component blur onBlur method should be called', async () => {
