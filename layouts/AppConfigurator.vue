@@ -23,7 +23,7 @@
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span :class="['text-xl font-semibold']">Dark Mode</span>
-                <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" :disabled="darkToggleDisabled" />
+                <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" />
             </section>
 
             <section class="py-4 border-bottom-1 surface-border">
