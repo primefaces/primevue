@@ -125,7 +125,7 @@ export default {
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         autoFilterFocus: {
             type: Boolean,

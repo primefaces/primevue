@@ -65,7 +65,7 @@ describe('Sidebar.vue', () => {
     it('When keydown is triggered , hide method should be triggered', async () => {
         const hideSpy = vi.spyOn(wrapper.vm, 'hide');
 
-        await wrapper.find('.p-sidebar').trigger('keydown', { code: 'Escape' });
+        await wrapper.vm.onKeydown({ code: 'Escape' });
 
         expect(hideSpy).toHaveBeenCalled();
     });

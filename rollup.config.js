@@ -124,6 +124,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/menu/style': 'primevue.menu.style',
     'primevue/menubar/style': 'primevue.menubar.style',
     'primevue/message/style': 'primevue.message.style',
+    'primevue/metergroup/style': 'primevue.metergroup.style',
     'primevue/multiselect/style': 'primevue.multiselect.style',
     'primevue/orderlist/style': 'primevue.orderlist.style',
     'primevue/organizationchart/style': 'primevue.organizationchart.style',

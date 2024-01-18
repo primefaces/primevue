@@ -46,11 +46,21 @@ const classes = {
         }
     ],
     sourceControls: 'p-picklist-buttons p-picklist-source-controls',
-    sourceWrapper: 'p-picklist-list-wrapper p-picklist-source-wrapper',
+    sourceWrapper: ({ instance }) => [
+        'p-picklist-list-wrapper p-picklist-source-wrapper',
+        {
+            'p-focus': instance.focused.sourceList
+        }
+    ],
     sourceHeader: 'p-picklist-header',
     sourceList: 'p-picklist-list p-picklist-source-list',
     buttons: 'p-picklist-buttons p-picklist-transfer-buttons',
-    targetWrapper: 'p-picklist-list-wrapper p-picklist-target-wrapper',
+    targetWrapper: ({ instance }) => [
+        'p-picklist-list-wrapper p-picklist-target-wrapper',
+        {
+            'p-focus': instance.focused.targetList
+        }
+    ],
     targetHeader: 'p-picklist-header',
     targetList: 'p-picklist-list p-picklist-target',
     item: ({ instance, item, id, listIndex }) => [

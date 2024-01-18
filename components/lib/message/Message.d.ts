@@ -218,6 +218,10 @@ export interface MessageEmits {
      * @param {Event} event - Browser event.
      */
     close(event: Event): void;
+    /**
+     * Callback to invoke when the message's timeout is over.
+     */
+    'life-end'(): void;
 }
 
 /**

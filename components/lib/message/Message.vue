@@ -32,7 +32,7 @@ import BaseMessage from './BaseMessage.vue';
 export default {
     name: 'Message',
     extends: BaseMessage,
-    emits: ['close'],
+    emits: ['close', 'life-end'],
     timeout: null,
     data() {
         return {
@@ -59,6 +59,7 @@ export default {
         closeAfterDelay() {
             setTimeout(() => {
                 this.visible = false;
+                this.$emit('life-end');
             }, this.life);
         }
     },

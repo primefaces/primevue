@@ -310,6 +310,7 @@ export default {
             if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
                 top = targetOffset.top + windowScrollTop - elementOuterHeight;
                 element.style.transformOrigin = 'bottom';
+                element.style.marginTop = 'calc(var(--p-anchor-gutter) * -1)';
 
                 if (top < 0) {
                     top = windowScrollTop;
@@ -317,6 +318,7 @@ export default {
             } else {
                 top = targetOuterHeight + targetOffset.top + windowScrollTop;
                 element.style.transformOrigin = 'top';
+                element.style.marginTop = 'calc(var(--p-anchor-gutter))';
             }
 
             if (targetOffset.left + elementOuterWidth > viewport.width) left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
@@ -395,7 +397,7 @@ export default {
     getParentNode(element) {
         let parent = element?.parentNode;
 
-        if (parent && parent instanceof ShadowRoot && parent.host) {
+        if (parent && parent.host) {
             parent = parent.host;
         }
 

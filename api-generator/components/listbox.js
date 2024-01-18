@@ -117,7 +117,7 @@ const ListboxProps = [
     {
         name: 'autoOptionFocus',
         type: 'boolean',
-        default: 'true',
+        default: 'false',
         description: 'Whether to focus on the first visible or selected element.'
     },
     {

@@ -140,18 +140,19 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
         onListFocus(event) {
-            const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]') || DomHandler.findSingle(this.list, '[data-pc-section="item"]');
+            this.focused = true;
+            const selectedFirstItem = this.autoOptionFocus
+                ? DomHandler.findSingle(this.list, '[data-p-highlight="true"]') || DomHandler.findSingle(this.list, '[data-pc-section="item"]')
+                : DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
 
             if (selectedFirstItem) {
                 const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
-
-                this.focused = true;
-
                 const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
 
                 this.changeFocusedOptionIndex(index);
-                this.$emit('focus', event);
             }
+
+            this.$emit('focus', event);
         },
         onListBlur(event) {
             this.focused = false;

@@ -140,4 +140,12 @@ pre[class*="language-"] {
             }
         }
     }
+
+    &[data-p-theme^="aura-light-noir"] {
+        pre[class*="language-"] {    
+            code {
+                background: var(--surface-950);
+            }
+        }
+    }
 }

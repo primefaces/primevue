@@ -301,18 +301,19 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
         },
         onListFocus(event, listType) {
-            const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]') || DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]');
+            this.focused[listType] = true;
+            const selectedFirstItem = this.autoOptionFocus
+                ? DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]') || DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]')
+                : DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]');
 
             if (selectedFirstItem) {
                 const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children);
-
-                this.focused[listType] = true;
-
                 const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
 
                 this.changeFocusedOptionIndex(index, listType);
-                this.$emit('focus', event);
             }
+
+            this.$emit('focus', event);
         },
         onListBlur(event, listType) {
             this.focused[listType] = false;

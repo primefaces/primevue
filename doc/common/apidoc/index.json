@@ -3793,7 +3793,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
                         },
                         {
@@ -10184,7 +10184,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
                         },
                         {
@@ -24179,7 +24179,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
                         },
                         {
@@ -32449,7 +32449,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether to focus on the first visible or selected element."
                         },
                         {
@@ -35239,6 +35239,12 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a message is closed."
+                        },
+                        {
+                            "name": "life-end",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the message's timeout is over."
                         }
                     ]
                 }
@@ -36600,7 +36606,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
                         },
                         {
@@ -37475,6 +37481,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Defines whether metaKey is requred or not for the selection.\nWhen true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+                        },
+                        {
+                            "name": "autoOptionFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to focus on the first visible or selected element."
                         },
                         {
                             "name": "listStyle",
@@ -41966,6 +41980,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Defines whether metaKey is requred or not for the selection.\nWhen true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+                        },
+                        {
+                            "name": "autoOptionFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to focus on the first visible or selected element."
                         },
                         {
                             "name": "listStyle",
