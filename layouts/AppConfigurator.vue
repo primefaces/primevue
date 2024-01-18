@@ -22,7 +22,7 @@
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
-                <span :class="['text-xl font-semibold', { 'p-disabled': darkToggleDisabled }]">Dark Mode</span>
+                <span :class="['text-xl font-semibold']">Dark Mode</span>
                 <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" :disabled="darkToggleDisabled" />
             </section>
 
@@ -339,59 +339,6 @@
                     <div class="w-3"></div>
                 </div>
             </section>
-            <section class="py-4">
-                <div class="flex gap-3">
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Fluent</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('fluent-light'), 'hover:border-500 surface-border': !isThemeActive('fluent-light') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('fluent-light')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0078d4 0%, rgba(0, 120, 212, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Mira</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('mira'), 'hover:border-500 surface-border': !isThemeActive('mira') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('mira')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #81a1c1 0%, rgba(129, 161, 193, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Nano" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Nano</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('nano'), 'hover:border-500 surface-border': !isThemeActive('nano') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('nano')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #1469b4 0%, rgba(20, 105, 180, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
         </div>
     </Sidebar>
 </template>
@@ -421,8 +368,7 @@ export default {
                 { label: 'Current', value: 'current' },
                 { label: 'Primary', value: 'primary' }
             ],
-            compactMaterial: false,
-            lightOnlyThemes: ['fluent-light', 'mira', 'nano']
+            compactMaterial: false
         };
     },
     watch: {
@@ -453,22 +399,17 @@ export default {
         changeTheme(theme, color) {
             let newTheme, dark;
 
-            if (this.lightOnlyThemes.includes(theme)) {
-                newTheme = theme;
-                dark = false;
-            } else {
-                newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
+            newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
 
-                if (color) {
-                    newTheme += '-' + color;
-                }
-
-                if (newTheme.startsWith('md-') && this.compactMaterial) {
-                    newTheme = newTheme.replace('md-', 'mdc-');
-                }
-
-                dark = this.$appState.darkTheme;
+            if (color) {
+                newTheme += '-' + color;
             }
+
+            if (newTheme.startsWith('md-') && this.compactMaterial) {
+                newTheme = newTheme.replace('md-', 'mdc-');
+            }
+
+            dark = this.$appState.darkTheme;
 
             EventBus.emit('theme-change', { theme: newTheme, dark: dark });
         },
@@ -505,11 +446,7 @@ export default {
             let themeName;
             let themePrefix = themeFamily === 'md' && this.compactMaterial ? 'mdc' : themeFamily;
 
-            if (this.lightOnlyThemes.includes(themePrefix)) {
-                themeName = themePrefix;
-            } else {
-                themeName = themePrefix + (this.$appState.darkTheme ? '-dark' : '-light');
-            }
+            themeName = themePrefix + (this.$appState.darkTheme ? '-dark' : '-light');
 
             if (color) {
                 themeName += '-' + color;
@@ -538,9 +475,6 @@ export default {
         },
         rippleActive() {
             return this.$primevue.config.ripple;
-        },
-        darkToggleDisabled() {
-            return this.lightOnlyThemes.includes(this.$appState.theme);
         },
         containerClass() {
             return [

@@ -434,6 +434,10 @@
     color: #333333;
     background: #eaeaea;
   }
+  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
+  }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {
     margin: 0;
     padding: 0.857rem;
@@ -753,6 +757,10 @@
     color: #333333;
     background: #eaeaea;
   }
+  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
+  }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
     padding: 0.429rem 0.857rem;
   }
@@ -1008,6 +1016,10 @@
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
     color: #333333;
     background: #eaeaea;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
@@ -1337,6 +1349,10 @@
     color: #333333;
     background: #eaeaea;
   }
+  .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
+  }
   .p-listbox.p-focus {
     outline: 0 none;
     outline-offset: 0;
@@ -1474,6 +1490,10 @@
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
     color: #333333;
     background: #eaeaea;
+  }
+  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
     margin-right: 0.5rem;
@@ -3187,6 +3207,10 @@
     background: #eaeaea;
     color: #333333;
   }
+  .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
+  }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: #333333;
     background: #d6d6d6;
@@ -3376,6 +3400,10 @@
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {
     background: #eaeaea;
     color: #333333;
+  }
+  .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
+    color: #333333;
+    background: #d6d6d6;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: #333333;

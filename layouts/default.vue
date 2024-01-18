@@ -94,7 +94,7 @@ export default {
                 newTheme = currentTheme.replace('dark', 'light');
                 localStorage.setItem(this.$appState.colorSchemeKey, 'light');
             } else {
-                if (currentTheme.includes('light') && currentTheme !== 'fluent-light') newTheme = currentTheme.replace('light', 'dark');
+                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
                 else newTheme = 'aura-dark-green'; //fallback
 
                 localStorage.setItem(this.$appState.colorSchemeKey, 'dark');
