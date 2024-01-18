@@ -360,7 +360,7 @@ const classes = {
 
         if (props.selection) {
             rowStyleClass.push({
-                'p-highlight': instance.isSelected
+                'p-highlight': instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect
             });
         }
 

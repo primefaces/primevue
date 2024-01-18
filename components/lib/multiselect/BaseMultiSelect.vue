@@ -131,6 +131,10 @@ export default {
             type: Boolean,
             default: false
         },
+        highlightOnSelect: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null

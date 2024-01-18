@@ -156,10 +156,10 @@ const classes = {
     wrapper: 'p-multiselect-items-wrapper',
     list: 'p-multiselect-items p-component',
     itemGroup: 'p-multiselect-item-group',
-    item: ({ instance, option, index, getItemOptions }) => [
+    item: ({ instance, option, index, getItemOptions, props }) => [
         'p-multiselect-item',
         {
-            'p-highlight': instance.isSelected(option),
+            'p-highlight': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(index, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }

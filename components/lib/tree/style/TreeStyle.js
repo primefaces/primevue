@@ -108,7 +108,7 @@ const classes = {
         instance.node.styleClass,
         {
             'p-treenode-selectable': instance.selectable,
-            'p-highlight': instance.checkboxMode ? instance.checked : instance.selected
+            'p-highlight': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
         }
     ],
     toggler: 'p-tree-toggler p-link',

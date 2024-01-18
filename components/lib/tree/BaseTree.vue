@@ -58,6 +58,10 @@ export default {
             type: String,
             default: undefined
         },
+        highlightOnSelect: {
+            type: Boolean,
+            default: false
+        },
         scrollHeight: {
             type: String,
             default: null
