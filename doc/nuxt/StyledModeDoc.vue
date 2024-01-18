@@ -27,14 +27,14 @@ export default {
             code1: {
                 basic: `
 <script>
-import 'primevue/resources/themes/lara-light-green/theme.css'
+import 'primevue/resources/themes/aura-light-green/theme.css'
 <\/script>
 `
             },
             code2: {
                 basic: `
 <style>
-@import url("primevue/resources/themes/lara-light-green/theme.css");
+@import url("primevue/resources/themes/aura-light-green/theme.css");
 <\/style>
 `
             },
@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     primevue: {
         /* Options */
     },
-    css: ['primevue/resources/themes/lara-light-green/theme.css']
+    css: ['primevue/resources/themes/aura-light-green/theme.css']
 })
 `
             },
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
     primevue: {
         cssLayerOrder: 'reset,primevue'
     },
-    css: ['primevue/resources/themes/lara-light-green/theme.css']
+    css: ['primevue/resources/themes/aura-light-green/theme.css']
 })
 `
             }
