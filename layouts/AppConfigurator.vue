@@ -521,16 +521,11 @@ export default {
             let root = document.documentElement;
 
             if (event.value === 'current') {
-                if (this.$appState.darkTheme)
-                    root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
-                else
-                    root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');
-            }
-            else if (event.value === 'primary') {
-                if (this.$appState.darkTheme)
-                    root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
-                else
-                    root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');
+            } else if (event.value === 'primary') {
+                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
             }
         }
     },
