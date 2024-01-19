@@ -442,7 +442,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
         },
         getTarget(el) {
-            return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input') : el;
+            return (DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, '.p-inputtext') : null) ?? el;
         },
         getModifiers(options) {
             // modifiers
