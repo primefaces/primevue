@@ -193,7 +193,7 @@ export default {
             this.focusedOptionIndex = index;
         },
         onArrowDownKey(event) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstSelectedOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex() : this.findFirstSelectedOptionIndex();
 
             this.changeFocusedOptionIndex(optionIndex);
 
@@ -204,7 +204,7 @@ export default {
             event.preventDefault();
         },
         onArrowUpKey(event) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastSelectedOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex() : this.findLastSelectedOptionIndex();
 
             this.changeFocusedOptionIndex(optionIndex);
 
@@ -312,13 +312,13 @@ export default {
 
             return [...items].findIndex((link) => link.id === id);
         },
-        findNextOptionIndex(id) {
-            const matchedOptionIndex = this.findMatchedOptionIndex(id);
+        findNextOptionIndex() {
+            const matchedOptionIndex = this.findMatchedOptionIndex();
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
-        findPrevOptionIndex(id) {
-            const matchedOptionIndex = this.findMatchedOptionIndex(id);
+        findPrevOptionIndex() {
+            const matchedOptionIndex = this.findMatchedOptionIndex();
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
