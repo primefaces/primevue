@@ -41,7 +41,6 @@ const classes = {
     root: ({ props }) => [
         'p-splitbutton p-component',
         {
-            [`p-button-${props.severity}`]: props.severity,
             'p-button-raised': props.raised,
             'p-button-rounded': props.rounded,
             'p-button-text': props.text,
