@@ -428,7 +428,7 @@ export default {
             this.$primevue.config.inputStyle = value;
         },
         onRippleChange(value) {
-            this.$primevue.config.ripple = value;
+            this.$appState.ripple = value;
         },
         onDarkModeChange() {
             this.$emit('darkswitch-click');
@@ -474,7 +474,7 @@ export default {
             return this.$appState.darkTheme;
         },
         rippleActive() {
-            return this.$primevue.config.ripple;
+            return this.$appState.ripple;
         },
         containerClass() {
             return [
