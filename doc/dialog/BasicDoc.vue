@@ -16,8 +16,8 @@
                 <InputText id="Email" class="flex-auto" />
             </div>
             <div class="flex justify-content-end gap-2">
-                <Button type="button" label="Cancel" severity="secondary"></Button>
-                <Button type="button" label="Save"></Button>
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+                <Button type="button" label="Save" @click="visible = false"></Button>
             </div>
         </Dialog>
     </div>
@@ -44,8 +44,8 @@ export default {
         <InputText id="Email" class="flex-auto" />
     </div>
     <div class="flex justify-content-end gap-2">
-        <Button type="button" label="Cancel" severity="secondary"></Button>
-        <Button type="button" label="Save"></Button>
+        <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+        <Button type="button" label="Save" @click="visible = false"></Button>
     </div>
 </Dialog>
 `,
@@ -64,8 +64,8 @@ export default {
                 <InputText id="Email" class="flex-auto" />
             </div>
             <div class="flex justify-content-end gap-2">
-                <Button type="button" label="Cancel" severity="secondary"></Button>
-                <Button type="button" label="Save"></Button>
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+                <Button type="button" label="Save" @click="visible = false"></Button>
             </div>
         </Dialog>
     </div>
@@ -96,8 +96,8 @@ export default {
                 <InputText id="Email" class="flex-auto" />
             </div>
             <div class="flex justify-content-end gap-2">
-                <Button type="button" label="Cancel" severity="secondary"></Button>
-                <Button type="button" label="Save"></Button>
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+                <Button type="button" label="Save" @click="visible = false"></Button>
             </div>
         </Dialog>
     </div>
