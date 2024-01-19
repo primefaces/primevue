@@ -75,6 +75,11 @@
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('tree')"
+                            :filter="filter"
+                            :filter-by="filterBy"
+                            :filter-mode="filterMode"
+                            :filter-placeholder="filterPlaceholder"
+                            :filter-locale="filterLocale"
                         >
                             <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />

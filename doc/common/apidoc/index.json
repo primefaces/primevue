@@ -56408,6 +56408,46 @@
                             "description": "Establishes a string value that labels the component."
                         },
                         {
+                            "name": "filter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When specified, displays an input field to filter the items."
+                        },
+                        {
+                            "name": "filterBy",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "label",
+                            "description": "When filtering is enabled, filterBy decides which field or fields (comma separated) to search against."
+                        },
+                        {
+                            "name": "filterMode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"strict\" | \"lenient\"",
+                            "default": "lenient",
+                            "description": "Mode for filtering."
+                        },
+                        {
+                            "name": "filterPlaceholder",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Placeholder text to show when filter input is empty."
+                        },
+                        {
+                            "name": "filterLocale",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,

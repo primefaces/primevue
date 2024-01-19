@@ -103,6 +103,36 @@ const TreeSelectProps = [
         description: 'Used to define a string that labels the element.'
     },
     {
+        name: 'filter',
+        type: 'boolean',
+        default: 'false',
+        description: 'When specified, displays an input field to filter the items.'
+    },
+    {
+        name: 'filterBy',
+        type: 'string',
+        default: 'label',
+        description: 'When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.'
+    },
+    {
+        name: 'filterMode',
+        type: 'string',
+        default: 'lenient',
+        description: 'Mode for filtering valid values are "lenient" and "strict". Default is lenient.'
+    },
+    {
+        name: 'filterPlaceholder',
+        type: 'string',
+        default: 'null',
+        description: 'Placeholder text to show when filter input is empty.'
+    },
+    {
+        name: 'filterLocale',
+        type: 'string',
+        default: 'undefined',
+        description: "Locale to use in filtering. The default locale is the host environment's current locale."
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',

@@ -247,6 +247,29 @@ export interface TreeSelectProps {
      */
     ariaLabel?: string | undefined;
     /**
+     * When specified, displays an input field to filter the items.
+     * @defaultValue false
+     */
+    filter?: boolean | undefined;
+    /**
+     * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.
+     * @defaultValue label
+     */
+    filterBy?: string | undefined;
+    /**
+     * Mode for filtering.
+     * @defaultValue lenient
+     */
+    filterMode?: 'lenient' | 'strict' | undefined;
+    /**
+     * Placeholder text to show when filter input is empty.
+     */
+    filterPlaceholder?: string | undefined;
+    /**
+     * Locale to use in filtering. The default locale is the host environment's current locale.
+     */
+    filterLocale?: string | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}
      */

@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
+import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
@@ -35,6 +36,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc,
                 },
                 {
                     id: 'multiple',

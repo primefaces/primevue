@@ -79,7 +79,27 @@ export default {
         ariaLabel: {
             type: String,
             default: null
-        }
+        },
+        filter: {
+            type: Boolean,
+            default: false
+        },
+        filterBy: {
+            type: String,
+            default: 'label'
+        },
+        filterMode: {
+            type: String,
+            default: 'lenient'
+        },
+        filterPlaceholder: {
+            type: String,
+            default: null
+        },
+        filterLocale: {
+            type: String,
+            default: undefined
+        },
     },
     style: TreeSelectStyle,
     provide() {
