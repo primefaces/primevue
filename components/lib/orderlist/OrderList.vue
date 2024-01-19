@@ -141,17 +141,7 @@ export default {
         },
         onListFocus(event) {
             this.focused = true;
-            const selectedFirstItem = this.autoOptionFocus
-                ? DomHandler.findSingle(this.list, '[data-p-highlight="true"]') || DomHandler.findSingle(this.list, '[data-pc-section="item"]')
-                : DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
-
-            if (selectedFirstItem) {
-                const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
-                const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
-
-                this.changeFocusedOptionIndex(index);
-            }
-
+            this.findCurrentFocusedIndex();
             this.$emit('focus', event);
         },
         onListBlur(event) {
@@ -203,7 +193,7 @@ export default {
             this.focusedOptionIndex = index;
         },
         onArrowDownKey(event) {
-            const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex() : this.findFirstSelectedOptionIndex();
 
             this.changeFocusedOptionIndex(optionIndex);
 
@@ -214,7 +204,7 @@ export default {
             event.preventDefault();
         },
         onArrowUpKey(event) {
-            const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex() : this.findLastSelectedOptionIndex();
 
             this.changeFocusedOptionIndex(optionIndex);
 
@@ -226,9 +216,7 @@ export default {
         },
         onHomeKey(event) {
             if (event.ctrlKey && event.shiftKey) {
-                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
-                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex();
 
                 this.d_selection = [...this.modelValue].slice(0, matchedOptionIndex + 1);
                 this.$emit('update:selection', this.d_selection);
@@ -244,9 +232,7 @@ export default {
         },
         onEndKey(event) {
             if (event.ctrlKey && event.shiftKey) {
-                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
-                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex();
 
                 this.d_selection = [...this.modelValue].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
@@ -255,28 +241,23 @@ export default {
                     value: this.d_selection
                 });
             } else {
-                this.changeFocusedOptionIndex(DomHandler.find(this.list, '[data-pc-section="item"]').length - 1);
+                this.changeFocusedOptionIndex(this.findAllItems().length - 1);
             }
 
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
-            const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-            const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+            const matchedOptionIndex = this.findMatchedOptionIndex();
 
             this.onItemClick(event, this.modelValue[matchedOptionIndex], matchedOptionIndex);
-
             event.preventDefault();
         },
         onSpaceKey(event) {
             event.preventDefault();
 
             if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
-                const items = DomHandler.find(this.list, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[0], [...this.modelValue]);
-                const focusedItem = DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex();
 
                 this.d_selection = [...this.modelValue].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
@@ -288,20 +269,61 @@ export default {
                 this.onEnterKey(event);
             }
         },
-        findNextOptionIndex(index) {
-            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
-            const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
+        findAllItems() {
+            return DomHandler.find(this.list, '[data-pc-section="item"]');
+        },
+        findFocusedItem() {
+            return DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
+        },
+        findCurrentFocusedIndex() {
+            this.focusedOptionIndex = this.findFirstSelectedOptionIndex();
+
+            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            this.scrollInView(this.focusedOptionIndex);
+        },
+        findFirstFocusedOptionIndex() {
+            const firstFocusableItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
+
+            return DomHandler.getAttribute(firstFocusableItem, 'id');
+        },
+        findFirstSelectedOptionIndex() {
+            if (this.hasSelectedOption) {
+                const selectedFirstItem = DomHandler.findSingle(this.list, '[data-p-highlight="true"]');
+
+                return DomHandler.getAttribute(selectedFirstItem, 'id');
+            }
+
+            return -1;
+        },
+        findLastSelectedOptionIndex() {
+            if (this.hasSelectedOption) {
+                const selectedItems = DomHandler.find(this.list, '[data-p-highlight="true"]');
+
+                return ObjectUtils.findIndexInList(selectedItems[selectedItems.length - 1], this.list.children);
+            }
+
+            return -1;
+        },
+        findMatchedOptionIndex(id = this.focusedOptionIndex) {
+            const items = this.findAllItems();
+
+            return [...items].findIndex((link) => link.id === id);
+        },
+        findNextOptionIndex() {
+            const matchedOptionIndex = this.findMatchedOptionIndex();
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
-        findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
-            const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
+        findPrevOptionIndex() {
+            const matchedOptionIndex = this.findMatchedOptionIndex();
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.list, '[data-pc-section="item"]');
+            const items = this.findAllItems();
 
             let order = index >= items.length ? items.length - 1 : index < 0 ? 0 : index;
 
@@ -429,7 +451,7 @@ export default {
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
 
-            const selectedId = DomHandler.find(this.list, '[data-pc-section="item"]')[index].getAttribute('id');
+            const selectedId = this.findAllItems()[index].getAttribute('id');
 
             this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
 
@@ -459,18 +481,6 @@ export default {
         },
         onItemTouchEnd() {
             this.itemTouched = true;
-        },
-        findNextItem(item) {
-            let nextItem = item.nextElementSibling;
-
-            if (nextItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findNextItem(nextItem) : nextItem;
-            else return null;
-        },
-        findPrevItem(item) {
-            let prevItem = item.previousElementSibling;
-
-            if (prevItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findPrevItem(prevItem) : prevItem;
-            else return null;
         },
         updateListScroll() {
             const listItems = DomHandler.find(this.list, '[data-pc-section="item"][data-p-highlight="true"]');
@@ -564,6 +574,9 @@ export default {
         },
         moveBottomAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveBottom : undefined;
+        },
+        hasSelectedOption() {
+            return ObjectUtils.isNotEmpty(this.d_selection);
         }
     },
     components: {

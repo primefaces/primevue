@@ -260,7 +260,7 @@ export default {
         selection(newValue) {
             this.d_selection = newValue;
         },
-        breakpoint(newValue) {
+        breakpoint() {
             this.destroyMedia();
             this.initMedia();
         }
@@ -276,10 +276,10 @@ export default {
         this.destroyStyle();
         this.destroyMedia();
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
+    beforeMount() {},
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.responsive) {
             this.createStyle();
             this.initMedia();
@@ -302,17 +302,7 @@ export default {
         },
         onListFocus(event, listType) {
             this.focused[listType] = true;
-            const selectedFirstItem = this.autoOptionFocus
-                ? DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]') || DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]')
-                : DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]');
-
-            if (selectedFirstItem) {
-                const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children);
-                const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
-
-                this.changeFocusedOptionIndex(index, listType);
-            }
-
+            this.findCurrentFocusedIndex(listType);
             this.$emit('focus', event);
         },
         onListBlur(event, listType) {
@@ -665,7 +655,7 @@ export default {
             }
         },
         onArrowDownKey(event, listType) {
-            const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex, listType);
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(listType) : this.findFirstSelectedOptionIndex(listType);
 
             this.changeFocusedOptionIndex(optionIndex, listType);
 
@@ -676,7 +666,7 @@ export default {
             event.preventDefault();
         },
         onArrowUpKey(event, listType) {
-            const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex, listType);
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(listType) : this.findLastSelectedOptionIndex(listType);
 
             this.changeFocusedOptionIndex(optionIndex, listType);
 
@@ -687,10 +677,8 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event, listType) {
-            const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
-            const focusedItem = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-            const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
             const listId = listType === 'sourceList' ? 0 : 1;
+            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
             this.onItemClick(event, this.modelValue[listId][matchedOptionIndex], matchedOptionIndex, listId);
 
@@ -701,10 +689,8 @@ export default {
 
             if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
                 const listId = listType === 'sourceList' ? 0 : 1;
-                const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[listId][0], [...this.modelValue[listId]]);
-                const focusedItem = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
@@ -719,9 +705,7 @@ export default {
         onHomeKey(event, listType) {
             if (event.ctrlKey && event.shiftKey) {
                 const listId = listType === 'sourceList' ? 0 : 1;
-                const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
-                const focusedItem = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(0, matchedOptionIndex + 1);
                 this.$emit('update:selection', this.d_selection);
@@ -736,12 +720,11 @@ export default {
             event.preventDefault();
         },
         onEndKey(event, listType) {
-            const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
+            const items = this.findAllItems(listType);
 
             if (event.ctrlKey && event.shiftKey) {
                 const listId = listType === 'sourceList' ? 0 : 1;
-                const focusedItem = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-                const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
+                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(matchedOptionIndex, items.length);
                 this.$emit('update:selection', this.d_selection);
@@ -755,21 +738,61 @@ export default {
 
             event.preventDefault();
         },
-        findNextOptionIndex(index, listType) {
-            const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
+        findAllItems(listType) {
+            return DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
+        },
+        findFocusedItem(listType) {
+            return DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
+        },
+        findCurrentFocusedIndex(listType) {
+            this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
 
-            const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
+            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
+            }
+
+            this.scrollInView(this.focusedOptionIndex, listType);
+        },
+        findFirstFocusedOptionIndex(listType) {
+            const firstFocusableItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]');
+
+            return DomHandler.getAttribute(firstFocusableItem, 'id');
+        },
+        findFirstSelectedOptionIndex(listType) {
+            if (this.hasSelectedOption(listType)) {
+                const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]');
+
+                return DomHandler.getAttribute(selectedFirstItem, 'id');
+            }
+
+            return -1;
+        },
+        findLastSelectedOptionIndex(listType) {
+            if (this.hasSelectedOption(listType)) {
+                const selectedItems = DomHandler.find(this.$refs[listType].$el, '[data-p-highlight="true"]');
+
+                return ObjectUtils.findIndexInList(selectedItems[selectedItems.length - 1], this.list.children);
+            }
+
+            return -1;
+        },
+        findMatchedOptionIndex(listType, id = this.focusedOptionIndex) {
+            const items = this.findAllItems(listType);
+
+            return [...items].findIndex((link) => link.id === id);
+        },
+        findNextOptionIndex(listType) {
+            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
-        findPrevOptionIndex(index, listType) {
-            const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
-            const matchedOptionIndex = [...items].findIndex((link) => link.id === index);
+        findPrevOptionIndex(listType) {
+            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index, listType) {
-            const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
+            const items = this.findAllItems(listType);
 
             let order = index >= items.length ? items.length - 1 : index < 0 ? 0 : index;
 
@@ -878,6 +901,9 @@ export default {
         },
         moveAllDisabled(list) {
             return ObjectUtils.isEmpty(this[list]);
+        },
+        hasSelectedOption(listType) {
+            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[0]);
         }
     },
     computed: {
