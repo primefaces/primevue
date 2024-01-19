@@ -97,7 +97,10 @@ export default {
             this.updateColorHandle();
             this.updateInput();
             this.updateModel();
-            this.$emit('change', { event: event, value: this.modelValue });
+
+            this.$nextTick(() => {
+                this.$emit('change', { event: event, value: this.modelValue });
+            });
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
@@ -113,7 +116,10 @@ export default {
             this.updateHue();
             this.updateModel();
             this.updateInput();
-            this.$emit('change', { event: event, value: this.modelValue });
+
+            this.$nextTick(() => {
+                this.$emit('change', { event: event, value: this.modelValue });
+            });
         },
         updateModel() {
             switch (this.format) {
