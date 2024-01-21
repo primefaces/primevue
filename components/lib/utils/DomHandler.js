@@ -294,7 +294,7 @@ export default {
         return 0;
     },
 
-    absolutePosition(element, target) {
+    absolutePosition(element, target, gutter = true) {
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const elementOuterHeight = elementDimensions.height;
@@ -305,20 +305,19 @@ export default {
             const windowScrollTop = this.getWindowScrollTop();
             const windowScrollLeft = this.getWindowScrollLeft();
             const viewport = this.getViewport();
-            let top, left;
+            let top,
+                left,
+                origin = 'top';
 
             if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
                 top = targetOffset.top + windowScrollTop - elementOuterHeight;
-                element.style.transformOrigin = 'bottom';
-                element.style.marginTop = 'calc(var(--p-anchor-gutter) * -1)';
+                origin = 'bottom';
 
                 if (top < 0) {
                     top = windowScrollTop;
                 }
             } else {
                 top = targetOuterHeight + targetOffset.top + windowScrollTop;
-                element.style.transformOrigin = 'top';
-                element.style.marginTop = 'calc(var(--p-anchor-gutter))';
             }
 
             if (targetOffset.left + elementOuterWidth > viewport.width) left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
@@ -326,27 +325,30 @@ export default {
 
             element.style.top = top + 'px';
             element.style.left = left + 'px';
+            element.style.transformOrigin = origin;
+            gutter && (element.style.marginTop = origin === 'bottom' ? 'calc(var(--p-anchor-gutter) * -1)' : 'calc(var(--p-anchor-gutter))');
         }
     },
 
-    relativePosition(element, target) {
+    relativePosition(element, target, gutter = true) {
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;
             const targetOffset = target.getBoundingClientRect();
             const viewport = this.getViewport();
-            let top, left;
+            let top,
+                left,
+                origin = 'top';
 
             if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
                 top = -1 * elementDimensions.height;
-                element.style.transformOrigin = 'bottom';
+                origin = 'bottom';
 
                 if (targetOffset.top + top < 0) {
                     top = -1 * targetOffset.top;
                 }
             } else {
                 top = targetHeight;
-                element.style.transformOrigin = 'top';
             }
 
             if (elementDimensions.width > viewport.width) {
@@ -362,6 +364,8 @@ export default {
 
             element.style.top = top + 'px';
             element.style.left = left + 'px';
+            element.style.transformOrigin = origin;
+            gutter && (element.style.marginTop = origin === 'bottom' ? 'calc(var(--p-anchor-gutter) * -1)' : 'calc(var(--p-anchor-gutter))');
         }
     },
 
