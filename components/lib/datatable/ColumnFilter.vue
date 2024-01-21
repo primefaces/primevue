@@ -22,12 +22,12 @@
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPT('filterClearIcon')" />
         </button>
         <Portal>
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
                 <div
                     v-if="overlayVisible"
                     :ref="overlayRef"
                     :id="overlayId"
-                    v-focustrap="{ autoFocus: true }"
+                    v-focustrap
                     :aria-modal="overlayVisible"
                     role="dialog"
                     :class="[cx('filterOverlay'), filterMenuClass]"
@@ -549,6 +549,9 @@ export default {
             };
 
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
+        },
+        onOverlayAfterEnter() {
+            this.overlay?.$focustrap?.autoFocus();
         },
         onOverlayLeave() {
             this.onOverlayHide();

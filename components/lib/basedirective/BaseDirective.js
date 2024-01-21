@@ -112,6 +112,7 @@ const BaseDirective = {
 
             el.$instance = el._$instances[name]; // pass instance data to hooks
             el.$instance[hook]?.(el, binding, vnode, prevVnode); // handle hook in directive implementation
+            el[`$${name}`] = el.$instance; // expose all options with $<directive_name>
             BaseDirective._hook(name, hook, el, binding, vnode, prevVnode); // handle hooks during directive uses (global and self-definition)
         };
 
