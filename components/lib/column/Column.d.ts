@@ -684,10 +684,15 @@ export interface ColumnSlots {
          */
         frozenRow: boolean;
         /**
-         * Callback function
+         * Editor init callback function
          * @param {Event} event - Browser event
          */
         editorInitCallback: (event: Event) => void;
+        /**
+         * Row toggler callback unction
+         * @param {Event} event - Browser event
+         */
+        rowTogglerCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom header template.

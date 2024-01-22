@@ -18,7 +18,17 @@
         :data-p-frozen-column="columnProp('frozen')"
     >
         <span v-if="responsiveLayout === 'stack'" :class="cx('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
-        <component v-if="column.children && column.children.body && !d_editing" :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" />
+        <component
+            v-if="column.children && column.children.body && !d_editing"
+            :is="column.children.body"
+            :data="rowData"
+            :column="column"
+            :field="field"
+            :index="rowIndex"
+            :frozenRow="frozenRow"
+            :editorInitCallback="editorInitCallback"
+            :rowTogglerCallback="toggleRow"
+        />
         <component
             v-else-if="column.children && column.children.editor && d_editing"
             :is="column.children.editor"
