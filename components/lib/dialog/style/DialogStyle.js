@@ -115,9 +115,6 @@ const css = `
 
     /* Maximize */
     .p-dialog-maximized {
-        -webkit-transition: none;
-        transition: none;
-        transform: none;
         width: 100vw !important;
         height: 100vh !important;
         top: 0px !important;
