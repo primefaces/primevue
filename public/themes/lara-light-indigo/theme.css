@@ -1736,6 +1736,7 @@
   }
   .p-slider .p-slider-range {
     background: #6366F1;
+    border-radius: 6px;
   }
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #6366F1;
@@ -4178,6 +4179,7 @@
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     border-radius: 6px;
+    border-radius: 6px;
   }
   .p-contextmenu .p-menuitem {
     margin: 0;
@@ -4397,6 +4399,7 @@
     color: #4b5563;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
@@ -4698,6 +4701,7 @@
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
+    border-radius: 6px;
   }
   .p-menubar .p-submenu-list .p-menuitem-separator {
     border-top: 1px solid #e5e7eb;
@@ -5009,6 +5013,7 @@
     background: #ffffff;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
   }
   .p-tieredmenu .p-menuitem {
     margin: 0;

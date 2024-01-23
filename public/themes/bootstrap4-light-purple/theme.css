@@ -1729,6 +1729,7 @@
   }
   .p-slider .p-slider-range {
     background: #883cae;
+    border-radius: 4px;
   }
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #7a38a7;
@@ -4196,6 +4197,7 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: none;
     border-radius: 4px;
+    border-radius: 4px;
   }
   .p-contextmenu .p-menuitem {
     margin: 0;
@@ -4415,6 +4417,7 @@
     color: #212529;
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: none;
+    border-radius: 4px;
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
@@ -4716,6 +4719,7 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: none;
     min-width: 12.5rem;
+    border-radius: 4px;
   }
   .p-menubar .p-submenu-list .p-menuitem-separator {
     border-top: 1px solid #dee2e6;
@@ -5051,6 +5055,7 @@
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: none;
+    border-radius: 4px;
   }
   .p-tieredmenu .p-menuitem {
     margin: 0;

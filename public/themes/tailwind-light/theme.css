@@ -1752,6 +1752,7 @@
   }
   .p-slider .p-slider-range {
     background: #4F46E5;
+    border-radius: 0.375rem;
   }
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #4F46E5;
@@ -4170,6 +4171,7 @@
     border: 0 none;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     border-radius: 0.375rem;
+    border-radius: 0.375rem;
   }
   .p-contextmenu .p-menuitem {
     margin: 0;
@@ -4389,6 +4391,7 @@
     color: #3f3f46;
     border: 0 none;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
@@ -4690,6 +4693,7 @@
     border: 0 none;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     min-width: 12.5rem;
+    border-radius: 0.375rem;
   }
   .p-menubar .p-submenu-list .p-menuitem-separator {
     border-top: 1px solid #f3f4f6;
@@ -5025,6 +5029,7 @@
     background: #ffffff;
     border: 0 none;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
   }
   .p-tieredmenu .p-menuitem {
     margin: 0;

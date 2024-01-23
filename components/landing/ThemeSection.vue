@@ -7,10 +7,7 @@
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
         </div>
-        <div
-            class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
-            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt-gray' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }"
-        >
+        <div class="themes-main flex mt-7 justify-content-center px-5 lg:px-8">
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
                     v-model:selection="selectedCustomers"

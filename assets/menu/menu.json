@@ -28,7 +28,7 @@
                 },
                 {
                     "name": "Nuxt",
-                    "to": "/vite"
+                    "to": "/nuxt"
                 },
                 {
                     "name": "CDN",
