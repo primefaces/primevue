@@ -11,12 +11,6 @@
             welcomeMessage="Welcome to PrimeVue"
             prompt="primevue $"
             aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
         />
     </div>
     <DocSectionCode :code="code" />
@@ -34,12 +28,6 @@ export default {
     welcomeMessage="Welcome to PrimeVue"
     prompt="primevue $"
     aria-label="PrimeVue Terminal Service"
-    :pt="{
-        root: 'bg-gray-900 text-white border-round',
-        prompt: 'text-gray-400 mr-2',
-        command: 'text-primary-300',
-        response: 'text-primary-300'
-    }"
 />
 `,
                 options: `
@@ -50,12 +38,6 @@ export default {
             welcomeMessage="Welcome to PrimeVue"
             prompt="primevue $"
             aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
         />
     </div>
 </template>
@@ -107,12 +89,6 @@ export default {
             welcomeMessage="Welcome to PrimeVue"
             prompt="primevue $"
             aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
         />
     </div>
 </template>
