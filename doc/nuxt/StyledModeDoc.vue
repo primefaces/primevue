@@ -13,7 +13,7 @@
         <p>
             The style classes of PrimeVue are defined under the <i>primevue</i> CSS layer to be easier to customize by having low specificity. If you are using a CSS library that styles default HTML elements such as Tailwind Preflight, Bootstrap,
             Normalize, or similar, a custom CSS layer configuration might be necessary with the <i>cssLayerOrder</i> option to make sure primevue layer is defined afterward. This only applies to Styled Mode as Unstyled Mode does not use any default
-            styles or layers. View the <NuxtLink to="/guides/csslayer">CSS Layer</NuxtLink> guide for more information.
+            styles or layers. View the <NuxtLink to="/csslayer">CSS Layer</NuxtLink> guide for more information.
         </p>
         <DocSectionCode :code="code4" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <DocSectionCode :code="code5" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
