@@ -155,10 +155,8 @@ export default {
             this.autoUpdateModel();
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     methods: {

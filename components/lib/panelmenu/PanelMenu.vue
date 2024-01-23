@@ -76,7 +76,7 @@ export default {
             this.id = newValue || UniqueComponentId();
         }
     },
-    beforeMount() {
+    mounted() {
         this.id = this.id || UniqueComponentId();
     },
     methods: {

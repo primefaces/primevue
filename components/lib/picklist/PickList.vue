@@ -276,7 +276,6 @@ export default {
         this.destroyStyle();
         this.destroyMedia();
     },
-    beforeMount() {},
     mounted() {
         this.id = this.id || UniqueComponentId();
 

@@ -17,7 +17,7 @@
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, cx('buttonIcon')]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                         <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
@@ -84,10 +84,9 @@ export default {
             this.d_visible = newValue;
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
@@ -105,7 +104,7 @@ export default {
             this.bindDocumentClickListener();
         }
     },
-    beforeMount() {
+    beforeUnmount() {
         this.unbindDocumentClickListener();
     },
     methods: {

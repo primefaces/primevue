@@ -121,10 +121,8 @@ export default {
             this.scrollInView({ index: newValue });
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.updateInkBar();
         this.scrollable && this.updateButtonState();
     },

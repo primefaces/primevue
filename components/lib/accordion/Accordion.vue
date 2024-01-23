@@ -79,7 +79,7 @@ export default {
             this.d_activeIndex = newValue;
         }
     },
-    beforeMount() {
+    mounted() {
         this.id = this.id || UniqueComponentId();
     },
     methods: {

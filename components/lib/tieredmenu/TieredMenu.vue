@@ -85,7 +85,7 @@ export default {
             }
         }
     },
-    beforeMount() {
+    mounted() {
         this.id = this.id || UniqueComponentId();
     },
     beforeUnmount() {
