@@ -19,11 +19,6 @@ import BaseIcon from 'primevue/baseicon';
 
 export default {
     name: 'SortAmountUpAltIcon',
-    extends: BaseIcon,
-    computed: {
-        pathId() {
-            return `pv_icon_clip_${this.id}`;
-        }
-    }
+    extends: BaseIcon
 };
 </script>

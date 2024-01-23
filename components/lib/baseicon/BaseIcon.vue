@@ -6,11 +6,6 @@ import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
 export default {
     name: 'BaseIcon',
     extends: BaseComponent,
-    data() {
-        return {
-            id: this.$attrs.id
-        };
-    },
     props: {
         label: {
             type: String,
@@ -22,12 +17,9 @@ export default {
         }
     },
     style: BaseIconStyle,
-    mounted() {
-        this.id = this.id || UniqueComponentId();
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+    computed: {
+        pathId() {
+            return UniqueComponentId('pv_icon_clip_pv_id_');
         }
     },
     methods: {
@@ -43,7 +35,6 @@ export default {
                         }
                     ]
                 }),
-                id: this.id,
                 role: !isLabelEmpty ? 'img' : undefined,
                 'aria-label': !isLabelEmpty ? this.label : undefined,
                 'aria-hidden': isLabelEmpty
