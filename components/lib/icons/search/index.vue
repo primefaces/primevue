@@ -18,15 +18,9 @@
 
 <script>
 import BaseIcon from 'primevue/baseicon';
-import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SearchIcon',
-    extends: BaseIcon,
-    computed: {
-        pathId() {
-            return `pv_icon_clip_${UniqueComponentId()}`;
-        }
-    }
+    extends: BaseIcon
 };
 </script>

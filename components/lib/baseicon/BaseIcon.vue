@@ -1,7 +1,7 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import BaseIconStyle from 'primevue/baseicon/style';
-import { ObjectUtils } from 'primevue/utils';
+import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'BaseIcon',
@@ -17,6 +17,11 @@ export default {
         }
     },
     style: BaseIconStyle,
+    computed: {
+        pathId() {
+            return UniqueComponentId('pv_icon_clip_pv_id_');
+        }
+    },
     methods: {
         pti() {
             const isLabelEmpty = ObjectUtils.isEmpty(this.label);
