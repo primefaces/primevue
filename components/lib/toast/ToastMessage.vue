@@ -1,13 +1,9 @@
 <template>
-    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true"
-        v-bind="ptm('container')" @enter="entered" @leave="onLeave">
-        <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick"
-            :closeCallback="onCloseClick" />
+    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')" @enter="entered" @leave="onLeave">
+        <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
             <template v-if="!templates.message">
-                <component
-                    :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'"
-                    :class="cx('icon')" v-bind="ptm('icon')" />
+                <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />
                 <div :class="cx('text')" v-bind="ptm('text')">
                     <span :class="cx('summary')" v-bind="ptm('summary')">{{ message.summary }}</span>
                     <div :class="cx('detail')" v-bind="ptm('detail')">{{ message.detail }}</div>
@@ -15,10 +11,8 @@
             </template>
             <component v-else :is="templates.message" :message="message"></component>
             <div v-if="message.closable !== false" v-bind="ptm('buttonContainer')">
-                <button v-ripple :class="cx('closeButton')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick"
-                    autofocus v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
-                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]"
-                        v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
+                <button v-ripple :class="cx('closeButton')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
+                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
                 </button>
             </div>
         </div>
@@ -75,7 +69,7 @@ export default {
         }
     },
     mounted() {
-        this.startCloseTimeout()
+        this.startCloseTimeout();
     },
     beforeUnmount() {
         this.clearCloseTimeout();
@@ -89,10 +83,10 @@ export default {
             this.close({ message: this.message, type: 'close' });
         },
         onEnter() {
-            this.clearCloseTimeout()
+            this.clearCloseTimeout();
         },
         onLeave() {
-            this.startCloseTimeout()
+            this.startCloseTimeout();
         },
         clearCloseTimeout() {
             if (this.closeTimeout) {
