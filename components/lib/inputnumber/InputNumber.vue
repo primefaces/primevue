@@ -693,7 +693,7 @@ export default {
 
                 this._decimal.lastIndex = 0;
 
-                return decimalCharIndex > 0 ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : value || this.formatValue(text);
+                return decimalCharIndex > 0 ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : this.formatValue(text) || value;
             } else if (end - start === value.length) {
                 return this.formatValue(text);
             } else if (start === 0) {
