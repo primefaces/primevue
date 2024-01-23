@@ -197,11 +197,11 @@ export default {
     overlay: null,
     virtualScroller: null,
     searchTimeout: null,
-    focusOnHover: false,
     dirty: false,
     data() {
         return {
             id: this.$attrs.id,
+            clicked: false,
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -298,6 +298,7 @@ export default {
                 this.$emit('before-hide');
                 this.dirty = isFocus;
                 this.overlayVisible = false;
+                this.clicked = false;
                 this.focusedOptionIndex = -1;
 
                 isFocus && DomHandler.focus(this.$refs.focusInput);
@@ -319,8 +320,12 @@ export default {
 
             this.dirty = true;
             this.focused = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
+
+            if (this.overlayVisible) {
+                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+                this.scrollInView(this.focusedOptionIndex);
+            }
+
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -394,6 +399,8 @@ export default {
                 default:
                     break;
             }
+
+            this.clicked = false;
         },
         onInput(event) {
             if (this.searchTimeout) {
@@ -479,6 +486,8 @@ export default {
             }
         },
         onContainerClick(event) {
+            this.clicked = true;
+
             if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
@@ -545,7 +554,7 @@ export default {
                 return;
             }
 
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
             this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -564,7 +573,7 @@ export default {
                 this.overlayVisible && this.hide();
                 event.preventDefault();
             } else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -618,6 +627,7 @@ export default {
         },
         onEnterKey(event) {
             if (!this.overlayVisible) {
+                this.focusedOptionIndex = -1; // reset
                 this.onArrowDownKey(event);
             } else {
                 if (this.focusedOptionIndex !== -1) {
@@ -838,16 +848,16 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            this.$nextTick(() => {
+                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
-            if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
-            } else if (!this.virtualScrollerDisabled) {
-                setTimeout(() => {
+                if (element) {
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
-                }, 0);
-            }
+                }
+            });
         },
         autoUpdateModel() {
             if ((this.selectOnFocus || this.autoHighlight) && this.autoOptionFocus && !this.hasSelectedOption) {

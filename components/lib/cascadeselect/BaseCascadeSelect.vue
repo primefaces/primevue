@@ -72,6 +72,10 @@ export default {
             type: Boolean,
             default: false
         },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
         searchLocale: {
             type: String,
             default: undefined

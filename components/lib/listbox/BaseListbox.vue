@@ -51,6 +51,10 @@ export default {
             type: Boolean,
             default: false
         },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
         filterMessage: {
             type: String,
             default: null

@@ -17,7 +17,7 @@
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'content')">
+                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'content')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
                     <span v-else :class="cx('text')" v-bind="getPTOptions(processedOption, index, 'text')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
@@ -43,6 +43,7 @@
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
+                    @option-focus-change="onOptionFocusChange"
                     :pt="pt"
                     :unstyled="unstyled"
                     :isParentMount="mounted"
@@ -62,7 +63,7 @@ export default {
     name: 'CascadeSelectSub',
     hostName: 'CascadeSelect',
     extends: BaseComponent,
-    emits: ['option-change'],
+    emits: ['option-change', 'option-focus-change'],
     container: null,
     props: {
         selectId: String,
@@ -149,8 +150,14 @@ export default {
         onOptionClick(event, processedOption) {
             this.$emit('option-change', { originalEvent: event, processedOption, isFocus: true });
         },
+        onOptionMouseMove(event, processedOption) {
+            this.$emit('option-focus-change', { originalEvent: event, processedOption });
+        },
         onOptionChange(event) {
             this.$emit('option-change', event);
+        },
+        onOptionFocusChange(event) {
+            this.$emit('option-focus-change', event);
         },
         containerRef(el) {
             this.container = el;

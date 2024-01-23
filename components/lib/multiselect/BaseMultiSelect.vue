@@ -131,6 +131,10 @@ export default {
             type: Boolean,
             default: false
         },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
         highlightOnSelect: {
             type: Boolean,
             default: false

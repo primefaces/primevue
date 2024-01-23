@@ -479,6 +479,11 @@ export interface MultiSelectProps {
      */
     autoFilterFocus?: boolean | undefined;
     /**
+     * When enabled, the focus is placed on the hovered option.
+     * @defaultValue true
+     */
+    focusOnHover?: boolean | undefined;
+    /**
      *  Highlights automatically the first item.
      *  @defaultValue false
      */

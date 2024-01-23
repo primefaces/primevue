@@ -448,6 +448,11 @@ export interface AutoCompleteProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
+     * When enabled, the focus is placed on the hovered option.
+     * @defaultValue true
+     */
+    focusOnHover?: boolean | undefined;
+    /**
      * Locale to use in searching. The default locale is the host environment's current locale.
      */
     searchLocale?: string | undefined;
