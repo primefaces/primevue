@@ -6893,6 +6893,10 @@
     background: rgba(255, 255, 255, 0.12);
   }
 
+  .p-metergroup .p-metergroup-label-list .p-metergroup-label-list-item {
+    line-height: 1rem;
+  }
+
   .p-multiselect .p-multiselect-label, .p-multiselect .p-multiselect-trigger {
     background-image: none;
     background: transparent;
