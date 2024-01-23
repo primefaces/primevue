@@ -42,7 +42,6 @@ const classes = {
     root: ({ instance, props }) => [
         'p-listbox p-component',
         {
-            'p-focus': instance.focused,
             'p-disabled': props.disabled
         }
     ],
