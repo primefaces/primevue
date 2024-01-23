@@ -29,7 +29,7 @@
             <section class="py-4 border-bottom-1 surface-border">
                 <div class="text-xl font-semibold mb-3">Themes</div>
                 <div class="flex align-items-center gap-2 mb-3">
-                    <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="aura Light Teal" class="border-circle" style="width: 1.5rem" />
+                    <img src="https://primefaces.org/cdn/primevue/images/themes/aura.png" alt="Aura" style="width: 1.5rem" />
                     <span class="font-medium">Aura</span>
                 </div>
                 <div class="flex align-items-center justify-content-between gap-3 mb-3">
@@ -142,8 +142,8 @@
                 </div>
 
                 <section class="pt-4 flex align-items-center justify-content-between">
-                    <span class="text-sm">Focus Ring Color</span>
-                    <SelectButton v-model="focusRingColor" :options="focusRingColors" @change="onFocusRingColorChange" optionLabel="label" optionValue="value" :allowEmpty="false" />
+                    <span class="text-sm">Primary Focus Ring</span>
+                    <InputSwitch :modelValue="primaryFocusRing" @update:modelValue="onFocusRingColorChange" />
                 </section>
             </section>
 
@@ -363,11 +363,7 @@ export default {
                 { label: 'Outlined', value: 'outlined' },
                 { label: 'Filled', value: 'filled' }
             ],
-            focusRingColor: 'current',
-            focusRingColors: [
-                { label: 'Current', value: 'current' },
-                { label: 'Primary', value: 'primary' }
-            ],
+            primaryFocusRing: true,
             compactMaterial: false
         };
     },
@@ -454,15 +450,19 @@ export default {
 
             return this.$appState.theme === themeName;
         },
-        onFocusRingColorChange(event) {
+        onFocusRingColorChange(value) {
+            this.primaryFocusRing = value;
             let root = document.documentElement;
 
-            if (event.value === 'current') {
-                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
-                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');
-            } else if (event.value === 'primary') {
+            console.log('x');
+
+            if (value) {
                 if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
-                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');                
+            }
+            else {
+                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');  
             }
         }
     },
