@@ -496,7 +496,7 @@
     padding: 0 0 0.5rem 0;
     color: #334155;
     background: #ffffff;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0 0 0 0;
     border-bottom: 1px solid #e2e8f0;
     border-top-right-radius: 6px;
@@ -532,7 +532,7 @@
 .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
     color: #334155;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0.25rem;
   }
   .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,
@@ -5990,12 +5990,14 @@
     margin-top: 0.5rem;
     padding-top: 0.5rem;
   }
+  .p-datepicker table th {
+    font-weight: 500;
+  }
 
   .p-card {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
   .p-card .p-card-caption {
     display: flex;
@@ -6084,6 +6086,12 @@
   }
   .p-chip .p-chip-remove-icon {
     margin-left: 0.375rem;
+  }
+  .p-chip:has(.p-chip-remove-icon) {
+    padding-right: 0.5rem;
+  }
+  .p-chip img {
+    margin-left: -0.5rem;
   }
 
   .p-colorpicker-preview {
