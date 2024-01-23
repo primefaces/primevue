@@ -3805,6 +3805,14 @@
                             "description": "When enabled, the focused option is selected."
                         },
                         {
+                            "name": "focusOnHover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
                             "name": "searchLocale",
                             "optional": true,
                             "readonly": false,
@@ -10194,6 +10202,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, the focused option is selected/opened."
+                        },
+                        {
+                            "name": "focusOnHover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When enabled, the focus is placed on the hovered option."
                         },
                         {
                             "name": "searchLocale",
@@ -24207,6 +24223,14 @@
                             "description": "When enabled, the focused option is selected."
                         },
                         {
+                            "name": "focusOnHover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
                             "name": "filterMessage",
                             "optional": true,
                             "readonly": false,
@@ -32469,6 +32493,14 @@
                             "description": "When enabled, the focused option is selected."
                         },
                         {
+                            "name": "focusOnHover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
                             "name": "filterMessage",
                             "optional": true,
                             "readonly": false,
@@ -36632,6 +36664,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether to focus on the filter element when the overlay panel is shown."
+                        },
+                        {
+                            "name": "focusOnHover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When enabled, the focus is placed on the hovered option."
                         },
                         {
                             "name": "highlightOnSelect",
