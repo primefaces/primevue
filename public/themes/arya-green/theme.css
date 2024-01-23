@@ -1007,15 +1007,7 @@
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.09);
-  }
-  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
-    color: rgba(255, 255, 255, 0.87);
     background: rgba(255, 255, 255, 0.03);
-  }
-  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.09);
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
@@ -1339,7 +1331,7 @@
   }
   .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.03);
   }
   .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
     color: rgba(255, 255, 255, 0.87);
@@ -1347,7 +1339,7 @@
   }
   .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.03);
   }
   .p-listbox.p-focus {
     outline: 0 none;
