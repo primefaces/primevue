@@ -50,7 +50,7 @@
 }
 
 :root {
-  --p-focus-ring-color: #94a3b8;
+  --p-focus-ring-color: var(--primary-color);
 }
 
 @font-face {
@@ -6265,17 +6265,29 @@
   .p-message.p-message-info .p-message-close:focus-visible {
     outline-color: #2563eb;
   }
+  .p-message.p-message-info .p-message-close:hover {
+    background: #dbeafe;
+  }
 
   .p-message.p-message-success .p-message-close:focus-visible {
     outline-color: #16a34a;
+  }
+  .p-message.p-message-success .p-message-close:hover {
+    background: #dcfce7;
   }
 
   .p-message.p-message-warn .p-message-close:focus-visible {
     outline-color: #d97706;
   }
+  .p-message.p-message-warn .p-message-close:hover {
+    background: #fef9c3;
+  }
 
   .p-message.p-message-error .p-message-close:focus-visible {
     outline-color: #e11d48;
+  }
+  .p-message.p-message-error .p-message-close:hover {
+    background: #fef9c3;
   }
 
   .p-multiselect-panel .p-multiselect-header {
@@ -6755,18 +6767,37 @@
     color: #334155;
     font-size: 0.875rem;
   }
+  .p-toast .p-toast-message .p-toast-icon-close {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-top: -25%;
+    right: -25%;
+    position: relative;
+  }
 
   .p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {
     outline-color: #2563eb;
   }
+  .p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close:hover {
+    background: #dbeafe;
+  }
   .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
     outline-color: #16a34a;
+  }
+  .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close:hover {
+    background: #dcfce7;
   }
   .p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close {
     outline-color: #d97706;
   }
+  .p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close:hover {
+    background: #fef9c3;
+  }
   .p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close {
     outline-color: #e11d48;
+  }
+  .p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close:hover {
+    background: #fef9c3;
   }
 
   .p-togglebutton .p-button .p-button-label,

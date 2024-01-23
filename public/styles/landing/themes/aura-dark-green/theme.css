@@ -1,5 +1,5 @@
-:root {
-  --p-focus-ring-color: #71717a;
+.landing-themes {
+  --p-focus-ring-color: var(--primary-color);
 }
 
 .landing-themes * {

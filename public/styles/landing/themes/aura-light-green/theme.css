@@ -1,6 +1,7 @@
-:root {
-  --p-focus-ring-color: #94a3b8;
+.landing-themes {
+  --p-focus-ring-color: var(--primary-color);
 }
+
 .landing-themes * {
   box-sizing: border-box;
 }
