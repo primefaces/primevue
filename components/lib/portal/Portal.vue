@@ -11,6 +11,9 @@
 
 <script>
 import { DomHandler } from 'primevue/utils';
+import { ref } from 'vue';
+
+export const globalAppendTo = ref();
 
 export default {
     name: 'Portal',
@@ -33,6 +36,9 @@ export default {
         this.mounted = DomHandler.isClient();
     },
     computed: {
+        globalOrAppendTo() {
+            return this.appendTo === 'body' ? globalAppendTo.value ?? this.appendTo : this.appendTo;
+        },
         inline() {
             return this.disabled || this.appendTo === 'self';
         }
