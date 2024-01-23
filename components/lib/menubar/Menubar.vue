@@ -93,10 +93,8 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
     },
     beforeUnmount() {

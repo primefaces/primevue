@@ -73,10 +73,9 @@ export default {
     resizeListener: null,
     container: null,
     list: null,
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (!this.popup) {
             this.bindResizeListener();
             this.bindOutsideClickListener();

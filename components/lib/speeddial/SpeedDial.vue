@@ -84,10 +84,9 @@ export default {
             this.d_visible = newValue;
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
@@ -105,7 +104,7 @@ export default {
             this.bindDocumentClickListener();
         }
     },
-    beforeMount() {
+    beforeUnmount() {
         this.unbindDocumentClickListener();
     },
     methods: {
