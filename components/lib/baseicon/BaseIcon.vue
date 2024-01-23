@@ -17,11 +17,6 @@ export default {
         }
     },
     style: BaseIconStyle,
-    computed: {
-        pathId() {
-            return UniqueComponentId('pv_icon_clip_pv_id_');
-        }
-    },
     methods: {
         pti() {
             const isLabelEmpty = ObjectUtils.isEmpty(this.label);
@@ -39,6 +34,11 @@ export default {
                 'aria-label': !isLabelEmpty ? this.label : undefined,
                 'aria-hidden': isLabelEmpty
             };
+        }
+    },
+    computed: {
+        pathId() {
+            return UniqueComponentId('pv_icon_clip_pv_id_');
         }
     }
 };
