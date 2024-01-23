@@ -3,7 +3,7 @@
         <slot></slot>
     </template>
     <template v-else-if="mounted">
-        <Teleport :to="appendTo">
+        <Teleport :to="globalOrAppendTo">
             <slot></slot>
         </Teleport>
     </template>
