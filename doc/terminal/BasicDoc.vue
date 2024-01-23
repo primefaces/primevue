@@ -7,11 +7,7 @@
     </DocSectionText>
     <div class="card">
         <p>Enter "<strong>date</strong>" to display the current date, "<strong>greet {0}</strong>" for a message and "<strong>random</strong>" to get a random number.</p>
-        <Terminal
-            welcomeMessage="Welcome to PrimeVue"
-            prompt="primevue $"
-            aria-label="PrimeVue Terminal Service"
-        />
+        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" aria-label="PrimeVue Terminal Service" />
     </div>
     <DocSectionCode :code="code" />
 </template>

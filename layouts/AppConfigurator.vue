@@ -458,11 +458,10 @@ export default {
 
             if (value) {
                 if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
-                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');                
-            }
-            else {
+                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+            } else {
                 if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
-                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');  
+                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-400)');
             }
         }
     },
