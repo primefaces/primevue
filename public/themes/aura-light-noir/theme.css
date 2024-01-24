@@ -6550,6 +6550,9 @@
   .p-organizationchart .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
     position: static;
   }
+  .p-organizationchart .p-organizationchart-node-content:has(.p-node-toggler) {
+    padding: 0.75rem 1rem 1.25rem 1rem;
+  }
   .p-organizationchart .p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-left) {
     border-right: 0 none;
   }
