@@ -3905,7 +3905,9 @@
     background: #ffffff;
     color: #343a3f;
     padding: 0 0.75rem 0.75rem 0.75rem;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
     border-bottom-right-radius: 1px;
     border-bottom-left-radius: 1px;
   }

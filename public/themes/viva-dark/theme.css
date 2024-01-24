@@ -3986,7 +3986,9 @@
     background: #161d21;
     color: rgba(255, 255, 255, 0.87);
     padding: 0 1.5rem 1.5rem 1.5rem;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
   }

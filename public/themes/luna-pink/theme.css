@@ -3892,7 +3892,9 @@
     background: #323232;
     color: #dedede;
     padding: 0.571rem 1rem;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
   }
