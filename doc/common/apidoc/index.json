@@ -51278,7 +51278,7 @@
                             "name": "modelValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "Nullable<string>",
                             "default": "",
                             "description": "Value of the component."
                         },
