@@ -231,7 +231,7 @@ export default {
             return panel && panel.contains(element);
         },
         isItemMatched(processedItem) {
-            return this.isValidItem(processedItem) && this.getItemLabel(processedItem).toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
+            return this.isValidItem(processedItem) && this.getItemLabel(processedItem)?.toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
         },
         isVisibleItem(processedItem) {
             return !!processedItem && (processedItem.level === 0 || this.isItemActive(processedItem)) && this.isItemVisible(processedItem);
