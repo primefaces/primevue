@@ -2949,11 +2949,11 @@
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
     color: #385048;
@@ -3143,11 +3143,11 @@
   }
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
     color: #385048;

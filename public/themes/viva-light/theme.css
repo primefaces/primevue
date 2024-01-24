@@ -3030,11 +3030,11 @@
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
     color: #6c6c6c;
-    background: #e6e9f3;
+    background: #edf0fA;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: #6c6c6c;
-    background: #e6e9f3;
+    background: #edf0fA;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
     color: #585858;
@@ -3224,11 +3224,11 @@
   }
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
     color: #6c6c6c;
-    background: #e6e9f3;
+    background: #edf0fA;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: #6c6c6c;
-    background: #e6e9f3;
+    background: #edf0fA;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
     color: #585858;

@@ -339,7 +339,7 @@ export default {
             const element = DomHandler.findSingle(this.list, `[data-pc-section="item"][id="${id}"]`);
 
             if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start', behavior: 'smooth' });
             }
         },
         moveUp(event) {

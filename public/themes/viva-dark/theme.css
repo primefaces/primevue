@@ -3030,11 +3030,11 @@
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(158, 173, 230, 0.1);
+    background: rgba(158, 173, 230, 0.08);
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(158, 173, 230, 0.1);
+    background: rgba(158, 173, 230, 0.08);
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
     color: #9eade6;
@@ -3224,11 +3224,11 @@
   }
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(158, 173, 230, 0.1);
+    background: rgba(158, 173, 230, 0.08);
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(158, 173, 230, 0.1);
+    background: rgba(158, 173, 230, 0.08);
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
     color: #9eade6;
