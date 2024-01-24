@@ -94,7 +94,7 @@ export default {
         };
     },
     beforeMount() {
-        VirtualScrollerStyle.loadStyle();
+        VirtualScrollerStyle.loadStyle({ nonce: this.$config?.csp?.nonce });
     }
 };
 </script>
