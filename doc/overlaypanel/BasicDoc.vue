@@ -26,36 +26,14 @@
                 <div>
                     <span class="font-medium text-900 block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-column gap-3">
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px" />
+                        <li v-for="member in members" :key="member.name" class="flex align-items-center gap-2">
+                            <img :src="`https://primefaces.org/cdn/primevue/images/avatar/${member.image}`" style="width: 32px" />
                             <div>
-                                <span class="font-medium">Amy Elsner</span>
-                                <div class="text-sm text-color-secondary">amy@email.com</div>
+                                <span class="font-medium">{{ member.name }}</span>
+                                <div class="text-sm text-color-secondary">{{ member.email }}</div>
                             </div>
                             <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Owner</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/bernardodominic.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Bernardo Dominic</span>
-                                <div class="text-sm text-color-secondary">bernardo@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Editor</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Ioni Bowcher Elsner</span>
-                                <div class="text-sm text-color-secondary">ioni@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Viewer</span>
+                                <span>{{ member.role }}</span>
                                 <i class="pi pi-angle-down"></i>
                             </div>
                         </li>
@@ -71,6 +49,11 @@
 export default {
     data() {
         return {
+            members: [
+                { name: 'Amy Elsner', image: 'amyelsner.png', email: 'amy@email.com', role: 'Owner' },
+                { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
+                { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
+            ],
             code: {
                 basic: `
 <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
@@ -96,36 +79,14 @@ export default {
         <div>
             <span class="font-medium text-900 block mb-2">Team Members</span>
             <ul class="list-none p-0 m-0 flex flex-column gap-3">
-                <li class="flex align-items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px" />
+                <li v-for="member in members" :key="member.name" class="flex align-items-center gap-2">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
                     <div>
-                        <span class="font-medium">Amy Elsner</span>
-                        <div class="text-sm text-color-secondary">amy@email.com</div>
+                        <span class="font-medium">{{ member.name }}</span>
+                        <div class="text-sm text-color-secondary">{{ member.email }}</div>
                     </div>
                     <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                        <span>Owner</span>
-                        <i class="pi pi-angle-down"></i>
-                    </div>
-                </li>
-                <li class="flex align-items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primevue/images/avatar/bernardodominic.png" style="width: 32px" />
-                    <div>
-                        <span class="font-medium">Bernardo Dominic</span>
-                        <div class="text-sm text-color-secondary">bernardo@email.com</div>
-                    </div>
-                    <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                        <span>Editor</span>
-                        <i class="pi pi-angle-down"></i>
-                    </div>
-                </li>
-                <li class="flex align-items-center gap-2">
-                    <img src="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" style="width: 32px" />
-                    <div>
-                        <span class="font-medium">Ioni Bowcher Elsner</span>
-                        <div class="text-sm text-color-secondary">ioni@email.com</div>
-                    </div>
-                    <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                        <span>Viewer</span>
+                        <span>{{ member.role }}</span>
                         <i class="pi pi-angle-down"></i>
                     </div>
                 </li>
@@ -160,36 +121,14 @@ export default {
                 <div>
                     <span class="font-medium text-900 block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-column gap-3">
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px" />
+                        <li v-for="member in members" :key="member.name" class="flex align-items-center gap-2">
+                            <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
                             <div>
-                                <span class="font-medium">Amy Elsner</span>
-                                <div class="text-sm text-color-secondary">amy@email.com</div>
+                                <span class="font-medium">{{ member.name }}</span>
+                                <div class="text-sm text-color-secondary">{{ member.email }}</div>
                             </div>
                             <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Owner</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/bernardodominic.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Bernardo Dominic</span>
-                                <div class="text-sm text-color-secondary">bernardo@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Editor</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Ioni Bowcher Elsner</span>
-                                <div class="text-sm text-color-secondary">ioni@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Viewer</span>
+                                <span>{{ member.role }}</span>
                                 <i class="pi pi-angle-down"></i>
                             </div>
                         </li>
@@ -202,6 +141,15 @@ export default {
 
 <script>
 export default {
+    data() {
+        return {
+            members: [
+                { name: 'Amy Elsner', image: 'amyelsner.png', email: 'amy@email.com', role: 'Owner' },
+                { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
+                { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
+            ]
+        }
+    },
     methods: {
         toggle(event) {
             this.$refs.op.toggle(event);
@@ -236,36 +184,14 @@ export default {
                 <div>
                     <span class="font-medium text-900 block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-column gap-3">
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px" />
+                        <li v-for="member in members" :key="member.name" class="flex align-items-center gap-2">
+                            <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
                             <div>
-                                <span class="font-medium">Amy Elsner</span>
-                                <div class="text-sm text-color-secondary">amy@email.com</div>
+                                <span class="font-medium">{{ member.name }}</span>
+                                <div class="text-sm text-color-secondary">{{ member.email }}</div>
                             </div>
                             <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Owner</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/bernardodominic.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Bernardo Dominic</span>
-                                <div class="text-sm text-color-secondary">bernardo@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Editor</span>
-                                <i class="pi pi-angle-down"></i>
-                            </div>
-                        </li>
-                        <li class="flex align-items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" style="width: 32px" />
-                            <div>
-                                <span class="font-medium">Ioni Bowcher Elsner</span>
-                                <div class="text-sm text-color-secondary">ioni@email.com</div>
-                            </div>
-                            <div class="flex align-items-center gap-2 text-color-secondary ml-auto text-sm">
-                                <span>Viewer</span>
+                                <span>{{ member.role }}</span>
                                 <i class="pi pi-angle-down"></i>
                             </div>
                         </li>
@@ -280,6 +206,11 @@ export default {
 import { ref } from "vue";
 
 const op = ref();
+const members = ref([
+    { name: 'Amy Elsner', image: 'amyelsner.png', email: 'amy@email.com', role: 'Owner' },
+    { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
+]);
 
 const toggle = (event) => {
     op.value.toggle(event);
