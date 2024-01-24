@@ -15,7 +15,7 @@
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
                 <div class="flex align-items-center gap-3">
-                    <PrimeVueNuxtLink to="/introduction" class="linkbox active font-semibold py-3 px-4">
+                    <PrimeVueNuxtLink to="/setup" class="linkbox active font-semibold py-3 px-4">
                         <span>Get Started</span>
                         <i class="pi pi-arrow-right ml-3"></i>
                     </PrimeVueNuxtLink>

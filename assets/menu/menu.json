@@ -9,8 +9,8 @@
                     "to": "/introduction"
                 },
                 {
-                    "name": "Installation",
-                    "to": "/installation"
+                    "name": "Setup",
+                    "to": "/setup"
                 },
                 {
                     "name": "Playground",
@@ -43,6 +43,10 @@
                 {
                     "name": "Options",
                     "to": "/configuration"
+                },
+                {
+                    "name": "Auto Import",
+                    "to": "/autoimport"
                 },
                 {
                     "name": "CSS Layer",
