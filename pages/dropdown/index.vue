@@ -25,7 +25,6 @@ import LazyVirtualScrollDoc from '@/doc/dropdown/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/dropdown/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/dropdown/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/dropdown/VirtualScrollDoc.vue';
-import VeeValidateDoc from '@/doc/dropdown/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/dropdown/pt/index.vue';
 import ThemingDoc from '@/doc/dropdown/theming/index.vue';
 
@@ -97,18 +96,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

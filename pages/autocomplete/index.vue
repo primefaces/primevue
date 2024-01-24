@@ -24,7 +24,6 @@ import MultipleDoc from '@/doc/autocomplete/MultipleDoc.vue';
 import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc.vue';
 import TemplateDoc from '@/doc/autocomplete/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc.vue';
-import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/autocomplete/pt/index.vue';
 import ThemingDoc from '@/doc/autocomplete/theming/index.vue';
 
@@ -91,18 +90,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

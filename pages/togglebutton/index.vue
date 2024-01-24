@@ -16,7 +16,6 @@ import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
-import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/togglebutton/pt/index.vue';
 import ThemingDoc from '@/doc/togglebutton/theming/index.vue';
 
@@ -43,18 +42,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

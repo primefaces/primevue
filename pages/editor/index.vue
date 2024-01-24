@@ -9,7 +9,6 @@ import ImportDoc from '@/doc/editor/ImportDoc.vue';
 import QuillDoc from '@/doc/editor/QuillDoc.vue';
 import ReadOnlyDoc from '@/doc/editor/ReadOnlyDoc.vue';
 import TemplateDoc from '@/doc/editor/TemplateDoc.vue';
-import VeeValidateDoc from '@/doc/editor/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/editor/pt/index.vue';
 import ThemingDoc from '@/doc/editor/theming/index.vue';
 
@@ -41,18 +40,6 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

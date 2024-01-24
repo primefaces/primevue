@@ -17,7 +17,6 @@ import DynamicDoc from '@/doc/radiobutton/DynamicDoc.vue';
 import GroupDoc from '@/doc/radiobutton/GroupDoc.vue';
 import ImportDoc from '@/doc/radiobutton/ImportDoc.vue';
 import InvalidDoc from '@/doc/radiobutton/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/radiobutton/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/radiobutton/pt/index.vue';
 import ThemingDoc from '@/doc/radiobutton/theming/index.vue';
 
@@ -49,18 +48,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

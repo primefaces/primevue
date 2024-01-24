@@ -19,7 +19,6 @@ import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/cascadeselect/TemplateDoc.vue';
-import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/cascadeselect/pt/index.vue';
 import ThemingDoc from '@/doc/cascadeselect/theming/index.vue';
 
@@ -61,18 +60,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

@@ -18,7 +18,6 @@ import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
 import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/checkbox/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/checkbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/checkbox/pt/index.vue';
 import ThemingDoc from '@/doc/checkbox/theming/index.vue';
 
@@ -55,18 +54,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

@@ -16,7 +16,6 @@ import BasicDoc from '@/doc/tristatecheckbox/BasicDoc.vue';
 import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc.vue';
 import ImportDoc from '@/doc/tristatecheckbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/tristatecheckbox/pt/index.vue';
 import ThemingDoc from '@/doc/tristatecheckbox/theming/index.vue';
 
@@ -43,18 +42,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',
