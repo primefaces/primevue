@@ -42,6 +42,7 @@
 
 **Implemented New Features and Enhancements:**
 
+-   New Aura Theme[\#5143](https://github.com/primefaces/primevue/issues/5143)
 -   Add itemGroupLabel, itemLabel, tickIcon and blankIcon options to pt in Dropdown [\#5142](https://github.com/primefaces/primevue/issues/5142)
 -   Add highlightOnSelect and checkmark props to Dropdown [\#5141](https://github.com/primefaces/primevue/issues/5141)
 -   Icon: BlankIcon [\#5139](https://github.com/primefaces/primevue/issues/5139)
