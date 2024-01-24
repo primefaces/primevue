@@ -136,6 +136,7 @@ const classes = {
     wrapper: 'p-dropdown-items-wrapper',
     list: 'p-dropdown-items',
     itemGroup: 'p-dropdown-item-group',
+    itemGroupLabel: 'p-dropdown-item-group-label',
     item: ({ instance, props, state, option, focusedOption }) => [
         'p-dropdown-item',
         {
@@ -144,6 +145,7 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
+    itemLabel: 'p-dropdown-item-label',
     tickIcon: 'p-dropdown-tick-icon',
     blankIcon: 'p-dropdown-blank-icon',
     emptyMessage: 'p-dropdown-empty-message'

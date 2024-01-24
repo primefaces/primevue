@@ -140,6 +140,10 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     itemGroup?: DropdownPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the item group label's DOM element.
+     */
+    itemGroupLabel?: DropdownPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the item's DOM element.
      */
     item?: DropdownPassThroughOptionType<T>;
@@ -431,7 +435,7 @@ export interface DropdownProps {
      */
     focusOnHover?: boolean | undefined;
     /**
-     *  Highlights automatically the first item.
+     *  Whether the selected option will be add highlight class.
      *  @defaultValue false
      */
     highlightOnSelect?: boolean | undefined;
