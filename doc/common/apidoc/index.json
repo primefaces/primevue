@@ -23744,6 +23744,30 @@
                             "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
+                            "name": "itemLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the item label's DOM element."
+                        },
+                        {
+                            "name": "tickIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the tick icon's DOM element."
+                        },
+                        {
+                            "name": "blankIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the bank icon's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -24229,6 +24253,22 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Highlights automatically the first item."
+                        },
+                        {
+                            "name": "showTick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether the selected option will be shown with a tick."
                         },
                         {
                             "name": "filterMessage",
