@@ -128,6 +128,10 @@ const BaseDirective = {
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
+                const config = BaseDirective._getConfig(binding, vnode);
+
+                BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
+                !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {
