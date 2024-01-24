@@ -1041,6 +1041,11 @@
     color: rgba(255, 255, 255, 0.87);
     background: rgba(158, 173, 230, 0.08);
   }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-tick-icon {
+    position: relative;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+  }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
     padding: 0.75rem 1rem;

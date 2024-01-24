@@ -1009,6 +1009,11 @@
     color: #495057;
     background: #e9ecef;
   }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-tick-icon {
+    position: relative;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+  }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
     padding: 0.75rem 1rem;
