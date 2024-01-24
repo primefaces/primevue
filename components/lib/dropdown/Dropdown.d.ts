@@ -436,12 +436,12 @@ export interface DropdownProps {
     focusOnHover?: boolean | undefined;
     /**
      *  Whether the selected option will be add highlight class.
-     *  @defaultValue false
+     *  @defaultValue true
      */
     highlightOnSelect?: boolean | undefined;
     /**
      *  Whether the selected option will be shown with a tick.
-     *  @defaultValue true
+     *  @defaultValue false
      */
     showTick?: boolean | undefined;
     /**

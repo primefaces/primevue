@@ -24267,7 +24267,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
+                            "default": "true",
                             "description": "Whether the selected option will be add highlight class."
                         },
                         {
@@ -24275,7 +24275,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether the selected option will be shown with a tick."
                         },
                         {
