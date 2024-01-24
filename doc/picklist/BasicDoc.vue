@@ -16,7 +16,7 @@
                             <span>{{ slotProps.item.category }}</span>
                         </div>
                     </div>
-                    <span class="font-bold text-900">${{ slotProps.item.price }}</span>
+                    <span class="font-bold">${{ slotProps.item.price }}</span>
                 </div>
             </template>
         </PickList>
@@ -46,7 +46,7 @@ export default {
                     <span>{{ slotProps.item.category }}</span>
                 </div>
             </div>
-            <span class="font-bold text-900">$ {{ slotProps.item.price }}</span>
+            <span class="font-bold">$ {{ slotProps.item.price }}</span>
         </div>
     </template>
 </PickList>
@@ -67,7 +67,7 @@ export default {
                             <span>{{ slotProps.item.category }}</span>
                         </div>
                     </div>
-                    <span class="font-bold text-900">$ {{ slotProps.item.price }}</span>
+                    <span class="font-bold">$ {{ slotProps.item.price }}</span>
                 </div>
             </template>
         </PickList>
@@ -104,7 +104,7 @@ export default {
                             <span>{{ slotProps.item.category }}</span>
                         </div>
                     </div>
-                    <span class="font-bold text-900">$ {{ slotProps.item.price }}</span>
+                    <span class="font-bold">$ {{ slotProps.item.price }}</span>
                 </div>
             </template>
         </PickList>
