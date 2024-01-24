@@ -129,8 +129,8 @@
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
-                                            <template v-if="showTick">
-                                                <CheckIcon v-if="isSelected(option)" :class="cx('tickIcon')" v-bind="ptm('tickIcon')" />
+                                            <template v-if="checkmark">
+                                                <CheckIcon v-if="isSelected(option)" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
                                                 <BlankIcon v-else :class="cx('blankIcon')" v-bind="ptm('blankIcon')" />
                                             </template>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
