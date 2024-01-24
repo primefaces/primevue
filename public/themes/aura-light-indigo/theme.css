@@ -6120,6 +6120,10 @@
     border-bottom-color: #bdccff;
   }
 
+  .p-dataview-layout-options.p-selectbutton .p-button svg {
+    position: relative;
+  }
+
   .p-dialog {
     border-radius: 12px;
     background-color: #ffffff;

@@ -6128,6 +6128,10 @@
     border-bottom-color: #020515;
   }
 
+  .p-dataview-layout-options.p-selectbutton .p-button svg {
+    position: relative;
+  }
+
   .p-dialog {
     border-radius: 12px;
     background-color: #ffffff;

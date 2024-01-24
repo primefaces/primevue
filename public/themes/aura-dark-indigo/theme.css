@@ -6118,6 +6118,10 @@
     border-bottom-color: rgba(93, 107, 246, 0.16);
   }
 
+  .p-dataview-layout-options.p-selectbutton .p-button svg {
+    position: relative;
+  }
+
   .p-dialog {
     border-radius: 12px;
     background-color: #18181b;
