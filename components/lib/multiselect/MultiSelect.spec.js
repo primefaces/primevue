@@ -23,7 +23,8 @@ describe('MultiSelect.vue', () => {
                     { name: 'Paris', code: 'PRS' }
                 ],
                 optionLabel: 'name',
-                placeholder: 'Select Cities'
+                placeholder: 'Select Cities',
+                highlightOnSelect: true
             }
         });
     });
