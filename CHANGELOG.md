@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.47.1](https://github.com/primefaces/primevue/tree/3.47.1) (2024-01-24)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.47.0...3.47.1)
+
+**Fixed bugs:**
+
+-   Keyboard accessibility is not working on OrderList and PickList [\#5144](https://github.com/primefaces/primevue/issues/5144)
+
 ## [3.47.0](https://github.com/primefaces/primevue/tree/3.47.0) (2024-01-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.46.0...3.47.0)
