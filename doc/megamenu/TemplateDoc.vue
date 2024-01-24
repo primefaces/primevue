@@ -5,7 +5,7 @@
         </p>
     </DocSectionText>
     <div class="card">
-        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
+        <MegaMenu :model="items" class="p-3 surface-0" style="border-radius: 3rem">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
                     <path
@@ -100,7 +100,7 @@ export default {
             ],
             code: {
                 basic: `
-<MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
+<MegaMenu :model="items" class="p-3 surface-0" style="border-radius: 3rem">
     <template #start>
         <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
             <path d="..." fill="var(--primary-color)" />
@@ -135,7 +135,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
+        <MegaMenu :model="items" class="p-3 surface-0" style="border-radius: 3rem">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
                     <path
@@ -235,7 +235,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <MegaMenu :model="items" class="p-3 surface-0 shadow-2" style="border-radius: 3rem">
+        <MegaMenu :model="items" class="p-3 surface-0" style="border-radius: 3rem">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
                     <path

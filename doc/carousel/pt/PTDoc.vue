@@ -13,7 +13,7 @@
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
-                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6 shadow-2" />
+                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6" />
                     </div>
                     <div>
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>
@@ -74,7 +74,7 @@ export default {
     <template #item="slotProps">
         <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
             <div class="mb-3">
-                <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6 shadow-2" />
+                <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6" />
             </div>
             <div>
                 <h4 class="mb-1">{{ slotProps.data.name }}</h4>
@@ -104,7 +104,7 @@ export default {
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
-                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6 shadow-2" />
+                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6" />
                     </div>
                     <div>
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>
@@ -190,7 +190,7 @@ export default {
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
                     <div class="mb-3">
-                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6 shadow-2" />
+                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6" />
                     </div>
                     <div>
                         <h4 class="mb-1">{{ slotProps.data.name }}</h4>

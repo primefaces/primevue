@@ -24,7 +24,7 @@
                 <div class="grid grid-nogutter">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
-                            <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
+                            <img class="w-9 sm:w-16rem xl:w-10rem block xl:block mx-auto border-round" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
                             <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                                 <div class="flex flex-column align-items-center sm:align-items-start gap-3">
                                     <div class="text-2xl font-bold text-900">{{ item.name }}</div>
@@ -59,7 +59,7 @@
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
                             </div>
                             <div class="flex flex-column align-items-center gap-3 py-5">
-                                <img class="w-9 shadow-2 border-round" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
+                                <img class="w-9 border-round" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
                                 <div class="text-2xl font-bold">{{ item.name }}</div>
                                 <Rating value="{product.rating}" readonly :cancel="false"></Rating>
                             </div>
@@ -109,7 +109,7 @@ export default {
         <div class="grid grid-nogutter">
             <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                 <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
-                    <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                    <img class="w-9 sm:w-16rem xl:w-10rem block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                     <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                         <div class="flex flex-column align-items-center sm:align-items-start gap-3">
                             <div class="text-2xl font-bold text-900">{{ item.name }}</div>
@@ -144,7 +144,7 @@ export default {
                         <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
                     </div>
                     <div class="flex flex-column align-items-center gap-3 py-5">
-                        <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <img class="w-9 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                         <div class="text-2xl font-bold">{{ item.name }}</div>
                         <Rating value="{product.rating}" readonly :cancel="false"></Rating>
                     </div>
@@ -184,7 +184,7 @@ export default {
                 <div class="grid grid-nogutter">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
-                            <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                            <img class="w-9 sm:w-16rem xl:w-10rem block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                             <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                                 <div class="flex flex-column align-items-center sm:align-items-start gap-3">
                                     <div class="text-2xl font-bold text-900">{{ item.name }}</div>
@@ -219,7 +219,7 @@ export default {
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
                             </div>
                             <div class="flex flex-column align-items-center gap-3 py-5">
-                                <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <img class="w-9 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <div class="text-2xl font-bold">{{ item.name }}</div>
                                 <Rating value="{product.rating}" readonly :cancel="false"></Rating>
                             </div>
@@ -294,7 +294,7 @@ export default {
                 <div class="grid grid-nogutter">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
-                            <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                            <img class="w-9 sm:w-16rem xl:w-10rem block xl:block mx-auto border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                             <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                                 <div class="flex flex-column align-items-center sm:align-items-start gap-3">
                                     <div class="text-2xl font-bold text-900">{{ item.name }}</div>
@@ -329,7 +329,7 @@ export default {
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
                             </div>
                             <div class="flex flex-column align-items-center gap-3 py-5">
-                                <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <img class="w-9 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <div class="text-2xl font-bold">{{ item.name }}</div>
                                 <Rating value="{product.rating}" readonly :cancel="false"></Rating>
                             </div>

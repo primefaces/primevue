@@ -6,7 +6,7 @@
     <div class="card flex flex-column align-items-center gap-3">
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>
@@ -46,7 +46,7 @@ export default {
 <Toast />
 <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-<div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+<div v-if="selectedProduct" class="p-5 surface-card border-round">
     <div class="relative">
         <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-4rem shadow-1" class="w-full sm:w-20rem" />
     </div>
@@ -79,7 +79,7 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>
@@ -141,7 +141,7 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>

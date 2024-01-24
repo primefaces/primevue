@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
+                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
@@ -38,7 +38,7 @@ export default {
                 basic: `
 <Toast position="top-center" group="headless" @close="visible = false">
     <template #container="{ message, closeCallback }">
-        <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
+        <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
             <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
             <div class="flex flex-column gap-3 w-full">
                 <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
@@ -62,7 +62,7 @@ export default {
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
+                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
@@ -129,7 +129,7 @@ export default {
     <div class="card flex justify-content-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90 shadow-2" style="border-radius: 10px">
+                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
                     <div class="flex flex-column gap-3 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>

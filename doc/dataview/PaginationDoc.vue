@@ -9,7 +9,7 @@
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
                             <div class="md:w-10rem relative">
-                                <img class="shadow-2 block xl:block mx-auto border-round w-full" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
+                                <img class="block xl:block mx-auto border-round w-full" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
                             </div>
                             <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
@@ -57,7 +57,7 @@ export default {
             <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                 <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
                     <div class="md:w-10rem relative">
-                        <img class="shadow-2 block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <img class="block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                         <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
                     </div>
                     <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
@@ -96,7 +96,7 @@ export default {
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
                             <div class="md:w-10rem relative">
-                                <img class="shadow-2 block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <img class="block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
                             </div>
                             <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
@@ -169,7 +169,7 @@ export default {
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
                         <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
                             <div class="md:w-10rem relative">
-                                <img class="shadow-2 block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <img class="block xl:block mx-auto border-round w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
                             </div>
                             <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
