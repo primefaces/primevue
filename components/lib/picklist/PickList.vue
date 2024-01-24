@@ -304,6 +304,7 @@ export default {
         onListFocus(event, listType) {
             this.focused[listType] = true;
             this.findCurrentFocusedIndex(listType);
+            this.scrollInView(this.focusedOptionIndex, listType);
             this.$emit('focus', event);
         },
         onListBlur(event, listType) {
@@ -314,7 +315,6 @@ export default {
         onOptionMouseDown(event, index, listType) {
             this.focused[listType] = true;
             this.focusedOptionIndex = index;
-            event.preventDefault();
         },
         onOptionMouseMove(index, listType) {
             if (this.focusOnHover && this.focused[listType]) {
@@ -752,13 +752,13 @@ export default {
             return DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
         },
         findCurrentFocusedIndex(listType) {
-            this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
+            if (this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
 
-            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
-                this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
+                if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                    this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
+                }
             }
-
-            this.scrollInView(this.focusedOptionIndex, listType);
         },
         findFirstFocusedOptionIndex(listType) {
             const firstFocusableItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]');

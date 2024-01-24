@@ -142,6 +142,7 @@ export default {
         onListFocus(event) {
             this.focused = true;
             this.findCurrentFocusedIndex();
+            this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onListBlur(event) {
@@ -189,9 +190,7 @@ export default {
             }
         },
         onOptionMouseDown(event, index) {
-            this.focused = true;
-            this.focusedOptionIndex = `${this.id}_${index}`;
-            event.preventDefault();
+            this.changeFocusedOptionIndex(index);
         },
         onOptionMouseMove(index) {
             if (this.focusOnHover && this.focused) {
@@ -282,13 +281,13 @@ export default {
             return DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
         },
         findCurrentFocusedIndex() {
-            this.focusedOptionIndex = this.findFirstSelectedOptionIndex();
+            if (this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstSelectedOptionIndex();
 
-            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
-                this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+                if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                    this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+                }
             }
-
-            this.scrollInView(this.focusedOptionIndex);
         },
         findFirstFocusedOptionIndex() {
             const firstFocusableItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
