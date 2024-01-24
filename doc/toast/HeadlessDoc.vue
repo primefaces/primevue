@@ -15,8 +15,8 @@
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
+                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
@@ -48,8 +48,8 @@ export default {
                     <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                 </div>
                 <div class="flex gap-3 mb-3">
-                    <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
-                    <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
+                    <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
+                    <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                 </div>
             </div>
         </section>
@@ -72,8 +72,8 @@ export default {
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
+                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
@@ -139,8 +139,8 @@ export default {
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
                         <div class="flex gap-3 mb-3">
-                            <Button label="Another Upload?" text class="p-0" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white p-0" @click="closeCallback"></Button>
+                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
+                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>
                     </div>
                 </section>
