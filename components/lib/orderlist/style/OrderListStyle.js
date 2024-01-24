@@ -50,12 +50,7 @@ const classes = {
         }
     ],
     controls: 'p-orderlist-controls',
-    container: ({ instance }) => [
-        'p-orderlist-list-container',
-        {
-            'p-focus': instance.focused
-        }
-    ],
+    container: 'p-orderlist-list-container',
     header: 'p-orderlist-header',
     list: 'p-orderlist-list',
     item: ({ instance, item, id }) => [
