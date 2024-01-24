@@ -23736,6 +23736,14 @@
                             "description": "Used to pass attributes to the item group's DOM element."
                         },
                         {
+                            "name": "itemGroupLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the item group label's DOM element."
+                        },
+                        {
                             "name": "item",
                             "optional": true,
                             "readonly": false,
@@ -24260,7 +24268,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Highlights automatically the first item."
+                            "description": "Whether the selected option will be add highlight class."
                         },
                         {
                             "name": "showTick",
