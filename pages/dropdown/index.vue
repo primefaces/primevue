@@ -24,6 +24,7 @@ import InvalidDoc from '@/doc/dropdown/InvalidDoc.vue';
 import LazyVirtualScrollDoc from '@/doc/dropdown/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/dropdown/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/dropdown/TemplateDoc.vue';
+import TickDoc from '@/doc/dropdown/TickDoc.vue';
 import VirtualScrollDoc from '@/doc/dropdown/VirtualScrollDoc.vue';
 import PTComponent from '@/doc/dropdown/pt/index.vue';
 import ThemingDoc from '@/doc/dropdown/theming/index.vue';
@@ -41,6 +42,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'tick',
+                    label: 'Tick',
+                    component: TickDoc
                 },
                 {
                     id: 'editable',
