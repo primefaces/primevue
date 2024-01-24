@@ -132,11 +132,11 @@ export default {
         },
         highlightOnSelect: {
             type: Boolean,
-            default: false
+            default: true
         },
         showTick: {
             type: Boolean,
-            default: true
+            default: false
         },
         filterMessage: {
             type: String,
