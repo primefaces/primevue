@@ -6543,17 +6543,12 @@
   .p-organizationchart .p-organizationchart-node-content .p-node-toggler {
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
     border: 1px solid #e2e8f0;
-    color: #64748b;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   }
   .p-organizationchart .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
     position: static;
-  }
-  .p-organizationchart .p-organizationchart-node-content .p-node-toggler:hover {
-    background-color: #f1f5f9;
-    color: #475569;
   }
   .p-organizationchart .p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-left) {
     border-right: 0 none;

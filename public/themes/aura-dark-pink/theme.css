@@ -6533,17 +6533,12 @@
   .p-organizationchart .p-organizationchart-node-content .p-node-toggler {
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
     border: 1px solid #3f3f46;
-    color: #a1a1aa;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   }
   .p-organizationchart .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
     position: static;
-  }
-  .p-organizationchart .p-organizationchart-node-content .p-node-toggler:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-    color: #ffffff;
   }
   .p-organizationchart .p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-left) {
     border-right: 0 none;
