@@ -11,7 +11,7 @@
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">
@@ -87,7 +87,7 @@ export default {
         @contextmenu="onRightClick($event, product.id)"
     >
         <div class="flex flex-wrap p-2 align-items-center gap-3">
-            <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'/images/product/' + product.image" :alt="product.name" />
+            <img class="w-4rem flex-shrink-0 border-round" :src="'/images/product/' + product.image" :alt="product.name" />
             <div class="flex-1 flex flex-column gap-1">
                 <span class="font-bold">{{ product.name }}</span>
                 <div class="flex align-items-center gap-2">
@@ -122,7 +122,7 @@ export default {
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">
@@ -212,7 +212,7 @@ export default {
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">

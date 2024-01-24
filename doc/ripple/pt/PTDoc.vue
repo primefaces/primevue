@@ -7,7 +7,7 @@
                     root: 'bg-yellow-400'
                 }
             }"
-            class="p-ripple bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-6 font-bold"
+            class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold"
         >
             Default
         </div>
@@ -27,7 +27,7 @@ export default {
             root: 'bg-yellow-400'
         }
     }"
-    class="p-ripple bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-6 font-bold"
+    class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold"
 >
     Default
 </div>
@@ -41,7 +41,7 @@ export default {
                     root: 'bg-yellow-400'
                 }
             }"
-            class="p-ripple bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-6 font-bold"
+            class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold"
         >
             Default
         </div>
@@ -60,7 +60,7 @@ export default {
                     root: 'bg-yellow-400'
                 }
             }"
-            class="p-ripple bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-6 font-bold"
+            class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold"
         >
             Default
         </div>

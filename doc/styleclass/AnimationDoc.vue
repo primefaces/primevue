@@ -11,7 +11,7 @@
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold shadow-2 w-8rem h-8rem">Content</div>
+            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -26,7 +26,7 @@ export default {
 <Button v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
 <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" severity="secondary" />
 <div class="hidden animation-duration-500 box">
-    <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold shadow-2 w-8rem h-8rem">Content</div>
+    <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
 </div>
 `,
                 options: `
@@ -37,7 +37,7 @@ export default {
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold shadow-2 w-8rem h-8rem">Content</div>
+            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
         </div>
     </div>
 </template>
@@ -97,7 +97,7 @@ export default {
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold shadow-2 w-8rem h-8rem">Content</div>
+            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
         </div>
     </div>
 </template>

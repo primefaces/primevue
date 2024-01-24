@@ -9,7 +9,7 @@
                     root: { style: 'background: rgba(75, 175, 80, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Green
         </div>
@@ -19,7 +19,7 @@
                     root: { style: 'background: rgba(255, 193, 6, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Orange
         </div>
@@ -29,7 +29,7 @@
                     root: { style: 'background: rgba(156, 39, 176, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Purple
         </div>
@@ -49,7 +49,7 @@ export default {
             root: { style: 'background: rgba(75, 175, 80, 0.3)' }
         }
     }"
-    class="p-ripple box shadow-2"
+    class="p-ripple box"
 >
     Green
 </div>
@@ -59,7 +59,7 @@ export default {
             root: { style: 'background: rgba(255, 193, 6, 0.3)' }
         }
     }"
-    class="p-ripple box shadow-2"
+    class="p-ripple box"
 >
     Orange
 </div>
@@ -69,7 +69,7 @@ export default {
             root: { style: 'background: rgba(156, 39, 176, 0.3)' }
         }
     }"
-    class="p-ripple box shadow-2"
+    class="p-ripple box"
 >
     Purple
 </div>
@@ -83,7 +83,7 @@ export default {
                     root: { style: 'background: rgba(75, 175, 80, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Green
         </div>
@@ -93,7 +93,7 @@ export default {
                     root: { style: 'background: rgba(255, 193, 6, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Orange
         </div>
@@ -103,7 +103,7 @@ export default {
                     root: { style: 'background: rgba(156, 39, 176, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Purple
         </div>
@@ -129,7 +129,7 @@ export default {
                     root: { style: 'background: rgba(75, 175, 80, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Green
         </div>
@@ -139,7 +139,7 @@ export default {
                     root: { style: 'background: rgba(255, 193, 6, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Orange
         </div>
@@ -149,7 +149,7 @@ export default {
                     root: { style: 'background: rgba(156, 39, 176, 0.3)' }
                 }
             }"
-            class="p-ripple box shadow-2"
+            class="p-ripple box"
         >
             Purple
         </div>

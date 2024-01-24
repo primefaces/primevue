@@ -57,7 +57,7 @@ describe('customized timeline', () => {
                 `,
                 marker: `
                     <template #marker="slotProps">
-                        <span class="custom-marker shadow-2" :style="{backgroundColor: slotProps.item.color}">
+                        <span class="custom-marker" :style="{backgroundColor: slotProps.item.color}">
                             <i :class="slotProps.item.icon"></i>
                         </span>
                     </template>

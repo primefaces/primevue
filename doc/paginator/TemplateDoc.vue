@@ -20,7 +20,7 @@
         <Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
 
         <div class="p-3 text-center">
-            <img :src="`https://primefaces.org/cdn/primevue/images/nature/nature${first + 1}.jpg`" :alt="first" class="shadow-2 border-round w-full sm:w-30rem" />
+            <img :src="`https://primefaces.org/cdn/primevue/images/nature/nature${first + 1}.jpg`" :alt="first" class="border-round w-full sm:w-30rem" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -36,7 +36,7 @@ export default {
 <Paginator v-model:first="first" :rows="1" :totalRecords="1" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
 
 <div class="p-3 text-center">
-    <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="shadow-2 border-round w-full sm:w-30rem" />
+    <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="border-round w-full sm:w-30rem" />
 </div>
 `,
                 options: `
@@ -45,7 +45,7 @@ export default {
         <Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
 
         <div class="p-3 text-center">
-            <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="shadow-2 border-round w-full sm:w-30rem" />
+            <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="border-round w-full sm:w-30rem" />
         </div>
     </div>
 </template>
@@ -66,7 +66,7 @@ export default {
         <Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
 
         <div class="p-3 text-center">
-            <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="shadow-2 border-round w-full sm:w-30rem" />
+            <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="border-round w-full sm:w-30rem" />
         </div>
     </div>
 </template>

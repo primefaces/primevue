@@ -9,7 +9,7 @@
                 <div class="border-1 surface-border border-round m-2 p-3">
                     <div class="mb-3">
                         <div class="relative mx-auto">
-                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full shadow-2 border-round" />
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round" />
                             <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left: 5px; top: 5px" />
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default {
         <div class="border-1 surface-border border-round m-2  p-3">
             <div class="mb-3">
                 <div class="relative mx-auto">
-                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full shadow-2 border-round" />
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round" />
                     <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export default {
                 <div class="border-1 surface-border border-round m-2  p-3">
                     <div class="mb-3">
                         <div class="relative mx-auto">
-                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full shadow-2 border-round" />
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round" />
                             <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ export default {
                 <div class="border-1 surface-border border-round m-2  p-3">
                     <div class="mb-3">
                         <div class="relative mx-auto">
-                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full shadow-2 border-round" />
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round" />
                             <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
                         </div>
                     </div>
