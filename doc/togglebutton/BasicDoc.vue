@@ -3,7 +3,7 @@
         <p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-8rem" />
+        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             checked: false,
             code: {
                 basic: `
-<ToggleButton v-model="checked" />
+<ToggleButton v-model="checked" onLabel="On" offLabel="Off" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-8rem" />
+        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-8rem" />
+        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
     </div>
 </template>
 
