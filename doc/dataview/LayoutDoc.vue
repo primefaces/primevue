@@ -53,7 +53,7 @@
                         <div class="p-4 border-1 surface-border surface-card border-round flex flex-column">
                             <div class="surface-50 flex justify-content-center border-round p-3">
                                 <div class="relative mx-auto">
-                                    <img class="shadow-2 border-round w-full" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" style="max-width: 300px"/>
+                                    <img class="shadow-2 border-round w-full" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" style="max-width: 300px" />
                                     <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
                                 </div>
                             </div>
