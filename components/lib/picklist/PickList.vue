@@ -70,7 +70,7 @@
                         @click="onItemClick($event, item, i, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
-                        @mousedown="onOptionMouseDown(i, 'sourceList')"
+                        @mousedown="onOptionMouseDown($event, i, 'sourceList')"
                         @mousemove="onOptionMouseMove(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
@@ -162,7 +162,7 @@
                         @click="onItemClick($event, item, i, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
-                        @mousedown="onOptionMouseDown(i, 'targetList')"
+                        @mousedown="onOptionMouseDown($event, i, 'targetList')"
                         @mousemove="onOptionMouseMove(i, 'targetList')"
                         @touchend="onItemTouchEnd"
                         role="option"
@@ -311,9 +311,10 @@ export default {
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
         },
-        onOptionMouseDown(index, listType) {
+        onOptionMouseDown(event, index, listType) {
             this.focused[listType] = true;
             this.focusedOptionIndex = index;
+            event.preventDefault();
         },
         onOptionMouseMove(index, listType) {
             if (this.focusOnHover && this.focused[listType]) {
@@ -582,7 +583,7 @@ export default {
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
             const selectedId = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
 
-            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
+            this.focusedOptionIndex = selectedId;
             let _selection;
 
             if (metaSelection) {

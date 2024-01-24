@@ -62,7 +62,7 @@
                         :class="cx('item', { item, id: `${id}_${i}` })"
                         @click="onItemClick($event, item, i)"
                         @touchend="onItemTouchEnd"
-                        @mousedown="onOptionMouseDown(i)"
+                        @mousedown="onOptionMouseDown($event, i)"
                         @mousemove="onOptionMouseMove(i)"
                         :aria-selected="isSelected(item)"
                         v-bind="getPTOptions(item, 'item', i)"
@@ -188,9 +188,10 @@ export default {
                     break;
             }
         },
-        onOptionMouseDown(index) {
+        onOptionMouseDown(event, index) {
             this.focused = true;
-            this.focusedOptionIndex = index;
+            this.focusedOptionIndex = `${this.id}_${index}`;
+            event.preventDefault();
         },
         onOptionMouseMove(index) {
             if (this.focusOnHover && this.focused) {
@@ -455,10 +456,9 @@ export default {
             const selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
-
             const selectedId = this.findAllItems()[index].getAttribute('id');
 
-            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
+            this.focusedOptionIndex = selectedId;
 
             if (metaSelection) {
                 const metaKey = event.metaKey || event.ctrlKey;
