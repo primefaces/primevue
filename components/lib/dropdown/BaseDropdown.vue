@@ -130,6 +130,14 @@ export default {
             type: Boolean,
             default: true
         },
+        highlightOnSelect: {
+            type: Boolean,
+            default: false
+        },
+        showTick: {
+            type: Boolean,
+            default: true
+        },
         filterMessage: {
             type: String,
             default: null

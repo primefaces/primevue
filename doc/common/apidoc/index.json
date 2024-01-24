@@ -23744,6 +23744,30 @@
                             "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
+                            "name": "itemLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the item label's DOM element."
+                        },
+                        {
+                            "name": "tickIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the tick icon's DOM element."
+                        },
+                        {
+                            "name": "blankIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the bank icon's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -24229,6 +24253,22 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Highlights automatically the first item."
+                        },
+                        {
+                            "name": "showTick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether the selected option will be shown with a tick."
                         },
                         {
                             "name": "filterMessage",
@@ -28064,6 +28104,7 @@
     "icons/arrowup": {},
     "icons/ban": {},
     "icons/bars": {},
+    "icons/blank": {},
     "icons/calendar": {},
     "icons/check": {},
     "icons/chevrondown": {},
@@ -35517,7 +35558,7 @@
                             "name": "value",
                             "optional": false,
                             "readonly": false,
-                            "type": "MeterItemOptions",
+                            "type": "MeterItem",
                             "default": "",
                             "description": "Current value of the meter item"
                         },
@@ -35532,7 +35573,7 @@
                     ],
                     "methods": []
                 },
-                "MeterItemOptions": {
+                "MeterItem": {
                     "description": "Defines valid properties of a meter item.",
                     "relatedProp": "",
                     "props": [
@@ -35585,7 +35626,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "MeterItemOptions[]",
+                            "type": "MeterItem[]",
                             "default": "",
                             "description": "Current value of the metergroup."
                         },
@@ -35667,7 +35708,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItemOptions</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -35679,7 +35720,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItemOptions</span>, <span class=\"doc-option-parameter-type\">// Current value of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Current index of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">orientation</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current orientation of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">size</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current width of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Current index of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">orientation</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current orientation of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">size</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current width of the meter item</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -35691,7 +35732,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItemOptions</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -35703,7 +35744,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItemOptions</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -35715,7 +35756,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItemOptions</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">MeterItem</span>, <span class=\"doc-option-parameter-type\">// Current value of the component</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">totalPercent</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Total percent of the metergroup items</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">percentages</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Array of sequential sum of values of metergroup items</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",

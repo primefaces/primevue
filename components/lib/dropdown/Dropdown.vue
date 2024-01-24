@@ -127,7 +127,13 @@
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
-                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
+                                            <template v-if="showTick">
+                                                <CheckIcon v-if="isSelected(option)" :class="cx('tickIcon')" v-bind="ptm('tickIcon')" />
+                                                <BlankIcon v-else :class="cx('blankIcon')" v-bind="ptm('blankIcon')" />
+                                            </template>
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                                <span v-bind="ptm('itemLabel')">{{ getOptionLabel(option) }}</span>
+                                            </slot>
                                         </li>
                                     </template>
                                     <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
@@ -169,6 +175,8 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import BlankIcon from 'primevue/icons/blank';
+import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import FilterIcon from 'primevue/icons/filter';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -962,12 +970,14 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        TimesIcon: TimesIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        FilterIcon: FilterIcon
+        VirtualScroller,
+        Portal,
+        TimesIcon,
+        ChevronDownIcon,
+        SpinnerIcon,
+        FilterIcon,
+        CheckIcon,
+        BlankIcon
     }
 };
 </script>

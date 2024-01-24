@@ -1,0 +1,9 @@
+{
+    "main": "./index.cjs.js",
+    "module": "./index.esm.js",
+    "unpkg": "./index.min.js",
+    "types": "./index.d.ts",
+    "browser": {
+        "./sfc": "./index.vue"
+    }
+}

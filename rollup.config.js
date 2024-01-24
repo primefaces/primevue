@@ -26,6 +26,7 @@ const CORE_ICON_DEPENDENCIES = {
     'primevue/icons/arrowup': 'primevue.icons.arrowup',
     'primevue/icons/ban': 'primevue.icons.ban',
     'primevue/icons/bars': 'primevue.icons.bars',
+    'primevue/icons/blank': 'primevue.icons.blank',
     'primevue/icons/calendar': 'primevue.icons.calendar',
     'primevue/icons/check': 'primevue.icons.check',
     'primevue/icons/chevrondown': 'primevue.icons.chevrondown',

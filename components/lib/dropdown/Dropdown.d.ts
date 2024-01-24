@@ -144,6 +144,18 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     item?: DropdownPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the item label's DOM element.
+     */
+    itemLabel?: DropdownPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the tick icon's DOM element.
+     */
+    tickIcon?: DropdownPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the bank icon's DOM element.
+     */
+    blankIcon?: DropdownPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DropdownPassThroughOptionType<T>;
@@ -418,6 +430,16 @@ export interface DropdownProps {
      * @defaultValue true
      */
     focusOnHover?: boolean | undefined;
+    /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
+     *  Whether the selected option will be shown with a tick.
+     *  @defaultValue true
+     */
+    showTick?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'
