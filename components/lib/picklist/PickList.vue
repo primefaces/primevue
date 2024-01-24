@@ -71,6 +71,7 @@
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
                         @mousedown="onOptionMouseDown(i, 'sourceList')"
+                        @mousemove="onOptionMouseMove(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
                         v-bind="getPTOptions(item, 'item', `${idSource}_${i}`, 0)"
@@ -162,6 +163,7 @@
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
                         @mousedown="onOptionMouseDown(i, 'targetList')"
+                        @mousemove="onOptionMouseMove(i, 'targetList')"
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
@@ -312,6 +314,11 @@ export default {
         onOptionMouseDown(index, listType) {
             this.focused[listType] = true;
             this.focusedOptionIndex = index;
+        },
+        onOptionMouseMove(index, listType) {
+            if (this.focusOnHover && this.focused[listType]) {
+                this.changeFocusedOptionIndex(index, listType);
+            }
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {
@@ -902,7 +909,7 @@ export default {
             return ObjectUtils.isEmpty(this[list]);
         },
         hasSelectedOption(listType) {
-            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[0]);
+            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[1]);
         }
     },
     computed: {

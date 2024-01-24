@@ -62,8 +62,9 @@
                         :class="cx('item', { item, id: `${id}_${i}` })"
                         @click="onItemClick($event, item, i)"
                         @touchend="onItemTouchEnd"
-                        :aria-selected="isSelected(item)"
                         @mousedown="onOptionMouseDown(i)"
+                        @mousemove="onOptionMouseMove(i)"
+                        :aria-selected="isSelected(item)"
                         v-bind="getPTOptions(item, 'item', i)"
                         :data-p-highlight="isSelected(item)"
                         :data-p-focused="`${id}_${i}` === focusedOptionId"
@@ -190,6 +191,11 @@ export default {
         onOptionMouseDown(index) {
             this.focused = true;
             this.focusedOptionIndex = index;
+        },
+        onOptionMouseMove(index) {
+            if (this.focusOnHover && this.focused) {
+                this.changeFocusedOptionIndex(index);
+            }
         },
         onArrowDownKey(event) {
             const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex() : this.findFirstSelectedOptionIndex();
