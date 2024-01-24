@@ -146,7 +146,7 @@ const classes = {
         }
     ],
     itemLabel: 'p-dropdown-item-label',
-    tickIcon: 'p-dropdown-tick-icon',
+    checkIcon: 'p-dropdown-check-icon',
     blankIcon: 'p-dropdown-blank-icon',
     emptyMessage: 'p-dropdown-empty-message'
 };

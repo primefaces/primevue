@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/dropdown/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/dropdown/BasicDoc.vue';
+import CheckmarkDoc from '@/doc/dropdown/CheckmarkDoc.vue';
 import ClearIconDoc from '@/doc/dropdown/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/dropdown/DisabledDoc.vue';
 import EditableDoc from '@/doc/dropdown/EditableDoc.vue';
@@ -24,7 +25,6 @@ import InvalidDoc from '@/doc/dropdown/InvalidDoc.vue';
 import LazyVirtualScrollDoc from '@/doc/dropdown/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/dropdown/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/dropdown/TemplateDoc.vue';
-import TickDoc from '@/doc/dropdown/TickDoc.vue';
 import VirtualScrollDoc from '@/doc/dropdown/VirtualScrollDoc.vue';
 import PTComponent from '@/doc/dropdown/pt/index.vue';
 import ThemingDoc from '@/doc/dropdown/theming/index.vue';
@@ -44,9 +44,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'tick',
-                    label: 'Tick',
-                    component: TickDoc
+                    id: 'checkmark',
+                    label: 'Checkmark',
+                    component: CheckmarkDoc
                 },
                 {
                     id: 'editable',

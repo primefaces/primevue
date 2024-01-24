@@ -152,9 +152,9 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     itemLabel?: DropdownPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the tick icon's DOM element.
+     * Used to pass attributes to the check icon's DOM element.
      */
-    tickIcon?: DropdownPassThroughOptionType<T>;
+    checkIcon?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the bank icon's DOM element.
      */
@@ -440,10 +440,10 @@ export interface DropdownProps {
      */
     highlightOnSelect?: boolean | undefined;
     /**
-     *  Whether the selected option will be shown with a tick.
+     *  Whether the selected option will be shown with a check mark.
      *  @defaultValue false
      */
-    showTick?: boolean | undefined;
+    checkmark?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'

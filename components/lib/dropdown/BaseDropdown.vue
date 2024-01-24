@@ -134,7 +134,7 @@ export default {
             type: Boolean,
             default: true
         },
-        showTick: {
+        checkmark: {
             type: Boolean,
             default: false
         },
