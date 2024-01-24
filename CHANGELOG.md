@@ -1,5 +1,58 @@
 # Changelog
 
+## [3.47.0](https://github.com/primefaces/primevue/tree/3.47.0) (2024-01-24)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.46.0...3.47.0)
+
+**Breaking Changes:**
+
+-   Change visual focus behavior for UI/UX enhancement on some components [\#5106](https://github.com/primefaces/primevue/issues/5106)
+-   Highlight state changes on Checkbox selection mode [\#5105](https://github.com/primefaces/primevue/issues/5105)
+-   autoOptionFocus property added to Input-like components [\#5099](https://github.com/primefaces/primevue/issues/5099)
+-   Improve the structure of some components to comply with standards [\#5071](https://github.com/primefaces/primevue/issues/5071)
+-   autoOptionFocus default type is changed as false [\#5096](https://github.com/primefaces/primevue/issues/5096)
+
+**Fixed bugs:**
+
+-   Search with null/undefined values breaks rendering [\#5140](https://github.com/primefaces/primevue/issues/5140)
+-   The hideIcon property is not working on SpeedDial [\#5135](https://github.com/primefaces/primevue/issues/5135)
+-   Textarea: modelValue should accept Nullable<string> as InputText does [\#5127](https://github.com/primefaces/primevue/issues/5127)
+-   Chips: Separator by new line doesn't work by pasting value [\#5103](https://github.com/primefaces/primevue/issues/5103)
+-   DataTable: Cannot read properties of null when editMode="cell" and selectionMode="single" [\#5100](https://github.com/primefaces/primevue/issues/5100)
+-   Unit tests in the master branch are failing [\#5095](https://github.com/primefaces/primevue/issues/5095)
+-   InputNumber: Home and End key defects [\#5094](https://github.com/primefaces/primevue/issues/5094)
+-   Float label demo is broken in mobile mode [\#5089](https://github.com/primefaces/primevue/issues/5089)
+-   [TabMenu] Router demo has the wrong code [\#5082](https://github.com/primefaces/primevue/issues/5082)
+-   Calendar: Incorrect interface "CalendarContext" for Calendar component [\#5077](https://github.com/primefaces/primevue/issues/5077)
+-   Tag: center icon when no label is present (icon-only mode) [\#5067](https://github.com/primefaces/primevue/issues/5067)
+-   DataTable: Uncaught TypeError: Cannot read properties of null (reading 'sortable') at Proxy.getColumnPT8 [\#5062](https://github.com/primefaces/primevue/issues/5062)
+-   Calendar: When use with Datatable filter, the calendar would show at the bottom of the page. [\#5055](https://github.com/primefaces/primevue/issues/5055)
+-   DataTable: persistent expandedRows with dataKey doesn't working properly [\#5057](https://github.com/primefaces/primevue/issues/5057)
+-   DataTable: Column with no props throws exception [\#5056](https://github.com/primefaces/primevue/issues/5056)
+-   DataTable: Empty column causes maximum recursive calls to be reached [\#5053](https://github.com/primefaces/primevue/issues/5053)
+-   ContextMenu: Cache duplication "focusedItemId" [\#5054](https://github.com/primefaces/primevue/issues/5054)
+-   Calendar: panel does not hide when pressing enter [\#5050](https://github.com/primefaces/primevue/issues/5050)
+-   Dialog: maximizable broken if dialog moved [\#5048](https://github.com/primefaces/primevue/issues/5048)
+-   DataTable: Hydration attribute mismatch with sortable columns [\#5046](https://github.com/primefaces/primevue/issues/5046)
+-   Can't paste a decimal value when there is a total value in the input. [\#5034](https://github.com/primefaces/primevue/issues/5034)
+-   Tooltip: Malfunction inside Links [\#5030](https://github.com/primefaces/primevue/issues/5030)
+-   SplitButton inherits CSS properties from DynamicDialog "footer" and disrupts the original design [\#5012](https://github.com/primefaces/primevue/issues/5012)
+-   Tooltip: missing nonce for inline styles [\#5010](https://github.com/primefaces/primevue/issues/5010)
+-   InputNumber: insert behavior defects [\#4539](https://github.com/primefaces/primevue/issues/4539)
+
+**Implemented New Features and Enhancements:**
+
+-   Add itemGroupLabel, itemLabel, tickIcon and blankIcon options to pt in Dropdown [\#5142](https://github.com/primefaces/primevue/issues/5142)
+-   Add highlightOnSelect and checkmark props to Dropdown [\#5141](https://github.com/primefaces/primevue/issues/5141)
+-   Icon: BlankIcon [\#5139](https://github.com/primefaces/primevue/issues/5139)
+-   Add focusOnHover props to some components [\#5130](https://github.com/primefaces/primevue/issues/5130)
+-   DataTable: body template rowTogglerCallback callback option added [\#5123](https://github.com/primefaces/primevue/issues/5123)
+-   Dialog: no transition on open/close when dialog is maximized [\#5118](https://github.com/primefaces/primevue/issues/5118)
+-   Expose alignOverlay method in OverlayPanel [\#5075](https://github.com/primefaces/primevue/issues/5075)
+-   Message: 'life-end' emit [\#5070](https://github.com/primefaces/primevue/issues/5070)
+-   New MeterGroup component [\#5066](https://github.com/primefaces/primevue/issues/5066)
+-   Dropdown: After selecting an option, clearing the value using close icon should clear the filter input [\#5060](https://github.com/primefaces/primevue/issues/5060)
+
 ## [3.46.0](https://github.com/primefaces/primevue/tree/3.46.0) (2024-01-08)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.45.0...3.46.0)
