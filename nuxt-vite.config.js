@@ -121,6 +121,7 @@ const ICON_ALIAS = {
     'primevue/icons/arrowup': path.resolve(__dirname, './components/lib/icons/arrowup/index.vue'),
     'primevue/icons/ban': path.resolve(__dirname, './components/lib/icons/ban/index.vue'),
     'primevue/icons/bars': path.resolve(__dirname, './components/lib/icons/bars/index.vue'),
+    'primevue/icons/blank': path.resolve(__dirname, './components/lib/icons/blank/index.vue'),
     'primevue/icons/calendar': path.resolve(__dirname, './components/lib/icons/calendar/index.vue'),
     'primevue/icons/check': path.resolve(__dirname, './components/lib/icons/check/index.vue'),
     'primevue/icons/chevrondown': path.resolve(__dirname, './components/lib/icons/chevrondown/index.vue'),
