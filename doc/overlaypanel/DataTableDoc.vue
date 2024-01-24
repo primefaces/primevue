@@ -17,7 +17,7 @@
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
@@ -57,7 +57,7 @@ export default {
     <span class="text-600">{{ selectedProduct.category }}</span>
 </div>
 
-<OverlayPanel ref="op" appendTo="body" showCloseIcon>
+<OverlayPanel ref="op" appendTo="body">
     <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
         <Column field="name" header="Name" sortable style="width: 50%"></Column>
         <Column header="Image" style="width: 20%">
@@ -90,7 +90,7 @@ export default {
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
@@ -152,7 +152,7 @@ export default {
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
