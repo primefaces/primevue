@@ -428,15 +428,7 @@
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover {
-    color: rgba(255, 255, 255, 0.87);
     background: rgba(255, 255, 255, 0.04);
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {
     margin: 0;
@@ -751,15 +743,7 @@
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: rgba(255, 255, 255, 0.87);
     background: rgba(255, 255, 255, 0.04);
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
     padding: 0.5rem 1.5rem;
@@ -1482,15 +1466,7 @@
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: rgba(255, 255, 255, 0.87);
     background: rgba(255, 255, 255, 0.04);
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: rgba(255, 255, 255, 0.87);
-    background: rgba(255, 255, 255, 0.12);
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
     margin-right: 0.5rem;
