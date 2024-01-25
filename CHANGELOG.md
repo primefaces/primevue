@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.47.2](https://github.com/primefaces/primevue/tree/3.47.1) (2024-01-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.47.1...3.47.2)
+
+**Fixed bugs:**
+
+-   OverlayPanel: RangeError: Maximum call stack size exceeded inside link [\#5146](https://github.com/primefaces/primevue/issues/5146)
+-   Align hover colors for MultipleSelect, AutoComplete and CascadeSelect [\#5150](https://github.com/primefaces/primevue/issues/5150)
+
 ## [3.47.1](https://github.com/primefaces/primevue/tree/3.47.1) (2024-01-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.47.0...3.47.1)
