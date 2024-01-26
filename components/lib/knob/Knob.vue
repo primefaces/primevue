@@ -127,7 +127,7 @@ export default {
 
                     case 'ArrowUp': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue + 1);
+                        this.updateModelValue(this.modelValue + this.step);
                         break;
                     }
 
@@ -135,7 +135,7 @@ export default {
 
                     case 'ArrowDown': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue - 1);
+                        this.updateModelValue(this.modelValue - this.step);
                         break;
                     }
 
