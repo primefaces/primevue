@@ -336,12 +336,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener);
                 this.outsideClickListener = null;
             }
         },

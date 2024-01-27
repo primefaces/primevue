@@ -420,12 +420,12 @@ export default {
                     this.isItemClicked = false;
                 };
 
-                document.addEventListener('click', this.documentClickListener);
+                document.addEventListener('mousedown', this.documentClickListener);
             }
         },
         unbindDocumentClickListener() {
             if (this.documentClickListener) {
-                document.removeEventListener('click', this.documentClickListener);
+                document.removeEventListener('mousedown', this.documentClickListener);
                 this.documentClickListener = null;
             }
         },
