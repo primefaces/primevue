@@ -321,6 +321,10 @@ export default {
             if (focusableElements && focusableElements.length > 0) {
                 focusableElements[0].focus();
             }
+
+            if (this.filter) {
+                this.$refs.tree.focusFilter();
+            }
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
