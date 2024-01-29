@@ -82,6 +82,9 @@ export default {
                 defaultHook?.();
             }
         },
+        _mergeProps(fn, ...args) {
+            return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
+        },
         _loadGlobalStyles() {
             /*
              * @todo Add self custom css support;
@@ -124,7 +127,7 @@ export default {
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
             };
 
-            return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+            return mergeSections || (!mergeSections && self) ? (useMergeProps ? this._mergeProps(useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
         },
         _getPTClassValue(...args) {
             const value = this._getOptionValue(...args);
@@ -160,7 +163,7 @@ export default {
                 else if (ObjectUtils.isString(value)) return value;
                 else if (ObjectUtils.isString(originalValue)) return originalValue;
 
-                return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+                return mergeSections || (!mergeSections && value) ? (useMergeProps ? this._mergeProps(useMergeProps, originalValue, value) : { ...originalValue, ...value }) : value;
             }
 
             return fn(pt);
