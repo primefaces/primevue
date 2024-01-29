@@ -23760,12 +23760,12 @@
                             "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
-                            "name": "tickIcon",
+                            "name": "checkIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the tick icon's DOM element."
+                            "description": "Used to pass attributes to the check icon's DOM element."
                         },
                         {
                             "name": "blankIcon",
@@ -24271,12 +24271,12 @@
                             "description": "Whether the selected option will be add highlight class."
                         },
                         {
-                            "name": "showTick",
+                            "name": "checkmark",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the selected option will be shown with a tick."
+                            "description": "Whether the selected option will be shown with a check mark."
                         },
                         {
                             "name": "filterMessage",
@@ -40820,11 +40820,19 @@
                             "name": "mergeProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "boolean",
+                            "type": "PassThroughMergePropsType",
                             "default": ""
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PassThroughMergePropsType": {
+                    "values": "(args: any) => undefined | boolean | undefined"
                 }
             }
         }
