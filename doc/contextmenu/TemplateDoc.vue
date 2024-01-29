@@ -11,7 +11,7 @@
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">
@@ -30,7 +30,7 @@
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
                     <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
-                    <i v-if="item.items" class="pi pi-angle-right ml-auto text-primary"></i>
+                    <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
                 </a>
             </template>
         </ContextMenu>
@@ -87,7 +87,7 @@ export default {
         @contextmenu="onRightClick($event, product.id)"
     >
         <div class="flex flex-wrap p-2 align-items-center gap-3">
-            <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'/images/product/' + product.image" :alt="product.name" />
+            <img class="w-4rem flex-shrink-0 border-round" :src="'/images/product/' + product.image" :alt="product.name" />
             <div class="flex-1 flex flex-column gap-1">
                 <span class="font-bold">{{ product.name }}</span>
                 <div class="flex align-items-center gap-2">
@@ -106,7 +106,7 @@ export default {
             <span class="ml-2">{{ item.label }}</span>
             <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
             <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
-            <i v-if="item.items" class="pi pi-angle-right ml-auto text-primary"></i>
+            <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
         </a>
     </template>
 </ContextMenu>
@@ -122,7 +122,7 @@ export default {
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">
@@ -141,7 +141,7 @@ export default {
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
                     <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
-                    <i v-if="item.items" class="pi pi-angle-right ml-auto text-primary"></i>
+                    <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
                 </a>
             </template>
         </ContextMenu>
@@ -212,7 +212,7 @@ export default {
                 @contextmenu="onRightClick($event, product.id)"
             >
                 <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem shadow-2 flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
                     <div class="flex-1 flex flex-column gap-1">
                         <span class="font-bold">{{ product.name }}</span>
                         <div class="flex align-items-center gap-2">
@@ -231,7 +231,7 @@ export default {
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
                     <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
-                    <i v-if="item.items" class="pi pi-angle-right ml-auto text-primary"></i>
+                    <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
                 </a>
             </template>
         </ContextMenu>

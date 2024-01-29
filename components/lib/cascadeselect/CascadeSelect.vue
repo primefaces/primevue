@@ -115,10 +115,8 @@ export default {
             this.autoUpdateModel();
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -545,7 +543,7 @@ export default {
             }
         },
         isOptionMatched(processedOption) {
-            return this.isValidOption(processedOption) && this.getProccessedOptionLabel(processedOption).toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
+            return this.isValidOption(processedOption) && this.getProccessedOptionLabel(processedOption)?.toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
         },
         isValidOption(processedOption) {
             return ObjectUtils.isNotEmpty(processedOption) && !this.isOptionDisabled(processedOption.option);

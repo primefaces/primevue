@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <Textarea v-model="value" rows="5" cols="30" />
+            <Textarea v-model="value" rows="5" cols="30" style="resize: none" />
             <label>Username</label>
         </span>
     </div>

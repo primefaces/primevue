@@ -9,6 +9,7 @@
             v-model:visible="visible"
             modal
             :pt="{
+                root: 'border-none',
                 mask: {
                     style: 'backdrop-filter: blur(2px)'
                 }
@@ -58,6 +59,7 @@ export default {
     v-model:visible="visible"
     modal
     :pt="{
+        root: 'border-none',
         mask: {
             style: 'backdrop-filter: blur(2px)'
         }
@@ -94,6 +96,7 @@ export default {
             v-model:visible="visible"
             modal
             :pt="{
+                root: 'border-none',
                 mask: {
                     style: 'backdrop-filter: blur(2px)'
                 }
@@ -148,6 +151,7 @@ export default {
             v-model:visible="visible"
             modal
             :pt="{
+                root: 'border-none',
                 mask: {
                     style: 'backdrop-filter: blur(2px)'
                 }

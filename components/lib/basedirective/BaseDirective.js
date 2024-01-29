@@ -31,7 +31,7 @@ const BaseDirective = {
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
         };
 
-        return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+        return mergeSections || (!mergeSections && self) ? (useMergeProps ? BaseDirective._mergeProps(instance, useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
     },
     _getPT: (pt, key = '', callback) => {
         const getValue = (value) => {
@@ -61,7 +61,7 @@ const BaseDirective = {
             else if (ObjectUtils.isString(value)) return value;
             else if (ObjectUtils.isString(originalValue)) return originalValue;
 
-            return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+            return mergeSections || (!mergeSections && value) ? (useMergeProps ? BaseDirective._mergeProps(instance, useMergeProps, originalValue, value) : { ...originalValue, ...value }) : value;
         }
 
         return fn(pt);
@@ -79,6 +79,9 @@ const BaseDirective = {
 
         selfHook?.(instance, options);
         defaultHook?.(instance, options);
+    },
+    _mergeProps(instance = {}, fn, ...args) {
+        return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
@@ -128,6 +131,10 @@ const BaseDirective = {
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
+                const config = BaseDirective._getConfig(binding, vnode);
+
+                BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
+                !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {

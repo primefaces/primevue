@@ -140,9 +140,25 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     itemGroup?: DropdownPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the item group label's DOM element.
+     */
+    itemGroupLabel?: DropdownPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the item's DOM element.
      */
     item?: DropdownPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the item label's DOM element.
+     */
+    itemLabel?: DropdownPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the check icon's DOM element.
+     */
+    checkIcon?: DropdownPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the bank icon's DOM element.
+     */
+    blankIcon?: DropdownPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
@@ -418,6 +434,16 @@ export interface DropdownProps {
      * @defaultValue true
      */
     focusOnHover?: boolean | undefined;
+    /**
+     *  Whether the selected option will be add highlight class.
+     *  @defaultValue true
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
+     *  Whether the selected option will be shown with a check mark.
+     *  @defaultValue false
+     */
+    checkmark?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'

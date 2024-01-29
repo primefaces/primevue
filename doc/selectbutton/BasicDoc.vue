@@ -15,8 +15,8 @@
 export default {
     data() {
         return {
-            value: 'Off',
-            options: ['Off', 'On'],
+            value: 'One-Way',
+            options: ['One-Way', 'Return'],
             code: {
                 basic: `
 <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
@@ -32,8 +32,8 @@ export default {
 export default {
     data() {
         return {
-            value: 'Off',
-            options: ['Off', 'On']
+            value: 'One-Way',
+            options: ['One-Way', 'Return']
         }
     }
 };
@@ -49,8 +49,8 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('Off');
-const options = ref(['Off', 'On']);
+const value = ref('One-Way');
+const options = ref(['One-Way', 'Return']);
 <\/script>
 `
             }

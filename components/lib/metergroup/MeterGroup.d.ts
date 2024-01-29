@@ -93,7 +93,7 @@ export interface MeterGroupContext {
     /**
      * Current value of the meter item
      */
-    value: MeterItemOptions;
+    value: MeterItem;
     /**
      * Current index of the meter item
      */
@@ -103,7 +103,7 @@ export interface MeterGroupContext {
 /**
  * Defines valid properties of a meter item.
  */
-export interface MeterItemOptions {
+export interface MeterItem {
     /**
      * Current label of the meter item.
      */
@@ -133,7 +133,7 @@ export interface MeterGroupProps {
     /**
      * Current value of the metergroup.
      */
-    value?: MeterItemOptions[] | undefined;
+    value?: MeterItem[] | undefined;
     /**
      * Mininum boundary value.
      * @defaultValue 0
@@ -187,7 +187,7 @@ export interface MeterGroupSlots {
         /**
          * Current value of the component
          */
-        value: MeterItemOptions[];
+        value: MeterItem[];
         /**
          * Total percent of the metergroup items
          */
@@ -204,7 +204,7 @@ export interface MeterGroupSlots {
         /**
          * Current value of the meter item
          */
-        value: MeterItemOptions;
+        value: MeterItem;
         /**
          * Current index of the meter item
          */
@@ -233,7 +233,7 @@ export interface MeterGroupSlots {
         /**
          * Current value of the component
          */
-        value: MeterItemOptions;
+        value: MeterItem;
         /**
          * Style class of the icon
          */
@@ -246,7 +246,7 @@ export interface MeterGroupSlots {
         /**
          * Current value of the component
          */
-        value: MeterItemOptions[];
+        value: MeterItem[];
         /**
          * Total percent of the metergroup items
          */
@@ -263,7 +263,7 @@ export interface MeterGroupSlots {
         /**
          * Current value of the component
          */
-        value: MeterItemOptions[];
+        value: MeterItem[];
         /**
          * Total percent of the metergroup items
          */

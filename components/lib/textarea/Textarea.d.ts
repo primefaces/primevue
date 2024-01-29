@@ -10,7 +10,7 @@
 import { TextareaHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
 
@@ -91,7 +91,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
     /**
      * Value of the component.
      */
-    modelValue?: string | undefined;
+    modelValue?: Nullable<string>;
     /**
      * When present, height of textarea changes as being typed.
      * @defaultValue false

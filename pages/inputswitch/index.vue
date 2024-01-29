@@ -9,7 +9,6 @@ import DisabledDoc from '@/doc/inputswitch/DisabledDoc.vue';
 import ImportDoc from '@/doc/inputswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/inputswitch/PreselectionDoc.vue';
-import VeeValidateDoc from '@/doc/inputswitch/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/inputswitch/pt/index.vue';
 import ThemingDoc from '@/doc/inputswitch/theming/index.vue';
 
@@ -41,18 +40,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

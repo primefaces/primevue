@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import BootstrapDoc from '@/doc/guides/csslayer/BootstrapDoc.vue';
-import NormalizeDoc from '@/doc/guides/csslayer/NormalizeDoc.vue';
-import ResetDoc from '@/doc/guides/csslayer/ResetDoc.vue';
-import SpecificityDoc from '@/doc/guides/csslayer/SpecificityDoc.vue';
-import TailwindDoc from '@/doc/guides/csslayer/TailwindDoc.vue';
+import BootstrapDoc from '@/doc/csslayer/BootstrapDoc.vue';
+import NormalizeDoc from '@/doc/csslayer/NormalizeDoc.vue';
+import ResetDoc from '@/doc/csslayer/ResetDoc.vue';
+import SpecificityDoc from '@/doc/csslayer/SpecificityDoc.vue';
+import TailwindDoc from '@/doc/csslayer/TailwindDoc.vue';
 
 export default {
     data() {

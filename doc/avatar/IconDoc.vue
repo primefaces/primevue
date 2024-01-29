@@ -7,20 +7,20 @@
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
             </div>
 
             <div class="flex-auto">
                 <h5>Circle</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
             </div>
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
+                <Avatar v-badge.danger="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
             </div>
         </div>
     </div>
@@ -34,14 +34,14 @@ export default {
             code: {
                 basic: `
 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
-<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-<Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" />
+<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+<Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
 
 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-<Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+<Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
 
-<Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
+<Avatar v-badge.danger="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
 `,
                 options: `
 <template>
@@ -50,20 +50,20 @@ export default {
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
             </div>
 
             <div class="flex-auto">
                 <h5>Circle</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
             </div>
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
+                <Avatar v-badge.danger="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
             </div>
         </div>
     </div>
@@ -80,20 +80,20 @@ export default {
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
             </div>
 
             <div class="flex-auto">
                 <h5>Circle</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-                <Avatar icon="pi pi-user" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
             </div>
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <Avatar v-badge="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
+                <Avatar v-badge.danger="4" class="p-overlay-badge" icon="pi pi-user" size="xlarge" />
             </div>
         </div>
     </div>

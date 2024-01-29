@@ -19,7 +19,6 @@ import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc.vue';
-import VeeValidateDoc from '@/doc/treeselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/treeselect/pt/index.vue';
 import ThemingDoc from '@/doc/treeselect/theming/index.vue';
 
@@ -61,18 +60,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

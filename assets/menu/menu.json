@@ -9,20 +9,48 @@
                     "to": "/introduction"
                 },
                 {
-                    "name": "Vite Setup",
-                    "to": "/vite"
-                },
-                {
-                    "name": "Nuxt Setup",
-                    "to": "/nuxt"
-                },
-                {
-                    "name": "Configuration",
-                    "to": "/configuration"
+                    "name": "Setup",
+                    "to": "/setup"
                 },
                 {
                     "name": "Playground",
                     "to": "/playground"
+                }
+            ]
+        },
+        {
+            "name": "Installation",
+            "icon": "pi pi-cloud-download",
+            "children": [
+                {
+                    "name": "Vite",
+                    "to": "/vite"
+                },
+                {
+                    "name": "Nuxt",
+                    "to": "/nuxt"
+                },
+                {
+                    "name": "CDN",
+                    "to": "/cdn"
+                }
+            ]
+        },
+        {
+            "name": "Configuration",
+            "icon": "pi pi-cog",
+            "children": [
+                {
+                    "name": "Options",
+                    "to": "/configuration"
+                },
+                {
+                    "name": "Auto Import",
+                    "to": "/autoimport"
+                },
+                {
+                    "name": "CSS Layer",
+                    "to": "/csslayer"
                 }
             ]
         },
@@ -535,10 +563,6 @@
                 {
                     "name": "Accessibility",
                     "to": "/guides/accessibility"
-                },
-                {
-                    "name": "CSS Layer",
-                    "to": "/guides/csslayer"
                 },
                 {
                     "name": "PrimeTV",

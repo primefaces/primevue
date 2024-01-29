@@ -428,15 +428,7 @@
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #666666;
-    background: #e0e0e0;
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #666666;
     background: #f4f4f4;
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #666666;
-    background: #e0e0e0;
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {
     margin: 0;
@@ -751,15 +743,7 @@
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #666666;
-    background: #e0e0e0;
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #666666;
     background: #f4f4f4;
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #666666;
-    background: #e0e0e0;
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
     padding: 0.429rem 0.857rem;
@@ -1008,6 +992,11 @@
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #666666;
     background: #f4f4f4;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-check-icon {
+    position: relative;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
@@ -1473,15 +1462,7 @@
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #666666;
-    background: #e0e0e0;
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #666666;
     background: #f4f4f4;
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #666666;
-    background: #e0e0e0;
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
     margin-right: 0.5rem;
@@ -1717,6 +1698,7 @@
   }
   .p-slider .p-slider-range {
     background: #7B95A3;
+    border-radius: 2px;
   }
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: 2px solid #7f7f7f;
@@ -2943,11 +2925,11 @@
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
     color: #385048;
@@ -3137,11 +3119,11 @@
   }
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: #666666;
-    background: #e0e0e0;
+    background: #f4f4f4;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
     color: #385048;
@@ -3879,7 +3861,9 @@
     background: #ffffff;
     color: #666666;
     padding: 0.571rem 1rem;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
   }
@@ -4110,6 +4094,7 @@
     border: 1px solid #eaeaea;
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
     border-radius: 2px;
+    border-radius: 2px;
   }
   .p-contextmenu .p-menuitem {
     margin: 0;
@@ -4329,6 +4314,7 @@
     color: #666666;
     border: 1px solid #eaeaea;
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 2px;
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
@@ -4630,6 +4616,7 @@
     border: 1px solid #eaeaea;
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
     min-width: 12.5rem;
+    border-radius: 2px;
   }
   .p-menubar .p-submenu-list .p-menuitem-separator {
     border-top: 1px solid #dadada;
@@ -4941,6 +4928,7 @@
     background: #ffffff;
     border: 1px solid #eaeaea;
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 2px;
   }
   .p-tieredmenu .p-menuitem {
     margin: 0;

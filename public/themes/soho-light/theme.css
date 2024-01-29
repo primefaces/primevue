@@ -452,15 +452,7 @@
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #043d75;
-    background: #dfe7ef;
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #043d75;
     background: #f6f9fc;
-  }
-  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #043d75;
-    background: #dfe7ef;
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {
     margin: 0;
@@ -775,15 +767,7 @@
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #043d75;
-    background: #dfe7ef;
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #043d75;
     background: #f6f9fc;
-  }
-  .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #043d75;
-    background: #dfe7ef;
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
     padding: 0.75rem 1.25rem;
@@ -1032,6 +1016,11 @@
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #043d75;
     background: #f6f9fc;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-check-icon {
+    position: relative;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
@@ -1497,15 +1486,7 @@
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: #043d75;
-    background: #dfe7ef;
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-    color: #043d75;
     background: #f6f9fc;
-  }
-  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover.p-focus {
-    color: #043d75;
-    background: #dfe7ef;
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
     margin-right: 0.5rem;
@@ -1741,6 +1722,7 @@
   }
   .p-slider .p-slider-range {
     background: #7254f3;
+    border-radius: 6px;
   }
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #7254f3;
@@ -3016,11 +2998,11 @@
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover.p-focus {
     color: #043d75;
-    background: #dfe7ef;
+    background: #f6f9fc;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
     color: #043d75;
-    background: #dfe7ef;
+    background: #f6f9fc;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
     color: #5a37f1;
@@ -3210,11 +3192,11 @@
   }
   .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover.p-focus {
     color: #043d75;
-    background: #dfe7ef;
+    background: #f6f9fc;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-focus {
     color: #043d75;
-    background: #dfe7ef;
+    background: #f6f9fc;
   }
   .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
     color: #5a37f1;
@@ -3952,7 +3934,9 @@
     background: #ffffff;
     color: #043d75;
     padding: 0 1.5rem 1.5rem 1.5rem;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
   }
@@ -4183,6 +4167,7 @@
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     border-radius: 6px;
+    border-radius: 6px;
   }
   .p-contextmenu .p-menuitem {
     margin: 0;
@@ -4402,6 +4387,7 @@
     color: #043d75;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
@@ -4703,6 +4689,7 @@
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
+    border-radius: 6px;
   }
   .p-menubar .p-submenu-list .p-menuitem-separator {
     border-top: 1px solid #dfe7ef;
@@ -5014,6 +5001,7 @@
     background: #eff3f8;
     border: 0 none;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
   }
   .p-tieredmenu .p-menuitem {
     margin: 0;

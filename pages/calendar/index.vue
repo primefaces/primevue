@@ -31,7 +31,6 @@ import RangeDoc from '@/doc/calendar/RangeDoc.vue';
 import TimeDoc from '@/doc/calendar/TimeDoc.vue';
 import TouchUIDoc from '@/doc/calendar/TouchUIDoc.vue';
 import YearPickerDoc from '@/doc/calendar/YearPickerDoc.vue';
-import VeeValidateDoc from '@/doc/calendar/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/calendar/pt/index.vue';
 import ThemingDoc from '@/doc/calendar/theming/index.vue';
 
@@ -133,18 +132,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

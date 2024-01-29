@@ -6,7 +6,7 @@
     <div class="card flex flex-column align-items-center gap-3">
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>
@@ -17,7 +17,7 @@
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
@@ -46,7 +46,7 @@ export default {
 <Toast />
 <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-<div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+<div v-if="selectedProduct" class="p-5 surface-card border-round">
     <div class="relative">
         <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-4rem shadow-1" class="w-full sm:w-20rem" />
     </div>
@@ -57,7 +57,7 @@ export default {
     <span class="text-600">{{ selectedProduct.category }}</span>
 </div>
 
-<OverlayPanel ref="op" appendTo="body" showCloseIcon>
+<OverlayPanel ref="op" appendTo="body">
     <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
         <Column field="name" header="Name" sortable style="width: 50%"></Column>
         <Column header="Image" style="width: 20%">
@@ -79,7 +79,7 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>
@@ -90,7 +90,7 @@ export default {
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
@@ -141,7 +141,7 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card shadow-2 border-round">
+        <div v-if="selectedProduct" class="p-5 surface-card border-round">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
             </div>
@@ -152,7 +152,7 @@ export default {
             <span class="text-600">{{ selectedProduct.category }}</span>
         </div>
 
-        <OverlayPanel ref="op" appendTo="body" showCloseIcon>
+        <OverlayPanel ref="op" appendTo="body">
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">

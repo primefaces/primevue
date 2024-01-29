@@ -61,6 +61,8 @@ const css = `
         white-space: nowrap;
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: center;
     }
 
     .p-dropdown-item-group {
@@ -134,14 +136,18 @@ const classes = {
     wrapper: 'p-dropdown-items-wrapper',
     list: 'p-dropdown-items',
     itemGroup: 'p-dropdown-item-group',
-    item: ({ instance, state, option, focusedOption }) => [
+    itemGroupLabel: 'p-dropdown-item-group-label',
+    item: ({ instance, props, state, option, focusedOption }) => [
         'p-dropdown-item',
         {
-            'p-highlight': instance.isSelected(option),
+            'p-highlight': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': state.focusedOptionIndex === focusedOption,
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
+    itemLabel: 'p-dropdown-item-label',
+    checkIcon: 'p-dropdown-check-icon',
+    blankIcon: 'p-dropdown-blank-icon',
     emptyMessage: 'p-dropdown-empty-message'
 };
 

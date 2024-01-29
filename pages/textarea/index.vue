@@ -18,7 +18,6 @@ import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
 import ThemingDoc from '@/doc/textarea/theming/index.vue';
 
@@ -55,18 +54,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

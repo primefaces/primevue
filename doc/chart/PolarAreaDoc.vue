@@ -48,16 +48,16 @@ export default {
                     {
                         data: [11, 16, 7, 3, 14],
                         backgroundColor: [
-                            documentStyle.getPropertyValue('--red-500'),
-                            documentStyle.getPropertyValue('--green-500'),
-                            documentStyle.getPropertyValue('--yellow-500'),
-                            documentStyle.getPropertyValue('--bluegray-500'),
-                            documentStyle.getPropertyValue('--blue-500')
+                            documentStyle.getPropertyValue('--pink-500'),
+                            documentStyle.getPropertyValue('--gray-500'),
+                            documentStyle.getPropertyValue('--orange-500'),
+                            documentStyle.getPropertyValue('--purple-500'),
+                            documentStyle.getPropertyValue('--cyan-500')
                         ],
                         label: 'My dataset'
                     }
                 ],
-                labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
+                labels: ['Pink', 'Gray', 'Orange', 'Purple', 'Cyan']
             };
         },
         setChartOptions() {
@@ -112,16 +112,16 @@ const setChartData = () => {
             {
                 data: [11, 16, 7, 3, 14],
                 backgroundColor: [
-                    documentStyle.getPropertyValue('--red-500'),
-                    documentStyle.getPropertyValue('--green-500'),
-                    documentStyle.getPropertyValue('--yellow-500'),
-                    documentStyle.getPropertyValue('--bluegray-500'),
-                    documentStyle.getPropertyValue('--blue-500')
+                    documentStyle.getPropertyValue('--pink-500'),
+                    documentStyle.getPropertyValue('--gray-500'),
+                    documentStyle.getPropertyValue('--orange-500'),
+                    documentStyle.getPropertyValue('--purple-500'),
+                    documentStyle.getPropertyValue('--cyan-500')
                 ],
                 label: 'My dataset'
             }
         ],
-        labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
+        labels: ['Pink', 'Gray', 'Orange', 'Purple', 'Cyan']
     };
 };
 const setChartOptions = () => {
@@ -170,16 +170,16 @@ const setChartOptions = () => {
                     {
                         data: [11, 16, 7, 3, 14],
                         backgroundColor: [
-                            documentStyle.getPropertyValue('--red-500'),
-                            documentStyle.getPropertyValue('--green-500'),
-                            documentStyle.getPropertyValue('--yellow-500'),
-                            documentStyle.getPropertyValue('--bluegray-500'),
-                            documentStyle.getPropertyValue('--blue-500')
+                            documentStyle.getPropertyValue('--pink-500'),
+                            documentStyle.getPropertyValue('--gray-500'),
+                            documentStyle.getPropertyValue('--orange-500'),
+                            documentStyle.getPropertyValue('--purple-500'),
+                            documentStyle.getPropertyValue('--cyan-500')
                         ],
                         label: 'My dataset'
                     }
                 ],
-                labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
+                labels: ['Pink', 'Gray', 'Orange', 'Purple', 'Cyan']
             };
         },
         setChartOptions() {

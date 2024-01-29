@@ -26,7 +26,7 @@ pnpm add primevue
 
 ## Plugin
 
-PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/theming).
+PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/configuration).
 
 ```javascript
 import { createApp } from 'vue';

@@ -106,7 +106,9 @@
                                 <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
-                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
+                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">
+                                                <span :class="cx('itemGroupLabel')" v-bind="ptm('itemGroupLabel')">{{ getOptionGroupLabel(option.optionGroup) }}</span>
+                                            </slot>
                                         </li>
                                         <li
                                             v-else
@@ -127,7 +129,13 @@
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
-                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
+                                            <template v-if="checkmark">
+                                                <CheckIcon v-if="isSelected(option)" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
+                                                <BlankIcon v-else :class="cx('blankIcon')" v-bind="ptm('blankIcon')" />
+                                            </template>
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                                <span :class="cx('itemLabel')" v-bind="ptm('itemLabel')">{{ getOptionLabel(option) }}</span>
+                                            </slot>
                                         </li>
                                     </template>
                                     <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
@@ -169,6 +177,8 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import BlankIcon from 'primevue/icons/blank';
+import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import FilterIcon from 'primevue/icons/filter';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -215,10 +225,8 @@ export default {
             this.autoUpdateModel();
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
         this.bindLabelClickListener();
     },
@@ -752,7 +760,7 @@ export default {
             return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
-            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
+            return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
             return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
@@ -964,12 +972,14 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        TimesIcon: TimesIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        FilterIcon: FilterIcon
+        VirtualScroller,
+        Portal,
+        TimesIcon,
+        ChevronDownIcon,
+        SpinnerIcon,
+        FilterIcon,
+        CheckIcon,
+        BlankIcon
     }
 };
 </script>

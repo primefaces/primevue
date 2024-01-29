@@ -49,7 +49,7 @@ export default {
                     {
                         label: 'Dataset 1',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--blue-500'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
                         yAxisID: 'y',
                         tension: 0.4,
                         data: [65, 59, 80, 81, 56, 55, 10]
@@ -57,7 +57,7 @@ export default {
                     {
                         label: 'Dataset 2',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--green-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         yAxisID: 'y1',
                         tension: 0.4,
                         data: [28, 48, 40, 19, 86, 27, 90]
@@ -148,7 +148,7 @@ const setChartData = () => {
             {
                 label: 'Dataset 1',
                 fill: false,
-                borderColor: documentStyle.getPropertyValue('--blue-500'),
+                borderColor: documentStyle.getPropertyValue('--cyan-500'),
                 yAxisID: 'y',
                 tension: 0.4,
                 data: [65, 59, 80, 81, 56, 55, 10]
@@ -156,7 +156,7 @@ const setChartData = () => {
             {
                 label: 'Dataset 2',
                 fill: false,
-                borderColor: documentStyle.getPropertyValue('--green-500'),
+                borderColor: documentStyle.getPropertyValue('--gray-500'),
                 yAxisID: 'y1',
                 tension: 0.4,
                 data: [28, 48, 40, 19, 86, 27, 90]
@@ -241,7 +241,7 @@ const setChartOptions = () => {
                     {
                         label: 'Dataset 1',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--blue-500'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
                         yAxisID: 'y',
                         tension: 0.4,
                         data: [65, 59, 80, 81, 56, 55, 10]
@@ -249,7 +249,7 @@ const setChartOptions = () => {
                     {
                         label: 'Dataset 2',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--green-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         yAxisID: 'y1',
                         tension: 0.4,
                         data: [28, 48, 40, 19, 86, 27, 90]

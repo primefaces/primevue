@@ -62,8 +62,9 @@
                         :class="cx('item', { item, id: `${id}_${i}` })"
                         @click="onItemClick($event, item, i)"
                         @touchend="onItemTouchEnd"
+                        @mousedown="onOptionMouseDown($event, i)"
+                        @mousemove="onOptionMouseMove(i)"
                         :aria-selected="isSelected(item)"
-                        @mousedown="onOptionMouseDown(i)"
                         v-bind="getPTOptions(item, 'item', i)"
                         :data-p-highlight="isSelected(item)"
                         :data-p-focused="`${id}_${i}` === focusedOptionId"
@@ -116,10 +117,9 @@ export default {
             this.reorderDirection = null;
         }
     },
-    beforeMount() {
-        this.id = this.id || UniqueComponentId();
-    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.responsive) {
             this.createStyle();
         }
@@ -142,6 +142,7 @@ export default {
         onListFocus(event) {
             this.focused = true;
             this.findCurrentFocusedIndex();
+            this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onListBlur(event) {
@@ -188,9 +189,13 @@ export default {
                     break;
             }
         },
-        onOptionMouseDown(index) {
-            this.focused = true;
-            this.focusedOptionIndex = index;
+        onOptionMouseDown(event, index) {
+            this.changeFocusedOptionIndex(index);
+        },
+        onOptionMouseMove(index) {
+            if (this.focusOnHover && this.focused) {
+                this.changeFocusedOptionIndex(index);
+            }
         },
         onArrowDownKey(event) {
             const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex() : this.findFirstSelectedOptionIndex();
@@ -276,13 +281,13 @@ export default {
             return DomHandler.findSingle(this.list, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
         },
         findCurrentFocusedIndex() {
-            this.focusedOptionIndex = this.findFirstSelectedOptionIndex();
+            if (this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstSelectedOptionIndex();
 
-            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
-                this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+                if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                    this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+                }
             }
-
-            this.scrollInView(this.focusedOptionIndex);
         },
         findFirstFocusedOptionIndex() {
             const firstFocusableItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
@@ -334,7 +339,7 @@ export default {
             const element = DomHandler.findSingle(this.list, `[data-pc-section="item"][id="${id}"]`);
 
             if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start', behavior: 'smooth' });
             }
         },
         moveUp(event) {
@@ -450,10 +455,9 @@ export default {
             const selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
-
             const selectedId = this.findAllItems()[index].getAttribute('id');
 
-            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
+            this.focusedOptionIndex = selectedId;
 
             if (metaSelection) {
                 const metaKey = event.metaKey || event.ctrlKey;

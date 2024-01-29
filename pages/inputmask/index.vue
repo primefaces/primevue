@@ -20,7 +20,6 @@ import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
 import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
 import OptionalDoc from '@/doc/inputmask/OptionalDoc.vue';
 import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
-import VeeValidateDoc from '@/doc/inputmask/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/inputmask/pt/index.vue';
 import ThemingDoc from '@/doc/inputmask/theming/index.vue';
 
@@ -67,18 +66,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

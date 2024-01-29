@@ -3,7 +3,7 @@
         <p>Dialog is used as a container and visibility is controlled with a binding to <i>visible</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+        <Button label="Show" @click="visible = true" />
 
         <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
             <span class="p-text-secondary block mb-5">Update your information.</span>
@@ -31,7 +31,7 @@ export default {
             visible: false,
             code: {
                 basic: `
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+<Button label="Show" @click="visible = true" />
 
 <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
     <span class="p-text-secondary block mb-5">Update your information.</span>
@@ -52,7 +52,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+        <Button label="Show" @click="visible = true" />
         <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
             <span class="p-text-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
@@ -84,7 +84,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+        <Button label="Show" @click="visible = true" />
         <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
             <span class="p-text-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">

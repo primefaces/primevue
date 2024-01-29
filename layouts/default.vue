@@ -31,15 +31,24 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            appConfigActive: false
+            appConfigActive: false,
+            defaultRipple: false
         };
     },
     watch: {
         $route: {
             immediate: true,
-            handler(to) {
+            handler(to, from) {
                 if (!process.client || typeof window === 'undefined') {
                     return;
+                }
+
+                if (!this.defaultRipple) {
+                    if (to.name === 'ripple') {
+                        this.$appState.ripple = true;
+                    } else if (from?.name === 'ripple') {
+                        this.$appState.ripple = this.defaultRipple;
+                    }
                 }
 
                 this.sidebarActive = false;
@@ -47,6 +56,9 @@ export default {
                 this.$toast.removeAllGroups();
             }
         }
+    },
+    beforeCreate() {
+        this.defaultRipple = this.$appState.ripple;
     },
     mounted() {
         if (this.isOutdatedIE()) {

@@ -85,7 +85,7 @@ export default {
             }
         }
     },
-    beforeMount() {
+    mounted() {
         this.id = this.id || UniqueComponentId();
     },
     beforeUnmount() {
@@ -479,7 +479,7 @@ export default {
             }
         },
         isItemMatched(processedItem) {
-            return this.isValidItem(processedItem) && this.getProccessedItemLabel(processedItem).toLocaleLowerCase().startsWith(this.searchValue.toLocaleLowerCase());
+            return this.isValidItem(processedItem) && this.getProccessedItemLabel(processedItem)?.toLocaleLowerCase().startsWith(this.searchValue.toLocaleLowerCase());
         },
         isValidItem(processedItem) {
             return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item);

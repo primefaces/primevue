@@ -13,7 +13,6 @@ import InvalidDoc from '@/doc/listbox/InvalidDoc.vue';
 import MultipleDoc from '@/doc/listbox/MultipleDoc.vue';
 import TemplateDoc from '@/doc/listbox/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc.vue';
-import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/listbox/pt/index.vue';
 import ThemingDoc from '@/doc/listbox/theming/index.vue';
 
@@ -65,18 +64,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

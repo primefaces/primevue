@@ -22,7 +22,6 @@ import LocaleDoc from '@/doc/inputnumber/LocaleDoc.vue';
 import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc.vue';
 import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc.vue';
 import VerticalDoc from '@/doc/inputnumber/VerticalDoc.vue';
-import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/inputnumber/pt/index.vue';
 import ThemingDoc from '@/doc/inputnumber/theming/index.vue';
 
@@ -74,18 +73,6 @@ export default {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'disabled',

@@ -70,7 +70,8 @@
                         @click="onItemClick($event, item, i, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
-                        @mousedown="onOptionMouseDown(i, 'sourceList')"
+                        @mousedown="onOptionMouseDown($event, i, 'sourceList')"
+                        @mousemove="onOptionMouseMove(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
                         v-bind="getPTOptions(item, 'item', `${idSource}_${i}`, 0)"
@@ -161,7 +162,8 @@
                         @click="onItemClick($event, item, i, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
-                        @mousedown="onOptionMouseDown(i, 'targetList')"
+                        @mousedown="onOptionMouseDown($event, i, 'targetList')"
+                        @mousemove="onOptionMouseMove(i, 'targetList')"
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
@@ -276,7 +278,6 @@ export default {
         this.destroyStyle();
         this.destroyMedia();
     },
-    beforeMount() {},
     mounted() {
         this.id = this.id || UniqueComponentId();
 
@@ -303,6 +304,7 @@ export default {
         onListFocus(event, listType) {
             this.focused[listType] = true;
             this.findCurrentFocusedIndex(listType);
+            this.scrollInView(this.focusedOptionIndex, listType);
             this.$emit('focus', event);
         },
         onListBlur(event, listType) {
@@ -310,9 +312,14 @@ export default {
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
         },
-        onOptionMouseDown(index, listType) {
+        onOptionMouseDown(event, index, listType) {
             this.focused[listType] = true;
             this.focusedOptionIndex = index;
+        },
+        onOptionMouseMove(index, listType) {
+            if (this.focusOnHover && this.focused[listType]) {
+                this.changeFocusedOptionIndex(index, listType);
+            }
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {
@@ -576,7 +583,7 @@ export default {
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
             const selectedId = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
 
-            this.focusedOptionIndex = event?.type === 'click' ? -1 : selectedId;
+            this.focusedOptionIndex = selectedId;
             let _selection;
 
             if (metaSelection) {
@@ -745,13 +752,13 @@ export default {
             return DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
         },
         findCurrentFocusedIndex(listType) {
-            this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
+            if (this.focusedOptionIndex === -1) {
+                this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
 
-            if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
-                this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
+                if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
+                    this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
+                }
             }
-
-            this.scrollInView(this.focusedOptionIndex, listType);
         },
         findFirstFocusedOptionIndex(listType) {
             const firstFocusableItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]');
@@ -803,7 +810,7 @@ export default {
             const element = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id="${id}"]`);
 
             if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start', behavior: 'smooth' });
             }
         },
         updateListScroll(listElement) {
@@ -903,7 +910,7 @@ export default {
             return ObjectUtils.isEmpty(this[list]);
         },
         hasSelectedOption(listType) {
-            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[0]);
+            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[1]);
         }
     },
     computed: {
