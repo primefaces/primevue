@@ -96,6 +96,7 @@ import { TreeTablePassThroughOptions } from '../treetable';
 import { TriStateCheckboxPassThroughOptions } from '../tristatecheckbox';
 import { DefaultPassThrough, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
+import { PortalAppendToType } from '../portal/Portal';
 
 export interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -107,6 +108,12 @@ export interface PrimeVueConfiguration {
     ptOptions?: PassThroughOptions;
     unstyled?: boolean;
     csp?: PrimeVueCSPOptions;
+    /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see PortalAppendToType
+     * Default value is 'body'.
+     */
+    appendTo?: PortalAppendToType
 }
 
 export declare const defaultOptions: PrimeVueConfiguration;

@@ -141,7 +141,8 @@ export const defaultOptions = {
     unstyled: false,
     csp: {
         nonce: undefined
-    }
+    },
+    appendTo: 'body'
 };
 
 const PrimeVueSymbol = Symbol();

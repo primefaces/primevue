@@ -3,7 +3,7 @@
         <slot></slot>
     </template>
     <template v-else-if="mounted">
-        <Teleport :to="globalOrAppendTo">
+        <Teleport :to="to">
             <slot></slot>
         </Teleport>
     </template>
@@ -11,9 +11,6 @@
 
 <script>
 import { DomHandler } from 'primevue/utils';
-import { ref } from 'vue';
-
-export const globalAppendTo = ref();
 
 export default {
     name: 'Portal',
@@ -36,8 +33,8 @@ export default {
         this.mounted = DomHandler.isClient();
     },
     computed: {
-        globalOrAppendTo() {
-            return this.appendTo === 'body' ? globalAppendTo.value ?? this.appendTo : this.appendTo;
+        to() {
+            return this.appendTo === 'body' ? this.$primeVue.config.appendTo ?? this.appendTo : this.appendTo;
         },
         inline() {
             return this.disabled || this.appendTo === 'self';
