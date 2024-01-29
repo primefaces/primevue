@@ -51,7 +51,7 @@ export default {
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
                         tension: 0.4,
-                        borderColor: documentStyle.getPropertyValue('--blue-500')
+                        borderColor: documentStyle.getPropertyValue('--cyan-500')
                     },
                     {
                         label: 'Second Dataset',
@@ -59,15 +59,15 @@ export default {
                         fill: false,
                         borderDash: [5, 5],
                         tension: 0.4,
-                        borderColor: documentStyle.getPropertyValue('--teal-500')
+                        borderColor: documentStyle.getPropertyValue('--orange-500')
                     },
                     {
                         label: 'Third Dataset',
                         data: [12, 51, 62, 33, 21, 62, 45],
                         fill: true,
-                        borderColor: documentStyle.getPropertyValue('--orange-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         tension: 0.4,
-                        backgroundColor: 'rgba(255,167,38,0.2)'
+                        backgroundColor: 'rgba(107, 114, 128, 0.2)'
                     }
                 ]
             };
@@ -141,7 +141,7 @@ const setChartData = () => {
                 data: [65, 59, 80, 81, 56, 55, 40],
                 fill: false,
                 tension: 0.4,
-                borderColor: documentStyle.getPropertyValue('--blue-500')
+                borderColor: documentStyle.getPropertyValue('--cyan-500')
             },
             {
                 label: 'Second Dataset',
@@ -149,15 +149,15 @@ const setChartData = () => {
                 fill: false,
                 borderDash: [5, 5],
                 tension: 0.4,
-                borderColor: documentStyle.getPropertyValue('--teal-500')
+                borderColor: documentStyle.getPropertyValue('--orange-500')
             },
             {
                 label: 'Third Dataset',
                 data: [12, 51, 62, 33, 21, 62, 45],
                 fill: true,
-                borderColor: documentStyle.getPropertyValue('--orange-500'),
+                borderColor: documentStyle.getPropertyValue('--gray-500'),
                 tension: 0.4,
-                backgroundColor: 'rgba(255,167,38,0.2)'
+                backgroundColor: 'rgba(107, 114, 128, 0.2)'
             }
         ]
     };
@@ -225,7 +225,7 @@ const setChartOptions = () => {
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
                         tension: 0.4,
-                        borderColor: documentStyle.getPropertyValue('--blue-500')
+                        borderColor: documentStyle.getPropertyValue('--cyan-500')
                     },
                     {
                         label: 'Second Dataset',
@@ -233,15 +233,15 @@ const setChartOptions = () => {
                         fill: false,
                         borderDash: [5, 5],
                         tension: 0.4,
-                        borderColor: documentStyle.getPropertyValue('--teal-500')
+                        borderColor: documentStyle.getPropertyValue('--orange-500')
                     },
                     {
                         label: 'Third Dataset',
                         data: [12, 51, 62, 33, 21, 62, 45],
                         fill: true,
-                        borderColor: documentStyle.getPropertyValue('--orange-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         tension: 0.4,
-                        backgroundColor: 'rgba(255,167,38,0.2)'
+                        backgroundColor: 'rgba(107, 114, 128, 0.2)'
                     }
                 ]
             };

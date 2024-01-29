@@ -48,14 +48,14 @@ export default {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                        borderColor: documentStyle.getPropertyValue('--blue-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
                         data: [65, 59, 80, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-                        borderColor: documentStyle.getPropertyValue('--pink-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }
                 ]
@@ -133,14 +133,14 @@ const setChartData = () => {
         datasets: [
             {
                 label: 'My First dataset',
-                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                borderColor: documentStyle.getPropertyValue('--blue-500'),
+                backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                borderColor: documentStyle.getPropertyValue('--cyan-500'),
                 data: [65, 59, 80, 81, 56, 55, 40]
             },
             {
                 label: 'My Second dataset',
-                backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-                borderColor: documentStyle.getPropertyValue('--pink-500'),
+                backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                borderColor: documentStyle.getPropertyValue('--gray-500'),
                 data: [28, 48, 40, 19, 86, 27, 90]
             }
         ]
@@ -212,14 +212,14 @@ const setChartOptions = () => {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                        borderColor: documentStyle.getPropertyValue('--blue-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
                         data: [65, 59, 80, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-                        borderColor: documentStyle.getPropertyValue('--pink-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                        borderColor: documentStyle.getPropertyValue('--gray-500'),
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }
                 ]
