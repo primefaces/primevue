@@ -99,7 +99,7 @@ export default {
         filterLocale: {
             type: String,
             default: undefined
-        },
+        }
     },
     style: TreeSelectStyle,
     provide() {

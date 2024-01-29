@@ -40,7 +40,7 @@ export default {
                 {
                     id: 'filter',
                     label: 'Filter',
-                    component: FilterDoc,
+                    component: FilterDoc
                 },
                 {
                     id: 'multiple',
