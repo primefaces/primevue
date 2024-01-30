@@ -1,17 +1,24 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Icons can be placed inside an input element by wrapping both the input and the icon with an element that has either <i>.p-input-icon-left</i> or <i>.p-input-icon-right</i> class.</p>
+        <p>
+            A group is created by wrapping the input and icon with the <i>IconField</i> component. Each icon is defined as a child of <i>InputIcon</i> component. In addition, position of the icon can be changed using <i>iconPosition</i> property that
+            the default value is <i>right</i> and also <i>left</i> option is available.
+        </p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
+        <IconField iconPosition="left">
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
-        </span>
+        </IconField>
 
-        <span class="p-input-icon-right">
-            <i class="pi pi-spin pi-spinner" />
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-spin pi-spinner" />
+            </InputIcon>
             <InputText v-model="value2" />
-        </span>
+        </IconField>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -24,28 +31,36 @@ export default {
             value2: null,
             code: {
                 basic: `
-<span class="p-input-icon-left">
-    <i class="pi pi-search" />
+<IconField iconPosition="left">
+    <InputIcon>
+        <i class="pi pi-search" />
+    </InputIcon>
     <InputText v-model="value1" placeholder="Search" />
-</span>
+</IconField>
 
-<span class="p-input-icon-right">
-    <i class="pi pi-spin pi-spinner" />
+<IconField>
+    <InputIcon>
+        <i class="pi pi-spin pi-spinner" />
+    </InputIcon>
     <InputText v-model="value2" />
-</span>
+</IconField>
 `,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
+        <IconField iconPosition="left">
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
-        </span>
-            
-        <span class="p-input-icon-right">
-            <i class="pi pi-spin pi-spinner" />
+        </IconField>
+
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-spin pi-spinner" />
+            </InputIcon>
             <InputText v-model="value2" />
-        </span>
+        </IconField>
     </div>
 </template>
 
@@ -63,15 +78,19 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
+        <IconField iconPosition="left">
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
-            </span>
-            
-            <span class="p-input-icon-right">
+        </IconField>
+
+        <IconField>
+            <InputIcon>
                 <i class="pi pi-spin pi-spinner" />
+            </InputIcon>
             <InputText v-model="value2" />
-        </span>
+        </IconField>
     </div>
 </template>
 

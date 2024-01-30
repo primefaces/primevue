@@ -3,10 +3,10 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <div class="p-float-label w-full md:w-14rem">
+        <FloatLabel class="w-full md:w-14rem">
             <Dropdown v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
             <label for="dd-city">Select a City</label>
-        </div>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -25,18 +25,18 @@ export default {
             ],
             code: {
                 basic: `
-<div class="p-float-label w-full md:w-14rem">
+<FloatLabel class="w-full md:w-14rem">
     <Dropdown v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
     <label for="dd-city">Select a City</label>
-</div>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <div class="p-float-label w-full md:w-14rem">
+        <FloatLabel class="w-full md:w-14rem">
             <Dropdown v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
             <label for="dd-city">Select a City</label>
-        </div>
+        </FloatLabel>
     </div>
 </template>
 
@@ -60,10 +60,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <div class="p-float-label w-full md:w-14rem">
+        <FloatLabel class="w-full md:w-14rem">
             <Dropdown v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
             <label for="dd-city">Select a City</label>
-        </div>
+        </FloatLabel>
     </div>
 </template>
 

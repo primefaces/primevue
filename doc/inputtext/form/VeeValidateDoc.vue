@@ -4,10 +4,10 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <span class="p-float-label">
+            <FloatLabel>
                 <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
                 <label for="value">Name - Surname</label>
-            </span>
+            </FloatLabel>
             <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
@@ -49,10 +49,10 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <span class="p-float-label">
+            <FloatLabel>
                 <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
                 <label for="value">Name - Surname</label>
-            </span>
+            </FloatLabel>
             <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
@@ -64,10 +64,10 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <span class="p-float-label">
+            <FloatLabel>
                 <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
                 <label for="value">Name - Surname</label>
-            </span>
+            </FloatLabel>
             <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
@@ -109,10 +109,10 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <span class="p-float-label">
+            <FloatLabel>
                 <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
                 <label for="value">Name - Surname</label>
-            </span>
+            </FloatLabel>
             <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>

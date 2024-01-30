@@ -11,10 +11,12 @@
             <DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
                 <template #header>
                     <div class="flex justify-content-end">
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                        <IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                        </span>
+                        </IconField>
                     </div>
                 </template>
                 <template #empty> No customers found. </template>
@@ -118,10 +120,12 @@ export default {
         :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
     <template #header>
         <div class="flex justify-content-end">
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
+            <IconField iconPosition="left">
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-            </span>
+            </IconField>
         </div>
     </template>
     <template #empty> No customers found. </template>
@@ -192,10 +196,12 @@ export default {
                 :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
             <template #header>
                 <div class="flex justify-content-end">
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </span>
+                    </IconField>
                 </div>
             </template>
             <template #empty> No customers found. </template>
@@ -346,10 +352,12 @@ export default {
                 :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
             <template #header>
                 <div class="flex justify-content-end">
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </span>
+                    </IconField>
                 </div>
             </template>
             <template #empty> No customers found. </template>

@@ -3,10 +3,10 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
             <label for="cs-city">City</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -92,20 +92,20 @@ export default {
             ],
             code: {
                 basic: `
-<span class="p-float-label">
+<FloatLabel>
     <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
         :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     <label for="cs-city">City</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
             <label for="cs-city">City</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
@@ -196,11 +196,11 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
             <label for="cs-city">City</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

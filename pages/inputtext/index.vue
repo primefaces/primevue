@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" :apiDocs="['InputText']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent
+        title="Vue Input Component"
+        header="InputText"
+        description="InputText is an extension to standard input element with theming."
+        :componentDocs="docs"
+        :apiDocs="['InputText', 'FloatLabel', 'InputIcon', 'IconField']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -46,7 +54,7 @@ export default {
                 },
                 {
                     id: 'floatlabel',
-                    label: 'FloatLabel',
+                    label: 'Float Label',
                     component: FloatLabelDoc
                 },
                 {

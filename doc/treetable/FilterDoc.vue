@@ -13,10 +13,12 @@
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
                 <div class="text-right">
-                    <div class="p-input-icon-left">
-                        <i class="pi pi-search"></i>
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global']" placeholder="Global Search" />
-                    </div>
+                    </IconField>
                 </div>
             </template>
             <Column field="name" header="Name" expander>
@@ -58,10 +60,12 @@ export default {
 <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
     <template #header>
         <div class="text-right">
-            <div class="p-input-icon-left">
-                <i class="pi pi-search"></i>
+            <IconField iconPosition="left">
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
                 <InputText v-model="filters['global']" placeholder="Global Search" />
-            </div>
+            </IconField>
         </div>
     </template>
     <Column field="name" header="Name" expander>
@@ -90,10 +94,12 @@ export default {
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
                 <div class="text-right">
-                    <div class="p-input-icon-left">
-                        <i class="pi pi-search"></i>
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global']" placeholder="Global Search" />
-                    </div>
+                    </IconField>
                 </div>
             </template>
             <Column field="name" header="Name" expander>
@@ -145,10 +151,12 @@ export default {
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
                 <div class="text-right">
-                    <div class="p-input-icon-left">
-                        <i class="pi pi-search"></i>
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global']" placeholder="Global Search" />
-                    </div>
+                    </IconField>
                 </div>
             </template>
             <Column field="name" header="Name" expander>

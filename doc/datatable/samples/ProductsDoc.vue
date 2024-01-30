@@ -31,10 +31,12 @@
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                        <IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
                     </div>
                 </template>
 
@@ -206,10 +208,12 @@ export default {
     <template #header>
         <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
             <h4 class="m-0">Manage Products</h4>
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
+            <IconField iconPosition="left">
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
                 <InputText v-model="filters['global'].value" placeholder="Search..." />
-            </span>
+            </IconField>
         </div>
     </template>
     <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
@@ -267,10 +271,12 @@ export default {
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+						<IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
 					</div>
                 </template>
 
@@ -556,10 +562,12 @@ export default {
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+						<IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
 					</div>
                 </template>
 

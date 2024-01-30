@@ -3,10 +3,10 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label w-full md:w-20rem">
+        <FloatLabel class="w-full md:w-20rem">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -25,18 +25,18 @@ export default {
             ],
             code: {
                 basic: `
-<span class="p-float-label w-full md:w-20rem">
+<FloatLabel class="w-full md:w-20rem">
     <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
     <label for="ms-cities">MultiSelect</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label w-full md:w-20rem">
+        <FloatLabel class="w-full md:w-20rem">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
@@ -60,10 +60,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label w-full md:w-20rem">
+        <FloatLabel class="w-full md:w-20rem">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

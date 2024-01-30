@@ -5,16 +5,20 @@
     <div class="card flex justify-content-center p-fluid">
         <div v-focustrap class="w-full" style="max-width: 20rem">
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-user" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-user" />
+                    </InputIcon>
                     <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
-                </div>
+                </IconField>
             </div>
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-envelope" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-envelope" />
+                    </InputIcon>
                     <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                </div>
+                </IconField>
             </div>
             <div class="field-checkbox">
                 <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
@@ -37,16 +41,20 @@ export default {
                 basic: `
 <div v-focustrap class="w-full" style="max-width: 20rem">
     <div class="field">
-        <div class="p-input-icon-right">
-            <i class="pi pi-user" />
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-user" />
+            </InputIcon>
             <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
-        </div>
+        </IconField>
     </div>
     <div class="field">
-        <div class="p-input-icon-right">
-            <i class="pi pi-envelope" />
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-envelope" />
+            </InputIcon>
             <InputText id="email" v-model="email" type="email" placeholder="Email" />
-        </div>
+        </IconField>
     </div>
     <div class="field-checkbox">
         <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
@@ -60,16 +68,20 @@ export default {
     <div class="card flex justify-content-center p-fluid">
         <div v-focustrap class="w-full" style="max-width: 20rem">
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-user" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-user" />
+                    </InputIcon>
                     <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
-                </div>
+                </IconField>
             </div>
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-envelope" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-envelope" />
+                    </InputIcon>
                     <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                </div>
+                </IconField>
             </div>
             <div class="field-checkbox">
                 <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
@@ -97,16 +109,20 @@ export default {
     <div class="card flex justify-content-center p-fluid">
         <div v-focustrap class="w-full" style="max-width: 20rem">
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-user" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-user" />
+                    </InputIcon>
                     <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
-                </div>
+                </IconField>
             </div>
             <div class="field">
-                <div class="p-input-icon-right">
-                    <i class="pi pi-envelope" />
+                <IconField>
+                    <InputIcon>
+                        <i class="pi pi-envelope" />
+                    </InputIcon>
                     <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                </div>
+                </IconField>
             </div>
             <div class="field-checkbox">
                 <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />

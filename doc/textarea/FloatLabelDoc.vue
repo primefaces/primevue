@@ -3,10 +3,10 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" style="resize: none" />
             <label>Username</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,38 +18,38 @@ export default {
             value: '',
             code: {
                 basic: `
-<span class="p-float-label">
+<FloatLabel>
     <Textarea v-model="value" rows="5" cols="30" />
     <label>Username</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" />
             <label>Username</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          value: ''
-      }
-  }
+    data() {
+        return {
+            value: ''
+        }
+    }
 };
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" />
             <label>Username</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

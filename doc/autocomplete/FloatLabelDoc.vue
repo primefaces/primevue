@@ -3,10 +3,10 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
             <label for="ac">Float Label</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,18 +19,18 @@ export default {
             items: [],
             code: {
                 basic: `
-<span class="p-float-label">
+<FloatLabel>
     <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
     <label for="ac">Float Label</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
             <label for="ac">Float Label</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
@@ -53,10 +53,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
             <label for="ac">Float Label</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

@@ -26,10 +26,12 @@
                     <template #header>
                         <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
                             <h5 class="m-0">Customers</h5>
-                            <span class="p-input-icon-left mt-3 sm:mt-0 w-full sm:w-auto">
-                                <i class="pi pi-search" />
+                            <IconField iconPosition="left" class="mt-3 sm:mt-0 w-full sm:w-auto">
+                                <InputIcon>
+                                    <i class="pi pi-search" />
+                                </InputIcon>
                                 <InputText v-model="filters['global'].value" placeholder="Search" class="w-full" />
-                            </span>
+                            </IconField>
                         </div>
                     </template>
                     <template #empty> No customers found. </template>

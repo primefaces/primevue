@@ -11,10 +11,12 @@
             </template>
 
             <template #center>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
+                <IconField iconPosition="left">
+                    <InputIcon>
+                        <i class="pi pi-search" />
+                    </InputIcon>
                     <InputText placeholder="Search" />
-                </span>
+                </IconField>
             </template>
 
             <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
@@ -47,10 +49,12 @@ export default {
     </template>
 
     <template #center>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
+        <IconField iconPosition="left">
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
             <InputText placeholder="Search" />
-        </span>
+        </IconField>
     </template>
 
     <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
@@ -67,10 +71,12 @@ export default {
             </template>
 
             <template #center>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
+                <IconField iconPosition="left">
+                    <InputIcon>
+                        <i class="pi pi-search" />
+                    </InputIcon>
                     <InputText placeholder="Search" />
-                </span>
+                </IconField>
             </template>
 
             <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
@@ -108,10 +114,12 @@ export default {
             </template>
 
             <template #center>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
+                <IconField iconPosition="left">
+                    <InputIcon>
+                        <i class="pi pi-search" />
+                    </InputIcon>
                     <InputText placeholder="Search" />
-                </span>
+                </IconField>
             </template>
 
             <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>

@@ -52,7 +52,7 @@ export default {
                 },
                 {
                     id: 'floatlabel',
-                    label: 'FloatLabel',
+                    label: 'Float Label',
                     component: FloatLabelDoc
                 },
                 {
