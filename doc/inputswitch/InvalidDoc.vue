@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <InputSwitch v-model="checked" class="p-invalid" />
+        <InputSwitch v-model="checked" invalid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             checked: false,
             code: {
                 basic: `
-<InputSwitch v-model="checked" class="p-invalid" />
+<InputSwitch v-model="checked" invalid />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputSwitch v-model="checked" class="p-invalid" />
+        <InputSwitch v-model="checked" invalid />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputSwitch v-model="checked" class="p-invalid" />
+        <InputSwitch v-model="checked" invalid />
     </div>
 </template>
 

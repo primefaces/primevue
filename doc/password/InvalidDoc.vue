@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Password class="p-invalid" />
+        <Password invalid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<Password class="p-invalid" />
+<Password invalid />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Password class="p-invalid" />
+        <Password invalid />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Password class="p-invalid" />
+        <Password invalid />
     </div>
 </template>
 

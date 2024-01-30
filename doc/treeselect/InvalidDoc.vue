@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" class="md:w-20rem w-full p-invalid" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" invalid class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -18,12 +18,12 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" class="md:w-20rem w-full p-invalid" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue" invalid class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" class="md:w-20rem w-full p-invalid" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" invalid class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" class="md:w-20rem w-full p-invalid" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" invalid class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 

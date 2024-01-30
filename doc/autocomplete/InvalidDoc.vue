@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" class="p-invalid" />
+        <AutoComplete v-model="value" :suggestions="items" @complete="search" invalid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,12 +16,12 @@ export default {
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" :suggestions="items" @complete="search" class="p-invalid" />
+<AutoComplete v-model="value" :suggestions="items" @complete="search" invalid />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" class="p-invalid" />
+        <AutoComplete v-model="value" :suggestions="items" @complete="search" invalid />
     </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" class="p-invalid" />
+        <AutoComplete v-model="value" :suggestions="items" @complete="search" invalid />
     </div>
 </template>
 

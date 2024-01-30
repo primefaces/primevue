@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <RadioButton class="p-invalid" />
+        <RadioButton invalid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             checked: false,
             code: {
                 basic: `
-<RadioButton class="p-invalid" />
+<RadioButton invalid />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <RadioButton class="p-invalid" />
+        <RadioButton invalid />
     </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <RadioButton class="p-invalid" />
+        <RadioButton invalid />
     </div>
 </template>
 

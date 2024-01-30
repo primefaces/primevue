@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" class="p-invalid" />
+        <TriStateCheckbox v-model="value" invalid />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
     </div>
     <DocSectionCode :code="code" />
@@ -16,32 +16,32 @@ export default {
             value: null,
             code: {
                 basic: `
-<TriStateCheckbox v-model="value" class="p-invalid" />
+<TriStateCheckbox v-model="value" invalid />
 `,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" class="p-invalid" />
+        <TriStateCheckbox v-model="value" invalid />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
-    </div>  
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          value: null
-      }
-  }
+    data() {
+        return {
+            value: null
+        }
+    }
 }
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" class="p-invalid" />
+        <TriStateCheckbox v-model="value" invalid />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
-    </div>  
+    </div>
 </template>
 
 <script setup>

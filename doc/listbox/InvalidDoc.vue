@@ -3,7 +3,7 @@
         <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="p-invalid w-full md:w-14rem" />
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" invalid class="w-full md:w-14rem" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,12 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="p-invalid w-full md:w-14rem" />
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" invalid class="w-full md:w-14rem" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="p-invalid w-full md:w-14rem" />
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" invalid class="w-full md:w-14rem" />
     </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="p-invalid w-full md:w-14rem" />
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" invalid class="w-full md:w-14rem" />
     </div>
 </template>
 
