@@ -14,6 +14,10 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         listStyle: null,
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

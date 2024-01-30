@@ -6,7 +6,8 @@ const classes = {
         {
             'p-filled': instance.filled,
             'p-inputtext-sm': props.size === 'small',
-            'p-inputtext-lg': props.size === 'large'
+            'p-inputtext-lg': props.size === 'large',
+            'p-invalid': props.invalid
         }
     ]
 };

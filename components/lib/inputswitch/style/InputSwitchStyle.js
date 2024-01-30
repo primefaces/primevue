@@ -37,7 +37,8 @@ const classes = {
         'p-inputswitch p-component',
         {
             'p-highlight': instance.checked,
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-invalid': props.invalid
         }
     ],
     input: 'p-inputswitch-input',

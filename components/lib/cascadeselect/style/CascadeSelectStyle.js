@@ -103,6 +103,7 @@ const classes = {
         'p-cascadeselect p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,

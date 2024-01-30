@@ -18,6 +18,10 @@ export default {
             default: '200px'
         },
         placeholder: String,
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: Boolean,
         inputId: {
             type: String,

@@ -110,6 +110,7 @@ const classes = {
         'p-autocomplete p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-focus': instance.focused,
             'p-autocomplete-dd': props.dropdown,
             'p-autocomplete-multiple': props.multiple,

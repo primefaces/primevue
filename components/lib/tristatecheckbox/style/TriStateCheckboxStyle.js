@@ -26,7 +26,8 @@ const classes = {
         'p-tristatecheckbox p-checkbox p-component',
         {
             'p-highlight': instance.active,
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-invalid': props.invalid
         }
     ],
     box: 'p-checkbox-box',

@@ -42,7 +42,8 @@ const classes = {
     root: ({ instance, props }) => [
         'p-listbox p-component',
         {
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-invalid': props.invalid
         }
     ],
     header: 'p-listbox-header',

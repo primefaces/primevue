@@ -55,6 +55,7 @@ const classes = {
         'p-chips p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-focus': instance.focused,
             'p-inputwrapper-filled': (props.modelValue && props.modelValue.length) || (instance.inputValue && instance.inputValue.length),
             'p-inputwrapper-focus': instance.focused

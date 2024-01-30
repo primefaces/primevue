@@ -24,7 +24,8 @@ const classes = {
         'p-togglebutton p-component',
         {
             'p-disabled': props.disabled,
-            'p-highlight': instance.active
+            'p-highlight': instance.active,
+            'p-invalid': props.invalid
         }
     ],
     input: 'p-togglebutton-input',

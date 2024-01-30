@@ -7,7 +7,11 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: null,
-        autoResize: Boolean
+        autoResize: Boolean,
+        invalid: {
+            type: Boolean,
+            default: false
+        }
     },
     style: TextareaStyle,
     provide() {

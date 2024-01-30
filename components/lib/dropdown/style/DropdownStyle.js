@@ -104,6 +104,7 @@ const classes = {
         'p-dropdown p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-dropdown-clearable': props.showClear,
             'p-focus': state.focused,
             'p-inputwrapper-filled': instance.hasSelectedOption,

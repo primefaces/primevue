@@ -166,6 +166,7 @@ const classes = {
             'p-input-icon-right': props.showIcon && props.iconDisplay === 'input',
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
             'p-focus': state.focused || state.overlayVisible

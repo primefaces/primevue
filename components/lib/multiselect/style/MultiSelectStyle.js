@@ -120,6 +120,7 @@ const classes = {
         {
             'p-multiselect-chip': props.display === 'chip',
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,

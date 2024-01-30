@@ -109,6 +109,10 @@ export default {
             type: Boolean,
             default: false
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

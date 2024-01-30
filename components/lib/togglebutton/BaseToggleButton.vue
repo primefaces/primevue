@@ -21,6 +21,10 @@ export default {
             type: String,
             default: 'left'
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

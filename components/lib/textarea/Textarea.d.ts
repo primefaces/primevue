@@ -98,6 +98,11 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      */
     autoResize?: boolean | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TextareaPassThroughOptions}
      */

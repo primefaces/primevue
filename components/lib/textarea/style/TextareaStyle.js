@@ -18,7 +18,8 @@ const classes = {
         'p-inputtextarea p-inputtext p-component',
         {
             'p-filled': instance.filled,
-            'p-inputtextarea-resizable ': props.autoResize
+            'p-inputtextarea-resizable ': props.autoResize,
+            'p-invalid': props.invalid
         }
     ]
 };

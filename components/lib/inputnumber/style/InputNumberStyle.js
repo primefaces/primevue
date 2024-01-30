@@ -113,7 +113,8 @@ const classes = {
             'p-inputwrapper-focus': instance.focused,
             'p-inputnumber-buttons-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-buttons-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
-            'p-inputnumber-buttons-vertical': props.showButtons && props.buttonLayout === 'vertical'
+            'p-inputnumber-buttons-vertical': props.showButtons && props.buttonLayout === 'vertical',
+            'p-invalid': props.invalid
         }
     ],
     input: 'p-inputnumber-input',

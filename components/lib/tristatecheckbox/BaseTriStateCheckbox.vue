@@ -7,6 +7,10 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: null,
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

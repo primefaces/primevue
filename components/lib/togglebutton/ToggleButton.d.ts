@@ -145,6 +145,11 @@ export interface ToggleButtonProps {
      */
     iconPos?: 'left' | 'right' | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
      * @defaultValue false
      */
