@@ -1,0 +1,9 @@
+{
+    "main": "./inputicon.cjs.js",
+    "module": "./inputicon.esm.js",
+    "unpkg": "./inputicon.min.js",
+    "types": "./InputIcon.d.ts",
+    "browser": {
+        "./sfc": "./InputIcon.vue"
+    }
+}

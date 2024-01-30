@@ -1,0 +1,6 @@
+{
+    "main": "./inputiconstyle.cjs.js",
+    "module": "./inputiconstyle.esm.js",
+    "unpkg": "./inputiconstyle.min.js",
+    "types": "./InputIconStyle.d.ts"
+}
