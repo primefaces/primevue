@@ -3862,7 +3862,7 @@
     color: #333333;
     padding: 0.571rem 1rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.5rem;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
