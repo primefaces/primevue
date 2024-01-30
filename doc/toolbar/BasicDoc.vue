@@ -5,9 +5,9 @@
     <div class="card">
         <Toolbar>
             <template #start>
-                <Button icon="pi pi-plus" class="mr-2" />
-                <Button icon="pi pi-print" class="mr-2" />
-                <Button icon="pi pi-upload" />
+                <Button icon="pi pi-plus" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-print" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-upload" severity="secondary" />
             </template>
 
             <template #center>
@@ -19,7 +19,7 @@
                 </IconField>
             </template>
 
-            <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
+            <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
         </Toolbar>
     </div>
     <DocSectionCode :code="code" />
@@ -43,9 +43,9 @@ export default {
                 basic: `
 <Toolbar>
     <template #start>
-        <Button icon="pi pi-plus" class="mr-2" />
-        <Button icon="pi pi-print" class="mr-2" />
-        <Button icon="pi pi-upload" />
+        <Button icon="pi pi-plus" class="mr-2" severity="secondary" />
+        <Button icon="pi pi-print" class="mr-2" severity="secondary" />
+        <Button icon="pi pi-upload" severity="secondary" />
     </template>
 
     <template #center>
@@ -57,7 +57,7 @@ export default {
         </IconField>
     </template>
 
-    <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
+    <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
 </Toolbar>
 `,
                 options: `
@@ -65,9 +65,9 @@ export default {
     <div class="card">
         <Toolbar>
             <template #start>
-                <Button icon="pi pi-plus" class="mr-2" />
-                <Button icon="pi pi-print" class="mr-2" />
-                <Button icon="pi pi-upload" />
+                <Button icon="pi pi-plus" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-print" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-upload" severity="secondary" />
             </template>
 
             <template #center>
@@ -79,7 +79,7 @@ export default {
                 </IconField>
             </template>
 
-            <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
+            <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
         </Toolbar>
     </div>
 </template>
@@ -108,9 +108,9 @@ export default {
     <div class="card">
         <Toolbar>
             <template #start>
-                <Button icon="pi pi-plus" class="mr-2" />
-                <Button icon="pi pi-print" class="mr-2" />
-                <Button icon="pi pi-upload" />
+                <Button icon="pi pi-plus" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-print" class="mr-2" severity="secondary" />
+                <Button icon="pi pi-upload" severity="secondary" />
             </template>
 
             <template #center>
@@ -122,7 +122,7 @@ export default {
                 </IconField>
             </template>
 
-            <template #end> <SplitButton label="Save" icon="pi pi-check" :model="items"></SplitButton></template>
+            <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
         </Toolbar>
     </div>
 </template>
