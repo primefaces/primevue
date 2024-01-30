@@ -22,12 +22,12 @@
 
         <h3>Compile SCSS Manually</h3>
         <p>Once your theme is ready run the following command to compile it. Note that <a href="https://www.npmjs.com/package/sass">sass</a> command should be available in your terminal.</p>
-        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
         <p>
             Then copy and import the theme.css file in your application. For example, in a Vite based template like <a href="https://github.com/vuejs/create-vue">create-vue</a>, you may place theme.css under assets folder and then import it an
             <i>main.js</i>.
         </p>
-        <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
 
         <h3>Build Time Compilation</h3>
         <p>

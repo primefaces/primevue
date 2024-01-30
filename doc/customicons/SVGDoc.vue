@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Inline SVGs are embedded inside the dom.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

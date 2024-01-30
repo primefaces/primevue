@@ -4,7 +4,7 @@
             Tailwind CSS includes a reset utility in base called <a href="https://tailwindcss.com/docs/preflight" target="_blank" rel="noopener noreferrer">preflight</a>. If you are using this feature, wrap the base and utilities in separate layers
             and make sure primevue layer comes after the base.
         </p>
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
     </DocSectionText>
 </template>
 

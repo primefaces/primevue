@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Create an app container element and setup the application using <i>createApp</i>.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

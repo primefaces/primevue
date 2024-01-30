@@ -7,7 +7,7 @@
         </p>
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element. Alternatively <i>filterPlaceholder</i> is usually utilized by the screen readers as well.</p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Keyboard Support</h3>
         <div class="doc-tablewrapper">

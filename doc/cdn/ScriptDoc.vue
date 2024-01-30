@@ -6,7 +6,7 @@
             <a href="https://cdnjs.com" target="_blank" rel="noopener noreferrer">cdnjs</a> can also be used.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

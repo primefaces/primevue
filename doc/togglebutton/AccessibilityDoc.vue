@@ -7,7 +7,7 @@
             that does not change related to state.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Keyboard Support</h3>
         <p>Keyboard interaction is derived from the native browser handling of checkboxs in a group.</p>

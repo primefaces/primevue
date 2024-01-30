@@ -28,7 +28,7 @@
 
         <p>Calendar also includes a hidden section that is only available to screen readers with <i>aria-live</i> as "polite". This element is updated when the selected date changes to instruct the user about the current date selected.</p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Choose Date Button Keyboard Support</h3>
         <div class="doc-tablewrapper">

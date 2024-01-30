@@ -30,7 +30,7 @@
             </template>
         </ContextMenu>
     </div>
-    <DocSectionCode :code="code" hideStackBlitz hideCodeSandbox />
+    <DocSectionCode :code="code" hideStackBlitz />
 </template>
 
 <script>

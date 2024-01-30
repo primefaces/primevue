@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>close</i> function is available through a <i>dialogRef</i> that is injected to the component loaded by the dialog.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" importCode hideToggleCode hideStackBlitz />
 </template>
 
 <script>
