@@ -610,6 +610,8 @@ export default {
         },
         onEnterKey(event) {
             if (event.isComposing || event.keyCode === 229) {
+                event.preventDefault();
+
                 return;
             }
 
