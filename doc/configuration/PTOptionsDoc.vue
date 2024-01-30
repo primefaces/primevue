@@ -5,7 +5,7 @@
             to override or merge the defined props. Defaults are <i>true</i> for <i>mergeSections</i> and <i>false</i> for <i>mergeProps</i>. Visit the <NuxtLink to="/passthrough">Pass Through Props</NuxtLink> documentation for more information.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
@@ -22,7 +22,7 @@ app.use(PrimeVue, {
     ptOptions: {
         mergeSections: true,
         mergeProps: false
-    } 
+    }
 });
 `
             }

@@ -6,7 +6,7 @@
             selection.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="activeNodes" hideToggleCode importCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+    <DocSectionCode :code="activeNodes" hideToggleCode importCode hideStackBlitz v-bind="$attrs" />
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Items" class="md:w-20rem w-full" />
     </div>

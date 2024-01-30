@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>Bootstrap has a <i>reboot</i> utility to reset the CSS of the standard elements. If you are including this utility, you may give it a layer while importing it.</p>
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
     </DocSectionText>
 </template>
 

@@ -13,7 +13,7 @@
         <Button type="button" label="Button 2" severity="secondary"></Button>
         <Button type="button" label="Button 3" severity="help"></Button>
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

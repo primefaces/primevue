@@ -6,7 +6,7 @@
             that is only visible to screen readers to read the value displayed. Values to read are defined with the <i>trueLabel</i>, <i>falseLabel</i> and <i>nullLabel</i> keys of the <i>aria</i> property from the
             <NuxtLink to="/configuration/#locale">locale</NuxtLink> API. This is an example of a custom accessibility implementation as there is no one to one mapping between the component design and the WCAG specification.
         </p>
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Keyboard Support</h3>
         <div class="doc-tablewrapper">

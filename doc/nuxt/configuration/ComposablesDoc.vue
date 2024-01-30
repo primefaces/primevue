@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>Determines the composables to use, when default value is ignored or set as <i>*</i> all composables are imported.</p>
-        <DocSectionCode :code="code1" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
     </DocSectionText>
 </template>
 
@@ -11,7 +11,7 @@ export default {
         return {
             code1: {
                 basic: `
-primevue: { 
+primevue: {
     composables: {
         include: ['useStyle']
     }

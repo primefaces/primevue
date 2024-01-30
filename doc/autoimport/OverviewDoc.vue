@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue components need to be imported and configured individually. In the next section, we'll cleanup the code using auto imports.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
