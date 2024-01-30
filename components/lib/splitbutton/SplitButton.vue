@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
+    <div :class="containerClass" :style="style" v-bind="ptm('root')" :data-pc-severity="severity">
         <slot>
             <PVSButton
                 type="button"
@@ -15,7 +15,6 @@
                 v-bind="buttonProps"
                 :pt="ptm('button')"
                 :unstyled="unstyled"
-                data-pc-section="button"
             >
                 <template #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
@@ -44,7 +43,6 @@
             v-bind="menuButtonProps"
             :pt="ptm('menuButton')"
             :unstyled="unstyled"
-            data-pc-section="menubutton"
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon" :class="slotProps.class">

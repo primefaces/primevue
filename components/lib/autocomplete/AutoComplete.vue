@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="autocomplete">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="!multiple"
             ref="focusInput"
@@ -91,19 +91,7 @@
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button
-            v-if="dropdown"
-            ref="dropdownButton"
-            type="button"
-            tabindex="-1"
-            :class="[cx('dropdownButton'), dropdownClass]"
-            :disabled="disabled"
-            aria-hidden="true"
-            @click="onDropdownClick"
-            :unstyled="unstyled"
-            :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
-        >
+        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" :unstyled="unstyled" :pt="ptm('dropdownButton')">
             <template #icon>
                 <slot name="dropdownicon" :class="dropdownIcon">
                     <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />

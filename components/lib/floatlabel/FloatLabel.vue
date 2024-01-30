@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="floatlabel">
+    <span :class="cx('root')" v-bind="ptm('root')">
         <slot />
     </span>
 </template>

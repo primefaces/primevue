@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="multiselect">
+    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onBarClick" v-bind="ptm('root')" :data-p-sliding="false" data-pc-name="slider">
+    <div :class="cx('root')" @click="onBarClick" v-bind="ptm('root')" :data-p-sliding="false">
         <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"

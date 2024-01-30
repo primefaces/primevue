@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="iconfield">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <slot />
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="calendar">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -39,7 +39,6 @@
             :aria-controls="panelId"
             :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
         >
             <template #icon>
                 <slot name="dropdownicon" :class="icon">
@@ -486,7 +485,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('todayButton')"
-                            data-pc-section="todaybutton"
                             data-pc-group-section="button"
                         />
                         <CalendarButton
@@ -497,7 +495,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('clearButton')"
-                            data-pc-section="clearbutton"
                             data-pc-group-section="button"
                         />
                     </div>
@@ -1691,7 +1688,6 @@ export default {
                 let styleClass = 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter';
 
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'datepickermask',
                     class: !this.isUnstyled && styleClass,
                     'p-bind': this.ptm('datepickermask')
                 });

@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="dropdown">
+    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="editable"
             ref="focusInput"

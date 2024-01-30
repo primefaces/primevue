@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="terminal">
+    <div :class="cx('root')" @click="onClick" v-bind="ptm('root')">
         <div v-if="welcomeMessage" v-bind="ptm('welcomeMessage')">{{ welcomeMessage }}</div>
         <div :class="cx('content')" v-bind="ptm('content')">
             <div v-for="(command, i) of commands" :key="command.text + i.toString()" v-bind="ptm('commands')">

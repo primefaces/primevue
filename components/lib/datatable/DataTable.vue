@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')" data-pc-name="datatable">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')">
         <slot></slot>
         <div v-if="loading" :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
             <slot v-if="$slots.loading" name="loading"></slot>

@@ -1,5 +1,5 @@
 <template>
-    <div v-focustrap :class="cx('root')" aria-live="polite" v-bind="ptm('root')" data-pc-name="inplace">
+    <div v-focustrap :class="cx('root')" aria-live="polite" v-bind="ptm('root')">
         <div v-if="!d_active" ref="display" :class="cx('display')" :tabindex="$attrs.tabindex || '0'" role="button" @click="open" @keydown.enter="open" v-bind="{ ...displayProps, ...ptm('display') }">
             <slot name="display"></slot>
         </div>

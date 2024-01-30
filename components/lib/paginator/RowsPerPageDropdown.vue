@@ -9,7 +9,6 @@
         :disabled="disabled"
         :unstyled="unstyled"
         :pt="ptm('rowPerPageDropdown')"
-        data-pc-section="rowperpagedropdown"
         data-pc-group-section="pagedropdown"
     >
         <template v-if="templates['rowsperpagedropdownicon']" #dropdownicon="slotProps">

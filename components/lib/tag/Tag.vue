@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="tag">
+    <span :class="cx('root')" v-bind="ptm('root')">
         <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
         <span v-else-if="icon" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></span>
         <slot v-if="value || $slots.default">

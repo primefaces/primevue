@@ -22,16 +22,20 @@ const BaseDirective = {
             return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
         };
 
-        const datasetPrefix = 'data-pc-';
         const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$config?.ptOptions || {};
         const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT(), getValue, key, params) : undefined;
         const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global: global || {} });
-        const datasets = {
+        const datasets = BaseDirective._getPTDatasets(instance, key);
+
+        return mergeSections || (!mergeSections && self) ? (useMergeProps ? BaseDirective._mergeProps(instance, useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+    },
+    _getPTDatasets(instance = {}, key = '') {
+        const datasetPrefix = 'data-pc-';
+
+        return {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
         };
-
-        return mergeSections || (!mergeSections && self) ? (useMergeProps ? BaseDirective._mergeProps(instance, useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
     },
     _getPT: (pt, key = '', callback) => {
         const getValue = (value) => {

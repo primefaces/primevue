@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="meter" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="totalPercent" v-bind="ptm('root')" data-pc-name="metergroup">
+    <div :class="cx('root')" role="meter" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="totalPercent" v-bind="ptm('root')">
         <slot v-if="labelPosition === 'start'" name="label" :value="value" :totalPercent="totalPercent" :percentages="percentages">
             <MeterGroupLabel :value="value" :labelPosition="labelPosition" :labelOrientation="labelOrientation" :unstyled="unstyled" :pt="pt" />
         </slot>

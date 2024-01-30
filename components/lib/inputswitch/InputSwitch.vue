@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="getPTOptions('root')" data-pc-name="inputswitch" :data-p-highlight="checked" :data-p-disabled="disabled">
+    <div :class="cx('root')" :style="sx('root')" v-bind="getPTOptions('root')" :data-p-highlight="checked" :data-p-disabled="disabled">
         <input
             :id="inputId"
             type="checkbox"

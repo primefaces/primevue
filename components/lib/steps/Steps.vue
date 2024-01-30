@@ -1,5 +1,5 @@
 <template>
-    <nav :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="steps">
+    <nav :id="id" :class="cx('root')" v-bind="ptm('root')">
         <ol ref="list" :class="cx('menu')" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="label(item) + '_' + index.toString()">
                 <li

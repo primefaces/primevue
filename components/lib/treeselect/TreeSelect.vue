@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="treeselect">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onClick" v-bind="ptm('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -75,7 +75,6 @@
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('tree')"
-                            data-pc-section="tree"
                         >
                             <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />

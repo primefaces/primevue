@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')" data-pc-name="avatar">
+    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')">
         <slot>
             <span v-if="label" :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />

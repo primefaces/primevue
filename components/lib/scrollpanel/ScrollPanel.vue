@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="scrollpanel">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
             <div ref="content" :id="contentId" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>

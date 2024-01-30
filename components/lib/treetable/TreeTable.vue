@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')">
         <slot></slot>
         <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
@@ -25,7 +25,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -135,7 +134,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>

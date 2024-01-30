@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="megamenu">
+    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptm('root')">
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>

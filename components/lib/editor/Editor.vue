@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="editor">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <div ref="toolbarElement" :class="cx('toolbar')" v-bind="ptm('toolbar')">
             <slot name="toolbar">
                 <span class="ql-formats" v-bind="ptm('formats')">

@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="inputnumber">
+    <span :class="cx('root')" v-bind="ptm('root')">
         <INInputText
             ref="input"
             :id="inputId"
@@ -25,37 +25,16 @@
             v-bind="inputProps"
             :pt="ptm('input')"
             :unstyled="unstyled"
-            data-pc-section="input"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
-            <INButton
-                :class="[cx('incrementButton'), incrementButtonClass]"
-                v-on="upButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="incrementButtonProps"
-                :pt="ptm('incrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="incrementbutton"
-            >
+            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" :pt="ptm('incrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="incrementbuttonicon">
                         <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
-            <INButton
-                :class="[cx('decrementButton'), decrementButtonClass]"
-                v-on="downButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="decrementButtonProps"
-                :pt="ptm('decrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="decrementbutton"
-            >
+            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" :pt="ptm('decrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="decrementbuttonicon">
                         <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
@@ -73,7 +52,6 @@
             v-bind="incrementButtonProps"
             :pt="ptm('incrementButton')"
             :unstyled="unstyled"
-            data-pc-section="incrementbutton"
         >
             <template #icon>
                 <slot name="incrementbuttonicon">
@@ -91,7 +69,6 @@
             v-bind="decrementButtonProps"
             :pt="ptm('decrementButton')"
             :unstyled="unstyled"
-            data-pc-section="decrementbutton"
         >
             <template #icon>
                 <slot name="decrementbuttonicon">
