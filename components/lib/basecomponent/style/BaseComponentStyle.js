@@ -75,6 +75,12 @@ const inputTextCSS = `
 .p-fluid .p-inputtext {
     width: 100%;
 }
+
+.p-fluid .p-input-icon-left,
+.p-fluid .p-input-icon-right {
+    display: block;
+    width: 100%;
+}
 `;
 
 const css = `

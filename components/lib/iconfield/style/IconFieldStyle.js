@@ -16,12 +16,6 @@ const css = `
         top: 50%;
         margin-top: -.5rem;
     }
-
-    .p-fluid .p-input-icon-left,
-    .p-fluid .p-input-icon-right {
-        display: block;
-        width: 100%;
-    }
 }
 `;
 
