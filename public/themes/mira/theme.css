@@ -421,6 +421,15 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #BF616A;
   }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+    background-color: #ECEFF4;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+    background-color: #ffffff;
+  }
 
   .p-autocomplete-panel {
     background: #ffffff;
@@ -474,6 +483,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
+  }
+  .p-calendar.p-variant > .p-inputtext {
+    background-color: #ECEFF4;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+    background-color: #ffffff;
   }
 
   .p-datepicker {
@@ -715,6 +733,15 @@
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
   }
+  .p-cascadeselect.p-variant {
+    background-color: #ECEFF4;
+  }
+  .p-cascadeselect.p-variant:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-cascadeselect.p-variant:enabled:focus {
+    background-color: #ffffff;
+  }
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
@@ -849,6 +876,18 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #BF616A;
   }
+  .p-checkbox.p-variant .p-checkbox-box {
+    background-color: #ECEFF4;
+  }
+  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+    background: #5E81AC;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+    background-color: #ECEFF4;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+    background: #81A1C1;
+  }
 
   .p-input-filled .p-checkbox .p-checkbox-box {
     background-color: #ECEFF4;
@@ -871,6 +910,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container {
+    background-color: #ECEFF4;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+    background-color: #ffffff;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.25rem 0.5rem;
@@ -938,6 +986,18 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
+  }
+  .p-dropdown.p-variant {
+    background: #ECEFF4;
+  }
+  .p-dropdown.p-variant:not(.p-disabled):hover {
+    background-color: #ECEFF4;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+    background-color: #ffffff;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.5rem;
@@ -1125,6 +1185,15 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #BF616A;
   }
+  .p-inputnumber.p-variant > .p-inputnumber-input {
+    background-color: #ECEFF4;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+    background-color: #ffffff;
+  }
 
   .p-inputswitch {
     width: 3rem;
@@ -1205,6 +1274,15 @@
   }
   .p-inputtext.p-invalid.p-component {
     border-color: #BF616A;
+  }
+  .p-inputtext.p-variant.p-component {
+    background-color: #ECEFF4;
+  }
+  .p-inputtext.p-variant.p-component:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-inputtext.p-variant.p-component:enabled:focus {
+    background-color: #ffffff;
   }
   .p-inputtext.p-inputtext-sm {
     font-size: 0.875rem;
@@ -1384,6 +1462,15 @@
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
   }
+  .p-multiselect.p-variant {
+    background: #ECEFF4;
+  }
+  .p-multiselect.p-variant:not(.p-disabled):hover {
+    background-color: #ECEFF4;
+  }
+  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #ffffff;
+  }
   .p-multiselect .p-multiselect-label {
     padding: 0.5rem 0.5rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -1521,6 +1608,15 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #BF616A;
   }
+  .p-password.p-variant > .p-inputtext {
+    background: #ECEFF4;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+    background-color: #ECEFF4;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+    background-color: #ffffff;
+  }
 
   .p-password-panel {
     padding: 1rem;
@@ -1601,6 +1697,18 @@
   }
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #BF616A;
+  }
+  .p-radiobutton.p-variant .p-radiobutton-box {
+    background-color: #ECEFF4;
+  }
+  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+    background: #5E81AC;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    background-color: #ECEFF4;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+    background: #81A1C1;
   }
 
   .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1733,6 +1841,16 @@
     border-color: #5E81AC;
   }
 
+  .p-inputtextarea.p-variant {
+    background-color: #ECEFF4;
+  }
+  .p-inputtextarea.p-variant:enabled:hover {
+    background-color: #ECEFF4;
+  }
+  .p-inputtextarea.p-variant:enabled:focus {
+    background-color: #ffffff;
+  }
+
   .p-treeselect {
     background: #ffffff;
     border: 1px solid #D8DEE9;
@@ -1748,6 +1866,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #C0D0E0;
     border-color: #81A1C1;
+  }
+  .p-treeselect.p-variant {
+    background: #ECEFF4;
+  }
+  .p-treeselect.p-variant:not(.p-disabled):hover {
+    background-color: #ECEFF4;
+  }
+  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #ffffff;
   }
   .p-treeselect .p-treeselect-label {
     padding: 0.5rem 0.5rem;

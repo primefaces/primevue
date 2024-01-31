@@ -412,6 +412,15 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #FCA5A5;
   }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+    background-color: #27272a;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+    background-color: #27272a;
+  }
 
   .p-autocomplete-panel {
     background: #18181b;
@@ -465,6 +474,15 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
+  }
+  .p-calendar.p-variant > .p-inputtext {
+    background-color: #27272a;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+    background-color: #27272a;
   }
 
   .p-datepicker {
@@ -706,6 +724,15 @@
     box-shadow: none;
     border-color: #52525b;
   }
+  .p-cascadeselect.p-variant {
+    background-color: #27272a;
+  }
+  .p-cascadeselect.p-variant:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-cascadeselect.p-variant:enabled:focus {
+    background-color: #27272a;
+  }
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
@@ -840,6 +867,18 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #FCA5A5;
   }
+  .p-checkbox.p-variant .p-checkbox-box {
+    background-color: #27272a;
+  }
+  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+    background: #22d3ee;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+    background-color: #27272a;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+    background: #67e8f9;
+  }
 
   .p-input-filled .p-checkbox .p-checkbox-box {
     background-color: #27272a;
@@ -862,6 +901,15 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container {
+    background-color: #27272a;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+    background-color: #27272a;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.25rem 0.75rem;
@@ -929,6 +977,18 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
+  }
+  .p-dropdown.p-variant {
+    background: #27272a;
+  }
+  .p-dropdown.p-variant:not(.p-disabled):hover {
+    background-color: #27272a;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+    background-color: #27272a;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.75rem;
@@ -1116,6 +1176,15 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #FCA5A5;
   }
+  .p-inputnumber.p-variant > .p-inputnumber-input {
+    background-color: #27272a;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+    background-color: #27272a;
+  }
 
   .p-inputswitch {
     width: 2.5rem;
@@ -1196,6 +1265,15 @@
   }
   .p-inputtext.p-invalid.p-component {
     border-color: #FCA5A5;
+  }
+  .p-inputtext.p-variant.p-component {
+    background-color: #27272a;
+  }
+  .p-inputtext.p-variant.p-component:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-inputtext.p-variant.p-component:enabled:focus {
+    background-color: #27272a;
   }
   .p-inputtext.p-inputtext-sm {
     font-size: 0.875rem;
@@ -1375,6 +1453,15 @@
     box-shadow: none;
     border-color: #52525b;
   }
+  .p-multiselect.p-variant {
+    background: #27272a;
+  }
+  .p-multiselect.p-variant:not(.p-disabled):hover {
+    background-color: #27272a;
+  }
+  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #27272a;
+  }
   .p-multiselect .p-multiselect-label {
     padding: 0.5rem 0.75rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
@@ -1512,6 +1599,15 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #FCA5A5;
   }
+  .p-password.p-variant > .p-inputtext {
+    background: #27272a;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+    background-color: #27272a;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+    background-color: #27272a;
+  }
 
   .p-password-panel {
     padding: 0 1.125rem 1.125rem 1.125rem;
@@ -1592,6 +1688,18 @@
   }
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #FCA5A5;
+  }
+  .p-radiobutton.p-variant .p-radiobutton-box {
+    background-color: #27272a;
+  }
+  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+    background: #020617;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    background-color: #27272a;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+    background: #020617;
   }
 
   .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1724,6 +1832,16 @@
     border-color: transparent;
   }
 
+  .p-inputtextarea.p-variant {
+    background-color: #27272a;
+  }
+  .p-inputtextarea.p-variant:enabled:hover {
+    background-color: #27272a;
+  }
+  .p-inputtextarea.p-variant:enabled:focus {
+    background-color: #27272a;
+  }
+
   .p-treeselect {
     background: #09090b;
     border: 1px solid #3f3f46;
@@ -1739,6 +1857,15 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
+  }
+  .p-treeselect.p-variant {
+    background: #27272a;
+  }
+  .p-treeselect.p-variant:not(.p-disabled):hover {
+    background-color: #27272a;
+  }
+  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #27272a;
   }
   .p-treeselect .p-treeselect-label {
     padding: 0.5rem 0.75rem;

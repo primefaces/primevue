@@ -393,6 +393,15 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #dc3545;
   }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+    background-color: #efefef;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+    background-color: #efefef;
+  }
 
   .p-autocomplete-panel {
     background: #ffffff;
@@ -446,6 +455,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
+  }
+  .p-calendar.p-variant > .p-inputtext {
+    background-color: #efefef;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+    background-color: #efefef;
   }
 
   .p-datepicker {
@@ -687,6 +705,15 @@
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
   }
+  .p-cascadeselect.p-variant {
+    background-color: #efefef;
+  }
+  .p-cascadeselect.p-variant:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-cascadeselect.p-variant:enabled:focus {
+    background-color: #efefef;
+  }
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
@@ -821,6 +848,18 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #dc3545;
   }
+  .p-checkbox.p-variant .p-checkbox-box {
+    background-color: #efefef;
+  }
+  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+    background: #007bff;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+    background-color: #efefef;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+    background: #0062cc;
+  }
 
   .p-input-filled .p-checkbox .p-checkbox-box {
     background-color: #efefef;
@@ -847,6 +886,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container {
+    background-color: #efefef;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+    background-color: #efefef;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.25rem 0.75rem;
@@ -914,6 +962,18 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
+  }
+  .p-dropdown.p-variant {
+    background: #efefef;
+  }
+  .p-dropdown.p-variant:not(.p-disabled):hover {
+    background-color: #efefef;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+    background-color: #efefef;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.75rem;
@@ -1101,6 +1161,15 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #dc3545;
   }
+  .p-inputnumber.p-variant > .p-inputnumber-input {
+    background-color: #efefef;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+    background-color: #efefef;
+  }
 
   .p-inputswitch {
     width: 3rem;
@@ -1181,6 +1250,15 @@
   }
   .p-inputtext.p-invalid.p-component {
     border-color: #dc3545;
+  }
+  .p-inputtext.p-variant.p-component {
+    background-color: #efefef;
+  }
+  .p-inputtext.p-variant.p-component:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-inputtext.p-variant.p-component:enabled:focus {
+    background-color: #efefef;
   }
   .p-inputtext.p-inputtext-sm {
     font-size: 0.875rem;
@@ -1360,6 +1438,15 @@
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
   }
+  .p-multiselect.p-variant {
+    background: #efefef;
+  }
+  .p-multiselect.p-variant:not(.p-disabled):hover {
+    background-color: #efefef;
+  }
+  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #efefef;
+  }
   .p-multiselect .p-multiselect-label {
     padding: 0.5rem 0.75rem;
     transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -1497,6 +1584,15 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #dc3545;
   }
+  .p-password.p-variant > .p-inputtext {
+    background: #efefef;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+    background-color: #efefef;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+    background-color: #efefef;
+  }
 
   .p-password-panel {
     padding: 1.25rem;
@@ -1577,6 +1673,18 @@
   }
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #dc3545;
+  }
+  .p-radiobutton.p-variant .p-radiobutton-box {
+    background-color: #efefef;
+  }
+  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+    background: #007bff;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    background-color: #efefef;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+    background: #0062cc;
   }
 
   .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1717,6 +1825,16 @@
     border-color: #0069d9;
   }
 
+  .p-inputtextarea.p-variant {
+    background-color: #efefef;
+  }
+  .p-inputtextarea.p-variant:enabled:hover {
+    background-color: #efefef;
+  }
+  .p-inputtextarea.p-variant:enabled:focus {
+    background-color: #efefef;
+  }
+
   .p-treeselect {
     background: #ffffff;
     border: 1px solid #ced4da;
@@ -1732,6 +1850,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
     border-color: #007bff;
+  }
+  .p-treeselect.p-variant {
+    background: #efefef;
+  }
+  .p-treeselect.p-variant:not(.p-disabled):hover {
+    background-color: #efefef;
+  }
+  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #efefef;
   }
   .p-treeselect .p-treeselect-label {
     padding: 0.5rem 0.75rem;

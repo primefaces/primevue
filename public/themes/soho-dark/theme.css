@@ -417,6 +417,15 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #ff9a9a;
   }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+    background-color: #3e4053;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+    background-color: #3e4053;
+  }
 
   .p-autocomplete-panel {
     background: #282936;
@@ -470,6 +479,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
+  }
+  .p-calendar.p-variant > .p-inputtext {
+    background-color: #3e4053;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+    background-color: #3e4053;
   }
 
   .p-datepicker {
@@ -711,6 +729,15 @@
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
   }
+  .p-cascadeselect.p-variant {
+    background-color: #3e4053;
+  }
+  .p-cascadeselect.p-variant:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-cascadeselect.p-variant:enabled:focus {
+    background-color: #3e4053;
+  }
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
@@ -845,6 +872,18 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #ff9a9a;
   }
+  .p-checkbox.p-variant .p-checkbox-box {
+    background-color: #3e4053;
+  }
+  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+    background: #b19df7;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+    background-color: #3e4053;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+    background: #9378f4;
+  }
 
   .p-input-filled .p-checkbox .p-checkbox-box {
     background-color: #3e4053;
@@ -867,6 +906,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container {
+    background-color: #3e4053;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+    background-color: #3e4053;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.375rem 0.75rem;
@@ -934,6 +982,18 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
+  }
+  .p-dropdown.p-variant {
+    background: #3e4053;
+  }
+  .p-dropdown.p-variant:not(.p-disabled):hover {
+    background-color: #3e4053;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+    background-color: #3e4053;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.75rem;
@@ -1121,6 +1181,15 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #ff9a9a;
   }
+  .p-inputnumber.p-variant > .p-inputnumber-input {
+    background-color: #3e4053;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+    background-color: #3e4053;
+  }
 
   .p-inputswitch {
     width: 3rem;
@@ -1201,6 +1270,15 @@
   }
   .p-inputtext.p-invalid.p-component {
     border-color: #ff9a9a;
+  }
+  .p-inputtext.p-variant.p-component {
+    background-color: #3e4053;
+  }
+  .p-inputtext.p-variant.p-component:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-inputtext.p-variant.p-component:enabled:focus {
+    background-color: #3e4053;
   }
   .p-inputtext.p-inputtext-sm {
     font-size: 0.875rem;
@@ -1380,6 +1458,15 @@
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
   }
+  .p-multiselect.p-variant {
+    background: #3e4053;
+  }
+  .p-multiselect.p-variant:not(.p-disabled):hover {
+    background-color: #3e4053;
+  }
+  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #3e4053;
+  }
   .p-multiselect .p-multiselect-label {
     padding: 0.75rem 0.75rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -1517,6 +1604,15 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #ff9a9a;
   }
+  .p-password.p-variant > .p-inputtext {
+    background: #3e4053;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+    background-color: #3e4053;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+    background-color: #3e4053;
+  }
 
   .p-password-panel {
     padding: 1.25rem;
@@ -1597,6 +1693,18 @@
   }
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #ff9a9a;
+  }
+  .p-radiobutton.p-variant .p-radiobutton-box {
+    background-color: #3e4053;
+  }
+  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+    background: #b19df7;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    background-color: #3e4053;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+    background: #9378f4;
   }
 
   .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1729,6 +1837,16 @@
     border-color: #b19df7;
   }
 
+  .p-inputtextarea.p-variant {
+    background-color: #3e4053;
+  }
+  .p-inputtextarea.p-variant:enabled:hover {
+    background-color: #3e4053;
+  }
+  .p-inputtextarea.p-variant:enabled:focus {
+    background-color: #3e4053;
+  }
+
   .p-treeselect {
     background: #1d1e27;
     border: 1px solid #3e4053;
@@ -1744,6 +1862,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
+  }
+  .p-treeselect.p-variant {
+    background: #3e4053;
+  }
+  .p-treeselect.p-variant:not(.p-disabled):hover {
+    background-color: #3e4053;
+  }
+  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #3e4053;
   }
   .p-treeselect .p-treeselect-label {
     padding: 0.75rem 0.75rem;

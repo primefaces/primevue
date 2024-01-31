@@ -425,6 +425,15 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #f78c79;
   }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+    background-color: #263238;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+    background-color: #263238;
+  }
+  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+    background-color: #263238;
+  }
 
   .p-autocomplete-panel {
     background: #161d21;
@@ -478,6 +487,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
+  }
+  .p-calendar.p-variant > .p-inputtext {
+    background-color: #263238;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+    background-color: #263238;
+  }
+  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+    background-color: #263238;
   }
 
   .p-datepicker {
@@ -719,6 +737,15 @@
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
   }
+  .p-cascadeselect.p-variant {
+    background-color: #263238;
+  }
+  .p-cascadeselect.p-variant:enabled:hover {
+    background-color: #263238;
+  }
+  .p-cascadeselect.p-variant:enabled:focus {
+    background-color: #263238;
+  }
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
@@ -853,6 +880,18 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #f78c79;
   }
+  .p-checkbox.p-variant .p-checkbox-box {
+    background-color: #263238;
+  }
+  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+    background: #9eade6;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+    background-color: #263238;
+  }
+  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+    background: #7f93de;
+  }
 
   .p-input-filled .p-checkbox .p-checkbox-box {
     background-color: #263238;
@@ -875,6 +914,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container {
+    background-color: #263238;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+    background-color: #263238;
+  }
+  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+    background-color: #263238;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.25rem 0.75rem;
@@ -942,6 +990,18 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
+  }
+  .p-dropdown.p-variant {
+    background: #263238;
+  }
+  .p-dropdown.p-variant:not(.p-disabled):hover {
+    background-color: #263238;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+    background-color: #263238;
+  }
+  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.75rem;
@@ -1129,6 +1189,15 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #f78c79;
   }
+  .p-inputnumber.p-variant > .p-inputnumber-input {
+    background-color: #263238;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+    background-color: #263238;
+  }
+  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+    background-color: #263238;
+  }
 
   .p-inputswitch {
     width: 3rem;
@@ -1209,6 +1278,15 @@
   }
   .p-inputtext.p-invalid.p-component {
     border-color: #f78c79;
+  }
+  .p-inputtext.p-variant.p-component {
+    background-color: #263238;
+  }
+  .p-inputtext.p-variant.p-component:enabled:hover {
+    background-color: #263238;
+  }
+  .p-inputtext.p-variant.p-component:enabled:focus {
+    background-color: #263238;
   }
   .p-inputtext.p-inputtext-sm {
     font-size: 0.875rem;
@@ -1388,6 +1466,15 @@
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
   }
+  .p-multiselect.p-variant {
+    background: #263238;
+  }
+  .p-multiselect.p-variant:not(.p-disabled):hover {
+    background-color: #263238;
+  }
+  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #263238;
+  }
   .p-multiselect .p-multiselect-label {
     padding: 0.5rem 0.75rem;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -1525,6 +1612,15 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #f78c79;
   }
+  .p-password.p-variant > .p-inputtext {
+    background: #263238;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+    background-color: #263238;
+  }
+  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+    background-color: #263238;
+  }
 
   .p-password-panel {
     padding: 1rem;
@@ -1605,6 +1701,18 @@
   }
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #f78c79;
+  }
+  .p-radiobutton.p-variant .p-radiobutton-box {
+    background-color: #263238;
+  }
+  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+    background: #9eade6;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    background-color: #263238;
+  }
+  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+    background: #7f93de;
   }
 
   .p-input-filled .p-radiobutton .p-radiobutton-box {
@@ -1737,6 +1845,16 @@
     border-color: #9eade6;
   }
 
+  .p-inputtextarea.p-variant {
+    background-color: #263238;
+  }
+  .p-inputtextarea.p-variant:enabled:hover {
+    background-color: #263238;
+  }
+  .p-inputtextarea.p-variant:enabled:focus {
+    background-color: #263238;
+  }
+
   .p-treeselect {
     background: #0e1315;
     border: 2px solid #263238;
@@ -1752,6 +1870,15 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #9eade6;
     border-color: #9eade6;
+  }
+  .p-treeselect.p-variant {
+    background: #263238;
+  }
+  .p-treeselect.p-variant:not(.p-disabled):hover {
+    background-color: #263238;
+  }
+  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+    background-color: #263238;
   }
   .p-treeselect .p-treeselect-label {
     padding: 0.5rem 0.75rem;
