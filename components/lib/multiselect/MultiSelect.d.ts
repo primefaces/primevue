@@ -342,6 +342,11 @@ export interface MultiSelectProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;

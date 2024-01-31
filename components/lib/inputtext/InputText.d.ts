@@ -97,6 +97,11 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     invalid?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputTextPassThroughOptions}
      */

@@ -18,6 +18,10 @@ export default {
             default: '200px'
         },
         placeholder: String,
+        variant: {
+            type: String,
+            default: 'outlined'
+        },
         invalid: {
             type: Boolean,
             default: false

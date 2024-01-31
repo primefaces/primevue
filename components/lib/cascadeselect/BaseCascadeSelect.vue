@@ -14,6 +14,10 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         placeholder: String,
+        variant: {
+            type: String,
+            default: 'outlined'
+        },
         invalid: {
             type: Boolean,
             default: false

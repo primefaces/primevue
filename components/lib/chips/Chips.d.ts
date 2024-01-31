@@ -195,6 +195,11 @@ export interface ChipsProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Placeholder text for the input.
      */
     placeholder?: string | undefined;

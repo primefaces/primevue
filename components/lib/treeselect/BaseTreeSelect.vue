@@ -16,6 +16,10 @@ export default {
             type: String,
             default: null
         },
+        variant: {
+            type: String,
+            default: 'outlined'
+        },
         invalid: {
             type: Boolean,
             default: false

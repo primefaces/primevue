@@ -121,6 +121,7 @@ const classes = {
             'p-multiselect-chip': props.display === 'chip',
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -141,10 +142,10 @@ const classes = {
     trigger: 'p-multiselect-trigger',
     loadingIcon: 'p-multiselect-trigger-icon',
     dropdownIcon: 'p-multiselect-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-multiselect-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

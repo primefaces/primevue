@@ -111,6 +111,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-autocomplete-dd': props.dropdown,
             'p-autocomplete-multiple': props.multiple,
@@ -127,10 +128,10 @@ const classes = {
     inputToken: 'p-autocomplete-input-token',
     loadingIcon: 'p-autocomplete-loader',
     dropdownButton: 'p-autocomplete-dropdown',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-autocomplete-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

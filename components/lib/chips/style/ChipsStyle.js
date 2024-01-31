@@ -56,6 +56,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': (props.modelValue && props.modelValue.length) || (instance.inputValue && instance.inputValue.length),
             'p-inputwrapper-focus': instance.focused

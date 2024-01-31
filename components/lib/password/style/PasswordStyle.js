@@ -42,7 +42,8 @@ const classes = {
             'p-inputwrapper-filled': instance.filled,
             'p-inputwrapper-focus': instance.focused,
             'p-input-icon-right': props.toggleMask,
-            'p-invalid': props.invalid
+            'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled'
         }
     ],
     input: ({ props }) => [
@@ -51,10 +52,10 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-password-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

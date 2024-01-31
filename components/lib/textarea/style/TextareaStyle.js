@@ -19,7 +19,8 @@ const classes = {
         {
             'p-filled': instance.filled,
             'p-inputtextarea-resizable ': props.autoResize,
-            'p-invalid': props.invalid
+            'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled'
         }
     ]
 };

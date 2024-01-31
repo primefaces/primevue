@@ -138,6 +138,11 @@ export interface TriStateCheckboxProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * When present, it specifies that an input field is read-only.
      * @default false
      */

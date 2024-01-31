@@ -282,6 +282,11 @@ export interface CascadeSelectProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * A property to uniquely identify an option.
      */
     dataKey?: string | undefined;

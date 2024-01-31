@@ -190,6 +190,11 @@ export interface TreeSelectProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: string | undefined;

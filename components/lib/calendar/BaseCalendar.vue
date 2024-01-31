@@ -176,6 +176,10 @@ export default {
             type: [String, Object],
             default: 'body'
         },
+        variant: {
+            type: String,
+            default: 'outlined'
+        },
         invalid: {
             type: Boolean,
             default: false

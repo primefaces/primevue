@@ -167,6 +167,7 @@ const classes = {
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled',
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
             'p-focus': state.focused || state.overlayVisible
@@ -186,7 +187,7 @@ const classes = {
             'p-datepicker-monthpicker': state.currentView === 'month',
             'p-datepicker-yearpicker': state.currentView === 'year',
             'p-datepicker-touch-ui': props.touchUI,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

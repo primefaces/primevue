@@ -11,6 +11,10 @@ export default {
         invalid: {
             type: Boolean,
             default: false
+        },
+        variant: {
+            type: String,
+            default: 'outlined'
         }
     },
     style: TextareaStyle,

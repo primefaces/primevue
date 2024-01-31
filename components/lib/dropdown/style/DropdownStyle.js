@@ -105,6 +105,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled',
             'p-dropdown-clearable': props.showClear,
             'p-focus': state.focused,
             'p-inputwrapper-filled': instance.hasSelectedOption,
@@ -123,10 +124,10 @@ const classes = {
     trigger: 'p-dropdown-trigger',
     loadingicon: 'p-dropdown-trigger-icon',
     dropdownIcon: 'p-dropdown-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-dropdown-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

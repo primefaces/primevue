@@ -27,7 +27,8 @@ const classes = {
         {
             'p-highlight': instance.active,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid
+            'p-invalid': props.invalid,
+            'p-variant': props.variant === 'filled'
         }
     ],
     box: 'p-checkbox-box',
