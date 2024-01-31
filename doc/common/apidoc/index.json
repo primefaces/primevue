@@ -3650,6 +3650,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
@@ -8143,6 +8151,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "readonly",
                             "optional": true,
                             "readonly": false,
@@ -10105,6 +10121,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
@@ -11139,6 +11163,14 @@
                             "description": "When present, it specifies that the element should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "readonly",
                             "optional": true,
                             "readonly": false,
@@ -12111,6 +12143,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the element should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "placeholder",
@@ -24114,6 +24154,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
@@ -30737,6 +30785,22 @@
                             "description": "Whether the items are clickable or not."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
@@ -31354,6 +31418,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -32200,6 +32272,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "pt",
@@ -37221,6 +37301,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "inputId",
                             "optional": true,
                             "readonly": false,
@@ -41989,6 +42077,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "placeholder",
                             "optional": true,
                             "readonly": false,
@@ -44212,6 +44308,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -52140,6 +52244,14 @@
                             "description": "When present, it specifies that the component should have invalid state style."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
@@ -56304,6 +56416,14 @@
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "tabindex",
                             "optional": true,
                             "readonly": false,
@@ -58476,6 +58596,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
