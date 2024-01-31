@@ -1,7 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A message disappears after the number of milliseconds defined in the <i>life</i> option. Omit the <i>life</i>
-            option to make the message sticky.</p>
+        <p>A message disappears after the number of milliseconds defined in the <i>life</i> option. Omit the <i>life</i> option to make the message sticky.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
