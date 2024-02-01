@@ -592,6 +592,9 @@ export default {
         },
         currentView() {
             Promise.resolve(null).then(() => this.alignOverlay());
+        },
+        view(newValue) {
+            this.currentView = newValue;
         }
     },
     created() {
