@@ -128,6 +128,7 @@ export default {
     },
     updated() {
         this.updateInkBar();
+        this.scrollable && this.updateButtonState();
     },
     methods: {
         isTabPanel(child) {
