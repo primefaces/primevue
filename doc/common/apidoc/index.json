@@ -14606,7 +14606,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "\"filled\" | \"outlined\"",
                             "default": ""
                         },
                         {
