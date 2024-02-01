@@ -54,7 +54,7 @@ export interface ColorPickerChangeEvent {
     /**
      * Browser event
      */
-    originalEvent: Event;
+    event: Event;
     /**
      * Selected color value.
      */
