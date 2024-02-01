@@ -100,6 +100,7 @@ import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 export interface PrimeVueConfiguration {
     ripple?: boolean;
     inputStyle?: string;
+    localeCode?: string;
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;

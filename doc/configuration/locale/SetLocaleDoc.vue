@@ -17,6 +17,7 @@ export default {
             code1: {
                 basic: `
 app.use(PrimeVue, {
+    localeCode: 'es',
     locale: {
         accept: 'Aceptar',
         reject: 'Rechazar',
@@ -34,6 +35,7 @@ export default defineComponent({
     setup() {
         const changeToSpanish = () => {
             const primevue = usePrimeVue();
+            primevue.config.localeCode = "es";
             primevue.config.locale.accept = "Aceptar";
             primevue.config.locale.reject = "Rechazar";
         }

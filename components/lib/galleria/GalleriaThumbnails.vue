@@ -438,7 +438,7 @@ export default {
 
             if (this.responsiveOptions && !this.isUnstyled) {
                 this.sortedResponsiveOptions = [...this.responsiveOptions];
-                const comparer = ObjectUtils.localeComparator();
+                const comparer = ObjectUtils.localeComparator(this.$primevue.config.localeCode);
 
                 this.sortedResponsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;

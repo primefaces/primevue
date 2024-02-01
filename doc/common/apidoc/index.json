@@ -14610,6 +14610,13 @@
                             "default": ""
                         },
                         {
+                            "name": "localeCode",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "locale",
                             "optional": true,
                             "readonly": false,
