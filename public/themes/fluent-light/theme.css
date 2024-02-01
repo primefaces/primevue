@@ -3989,7 +3989,7 @@
     color: #323130;
     padding: 0 1.5rem 1.5rem 1.5rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.5rem;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;

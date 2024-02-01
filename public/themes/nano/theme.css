@@ -4014,7 +4014,7 @@
     color: #343a3f;
     padding: 0 0.75rem 0.75rem 0.75rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.5rem;
     border-bottom-right-radius: 1px;
     border-bottom-left-radius: 1px;

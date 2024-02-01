@@ -4075,7 +4075,7 @@
     color: #212529;
     padding: 1rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.5rem;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
