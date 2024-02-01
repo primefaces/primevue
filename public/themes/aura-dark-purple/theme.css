@@ -3801,7 +3801,7 @@
     padding: 0 1rem;
   }
   .p-divider.p-divider-horizontal:before {
-    border-top: 1px #3f3f46;
+    border-top: 1px solid #3f3f46;
   }
   .p-divider.p-divider-horizontal .p-divider-content {
     padding: 0 0.5rem;
@@ -3811,7 +3811,7 @@
     padding: 1rem 0;
   }
   .p-divider.p-divider-vertical:before {
-    border-left: 1px #3f3f46;
+    border-left: 1px solid #3f3f46;
   }
   .p-divider.p-divider-vertical .p-divider-content {
     padding: 0.5rem 0;
@@ -6787,8 +6787,8 @@
     position: absolute;
     left: 0.25rem;
     top: 0.25rem;
-    width: calc(100% - 0.5rem);
-    height: calc(100% - 0.5rem);
+    width: calc(100% - .5rem);
+    height: calc(100% - .5rem);
     border-radius: 4px;
   }
   .p-selectbutton .p-button.p-highlight::before {
@@ -6886,7 +6886,7 @@
     margin-top: calc(-1rem + 1px);
   }
   .p-steps .p-steps-item:first-child::before {
-    width: calc(50% + 1rem);
+    width: calc(50% + math.div($stepsItemNumberWidth,2));
     transform: translateX(100%);
   }
   .p-steps .p-steps-item:last-child::before {
@@ -7055,8 +7055,8 @@
     position: absolute;
     left: 0.25rem;
     top: 0.25rem;
-    width: calc(100% - 0.5rem);
-    height: calc(100% - 0.5rem);
+    width: calc(100% - .5rem);
+    height: calc(100% - .5rem);
     border-radius: 4px;
   }
   .p-togglebutton.p-highlight .p-button::before {

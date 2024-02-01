@@ -3720,7 +3720,7 @@
     padding: 0 1rem;
   }
   .p-divider.p-divider-horizontal:before {
-    border-top: 1px #c8c8c8;
+    border-top: 1px solid #c8c8c8;
   }
   .p-divider.p-divider-horizontal .p-divider-content {
     padding: 0 0.5rem;
@@ -3730,7 +3730,7 @@
     padding: 1rem 0;
   }
   .p-divider.p-divider-vertical:before {
-    border-left: 1px #c8c8c8;
+    border-left: 1px solid #c8c8c8;
   }
   .p-divider.p-divider-vertical .p-divider-content {
     padding: 0.5rem 0;
