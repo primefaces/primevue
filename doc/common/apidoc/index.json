@@ -12429,7 +12429,7 @@
                     "relatedProp": "ColorPickerEmits.change",
                     "props": [
                         {
-                            "name": "originalEvent",
+                            "name": "event",
                             "optional": false,
                             "readonly": false,
                             "type": "Event",
