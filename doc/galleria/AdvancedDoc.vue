@@ -36,14 +36,14 @@
             </template>
             <template #footer>
                 <div class="flex align-items-center bg-black-alpha-90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
                         <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
                         <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
@@ -109,14 +109,14 @@ export default {
     </template>
     <template #footer>
         <div class="flex align-items-center bg-black-alpha-90 text-white">
-            <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
-            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+            <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
             <span v-if="images" class="title-container">
                 <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
                 <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
                 <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
             </span>
-            <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+            <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
         </div>
     </template>
 </Galleria>
@@ -158,14 +158,14 @@ export default {
             </template>
             <template #footer>
                 <div class="flex align-items-center bg-black-alpha-90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
                         <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
                         <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
@@ -304,14 +304,14 @@ export default {
             </template>
             <template #footer>
                 <div class="flex align-items-center bg-black-alpha-90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                     <span v-if="images" class="title-container">
                         <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
                         <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10', style: 'background: transparent' } }" />
+                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
                 </div>
             </template>
         </Galleria>
