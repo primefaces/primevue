@@ -5,7 +5,6 @@ const css = `
     .p-input-icon-left,
     .p-input-icon-right {
         position: relative;
-        display: inline-block;
     }
 
     .p-input-icon-left > i,
