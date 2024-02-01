@@ -104,7 +104,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled',
+            'p-variant-filled': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,

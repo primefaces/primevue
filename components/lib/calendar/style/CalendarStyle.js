@@ -167,7 +167,7 @@ const classes = {
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled',
+            'p-variant-filled': props.variant === 'filled',
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
             'p-focus': state.focused || state.overlayVisible

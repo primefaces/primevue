@@ -417,13 +417,13 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #f44435;
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -480,13 +480,13 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-calendar.p-variant > .p-inputtext {
+  .p-calendar.p-variant-filled > .p-inputtext {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+  .p-calendar.p-variant-filled > .p-inputtext:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+  .p-calendar.p-variant-filled > .p-inputtext:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -676,7 +676,8 @@
   .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {
     padding-right: 0;
   }
-  .p-datepicker.p-datepicker-mobile table th, .p-datepicker.p-datepicker-mobile table td {
+  .p-datepicker.p-datepicker-mobile table th,
+.p-datepicker.p-datepicker-mobile table td {
     padding: 0;
   }
   .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled) {
@@ -729,13 +730,13 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-cascadeselect.p-variant {
+  .p-cascadeselect.p-variant-filled {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-cascadeselect.p-variant:enabled:hover {
+  .p-cascadeselect.p-variant-filled:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-cascadeselect.p-variant:enabled:focus {
+  .p-cascadeselect.p-variant-filled:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .p-cascadeselect .p-cascadeselect-label {
@@ -872,16 +873,16 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #f44435;
   }
-  .p-checkbox.p-variant .p-checkbox-box {
+  .p-checkbox.p-variant-filled .p-checkbox-box {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+  .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
     background: #CE93D8;
   }
-  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
     background: #CE93D8;
   }
 
@@ -907,13 +908,13 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-chips.p-variant > .p-chips-multiple-container {
+  .p-chips.p-variant-filled > .p-chips-multiple-container {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .p-chips .p-chips-multiple-container {
@@ -983,16 +984,16 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-dropdown.p-variant {
+  .p-dropdown.p-variant-filled {
     background: rgba(255, 255, 255, 0.06);
   }
-  .p-dropdown.p-variant:not(.p-disabled):hover {
+  .p-dropdown.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+  .p-dropdown.p-variant-filled:not(.p-disabled).p-focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
-  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+  .p-dropdown.p-variant-filled:not(.p-disabled).p-focus .p-inputtext {
     background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
@@ -1181,13 +1182,13 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #f44435;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -1271,13 +1272,13 @@
   .p-inputtext.p-invalid.p-component {
     border-color: #f44435;
   }
-  .p-inputtext.p-variant.p-component {
+  .p-inputtext.p-variant-filled.p-component {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-inputtext.p-variant.p-component:enabled:hover {
+  .p-inputtext.p-variant-filled.p-component:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-inputtext.p-variant.p-component:enabled:focus {
+  .p-inputtext.p-variant-filled.p-component:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .p-inputtext.p-inputtext-sm {
@@ -1458,13 +1459,13 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-multiselect.p-variant {
+  .p-multiselect.p-variant-filled {
     background: rgba(255, 255, 255, 0.06);
   }
-  .p-multiselect.p-variant:not(.p-disabled):hover {
+  .p-multiselect.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+  .p-multiselect.p-variant-filled:not(.p-disabled).p-focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .p-multiselect .p-multiselect-label {
@@ -1604,13 +1605,13 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #f44435;
   }
-  .p-password.p-variant > .p-inputtext {
+  .p-password.p-variant-filled > .p-inputtext {
     background: rgba(255, 255, 255, 0.06);
   }
-  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled).p-focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -1694,16 +1695,16 @@
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #f44435;
   }
-  .p-radiobutton.p-variant .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled .p-radiobutton-box {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled.p-highlight .p-radiobutton-box {
     background: #121212;
   }
-  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
     background: #121212;
   }
 
@@ -1837,13 +1838,13 @@
     border-color: 0 none;
   }
 
-  .p-inputtextarea.p-variant {
+  .p-inputtextarea.p-variant-filled {
     background-color: rgba(255, 255, 255, 0.06);
   }
-  .p-inputtextarea.p-variant:enabled:hover {
+  .p-inputtextarea.p-variant-filled:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-inputtextarea.p-variant:enabled:focus {
+  .p-inputtextarea.p-variant-filled:enabled:focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -1863,13 +1864,13 @@
     box-shadow: none;
     border-color: #CE93D8;
   }
-  .p-treeselect.p-variant {
+  .p-treeselect.p-variant-filled {
     background: rgba(255, 255, 255, 0.06);
   }
-  .p-treeselect.p-variant:not(.p-disabled):hover {
+  .p-treeselect.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
-  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+  .p-treeselect.p-variant-filled:not(.p-disabled).p-focus {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .p-treeselect .p-treeselect-label {
@@ -5996,7 +5997,7 @@
   .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
     box-shadow: inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8;
   }
-  .p-autocomplete.p-variant .p-autocomplete-input {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6006,30 +6007,30 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-autocomplete.p-variant .p-autocomplete-input:enabled:hover {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   }
-  .p-autocomplete.p-variant .p-autocomplete-input:enabled:focus {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input:enabled:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-autocomplete.p-variant .p-autocomplete-input.p-invalid.p-component {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input.p-invalid.p-component {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-autocomplete.p-variant .p-autocomplete-input.p-invalid.p-component:enabled:hover {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input.p-invalid.p-component:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-autocomplete.p-variant .p-autocomplete-input.p-invalid.p-component:enabled:focus {
+  .p-autocomplete.p-variant-filled .p-autocomplete-input.p-invalid.p-component:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
-  .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container {
+  .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6039,22 +6040,22 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext {
+  .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {
+  .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus, .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-inputwrapper-focus {
+  .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus, .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext:enabled:hover, .p-autocomplete.p-variant.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext:enabled:focus {
+  .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext:enabled:hover, .p-autocomplete.p-variant-filled.p-autocomplete-multiple .p-autocomplete-multiple-container .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
@@ -6089,14 +6090,14 @@
     background: transparent;
   }
 
-  .p-float-label .p-autocomplete.p-variant .p-autocomplete-multiple-container .p-autocomplete-token {
+  .p-float-label .p-autocomplete.p-variant-filled .p-autocomplete-multiple-container .p-autocomplete-token {
     padding-top: 0;
     padding-bottom: 0;
   }
-  .p-float-label .p-autocomplete.p-variant .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
+  .p-float-label .p-autocomplete.p-variant-filled .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {
     font-size: 75%;
   }
-  .p-float-label .p-autocomplete.p-variant .p-autocomplete-multiple-container .p-autocomplete-input-token {
+  .p-float-label .p-autocomplete.p-variant-filled .p-autocomplete-multiple-container .p-autocomplete-input-token {
     padding: 0;
   }
   .p-float-label .p-autocomplete-multiple-container .p-autocomplete-token {
@@ -6523,7 +6524,7 @@
   .p-calendar.p-invalid.p-calendar-w-btn:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435;
   }
-  .p-calendar.p-variant > .p-inputtext {
+  .p-calendar.p-variant-filled > .p-inputtext {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6533,26 +6534,26 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-calendar.p-variant > .p-inputtext .p-inputtext {
+  .p-calendar.p-variant-filled > .p-inputtext .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-calendar.p-variant > .p-inputtext:not(.p-disabled):hover {
+  .p-calendar.p-variant-filled > .p-inputtext:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-calendar.p-variant > .p-inputtext:not(.p-disabled).p-focus, .p-calendar.p-variant > .p-inputtext:not(.p-disabled).p-inputwrapper-focus {
+  .p-calendar.p-variant-filled > .p-inputtext:not(.p-disabled).p-focus, .p-calendar.p-variant-filled > .p-inputtext:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-calendar.p-variant > .p-inputtext .p-inputtext:enabled:hover, .p-calendar.p-variant > .p-inputtext .p-inputtext:enabled:focus {
+  .p-calendar.p-variant-filled > .p-inputtext .p-inputtext:enabled:hover, .p-calendar.p-variant-filled > .p-inputtext .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-calendar.p-variant.p-calendar-w-btn {
+  .p-calendar.p-variant-filled.p-calendar-w-btn {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6562,52 +6563,52 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-calendar.p-variant.p-calendar-w-btn .p-inputtext {
+  .p-calendar.p-variant-filled.p-calendar-w-btn .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-calendar.p-variant.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled):hover {
+  .p-calendar.p-variant-filled.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-calendar.p-variant.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled).p-focus, .p-calendar.p-variant.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled).p-inputwrapper-focus {
+  .p-calendar.p-variant-filled.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled).p-focus, .p-calendar.p-variant-filled.p-calendar-w-btn:not(.p-calendar-disabled):not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-calendar.p-variant.p-calendar-w-btn:not(.p-calendar-disabled) .p-inputtext:enabled:hover, .p-calendar.p-variant.p-calendar-w-btn:not(.p-calendar-disabled) .p-inputtext:enabled:focus {
+  .p-calendar.p-variant-filled.p-calendar-w-btn:not(.p-calendar-disabled) .p-inputtext:enabled:hover, .p-calendar.p-variant-filled.p-calendar-w-btn:not(.p-calendar-disabled) .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-calendar.p-variant.p-calendar-w-btn .p-inputtext {
+  .p-calendar.p-variant-filled.p-calendar-w-btn .p-inputtext {
     border: 0 none;
   }
-  .p-calendar.p-variant.p-invalid .p-inputtext {
+  .p-calendar.p-variant-filled.p-invalid .p-inputtext {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-calendar.p-variant.p-invalid .p-inputtext:enabled:hover {
+  .p-calendar.p-variant-filled.p-invalid .p-inputtext:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-calendar.p-variant.p-invalid .p-inputtext:enabled:focus {
+  .p-calendar.p-variant-filled.p-invalid .p-inputtext:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
-  .p-calendar.p-variant.p-invalid.p-calendar-w-btn {
+  .p-calendar.p-variant-filled.p-invalid.p-calendar-w-btn {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-calendar.p-variant.p-invalid.p-calendar-w-btn:not(.p-disabled):hover {
+  .p-calendar.p-variant-filled.p-invalid.p-calendar-w-btn:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-calendar.p-variant.p-invalid.p-calendar-w-btn:not(.p-disabled).p-focus, .p-calendar.p-variant.p-invalid.p-calendar-w-btn:not(.p-disabled).p-inputwrapper-focus {
+  .p-calendar.p-variant-filled.p-invalid.p-calendar-w-btn:not(.p-disabled).p-focus, .p-calendar.p-variant-filled.p-invalid.p-calendar-w-btn:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-calendar.p-variant.p-invalid.p-calendar-w-btn .p-inputtext {
+  .p-calendar.p-variant-filled.p-invalid.p-calendar-w-btn .p-inputtext {
     border: 0 none;
     background-image: none;
   }
@@ -6677,7 +6678,8 @@
     color: #121212;
   }
 
-  .p-cascadeselect .p-cascadeselect-label, .p-cascadeselect .p-dropdown-trigger {
+  .p-cascadeselect .p-cascadeselect-label,
+.p-cascadeselect .p-dropdown-trigger {
     background-image: none;
     background: transparent;
   }
@@ -6692,7 +6694,7 @@
     background-color: rgba(206, 147, 216, 0.16);
   }
 
-  .p-cascadeselect.p-variant {
+  .p-cascadeselect.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6702,37 +6704,37 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-cascadeselect.p-variant .p-inputtext {
+  .p-cascadeselect.p-variant-filled .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-cascadeselect.p-variant:not(.p-disabled):hover {
+  .p-cascadeselect.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-cascadeselect.p-variant:not(.p-disabled).p-focus, .p-cascadeselect.p-variant:not(.p-disabled).p-inputwrapper-focus {
+  .p-cascadeselect.p-variant-filled:not(.p-disabled).p-focus, .p-cascadeselect.p-variant-filled:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-cascadeselect.p-variant .p-inputtext:enabled:hover, .p-cascadeselect.p-variant .p-inputtext:enabled:focus {
+  .p-cascadeselect.p-variant-filled .p-inputtext:enabled:hover, .p-cascadeselect.p-variant-filled .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-cascadeselect.p-variant .p-cascadeselect-label:hover {
+  .p-cascadeselect.p-variant-filled .p-cascadeselect-label:hover {
     background-image: none;
     background: transparent;
   }
-  .p-cascadeselect.p-variant.p-invalid {
+  .p-cascadeselect.p-variant-filled.p-invalid {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-cascadeselect.p-variant.p-invalid:not(.p-disabled):hover {
+  .p-cascadeselect.p-variant-filled.p-invalid:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-cascadeselect.p-variant.p-invalid:not(.p-disabled).p-focus, .p-cascadeselect.p-variant.p-invalid:not(.p-disabled).p-inputwrapper-focus {
+  .p-cascadeselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus, .p-cascadeselect.p-variant-filled.p-invalid:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
@@ -6839,10 +6841,10 @@
   .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible).p-highlight .p-checkbox-box {
     border-color: #CE93D8;
   }
-  .p-checkbox.p-variant .p-checkbox-box {
+  .p-checkbox.p-variant-filled .p-checkbox-box {
     background-color: #1e1e1e;
   }
-  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) {
+  .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) {
     background-color: #1e1e1e;
   }
 
@@ -6875,7 +6877,7 @@
   .p-chips .p-chips-multiple-container:not(.p-disabled).p-focus {
     box-shadow: inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8;
   }
-  .p-chips.p-variant .p-chips-multiple-container {
+  .p-chips.p-variant-filled .p-chips-multiple-container {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -6885,33 +6887,33 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-chips.p-variant .p-chips-multiple-container .p-inputtext {
+  .p-chips.p-variant-filled .p-chips-multiple-container .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-chips.p-variant .p-chips-multiple-container:not(.p-disabled):hover {
+  .p-chips.p-variant-filled .p-chips-multiple-container:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-chips.p-variant .p-chips-multiple-container:not(.p-disabled).p-focus, .p-chips.p-variant .p-chips-multiple-container:not(.p-disabled).p-inputwrapper-focus {
+  .p-chips.p-variant-filled .p-chips-multiple-container:not(.p-disabled).p-focus, .p-chips.p-variant-filled .p-chips-multiple-container:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-chips.p-variant .p-chips-multiple-container .p-inputtext:enabled:hover, .p-chips.p-variant .p-chips-multiple-container .p-inputtext:enabled:focus {
+  .p-chips.p-variant-filled .p-chips-multiple-container .p-inputtext:enabled:hover, .p-chips.p-variant-filled .p-chips-multiple-container .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-chips.p-variant.p-invalid .p-chips-multiple-container {
+  .p-chips.p-variant-filled.p-invalid .p-chips-multiple-container {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-chips.p-variant.p-invalid .p-chips-multiple-container:not(.p-disabled):hover {
+  .p-chips.p-variant-filled.p-invalid .p-chips-multiple-container:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-chips.p-variant.p-invalid .p-chips-multiple-container:not(.p-disabled).p-focus, .p-chips.p-variant.p-invalid .p-chips-multiple-container:not(.p-disabled).p-inputwrapper-focus {
+  .p-chips.p-variant-filled.p-invalid .p-chips-multiple-container:not(.p-disabled).p-focus, .p-chips.p-variant-filled.p-invalid .p-chips-multiple-container:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
@@ -7003,7 +7005,8 @@
     box-shadow: inset 0 -2px 0 0 #CE93D8;
   }
 
-  .p-dropdown .p-inputtext, .p-dropdown .p-dropdown-trigger {
+  .p-dropdown .p-inputtext,
+.p-dropdown .p-dropdown-trigger {
     background-image: none;
     background: transparent;
   }
@@ -7013,7 +7016,7 @@
   .p-dropdown:not(.p-disabled).p-focus {
     box-shadow: inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8;
   }
-  .p-dropdown.p-variant {
+  .p-dropdown.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7023,36 +7026,36 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-dropdown.p-variant .p-inputtext {
+  .p-dropdown.p-variant-filled .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-dropdown.p-variant:not(.p-disabled):hover {
+  .p-dropdown.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-dropdown.p-variant:not(.p-disabled).p-focus, .p-dropdown.p-variant:not(.p-disabled).p-inputwrapper-focus {
+  .p-dropdown.p-variant-filled:not(.p-disabled).p-focus, .p-dropdown.p-variant-filled:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-dropdown.p-variant .p-inputtext:enabled:hover, .p-dropdown.p-variant .p-inputtext:enabled:focus {
+  .p-dropdown.p-variant-filled .p-inputtext:enabled:hover, .p-dropdown.p-variant-filled .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-dropdown.p-variant .p-inputtext {
+  .p-dropdown.p-variant-filled .p-inputtext {
     border: 0 none;
   }
-  .p-dropdown.p-variant.p-invalid {
+  .p-dropdown.p-variant-filled.p-invalid {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-dropdown.p-variant.p-invalid:not(.p-disabled):hover {
+  .p-dropdown.p-variant-filled.p-invalid:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-dropdown.p-variant.p-invalid:not(.p-disabled).p-focus, .p-dropdown.p-variant.p-invalid:not(.p-disabled).p-inputwrapper-focus {
+  .p-dropdown.p-variant-filled.p-invalid:not(.p-disabled).p-focus, .p-dropdown.p-variant-filled.p-invalid:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
@@ -7192,7 +7195,7 @@
     border-bottom-right-radius: 0;
   }
 
-  .p-inputmask.p-variant {
+  .p-inputmask.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7202,26 +7205,26 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-inputmask.p-variant:enabled:hover {
+  .p-inputmask.p-variant-filled:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   }
-  .p-inputmask.p-variant:enabled:focus {
+  .p-inputmask.p-variant-filled:enabled:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-inputmask.p-variant.p-invalid.p-component {
+  .p-inputmask.p-variant-filled.p-invalid.p-component {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputmask.p-variant.p-invalid.p-component:enabled:hover {
+  .p-inputmask.p-variant-filled.p-invalid.p-component:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputmask.p-variant.p-invalid.p-component:enabled:focus {
+  .p-inputmask.p-variant-filled.p-invalid.p-component:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
@@ -7229,19 +7232,19 @@
   .p-inputnumber.p-invalid .p-inputtext:enabled:focus {
     box-shadow: inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435;
   }
-  .p-inputnumber.p-invalid.p-variant .p-inputnumber-input {
+  .p-inputnumber.p-invalid.p-variant-filled .p-inputnumber-input {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputnumber.p-invalid.p-variant .p-inputnumber-input:enabled:hover {
+  .p-inputnumber.p-invalid.p-variant-filled .p-inputnumber-input:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputnumber.p-invalid.p-variant .p-inputnumber-input:enabled:focus {
+  .p-inputnumber.p-invalid.p-variant-filled .p-inputnumber-input:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7251,26 +7254,26 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input.p-invalid.p-component {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input.p-invalid.p-component {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input.p-invalid.p-component:enabled:hover {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input.p-invalid.p-component:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input.p-invalid.p-component:enabled:focus {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input.p-invalid.p-component:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
@@ -7305,7 +7308,7 @@
     box-shadow: 0 0 1px 10px rgba(206, 147, 216, 0.12), 0px 3px 1px -2px rgba(255, 255, 255, 0.2), 0px 2px 2px 0px rgba(255, 255, 255, 0.14), 0px 1px 5px 0px rgba(255, 255, 255, 0.12);
   }
 
-  .p-inputtext.p-variant {
+  .p-inputtext.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7315,26 +7318,26 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-inputtext.p-variant:enabled:hover {
+  .p-inputtext.p-variant-filled:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   }
-  .p-inputtext.p-variant:enabled:focus {
+  .p-inputtext.p-variant-filled:enabled:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-inputtext.p-variant.p-invalid.p-component {
+  .p-inputtext.p-variant-filled.p-invalid.p-component {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputtext.p-variant.p-invalid.p-component:enabled:hover {
+  .p-inputtext.p-variant-filled.p-invalid.p-component:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-inputtext.p-variant.p-invalid.p-component:enabled:focus {
+  .p-inputtext.p-variant-filled.p-invalid.p-component:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
@@ -7419,7 +7422,8 @@
     line-height: 1rem;
   }
 
-  .p-multiselect .p-multiselect-label, .p-multiselect .p-multiselect-trigger {
+  .p-multiselect .p-multiselect-label,
+.p-multiselect .p-multiselect-trigger {
     background-image: none;
     background: transparent;
   }
@@ -7429,7 +7433,7 @@
   .p-multiselect:not(.p-disabled).p-focus {
     box-shadow: inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8;
   }
-  .p-multiselect.p-variant {
+  .p-multiselect.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7439,37 +7443,37 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-multiselect.p-variant .p-inputtext {
+  .p-multiselect.p-variant-filled .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-multiselect.p-variant:not(.p-disabled):hover {
+  .p-multiselect.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-multiselect.p-variant:not(.p-disabled).p-focus, .p-multiselect.p-variant:not(.p-disabled).p-inputwrapper-focus {
+  .p-multiselect.p-variant-filled:not(.p-disabled).p-focus, .p-multiselect.p-variant-filled:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-multiselect.p-variant .p-inputtext:enabled:hover, .p-multiselect.p-variant .p-inputtext:enabled:focus {
+  .p-multiselect.p-variant-filled .p-inputtext:enabled:hover, .p-multiselect.p-variant-filled .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-multiselect.p-variant .p-multiselect-label:hover {
+  .p-multiselect.p-variant-filled .p-multiselect-label:hover {
     background-image: none;
     background: transparent;
   }
-  .p-multiselect.p-variant.p-invalid {
+  .p-multiselect.p-variant-filled.p-invalid {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-multiselect.p-variant.p-invalid:not(.p-disabled):hover {
+  .p-multiselect.p-variant-filled.p-invalid:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-multiselect.p-variant.p-invalid:not(.p-disabled).p-focus, .p-multiselect.p-variant.p-invalid:not(.p-disabled).p-inputwrapper-focus {
+  .p-multiselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus, .p-multiselect.p-variant-filled.p-invalid:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
@@ -7597,19 +7601,19 @@
   .p-password.p-invalid > .p-inputtext:enabled:focus {
     box-shadow: inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435, inset 0 0 0 1px #f44435;
   }
-  .p-password.p-invalid.p-variant > .p-inputtext {
+  .p-password.p-invalid.p-variant-filled > .p-inputtext {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-password.p-invalid.p-variant > .p-inputtext:enabled:hover {
+  .p-password.p-invalid.p-variant-filled > .p-inputtext:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-password.p-invalid.p-variant > .p-inputtext:enabled:focus {
+  .p-password.p-invalid.p-variant-filled > .p-inputtext:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
-  .p-password.p-variant > .p-inputtext {
+  .p-password.p-variant-filled > .p-inputtext {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -7619,26 +7623,26 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-password.p-variant > .p-inputtext:enabled:hover {
+  .p-password.p-variant-filled > .p-inputtext:enabled:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   }
-  .p-password.p-variant > .p-inputtext:enabled:focus {
+  .p-password.p-variant-filled > .p-inputtext:enabled:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-password.p-variant > .p-inputtext.p-invalid.p-component {
+  .p-password.p-variant-filled > .p-inputtext.p-invalid.p-component {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-password.p-variant > .p-inputtext.p-invalid.p-component:enabled:hover {
+  .p-password.p-variant-filled > .p-inputtext.p-invalid.p-component:enabled:hover {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-password.p-variant > .p-inputtext.p-invalid.p-component:enabled:focus {
+  .p-password.p-variant-filled > .p-inputtext.p-invalid.p-component:enabled:focus {
     box-shadow: none;
     border-color: transparent;
   }
@@ -7985,7 +7989,8 @@
     background: rgba(206, 147, 216, 0.24);
   }
 
-  .p-treeselect .p-treeselect-label, .p-treeselect .p-treeselect-trigger {
+  .p-treeselect .p-treeselect-label,
+.p-treeselect .p-treeselect-trigger {
     background-image: none;
     background: transparent;
   }
@@ -7995,7 +8000,7 @@
   .p-treeselect:not(.p-disabled).p-focus {
     box-shadow: inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8, inset 0 0 0 1px #CE93D8;
   }
-  .p-treeselect.p-variant {
+  .p-treeselect.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 1px solid transparent;
@@ -8005,37 +8010,37 @@
     background-position: 50% 100%, 50% 100%;
     background-origin: border-box;
   }
-  .p-treeselect.p-variant .p-inputtext {
+  .p-treeselect.p-variant-filled .p-inputtext {
     background-image: none;
     background: transparent;
   }
-  .p-treeselect.p-variant:not(.p-disabled):hover {
+  .p-treeselect.p-variant-filled:not(.p-disabled):hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: transparent;
     background-image: linear-gradient(to bottom, #CE93D8, #CE93D8), linear-gradient(to bottom, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0.87));
   }
-  .p-treeselect.p-variant:not(.p-disabled).p-focus, .p-treeselect.p-variant:not(.p-disabled).p-inputwrapper-focus {
+  .p-treeselect.p-variant-filled:not(.p-disabled).p-focus, .p-treeselect.p-variant-filled:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: transparent;
     background-size: 100% 2px, 100% 1px;
   }
-  .p-treeselect.p-variant .p-inputtext:enabled:hover, .p-treeselect.p-variant .p-inputtext:enabled:focus {
+  .p-treeselect.p-variant-filled .p-inputtext:enabled:hover, .p-treeselect.p-variant-filled .p-inputtext:enabled:focus {
     background-image: none;
     background: transparent;
   }
-  .p-treeselect.p-variant .p-treeselect-label:hover {
+  .p-treeselect.p-variant-filled .p-treeselect-label:hover {
     background-image: none;
     background: transparent;
   }
-  .p-treeselect.p-variant.p-invalid {
+  .p-treeselect.p-variant-filled.p-invalid {
     border-color: transparent;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-treeselect.p-variant.p-invalid:not(.p-disabled):hover {
+  .p-treeselect.p-variant-filled.p-invalid:not(.p-disabled):hover {
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }
-  .p-treeselect.p-variant.p-invalid:not(.p-disabled).p-focus, .p-treeselect.p-variant.p-invalid:not(.p-disabled).p-inputwrapper-focus {
+  .p-treeselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus, .p-treeselect.p-variant-filled.p-invalid:not(.p-disabled).p-inputwrapper-focus {
     box-shadow: none;
     background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
   }

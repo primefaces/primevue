@@ -425,13 +425,13 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #f88c79;
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input {
     background-color: #f2f2f2;
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:hover {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-autocomplete.p-variant.p-component > .p-autocomplete-input:enabled:focus {
+  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:focus {
     background-color: #f2f2f2;
   }
 
@@ -488,13 +488,13 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-calendar.p-variant > .p-inputtext {
+  .p-calendar.p-variant-filled > .p-inputtext {
     background-color: #f2f2f2;
   }
-  .p-calendar.p-variant > .p-inputtext:enabled:hover {
+  .p-calendar.p-variant-filled > .p-inputtext:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-calendar.p-variant > .p-inputtext:enabled:focus {
+  .p-calendar.p-variant-filled > .p-inputtext:enabled:focus {
     background-color: #f2f2f2;
   }
 
@@ -684,7 +684,8 @@
   .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {
     padding-right: 0;
   }
-  .p-datepicker.p-datepicker-mobile table th, .p-datepicker.p-datepicker-mobile table td {
+  .p-datepicker.p-datepicker-mobile table th,
+.p-datepicker.p-datepicker-mobile table td {
     padding: 0;
   }
   .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled) {
@@ -737,13 +738,13 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-cascadeselect.p-variant {
+  .p-cascadeselect.p-variant-filled {
     background-color: #f2f2f2;
   }
-  .p-cascadeselect.p-variant:enabled:hover {
+  .p-cascadeselect.p-variant-filled:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-cascadeselect.p-variant:enabled:focus {
+  .p-cascadeselect.p-variant-filled:enabled:focus {
     background-color: #f2f2f2;
   }
   .p-cascadeselect .p-cascadeselect-label {
@@ -880,16 +881,16 @@
   .p-checkbox.p-invalid > .p-checkbox-box {
     border-color: #f88c79;
   }
-  .p-checkbox.p-variant .p-checkbox-box {
+  .p-checkbox.p-variant-filled .p-checkbox-box {
     background-color: #f2f2f2;
   }
-  .p-checkbox.p-variant.p-highlight .p-checkbox-box {
+  .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
     background: #5472d4;
   }
-  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
     background-color: #f2f2f2;
   }
-  .p-checkbox.p-variant:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
     background: #3c5ece;
   }
 
@@ -915,13 +916,13 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-chips.p-variant > .p-chips-multiple-container {
+  .p-chips.p-variant-filled > .p-chips-multiple-container {
     background-color: #f2f2f2;
   }
-  .p-chips.p-variant > .p-chips-multiple-container:enabled:hover {
+  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-chips.p-variant > .p-chips-multiple-container:enabled:focus {
+  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:focus {
     background-color: #f2f2f2;
   }
   .p-chips .p-chips-multiple-container {
@@ -991,16 +992,16 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-dropdown.p-variant {
+  .p-dropdown.p-variant-filled {
     background: #f2f2f2;
   }
-  .p-dropdown.p-variant:not(.p-disabled):hover {
+  .p-dropdown.p-variant-filled:not(.p-disabled):hover {
     background-color: #f2f2f2;
   }
-  .p-dropdown.p-variant:not(.p-disabled).p-focus {
+  .p-dropdown.p-variant-filled:not(.p-disabled).p-focus {
     background-color: #f2f2f2;
   }
-  .p-dropdown.p-variant:not(.p-disabled).p-focus .p-inputtext {
+  .p-dropdown.p-variant-filled:not(.p-disabled).p-focus .p-inputtext {
     background-color: transparent;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
@@ -1189,13 +1190,13 @@
   .p-inputnumber.p-invalid.p-component > .p-inputtext {
     border-color: #f88c79;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input {
     background-color: #f2f2f2;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:hover {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-inputnumber.p-variant > .p-inputnumber-input:enabled:focus {
+  .p-inputnumber.p-variant-filled > .p-inputnumber-input:enabled:focus {
     background-color: #f2f2f2;
   }
 
@@ -1279,13 +1280,13 @@
   .p-inputtext.p-invalid.p-component {
     border-color: #f88c79;
   }
-  .p-inputtext.p-variant.p-component {
+  .p-inputtext.p-variant-filled.p-component {
     background-color: #f2f2f2;
   }
-  .p-inputtext.p-variant.p-component:enabled:hover {
+  .p-inputtext.p-variant-filled.p-component:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-inputtext.p-variant.p-component:enabled:focus {
+  .p-inputtext.p-variant-filled.p-component:enabled:focus {
     background-color: #f2f2f2;
   }
   .p-inputtext.p-inputtext-sm {
@@ -1466,13 +1467,13 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-multiselect.p-variant {
+  .p-multiselect.p-variant-filled {
     background: #f2f2f2;
   }
-  .p-multiselect.p-variant:not(.p-disabled):hover {
+  .p-multiselect.p-variant-filled:not(.p-disabled):hover {
     background-color: #f2f2f2;
   }
-  .p-multiselect.p-variant:not(.p-disabled).p-focus {
+  .p-multiselect.p-variant-filled:not(.p-disabled).p-focus {
     background-color: #f2f2f2;
   }
   .p-multiselect .p-multiselect-label {
@@ -1612,13 +1613,13 @@
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #f88c79;
   }
-  .p-password.p-variant > .p-inputtext {
+  .p-password.p-variant-filled > .p-inputtext {
     background: #f2f2f2;
   }
-  .p-password.p-variant > .p-inputtext:not(.p-disabled):hover {
+  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled):hover {
     background-color: #f2f2f2;
   }
-  .p-password.p-variant > .p-inputtext:not(.p-disabled).p-focus {
+  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled).p-focus {
     background-color: #f2f2f2;
   }
 
@@ -1702,16 +1703,16 @@
   .p-radiobutton.p-invalid > .p-radiobutton-box {
     border-color: #f88c79;
   }
-  .p-radiobutton.p-variant .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled .p-radiobutton-box {
     background-color: #f2f2f2;
   }
-  .p-radiobutton.p-variant.p-highlight .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled.p-highlight .p-radiobutton-box {
     background: #5472d4;
   }
-  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
     background-color: #f2f2f2;
   }
-  .p-radiobutton.p-variant:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+  .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
     background: #3c5ece;
   }
 
@@ -1845,13 +1846,13 @@
     border-color: #5472d4;
   }
 
-  .p-inputtextarea.p-variant {
+  .p-inputtextarea.p-variant-filled {
     background-color: #f2f2f2;
   }
-  .p-inputtextarea.p-variant:enabled:hover {
+  .p-inputtextarea.p-variant-filled:enabled:hover {
     background-color: #f2f2f2;
   }
-  .p-inputtextarea.p-variant:enabled:focus {
+  .p-inputtextarea.p-variant-filled:enabled:focus {
     background-color: #f2f2f2;
   }
 
@@ -1871,13 +1872,13 @@
     box-shadow: 0 0 0 0.1rem #bbc7ee;
     border-color: #91a4e3;
   }
-  .p-treeselect.p-variant {
+  .p-treeselect.p-variant-filled {
     background: #f2f2f2;
   }
-  .p-treeselect.p-variant:not(.p-disabled):hover {
+  .p-treeselect.p-variant-filled:not(.p-disabled):hover {
     background-color: #f2f2f2;
   }
-  .p-treeselect.p-variant:not(.p-disabled).p-focus {
+  .p-treeselect.p-variant-filled:not(.p-disabled).p-focus {
     background-color: #f2f2f2;
   }
   .p-treeselect .p-treeselect-label {

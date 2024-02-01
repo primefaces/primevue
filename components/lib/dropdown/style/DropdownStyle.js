@@ -105,7 +105,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled',
+            'p-variant-filled': props.variant === 'filled',
             'p-dropdown-clearable': props.showClear,
             'p-focus': state.focused,
             'p-inputwrapper-filled': instance.hasSelectedOption,

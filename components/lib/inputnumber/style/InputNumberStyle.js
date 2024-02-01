@@ -115,7 +115,7 @@ const classes = {
             'p-inputnumber-buttons-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
             'p-inputnumber-buttons-vertical': props.showButtons && props.buttonLayout === 'vertical',
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled'
+            'p-variant-filled': props.variant === 'filled'
         }
     ],
     input: 'p-inputnumber-input',

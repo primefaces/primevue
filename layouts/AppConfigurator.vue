@@ -12,11 +12,6 @@
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
-                <span class="text-xl font-semibold">Input Style</span>
-                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
-            </section>
-
-            <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span class="text-xl font-semibold">Ripple Effect</span>
                 <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
             </section>
@@ -359,10 +354,6 @@ export default {
             visible: false,
             scale: 14,
             scales: [12, 13, 14, 15, 16],
-            inputStyles: [
-                { label: 'Outlined', value: 'outlined' },
-                { label: 'Filled', value: 'filled' }
-            ],
             primaryFocusRing: true,
             compactMaterial: false
         };
@@ -420,9 +411,6 @@ export default {
         applyScale() {
             document.documentElement.style.fontSize = this.scale + 'px';
         },
-        onInputStyleChange(value) {
-            this.$primevue.config.inputStyle = value;
-        },
         onRippleChange(value) {
             this.$appState.ripple = value;
         },
@@ -464,9 +452,6 @@ export default {
         }
     },
     computed: {
-        inputStyle() {
-            return this.$primevue.config.inputStyle;
-        },
         darkMode() {
             return this.$appState.darkTheme;
         },

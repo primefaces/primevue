@@ -111,7 +111,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled',
+            'p-variant-filled': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-autocomplete-dd': props.dropdown,
             'p-autocomplete-multiple': props.multiple,

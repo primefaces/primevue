@@ -41,7 +41,7 @@ const classes = {
             'p-highlight': instance.checked,
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled'
+            'p-variant-filled': props.variant === 'filled'
         }
     ],
     box: 'p-radiobutton-box',

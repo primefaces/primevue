@@ -43,7 +43,7 @@ const classes = {
             'p-inputwrapper-focus': instance.focused,
             'p-input-icon-right': props.toggleMask,
             'p-invalid': props.invalid,
-            'p-variant': props.variant === 'filled'
+            'p-variant-filled': props.variant === 'filled'
         }
     ],
     input: ({ props }) => [
