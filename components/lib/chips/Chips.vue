@@ -67,11 +67,19 @@ export default {
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {
-            id: UniqueComponentId(),
+            id: this.$attrs.id,
             inputValue: null,
             focused: false,
             focusedIndex: null
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         onWrapperClick() {
