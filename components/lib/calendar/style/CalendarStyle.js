@@ -172,7 +172,12 @@ const classes = {
             'p-focus': state.focused || state.overlayVisible
         }
     ],
-    input: ({ props, instance }) => ['p-inputtext p-component', { 'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' }],
+    input: ({ props, instance }) => [
+        'p-inputtext p-component',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     dropdownButton: 'p-datepicker-trigger',
     inputIcon: 'p-datepicker-trigger-icon',
     panel: ({ instance, props, state }) => [

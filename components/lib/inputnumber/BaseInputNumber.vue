@@ -111,7 +111,7 @@ export default {
         },
         variant: {
             type: String,
-            default: 'outlined'
+            default: null
         },
         invalid: {
             type: Boolean,

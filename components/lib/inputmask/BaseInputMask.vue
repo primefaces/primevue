@@ -33,7 +33,7 @@ export default {
         },
         variant: {
             type: String,
-            default: 'outlined'
+            default: null
         }
     },
     style: InputMaskStyle

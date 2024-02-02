@@ -14,7 +14,7 @@ export default {
         },
         variant: {
             type: String,
-            default: 'outlined'
+            default: null
         }
     },
     style: TextareaStyle,

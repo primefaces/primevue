@@ -16,7 +16,7 @@ export default {
         placeholder: String,
         variant: {
             type: String,
-            default: 'outlined'
+            default: null
         },
         invalid: {
             type: Boolean,

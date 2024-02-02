@@ -114,11 +114,15 @@ const classes = {
             'p-inputnumber-buttons-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-buttons-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
             'p-inputnumber-buttons-vertical': props.showButtons && props.buttonLayout === 'vertical',
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant === 'filled'
+            'p-invalid': props.invalid
         }
     ],
-    input: 'p-inputnumber-input',
+    input: ({ props, instance }) => [
+        'p-inputnumber-input',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-button-up',

@@ -15,6 +15,8 @@
             :placeholder="placeholder"
             :required="required"
             :disabled="disabled"
+            :variant="variant"
+            :invalid="invalid"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"

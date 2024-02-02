@@ -104,7 +104,7 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant === 'filled',
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -124,7 +124,6 @@ const classes = {
     panel: ({ props, instance }) => [
         'p-cascadeselect-panel p-component',
         {
-            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

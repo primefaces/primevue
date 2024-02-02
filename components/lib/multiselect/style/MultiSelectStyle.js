@@ -121,7 +121,7 @@ const classes = {
             'p-multiselect-chip': props.display === 'chip',
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant === 'filled',
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -145,13 +145,17 @@ const classes = {
     panel: ({ props, instance }) => [
         'p-multiselect-panel p-component',
         {
-            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
     header: 'p-multiselect-header',
     filterContainer: 'p-multiselect-filter-container',
-    filterInput: 'p-multiselect-filter p-inputtext p-component',
+    filterInput: ({ props, instance }) => [
+        'p-multiselect-filter p-inputtext p-component',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     filterIcon: 'p-multiselect-filter-icon',
     closeButton: 'p-multiselect-close p-link',
     closeIcon: 'p-multiselect-close-icon',

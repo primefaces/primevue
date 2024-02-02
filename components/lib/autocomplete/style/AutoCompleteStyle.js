@@ -111,7 +111,6 @@ const classes = {
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant === 'filled',
             'p-focus': instance.focused,
             'p-autocomplete-dd': props.dropdown,
             'p-autocomplete-multiple': props.multiple,
@@ -120,8 +119,19 @@ const classes = {
             'p-overlay-open': instance.overlayVisible
         }
     ],
-    input: ({ props }) => ['p-autocomplete-input p-inputtext p-component', { 'p-autocomplete-dd-input': props.dropdown }],
-    container: 'p-autocomplete-multiple-container p-component p-inputtext',
+    input: ({ props, instance }) => [
+        'p-autocomplete-input p-inputtext p-component',
+        {
+            'p-autocomplete-dd-input': props.dropdown,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
+    container: ({ props, instance }) => [
+        'p-autocomplete-multiple-container p-component p-inputtext',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     token: ({ instance, i }) => ['p-autocomplete-token', { 'p-focus': instance.focusedMultipleOptionIndex === i }],
     tokenLabel: 'p-autocomplete-token-label',
     removeTokenIcon: 'p-autocomplete-token-icon',
@@ -131,7 +141,6 @@ const classes = {
     panel: ({ props, instance }) => [
         'p-autocomplete-panel p-component',
         {
-            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
