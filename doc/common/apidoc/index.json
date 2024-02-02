@@ -28429,7 +28429,7 @@
         }
     },
     "iconfield": {
-        "description": "IconField is used to select a boolean value.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "description": "IconField wraps an input and an icon.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
         "components": {
             "default": {
                 "description": "IconField is used to select a boolean value.",
@@ -30390,7 +30390,7 @@
         }
     },
     "inputicon": {
-        "description": "InputIcon displays text, icon, buttons and other content can be grouped next to an input.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "description": "InputIcon displays an icon.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
         "components": {
             "default": {
                 "description": "InputIcon displays text, icon, buttons and other content can be grouped next to an input.",
