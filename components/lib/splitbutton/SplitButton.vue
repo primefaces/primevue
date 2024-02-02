@@ -33,7 +33,7 @@
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
-            :aria-controls="ariaId + '_overlay'"
+            :aria-controls="id + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             :severity="severity"
@@ -50,7 +50,7 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
+        <PVSMenu ref="menu" :id="id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
             <template v-if="$slots.menuitemicon" #itemicon="slotProps">
                 <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
             </template>
@@ -74,10 +74,18 @@ export default {
     emits: ['click'],
     data() {
         return {
+            id: this.$attrs.id,
             isExpanded: false
         };
     },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.$watch('$refs.menu.visible', (newValue) => {
             this.isExpanded = newValue;
         });
@@ -106,9 +114,6 @@ export default {
         }
     },
     computed: {
-        ariaId() {
-            return UniqueComponentId();
-        },
         containerClass() {
             return [this.cx('root'), this.class];
         }
