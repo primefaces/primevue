@@ -279,10 +279,16 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             overlayVisible: false,
             defaultMatchMode: null,
             defaultOperator: null
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
     },
     overlay: null,
     selfClick: false,
@@ -299,6 +305,8 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.filters && this.filters[this.field]) {
             let fieldFilters = this.filters[this.field];
 
@@ -620,7 +628,7 @@ export default {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean' : true);
         },
         overlayId() {
-            return UniqueComponentId();
+            return this.id + '_overlay';
         },
         matchModes() {
             return (
