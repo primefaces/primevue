@@ -412,15 +412,6 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #FCA5A5;
   }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input {
-    background-color: #27272a;
-  }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:hover {
-    background-color: #27272a;
-  }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:focus {
-    background-color: #27272a;
-  }
 
   .p-autocomplete-panel {
     background: #18181b;
@@ -474,15 +465,6 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext {
-    background-color: #27272a;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext:enabled:hover {
-    background-color: #27272a;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext:enabled:focus {
-    background-color: #27272a;
   }
 
   .p-datepicker {
@@ -799,16 +781,6 @@
     font-size: 0.875rem;
   }
 
-  .p-input-filled .p-cascadeselect {
-    background: #27272a;
-  }
-  .p-input-filled .p-cascadeselect:not(.p-disabled):hover {
-    background-color: #27272a;
-  }
-  .p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {
-    background-color: #27272a;
-  }
-
   .p-checkbox {
     width: 1.25rem;
     height: 1.25rem;
@@ -902,15 +874,6 @@
     outline-offset: -1px;
     box-shadow: none;
     border-color: #52525b;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container {
-    background-color: #27272a;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:hover {
-    background-color: #27272a;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:focus {
-    background-color: #27272a;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.25rem 0.75rem;
@@ -1091,19 +1054,6 @@
     background: transparent;
   }
 
-  .p-input-filled .p-dropdown {
-    background: #27272a;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled):hover {
-    background-color: #27272a;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled).p-focus {
-    background-color: #27272a;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {
-    background-color: transparent;
-  }
-
   .p-inputgroup-addon {
     background: #18181b;
     color: #a1a1aa;
@@ -1267,13 +1217,13 @@
   .p-inputtext.p-invalid.p-component {
     border-color: #FCA5A5;
   }
-  .p-inputtext.p-variant-filled.p-component {
+  .p-inputtext.p-variant-filled {
     background-color: #27272a;
   }
-  .p-inputtext.p-variant-filled.p-component:enabled:hover {
+  .p-inputtext.p-variant-filled:enabled:hover {
     background-color: #27272a;
   }
-  .p-inputtext.p-variant-filled.p-component:enabled:focus {
+  .p-inputtext.p-variant-filled:enabled:focus {
     background-color: #27272a;
   }
   .p-inputtext.p-inputtext-sm {
@@ -1587,27 +1537,8 @@
     background: transparent;
   }
 
-  .p-input-filled .p-multiselect {
-    background: #27272a;
-  }
-  .p-input-filled .p-multiselect:not(.p-disabled):hover {
-    background-color: #27272a;
-  }
-  .p-input-filled .p-multiselect:not(.p-disabled).p-focus {
-    background-color: #27272a;
-  }
-
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #FCA5A5;
-  }
-  .p-password.p-variant-filled > .p-inputtext {
-    background: #27272a;
-  }
-  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled):hover {
-    background-color: #27272a;
-  }
-  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled).p-focus {
-    background-color: #27272a;
   }
 
   .p-password-panel {
@@ -1831,16 +1762,6 @@
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #3f3f46;
     border-color: transparent;
-  }
-
-  .p-inputtextarea.p-variant-filled {
-    background-color: #27272a;
-  }
-  .p-inputtextarea.p-variant-filled:enabled:hover {
-    background-color: #27272a;
-  }
-  .p-inputtextarea.p-variant-filled:enabled:focus {
-    background-color: #27272a;
   }
 
   .p-treeselect {

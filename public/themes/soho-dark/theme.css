@@ -417,15 +417,6 @@
   .p-autocomplete.p-invalid.p-component > .p-inputtext {
     border-color: #ff9a9a;
   }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input {
-    background-color: #3e4053;
-  }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:hover {
-    background-color: #3e4053;
-  }
-  .p-autocomplete.p-variant-filled.p-component > .p-autocomplete-input:enabled:focus {
-    background-color: #3e4053;
-  }
 
   .p-autocomplete-panel {
     background: #282936;
@@ -479,15 +470,6 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext {
-    background-color: #3e4053;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext:enabled:hover {
-    background-color: #3e4053;
-  }
-  .p-calendar.p-variant-filled > .p-inputtext:enabled:focus {
-    background-color: #3e4053;
   }
 
   .p-datepicker {
@@ -804,16 +786,6 @@
     font-size: 0.875rem;
   }
 
-  .p-input-filled .p-cascadeselect {
-    background: #3e4053;
-  }
-  .p-input-filled .p-cascadeselect:not(.p-disabled):hover {
-    background-color: #3e4053;
-  }
-  .p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {
-    background-color: #3e4053;
-  }
-
   .p-checkbox {
     width: 22px;
     height: 22px;
@@ -907,15 +879,6 @@
     outline-offset: 0;
     box-shadow: 0 0 0 1px #e0d8fc;
     border-color: #b19df7;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container {
-    background-color: #3e4053;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:hover {
-    background-color: #3e4053;
-  }
-  .p-chips.p-variant-filled > .p-chips-multiple-container:enabled:focus {
-    background-color: #3e4053;
   }
   .p-chips .p-chips-multiple-container {
     padding: 0.375rem 0.75rem;
@@ -1096,19 +1059,6 @@
     background: transparent;
   }
 
-  .p-input-filled .p-dropdown {
-    background: #3e4053;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled):hover {
-    background-color: #3e4053;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled).p-focus {
-    background-color: #3e4053;
-  }
-  .p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {
-    background-color: transparent;
-  }
-
   .p-inputgroup-addon {
     background: #282936;
     color: rgba(255, 255, 255, 0.6);
@@ -1272,13 +1222,13 @@
   .p-inputtext.p-invalid.p-component {
     border-color: #ff9a9a;
   }
-  .p-inputtext.p-variant-filled.p-component {
+  .p-inputtext.p-variant-filled {
     background-color: #3e4053;
   }
-  .p-inputtext.p-variant-filled.p-component:enabled:hover {
+  .p-inputtext.p-variant-filled:enabled:hover {
     background-color: #3e4053;
   }
-  .p-inputtext.p-variant-filled.p-component:enabled:focus {
+  .p-inputtext.p-variant-filled:enabled:focus {
     background-color: #3e4053;
   }
   .p-inputtext.p-inputtext-sm {
@@ -1592,27 +1542,8 @@
     background: transparent;
   }
 
-  .p-input-filled .p-multiselect {
-    background: #3e4053;
-  }
-  .p-input-filled .p-multiselect:not(.p-disabled):hover {
-    background-color: #3e4053;
-  }
-  .p-input-filled .p-multiselect:not(.p-disabled).p-focus {
-    background-color: #3e4053;
-  }
-
   .p-password.p-invalid.p-component > .p-inputtext {
     border-color: #ff9a9a;
-  }
-  .p-password.p-variant-filled > .p-inputtext {
-    background: #3e4053;
-  }
-  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled):hover {
-    background-color: #3e4053;
-  }
-  .p-password.p-variant-filled > .p-inputtext:not(.p-disabled).p-focus {
-    background-color: #3e4053;
   }
 
   .p-password-panel {
@@ -1836,16 +1767,6 @@
   .p-slider:not(.p-disabled) .p-slider-handle:hover {
     background: #b19df7;
     border-color: #b19df7;
-  }
-
-  .p-inputtextarea.p-variant-filled {
-    background-color: #3e4053;
-  }
-  .p-inputtextarea.p-variant-filled:enabled:hover {
-    background-color: #3e4053;
-  }
-  .p-inputtextarea.p-variant-filled:enabled:focus {
-    background-color: #3e4053;
   }
 
   .p-treeselect {
