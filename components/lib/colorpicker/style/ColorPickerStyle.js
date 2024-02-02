@@ -20,7 +20,6 @@ const classes = {
         {
             'p-colorpicker-overlay-panel': !props.inline,
             'p-disabled': props.disabled,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

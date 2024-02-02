@@ -32,7 +32,7 @@ const RadioButtonProps = [
     {
         name: 'variant',
         type: 'string',
-        default: 'outlined',
+        default: 'null',
         description: 'Specifies the input variant of the component.'
     },
     {

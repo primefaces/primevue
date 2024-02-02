@@ -185,7 +185,6 @@ const classes = {
     root: ({ instance }) => [
         'p-sidebar p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false,
             'p-sidebar-full': instance.fullScreen
         }

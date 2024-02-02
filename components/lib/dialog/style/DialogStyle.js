@@ -171,7 +171,6 @@ const classes = {
         {
             'p-dialog-rtl': props.rtl,
             'p-dialog-maximized': props.maximizable && instance.maximized,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

@@ -92,7 +92,6 @@ const classes = {
     root: ({ props, instance }) => [
         'p-toast p-component p-toast-' + props.position,
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
