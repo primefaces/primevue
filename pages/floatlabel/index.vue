@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Float Label" header="Float Label" description="FloatLabel appears on top of the input field when focused." :componentDocs="docs" :apiDocs="['FloatLabel']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Float Label" header="FloatLabel" description="FloatLabel appears on top of the input field when focused." :componentDocs="docs" :apiDocs="['FloatLabel']" :themingDocs="themingDoc" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Input Icon" header="Input Icon" description="InputIcon displays an icon." :componentDocs="docs" :apiDocs="['InputIcon', 'IconField']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Input Icon" header="InputIcon" description="InputIcon displays an icon." :componentDocs="docs" :apiDocs="['InputIcon', 'IconField']" :themingDocs="themingDoc" />
 </template>
 
 <script>
