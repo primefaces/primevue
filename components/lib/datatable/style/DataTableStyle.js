@@ -350,7 +350,7 @@ const classes = {
     rowgroupHeader: 'p-rowgroup-header',
     rowGroupToggler: 'p-row-toggler p-link',
     rowGroupTogglerIcon: 'p-row-toggler-icon',
-    row: ({ instance, props, index }) => {
+    row: ({ instance, props, index, columnSelectionMode }) => {
         let rowStyleClass = [];
 
         if (props.selectionMode) {
@@ -358,9 +358,8 @@ const classes = {
         }
 
         if (props.selection) {
-            console.log(props.selectionMode);
             rowStyleClass.push({
-                'p-highlight': props.selectionMode === 'multiple' || props.selectionMode === 'single' ? instance.isSelected : instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect
+                'p-highlight': columnSelectionMode ? instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect : instance.isSelected
             });
         }
 
