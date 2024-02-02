@@ -358,8 +358,9 @@ const classes = {
         }
 
         if (props.selection) {
+            console.log(props.selectionMode);
             rowStyleClass.push({
-                'p-highlight': instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect
+                'p-highlight': props.selectionMode === 'multiple' || props.selectionMode === 'single' ? instance.isSelected : instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect
             });
         }
 
