@@ -305,7 +305,7 @@ export default {
                 Promise.resolve().then(() => {
                     this.lazyLoadState = {
                         first: this.step ? (both ? { rows: 0, cols: first.cols } : 0) : first,
-                        last: Math.min(this.step ? this.step : last, this.items.length)
+                        last: Math.min(this.step ? this.step : last, this.items?.length || 0)
                     };
 
                     this.$emit('lazy-load', this.lazyLoadState);
@@ -324,10 +324,10 @@ export default {
                         this.content.style.position = 'relative';
                         this.element.style.contain = 'none';
 
-                        const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
+                        /*const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
 
                         contentWidth !== this.defaultContentWidth && (this.element.style.width = '');
-                        contentHeight !== this.defaultContentHeight && (this.element.style.height = '');
+                        contentHeight !== this.defaultContentHeight && (this.element.style.height = '');*/
 
                         const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
 
@@ -342,7 +342,7 @@ export default {
             }
         },
         getLast(last = 0, isCols) {
-            return this.items ? Math.min(isCols ? (this.columns || this.items[0]).length : this.items.length, last) : 0;
+            return this.items ? Math.min(isCols ? (this.columns || this.items[0])?.length || 0 : this.items?.length || 0, last) : 0;
         },
         getContentPosition() {
             if (this.content) {
@@ -504,8 +504,8 @@ export default {
 
                 if (this.lazy && this.isPageChanged(first)) {
                     const lazyLoadState = {
-                        first: this.step ? Math.min(this.getPageByFirst(first) * this.step, this.items.length - this.step) : first,
-                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items.length)
+                        first: this.step ? Math.min(this.getPageByFirst(first) * this.step, (this.items?.length || 0) - this.step) : first,
+                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items?.length || 0)
                     };
                     const isLazyStateChanged = this.lazyLoadState.first !== lazyLoadState.first || this.lazyLoadState.last !== lazyLoadState.last;
 
