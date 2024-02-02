@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-column align-items-center">
         <TriStateCheckbox v-model="value" disabled />
     </div>
     <DocSectionCode :code="code" />
@@ -19,9 +19,9 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-column align-items-center">
         <TriStateCheckbox v-model="value" disabled />
-    </div>  
+    </div>
 </template>
 
 <script>
@@ -36,9 +36,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-column align-items-center">
         <TriStateCheckbox v-model="value" disabled />
-    </div>  
+    </div>
 </template>
 
 <script setup>

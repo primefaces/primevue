@@ -17,6 +17,7 @@ import CheckmarkDoc from '@/doc/dropdown/CheckmarkDoc.vue';
 import ClearIconDoc from '@/doc/dropdown/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/dropdown/DisabledDoc.vue';
 import EditableDoc from '@/doc/dropdown/EditableDoc.vue';
+import FilledDoc from '@/doc/dropdown/FilledDoc.vue';
 import FilterDoc from '@/doc/dropdown/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/dropdown/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/dropdown/GroupDoc.vue';
@@ -92,6 +93,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

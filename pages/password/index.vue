@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/password/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/password/BasicDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
+import FilledDoc from '@/doc/password/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
@@ -54,6 +55,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

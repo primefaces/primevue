@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/checkbox/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/checkbox/BasicDoc.vue';
 import DisabledDoc from '@/doc/checkbox/DisabledDoc.vue';
 import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
+import FilledDoc from '@/doc/checkbox/FilledDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
 import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/checkbox/InvalidDoc.vue';
@@ -49,6 +50,11 @@ export default {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',

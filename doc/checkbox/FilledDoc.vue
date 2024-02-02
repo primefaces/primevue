@@ -3,7 +3,7 @@
         <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Checkbox v-model="checked" binary variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +12,15 @@
 export default {
     data() {
         return {
-            value: null,
+            checked: false,
             code: {
                 basic: `
-<InputText type="text" v-model="value" variant="filled" />
+<Checkbox v-model="checked" binary variant="filled" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Checkbox v-model="checked" binary variant="filled" />
     </div>
 </template>
 
@@ -28,26 +28,25 @@ export default {
 export default {
     data() {
         return {
-            value: null
-        }
+            checked: false
+        };
     }
-}
+};
 <\/script>
-
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Checkbox v-model="checked" binary variant="filled" />
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const value = ref(null);
+const checked = ref(false);
 <\/script>
-        `
+`
             }
         };
     }

@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/calendar/BasicDoc.vue';
 import ButtonBarDoc from '@/doc/calendar/ButtonBarDoc.vue';
 import DateTemplateDoc from '@/doc/calendar/DateTemplateDoc.vue';
 import DisabledDoc from '@/doc/calendar/DisabledDoc.vue';
+import FilledDoc from '@/doc/calendar/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/calendar/FloatLabelDoc.vue';
 import FormatDoc from '@/doc/calendar/FormatDoc.vue';
 import IconDoc from '@/doc/calendar/IconDoc.vue';
@@ -122,6 +123,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

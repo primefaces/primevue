@@ -3,7 +3,7 @@
         <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Password v-model="value" :feedback="false" invalid variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<InputText type="text" v-model="value" variant="filled" />
+<Password v-model="value" :feedback="false" variant="filled" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Password v-model="value" :feedback="false" variant="filled" />
     </div>
 </template>
 
@@ -31,14 +31,13 @@ export default {
             value: null
         }
     }
-}
+};
 <\/script>
-
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText v-model="value" type="text" variant="filled" />
+        <Password v-model="value" :feedback="false" variant="filled" />
     </div>
 </template>
 
@@ -47,7 +46,7 @@ import { ref } from 'vue';
 
 const value = ref(null);
 <\/script>
-        `
+`
             }
         };
     }

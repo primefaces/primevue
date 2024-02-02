@@ -39,7 +39,7 @@
             </table>
         </div>
 
-        <h6>Popup Keyboard Support</h6>
+        <h3>Popup Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

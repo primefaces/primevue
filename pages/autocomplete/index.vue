@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/autocomplete/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/autocomplete/BasicDoc.vue';
 import DisabledDoc from '@/doc/autocomplete/DisabledDoc.vue';
 import DropdownDoc from '@/doc/autocomplete/DropdownDoc.vue';
+import FilledDoc from '@/doc/autocomplete/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc.vue';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
@@ -80,6 +81,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

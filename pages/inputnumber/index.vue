@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/inputnumber/AccessibilityDoc.vue';
 import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc.vue';
 import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
+import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
@@ -68,6 +69,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

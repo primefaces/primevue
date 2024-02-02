@@ -1,12 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default, optionLabel is used when searching and <i>filterFields</i> can be used to customize the
-            fields being utilized. Furthermore, <i>filterMatchMode</i> is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
-        </p>
+        <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-20rem" />
+        <MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-20rem" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -25,13 +22,13 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
+<MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" placeholder="Select Cities"
     :maxSelectedLabels="3" class="w-full md:w-20rem" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
+        <MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" placeholder="Select Cities"
             :maxSelectedLabels="3" class="w-full md:w-20rem" />
     </div>
 </template>
@@ -56,7 +53,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
+        <MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" placeholder="Select Cities"
             :maxSelectedLabels="3" class="w-full md:w-20rem" />
     </div>
 </template>
