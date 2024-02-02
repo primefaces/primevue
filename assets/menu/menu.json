@@ -98,8 +98,8 @@
                             "to": "/floatlabel"
                         },
                         {
-                            "name": "InputIcon",
-                            "to": "/inputicon"
+                            "name": "IconField",
+                            "to": "/iconfield"
                         },
                         {
                             "name": "InputGroup",

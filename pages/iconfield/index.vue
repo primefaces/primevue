@@ -1,12 +1,12 @@
 <template>
-    <DocComponent title="Vue Input Icon" header="InputIcon" description="InputIcon displays an icon." :componentDocs="docs" :apiDocs="['InputIcon', 'IconField']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue IconFiled" header="IconFiled" description="IconField wraps an input and an icon." :componentDocs="docs" :apiDocs="['IconField', 'InputIcon']" :themingDocs="themingDoc" />
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/inputicon/AccessibilityDoc.vue';
-import BasicDoc from '@/doc/inputicon/BasicDoc.vue';
-import ImportDoc from '@/doc/inputicon/ImportDoc.vue';
-import ThemingDoc from '@/doc/inputicon/theming/index.vue';
+import AccessibilityDoc from '@/doc/iconfield/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/iconfield/BasicDoc.vue';
+import ImportDoc from '@/doc/iconfield/ImportDoc.vue';
+import ThemingDoc from '@/doc/iconfield/theming/index.vue';
 
 export default {
     data() {
