@@ -673,7 +673,7 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            this.$el.setAttribute('data-p-unselectable-text', 'false');
+            this.$el.removeAttribute('data-p-unselectable-text');
             !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();

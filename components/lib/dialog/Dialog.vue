@@ -293,6 +293,7 @@ export default {
                 this.lastPageY = event.pageY;
 
                 this.container.style.margin = '0';
+                document.body.setAttribute('data-p-unselectable-text');
                 !this.isUnstyled && DomHandler.addClass(document.body, 'p-unselectable-text');
             }
         },
@@ -359,6 +360,7 @@ export default {
             this.documentDragEndListener = (event) => {
                 if (this.dragging) {
                     this.dragging = false;
+                    document.body.removeAttribute('data-p-unselectable-text');
                     !this.isUnstyled && DomHandler.removeClass(document.body, 'p-unselectable-text');
 
                     this.$emit('dragend', event);
