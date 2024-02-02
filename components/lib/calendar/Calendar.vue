@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -539,6 +539,7 @@ export default {
     typeUpdate: false,
     data() {
         return {
+            d_id: this.id,
             currentMonth: null,
             currentYear: null,
             currentHour: null,
@@ -553,6 +554,9 @@ export default {
         };
     },
     watch: {
+        id: function (newValue) {
+            this.d_id = newValue || UniqueComponentId();
+        },
         modelValue(newValue) {
             this.updateCurrentMetaData();
 
@@ -601,6 +605,7 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
+        this.d_id = this.d_id || UniqueComponentId();
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
 
@@ -3001,7 +3006,7 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         panelId() {
-            return UniqueComponentId() + '_panel';
+            return this.d_id + '_panel';
         }
     },
     components: {
