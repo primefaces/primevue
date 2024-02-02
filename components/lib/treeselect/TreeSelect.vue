@@ -120,12 +120,16 @@ export default {
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     data() {
         return {
+            id: this.$attrs.id,
             focused: false,
             overlayVisible: false,
             expandedKeys: {}
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         modelValue: {
             handler: function () {
                 if (!this.selfChange) {
@@ -161,6 +165,7 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.updateTreeState();
     },
     methods: {
@@ -487,7 +492,7 @@ export default {
             return !this.options || this.options.length === 0;
         },
         listId() {
-            return UniqueComponentId() + '_list';
+            return this.id + '_list';
         }
     },
     components: {
