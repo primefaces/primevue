@@ -1,13 +1,13 @@
 /**
  *
- * FloatLabel is a grouping component with the optional content toggle feature.
+ * FloatLabel appears on top of the input field when focused.
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  *
  * @module floatlabel
  *
  */
-import { AnchorHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -108,7 +108,7 @@ export interface FloatLabelEmits {}
 /**
  * **PrimeVue - FloatLabel**
  *
- * _FloatLabel is a grouping component with the optional content toggle feature._
+ * _FloatLabel appears on top of the input field when focused._
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  * --- ---
