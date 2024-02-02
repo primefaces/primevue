@@ -22,7 +22,7 @@
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
-                <span class="text-xl font-semibold">Input Style</span>
+                <span class="text-xl font-semibold">Input Variant</span>
                 <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </section>
 
