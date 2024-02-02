@@ -27070,10 +27070,10 @@
         }
     },
     "floatlabel": {
-        "description": "FloatLabel is a grouping component with the optional content toggle feature.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "description": "FloatLabel appears on top of the input field when focused.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
         "components": {
             "default": {
-                "description": "FloatLabel is a grouping component with the optional content toggle feature.",
+                "description": "FloatLabel appears on top of the input field when focused.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
