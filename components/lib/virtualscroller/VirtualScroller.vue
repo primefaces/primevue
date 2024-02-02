@@ -129,6 +129,7 @@ export default {
             if (DomHandler.isVisible(this.element)) {
                 this.setContentEl(this.content);
                 this.init();
+                this.calculateAutoSize();
                 this.bindResizeListener();
 
                 this.defaultWidth = DomHandler.getWidth(this.element);
