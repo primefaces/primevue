@@ -1,13 +1,13 @@
 /**
  *
- * IconField is used to select a boolean value.
+ * IconField wraps an input and an icon.
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  *
  * @module iconfield
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';

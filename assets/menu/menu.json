@@ -95,8 +95,11 @@
                         },
                         {
                             "name": "FloatLabel",
-                            "to": "/floatlabel",
-                            "badge": "NEW"
+                            "to": "/floatlabel"
+                        },
+                        {
+                            "name": "InputIcon",
+                            "to": "/inputicon"
                         },
                         {
                             "name": "InputGroup",

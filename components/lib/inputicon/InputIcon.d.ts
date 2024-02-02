@@ -1,6 +1,6 @@
 /**
  *
- * InputIcon displays text, icon, buttons and other content can be grouped next to an input.
+ * InputIcon displays an icon.
  *
  * [Live Demo](https://www.primevue.org/inputgroup/)
  *

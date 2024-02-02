@@ -1,13 +1,5 @@
 <template>
-    <DocComponent
-        title="Vue Input Component"
-        header="InputText"
-        description="InputText is an extension to standard input element with theming."
-        :componentDocs="docs"
-        :apiDocs="['InputText', 'FloatLabel', 'InputIcon', 'IconField']"
-        :ptTabComponent="ptComponent"
-        :themingDocs="themingDoc"
-    />
+    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" :apiDocs="['InputText']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -17,7 +9,6 @@ import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
-import IconsDoc from '@/doc/inputtext/IconsDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
 import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
@@ -37,11 +28,6 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
-                },
-                {
-                    id: 'icons',
-                    label: 'Icons',
-                    component: IconsDoc
                 },
                 {
                     id: 'sizes',
