@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
+import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
@@ -50,6 +51,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',
