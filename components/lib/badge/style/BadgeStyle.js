@@ -49,7 +49,9 @@ const classes = {
             'p-badge-info': props.severity === 'info',
             'p-badge-success': props.severity === 'success',
             'p-badge-warning': props.severity === 'warning',
-            'p-badge-danger': props.severity === 'danger'
+            'p-badge-danger': props.severity === 'danger',
+            'p-badge-secondary': props.severity === 'secondary',
+            'p-badge-contrast': props.severity === 'contrast'
         }
     ]
 };

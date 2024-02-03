@@ -70,7 +70,7 @@ export interface BadgeProps {
     /**
      * Severity type of the badge.
      */
-    severity?: 'info' | 'success' | 'warning' | 'danger' | string | null | undefined;
+    severity?: 'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'contrast' | string | null | undefined;
     /**
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
