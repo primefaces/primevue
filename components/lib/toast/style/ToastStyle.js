@@ -101,7 +101,9 @@ const classes = {
             'p-toast-message-info': props.message.severity === 'info' || props.message.severity === undefined,
             'p-toast-message-warn': props.message.severity === 'warn',
             'p-toast-message-error': props.message.severity === 'error',
-            'p-toast-message-success': props.message.severity === 'success'
+            'p-toast-message-success': props.message.severity === 'success',
+            'p-toast-message-secondary': props.message.severity === 'secondary',
+            'p-toast-message-contrast': props.message.severity === 'contrast'
         }
     ],
     content: 'p-toast-message-content',

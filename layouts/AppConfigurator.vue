@@ -271,74 +271,6 @@
                     <div class="w-3"></div>
                 </div>
             </section>
-            <section class="py-4 border-bottom-1 surface-border">
-                <div class="flex align-items-center gap-2 mb-3">
-                    <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap" class="border-circle" style="width: 1.5rem" />
-                    <span class="font-medium">Bootstrap</span>
-                </div>
-                <div class="flex align-items-center justify-content-between gap-3">
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('bootstrap4', 'blue'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'blue') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('bootstrap4', 'blue')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #027bff 0%, rgba(2, 123, 255, 0.5) 100%)"></span>
-                    </button>
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('bootstrap4', 'purple'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'purple') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('bootstrap4', 'purple')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #893cae 0%, rgba(137, 60, 174, 0.5) 100%)"></span>
-                    </button>
-                    <div class="w-3"></div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
-            <section class="py-4 border-bottom-1 surface-border">
-                <div class="flex gap-3">
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Soho</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('soho'), 'hover:border-500 surface-border': !isThemeActive('soho') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('soho')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #664beb 0%, rgba(102, 75, 235, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Viva</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('viva'), 'hover:border-500 surface-border': !isThemeActive('viva') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('viva')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4a67c9 0%, rgba(74, 103, 201, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3"></div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
         </div>
     </Sidebar>
 </template>
@@ -471,7 +403,7 @@ export default {
             return this.$appState.ripple;
         },
         inputStyle() {
-            return this.$primevue.config.inputStyle;
+            return this.$primevue.config.inputStyle || 'outlined';
         },
         containerClass() {
             return [

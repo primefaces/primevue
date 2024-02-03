@@ -5561,14 +5561,6 @@
     background-color: #ea5455;
     color: #ffffff;
   }
-  .p-badge.p-badge-secondary {
-    background-color: #a1c30d;
-    color: #ffffff;
-  }
-  .p-badge.p-badge-contrast {
-    background-color: #212529;
-    color: #ffffff;
-  }
   .p-badge.p-badge-lg {
     font-size: 1.125rem;
     min-width: 2.25rem;
@@ -5809,14 +5801,6 @@
   }
   .p-tag.p-tag-danger {
     background-color: #ea5455;
-    color: #ffffff;
-  }
-  .p-tag.p-tag-secondary {
-    background-color: #a1c30d;
-    color: #ffffff;
-  }
-  .p-tag.p-tag-contrast {
-    background-color: #212529;
     color: #ffffff;
   }
   .p-tag .p-tag-icon {

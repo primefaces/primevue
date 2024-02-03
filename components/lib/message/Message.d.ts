@@ -118,7 +118,7 @@ export interface MessageProps {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast' | string | undefined;
     /**
      * Whether the message can be closed manually using the close icon.
      * @defaultValue true
