@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Severity defines the type of button.</p>
+        <p>The <i>severity</i> property defines the variant of a button.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" />

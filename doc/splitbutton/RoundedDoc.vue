@@ -10,6 +10,7 @@
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="warning"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="help"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="contrast"></SplitButton>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -51,6 +52,7 @@ export default {
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="warning"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="help"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="danger"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="contrast"></SplitButton>
 `,
                 options: `
 <template>
@@ -63,6 +65,7 @@ export default {
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="warning"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="help"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="contrast"></SplitButton>
     </div>
 </template>
 
@@ -115,6 +118,7 @@ export default {
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="warning"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="help"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" rounded severity="contrast"></SplitButton>
     </div>
 </template>
 
