@@ -83,43 +83,84 @@ export default {
         }
     },
     semantic: {
-        primary: {
-            50: '{emerald.50}',
-            100: '{emerald.100}',
-            200: '{emerald.200}',
-            300: '{emerald.300}',
-            400: '{emerald.400}',
-            500: '{emerald.500}',
-            600: '{emerald.600}',
-            700: '{emerald.700}',
-            800: '{emerald.800}',
-            900: '{emerald.900}',
-            950: '{emerald.950}'
+        colorScheme: {
+            light: {
+                primary: {
+                    50: '{emerald.50}',
+                    100: '{emerald.100}',
+                    200: '{emerald.200}',
+                    300: '{emerald.300}',
+                    400: '{emerald.400}',
+                    500: '{emerald.500}',
+                    600: '{emerald.600}',
+                    700: '{emerald.700}',
+                    800: '{emerald.800}',
+                    900: '{emerald.900}',
+                    950: '{emerald.950}'
+                },
+                surface: {
+                    0: '#ffffff',
+                    50: '{slate.50}',
+                    100: '{slate.100}',
+                    200: '{slate.200}',
+                    300: '{slate.300}',
+                    400: '{slate.400}',
+                    500: '{slate.500}',
+                    600: '{slate.600}',
+                    700: '{slate.700}',
+                    800: '{slate.800}',
+                    900: '{slate.900}',
+                    950: '{slate.950}'
+                },
+                textColor: '{surface.700}',
+                textSecondaryColor: '{surface.500}',
+                borderColor: '{surface.300}'
+            },
+            dark: {
+                primary: {
+                    50: '{emerald.50}',
+                    100: '{emerald.100}',
+                    200: '{emerald.200}',
+                    300: '{emerald.300}',
+                    400: '{emerald.400}',
+                    500: '{emerald.500}',
+                    600: '{emerald.600}',
+                    700: '{emerald.700}',
+                    800: '{emerald.800}',
+                    900: '{emerald.900}',
+                    950: '{emerald.950}'
+                },
+                surface: {
+                    0: '#ffffff',
+                    50: '{zinc.50}',
+                    100: '{zinc.100}',
+                    200: '{zinc.200}',
+                    300: '{zinc.300}',
+                    400: '{zinc.400}',
+                    500: '{zinc.500}',
+                    600: '{zinc.600}',
+                    700: '{zinc.700}',
+                    800: '{zinc.800}',
+                    900: '{zinc.900}',
+                    950: '{zinc.950}'
+                },
+                textColor: '{dark.surface.0}',
+                textSecondaryColor: '{dark.surface.500}',
+                borderColor: '{dark.surface.700}'
+            },
         },
-        surface: {
-            0: '#ffffff',
-            50: '{slate.50}',
-            100: '{slate.100}',
-            200: '{slate.200}',
-            300: '{slate.300}',
-            400: '{slate.400}',
-            500: '{slate.500}',
-            600: '{slate.600}',
-            700: '{slate.700}',
-            800: '{slate.800}',
-            900: '{slate.900}',
-            950: '{slate.950}'
-        },
-        fontFamily: '"Inter var", sans-serif',
-        borderRadius: '6px',
-        inlineGap: '{gap.2}', // inline-spacing
-        transitionDuration: '.2s',
-        transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}, outline-color {transitionDuration}',
-        focusRing: {
-            width: '2px',
-            style: 'solid',
-            color: '{primary.500}',
-            offset: '2px'
+        common: {
+            fontFamily: '"Inter var", sans-serif',
+            borderRadius: '6px',
+            inlineGap: '{gap.2}', // inline-spacing
+            transitionDuration: '.2s',
+            transition: 'background-color {transitionDuration}, color {transitionDuration}, box-shadow {transitionDuration}, border-color {transitionDuration}, outline-color {transitionDuration}',
+            focusRing: {
+                width: '2px',
+                style: 'solid',
+                color: '{primary.500}',
+                offset: '2px'
+            }
         }
     },
     components: {

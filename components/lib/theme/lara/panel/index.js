@@ -1,96 +1,4 @@
 export default {
-    variables: {
-        common: {
-            header: {
-                borderWidth: '1px',
-                borderStyle: 'solid',
-                paddingX: '{p.5}',
-                paddingY: '{p.5}',
-                fontWeight: 700
-            },
-            headerIcon: {
-                width: '2rem',
-                height: '2rem',
-                borderWidth: '0',
-                borderStyle: 'none',
-                borderRadius: '50%'
-            },
-            toggleableHeader: {
-                paddingX: '{p.5}',
-                paddingY: '{p.3}'
-            },
-            content: {
-                paddingX: '{p.5}',
-                paddingY: '{p.5}',
-                borderWidth: '1px',
-                borderStyle: 'solid'
-            },
-            footer: {
-                paddingX: '{p.5}',
-                paddingY: '{p.3}',
-                borderWidth: '1px',
-                borderStyle: 'solid'
-            }
-        },
-        light: {
-            header: {
-                borderColor: '{surface.200}',
-                background: '{surface.50}',
-                color: '{surface.700}'
-            },
-            headerIcon: {
-                color: '{surface.600}',
-                borderColor: 'transparent',
-                background: 'transparent',
-                states: {
-                    hover: {
-                        color: '{surface.800}',
-                        borderColor: 'transparent',
-                        background: '{surface.100}'
-                    }
-                }
-            },
-            content: {
-                borderColor: '{surface.200}',
-                background: '{surface.0}',
-                color: '{surface.700}'
-            },
-            footer: {
-                borderColor: '{surface.200}',
-                background: '{surface.0}',
-                color: '{surface.700}'
-            }
-        },
-        dark: {
-            header: {
-                borderColor: '{surface.200}',
-                background: '{surface.50}',
-                color: '{surface.700}'
-            },
-            headerIcon: {
-                color: '{surface.600}',
-                borderColor: 'transparent',
-                background: 'transparent',
-                states: {
-                    hover: {
-                        color: '{surface.800}',
-                        borderColor: 'transparent',
-                        background: '{surface.100}'
-                    }
-                }
-            },
-            content: {
-                borderColor: '{surface.200}',
-                background: '{surface.0}',
-                color: '{surface.700}'
-            },
-            footer: {
-                borderColor: '{surface.200}',
-                background: '{surface.0}',
-                color: '{surface.700}'
-            }
-        }
-    },
     css: `
 .p-panel-header {
     display: flex;
@@ -98,7 +6,7 @@ export default {
     align-items: center;
     border: var(--p-panel-header-border-width) var(--p-panel-header-border-style) var(--p-panel-header-border-color);
     padding: var(--p-panel-header-padding-y) var(--p-panel-header-padding-x);
-    background: var(--p-panel-header-background);
+    background: var(--p-surface-100, --p-dark-surface-900);
     color: var(--p-panel-header-color);
     border-top-right-radius: var(--p-border-radius);
     border-top-left-radius: var(--p-border-radius);
