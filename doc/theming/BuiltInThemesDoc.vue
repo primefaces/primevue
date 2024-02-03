@@ -14,10 +14,6 @@ export default {
         return {
             code: {
                 basic: `
-primevue/resources/themes/bootstrap4-light-blue/theme.css
-primevue/resources/themes/bootstrap4-light-purple/theme.css
-primevue/resources/themes/bootstrap4-dark-blue/theme.css
-primevue/resources/themes/bootstrap4-dark-purple/theme.css
 primevue/resources/themes/md-light-indigo/theme.css
 primevue/resources/themes/md-light-deeppurple/theme.css
 primevue/resources/themes/md-dark-indigo/theme.css
@@ -26,7 +22,6 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
-primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/aura-light-blue/theme.css
 primevue/resources/themes/aura-light-indigo/theme.css
 primevue/resources/themes/aura-light-purple/theme.css
@@ -63,24 +58,6 @@ primevue/resources/themes/lara-dark-green/theme.css
 primevue/resources/themes/lara-dark-amber/theme.css
 primevue/resources/themes/lara-dark-cyan/theme.css
 primevue/resources/themes/lara-dark-pink/theme.css
-primevue/resources/themes/soho-light/theme.css
-primevue/resources/themes/soho-dark/theme.css
-primevue/resources/themes/viva-light/theme.css
-primevue/resources/themes/viva-dark/theme.css
-primevue/resources/themes/mira/theme.css
-primevue/resources/themes/nano/theme.css
-primevue/resources/themes/saga-blue/theme.css
-primevue/resources/themes/saga-green/theme.css
-primevue/resources/themes/saga-orange/theme.css
-primevue/resources/themes/saga-purple/theme.css
-primevue/resources/themes/vela-blue/theme.css
-primevue/resources/themes/vela-green/theme.css
-primevue/resources/themes/vela-orange/theme.css
-primevue/resources/themes/vela-purple/theme.css
-primevue/resources/themes/arya-blue/theme.css
-primevue/resources/themes/arya-green/theme.css
-primevue/resources/themes/arya-orange/theme.css
-primevue/resources/themes/arya-purple/theme.css
 `
             }
         };
