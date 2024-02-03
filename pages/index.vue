@@ -38,7 +38,7 @@ export default {
     },
     data() {
         return {
-            tableTheme: 'lara-light-green'
+            tableTheme: 'aura-light-green'
         };
     },
     themeChangeListener: null,
@@ -57,14 +57,14 @@ export default {
         const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
-            this.replaceTableTheme('lara-dark-green');
+            this.replaceTableTheme('aura-dark-green');
         } else {
-            this.replaceTableTheme('lara-light-green');
+            this.replaceTableTheme('aura-light-green');
         }
     },
     methods: {
         onDarkModeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-green' : 'lara-dark-green';
+            const newTheme = this.$appState.darkTheme ? 'aura-light-green' : 'aura-dark-green';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
             localStorage.setItem(this.$appState.colorSchemeKey, this.$appState.darkTheme ? 'light' : 'dark');

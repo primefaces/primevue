@@ -19,7 +19,7 @@
             </template>
         </PanelMenu>
     </div>
-    <DocSectionCode :code="code" hideStackBlitz hideCodeSandbox />
+    <DocSectionCode :code="code" hideStackBlitz />
 </template>
 
 <script>

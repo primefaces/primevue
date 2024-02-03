@@ -7,17 +7,7 @@
     </DocSectionText>
     <div class="card">
         <p>Enter "<strong>date</strong>" to display the current date, "<strong>greet {0}</strong>" for a message and "<strong>random</strong>" to get a random number.</p>
-        <Terminal
-            welcomeMessage="Welcome to PrimeVue"
-            prompt="primevue $"
-            aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
-        />
+        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" aria-label="PrimeVue Terminal Service" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -34,12 +24,6 @@ export default {
     welcomeMessage="Welcome to PrimeVue"
     prompt="primevue $"
     aria-label="PrimeVue Terminal Service"
-    :pt="{
-        root: 'bg-gray-900 text-white border-round',
-        prompt: 'text-gray-400 mr-2',
-        command: 'text-primary-300',
-        response: 'text-primary-300'
-    }"
 />
 `,
                 options: `
@@ -50,12 +34,6 @@ export default {
             welcomeMessage="Welcome to PrimeVue"
             prompt="primevue $"
             aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
         />
     </div>
 </template>
@@ -107,12 +85,6 @@ export default {
             welcomeMessage="Welcome to PrimeVue"
             prompt="primevue $"
             aria-label="PrimeVue Terminal Service"
-            :pt="{
-                root: 'bg-gray-900 text-white border-round',
-                prompt: 'text-gray-400 mr-2',
-                command: 'text-primary-300',
-                response: 'text-primary-300'
-            }"
         />
     </div>
 </template>

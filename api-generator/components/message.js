@@ -3,7 +3,7 @@ const MessageProps = [
         name: 'severity',
         type: 'string',
         default: 'info',
-        description: 'Severity level of the message. Valid severities are "success", "info", "warn" and "error".'
+        description: 'Severity level of the message. Valid severities are "success", "info", "warn", "error", "secondary" and "contrast".'
     },
     {
         name: 'closable',
@@ -75,6 +75,10 @@ const MessageEvents = [
                 description: 'Browser event'
             }
         ]
+    },
+    {
+        name: 'life-end',
+        description: "Callback to invoke when the message's timeout is over."
     }
 ];
 

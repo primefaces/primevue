@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="chart">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="{ ...canvasProps, ...ptm('canvas') }"></canvas>
     </div>
 </template>

@@ -21,7 +21,15 @@ export default {
             type: String,
             default: 'left'
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        readonly: {
             type: Boolean,
             default: false
         },
@@ -39,10 +47,6 @@ export default {
         },
         inputStyle: {
             type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
             default: null
         },
         ariaLabelledby: {

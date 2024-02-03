@@ -61,6 +61,8 @@ const css = `
         white-space: nowrap;
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: center;
     }
 
     .p-dropdown-item-group {
@@ -102,6 +104,8 @@ const classes = {
         'p-dropdown p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-dropdown-clearable': props.showClear,
             'p-focus': state.focused,
             'p-inputwrapper-filled': instance.hasSelectedOption,
@@ -120,28 +124,36 @@ const classes = {
     trigger: 'p-dropdown-trigger',
     loadingicon: 'p-dropdown-trigger-icon',
     dropdownIcon: 'p-dropdown-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-dropdown-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
     header: 'p-dropdown-header',
     filterContainer: 'p-dropdown-filter-container',
-    filterInput: 'p-dropdown-filter p-inputtext p-component',
+    filterInput: ({ props, instance }) => [
+        'p-dropdown-filter p-inputtext p-component',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     filterIcon: 'p-dropdown-filter-icon',
     wrapper: 'p-dropdown-items-wrapper',
     list: 'p-dropdown-items',
     itemGroup: 'p-dropdown-item-group',
-    item: ({ instance, state, option, focusedOption }) => [
+    itemGroupLabel: 'p-dropdown-item-group-label',
+    item: ({ instance, props, state, option, focusedOption }) => [
         'p-dropdown-item',
         {
-            'p-highlight': instance.isSelected(option),
+            'p-highlight': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': state.focusedOptionIndex === focusedOption,
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
+    itemLabel: 'p-dropdown-item-label',
+    checkIcon: 'p-dropdown-check-icon',
+    blankIcon: 'p-dropdown-blank-icon',
     emptyMessage: 'p-dropdown-empty-message'
 };
 

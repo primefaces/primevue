@@ -2,13 +2,13 @@
     <DocSectionText v-bind="$attrs">
         <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
     </DocSectionText>
-    <div class="card flex align-items-center justify-content-center">
-        <Card style="width: 25em">
+    <div class="mb-3 p-5 flex align-items-center justify-content-center">
+        <Card style="width: 25rem; overflow: hidden">
             <template #header>
-                <img alt="user header" class="w-full" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+                <img alt="user header" class="w-full" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" />
             </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle> Card subtitle </template>
+            <template #title>Advanced Card</template>
+            <template #subtitle>Card subtitle</template>
             <template #content>
                 <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
@@ -16,8 +16,10 @@
                 </p>
             </template>
             <template #footer>
-                <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
+                <div class="flex gap-3 mt-1">
+                    <Button label="Cancel" severity="secondary" outlined class="w-full" />
+                    <Button label="Save" class="w-full" />
+                </div>
             </template>
         </Card>
     </div>
@@ -30,12 +32,12 @@ export default {
         return {
             code: {
                 basic: `
-<Card style="width: 25em">
+<Card style="width: 25rem; overflow: hidden">
     <template #header>
         <img alt="user header" src="/images/usercard.png" />
     </template>
-    <template #title> Advanced Card </template>
-    <template #subtitle> Card subtitle </template>
+    <template #title>Advanced Card</template>
+    <template #subtitle>Card subtitle</template>
     <template #content>
         <p class="m-0">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
@@ -43,32 +45,34 @@ export default {
         </p>
     </template>
     <template #footer>
-        <Button icon="pi pi-check" label="Save" />
-        <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
+        <div class="flex gap-3 mt-1">
+            <Button label="Cancel" severity="secondary" outlined class="w-full" />
+            <Button label="Save" class="w-full" />
+        </div>
     </template>
 </Card>
 `,
                 options: `
 <template>
-    <div class="card flex align-items-center justify-content-center">
-        <Card style="width: 25em">
-            <template #header>
-                <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle> Card subtitle </template>
-            <template #content>
-                <p class="m-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </template>
-            <template #footer>
-                <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
-            </template>
-        </Card>
-    </div>
+    <Card style="width: 25rem; overflow: hidden">
+        <template #header>
+            <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+        </template>
+        <template #title>Advanced Card</template>
+        <template #subtitle>Card subtitle</template>
+        <template #content>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                quas!
+            </p>
+        </template>
+        <template #footer>
+            <div class="flex gap-3 mt-1">
+                <Button label="Cancel" severity="secondary" outlined class="w-full" />
+                <Button label="Save" class="w-full" />
+            </div>
+        </template>
+    </Card>
 </template>
 
 <script>
@@ -76,25 +80,25 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex align-items-center justify-content-center">
-        <Card style="width: 25em">
-            <template #header>
-                <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle> Card subtitle </template>
-            <template #content>
-                <p class="m-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </template>
-            <template #footer>
-                <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
-            </template>
-        </Card>
-    </div>
+    <Card style="width: 25rem; overflow: hidden">
+        <template #header>
+            <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+        </template>
+        <template #title>Advanced Card</template>
+        <template #subtitle>Card subtitle</template>
+        <template #content>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                quas!
+            </p>
+        </template>
+        <template #footer>
+            <div class="flex gap-3 mt-1">
+                <Button label="Cancel" severity="secondary" outlined class="w-full" />
+                <Button label="Save" class="w-full" />
+            </div>
+        </template>
+    </Card>
 </template>
 
 <script setup>

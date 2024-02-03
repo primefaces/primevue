@@ -5,7 +5,7 @@
             <a href="https://www.npmjs.com/package/nuxt-primevue" target="_blank" rel="noopener noreferrer">nuxt-primevue</a> module.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

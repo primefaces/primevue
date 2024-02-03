@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center">
         <Button label="Check" icon="pi pi-check" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

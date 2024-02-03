@@ -4,16 +4,16 @@
             <section class="pb-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span class="text-xl font-semibold">Scale</span>
                 <div class="flex align-items-center gap-2 border-1 surface-border py-1 px-2" style="border-radius: 30px">
-                    <Button icon="pi pi-minus" @click="decrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[0]" />
+                    <Button icon="pi pi-minus" @click="decrementScale" text rounded :disabled="scale === scales[0]" />
                     <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-200', { 'text-lg text-primary': s === scale }]" />
 
-                    <Button icon="pi pi-plus" @click="incrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[scales.length - 1]" />
+                    <Button icon="pi pi-plus" @click="incrementScale" text rounded :disabled="scale === scales[scales.length - 1]" />
                 </div>
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
-                <span class="text-xl font-semibold">Input Style</span>
-                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
+                <span :class="['text-xl font-semibold']">Dark Mode</span>
+                <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" />
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
@@ -22,12 +22,132 @@
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
-                <span :class="['text-xl font-semibold', { 'p-disabled': darkToggleDisabled }]">Dark Mode</span>
-                <InputSwitch :modelValue="darkMode" @update:modelValue="onDarkModeChange" :disabled="darkToggleDisabled" />
+                <span class="text-xl font-semibold">Input Variant</span>
+                <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </section>
 
             <section class="py-4 border-bottom-1 surface-border">
                 <div class="text-xl font-semibold mb-3">Themes</div>
+                <div class="flex align-items-center gap-2 mb-3">
+                    <img src="https://primefaces.org/cdn/primevue/images/themes/aura.png" alt="Aura" style="width: 1.5rem" />
+                    <span class="font-medium">Aura</span>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3 mb-3">
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'green'), 'hover:border-500 surface-border': !isThemeActive('aura', 'green') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'green')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'cyan'), 'hover:border-500 surface-border': !isThemeActive('aura', 'cyan') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'cyan')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #06b6d4 0%, rgba(6, 182, 212, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'blue'), 'hover:border-500 surface-border': !isThemeActive('aura', 'blue') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'blue')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4378e6 0%, rgba(67, 120, 230, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'indigo'), 'hover:border-500 surface-border': !isThemeActive('aura', 'indigo') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'indigo')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #585fe0 0%, rgba(88, 95, 224, 0.5) 100%)"></span>
+                    </button>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3 mb-3">
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'purple'), 'hover:border-500 surface-border': !isThemeActive('aura', 'purple') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'purple')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #7758e4 0%, rgba(119, 88, 228, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'amber'), 'hover:border-500 surface-border': !isThemeActive('aura', 'amber') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'amber')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #f59e0b 0%, rgba(245, 158, 11, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'teal'), 'hover:border-500 surface-border': !isThemeActive('aura', 'teal') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'teal')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #14b8a6 0%, rgba(20, 184, 166, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'pink'), 'hover:border-500 surface-border': !isThemeActive('aura', 'pink') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'pink')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #ec4899 0%, rgba(236, 72, 153, 0.5) 100%)"></span>
+                    </button>
+                </div>
+                <div class="flex align-items-center justify-content-between gap-3">
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'noir'), 'hover:border-500 surface-border': !isThemeActive('aura', 'noir') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'noir')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0f172a 0%, rgba(0, 0, 0, 0.5) 100%)"></span>
+                    </button>
+                    <button
+                        :class="[
+                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('aura', 'lime'), 'hover:border-500 surface-border': !isThemeActive('aura', 'lime') }
+                        ]"
+                        style="border-radius: 30px"
+                        @click="changeTheme('aura', 'lime')"
+                    >
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #84cc16 0%, rgb(132, 204, 22, 0.5) 100%)"></span>
+                    </button>
+                    <span class="w-3"></span>
+                    <span class="w-3"></span>
+                </div>
+
+                <section class="pt-4 flex align-items-center justify-content-between">
+                    <span class="text-sm">Primary Focus Ring</span>
+                    <InputSwitch :modelValue="primaryFocusRing" @update:modelValue="onFocusRingColorChange" />
+                </section>
+            </section>
+
+            <section class="py-4 border-bottom-1 surface-border">
                 <div class="flex align-items-center gap-2 mb-3">
                     <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="border-circle" style="width: 1.5rem" />
                     <span class="font-medium">Lara</span>
@@ -151,127 +271,6 @@
                     <div class="w-3"></div>
                 </div>
             </section>
-            <section class="py-4 border-bottom-1 surface-border">
-                <div class="flex align-items-center gap-2 mb-3">
-                    <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap" class="border-circle" style="width: 1.5rem" />
-                    <span class="font-medium">Bootstrap</span>
-                </div>
-                <div class="flex align-items-center justify-content-between gap-3">
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('bootstrap4', 'blue'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'blue') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('bootstrap4', 'blue')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #027bff 0%, rgba(2, 123, 255, 0.5) 100%)"></span>
-                    </button>
-                    <button
-                        :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('bootstrap4', 'purple'), 'hover:border-500 surface-border': !isThemeActive('bootstrap4', 'purple') }
-                        ]"
-                        style="border-radius: 30px"
-                        @click="changeTheme('bootstrap4', 'purple')"
-                    >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #893cae 0%, rgba(137, 60, 174, 0.5) 100%)"></span>
-                    </button>
-                    <div class="w-3"></div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
-            <section class="py-4 border-bottom-1 surface-border">
-                <div class="flex gap-3">
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Soho</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('soho'), 'hover:border-500 surface-border': !isThemeActive('soho') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('soho')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #664beb 0%, rgba(102, 75, 235, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Viva</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('viva'), 'hover:border-500 surface-border': !isThemeActive('viva') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('viva')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4a67c9 0%, rgba(74, 103, 201, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3"></div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
-            <section class="py-4">
-                <div class="flex gap-3">
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Fluent</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('fluent-light'), 'hover:border-500 surface-border': !isThemeActive('fluent-light') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('fluent-light')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #0078d4 0%, rgba(0, 120, 212, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Mira</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('mira'), 'hover:border-500 surface-border': !isThemeActive('mira') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('mira')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #81a1c1 0%, rgba(129, 161, 193, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3">
-                        <div class="flex align-items-center gap-2 mb-3">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Nano" class="border-circle" style="width: 1.5rem" />
-                            <span class="font-medium">Nano</span>
-                        </div>
-                        <button
-                            :class="[
-                                'bg-transparent border-1 cursor-pointer p-2 w-full flex align-items-center justify-content-center transition-all transition-duration-200',
-                                { 'border-primary': isThemeActive('nano'), 'hover:border-500 surface-border': !isThemeActive('nano') }
-                            ]"
-                            style="border-radius: 30px"
-                            @click="changeTheme('nano')"
-                        >
-                            <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #1469b4 0%, rgba(20, 105, 180, 0.5) 100%)"></span>
-                        </button>
-                    </div>
-                    <div class="w-3"></div>
-                </div>
-            </section>
         </div>
     </Sidebar>
 </template>
@@ -296,8 +295,8 @@ export default {
                 { label: 'Outlined', value: 'outlined' },
                 { label: 'Filled', value: 'filled' }
             ],
-            compactMaterial: false,
-            lightOnlyThemes: ['fluent-light', 'mira', 'nano']
+            primaryFocusRing: true,
+            compactMaterial: false
         };
     },
     watch: {
@@ -328,22 +327,17 @@ export default {
         changeTheme(theme, color) {
             let newTheme, dark;
 
-            if (this.lightOnlyThemes.includes(theme)) {
-                newTheme = theme;
-                dark = false;
-            } else {
-                newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
+            newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
 
-                if (color) {
-                    newTheme += '-' + color;
-                }
-
-                if (newTheme.startsWith('md-') && this.compactMaterial) {
-                    newTheme = newTheme.replace('md-', 'mdc-');
-                }
-
-                dark = this.$appState.darkTheme;
+            if (color) {
+                newTheme += '-' + color;
             }
+
+            if (newTheme.startsWith('md-') && this.compactMaterial) {
+                newTheme = newTheme.replace('md-', 'mdc-');
+            }
+
+            dark = this.$appState.darkTheme;
 
             EventBus.emit('theme-change', { theme: newTheme, dark: dark });
         },
@@ -358,11 +352,11 @@ export default {
         applyScale() {
             document.documentElement.style.fontSize = this.scale + 'px';
         },
+        onRippleChange(value) {
+            this.$appState.ripple = value;
+        },
         onInputStyleChange(value) {
             this.$primevue.config.inputStyle = value;
-        },
-        onRippleChange(value) {
-            this.$primevue.config.ripple = value;
         },
         onDarkModeChange() {
             this.$emit('darkswitch-click');
@@ -380,31 +374,36 @@ export default {
             let themeName;
             let themePrefix = themeFamily === 'md' && this.compactMaterial ? 'mdc' : themeFamily;
 
-            if (this.lightOnlyThemes.includes(themePrefix)) {
-                themeName = themePrefix;
-            } else {
-                themeName = themePrefix + (this.$appState.darkTheme ? '-dark' : '-light');
-            }
+            themeName = themePrefix + (this.$appState.darkTheme ? '-dark' : '-light');
 
             if (color) {
                 themeName += '-' + color;
             }
 
             return this.$appState.theme === themeName;
+        },
+        onFocusRingColorChange(value) {
+            this.primaryFocusRing = value;
+            let root = document.documentElement;
+
+            if (value) {
+                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--primary-500)');
+            } else {
+                if (this.$appState.darkTheme) root.style.setProperty('--p-focus-ring-color', 'var(--surface-500)');
+                else root.style.setProperty('--p-focus-ring-color', 'var(--surface-900)');
+            }
         }
     },
     computed: {
-        inputStyle() {
-            return this.$primevue.config.inputStyle;
-        },
         darkMode() {
             return this.$appState.darkTheme;
         },
         rippleActive() {
-            return this.$primevue.config.ripple;
+            return this.$appState.ripple;
         },
-        darkToggleDisabled() {
-            return this.lightOnlyThemes.includes(this.$appState.theme);
+        inputStyle() {
+            return this.$primevue.config.inputStyle || 'outlined';
         },
         containerClass() {
             return [

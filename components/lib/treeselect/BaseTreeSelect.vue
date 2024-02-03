@@ -16,6 +16,14 @@ export default {
             type: String,
             default: null
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
+        variant: {
+            type: String,
+            default: null
+        },
         disabled: {
             type: Boolean,
             default: false
@@ -29,7 +37,7 @@ export default {
             default: 'single'
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         emptyMessage: {

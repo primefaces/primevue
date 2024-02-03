@@ -38,7 +38,7 @@ export default defineNuxtModule({
     setup(moduleOptions, nuxt) {
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
-        const { importPT } = moduleOptions;
+        const { importPT, options } = moduleOptions;
 
         nuxt.options.runtimeConfig.public.primevue = {
             ...moduleOptions,
@@ -50,10 +50,12 @@ export default defineNuxtModule({
 
         const styleContent = () => `
 ${registered.styles.map((style) => `import ${style.as} from '${style.from}';`).join('\n')}
-
+const styleProps = {
+    ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
+}
 const styles = [
   ${registered.injectStylesAsString.join('')},
-  ${registered.styles.map((item) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet() : ''`).join(',')}
+  ${registered.styles.map((item) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
 export { styles };

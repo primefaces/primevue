@@ -18,6 +18,14 @@ export default {
             default: '200px'
         },
         placeholder: String,
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: Boolean,
         inputId: {
             type: String,
@@ -60,7 +68,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         display: {
@@ -125,9 +133,17 @@ export default {
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         autoFilterFocus: {
+            type: Boolean,
+            default: false
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
+        highlightOnSelect: {
             type: Boolean,
             default: false
         },

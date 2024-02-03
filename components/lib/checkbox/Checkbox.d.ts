@@ -7,7 +7,7 @@
  * @module checkbox
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -62,17 +62,13 @@ export interface CheckboxPassThroughOptions {
      */
     input?: CheckboxPassThroughOptionType;
     /**
+     * Used to pass attributes to the box's DOM element.
+     */
+    box?: CheckboxPassThroughOptionType;
+    /**
      * Used to pass attributes to the icon's DOM element.
      */
     icon?: CheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: CheckboxPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: CheckboxPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -91,11 +87,7 @@ export interface CheckboxPassThroughAttributes {
  * Defines current inline state in Checkbox component.
  */
 export interface CheckboxState {
-    /**
-     * Current focus state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
+    [key: string]: any;
 }
 
 /**
@@ -120,10 +112,20 @@ export interface CheckboxProps {
      */
     binary?: boolean;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
      * @default false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * When present, it specifies that an input field is read-only.
      * @default false
@@ -161,10 +163,6 @@ export interface CheckboxProps {
      */
     inputStyle?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
-    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
@@ -199,11 +197,6 @@ export interface CheckboxContext {
      */
     checked: boolean;
     /**
-     * Current focus state of the item as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
      * Current disabled state of the item as a boolean.
      * @defaultValue false
      */
@@ -235,25 +228,25 @@ export interface CheckboxSlots {
  */
 export interface CheckboxEmits {
     /**
-     * Emitted when the page changes.
-     * @param {*} value - New page value.
+     * Emitted when the value changes.
+     * @param {*} value - New value.
      */
-    'update:page'(value: any): void;
-    /**
-     * Callback to invoke on value click.
-     * @param {MouseEvent} event - Browser event.
-     */
-    click(event: MouseEvent): void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
     change(event: Event): void;
     /**
-     * Callback to invoke on value change.
-     * @param {boolean} value - New value.
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
      */
-    input(value: boolean): void;
+    focus(event: Event): void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur(event: Event): void;
 }
 
 /**

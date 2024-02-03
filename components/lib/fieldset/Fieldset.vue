@@ -1,16 +1,16 @@
 <template>
-    <fieldset :class="cx('root')" v-bind="ptm('root')" data-pc-name="fieldset">
+    <fieldset :class="cx('root')" v-bind="ptm('root')">
         <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
-                <span :id="ariaId + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                <span :id="id + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
             </slot>
             <a
                 v-if="toggleable"
-                :id="ariaId + '_header'"
+                :id="id + '_header'"
                 v-ripple
                 tabindex="0"
                 role="button"
-                :aria-controls="ariaId + '_content'"
+                :aria-controls="id + '_content'"
                 :aria-expanded="!d_collapsed"
                 :aria-label="buttonAriaLabel"
                 @click="toggle"
@@ -26,7 +26,7 @@
             </a>
         </legend>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+            <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('toggleablecontent')">
                 <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
@@ -48,13 +48,20 @@ export default {
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {
+            id: this.$attrs.id,
             d_collapsed: this.collapsed
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         collapsed(newValue) {
             this.d_collapsed = newValue;
         }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         toggle(event) {
@@ -73,9 +80,6 @@ export default {
         }
     },
     computed: {
-        ariaId() {
-            return UniqueComponentId();
-        },
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps.ariaLabel ? this.toggleButtonProps.ariaLabel : this.legend;
         }

@@ -8,13 +8,30 @@ export default {
     props: {
         value: null,
         modelValue: null,
+        binary: Boolean,
         name: {
             type: String,
             default: null
         },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
+        },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: Number,
+            default: null
         },
         inputId: {
             type: String,
@@ -26,10 +43,6 @@ export default {
         },
         inputStyle: {
             type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
             default: null
         },
         ariaLabelledby: {

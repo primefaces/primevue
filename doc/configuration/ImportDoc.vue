@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Configuration is managed by the <i>PrimeVue</i> instance imported from <i>primevue/config</i>.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

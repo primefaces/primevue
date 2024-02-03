@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="calendar">
+    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -39,7 +39,6 @@
             :aria-controls="panelId"
             :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
         >
             <template #icon>
                 <slot name="dropdownicon" :class="icon">
@@ -486,7 +485,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('todayButton')"
-                            data-pc-section="todaybutton"
                             data-pc-group-section="button"
                         />
                         <CalendarButton
@@ -497,7 +495,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('clearButton')"
-                            data-pc-section="clearbutton"
                             data-pc-group-section="button"
                         />
                     </div>
@@ -542,6 +539,7 @@ export default {
     typeUpdate: false,
     data() {
         return {
+            d_id: this.id,
             currentMonth: null,
             currentYear: null,
             currentHour: null,
@@ -556,6 +554,9 @@ export default {
         };
     },
     watch: {
+        id: function (newValue) {
+            this.d_id = newValue || UniqueComponentId();
+        },
         modelValue(newValue) {
             this.updateCurrentMetaData();
 
@@ -595,12 +596,16 @@ export default {
         },
         currentView() {
             Promise.resolve(null).then(() => this.alignOverlay());
+        },
+        view(newValue) {
+            this.currentView = newValue;
         }
     },
     created() {
         this.updateCurrentMetaData();
     },
     mounted() {
+        this.d_id = this.d_id || UniqueComponentId();
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
 
@@ -1155,8 +1160,9 @@ export default {
             let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
 
             if (this.showTime) {
-                if (this.hourFormat === '12' && this.pm && this.currentHour != 12) date.setHours(this.currentHour + 12);
-                else date.setHours(this.currentHour);
+                if (this.hourFormat === '12' && this.currentHour !== 12) {
+                    this.pm ? date.setHours(this.currentHour + 12) : date.setHours(this.currentHour);
+                }
 
                 date.setMinutes(this.currentMinute);
                 date.setSeconds(this.currentSecond);
@@ -1690,7 +1696,6 @@ export default {
                 let styleClass = 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter';
 
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'datepickermask',
                     class: !this.isUnstyled && styleClass,
                     'p-bind': this.ptm('datepickermask')
                 });
@@ -2665,6 +2670,18 @@ export default {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
+            } else if (event.code === 'Enter') {
+                if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
+                    try {
+                        let value = this.parseValue(event.target.value);
+
+                        if (this.isValidSelection(value)) {
+                            this.overlayVisible = false;
+                        }
+                    } catch (err) {
+                        /* NoOp */
+                    }
+                }
             }
         },
         overlayRef(el) {
@@ -2989,7 +3006,7 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         panelId() {
-            return UniqueComponentId() + '_panel';
+            return this.d_id + '_panel';
         }
     },
     components: {

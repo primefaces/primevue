@@ -92,6 +92,16 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     size?: 'small' | 'large' | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputTextPassThroughOptions}
      */

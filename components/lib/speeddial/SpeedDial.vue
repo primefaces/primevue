@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')" data-pc-name="speeddial">
+    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')">
         <slot name="button" :onClick="onClick" :toggleCallback="onClick">
             <SDButton
                 type="button"
@@ -17,7 +17,7 @@
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, cx('buttonIcon')]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                         <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
@@ -104,7 +104,7 @@ export default {
             this.bindDocumentClickListener();
         }
     },
-    beforeMount() {
+    beforeUnmount() {
         this.unbindDocumentClickListener();
     },
     methods: {

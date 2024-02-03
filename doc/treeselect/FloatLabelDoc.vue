@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A floating label appears on top of the input field when focused.</p>
+        <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <FloatLabel class="w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -21,18 +21,18 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<span class="p-float-label">
-    <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+<FloatLabel class="w-full md:w-20rem">
+    <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
     <label>Tree Select</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <FloatLabel class="w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
@@ -55,10 +55,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+        <FloatLabel class="w-full md:w-20rem">
+            <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

@@ -21,6 +21,14 @@ export default {
             type: null,
             default: false
         },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
@@ -47,10 +55,6 @@ export default {
         },
         inputStyle: {
             type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
             default: null
         },
         ariaLabelledby: {

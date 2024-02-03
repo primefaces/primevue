@@ -226,6 +226,16 @@ export interface OrderListProps {
      */
     metaKeySelection?: boolean | undefined;
     /**
+     * Whether to focus on the first visible or selected element.
+     * @defaultValue true
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
+     * When enabled, the focus is placed on the hovered option.
+     * @defaultValue true
+     */
+    focusOnHover?: boolean | undefined;
+    /**
      * Inline style of the the list element.
      */
     listStyle?: any;

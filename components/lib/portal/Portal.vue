@@ -16,7 +16,7 @@ export default {
     name: 'Portal',
     props: {
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         disabled: {

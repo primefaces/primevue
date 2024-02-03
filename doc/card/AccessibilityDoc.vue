@@ -6,7 +6,7 @@
             to use one of the <a href="https://www.w3.org/TR/wai-aria/#landmark" alt="Landmark Roles">landmark</a> roles like <i>region</i>, you may use the <i>role</i> property.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Keyboard Support</h3>
         <p>Component does not include any interactive elements.</p>

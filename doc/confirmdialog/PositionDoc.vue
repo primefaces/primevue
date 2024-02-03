@@ -5,18 +5,18 @@
     <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2">
-            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -30,18 +30,18 @@ export default {
                 basic: `
 <ConfirmDialog group="positioned"></ConfirmDialog>
 <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
-    <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
 </div>
 <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
-    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
-    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
 </div>
 <div class="flex flex-wrap justify-content-center gap-2">
-    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="success" style="min-width: 10rem"></Button>
-    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
-    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
 </div>
 `,
                 options: `
@@ -50,18 +50,18 @@ export default {
     <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2">
-            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
     </div>
 </template>
@@ -76,6 +76,10 @@ export default {
                 header: 'Confirmation',
                 icon: 'pi pi-info-circle',
                 position: position,
+                rejectClass: 'p-button-secondary p-button-text',
+                acceptClass: 'p-button-text',
+                rejectLabel: 'Cancel',
+                acceptLabel: 'Save',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },
@@ -94,18 +98,18 @@ export default {
     <ConfirmDialog group="positioned"></ConfirmDialog>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="help" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="help" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2 mb-3">
-            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="warning" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="warning" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
         <div class="flex flex-wrap justify-content-center gap-2">
-            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="success" style="min-width: 10rem"></Button>
-            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="success" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
         </div>
     </div>
 </template>
@@ -124,6 +128,10 @@ const confirmPosition = (position) => {
         header: 'Confirmation',
         icon: 'pi pi-info-circle',
         position: position,
+        rejectClass: 'p-button-secondary p-button-text',
+        acceptClass: 'p-button-text',
+        rejectLabel: 'Cancel',
+        acceptLabel: 'Save',
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
         },
@@ -145,6 +153,10 @@ const confirmPosition = (position) => {
                 header: 'Confirmation',
                 icon: 'pi pi-info-circle',
                 position: position,
+                rejectClass: 'p-button-secondary p-button-text',
+                acceptClass: 'p-button-text',
+                rejectLabel: 'Cancel',
+                acceptLabel: 'Save',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },

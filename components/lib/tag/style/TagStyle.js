@@ -28,6 +28,8 @@ const classes = {
             'p-tag-success': props.severity === 'success',
             'p-tag-warning': props.severity === 'warning',
             'p-tag-danger': props.severity === 'danger',
+            'p-tag-secondary': props.severity === 'secondary',
+            'p-tag-contrast': props.severity === 'contrast',
             'p-tag-rounded': props.rounded
         }
     ],

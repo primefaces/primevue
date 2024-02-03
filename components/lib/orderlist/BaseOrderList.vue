@@ -26,6 +26,14 @@ export default {
             type: Boolean,
             default: false
         },
+        autoOptionFocus: {
+            type: Boolean,
+            default: true
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
         responsive: {
             type: Boolean,
             default: true

@@ -1,13 +1,38 @@
 import BaseStyle from 'primevue/base/style';
 
+const css = `
+@layer primevue {
+    .p-togglebutton {
+        position: relative;
+        display: inline-flex;
+        user-select: none;
+        vertical-align: bottom;
+    }
+
+    .p-togglebutton-input {
+        cursor: pointer;
+    }
+
+    .p-togglebutton .p-button {
+        flex: 1 1 auto;
+    }
+}
+`;
+
 const classes = {
     root: ({ instance, props }) => [
-        'p-button p-togglebutton p-component',
+        'p-togglebutton p-component',
         {
-            'p-focus': instance.focused,
-            'p-button-icon-only': instance.hasIcon && !instance.hasLabel,
             'p-disabled': props.disabled,
-            'p-highlight': props.modelValue === true
+            'p-highlight': instance.active,
+            'p-invalid': props.invalid
+        }
+    ],
+    input: 'p-togglebutton-input',
+    box: ({ instance }) => [
+        'p-button p-component',
+        {
+            'p-button-icon-only': instance.hasIcon && !instance.hasLabel
         }
     ],
     icon: ({ instance, props }) => [
@@ -21,6 +46,7 @@ const classes = {
 };
 
 export default BaseStyle.extend({
-    name: 'accordion',
+    name: 'togglebutton',
+    css,
     classes
 });

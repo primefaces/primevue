@@ -9,7 +9,7 @@ const BadgeProps = [
         name: 'severity',
         type: 'string',
         default: 'null',
-        description: 'Severity type of the badge.'
+        description: 'Severity type of the badge. Valid severities are "secondary", "success", "info", "warning", "danger" and "contrast".'
     },
     {
         name: 'size',

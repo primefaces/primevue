@@ -14,10 +14,10 @@
 import AccessibilityDoc from '@/doc/radiobutton/AccessibilityDoc.vue';
 import DisabledDoc from '@/doc/radiobutton/DisabledDoc.vue';
 import DynamicDoc from '@/doc/radiobutton/DynamicDoc.vue';
+import FilledDoc from '@/doc/radiobutton/FilledDoc.vue';
 import GroupDoc from '@/doc/radiobutton/GroupDoc.vue';
 import ImportDoc from '@/doc/radiobutton/ImportDoc.vue';
 import InvalidDoc from '@/doc/radiobutton/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/radiobutton/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/radiobutton/pt/index.vue';
 import ThemingDoc from '@/doc/radiobutton/theming/index.vue';
 
@@ -41,6 +41,11 @@ export default {
                     component: DynamicDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -49,18 +54,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

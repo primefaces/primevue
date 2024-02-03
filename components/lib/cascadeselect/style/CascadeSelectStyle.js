@@ -103,6 +103,8 @@ const classes = {
         'p-cascadeselect p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -119,10 +121,9 @@ const classes = {
     dropdownButton: 'p-cascadeselect-trigger',
     loadingIcon: 'p-cascadeselect-trigger-icon',
     dropdownIcon: 'p-cascadeselect-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-cascadeselect-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

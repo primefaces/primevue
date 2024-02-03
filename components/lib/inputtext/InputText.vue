@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :value="modelValue" @input="onInput" v-bind="getPTOptions('root')" data-pc-name="inputtext" />
+    <input :class="cx('root')" :value="modelValue" @input="onInput" v-bind="getPTOptions('root')" />
 </template>
 
 <script>

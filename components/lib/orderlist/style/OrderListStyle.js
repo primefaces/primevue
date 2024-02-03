@@ -50,8 +50,8 @@ const classes = {
         }
     ],
     controls: 'p-orderlist-controls',
-    header: 'p-orderlist-header',
     container: 'p-orderlist-list-container',
+    header: 'p-orderlist-header',
     list: 'p-orderlist-list',
     item: ({ instance, item, id }) => [
         'p-orderlist-item',

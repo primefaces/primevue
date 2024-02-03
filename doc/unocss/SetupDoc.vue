@@ -8,7 +8,7 @@
             UnoCSS adds the utilities on demand so it needs to be aware of PrimeVue components path otherwise the classes used will not be included in the page, sample below configures UnoCSS with Vite. For other environments like Nuxt, visit the
             <a href="https://unocss.dev/integrations/">integrations documentation</a>.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>As an example, <a href="https://getbootstrap.com/docs/4.0/components/modal/">Modal</a> and <a href="https://getbootstrap.com/docs/4.0/components/buttons/">Button</a> styles of Bootstrap are used to style PrimeVue Button and Dialog.</p>
+        <p>Demonstration of various PrimeVue components like input field, button and table styled with Bootstrap utilities.</p>
     </DocSectionText>
     <div class="flex justify-content-center">
-        <iframe class="w-full h-full" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 2px; min-height: 800px" src="https://codesandbox.io/p/sandbox/unstyled-primevue-dialog-with-bootstrap-forked-nl5qn3?embed=1" allowfullscreen></iframe>
+        <iframe class="w-full h-full" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 2px; min-height: 800px" allowfullscreen src="https://stackblitz.com/edit/vitejs-vite-gziyk1?file=src%2FApp.vue&embed=1"></iframe>
     </div>
 </template>
 

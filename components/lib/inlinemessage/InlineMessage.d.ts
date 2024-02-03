@@ -94,7 +94,7 @@ export interface InlineMessageProps {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast' | string | undefined;
     /**
      * Display a custom icon for the message.
      * @deprecated since v3.27.0. Use 'icon' slot.

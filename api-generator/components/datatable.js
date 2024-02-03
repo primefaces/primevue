@@ -367,6 +367,12 @@ const DataTableProps = [
         description: 'Whether to displays rows with alternating colors.'
     },
     {
+        name: 'highlightOnSelect',
+        type: 'boolean',
+        default: 'false',
+        description: 'Highlights automatically the first item.'
+    },
+    {
         name: 'size',
         type: 'string',
         default: 'null',

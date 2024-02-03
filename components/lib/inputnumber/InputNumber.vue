@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="inputnumber">
+    <span :class="cx('root')" v-bind="ptm('root')">
         <INInputText
             ref="input"
             :id="inputId"
@@ -25,37 +25,16 @@
             v-bind="inputProps"
             :pt="ptm('input')"
             :unstyled="unstyled"
-            data-pc-section="input"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
-            <INButton
-                :class="[cx('incrementButton'), incrementButtonClass]"
-                v-on="upButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="incrementButtonProps"
-                :pt="ptm('incrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="incrementbutton"
-            >
+            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" :pt="ptm('incrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="incrementbuttonicon">
                         <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
-            <INButton
-                :class="[cx('decrementButton'), decrementButtonClass]"
-                v-on="downButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="decrementButtonProps"
-                :pt="ptm('decrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="decrementbutton"
-            >
+            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" :pt="ptm('decrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="decrementbuttonicon">
                         <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
@@ -73,7 +52,6 @@
             v-bind="incrementButtonProps"
             :pt="ptm('incrementButton')"
             :unstyled="unstyled"
-            data-pc-section="incrementbutton"
         >
             <template #icon>
                 <slot name="incrementbuttonicon">
@@ -91,7 +69,6 @@
             v-bind="decrementButtonProps"
             :pt="ptm('decrementButton')"
             :unstyled="unstyled"
-            data-pc-section="decrementbutton"
         >
             <template #icon>
                 <slot name="decrementbuttonicon">
@@ -107,7 +84,7 @@ import Button from 'primevue/button';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 import BaseInputNumber from './BaseInputNumber.vue';
 
 export default {
@@ -533,17 +510,19 @@ export default {
                     break;
 
                 case 'Home':
-                    if (this.min) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.min)) {
                         this.updateModel(event, this.min);
-                        event.preventDefault();
                     }
 
                     break;
 
                 case 'End':
-                    if (this.max) {
+                    event.preventDefault();
+
+                    if (!ObjectUtils.isEmpty(this.max)) {
                         this.updateModel(event, this.max);
-                        event.preventDefault();
                     }
 
                     break;
@@ -691,7 +670,7 @@ export default {
 
                 this._decimal.lastIndex = 0;
 
-                return decimalCharIndex > 0 ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : value || this.formatValue(text);
+                return decimalCharIndex > 0 ? value.slice(0, start) + this.formatValue(text) + value.slice(end) : this.formatValue(text) || value;
             } else if (end - start === value.length) {
                 return this.formatValue(text);
             } else if (start === 0) {
@@ -875,9 +854,16 @@ export default {
                     selectionEnd = sRegex.lastIndex + tRegex.lastIndex;
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 } else if (newLength === currentLength) {
-                    if (operation === 'insert' || operation === 'delete-back-single') this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
-                    else if (operation === 'delete-single') this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
-                    else if (operation === 'delete-range' || operation === 'spin') this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
+                    if (operation === 'insert' || operation === 'delete-back-single') {
+                        const re = /[.,]/g;
+                        const newSelectionEnd = selectionEnd + Number(re.test(value) || re.test(insertedValueStr));
+
+                        this.$refs.input.$el.setSelectionRange(newSelectionEnd, newSelectionEnd);
+                    } else if (operation === 'delete-single') {
+                        this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
+                    } else if (operation === 'delete-range' || operation === 'spin') {
+                        this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
+                    }
                 } else if (operation === 'delete-back-single') {
                     let prevChar = inputValue.charAt(selectionEnd - 1);
                     let nextChar = inputValue.charAt(selectionEnd);

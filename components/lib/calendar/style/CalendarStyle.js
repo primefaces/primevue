@@ -166,12 +166,18 @@ const classes = {
             'p-input-icon-right': props.showIcon && props.iconDisplay === 'input',
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
             'p-focus': state.focused || state.overlayVisible
         }
     ],
-    input: 'p-inputtext p-component',
+    input: ({ props, instance }) => [
+        'p-inputtext p-component',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     dropdownButton: 'p-datepicker-trigger',
     inputIcon: 'p-datepicker-trigger-icon',
     panel: ({ instance, props, state }) => [
@@ -185,7 +191,6 @@ const classes = {
             'p-datepicker-monthpicker': state.currentView === 'month',
             'p-datepicker-yearpicker': state.currentView === 'year',
             'p-datepicker-touch-ui': props.touchUI,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

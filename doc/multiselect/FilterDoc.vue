@@ -31,7 +31,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"  
+        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
             :maxSelectedLabels="3" class="w-full md:w-20rem" />
     </div>
 </template>

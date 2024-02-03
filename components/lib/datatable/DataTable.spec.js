@@ -702,7 +702,7 @@ describe('DataTable.vue', () => {
     it('should expand a row', async () => {
         await wrapper.setProps({ expandedRows: [] });
 
-        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0] });
+        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0], expanded: true });
 
         expect(wrapper.emitted()['update:expandedRows'][0][0]).toEqual([smallData[0]]);
         expect(wrapper.emitted()['row-expand'][0][0].data).toEqual(smallData[0]);
@@ -915,7 +915,7 @@ describe('DataTable.vue', () => {
 
         await wrapper.vm.onColumnResize({});
 
-        expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: block;');
+        expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: none; height: 0px; top: 0px;');
     });
 
     it('should fit mode column resize end', async () => {
@@ -1000,7 +1000,7 @@ describe('DataTable.vue', () => {
 
         await wrapper.vm.onColumnResize({});
 
-        expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: block;');
+        expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: none; height: 0px; top: 0px;');
     });
 
     it('should fit mode column resize end', async () => {

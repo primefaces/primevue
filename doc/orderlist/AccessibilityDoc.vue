@@ -11,7 +11,7 @@
             like overriding the default <i>aria-label</i> attributes.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
         <h3>ListBox Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">

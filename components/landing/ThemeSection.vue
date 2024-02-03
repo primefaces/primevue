@@ -3,14 +3,11 @@
         <div class="section-header">Themes</div>
         <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as Material, Bootstrap, Tailwind, PrimeOne or develop your own.</p>
         <div class="flex flex-wrap justify-content-center px-5">
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'green')">PrimeOne</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('aura') }]" @click="changeTheme('aura', 'green')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
         </div>
-        <div
-            class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
-            :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt-gray' : 'light-alt-gray'}.svg')`, backgroundSize: 'cover' }"
-        >
+        <div class="themes-main flex mt-7 justify-content-center px-5 lg:px-8">
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
                     v-model:selection="selectedCustomers"
@@ -29,10 +26,12 @@
                     <template #header>
                         <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
                             <h5 class="m-0">Customers</h5>
-                            <span class="p-input-icon-left mt-3 sm:mt-0 w-full sm:w-auto">
-                                <i class="pi pi-search" />
+                            <IconField iconPosition="left" class="mt-3 sm:mt-0 w-full sm:w-auto">
+                                <InputIcon>
+                                    <i class="pi pi-search" />
+                                </InputIcon>
                                 <InputText v-model="filters['global'].value" placeholder="Search" class="w-full" />
-                            </span>
+                            </IconField>
                         </div>
                     </template>
                     <template #empty> No customers found. </template>

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="scrollpanel">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
             <div ref="content" :id="contentId" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
@@ -61,13 +61,20 @@ export default {
     outsideClickListener: null,
     data() {
         return {
-            id: UniqueComponentId(),
+            id: this.$attrs.id,
             orientation: 'vertical',
             lastScrollTop: 0,
             lastScrollLeft: 0
         };
     },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.$el.offsetParent) {
             this.initialize();
         }
@@ -362,7 +369,7 @@ export default {
     },
     computed: {
         contentId() {
-            return UniqueComponentId() + '_content';
+            return this.id + '_content';
         }
     }
 };

@@ -26,7 +26,7 @@ pnpm add primevue
 
 ## Plugin
 
-PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/theming).
+PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/configuration).
 
 ```javascript
 import { createApp } from 'vue';
@@ -46,7 +46,7 @@ Styled mode is based on pre-skinned components with opinionated themes like Mate
 
 ```javascript
 // theme
-import 'primevue/resources/themes/lara-light-green/theme.css';
+import 'primevue/resources/themes/aura-light-green/theme.css';
 ```
 
 **Unstyled Mode**
@@ -138,7 +138,7 @@ In styled mode, the theme can be defined at Nuxt configuration with the css prop
 
 ```javascript
 export default defineNuxtConfig({
-    css: ['primevue/resources/themes/lara-dark-green/theme.css']
+    css: ['primevue/resources/themes/aura-dark-green/theme.css']
 });
 ```
 

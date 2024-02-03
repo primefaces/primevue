@@ -3,7 +3,7 @@
         <p>A model can be bound using the standard <i>v-model</i> directive.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Textarea v-model="value" rows="5" cols="30" />
+        <Textarea v-model="value" rows="5" cols="30" style="resize: none" />
     </div>
     <DocSectionCode :code="code" />
 </template>

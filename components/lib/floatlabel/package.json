@@ -1,0 +1,9 @@
+{
+    "main": "./floatlabel.cjs.js",
+    "module": "./floatlabel.esm.js",
+    "unpkg": "./floatlabel.min.js",
+    "types": "./FloatLabel.d.ts",
+    "browser": {
+        "./sfc": "./FloatLabel.vue"
+    }
+}

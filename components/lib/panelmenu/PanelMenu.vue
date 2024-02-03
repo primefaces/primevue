@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="panelmenu">
+    <div :id="id" :class="cx('root')" v-bind="ptm('root')">
         <template v-for="(item, index) of model" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="[cx('panel'), getItemProp(item, 'class')]" v-bind="ptm('panel')">
                 <div

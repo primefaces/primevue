@@ -13,9 +13,11 @@
 <script>
 import AccessibilityDoc from '@/doc/dropdown/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/dropdown/BasicDoc.vue';
+import CheckmarkDoc from '@/doc/dropdown/CheckmarkDoc.vue';
 import ClearIconDoc from '@/doc/dropdown/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/dropdown/DisabledDoc.vue';
 import EditableDoc from '@/doc/dropdown/EditableDoc.vue';
+import FilledDoc from '@/doc/dropdown/FilledDoc.vue';
 import FilterDoc from '@/doc/dropdown/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/dropdown/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/dropdown/GroupDoc.vue';
@@ -25,7 +27,6 @@ import LazyVirtualScrollDoc from '@/doc/dropdown/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/dropdown/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/dropdown/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/dropdown/VirtualScrollDoc.vue';
-import VeeValidateDoc from '@/doc/dropdown/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/dropdown/pt/index.vue';
 import ThemingDoc from '@/doc/dropdown/theming/index.vue';
 
@@ -42,6 +43,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'checkmark',
+                    label: 'Checkmark',
+                    component: CheckmarkDoc
                 },
                 {
                     id: 'editable',
@@ -89,6 +95,11 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -97,18 +108,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

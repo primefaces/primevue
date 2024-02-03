@@ -30,7 +30,7 @@ const FilterService = {
     },
     filters: {
         startsWith(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || filter.trim() === '') {
+            if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
 
@@ -44,7 +44,7 @@ const FilterService = {
             return stringValue.slice(0, filterValue.length) === filterValue;
         },
         contains(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+            if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
 
@@ -58,7 +58,7 @@ const FilterService = {
             return stringValue.indexOf(filterValue) !== -1;
         },
         notContains(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+            if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
 
@@ -72,7 +72,7 @@ const FilterService = {
             return stringValue.indexOf(filterValue) === -1;
         },
         endsWith(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || filter.trim() === '') {
+            if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
 
@@ -86,7 +86,7 @@ const FilterService = {
             return stringValue.indexOf(filterValue, stringValue.length - filterValue.length) !== -1;
         },
         equals(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+            if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
 
@@ -98,7 +98,7 @@ const FilterService = {
             else return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
         },
         notEquals(value, filter, filterLocale) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
+            if (filter === undefined || filter === null || filter === '') {
                 return false;
             }
 

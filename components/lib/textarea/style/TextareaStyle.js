@@ -18,7 +18,9 @@ const classes = {
         'p-inputtextarea p-inputtext p-component',
         {
             'p-filled': instance.filled,
-            'p-inputtextarea-resizable ': props.autoResize
+            'p-inputtextarea-resizable ': props.autoResize,
+            'p-invalid': props.invalid,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ]
 };

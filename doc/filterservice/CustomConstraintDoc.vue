@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>FilterService can be extended by adding new constraints using the register function.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
@@ -19,7 +19,7 @@ FilterService.register('isPrimeNumber', (value, filter): boolean => {
     if (value === undefined || value === null) {
         return false;
     }
-    
+
     return value.toString() === filter.toString();
 });
 

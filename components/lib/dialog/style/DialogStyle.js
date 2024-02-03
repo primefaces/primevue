@@ -115,13 +115,10 @@ const css = `
 
     /* Maximize */
     .p-dialog-maximized {
-        -webkit-transition: none;
-        transition: none;
-        transform: none;
         width: 100vw !important;
         height: 100vh !important;
-        top: 0px;
-        left: 0px;
+        top: 0px !important;
+        left: 0px !important;
         max-height: 100%;
         height: 100%;
     }
@@ -174,7 +171,6 @@ const classes = {
         {
             'p-dialog-rtl': props.rtl,
             'p-dialog-maximized': props.maximizable && instance.maximized,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

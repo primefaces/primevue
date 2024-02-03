@@ -6,7 +6,7 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mb-5">General</li>
                         <li class="mb-4">
-                            <PrimeVueNuxtLink to="/introduction" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Get Started</PrimeVueNuxtLink>
+                            <PrimeVueNuxtLink to="/setup" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Get Started</PrimeVueNuxtLink>
                         </li>
                         <li class="mb-4">
                             <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Examples</a>

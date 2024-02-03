@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/multiselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/multiselect/BasicDoc.vue';
 import ChipsDoc from '@/doc/multiselect/ChipsDoc.vue';
 import DisabledDoc from '@/doc/multiselect/DisabledDoc.vue';
+import FilledDoc from '@/doc/multiselect/FilledDoc.vue';
 import FilterDoc from '@/doc/multiselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
@@ -23,7 +24,6 @@ import InvalidDoc from '@/doc/multiselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc.vue';
-import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/multiselect/pt/index.vue';
 import ThemingDoc from '@/doc/multiselect/theming/index.vue';
 
@@ -77,6 +77,11 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -85,18 +90,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs" />
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
             code: {
                 basic: `
 import AnimateOnScroll from 'primevue/animateonscroll';
-                
+
 app.directive('animateonscroll', AnimateOnScroll);
 `
             }

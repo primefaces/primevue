@@ -1106,6 +1106,11 @@ export interface DataTableProps {
      */
     stripedRows?: boolean | undefined;
     /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
      * Defines the size of the table.
      */
     size?: 'small' | 'large' | undefined;

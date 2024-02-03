@@ -1,5 +1,9 @@
 <template>
-    <div v-if="!visible" class="demo-section-loading">Loading...</div>
+    <div v-if="!visible">
+        <div class="card">
+            <div class="deferred-demo-loading"></div>
+        </div>
+    </div>
     <slot v-else></slot>
 </template>
 
@@ -42,14 +46,33 @@ export default {
 };
 </script>
 <style>
-.demo-section-loading {
-    display: grid;
-    place-items: center;
-    padding: 2rem;
+.deferred-demo-loading {
     border-radius: 10px;
-    margin-bottom: 1rem;
-    font-size: 2rem;
     height: 350px;
-    background: var(--maskbg);
+    position: relative;
+    overflow: hidden;
+}
+
+.deferred-demo-loading::after {
+    content: '';
+    animation: deferred-demo-loading 1.2s infinite;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 1;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--surface-100), rgba(255, 255, 255, 0));
+}
+
+@keyframes deferred-demo-loading {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 </style>

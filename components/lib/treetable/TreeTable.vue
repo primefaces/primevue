@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')">
         <slot></slot>
         <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
@@ -25,7 +25,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -68,6 +67,7 @@
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
                                 :index="i"
+                                :unstyled="unstyled"
                                 :pt="pt"
                             ></TTHeaderCell>
                         </template>
@@ -101,6 +101,7 @@
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         ></TTRow>
                     </template>
@@ -113,7 +114,7 @@
                 <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :pt="pt"></TTFooterCell>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :unstyled="unstyled" :pt="pt"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>
@@ -133,7 +134,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -673,7 +673,7 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            this.$el.setAttribute('data-p-unselectable-text', 'false');
+            this.$el.removeAttribute('data-p-unselectable-text');
             !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();

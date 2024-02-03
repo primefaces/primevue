@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A floating label appears on top of the input field when focused.</p>
+        <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Calendar v-model="date" inputId="birth_date" />
             <label for="birth_date">Birth Date</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,18 +18,18 @@ export default {
             date: null,
             code: {
                 basic: `
-<span class="p-float-label">
+<FloatLabel>
     <Calendar v-model="date" inputId="birth_date" />
     <label for="birth_date">Birth Date</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Calendar v-model="date" inputId="birth_date" />
             <label for="birth_date">Birth Date</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
@@ -46,10 +46,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Calendar v-model="date" inputId="birth_date" />
             <label for="birth_date">Birth Date</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

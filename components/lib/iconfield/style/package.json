@@ -1,0 +1,6 @@
+{
+    "main": "./iconfieldstyle.cjs.js",
+    "module": "./iconfieldstyle.esm.js",
+    "unpkg": "./iconfieldstyle.min.js",
+    "types": "./IconFieldStyle.d.ts"
+}

@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')" data-pc-name="selectbutton">
+    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"

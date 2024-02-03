@@ -126,17 +126,9 @@ export interface TreePassThroughOptions<T = any> {
      */
     togglerIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the checkbox container's DOM element.
-     */
-    checkboxContainer?: TreePassThroughOptionType<T>;
-    /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    checkbox?: TreePassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: TreePassThroughOptionType<T>;
+    nodeCheckbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */
@@ -279,6 +271,11 @@ export interface TreeProps {
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
     filterLocale?: string | undefined;
+    /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
     /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */

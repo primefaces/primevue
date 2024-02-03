@@ -10,6 +10,14 @@ export default {
         size: {
             type: String,
             default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
+        variant: {
+            type: String,
+            default: null
         }
     },
     style: InputTextStyle,

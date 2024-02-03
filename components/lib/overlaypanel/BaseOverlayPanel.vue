@@ -15,7 +15,7 @@ export default {
             default: false
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         baseZIndex: {

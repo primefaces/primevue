@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/calendar/BasicDoc.vue';
 import ButtonBarDoc from '@/doc/calendar/ButtonBarDoc.vue';
 import DateTemplateDoc from '@/doc/calendar/DateTemplateDoc.vue';
 import DisabledDoc from '@/doc/calendar/DisabledDoc.vue';
+import FilledDoc from '@/doc/calendar/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/calendar/FloatLabelDoc.vue';
 import FormatDoc from '@/doc/calendar/FormatDoc.vue';
 import IconDoc from '@/doc/calendar/IconDoc.vue';
@@ -31,7 +32,6 @@ import RangeDoc from '@/doc/calendar/RangeDoc.vue';
 import TimeDoc from '@/doc/calendar/TimeDoc.vue';
 import TouchUIDoc from '@/doc/calendar/TouchUIDoc.vue';
 import YearPickerDoc from '@/doc/calendar/YearPickerDoc.vue';
-import VeeValidateDoc from '@/doc/calendar/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/calendar/pt/index.vue';
 import ThemingDoc from '@/doc/calendar/theming/index.vue';
 
@@ -125,6 +125,11 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -133,18 +138,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

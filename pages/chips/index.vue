@@ -6,12 +6,12 @@
 import AccessibilityDoc from '@/doc/chips/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/chips/BasicDoc.vue';
 import DisabledDoc from '@/doc/chips/DisabledDoc.vue';
+import FilledDoc from '@/doc/chips/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/chips/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/chips/ImportDoc.vue';
 import InvalidDoc from '@/doc/chips/InvalidDoc.vue';
 import SeparatorDoc from '@/doc/chips/SeparatorDoc.vue';
 import TemplateDoc from '@/doc/chips/TemplateDoc.vue';
-import VeeValidateDoc from '@/doc/chips/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/chips/pt/index.vue';
 import ThemingDoc from '@/doc/chips/theming/index.vue';
 
@@ -45,6 +45,11 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -53,18 +58,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

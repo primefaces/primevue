@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
 
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
@@ -19,7 +19,7 @@ import { createApp } from "vue";
 import PrimeVue from "primevue/config";
 const app = createApp(App);
 
-app.use(PrimeVue, { 
+app.use(PrimeVue, {
     pt: {
         panel: {
             header: {
@@ -27,11 +27,11 @@ app.use(PrimeVue, {
             }
         },
         autocomplete: {
-            input: { 
+            input: {
                 root: 'w-16rem' // OR { class: 'w-16rem' }
             }
         }
-    } 
+    }
 });
 `
             }

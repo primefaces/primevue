@@ -5,7 +5,7 @@
             Code below sets the scale of the components based on <i>16px</i>. If you require bigger or smaller components, just change this variable and components will scale accordingly.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

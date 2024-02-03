@@ -78,7 +78,6 @@ const classes = {
     root: ({ instance }) => [
         'p-overlaypanel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

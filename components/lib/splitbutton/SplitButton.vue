@@ -1,32 +1,29 @@
 <template>
-    <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
-        <slot>
-            <PVSButton
-                type="button"
-                :class="cx('button')"
-                :label="label"
-                :disabled="disabled"
-                :severity="severity"
-                :text="text"
-                :outlined="outlined"
-                :size="size"
-                :aria-label="label"
-                @click="onDefaultButtonClick"
-                v-bind="buttonProps"
-                :pt="ptm('button')"
-                :unstyled="unstyled"
-                data-pc-section="button"
-            >
-                <template #icon="slotProps">
-                    <slot name="icon" :class="slotProps.class">
-                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
-                    </slot>
-                </template>
-                <template #default>
-                    <slot name="buttoncontent"></slot>
-                </template>
-            </PVSButton>
-        </slot>
+    <div :class="containerClass" :style="style" v-bind="ptm('root')" :data-pc-severity="severity">
+        <PVSButton
+            type="button"
+            :class="cx('button')"
+            :label="label"
+            :disabled="disabled"
+            :severity="severity"
+            :text="text"
+            :outlined="outlined"
+            :size="size"
+            :aria-label="label"
+            @click="onDefaultButtonClick"
+            v-bind="buttonProps"
+            :pt="ptm('button')"
+            :unstyled="unstyled"
+        >
+            <template v-if="$slots.icon" #icon="slotProps">
+                <slot name="icon" :class="slotProps.class">
+                    <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
+                </slot>
+            </template>
+            <template #default>
+                <slot></slot>
+            </template>
+        </PVSButton>
         <PVSButton
             ref="button"
             type="button"
@@ -34,7 +31,7 @@
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
-            :aria-controls="ariaId + '_overlay'"
+            :aria-controls="id + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             :severity="severity"
@@ -44,7 +41,6 @@
             v-bind="menuButtonProps"
             :pt="ptm('menuButton')"
             :unstyled="unstyled"
-            data-pc-section="menubutton"
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon" :class="slotProps.class">
@@ -52,7 +48,7 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
+        <PVSMenu ref="menu" :id="id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
             <template v-if="$slots.menuitemicon" #itemicon="slotProps">
                 <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
             </template>
@@ -76,10 +72,18 @@ export default {
     emits: ['click'],
     data() {
         return {
+            id: this.$attrs.id,
             isExpanded: false
         };
     },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.$watch('$refs.menu.visible', (newValue) => {
             this.isExpanded = newValue;
         });
@@ -108,9 +112,6 @@ export default {
         }
     },
     computed: {
-        ariaId() {
-            return UniqueComponentId();
-        },
         containerClass() {
             return [this.cx('root'), this.class];
         }

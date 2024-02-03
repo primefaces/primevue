@@ -1,7 +1,7 @@
 <template>
     <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyStyle" v-bind="ptm('tbody', ptmTBodyOptions)">
         <template v-if="!empty">
-            <template v-for="(rowData, rowIndex) of value" :key="rowIndex">
+            <template v-for="(rowData, rowIndex) of value" :key="getRowKey(rowData, rowIndex)">
                 <DTBodyRow
                     :rowData="rowData"
                     :index="rowIndex"
@@ -71,7 +71,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BodyRow from './BodyRow.vue';
 
 export default {
@@ -248,6 +248,9 @@ export default {
         }
     },
     methods: {
+        getRowKey(rowData, rowIndex) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey) : rowIndex;
+        },
         updateFrozenRowStickyPosition() {
             this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';
         },

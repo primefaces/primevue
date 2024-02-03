@@ -45,6 +45,14 @@ export default {
             type: Boolean,
             default: false
         },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
@@ -66,7 +74,7 @@ export default {
             default: 300
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         forceSelection: {
@@ -127,11 +135,15 @@ export default {
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         selectOnFocus: {
             type: Boolean,
             default: false
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
         },
         searchLocale: {
             type: String,

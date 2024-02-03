@@ -11,15 +11,24 @@
                 <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
             </template>
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnCheckboxPT('checkboxWrapper')">
-            <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPT('hiddenInput')" />
-            </div>
-            <div ref="checkboxEl" :class="cx('checkbox')" v-bind="getColumnCheckboxPT('checkbox')">
-                <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxicon')" />
-                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxicon')" v-bind="getColumnCheckboxPT('checkboxIcon')" />
-            </div>
-        </div>
+        <Checkbox
+            v-if="checkboxSelectionMode && columnProp('expander')"
+            :modelValue="checked"
+            :binary="true"
+            :class="cx('rowCheckbox')"
+            @change="toggleCheckbox"
+            :tabindex="-1"
+            :unstyled="unstyled"
+            :pt="getColumnCheckboxPT('rowCheckbox')"
+            :data-p-highlight="checked"
+            :data-p-checked="checked"
+            :data-p-partialchecked="partialChecked"
+        >
+            <template #icon="slotProps">
+                <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
+                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getColumnCheckboxPT('rowCheckbox.icon')" />
+            </template>
+        </Checkbox>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
         <template v-else>
             <span v-bind="getColumnPT('bodyCellContent')">{{ resolveFieldData(node.data, columnProp('field')) }}</span>
@@ -29,6 +38,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
@@ -95,8 +105,7 @@ export default {
     },
     data() {
         return {
-            styleObject: {},
-            checkboxFocused: false
+            styleObject: {}
         };
     },
     mounted() {
@@ -126,7 +135,6 @@ export default {
                 },
                 context: {
                     index: this.index,
-                    focused: this.checkboxFocused,
                     selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
                     selected: this.$parent.selected,
                     frozen: this.columnProp('frozen'),
@@ -152,7 +160,6 @@ export default {
                 },
                 context: {
                     checked: this.checked,
-                    focused: this.checkboxFocused,
                     partialChecked: this.partialChecked
                 }
             };
@@ -189,12 +196,6 @@ export default {
         },
         toggleCheckbox() {
             this.$emit('checkbox-toggle');
-        },
-        onCheckboxFocus() {
-            this.checkboxFocused = true;
-        },
-        onCheckboxBlur() {
-            this.checkboxFocused = false;
         }
     },
     computed: {
@@ -218,11 +219,12 @@ export default {
         }
     },
     components: {
-        ChevronRightIcon: ChevronRightIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        CheckIcon: CheckIcon,
-        MinusIcon: MinusIcon,
-        SpinnerIcon: SpinnerIcon
+        Checkbox,
+        ChevronRightIcon,
+        ChevronDownIcon,
+        CheckIcon,
+        MinusIcon,
+        SpinnerIcon
     },
     directives: {
         ripple: Ripple

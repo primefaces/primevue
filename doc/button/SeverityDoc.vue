@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Severity defines the type of button.</p>
+        <p>The <i>severity</i> property defines the variant of a button.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" />
@@ -10,6 +10,7 @@
         <Button label="Warning" severity="warning" />
         <Button label="Help" severity="help" />
         <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -27,6 +28,7 @@ export default {
 <Button label="Warning" severity="warning" />
 <Button label="Help" severity="help" />
 <Button label="Danger" severity="danger" />
+<Button label="Contrast" severity="contrast" />
 `,
                 options: `
 <template>
@@ -38,6 +40,7 @@ export default {
         <Button label="Warning" severity="warning" />
         <Button label="Help" severity="help" />
         <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
     </div>
 </template>
 
@@ -54,6 +57,7 @@ export default {
         <Button label="Warning" severity="warning" />
         <Button label="Help" severity="help" />
         <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
     </div>
 </template>
 

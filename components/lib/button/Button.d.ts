@@ -119,7 +119,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Severity type of the badge.
      */
-    badgeSeverity?: 'info' | 'success' | 'warning' | 'danger' | string | null | undefined;
+    badgeSeverity?: 'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'contrast' | string | null | undefined;
     /**
      * Whether the button is in loading state.
      * @defaultValue false
@@ -137,7 +137,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Defines the style of the button.
      */
-    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | string | undefined;
+    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast' | string | undefined;
     /**
      * Add a shadow to indicate elevation.
      * @defaultValue false

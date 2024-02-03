@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="autocomplete">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="!multiple"
             ref="focusInput"
@@ -91,19 +91,7 @@
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button
-            v-if="dropdown"
-            ref="dropdownButton"
-            type="button"
-            tabindex="-1"
-            :class="[cx('dropdownButton'), dropdownClass]"
-            :disabled="disabled"
-            aria-hidden="true"
-            @click="onDropdownClick"
-            :unstyled="unstyled"
-            :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
-        >
+        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" :unstyled="unstyled" :pt="ptm('dropdownButton')">
             <template #icon>
                 <slot name="dropdownicon" :class="dropdownIcon">
                     <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
@@ -197,11 +185,11 @@ export default {
     overlay: null,
     virtualScroller: null,
     searchTimeout: null,
-    focusOnHover: false,
     dirty: false,
     data() {
         return {
             id: this.$attrs.id,
+            clicked: false,
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -225,7 +213,6 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
-
         this.autoUpdateModel();
     },
     updated() {
@@ -297,6 +284,7 @@ export default {
                 this.$emit('before-hide');
                 this.dirty = isFocus;
                 this.overlayVisible = false;
+                this.clicked = false;
                 this.focusedOptionIndex = -1;
 
                 isFocus && DomHandler.focus(this.$refs.focusInput);
@@ -318,8 +306,12 @@ export default {
 
             this.dirty = true;
             this.focused = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
+
+            if (this.overlayVisible) {
+                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+                this.scrollInView(this.focusedOptionIndex);
+            }
+
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -393,6 +385,8 @@ export default {
                 default:
                     break;
             }
+
+            this.clicked = false;
         },
         onInput(event) {
             if (this.searchTimeout) {
@@ -478,6 +472,8 @@ export default {
             }
         },
         onContainerClick(event) {
+            this.clicked = true;
+
             if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
@@ -544,7 +540,7 @@ export default {
                 return;
             }
 
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
             this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -563,7 +559,7 @@ export default {
                 this.overlayVisible && this.hide();
                 event.preventDefault();
             } else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -617,6 +613,7 @@ export default {
         },
         onEnterKey(event) {
             if (!this.overlayVisible) {
+                this.focusedOptionIndex = -1; // reset
                 this.onArrowDownKey(event);
             } else {
                 if (this.focusedOptionIndex !== -1) {
@@ -763,7 +760,7 @@ export default {
             return this.$refs.dropdownButton ? event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.$el.contains(event.target) : false;
         },
         isOptionMatched(option, value) {
-            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);
+            return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);
         },
         isValidOption(option) {
             return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
@@ -837,16 +834,16 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            this.$nextTick(() => {
+                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
-            if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
-            } else if (!this.virtualScrollerDisabled) {
-                setTimeout(() => {
+                if (element) {
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
-                }, 0);
-            }
+                }
+            });
         },
         autoUpdateModel() {
             if ((this.selectOnFocus || this.autoHighlight) && this.autoOptionFocus && !this.hasSelectedOption) {

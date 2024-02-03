@@ -15,10 +15,10 @@ import AccessibilityDoc from '@/doc/textarea/AccessibilityDoc.vue';
 import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc.vue';
 import BasicDoc from '@/doc/textarea/BasicDoc.vue';
 import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
+import FilledDoc from '@/doc/textarea/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
-import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
 import ThemingDoc from '@/doc/textarea/theming/index.vue';
 
@@ -42,9 +42,14 @@ export default {
                     component: AutoResizeDoc
                 },
                 {
-                    id: 'float-label',
+                    id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',
@@ -55,18 +60,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

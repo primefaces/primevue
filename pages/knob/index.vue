@@ -15,7 +15,6 @@ import SizeDoc from '@/doc/knob/SizeDoc.vue';
 import StepDoc from '@/doc/knob/StepDoc.vue';
 import StrokeDoc from '@/doc/knob/StrokeDoc.vue';
 import TemplateDoc from '@/doc/knob/TemplateDoc.vue';
-import VeeValidateDoc from '@/doc/knob/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/knob/pt/index.vue';
 import ThemingDoc from '@/doc/knob/theming/index.vue';
 
@@ -77,18 +76,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

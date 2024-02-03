@@ -101,6 +101,9 @@ export default {
                 defaultHook?.();
             }
         },
+        _mergeProps(fn, ...args) {
+            return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
+        },
         _loadGlobalStyles() {
             /*
              * @todo Add self custom css support;
@@ -146,17 +149,27 @@ export default {
                 : ObjectUtils.getItemValue(options, params);
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
-            const datasetPrefix = 'data-pc-';
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
             const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || this.$config?.ptOptions || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
             const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
-            const datasets = key !== 'transition' && {
-                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
-                [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
-            };
+            const datasets = this._getPTDatasets(key);
 
-            return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+            return mergeSections || (!mergeSections && self) ? (useMergeProps ? this._mergeProps(useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+        },
+        _getPTDatasets(key = '') {
+            const datasetPrefix = 'data-pc-';
+            const isExtended = key === 'root' && ObjectUtils.isNotEmpty(this.pt?.['data-pc-section']);
+
+            return (
+                key !== 'transition' && {
+                    ...(key === 'root' && {
+                        [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
+                        ...(isExtended && { [`${datasetPrefix}extend`]: ObjectUtils.toFlatCase(this.$.type.name) })
+                    }),
+                    [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+                }
+            );
         },
         _getPTClassValue(...args) {
             const value = this._getOptionValue(...args);
@@ -192,7 +205,7 @@ export default {
                 else if (ObjectUtils.isString(value)) return value;
                 else if (ObjectUtils.isString(originalValue)) return originalValue;
 
-                return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+                return mergeSections || (!mergeSections && value) ? (useMergeProps ? this._mergeProps(useMergeProps, originalValue, value) : { ...originalValue, ...value }) : value;
             }
 
             return fn(pt);

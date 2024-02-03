@@ -276,8 +276,11 @@ export default {
         };
     },
     watch: {
-        expandedRows(newValue) {
-            this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
+        expandedRows: {
+            immediate: true,
+            handler(newValue) {
+                this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
+            }
         }
     },
     methods: {
@@ -476,6 +479,7 @@ export default {
         },
         rowClasses() {
             let rowStyleClass = [];
+            let columnSelectionMode = null;
 
             if (this.rowClass) {
                 let rowClassValue = this.rowClass(this.rowData);
@@ -485,7 +489,18 @@ export default {
                 }
             }
 
-            return [this.cx('row', { rowData: this.rowData, index: this.rowIndex }), rowStyleClass];
+            if (this.columns) {
+                for (let col of this.columns) {
+                    let _selectionMode = this.columnProp(col, 'selectionMode');
+
+                    if (ObjectUtils.isNotEmpty(_selectionMode) && _selectionMode === 'multiple') {
+                        columnSelectionMode = _selectionMode;
+                        break;
+                    }
+                }
+            }
+
+            return [this.cx('row', { rowData: this.rowData, index: this.rowIndex, columnSelectionMode }), rowStyleClass];
         },
         rowTabindex() {
             if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {

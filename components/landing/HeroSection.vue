@@ -7,15 +7,15 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     style="border-radius: 50px"
-                    class="bg-yellow-300 border-1 border-yellow-400 text-yellow-900 py-1 px-3 xl:align-self-start font-semibold text-lg transition-colors transition-duration-300 hover:border-yellow-600"
-                    >🎉 Introducing the Tailwind CSS Presets <i class="pi pi-arrow-right text-sm"></i
+                    class="bg-yellow-300 border-1 border-yellow-400 text-yellow-900 py-1 px-3 xl:align-self-start font-semibold transition-colors transition-duration-300 hover:border-yellow-600 text-base sm:text-lg"
+                    >🎉 Introducing the Tailwind Presets <i class="pi pi-arrow-right text-sm"></i
                 ></a>
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
                 <div class="flex align-items-center gap-3">
-                    <PrimeVueNuxtLink to="/introduction" class="linkbox active font-semibold py-3 px-4">
+                    <PrimeVueNuxtLink to="/setup" class="linkbox active font-semibold py-3 px-4">
                         <span>Get Started</span>
                         <i class="pi pi-arrow-right ml-3"></i>
                     </PrimeVueNuxtLink>
@@ -141,6 +141,12 @@
                                         menuButton: {
                                             width: 'auto',
                                             root: 'p-2'
+                                        },
+                                        menu: {
+                                            root: {
+                                                style: 'width: 10rem; min-width: auto'
+                                            },
+                                            action: 'p-2'
                                         }
                                     }"
                                 />

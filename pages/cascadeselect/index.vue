@@ -14,12 +14,12 @@
 import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/cascadeselect/BasicDoc.vue';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc.vue';
+import FilledDoc from '@/doc/cascadeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/cascadeselect/TemplateDoc.vue';
-import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/cascadeselect/pt/index.vue';
 import ThemingDoc from '@/doc/cascadeselect/theming/index.vue';
 
@@ -53,6 +53,11 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
@@ -61,18 +66,6 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'form',
-                    label: 'Form',
-                    description: 'Compatibility with popular Vue form libraries.',
-                    children: [
-                        {
-                            id: 'veevalidate',
-                            label: 'VeeValidate',
-                            component: VeeValidateDoc
-                        }
-                    ]
                 },
                 {
                     id: 'accessibility',

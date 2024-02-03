@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')" data-pc-name="datatable">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')">
         <slot></slot>
         <div v-if="loading" :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
             <slot v-if="$slots.loading" name="loading"></slot>
@@ -794,9 +794,9 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
-                if (e.originalEvent.target.getAttribute('data-pc-section') === 'rowtogglericon' || e.originalEvent.target.parentElement.getAttribute('data-pc-section') === 'rowtogglericon') return;
+                if (event.target?.getAttribute('data-pc-section') === 'rowtogglericon' || event.target?.parentElement?.getAttribute('data-pc-section') === 'rowtogglericon') return;
 
-                const targetRow = e.originalEvent.target.closest('tr[data-p-selectable-row="true"]');
+                const targetRow = event.target?.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';
                 targetRow.tabIndex = '0';
@@ -1281,7 +1281,7 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            this.$el.removeAttribute('data-p-unselectable-text');
             !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();

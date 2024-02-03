@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="badge">
+    <span :class="cx('root')" v-bind="ptm('root')">
         <slot>{{ value }}</slot>
     </span>
 </template>

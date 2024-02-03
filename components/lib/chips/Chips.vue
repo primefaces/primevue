@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="chips">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <ul
             ref="container"
             :class="cx('container')"
@@ -67,11 +67,19 @@ export default {
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {
-            id: UniqueComponentId(),
+            id: this.$attrs.id,
             inputValue: null,
             focused: false,
             focusedIndex: null
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         onWrapperClick() {
@@ -140,11 +148,12 @@ export default {
         },
         onPaste(event) {
             if (this.separator) {
+                let separator = this.separator.replace('\\n', '\n').replace('\\r', '\r').replace('\\t', '\t');
                 let pastedData = (event.clipboardData || window['clipboardData']).getData('Text');
 
                 if (pastedData) {
                     let value = this.modelValue || [];
-                    let pastedValues = pastedData.split(this.separator);
+                    let pastedValues = pastedData.split(separator);
 
                     pastedValues = pastedValues.filter((val) => this.allowDuplicate || value.indexOf(val) === -1);
                     value = [...value, ...pastedValues];

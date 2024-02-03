@@ -33,6 +33,14 @@ export default {
             type: String,
             default: null
         },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
@@ -79,7 +87,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         loading: {
@@ -106,19 +114,35 @@ export default {
             type: Boolean,
             default: false
         },
+        resetFilterOnClear: {
+            type: Boolean,
+            default: false
+        },
         virtualScrollerOptions: {
             type: Object,
             default: null
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         autoFilterFocus: {
             type: Boolean,
             default: false
         },
         selectOnFocus: {
+            type: Boolean,
+            default: false
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
+        },
+        highlightOnSelect: {
+            type: Boolean,
+            default: true
+        },
+        checkmark: {
             type: Boolean,
             default: false
         },

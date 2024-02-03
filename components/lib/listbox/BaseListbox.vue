@@ -14,6 +14,10 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         listStyle: null,
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false
@@ -50,6 +54,10 @@ export default {
         selectOnFocus: {
             type: Boolean,
             default: false
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
         },
         filterMessage: {
             type: String,

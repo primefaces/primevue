@@ -96,6 +96,18 @@ const DropdownProps = [
         description: 'When present, it specifies that the component should be disabled.'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
+        name: 'variant',
+        type: 'string',
+        default: 'null',
+        description: 'Specifies the input variant of the component.'
+    },
+    {
         name: 'dataKey',
         type: 'string',
         default: 'null',
@@ -186,6 +198,12 @@ const DropdownProps = [
         description: 'Clears the filter value when hiding the dropdown.'
     },
     {
+        name: 'resetFilterOnClear',
+        type: 'boolean',
+        default: 'false',
+        description: 'Clears the filter value when clicking on the clear icon.'
+    },
+    {
         name: 'virtualScrollerOptions',
         type: 'object',
         default: 'null',
@@ -194,7 +212,7 @@ const DropdownProps = [
     {
         name: 'autoOptionFocus',
         type: 'boolean',
-        default: 'true',
+        default: 'false',
         description: 'Whether to focus on the first visible or selected element when the overlay panel is shown.'
     },
     {

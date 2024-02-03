@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="[sx('root'), containerStyle]" aria-hidden="true" v-bind="ptm('root')" data-pc-name="skeleton"></div>
+    <div :class="cx('root')" :style="[sx('root'), containerStyle]" aria-hidden="true" v-bind="ptm('root')"></div>
 </template>
 
 <script>

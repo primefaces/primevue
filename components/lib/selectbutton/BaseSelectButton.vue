@@ -20,6 +20,10 @@ export default {
             type: Boolean,
             default: true
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: Boolean,
         dataKey: null,
         ariaLabelledby: {

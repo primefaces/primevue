@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="treeselect">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onClick" v-bind="ptm('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -75,7 +75,6 @@
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('tree')"
-                            data-pc-section="tree"
                         >
                             <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
@@ -121,12 +120,16 @@ export default {
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     data() {
         return {
+            id: this.$attrs.id,
             focused: false,
             overlayVisible: false,
             expandedKeys: {}
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         modelValue: {
             handler: function () {
                 if (!this.selfChange) {
@@ -162,6 +165,7 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.updateTreeState();
     },
     methods: {
@@ -488,7 +492,7 @@ export default {
             return !this.options || this.options.length === 0;
         },
         listId() {
-            return UniqueComponentId() + '_list';
+            return this.id + '_list';
         }
     },
     components: {

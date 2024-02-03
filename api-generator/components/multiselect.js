@@ -60,6 +60,18 @@ const MultiSelectProps = [
         description: 'When present, it specifies that the component should be disabled.'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
+        name: 'variant',
+        type: 'string',
+        default: 'null',
+        description: 'Specifies the input variant of the component.'
+    },
+    {
         name: 'inputId',
         type: 'string',
         default: 'null',
@@ -236,7 +248,7 @@ const MultiSelectProps = [
     {
         name: 'autoOptionFocus',
         type: 'boolean',
-        default: 'true',
+        default: 'false',
         description: 'Whether to focus on the first visible or selected element when the overlay panel is shown.'
     },
     {
@@ -244,6 +256,12 @@ const MultiSelectProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether to focus on the filter element when the overlay panel is shown.'
+    },
+    {
+        name: 'highlightOnSelect',
+        type: 'boolean',
+        default: 'false',
+        description: 'Highlights automatically the first item.'
     },
     {
         name: 'filterMessage',

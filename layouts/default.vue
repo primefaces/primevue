@@ -31,15 +31,24 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            appConfigActive: false
+            appConfigActive: false,
+            defaultRipple: false
         };
     },
     watch: {
         $route: {
             immediate: true,
-            handler(to) {
+            handler(to, from) {
                 if (!process.client || typeof window === 'undefined') {
                     return;
+                }
+
+                if (!this.defaultRipple) {
+                    if (to.name === 'ripple') {
+                        this.$appState.ripple = true;
+                    } else if (from?.name === 'ripple') {
+                        this.$appState.ripple = this.defaultRipple;
+                    }
                 }
 
                 this.sidebarActive = false;
@@ -47,6 +56,9 @@ export default {
                 this.$toast.removeAllGroups();
             }
         }
+    },
+    beforeCreate() {
+        this.defaultRipple = this.$appState.ripple;
     },
     mounted() {
         if (this.isOutdatedIE()) {
@@ -94,8 +106,8 @@ export default {
                 newTheme = currentTheme.replace('dark', 'light');
                 localStorage.setItem(this.$appState.colorSchemeKey, 'light');
             } else {
-                if (currentTheme.includes('light') && currentTheme !== 'fluent-light') newTheme = currentTheme.replace('light', 'dark');
-                else newTheme = 'lara-dark-green'; //fallback
+                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
+                else newTheme = 'aura-dark-green'; //fallback
 
                 localStorage.setItem(this.$appState.colorSchemeKey, 'dark');
             }
@@ -108,8 +120,8 @@ export default {
             return [
                 {
                     'layout-news-active': this.$appState.newsActive,
+                    'p-ripple-disabled': this.$appState.ripple === false,
                     'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false,
                     'layout-dark': this.$appState.darkTheme,
                     'layout-light': !this.$appState.darkTheme
                 }

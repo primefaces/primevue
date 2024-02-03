@@ -71,158 +71,14 @@ const buttonCSS = `
 }
 `;
 
-const checkboxCSS = `
-.p-checkbox {
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: bottom;
-    position: relative;
-}
-
-.p-checkbox.p-checkbox-disabled {
-    cursor: default;
-}
-
-.p-checkbox-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-`;
-
 const inputTextCSS = `
 .p-fluid .p-inputtext {
     width: 100%;
 }
 
-/* InputGroup */
-.p-inputgroup {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-}
-
-.p-inputgroup-addon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-inputgroup .p-float-label {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-}
-
-.p-inputgroup .p-inputtext,
-.p-fluid .p-inputgroup .p-inputtext,
-.p-inputgroup .p-inputwrapper,
-.p-fluid .p-inputgroup .p-input {
-    flex: 1 1 auto;
-    width: 1%;
-}
-
-/* Floating Label */
-.p-float-label {
-    display: block;
-    position: relative;
-}
-
-.p-float-label label {
-    position: absolute;
-    pointer-events: none;
-    top: 50%;
-    margin-top: -.5rem;
-    transition-property: all;
-    transition-timing-function: ease;
-    line-height: 1;
-}
-
-.p-float-label textarea ~ label {
-    top: 1rem;
-}
-
-.p-float-label input:focus ~ label,
-.p-float-label input.p-filled ~ label,
-.p-float-label input:-webkit-autofill ~ label,
-.p-float-label textarea:focus ~ label,
-.p-float-label textarea.p-filled ~ label,
-.p-float-label .p-inputwrapper-focus ~ label,
-.p-float-label .p-inputwrapper-filled ~ label {
-    top: -.75rem;
-    font-size: 12px;
-}
-
-
-.p-float-label .p-placeholder,
-.p-float-label input::placeholder,
-.p-float-label .p-inputtext::placeholder {
-    opacity: 0;
-    transition-property: all;
-    transition-timing-function: ease;
-}
-
-.p-float-label .p-focus .p-placeholder,
-.p-float-label input:focus::placeholder,
-.p-float-label .p-inputtext:focus::placeholder {
-    opacity: 1;
-    transition-property: all;
-    transition-timing-function: ease;
-}
-
-.p-input-icon-left,
-.p-input-icon-right {
-    position: relative;
-    display: inline-block;
-}
-
-.p-input-icon-left > i,
-.p-input-icon-left > svg,
-.p-input-icon-right > i,
-.p-input-icon-right > svg {
-    position: absolute;
-    top: 50%;
-    margin-top: -.5rem;
-}
-
 .p-fluid .p-input-icon-left,
 .p-fluid .p-input-icon-right {
-    display: block;
     width: 100%;
-}
-`;
-
-const radioButtonCSS = `
-.p-radiobutton {
-    position: relative;
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: bottom;
-}
-
-.p-radiobutton.p-radiobutton-disabled {
-    cursor: default;
-}
-
-.p-radiobutton-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.p-radiobutton-icon {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0) scale(.1);
-    border-radius: 50%;
-    visibility: hidden;
-}
-
-.p-radiobutton-box.p-highlight .p-radiobutton-icon {
-    transform: translateZ(0) scale(1.0, 1.0);
-    visibility: visible;
 }
 `;
 
@@ -348,9 +204,7 @@ const css = `
     transition: max-height 1s ease-in-out;
 }
 ${buttonCSS}
-${checkboxCSS}
 ${inputTextCSS}
-${radioButtonCSS}
 }
 `;
 

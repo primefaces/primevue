@@ -7,20 +7,20 @@
             <div class="flex-auto">
                 <h5>Label</h5>
                 <Avatar label="P" class="mr-2" size="xlarge" />
-                <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-                <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
             </div>
 
             <div class="flex-auto">
                 <h5>Circle</h5>
                 <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-                <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
             </div>
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <Avatar v-badge="4" label="U" size="xlarge" />
+                <Avatar v-badge.danger="4" label="U" size="xlarge" />
             </div>
         </div>
     </div>
@@ -34,14 +34,14 @@ export default {
             code: {
                 basic: `
 <Avatar label="P" class="mr-2" size="xlarge" />
-<Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
-<Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
+<Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+<Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
 
 <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
-<Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
-<Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
+<Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+<Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
 
-<Avatar v-badge="4" label="U" size="xlarge" />
+<Avatar v-badge.danger="4" label="U" size="xlarge" />
 `,
                 options: `
 <template>
@@ -49,20 +49,20 @@ export default {
         <div class="flex-auto">
             <h5>Label</h5>
             <Avatar label="P" class="mr-2" size="xlarge" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-            <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
         </div>
 
         <div class="flex-auto">
             <h5>Circle</h5>
             <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-            <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
         </div>
 
         <div class="flex-auto">
             <h5>Badge</h5>
-            <Avatar v-badge="4" label="U" size="xlarge" />
+            <Avatar v-badge.danger="4" label="U" size="xlarge" />
         </div>
     </div>
 </template>
@@ -77,20 +77,20 @@ export default {
         <div class="flex-auto">
             <h5>Label</h5>
             <Avatar label="P" class="mr-2" size="xlarge" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" />
-            <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
         </div>
 
         <div class="flex-auto">
             <h5>Circle</h5>
             <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #2196f3; color: #ffffff" shape="circle" />
-            <Avatar label="U" class="mr-2" style="background-color: #9c27b0; color: #ffffff" shape="circle" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
         </div>
 
         <div class="flex-auto">
             <h5>Badge</h5>
-            <Avatar v-badge="4" label="U" size="xlarge" />
+            <Avatar v-badge.danger="4" label="U" size="xlarge" />
         </div>
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="multiselect">
+    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -68,16 +68,22 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" :class="cx('header')" v-bind="ptm('header')">
-                        <div v-if="showToggleAll && selectionLimit == null" :class="cx('headerCheckboxContainer')" @click="onToggleAll" v-bind="ptm('headerCheckboxContainer')">
-                            <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-                                <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" v-bind="ptm('headerCheckbox')" />
-                            </div>
-                            <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
-                                <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
-                                    <component v-show="allSelected" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
-                                </slot>
-                            </div>
-                        </div>
+                        <Checkbox
+                            v-if="showToggleAll && selectionLimit == null"
+                            :modelValue="allSelected"
+                            :binary="true"
+                            :disabled="disabled"
+                            :variant="variant"
+                            :aria-label="toggleAllAriaLabel"
+                            @change="onToggleAll"
+                            :unstyled="unstyled"
+                            :pt="getHeaderCheckboxPTOptions('headerCheckbox')"
+                        >
+                            <template #icon="slotProps">
+                                <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
+                                <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox.icon')" />
+                            </template>
+                        </Checkbox>
                         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
                             <input
                                 ref="filterInput"
@@ -135,18 +141,17 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <div :class="cx('checkboxContainer')" v-bind="ptm('checkboxContainer')">
-                                                <div :class="cx('checkbox', { option })" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
-                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" :class="cx('checkboxIcon')">
-                                                        <component
-                                                            v-show="isSelected(option)"
-                                                            :is="checkboxIcon ? 'span' : 'CheckIcon'"
-                                                            :class="[cx('checkboxIcon'), { [checkboxIcon]: isSelected(option) }]"
-                                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"
-                                                        />
-                                                    </slot>
-                                                </div>
-                                            </div>
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                                <template #icon="slotProps">
+                                                    <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
+                                                    <component
+                                                        v-else-if="slotProps.checked"
+                                                        :is="checkboxIcon ? 'span' : 'CheckIcon'"
+                                                        :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]"
+                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox.icon')"
+                                                    />
+                                                </template>
+                                            </Checkbox>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
                                                 <span v-bind="ptm('option')">{{ getOptionLabel(option) }}</span>
                                             </slot>
@@ -191,6 +196,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
@@ -218,13 +224,12 @@ export default {
     searchTimeout: null,
     searchValue: '',
     selectOnFocus: false,
-    focusOnHover: false,
     data() {
         return {
             id: this.$attrs.id,
+            clicked: false,
             focused: false,
             focusedOptionIndex: -1,
-            headerCheckboxFocused: false,
             filterValue: null,
             overlayVisible: false
         };
@@ -239,7 +244,6 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
-
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -272,8 +276,7 @@ export default {
         getHeaderCheckboxPTOptions(key) {
             return this.ptm(key, {
                 context: {
-                    selected: this.allSelected,
-                    focused: this.headerCheckboxFocused
+                    selected: this.allSelected
                 }
             });
         },
@@ -308,7 +311,7 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.findSelectedOptionIndex();
 
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
@@ -316,6 +319,7 @@ export default {
             const _hide = () => {
                 this.$emit('before-hide');
                 this.overlayVisible = false;
+                this.clicked = false;
                 this.focusedOptionIndex = -1;
                 this.searchValue = '';
 
@@ -334,11 +338,16 @@ export default {
             }
 
             this.focused = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
+
+            if (this.overlayVisible) {
+                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.findSelectedOptionIndex();
+                this.scrollInView(this.focusedOptionIndex);
+            }
+
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.clicked = false;
             this.focused = false;
             this.focusedOptionIndex = -1;
             this.searchValue = '';
@@ -415,6 +424,8 @@ export default {
 
                     break;
             }
+
+            this.clicked = false;
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
@@ -424,6 +435,8 @@ export default {
             if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
             }
+
+            this.clicked = true;
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -437,12 +450,6 @@ export default {
         },
         onCloseClick() {
             this.hide(true);
-        },
-        onHeaderCheckboxFocus() {
-            this.headerCheckboxFocused = true;
-        },
-        onHeaderCheckboxBlur() {
-            this.headerCheckboxFocused = false;
         },
         onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
@@ -553,15 +560,18 @@ export default {
             }
         },
         onArrowDownKey(event) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
+            if (!this.overlayVisible) {
+                this.show();
+            } else {
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
-            if (event.shiftKey) {
-                this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
+                if (event.shiftKey) {
+                    this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
+                }
+
+                this.changeFocusedOptionIndex(event, optionIndex);
             }
 
-            this.changeFocusedOptionIndex(event, optionIndex);
-
-            !this.overlayVisible && this.show();
             event.preventDefault();
         },
         onArrowUpKey(event, pressedInInputText = false) {
@@ -573,7 +583,7 @@ export default {
                 this.overlayVisible && this.hide();
                 event.preventDefault();
             } else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
                 if (event.shiftKey) {
                     this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
@@ -644,6 +654,7 @@ export default {
         },
         onEnterKey(event) {
             if (!this.overlayVisible) {
+                this.focusedOptionIndex = -1; // reset
                 this.onArrowDownKey(event);
             } else {
                 if (this.focusedOptionIndex !== -1) {
@@ -788,8 +799,6 @@ export default {
 
                 this.updateModel(event, value);
             }
-
-            this.headerCheckboxFocused = true;
         },
         removeOption(event, optionValue) {
             let value = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
@@ -803,7 +812,7 @@ export default {
             return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
-            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
+            return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
             return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
@@ -811,10 +820,13 @@ export default {
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
         },
+        isEquals(value1, value2) {
+            return ObjectUtils.equals(value1, value2, this.equalityKey);
+        },
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
 
-            return (this.modelValue || []).some((value) => ObjectUtils.equals(value, optionValue, this.equalityKey));
+            return (this.modelValue || []).some((value) => this.isEquals(value, optionValue));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -831,6 +843,18 @@ export default {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
+        },
+        findSelectedOptionIndex() {
+            if (this.hasSelectedOption) {
+                for (let index = this.modelValue.length - 1; index >= 0; index--) {
+                    const value = this.modelValue[index];
+                    const matchedOptionIndex = this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option) && this.isEquals(value, this.getOptionValue(option)));
+
+                    if (matchedOptionIndex > -1) return matchedOptionIndex;
+                }
+            }
+
+            return -1;
         },
         findFirstSelectedOptionIndex() {
             return this.hasSelectedOption ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
@@ -864,12 +888,12 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstFocusedOptionIndex() {
-            const selectedIndex = this.findFirstSelectedOptionIndex();
+            const selectedIndex = this.findSelectedOptionIndex();
 
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
-            const selectedIndex = this.findLastSelectedOptionIndex();
+            const selectedIndex = this.findSelectedOptionIndex();
 
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
@@ -878,19 +902,21 @@ export default {
 
             let optionIndex = -1;
 
-            if (this.focusedOptionIndex !== -1) {
-                optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
-                optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
-            } else {
-                optionIndex = this.visibleOptions.findIndex((option) => this.isOptionMatched(option));
-            }
+            if (ObjectUtils.isNotEmpty(this.searchValue)) {
+                if (this.focusedOptionIndex !== -1) {
+                    optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
+                    optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
+                } else {
+                    optionIndex = this.visibleOptions.findIndex((option) => this.isOptionMatched(option));
+                }
 
-            if (optionIndex === -1 && this.focusedOptionIndex === -1) {
-                optionIndex = this.findFirstFocusedOptionIndex();
-            }
+                if (optionIndex === -1 && this.focusedOptionIndex === -1) {
+                    optionIndex = this.findFirstFocusedOptionIndex();
+                }
 
-            if (optionIndex !== -1) {
-                this.changeFocusedOptionIndex(event, optionIndex);
+                if (optionIndex !== -1) {
+                    this.changeFocusedOptionIndex(event, optionIndex);
+                }
             }
 
             if (this.searchTimeout) {
@@ -906,17 +932,23 @@ export default {
             if (this.focusedOptionIndex !== index) {
                 this.focusedOptionIndex = index;
                 this.scrollInView();
+
+                if (this.selectOnFocus) {
+                    this.onOptionSelect(event, this.visibleOptions[index]);
+                }
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            this.$nextTick(() => {
+                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
-            if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-            } else if (!this.virtualScrollerDisabled) {
-                this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
-            }
+                if (element) {
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                } else if (!this.virtualScrollerDisabled) {
+                    this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
+                }
+            });
         },
         autoUpdateModel() {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
@@ -1061,14 +1093,15 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        TimesIcon: TimesIcon,
-        SearchIcon: SearchIcon,
-        TimesCircleIcon: TimesCircleIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        CheckIcon: CheckIcon
+        Checkbox,
+        VirtualScroller,
+        Portal,
+        TimesIcon,
+        SearchIcon,
+        TimesCircleIcon,
+        ChevronDownIcon,
+        SpinnerIcon,
+        CheckIcon
     }
 };
 </script>

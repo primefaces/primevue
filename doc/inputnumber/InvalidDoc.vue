@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
+        <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
+        <InputNumber v-model="value" invalid mode="decimal" :minFractionDigits="2" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
+<InputNumber v-model="value" invalid mode="decimal" :minFractionDigits="2" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
+        <InputNumber v-model="value" invalid mode="decimal" :minFractionDigits="2" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" class="p-invalid" mode="decimal" :minFractionDigits="2" />
+        <InputNumber v-model="value" invalid mode="decimal" :minFractionDigits="2" />
     </div>
 </template>
 

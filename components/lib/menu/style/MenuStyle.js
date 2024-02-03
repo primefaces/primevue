@@ -28,7 +28,6 @@ const classes = {
         'p-menu p-component',
         {
             'p-menu-overlay': props.popup,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

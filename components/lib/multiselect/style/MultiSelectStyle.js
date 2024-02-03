@@ -120,6 +120,8 @@ const classes = {
         {
             'p-multiselect-chip': props.display === 'chip',
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -140,48 +142,34 @@ const classes = {
     trigger: 'p-multiselect-trigger',
     loadingIcon: 'p-multiselect-trigger-icon',
     dropdownIcon: 'p-multiselect-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-multiselect-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
     header: 'p-multiselect-header',
-    headerCheckboxContainer: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-checked': instance.allSelected,
-            'p-checkbox-focused': instance.headerCheckboxFocused
-        }
-    ],
-    headerCheckbox: ({ instance }) => [
-        'p-checkbox-box',
-        {
-            'p-highlight': instance.allSelected,
-            'p-focus': instance.headerCheckboxFocused
-        }
-    ],
-    headerCheckboxIcon: 'p-checkbox-icon',
     filterContainer: 'p-multiselect-filter-container',
-    filterInput: 'p-multiselect-filter p-inputtext p-component',
+    filterInput: ({ props, instance }) => [
+        'p-multiselect-filter p-inputtext p-component',
+        {
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+        }
+    ],
     filterIcon: 'p-multiselect-filter-icon',
     closeButton: 'p-multiselect-close p-link',
     closeIcon: 'p-multiselect-close-icon',
     wrapper: 'p-multiselect-items-wrapper',
     list: 'p-multiselect-items p-component',
     itemGroup: 'p-multiselect-item-group',
-    item: ({ instance, option, index, getItemOptions }) => [
+    item: ({ instance, option, index, getItemOptions, props }) => [
         'p-multiselect-item',
         {
-            'p-highlight': instance.isSelected(option),
+            'p-highlight': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(index, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    checkboxContainer: 'p-checkbox p-component',
-    checkbox: ({ instance, option }) => ['p-checkbox-box', { 'p-highlight': instance.isSelected(option) }],
-    checkboxIcon: 'p-checkbox-icon',
     emptyMessage: 'p-multiselect-empty-message'
 };
 

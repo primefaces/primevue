@@ -80,11 +80,17 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             containerVisible: this.visible,
             maximized: false,
             focusableMax: null,
             focusableClose: null
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
     },
     documentKeydownListener: null,
     container: null,
@@ -118,6 +124,8 @@ export default {
         this.mask = null;
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.breakpoints) {
             this.createStyle();
         }
@@ -293,6 +301,7 @@ export default {
                 this.lastPageY = event.pageY;
 
                 this.container.style.margin = '0';
+                document.body.setAttribute('data-p-unselectable-text');
                 !this.isUnstyled && DomHandler.addClass(document.body, 'p-unselectable-text');
             }
         },
@@ -359,6 +368,7 @@ export default {
             this.documentDragEndListener = (event) => {
                 if (this.dragging) {
                     this.dragging = false;
+                    document.body.removeAttribute('data-p-unselectable-text');
                     !this.isUnstyled && DomHandler.removeClass(document.body, 'p-unselectable-text');
 
                     this.$emit('dragend', event);
@@ -378,12 +388,8 @@ export default {
         maximizeIconComponent() {
             return this.maximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
         },
-
-        ariaId() {
-            return UniqueComponentId();
-        },
         ariaLabelledById() {
-            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.ariaId + '_header' : null;
+            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.id + '_header' : null;
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;

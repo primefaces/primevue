@@ -8,7 +8,7 @@
         <i class="pi pi-search" style="color: 'var(--primary-color)'"></i>
         <i class="pi pi-user" style="color: #708090"></i>
     </div>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

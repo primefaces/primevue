@@ -14,13 +14,13 @@
 import AccessibilityDoc from '@/doc/splitbutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/splitbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/splitbutton/DisabledDoc.vue';
+import IconsDoc from '@/doc/splitbutton/IconsDoc.vue';
 import ImportDoc from '@/doc/splitbutton/ImportDoc.vue';
 import OutlinedDoc from '@/doc/splitbutton/OutlinedDoc.vue';
 import RaisedDoc from '@/doc/splitbutton/RaisedDoc.vue';
 import RaisedTextDoc from '@/doc/splitbutton/RaisedTextDoc.vue';
 import RoundedDoc from '@/doc/splitbutton/RoundedDoc.vue';
 import SeverityDoc from '@/doc/splitbutton/SeverityDoc.vue';
-import SizesDoc from '@/doc/splitbutton/SizesDoc.vue';
 import TemplateDoc from '@/doc/splitbutton/TemplateDoc.vue';
 import TextDoc from '@/doc/splitbutton/TextDoc.vue';
 import PTComponent from '@/doc/splitbutton/pt/index.vue';
@@ -39,6 +39,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'icons',
+                    label: 'Icons',
+                    component: IconsDoc
                 },
                 {
                     id: 'severity',
@@ -75,11 +80,11 @@ export default {
                     label: 'Outlined',
                     component: OutlinedDoc
                 },
-                {
+                /*{
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
-                },
+                },*/
                 {
                     id: 'template',
                     label: 'Template',

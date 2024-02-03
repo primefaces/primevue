@@ -12,7 +12,7 @@ export default {
         $route: {
             handler(to) {
                 if (to.name === 'index') {
-                    this.themeChangeListener({ theme: this.$appState.darkTheme ? 'lara-dark-green' : 'lara-light-green', dark: this.$appState.darkTheme });
+                    this.themeChangeListener({ theme: this.$appState.darkTheme ? 'aura-dark-green' : 'aura-light-green', dark: this.$appState.darkTheme });
                 }
             }
         }
@@ -28,7 +28,7 @@ export default {
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: '/styles/landing/themes/lara-light-green/theme.css'
+                    href: '/styles/landing/themes/aura-light-green/theme.css'
                 }
             ]
         });

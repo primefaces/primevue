@@ -2,17 +2,16 @@
     --primary-color-default:var(--primary-600);
     --primary-color-inverse-default:var(--surface-0);
     --topbar-sticky-bg:rgba(255,255,255,.7);
-    --body-bg: var(--p-surface-50);
-    --card-border: 1px solid var(--p-surface-200);
-    --card-bg: var(--p-surface-0);
-    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center top, var(--primary-100) 0%, #ffffff 100%);
+    --card-border: 1px solid var(--surface-border);
+    --card-bg: var(--surface-card);
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png);
     --glow-blend: hard-light, multiply;
     --topbar-border: rgba(0,0,0,.05);
     --mobile-menu-bg: var(--surface-overlay);
-    --demo-code-bg: var(--surface-700);
+    --demo-code-bg: var(--surface-800);
     --demo-code-button-color: var(--surface-300);
     --demo-code-button-hover-bg: rgba(255,255,255,.1);
     --demo-code-button-hover-color: var(--surface-100);
-    --doc-highlight-text-bg: var(--primary-100);
-    --doc-highlight-text-color: var(--primary-900);
+    --doc-highlight-text-bg: var(--surface-200);
+    --doc-highlight-text-color: var(--surface-700);
 }

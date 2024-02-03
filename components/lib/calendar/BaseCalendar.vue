@@ -173,8 +173,16 @@ export default {
             default: true
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
+        },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
         },
         disabled: {
             type: Boolean,

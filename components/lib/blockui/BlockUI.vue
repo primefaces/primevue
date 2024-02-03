@@ -37,7 +37,6 @@ export default {
                 styleClass += ' p-blockui-document';
 
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'mask',
                     style: {
                         position: 'fixed',
                         top: '0',
@@ -54,7 +53,6 @@ export default {
                 document.activeElement.blur();
             } else {
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'mask',
                     style: {
                         position: 'absolute',
                         top: '0',

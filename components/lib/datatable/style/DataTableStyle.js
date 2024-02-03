@@ -297,23 +297,6 @@ const classes = {
     headerTitle: 'p-column-title',
     sortIcon: 'p-sortable-column-icon',
     sortBadge: 'p-sortable-column-badge',
-    //headercheckbox
-    headerCheckboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused,
-            'p-disabled': instance.disabled
-        }
-    ],
-    headerCheckbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    headerCheckboxIcon: 'p-checkbox-icon',
     // columnfilter
     columnFilter: ({ props }) => [
         'p-column-filter p-fluid',
@@ -340,7 +323,6 @@ const classes = {
         {
             'p-column-filter-overlay p-component p-fluid': true,
             'p-column-filter-overlay-menu': props.display === 'menu',
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
@@ -368,7 +350,7 @@ const classes = {
     rowgroupHeader: 'p-rowgroup-header',
     rowGroupToggler: 'p-row-toggler p-link',
     rowGroupTogglerIcon: 'p-row-toggler-icon',
-    row: ({ instance, props, index }) => {
+    row: ({ instance, props, index, columnSelectionMode }) => {
         let rowStyleClass = [];
 
         if (props.selectionMode) {
@@ -377,7 +359,7 @@ const classes = {
 
         if (props.selection) {
             rowStyleClass.push({
-                'p-highlight': instance.isSelected
+                'p-highlight': columnSelectionMode ? instance.isSelected && instance.$parentInstance.$parentInstance.highlightOnSelect : instance.isSelected
             });
         }
 
@@ -413,38 +395,6 @@ const classes = {
     rowEditorSaveIcon: 'p-row-editor-save-icon',
     rowEditorCancelButton: 'p-row-editor-cancel p-link',
     rowEditorCancelIcon: 'p-row-editor-cancel-icon',
-    //rowcheckbox
-    checkboxWrapper: ({ instance }) => [
-        'p-checkbox p-component',
-        {
-            'p-checkbox-focused': instance.focused
-        }
-    ],
-    checkbox: ({ instance }) => [
-        'p-checkbox-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    checkboxIcon: 'p-checkbox-icon',
-    //rowradiobutton
-    radiobuttonWrapper: ({ instance }) => [
-        'p-radiobutton p-component',
-        {
-            'p-radiobutton-focused': instance.focused
-        }
-    ],
-    radiobutton: ({ instance }) => [
-        'p-radiobutton-box p-component',
-        {
-            'p-highlight': instance.checked,
-            'p-disabled': instance.$attrs.disabled,
-            'p-focus': instance.focused
-        }
-    ],
-    radiobuttonIcon: 'p-radiobutton-icon',
     //tablefooter
     tfoot: 'p-datatable-tfoot',
     //footercell

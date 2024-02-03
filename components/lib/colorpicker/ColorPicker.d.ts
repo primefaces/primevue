@@ -54,7 +54,7 @@ export interface ColorPickerChangeEvent {
     /**
      * Browser event
      */
-    originalEvent: Event;
+    event: Event;
     /**
      * Selected color value.
      */
@@ -211,7 +211,7 @@ export interface ColorPickerEmits {
      */
     'update:modelValue'(value: any): void;
     /**
-     * Callback to invoke when a chip is added.
+     * Callback to invoke when a color is selected.
      * @param {ColorPickerChangeEvent} event - Custom add event.
      */
     change(event: ColorPickerChangeEvent): void;

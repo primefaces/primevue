@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="dropdown">
+    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="editable"
             ref="focusInput"
@@ -106,7 +106,9 @@
                                 <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
-                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
+                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">
+                                                <span :class="cx('itemGroupLabel')" v-bind="ptm('itemGroupLabel')">{{ getOptionGroupLabel(option.optionGroup) }}</span>
+                                            </slot>
                                         </li>
                                         <li
                                             v-else
@@ -127,7 +129,13 @@
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
                                         >
-                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
+                                            <template v-if="checkmark">
+                                                <CheckIcon v-if="isSelected(option)" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
+                                                <BlankIcon v-else :class="cx('blankIcon')" v-bind="ptm('blankIcon')" />
+                                            </template>
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                                <span :class="cx('itemLabel')" v-bind="ptm('itemLabel')">{{ getOptionLabel(option) }}</span>
+                                            </slot>
                                         </li>
                                     </template>
                                     <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
@@ -169,6 +177,8 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import BlankIcon from 'primevue/icons/blank';
+import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import FilterIcon from 'primevue/icons/filter';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -194,10 +204,10 @@ export default {
     searchTimeout: null,
     searchValue: null,
     isModelValueChanged: false,
-    focusOnHover: false,
     data() {
         return {
             id: this.$attrs.id,
+            clicked: false,
             focused: false,
             focusedOptionIndex: -1,
             filterValue: null,
@@ -217,7 +227,6 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
-
         this.autoUpdateModel();
         this.bindLabelClickListener();
     },
@@ -283,7 +292,7 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
 
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
@@ -291,6 +300,7 @@ export default {
             const _hide = () => {
                 this.$emit('before-hide');
                 this.overlayVisible = false;
+                this.clicked = false;
                 this.focusedOptionIndex = -1;
                 this.searchValue = '';
 
@@ -309,8 +319,12 @@ export default {
             }
 
             this.focused = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
+
+            if (this.overlayVisible) {
+                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
+                this.scrollInView(this.focusedOptionIndex);
+            }
+
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -395,6 +409,8 @@ export default {
 
                     break;
             }
+
+            this.clicked = false;
         },
         onEditableInput(event) {
             const value = event.target.value;
@@ -418,9 +434,12 @@ export default {
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
             }
+
+            this.clicked = true;
         },
         onClearClick(event) {
             this.updateModel(event, null);
+            this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -523,11 +542,15 @@ export default {
             }
         },
         onArrowDownKey(event) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
+            if (!this.overlayVisible) {
+                this.show();
+                this.editable && this.changeFocusedOptionIndex(event, this.findSelectedOptionIndex());
+            } else {
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
-            this.changeFocusedOptionIndex(event, optionIndex);
+                this.changeFocusedOptionIndex(event, optionIndex);
+            }
 
-            !this.overlayVisible && this.show();
             event.preventDefault();
         },
         onArrowUpKey(event, pressedInInputText = false) {
@@ -539,7 +562,7 @@ export default {
                 this.overlayVisible && this.hide();
                 event.preventDefault();
             } else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -587,6 +610,7 @@ export default {
         },
         onEnterKey(event) {
             if (!this.overlayVisible) {
+                this.focusedOptionIndex = -1; // reset
                 this.onArrowDownKey(event);
             } else {
                 if (this.focusedOptionIndex !== -1) {
@@ -736,7 +760,7 @@ export default {
             return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
-            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
+            return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
             return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
@@ -782,23 +806,25 @@ export default {
             let optionIndex = -1;
             let matched = false;
 
-            if (this.focusedOptionIndex !== -1) {
-                optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
-                optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
-            } else {
-                optionIndex = this.visibleOptions.findIndex((option) => this.isOptionMatched(option));
-            }
+            if (ObjectUtils.isNotEmpty(this.searchValue)) {
+                if (this.focusedOptionIndex !== -1) {
+                    optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
+                    optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
+                } else {
+                    optionIndex = this.visibleOptions.findIndex((option) => this.isOptionMatched(option));
+                }
 
-            if (optionIndex !== -1) {
-                matched = true;
-            }
+                if (optionIndex !== -1) {
+                    matched = true;
+                }
 
-            if (optionIndex === -1 && this.focusedOptionIndex === -1) {
-                optionIndex = this.findFirstFocusedOptionIndex();
-            }
+                if (optionIndex === -1 && this.focusedOptionIndex === -1) {
+                    optionIndex = this.findFirstFocusedOptionIndex();
+                }
 
-            if (optionIndex !== -1) {
-                this.changeFocusedOptionIndex(event, optionIndex);
+                if (optionIndex !== -1) {
+                    this.changeFocusedOptionIndex(event, optionIndex);
+                }
             }
 
             if (this.searchTimeout) {
@@ -823,16 +849,16 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            this.$nextTick(() => {
+                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
-            if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
-            } else if (!this.virtualScrollerDisabled) {
-                setTimeout(() => {
+                if (element) {
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
-                }, 0);
-            }
+                }
+            });
         },
         autoUpdateModel() {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
@@ -946,12 +972,14 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        TimesIcon: TimesIcon,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        FilterIcon: FilterIcon
+        VirtualScroller,
+        Portal,
+        TimesIcon,
+        ChevronDownIcon,
+        SpinnerIcon,
+        FilterIcon,
+        CheckIcon,
+        BlankIcon
     }
 };
 </script>

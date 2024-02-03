@@ -146,10 +146,6 @@ export interface MultiSelectPassThroughOptions {
      */
     header?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the header checkbox container's DOM element.
-     */
-    headerCheckboxContainer?: MultiSelectPassThroughOptionType;
-    /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
     headerCheckbox?: MultiSelectPassThroughOptionType;
@@ -195,17 +191,9 @@ export interface MultiSelectPassThroughOptions {
      */
     item?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the item checkbox's DOM element.
      */
-    checkboxContainer?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox's DOM element.
-     */
-    checkbox?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: MultiSelectPassThroughOptionType;
+    itemCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the option's DOM element.
      */
@@ -214,10 +202,6 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden input's DOM element.
      */
@@ -348,10 +332,20 @@ export interface MultiSelectProps {
      */
     placeholder?: string | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * Identifier of the underlying input element.
      */
@@ -486,7 +480,7 @@ export interface MultiSelectProps {
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * @defaultValue true
+     * @defaultValue false
      */
     autoOptionFocus?: boolean | undefined;
     /**
@@ -494,6 +488,16 @@ export interface MultiSelectProps {
      * @defaultValue false
      */
     autoFilterFocus?: boolean | undefined;
+    /**
+     * When enabled, the focus is placed on the hovered option.
+     * @defaultValue true
+     */
+    focusOnHover?: boolean | undefined;
+    /**
+     *  Highlights automatically the first item.
+     *  @defaultValue false
+     */
+    highlightOnSelect?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="password">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <PInputText
             ref="input"
             :id="inputId"
@@ -15,6 +15,8 @@
             :placeholder="placeholder"
             :required="required"
             :disabled="disabled"
+            :variant="variant"
+            :invalid="invalid"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
@@ -65,6 +67,7 @@ export default {
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     data() {
         return {
+            id: this.$attrs.id,
             overlayVisible: false,
             meter: null,
             infoText: null,
@@ -72,12 +75,18 @@ export default {
             unmasked: false
         };
     },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
@@ -289,7 +298,7 @@ export default {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         },
         panelUniqueId() {
-            return UniqueComponentId() + '_panel';
+            return this.id + '_panel';
         }
     },
     components: {

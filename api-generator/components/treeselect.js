@@ -30,6 +30,18 @@ const TreeSelectProps = [
         description: 'When present, it specifies that the component should be disabled.'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
+        name: 'variant',
+        type: 'string',
+        default: 'null',
+        description: 'Specifies the input variant of the component.'
+    },
+    {
         name: 'tabindex',
         type: 'string',
         default: 'null',

@@ -62,7 +62,6 @@ const classes = {
         'p-tieredmenu p-component',
         {
             'p-tieredmenu-overlay': props.popup,
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

@@ -65,7 +65,9 @@ const classes = {
         {
             'p-treeselect-chip': props.display === 'chip',
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
             'p-focus': instance.focused,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible
         }
@@ -82,10 +84,10 @@ const classes = {
     tokenLabel: 'p-treeselect-token-label',
     trigger: 'p-treeselect-trigger',
     triggerIcon: 'p-treeselect-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-treeselect-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
+            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],

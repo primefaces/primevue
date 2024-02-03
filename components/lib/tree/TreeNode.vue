@@ -26,12 +26,12 @@
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
                 </template>
             </button>
-            <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
-                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
-                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
-                </div>
-            </div>
+            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
+                <template #icon="slotProps">
+                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
+                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getPTOptions('nodeCheckbox.icon')" />
+                </template>
+            </Checkbox>
             <span :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('label')" v-bind="getPTOptions('label')" @keydown.stop>
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
@@ -51,6 +51,7 @@
                 :selectionMode="selectionMode"
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
+                :unstyled="unstyled"
                 :pt="pt"
             />
         </ul>
@@ -59,6 +60,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Checkbox from 'primevue/checkbox';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
@@ -441,11 +443,12 @@ export default {
         }
     },
     components: {
-        ChevronDownIcon: ChevronDownIcon,
-        ChevronRightIcon: ChevronRightIcon,
-        CheckIcon: CheckIcon,
-        MinusIcon: MinusIcon,
-        SpinnerIcon: SpinnerIcon
+        Checkbox,
+        ChevronDownIcon,
+        ChevronRightIcon,
+        CheckIcon,
+        MinusIcon,
+        SpinnerIcon
     },
     directives: {
         ripple: Ripple

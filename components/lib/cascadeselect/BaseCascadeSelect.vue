@@ -14,6 +14,14 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         placeholder: String,
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: Boolean,
         dataKey: null,
         inputId: {
@@ -45,7 +53,7 @@ export default {
             default: null
         },
         appendTo: {
-            type: String,
+            type: [String, Object],
             default: 'body'
         },
         loading: {
@@ -66,11 +74,15 @@ export default {
         },
         autoOptionFocus: {
             type: Boolean,
-            default: true
+            default: false
         },
         selectOnFocus: {
             type: Boolean,
             default: false
+        },
+        focusOnHover: {
+            type: Boolean,
+            default: true
         },
         searchLocale: {
             type: String,

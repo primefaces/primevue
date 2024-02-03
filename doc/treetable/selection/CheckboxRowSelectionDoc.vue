@@ -5,7 +5,7 @@
             In checkbox selection mode, value binding should be a key-value pair where key (or the dataKey) is the node key and value is an object that has <i>checked</i> and <i>partialChecked</i> properties to represent the checked state of a node.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="introCode" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="introCode" hideToggleCode importCode hideStackBlitz />
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
             <Column field="name" header="Name" expander></Column>

@@ -11,7 +11,7 @@
         </template>
     </ConfirmDialog>
     <div class="card flex justify-content-center">
-        <Button @click="showTemplate()" icon="pi pi-check" label="Confirm"></Button>
+        <Button @click="showTemplate()" label="Save"></Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -30,7 +30,7 @@ export default {
         </div>
     </template>
 </ConfirmDialog>
-<Button @click="showTemplate()" icon="pi pi-check" label="Confirm"></Button>
+<Button @click="showTemplate()" label="Save"></Button>
 `,
                 options: `
 <template>
@@ -43,7 +43,7 @@ export default {
         </template>
     </ConfirmDialog>
     <div class="card flex justify-content-center">
-        <Button @click="showTemplate()" icon="pi pi-check" label="Confirm"></Button>
+        <Button @click="showTemplate()" label="Save"></Button>
     </div>
     <Toast />
 </template>
@@ -59,8 +59,10 @@ export default {
                 icon: 'pi pi-exclamation-circle',
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
-                rejectClass: 'p-button-sm',
-                acceptClass: 'p-button-outlined p-button-sm',
+                rejectClass: 'p-button-outlined p-button-sm',
+                acceptClass: 'p-button-sm',
+                rejectLabel: 'Cancel',
+                acceptLabel: 'Save',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -84,7 +86,7 @@ export default {
         </template>
     </ConfirmDialog>
     <div class="card flex justify-content-center">
-        <Button @click="showTemplate()" icon="pi pi-check" label="Confirm"></Button>
+        <Button @click="showTemplate()" label="Save"></Button>
     </div>
     <Toast />
 </template>
@@ -104,8 +106,10 @@ const showTemplate = () => {
         icon: 'pi pi-exclamation-circle',
         acceptIcon: 'pi pi-check',
         rejectIcon: 'pi pi-times',
-        rejectClass: 'p-button-sm',
-        acceptClass: 'p-button-outlined p-button-sm',
+        rejectClass: 'p-button-outlined p-button-sm',
+        acceptClass: 'p-button-sm',
+        rejectLabel: 'Cancel',
+        acceptLabel: 'Save',
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
         },
@@ -128,8 +132,10 @@ const showTemplate = () => {
                 icon: 'pi pi-exclamation-circle',
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
-                rejectClass: 'p-button-sm',
-                acceptClass: 'p-button-outlined p-button-sm',
+                rejectClass: 'p-button-outlined p-button-sm',
+                acceptClass: 'p-button-sm',
+                rejectLabel: 'Cancel',
+                acceptLabel: 'Save',
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
