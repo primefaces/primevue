@@ -1,31 +1,29 @@
 <template>
     <div :class="containerClass" :style="style" v-bind="ptm('root')" :data-pc-severity="severity">
-        <slot>
-            <PVSButton
-                type="button"
-                :class="cx('button')"
-                :label="label"
-                :disabled="disabled"
-                :severity="severity"
-                :text="text"
-                :outlined="outlined"
-                :size="size"
-                :aria-label="label"
-                @click="onDefaultButtonClick"
-                v-bind="buttonProps"
-                :pt="ptm('button')"
-                :unstyled="unstyled"
-            >
-                <template #icon="slotProps">
-                    <slot name="icon" :class="slotProps.class">
-                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
-                    </slot>
-                </template>
-                <template #default>
-                    <slot name="buttoncontent"></slot>
-                </template>
-            </PVSButton>
-        </slot>
+        <PVSButton
+            type="button"
+            :class="cx('button')"
+            :label="label"
+            :disabled="disabled"
+            :severity="severity"
+            :text="text"
+            :outlined="outlined"
+            :size="size"
+            :aria-label="label"
+            @click="onDefaultButtonClick"
+            v-bind="buttonProps"
+            :pt="ptm('button')"
+            :unstyled="unstyled"
+        >
+            <template v-if="$slots.icon" #icon="slotProps">
+                <slot name="icon" :class="slotProps.class">
+                    <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
+                </slot>
+            </template>
+            <template #default>
+                <slot></slot>
+            </template>
+        </PVSButton>
         <PVSButton
             ref="button"
             type="button"
