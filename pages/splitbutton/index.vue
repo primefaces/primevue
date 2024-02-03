@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/splitbutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/splitbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/splitbutton/DisabledDoc.vue';
+import IconsDoc from '@/doc/splitbutton/IconsDoc.vue';
 import ImportDoc from '@/doc/splitbutton/ImportDoc.vue';
 import OutlinedDoc from '@/doc/splitbutton/OutlinedDoc.vue';
 import RaisedDoc from '@/doc/splitbutton/RaisedDoc.vue';
@@ -39,6 +40,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'icons',
+                    label: 'Icons',
+                    component: IconsDoc
                 },
                 {
                     id: 'severity',

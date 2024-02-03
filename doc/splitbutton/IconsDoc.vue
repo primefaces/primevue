@@ -1,14 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content inside a button is defined as children.</p>
+        <p>The buttons and menuitems have support to display icons.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
-                <span>PrimeVue</span>
-            </span>
-        </SplitButton>
+        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -43,23 +38,13 @@ export default {
             ],
             code: {
                 basic: `
-<SplitButton :model="items" @click="save" severity="contrast">
-    <span class="flex align-items-center font-bold">
-        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
-        <span>PrimeVue</span>
-    </span>
-</SplitButton>
+<SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
-                <span>PrimeVue</span>
-            </span>
-        </SplitButton>
+        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
     </div>
 </template>
 
@@ -105,12 +90,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
-                <span>PrimeVue</span>
-            </span>
-        </SplitButton>
+        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
     </div>
 </template>
 

@@ -3,7 +3,7 @@
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" disabled />
+        <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,36 +15,33 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
                     command: () => {
                         this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
                 },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                { label: 'Upload', to: '/fileupload' }
             ],
             code: {
                 basic: `
-<SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" disabled />
+<SplitButton label="Save" @click="save" :model="items" disabled />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" disabled />
+        <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>
 </template>
 
@@ -55,26 +52,23 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
                     command: () => {
                         this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
                 },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                { label: 'Upload', to: '/fileupload' }
             ]
         };
     },
@@ -89,7 +83,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" disabled />
+        <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>
 </template>
 
@@ -100,26 +94,23 @@ const toast = useToast();
 const items = [
     {
         label: 'Update',
-        icon: 'pi pi-refresh',
         command: () => {
-            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+            this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
         }
     },
     {
         label: 'Delete',
-        icon: 'pi pi-times',
         command: () => {
-            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+            this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
         }
     },
     {
         label: 'Vue Website',
-        icon: 'pi pi-external-link',
         command: () => {
             window.location.href = 'https://vuejs.org/';
         }
     },
-    { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+    { label: 'Upload', to: '/fileupload' }
 ];
 
 const save = () => {
