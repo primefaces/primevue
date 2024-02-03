@@ -53626,7 +53626,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
+                            "type": "\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\"",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
