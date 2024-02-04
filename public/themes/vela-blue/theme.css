@@ -5605,7 +5605,10 @@
     box-shadow: 0 0 0 1px #93cbf9;
   }
 
-  .p-metergroup .p-metergroup-meter-container {
+  .p-metergroup {
+    gap: 1rem;
+  }
+  .p-metergroup .p-metergroup-meters {
     background: #304562;
     border-radius: 3px;
   }
@@ -5613,25 +5616,29 @@
     border: 0 none;
     background: #64B5F6;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-list-item {
-    line-height: 1.5rem;
+  .p-metergroup .p-metergroup-labels .p-metergroup-label {
+    gap: 0.5rem;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-type {
+  .p-metergroup .p-metergroup-labels .p-metergroup-label-marker {
     background: #64B5F6;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 100%;
-    margin-right: 0.5rem;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label {
-    margin-right: 1rem;
-  }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-icon {
+  .p-metergroup .p-metergroup-labels .p-metergroup-label-icon {
     width: 1rem;
     height: 1rem;
-    margin-right: 0.5rem;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-meter-container {
+  .p-metergroup .p-metergroup-labels.p-metergroup-labels-vertical {
+    gap: 0.5rem;
+  }
+  .p-metergroup .p-metergroup-labels.p-metergroup-labels-horizontal {
+    gap: 1rem;
+  }
+  .p-metergroup.p-metergroup-horizontal {
+    flex-direction: column;
+  }
+  .p-metergroup.p-metergroup-horizontal .p-metergroup-meters {
     height: 0.5rem;
   }
   .p-metergroup.p-metergroup-horizontal .p-metergroup-meter:first-of-type {
@@ -5642,13 +5649,10 @@
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-label-list-start {
-    margin-bottom: 1rem;
+  .p-metergroup.p-metergroup-vertical {
+    flex-direction: row;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-label-list-end {
-    margin-top: 1rem;
-  }
-  .p-metergroup.p-metergroup-vertical .p-metergroup-meter-container {
+  .p-metergroup.p-metergroup-vertical .p-metergroup-meters {
     width: 0.5rem;
     height: 100%;
   }
@@ -5659,9 +5663,6 @@
   .p-metergroup.p-metergroup-vertical .p-metergroup-meter:last-of-type {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-  }
-  .p-metergroup.p-metergroup-vertical .p-metergroup-label-list:not(.p-metergroup-label-list-start) {
-    margin-left: 1rem;
   }
 
   .p-progressbar {

@@ -5743,7 +5743,10 @@
     box-shadow: none;
   }
 
-  .p-metergroup .p-metergroup-meter-container {
+  .p-metergroup {
+    gap: 1rem;
+  }
+  .p-metergroup .p-metergroup-meters {
     background: #3f3f46;
     border-radius: 6px;
   }
@@ -5751,25 +5754,29 @@
     border: 0 none;
     background: #fbbf24;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-list-item {
-    line-height: 1.25rem;
+  .p-metergroup .p-metergroup-labels .p-metergroup-label {
+    gap: 0.5rem;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-type {
+  .p-metergroup .p-metergroup-labels .p-metergroup-label-marker {
     background: #fbbf24;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 100%;
-    margin-right: 0.5rem;
   }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label {
-    margin-right: 1rem;
-  }
-  .p-metergroup .p-metergroup-label-list .p-metergroup-label-icon {
+  .p-metergroup .p-metergroup-labels .p-metergroup-label-icon {
     width: 1rem;
     height: 1rem;
-    margin-right: 0.5rem;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-meter-container {
+  .p-metergroup .p-metergroup-labels.p-metergroup-labels-vertical {
+    gap: 0.5rem;
+  }
+  .p-metergroup .p-metergroup-labels.p-metergroup-labels-horizontal {
+    gap: 1rem;
+  }
+  .p-metergroup.p-metergroup-horizontal {
+    flex-direction: column;
+  }
+  .p-metergroup.p-metergroup-horizontal .p-metergroup-meters {
     height: 0.5rem;
   }
   .p-metergroup.p-metergroup-horizontal .p-metergroup-meter:first-of-type {
@@ -5780,13 +5787,10 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-label-list-start {
-    margin-bottom: 1rem;
+  .p-metergroup.p-metergroup-vertical {
+    flex-direction: row;
   }
-  .p-metergroup.p-metergroup-horizontal .p-metergroup-label-list-end {
-    margin-top: 1rem;
-  }
-  .p-metergroup.p-metergroup-vertical .p-metergroup-meter-container {
+  .p-metergroup.p-metergroup-vertical .p-metergroup-meters {
     width: 0.5rem;
     height: 100%;
   }
@@ -5797,9 +5801,6 @@
   .p-metergroup.p-metergroup-vertical .p-metergroup-meter:last-of-type {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-  }
-  .p-metergroup.p-metergroup-vertical .p-metergroup-label-list:not(.p-metergroup-label-list-start) {
-    margin-left: 1rem;
   }
 
   .p-progressbar {
