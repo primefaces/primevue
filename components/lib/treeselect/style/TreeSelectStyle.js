@@ -87,7 +87,6 @@ const classes = {
     panel: ({ props, instance }) => [
         'p-treeselect-panel p-component',
         {
-            'p-input-filled': props.variant === 'filled' || instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
