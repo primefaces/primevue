@@ -3,7 +3,7 @@
         <p>Title section of a tab is customized with the <i>header</i> slot.</p>
     </DocSectionText>
     <div class="card">
-        <Accordion :activeIndex="0">
+        <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
             <AccordionTab>
                 <template #header>
                     <span class="flex align-items-center gap-2 w-full">
@@ -54,7 +54,7 @@ export default {
         return {
             code: {
                 basic: `
-<Accordion :activeIndex="0">
+<Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
     <AccordionTab>
         <template #header>
             <span class="flex align-items-center gap-2 w-full">
@@ -99,7 +99,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Accordion :activeIndex="0">
+        <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
             <AccordionTab>
                 <template #header>
                     <span class="flex align-items-center gap-2 w-full">
@@ -149,7 +149,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Accordion :activeIndex="0">
+        <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
             <AccordionTab>
                 <template #header>
                     <span class="flex align-items-center gap-2 w-full">
