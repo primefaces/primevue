@@ -6266,6 +6266,11 @@
     color: #a1a1aa;
   }
 
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-check-icon {
+    margin-left: -0.25rem;
+    margin-right: 0.25rem;
+  }
+
   .p-treetable .p-treetable-tbody > tr:has(+ .p-highlight) > td {
     border-bottom-color: rgba(139, 102, 248, 0.16);
   }
