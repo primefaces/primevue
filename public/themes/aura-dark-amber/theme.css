@@ -2578,7 +2578,7 @@
   .p-datatable .p-datatable-header {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -2586,7 +2586,7 @@
   .p-datatable .p-datatable-footer {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -2594,7 +2594,7 @@
   .p-datatable .p-datatable-thead > tr > th {
     text-align: left;
     padding: 0.75rem 1rem;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     font-weight: 600;
     color: #ffffff;
@@ -2604,7 +2604,7 @@
   .p-datatable .p-datatable-tfoot > tr > td {
     text-align: left;
     padding: 0.75rem 1rem;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     font-weight: 600;
     color: #ffffff;
@@ -2655,7 +2655,7 @@
   }
   .p-datatable .p-datatable-tbody > tr > td {
     text-align: left;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
   }
@@ -2840,7 +2840,7 @@
   .p-dataview .p-dataview-header {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -2854,7 +2854,7 @@
   .p-dataview .p-dataview-footer {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -3382,7 +3382,7 @@
   .p-treetable .p-treetable-header {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -3390,7 +3390,7 @@
   .p-treetable .p-treetable-footer {
     background: #18181b;
     color: #ffffff;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -3398,7 +3398,7 @@
   .p-treetable .p-treetable-thead > tr > th {
     text-align: left;
     padding: 0.75rem 1rem;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     font-weight: 600;
     color: #ffffff;
@@ -3408,7 +3408,7 @@
   .p-treetable .p-treetable-tfoot > tr > td {
     text-align: left;
     padding: 0.75rem 1rem;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     font-weight: 600;
     color: #ffffff;
@@ -3451,7 +3451,7 @@
   }
   .p-treetable .p-treetable-tbody > tr > td {
     text-align: left;
-    border: 1px solid #3f3f46;
+    border: 1px solid #27272a;
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
   }
@@ -6379,6 +6379,73 @@
     padding: 0.5rem;
   }
 
+  .p-inputnumber.p-inputnumber-buttons-stacked {
+    position: relative;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button-group {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    height: calc(100% - 2px);
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: transparent;
+    border: 0 none;
+    color: #a1a1aa;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button:active {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button {
+    background-color: transparent;
+    border: 1px solid #3f3f46;
+    color: #a1a1aa;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button:active {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-up {
+    border-left: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-down {
+    border-right: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button {
+    background-color: transparent;
+    border: 1px solid #3f3f46;
+    color: #a1a1aa;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button:active {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button.p-inputnumber-button-up {
+    border-bottom: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button.p-inputnumber-button-down {
+    border-top: 0 none;
+  }
+
   .p-inputswitch .p-inputswitch-slider {
     border: 0 none;
   }
@@ -6803,6 +6870,10 @@
   }
   .p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon {
     background-color: #a1a1aa;
+  }
+
+  .p-rating {
+    gap: 0.25rem;
   }
 
   .p-selectbutton .p-button .pi,

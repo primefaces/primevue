@@ -6388,6 +6388,73 @@
     padding: 0.5rem;
   }
 
+  .p-inputnumber.p-inputnumber-buttons-stacked {
+    position: relative;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button-group {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    height: calc(100% - 2px);
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: transparent;
+    border: 0 none;
+    color: #64748b;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button:hover {
+    background-color: #f1f5f9;
+    color: #475569;
+  }
+  .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-button:active {
+    background-color: #e2e8f0;
+    color: #334155;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button:hover {
+    background-color: #f1f5f9;
+    color: #475569;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button:active {
+    background-color: #e2e8f0;
+    color: #334155;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-up {
+    border-left: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-down {
+    border-right: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button:hover {
+    background-color: #f1f5f9;
+    color: #475569;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button:active {
+    background-color: #e2e8f0;
+    color: #334155;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button.p-inputnumber-button-up {
+    border-bottom: 0 none;
+  }
+  .p-inputnumber.p-inputnumber-buttons-vertical .p-inputnumber-button.p-inputnumber-button-down {
+    border-top: 0 none;
+  }
+
   .p-inputswitch .p-inputswitch-slider {
     border: 0 none;
   }
@@ -6812,6 +6879,10 @@
   }
   .p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon {
     background-color: #64748b;
+  }
+
+  .p-rating {
+    gap: 0.25rem;
   }
 
   .p-selectbutton .p-button .pi,

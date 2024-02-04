@@ -20,7 +20,7 @@
                 <i :class="menuitem.icon"></i>
             </span>
             <span>{{ menuitem.name }}</span>
-            <Tag v-if="menuitem.badge" :value="menuitem.badge" class="ml-auto"></Tag>
+            <Tag v-if="menuitem.badge" :value="menuitem.badge"></Tag>
         </PrimeVueNuxtLink>
 
         <span v-if="!root && menuitem.children" class="menu-child-category">{{ menuitem.name }}</span>
