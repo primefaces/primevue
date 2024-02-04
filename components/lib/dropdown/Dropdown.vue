@@ -93,7 +93,7 @@
                                 v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
-                                <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
+                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
                         <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
@@ -180,7 +180,7 @@ import { FilterService } from 'primevue/api';
 import BlankIcon from 'primevue/icons/blank';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
-import FilterIcon from 'primevue/icons/filter';
+import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -977,7 +977,7 @@ export default {
         TimesIcon,
         ChevronDownIcon,
         SpinnerIcon,
-        FilterIcon,
+        SearchIcon,
         CheckIcon,
         BlankIcon
     }
