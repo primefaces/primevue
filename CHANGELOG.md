@@ -1,5 +1,45 @@
 # Changelog
 
+## [3.48.0](https://github.com/primefaces/primevue/tree/3.48.0) (2024-02-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.47.2...3.48.0)
+
+**Deprecated:**
+
+-   Deprecate Legacy Themes [\#5201](https://github.com/primefaces/primevue/issues/5201)
+
+**Fixed bugs:**
+
+-   SplitButton templating is broken [\#5199](https://github.com/primefaces/primevue/issues/5199)
+-   DataTable: Row selection styling defect [\#5196](https://github.com/primefaces/primevue/issues/5196)
+-   ColorPicker: parameter field in emit change event is incorrect [\#5188](https://github.com/primefaces/primevue/issues/5188)
+-   Hydration attribute mismatch on Icons [\#5187](https://github.com/primefaces/primevue/issues/5187)
+-   Calendar: 'view' property has no effect when changed after component initialization [\#5132](https://github.com/primefaces/primevue/issues/5132)
+-   TabView + Splitter: Navigation Buttons not showing [\#5111](https://github.com/primefaces/primevue/issues/5111)
+-   Knob: Problem with the step property when using the keyboard arrows [\#5097](https://github.com/primefaces/primevue/issues/5097)
+-   DataTable: VirtualScroller Resets Scroll Position to top on lazy load more data [\#5078](https://github.com/primefaces/primevue/issues/5078)
+-   Dropdown: autoSize works incorrectly with filter and not only [\#5073](https://github.com/primefaces/primevue/issues/5073)
+-   Calendar: 12h time picker changes from 12 am to 12 pm automatically [\#5108](https://github.com/primefaces/primevue/issues/5108)
+-   colorPicker: change event only shows old color value [\#5004](https://github.com/primefaces/primevue/issues/5004)
+-   Divider: Divider line doesn't show (Using the nuxt-primevue module) [\#5000](https://github.com/primefaces/primevue/issues/5000)
+-   Menubar, Megamenu, Contextmenu and etc.: Twice render if $attrs.id not defined [\#4953](https://github.com/primefaces/primevue/issues/4953)
+
+**Implemented New Features and Enhancements:**
+
+-   Move core alignment styles to theme files [\#5214](https://github.com/primefaces/primevue/issues/5214)
+-   Update default dropdown filter icon [\#5208](https://github.com/primefaces/primevue/issues/5208)
+-   Refactor MeterGroup Component and Demos [\#5203](https://github.com/primefaces/primevue/issues/5203)
+-   Contrast and Secondary Variants for Badge/Tag/Message/Toast [\#5200](https://github.com/primefaces/primevue/issues/5200)
+-   Contrast variant for SplitButton [\#5198](https://github.com/primefaces/primevue/issues/5198)
+-   Add data-p-unselectable-text attribute on resizing and dragging phases [\#5194](https://github.com/primefaces/primevue/issues/5194)
+-   Improve data-pc- structure in components [\#5179](https://github.com/primefaces/primevue/issues/5179)
+-   New invalid and variant properties [\#5176](https://github.com/primefaces/primevue/issues/5176)
+-   New Components [\#5175](https://github.com/primefaces/primevue/issues/5175)
+-   Themes: end value has mixed support, consider using flex-end instead warning [\#5155](https://github.com/primefaces/primevue/issues/5155)
+-   Bug: Cannot override preset if using Tailwind important: true [\#5081](https://github.com/primefaces/primevue/issues/5081)
+-   TableBody: Render "BodyRow" binding dataKey of props to key attribute [\#5006](https://github.com/primefaces/primevue/issues/5006)
+-   PassThough new merging strategy with tailwind-merge to smartly merge classes [\#4707](https://github.com/primefaces/primevue/issues/4707)
+
 ## [3.47.2](https://github.com/primefaces/primevue/tree/3.47.1) (2024-01-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.47.1...3.47.2)
