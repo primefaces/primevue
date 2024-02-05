@@ -1,53 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-fileupload-content {
-        position: relative;
-    }
-
-    .p-fileupload-content .p-progressbar {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .p-button.p-fileupload-choose {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .p-fileupload-buttonbar {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .p-fileupload > input[type='file'],
-    .p-fileupload-basic input[type='file'] {
-        display: none;
-    }
-
-    .p-fluid .p-fileupload .p-button {
-        width: auto;
-    }
-
-    .p-fileupload-file {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .p-fileupload-file-thumbnail {
-        flex-shrink: 0;
-    }
-
-    .p-fileupload-file-actions {
-        margin-left: auto;
-    }
-}
-`;
-
 const classes = {
     root: ({ props }) => [`p-fileupload p-fileupload-${props.mode} p-component`],
     buttonbar: 'p-fileupload-buttonbar',
@@ -77,6 +29,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'fileupload',
-    css,
     classes
 });

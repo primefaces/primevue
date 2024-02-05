@@ -1,42 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-panelmenu .p-panelmenu-header-action {
-        display: flex;
-        align-items: center;
-        user-select: none;
-        cursor: pointer;
-        position: relative;
-        text-decoration: none;
-    }
-
-    .p-panelmenu .p-panelmenu-header-action:focus {
-        z-index: 1;
-    }
-
-    .p-panelmenu .p-submenu-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .p-panelmenu .p-menuitem-link {
-        display: flex;
-        align-items: center;
-        user-select: none;
-        cursor: pointer;
-        text-decoration: none;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .p-panelmenu .p-menuitem-text {
-        line-height: 1;
-    }
-}
-`;
-
 const classes = {
     root: 'p-panelmenu p-component',
     panel: 'p-panelmenu-panel',
@@ -72,6 +35,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'panelmenu',
-    css,
     classes
 });
