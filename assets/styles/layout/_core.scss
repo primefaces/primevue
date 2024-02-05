@@ -7,7 +7,7 @@ body {
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--body-bg);
+    background-color: var(--p-surface-ground);
     font-weight: normal;
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
@@ -15,7 +15,7 @@ body {
 }
 
 .layout-wrapper {
-    background-color: var(--body-bg);
+    background-color: var(--p-surface-ground);
 }
 
 a {

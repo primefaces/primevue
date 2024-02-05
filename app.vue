@@ -8,7 +8,7 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
-    watch: {
+    /*watch: {
         $route: {
             handler(to) {
                 if (to.name === 'index') {
@@ -16,23 +16,7 @@ export default {
                 }
             }
         }
-    },
-    created() {
-        useServerHead({
-            link: [
-                /*{
-                    id: 'theme-link',
-                    rel: 'stylesheet',
-                    href: '/themes/lara-light-green/theme.css'
-                }*/
-                {
-                    id: 'home-table-link',
-                    rel: 'stylesheet',
-                    href: '/styles/landing/themes/aura-light-green/theme.css'
-                }
-            ]
-        });
-    },
+    },*/
     mounted() {
         /*const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
         const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -66,7 +50,9 @@ export default {
             // @todo
             this.$appState.theme = event.theme;
             this.$appState.darkTheme = event.dark;
-            document.documentElement.className = this.$appState.darkTheme ? 'p-dark' : '';
+            
+            if (event.dark) document.documentElement.classList.add('p-dark');
+            else document.documentElement.classList.remove('p-dark');
         }
     }
 };

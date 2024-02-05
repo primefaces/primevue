@@ -2,8 +2,8 @@
     --primary-color-default:var(--primary-600);
     --primary-color-inverse-default:var(--surface-0);
     --topbar-sticky-bg:rgba(255,255,255,.7);
-    --card-border: 1px solid var(--surface-border);
-    --card-bg: var(--surface-card);
+    --card-border: 1px solid var(--p-surface-border);
+    --card-bg: var(--p-surface-card);
     --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png);
     --glow-blend: hard-light, multiply;
     --topbar-border: rgba(0,0,0,.05);

@@ -99,7 +99,7 @@ export default {
             this.appConfigActive = false;
         },
         onDarkModeToggle() {
-            let newTheme = null;
+            /*let newTheme = null;
             let currentTheme = this.$appState.theme;
 
             if (this.$appState.darkTheme) {
@@ -112,7 +112,8 @@ export default {
                 localStorage.setItem(this.$appState.colorSchemeKey, 'dark');
             }
 
-            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });*/
+            EventBus.emit('theme-change', { dark: !this.$appState.darkTheme });
         }
     },
     computed: {

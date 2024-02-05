@@ -1,5 +1,5 @@
 import { FilterMatchMode } from 'primevue/api';
-import Lara from 'primevue/theme/lara';
+import Aura from 'primevue/theme/aura';
 import { inject, reactive } from 'vue';
 
 export const defaultOptions = {
@@ -135,7 +135,7 @@ export const defaultOptions = {
         tooltip: 1100
     },
     theme: {
-        preset: Lara,
+        preset: Aura,
         options: undefined
     },
     pt: undefined,
