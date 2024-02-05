@@ -1,24 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-togglebutton {
-        position: relative;
-        display: inline-flex;
-        user-select: none;
-        vertical-align: bottom;
-    }
-
-    .p-togglebutton-input {
-        cursor: pointer;
-    }
-
-    .p-togglebutton .p-button {
-        flex: 1 1 auto;
-    }
-}
-`;
-
 const classes = {
     root: ({ instance, props }) => [
         'p-togglebutton p-component',
@@ -47,6 +28,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'togglebutton',
-    css,
     classes
 });

@@ -1,43 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-listbox-list-wrapper {
-        overflow: auto;
-    }
-
-    .p-listbox-list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .p-listbox-item {
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .p-listbox-item-group {
-        cursor: auto;
-    }
-
-    .p-listbox-filter-container {
-        position: relative;
-    }
-
-    .p-listbox-filter-icon {
-        position: absolute;
-        top: 50%;
-        margin-top: -0.5rem;
-    }
-
-    .p-listbox-filter {
-        width: 100%;
-    }
-}
-`;
-
 const classes = {
     root: ({ instance, props }) => [
         'p-listbox p-component',
@@ -66,6 +28,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'listbox',
-    css,
     classes
 });

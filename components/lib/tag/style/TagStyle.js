@@ -1,25 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-tag {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .p-tag-icon,
-    .p-tag-value,
-    .p-tag-icon.pi {
-        line-height: 1.5;
-    }
-
-    .p-tag.p-tag-rounded {
-        border-radius: 10rem;
-    }
-}
-`;
-
 const classes = {
     root: ({ props }) => [
         'p-tag p-component',
@@ -39,6 +19,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tag',
-    css,
     classes
 });

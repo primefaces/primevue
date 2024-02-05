@@ -121,7 +121,6 @@ export default {
                 {
                     'layout-news-active': this.$appState.newsActive,
                     'p-ripple-disabled': this.$appState.ripple === false,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'layout-dark': this.$appState.darkTheme,
                     'layout-light': !this.$appState.darkTheme
                 }

@@ -1,79 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-carousel {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .p-carousel-content {
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-    }
-
-    .p-carousel-prev,
-    .p-carousel-next {
-        align-self: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .p-carousel-container {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .p-carousel-items-content {
-        overflow: hidden;
-        width: 100%;
-    }
-
-    .p-carousel-items-container {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .p-carousel-indicators {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .p-carousel-indicator > button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Vertical */
-    .p-carousel-vertical .p-carousel-container {
-        flex-direction: column;
-    }
-
-    .p-carousel-vertical .p-carousel-items-container {
-        flex-direction: column;
-        height: 100%;
-    }
-
-    /* Keyboard Support */
-    .p-items-hidden .p-carousel-item {
-        visibility: hidden;
-    }
-
-    .p-items-hidden .p-carousel-item.p-carousel-item-active {
-        visibility: visible;
-    }
-}
-`;
-
 const classes = {
     root: ({ instance }) => [
         'p-carousel p-component',
@@ -130,6 +56,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'carousel',
-    css,
     classes
 });

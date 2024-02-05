@@ -1,104 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-dropdown {
-        display: inline-flex;
-        cursor: pointer;
-        position: relative;
-        user-select: none;
-    }
-
-    .p-dropdown-clear-icon {
-        position: absolute;
-        top: 50%;
-        margin-top: -0.5rem;
-    }
-
-    .p-dropdown-trigger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .p-dropdown-label {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        flex: 1 1 auto;
-        width: 1%;
-        text-overflow: ellipsis;
-        cursor: pointer;
-    }
-
-    .p-dropdown-label-empty {
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    input.p-dropdown-label {
-        cursor: default;
-    }
-
-    .p-dropdown .p-dropdown-panel {
-        min-width: 100%;
-    }
-
-    .p-dropdown-panel {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .p-dropdown-items-wrapper {
-        overflow: auto;
-    }
-
-    .p-dropdown-item {
-        cursor: pointer;
-        font-weight: normal;
-        white-space: nowrap;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-    }
-
-    .p-dropdown-item-group {
-        cursor: auto;
-    }
-
-    .p-dropdown-items {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    .p-dropdown-filter {
-        width: 100%;
-    }
-
-    .p-dropdown-filter-container {
-        position: relative;
-    }
-
-    .p-dropdown-filter-icon {
-        position: absolute;
-        top: 50%;
-        margin-top: -0.5rem;
-    }
-
-    .p-fluid .p-dropdown {
-        display: flex;
-    }
-
-    .p-fluid .p-dropdown .p-dropdown-label {
-        width: 1%;
-    }
-}
-`;
-
 const classes = {
     root: ({ instance, props, state }) => [
         'p-dropdown p-component p-inputwrapper',
@@ -159,6 +60,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'dropdown',
-    css,
     classes
 });

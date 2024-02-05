@@ -1,16 +1,25 @@
 <template>
-    <DocComponent title="Vue MeterGroup Component" header="MeterGroup" description="MeterGroup is a group of process status indicators." :componentDocs="docs" :apiDocs="['MeterGroup']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent
+        title="Vue MeterGroup Component"
+        header="MeterGroup"
+        description="MeterGroup displays scalar measurements within a known range."
+        :componentDocs="docs"
+        :apiDocs="['MeterGroup']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/metergroup/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/metergroup/BasicDoc.vue';
-import MultipleDoc from '@/doc/metergroup/MultipleDoc.vue';
+import IconDoc from '@/doc/metergroup/IconDoc.vue';
 import ImportDoc from '@/doc/metergroup/ImportDoc.vue';
-import VerticalDoc from '@/doc/metergroup/VerticalDoc.vue';
 import LabelDoc from '@/doc/metergroup/LabelDoc.vue';
-import TemplatingDoc from '@/doc/metergroup/TemplatingDoc.vue';
 import MinMaxDoc from '@/doc/metergroup/MinMaxDoc.vue';
+import MultipleDoc from '@/doc/metergroup/MultipleDoc.vue';
+import TemplateDoc from '@/doc/metergroup/TemplateDoc.vue';
+import VerticalDoc from '@/doc/metergroup/VerticalDoc.vue';
 import PTComponent from '@/doc/metergroup/pt/index.vue';
 import ThemingDoc from '@/doc/metergroup/theming/index.vue';
 
@@ -34,6 +43,11 @@ export default {
                     component: MultipleDoc
                 },
                 {
+                    id: 'icon',
+                    label: 'Icon',
+                    component: IconDoc
+                },
+                {
                     id: 'label',
                     label: 'Label',
                     component: LabelDoc
@@ -49,9 +63,9 @@ export default {
                     component: MinMaxDoc
                 },
                 {
-                    id: 'templating',
-                    label: 'Templating',
-                    component: TemplatingDoc
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'accessibility',
