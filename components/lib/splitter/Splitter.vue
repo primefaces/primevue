@@ -158,14 +158,16 @@ export default {
             this.onResize(event, step, true);
         },
         setTimer(event, index, step) {
-            this.clearTimer();
-            this.timer = setTimeout(() => {
-                this.repeat(event, index, step);
-            }, 40);
+            if (!this.timer) {
+                this.timer = setInterval(() => {
+                    this.repeat(event, index, step);
+                }, 40);
+            }
         },
         clearTimer() {
             if (this.timer) {
-                clearTimeout(this.timer);
+                clearInterval(this.timer);
+                this.timer = null;
             }
         },
         onGutterKeyUp() {
