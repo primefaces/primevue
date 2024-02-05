@@ -42,12 +42,12 @@ export default {
                 if (newValue) {
                     const { variables, css } = this.$globalTheme;
                     /* variables */
-                    const { dark, ...rest } = variables || {};
+                    //const { dark, ...rest } = variables || {};
 
                     // common + light
-                    this.$style?.loadTheme(toVariables({ [this.$style.name]: rest }).css, { name: `${this.$style.name}-variables`, nonce: this.$config?.csp?.nonce });
+                    //this.$style?.loadTheme(toVariables({ [this.$style.name]: rest }).css, { name: `${this.$style.name}-variables`, nonce: this.$config?.csp?.nonce });
                     // dark
-                    this.$style?.loadTheme(toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css, { name: `${this.$style.name}-dark-variables`, nonce: this.$config?.csp?.nonce });
+                    //this.$style?.loadTheme(toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css, { name: `${this.$style.name}-dark-variables`, nonce: this.$config?.csp?.nonce });
 
                     /* css */
                     this.$style?.loadTheme(css, { useStyleOptions: this.$styleOptions });
@@ -124,13 +124,23 @@ export default {
             BaseComponentStyle.loadGlobalTheme(this.$presetTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
         },
         _loadThemeVariables() {
-            const { components, ...rest } = this.$presetTheme;
+            const { primitive, semantic } = this.$presetTheme;
+            const { colorScheme, ...sRest } = semantic || {};
+            const { dark, ...csRest } = colorScheme || {};
 
-            Object.entries(rest).forEach(([key, value]) => {
+            // primitive
+            BaseStyle.loadTheme(toVariables({ primitive }).css, { name: 'primitive-variables', nonce: this.$config?.csp?.nonce });
+
+            // semantic -> light + common
+            const light_common_css = `${toVariables({ light: { ...sRest, ...csRest } }).css}${toVariables({ dark }, { selector: '.p-dark' }).css}`;
+
+            BaseStyle.loadTheme(light_common_css, { name: 'semantic-variables', nonce: this.$config?.csp?.nonce });
+
+            /*Object.entries(rest).forEach(([key, value]) => {
                 const v = toVariables({ [key]: value });
 
                 BaseStyle.loadTheme(v.css, { name: `${key}-variables`, nonce: this.$config?.csp?.nonce });
-            });
+            });*/
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;

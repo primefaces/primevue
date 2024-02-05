@@ -3,7 +3,7 @@ import SharedUtils from './sharedUtils';
 const VARIABLE = {
     PREFIX: 'p',
     SELECTOR: ':root',
-    EXCLUDED_KEY_REGEX: /^(primitive|semantic|light|common|root|states)$/gi
+    EXCLUDED_KEY_REGEX: /^(primitive|semantic|colorscheme|light|common|root|states)$/gi
 };
 
 export default function (theme, options = {}) {

@@ -6,7 +6,7 @@ export default {
     align-items: center;
     border: var(--p-panel-header-border-width) var(--p-panel-header-border-style) var(--p-panel-header-border-color);
     padding: var(--p-panel-header-padding-y) var(--p-panel-header-padding-x);
-    background: var(--p-surface-100, --p-dark-surface-900);
+    background: var(--p-dark-surface-900, var(--p-surface-100));
     color: var(--p-panel-header-color);
     border-top-right-radius: var(--p-border-radius);
     border-top-left-radius: var(--p-border-radius);

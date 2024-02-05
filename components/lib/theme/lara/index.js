@@ -147,7 +147,7 @@ export default {
                 textColor: '{dark.surface.0}',
                 textSecondaryColor: '{dark.surface.500}',
                 borderColor: '{dark.surface.700}'
-            },
+            }
         },
         common: {
             fontFamily: '"Inter var", sans-serif',
