@@ -18,13 +18,6 @@ export default {
         }
     },*/
     mounted() {
-        /*const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
-        const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
-            this.applyTheme({ theme: 'lara-dark-green', dark: true });
-        })*/
-
         EventBus.on('theme-change', this.themeChangeListener);
     },
     beforeUnmount() {

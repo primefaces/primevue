@@ -52,22 +52,12 @@ export default {
             expire.setTime(today.getTime() + 3600000 * 24 * 7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
-
-        const preferredColorScheme = localStorage.getItem(this.$appState.colorSchemeKey);
-        const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if ((preferredColorScheme === null && prefersDarkColorScheme) || preferredColorScheme === 'dark') {
-            this.replaceTableTheme('aura-dark-green');
-        } else {
-            this.replaceTableTheme('aura-light-green');
-        }
     },
     methods: {
         onDarkModeToggle() {
             const newTheme = this.$appState.darkTheme ? 'aura-light-green' : 'aura-dark-green';
             const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
-            localStorage.setItem(this.$appState.colorSchemeKey, this.$appState.darkTheme ? 'light' : 'dark');
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
             this.replaceTableTheme(newTableTheme);
         },
