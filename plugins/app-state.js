@@ -8,8 +8,7 @@ const $appState = {
             newsActive: false,
             announcement: null,
             ripple: false,
-            storageKey: 'primevue',
-            colorSchemeKey: 'primevue-color-scheme'
+            storageKey: 'primevue'
         });
     }
 };
