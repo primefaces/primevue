@@ -156,7 +156,7 @@ export default {
             return this.orientation === 'both';
         },
         scrollTo(options) {
-            this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
+            //this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
             this.element && this.element.scrollTo(options);
         },
         scrollToIndex(index, behavior = 'auto') {
@@ -166,6 +166,7 @@ export default {
 
             if (valid) {
                 const first = this.first;
+                const { scrollTop = 0, scrollLeft = 0 } = this.element;
                 const { numToleratedItems } = this.calculateNumItems();
                 const contentPos = this.getContentPosition();
                 const itemSize = this.itemSize;
@@ -173,20 +174,23 @@ export default {
                 const calculateCoord = (_first, _size, _cpos) => _first * _size + _cpos;
                 const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
                 let newFirst = both ? { rows: 0, cols: 0 } : 0;
-                let isRangeChanged = false;
+                let isRangeChanged = false,
+                    isScrollChanged = false;
 
                 if (both) {
                     newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
                     scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPos.left), calculateCoord(newFirst.rows, itemSize[0], contentPos.top));
+                    isScrollChanged = this.lastScrollPos.top !== scrollTop || this.lastScrollPos.left !== scrollLeft;
                     isRangeChanged = newFirst.rows !== first.rows || newFirst.cols !== first.cols;
                 } else {
                     newFirst = calculateFirst(index, numToleratedItems);
-                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, itemSize, contentPos.top));
+                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), scrollTop) : scrollTo(scrollLeft, calculateCoord(newFirst, itemSize, contentPos.top));
+                    isScrollChanged = this.lastScrollPos !== (horizontal ? scrollLeft : scrollTop);
                     isRangeChanged = newFirst !== first;
                 }
 
                 this.isRangeChanged = isRangeChanged;
-                this.first = newFirst;
+                isScrollChanged && (this.first = newFirst);
             }
         },
         scrollInView(index, to, behavior = 'auto') {
