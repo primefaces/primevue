@@ -7,7 +7,6 @@
  * @module inputswitch
  *
  */
-import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -136,10 +135,6 @@ export interface InputSwitchProps {
      * Inline style of the input field.
      */
     inputStyle?: object | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
