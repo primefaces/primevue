@@ -1,4 +1,6 @@
+import avatar from 'primevue/theme/aura/avatar';
 import divider from 'primevue/theme/aura/divider';
+import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
 import panel from 'primevue/theme/aura/panel';
 
@@ -151,9 +153,6 @@ export default {
                 textColor: 'var(--p-dark-highlight-text-color, var(--p-highlight-text-color))'
             },
             anchorGutter: '2px',
-            hover: {
-                bg: 'var(--p-dark-hover-bg, var(--p-hover-bg))'
-            },
             mask: {
                 bg: 'rgba(0,0,0,0.4)'
             }
@@ -162,6 +161,8 @@ export default {
     components: {
         global,
         panel,
-        divider
+        divider,
+        fieldset,
+        avatar
     }
 };

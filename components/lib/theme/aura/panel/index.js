@@ -41,7 +41,7 @@ export default {
 
 .p-panel-header-icon:enabled:hover {
     color: var(--p-text-color);
-    background: var(--p-hover-bg);
+    background: var(--p-dark-hover-bg, var(--p-hover-bg));
 }
 
 .p-panel-header-icon:focus-visible {
