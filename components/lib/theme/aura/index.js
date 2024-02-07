@@ -131,7 +131,7 @@ export default {
             },
             surface: {
                 card: 'var(--p-dark-surface-900, var(--p-surface-0))',
-                border: 'var(--p-dark-surface-700, var(--p-surface-200))',
+                border: 'var(--p-dark-surface-800, var(--p-surface-200))',
                 ground: 'var(--p-dark-surface-950, var(--p-surface-50))',
                 overlay: 'var(--p-dark-surface-900, var(--p-surface-0))',
                 hover: 'var(--p-dark-hover-bg, var(--p-hover-bg))'

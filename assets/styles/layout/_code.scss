@@ -128,24 +128,6 @@ pre[class*="language-"] {
 
 pre[class*="language-"] {    
     code {
-        background: var(--demo-code-bg);
-    }
-}
-
-.layout-light {
-    &[data-p-theme^="md"] {
-        pre[class*="language-"] {    
-            code {
-                background: var(--surface-900);
-            }
-        }
-    }
-
-    &[data-p-theme^="aura-light-noir"] {
-        pre[class*="language-"] {    
-            code {
-                background: var(--surface-950);
-            }
-        }
+        background: var(--p-dark-surface-900, var(--p-surface-800));
     }
 }

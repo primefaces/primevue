@@ -37,18 +37,18 @@
                 width: 100%;
                 align-items: center;
                 padding: .5rem 0;
-                color: var(--surface-900);
+                color: var(--p-text-color);
                 font-weight: 600;
                 transition: all .2s;
                 position: relative;
-                border-radius: var(--border-radius);
+                border-radius: var(--p-border-radius);
 
                 .menu-icon {
                     width: 2rem;
                     height: 2rem;
-                    border-radius: var(--border-radius);
+                    border-radius: var(--p-border-radius);
                     margin-right: .5rem;
-                    border: 1px solid var(--surface-border);
+                    border: 1px solid var(--p-surface-border);
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
@@ -57,19 +57,19 @@
                     background-color: transparent;
     
                     i {
-                        color: var(--surface-700);
+                        color: var(--p-text-color);
                         transition: all .2s;
                     }
                 }
     
                 .menu-toggle-icon {
-                    color: var(--surface-700);
+                    color: var(--p-text-secondary-color);
                     margin-left: auto;
                 }
 
                 &:hover {
                     .menu-icon {
-                        background-color: var(--surface-card);
+                        background-color: var(--p-surface-card);
 
                         i {
                             color: var(--primary-color-default);
@@ -102,15 +102,14 @@
 
                     li {
                         a {
-                            color: var(--surface-700);
-                            border-left: 1px solid var(--surface-border);
+                            border-left: 1px solid var(--p-surface-border);
                             transition: all .2s;
                             font-weight: 450;
                             display: flex;
                             align-items: center;
                             padding: .5rem .5rem .5rem 1rem;
-                            color: var(--surface-700);
-                            transition: all .2s;
+                            color: var(--p-text-color);
+                            transition: border-color .2s;
                             position: relative;
 
                             &:focus-visible {
@@ -119,8 +118,7 @@
                             }
             
                             &:hover {
-                                color: var(--surface-900);
-                                border-left-color: var(--surface-500);
+                                border-left-color: var(--p-dark-surface-600, var(--p-surface-400));
                             }
 
                             &.router-link-active {
@@ -163,7 +161,7 @@
             font-size: .875rem;
             font-weight: 600;
             letter-spacing: 1px;
-            color: var(--surface-900);
+            color: var(--p-text-secondary-color);
             margin-bottom: .25rem;
         }
     }

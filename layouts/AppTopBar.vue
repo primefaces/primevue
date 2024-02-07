@@ -128,11 +128,12 @@
 
 <script>
 import AppConfigurator from '@/layouts/AppConfigurator';
+import EventBus from '@/layouts/AppEventBus';
 import pkg from '@/package.json';
 import docsearch from '@docsearch/js';
 
 export default {
-    emits: ['menubutton-click', 'configbutton-click', 'darkswitch-click'],
+    emits: ['menubutton-click'],
     outsideClickListener: null,
     props: {
         showMenuButton: {
@@ -193,8 +194,8 @@ export default {
         onMenuButtonClick(event) {
             this.$emit('menubutton-click', event);
         },
-        toggleDarkMode(event) {
-            this.$emit('darkswitch-click', event);
+        toggleDarkMode() {
+            EventBus.emit('theme-change', { dark: !this.$appState.darkTheme });
         },
         bindScrollListener() {
             if (!this.scrollListener) {

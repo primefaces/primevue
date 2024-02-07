@@ -1,7 +1,7 @@
 <template>
     <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews />
-        <AppTopBar @menubutton-click="onMenuButtonClick" @darkswitch-click="onDarkModeToggle" />
+        <AppTopBar @menubutton-click="onMenuButtonClick" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <app-menu :active="sidebarActive" />
@@ -19,7 +19,6 @@
 
 <script>
 import DomHandler from '@/components/lib/utils/DomHandler';
-import EventBus from '@/layouts/AppEventBus';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
 import AppNews from './AppNews.vue';
@@ -67,20 +66,6 @@ export default {
             }
 
             return false;
-        },
-        onDarkModeToggle() {
-            /*let newTheme = null;
-            let currentTheme = this.$appState.theme;
-
-            if (this.$appState.darkTheme) {
-                newTheme = currentTheme.replace('dark', 'light');
-            } else {
-                if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
-                else newTheme = 'aura-dark-green'; //fallback
-            }
-
-            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });*/
-            EventBus.emit('theme-change', { dark: !this.$appState.darkTheme });
         }
     },
     computed: {

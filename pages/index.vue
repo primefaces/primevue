@@ -1,7 +1,7 @@
 <template>
     <div :class="landingClass">
         <AppNews />
-        <AppTopBar :showConfigurator="false" :showMenuButton="false" @darkswitch-click="onDarkModeToggle" />
+        <AppTopBar :showMenuButton="false" @darkswitch-click="onDarkModeToggle" />
         <HeroSection />
         <FeaturesSection />
         <UsersSection />

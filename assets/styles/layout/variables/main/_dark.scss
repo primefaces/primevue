@@ -2,14 +2,8 @@
     --primary-color-default:var(--p-dark-primary-400);
     --primary-color-inverse-default:var(--p-dark-zinc-900);
     --card-border: 1px solid transparent;
-    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--primary-color) 0%, #000000 100%);
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--p-primary-color) 0%, #000000 100%);
     --glow-blend: hard-light, color-dodge;
     --topbar-sticky-bg:rgba(0,0,0,.3);
     --mobile-menu-bg: rgba(0,0,0,.3);
-    --demo-code-bg: var(--p-dark-surface-900);
-    --demo-code-button-color: var(--p-dark-surface-300);
-    --demo-code-button-hover-bg: rgba(255,255,255,.1);
-    --demo-code-button-hover-color: var(--p-dark-surface-100);
-    --doc-highlight-text-bg: var(--p-dark-surface-800);
-    --doc-highlight-text-color: var(--p-dark-surface-300);
 }
