@@ -104,7 +104,7 @@
 
         .config-panel {
             position: absolute;
-            top: 2.5rem;
+            top: calc(100% + 2px);
             right: 0;
             width: 14rem;
             padding: .75rem;
@@ -140,10 +140,13 @@
                         height: 1rem;
                         border-radius: 50%;
                         cursor: pointer;
+                        outline-color: transparent;
+                        outline-width: 2px;
+                        outline-style: solid;
+                        outline-offset: 1px;
     
                         &.active-color {
-                            outline: 2px solid currentcolor;
-                            outline-offset: 2px;
+                            outline-color: var(--primary-color-default);
                         }
                     }
                 }
@@ -179,7 +182,7 @@
             background-color: var(--p-surface-overlay);
             position: absolute;
             right: 0;
-            top: auto;
+            top: calc(100% + 2px);
             border-radius: var(--p-border-radius);
             border: 1px solid var(--p-surface-border);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
