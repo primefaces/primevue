@@ -114,7 +114,7 @@ export default {
                     950: '{zinc.950}'
                 },
                 highlight: {
-                    bg: 'color-mix(in srgb, {primary.50}, transparency %16)',
+                    bg: 'color-mix(in srgb, {primary.400}, transparent 84%)',
                     textColor: 'rgba(255,255,255,.87)'
                 },
                 hover: {
@@ -141,10 +141,6 @@ export default {
                 color: 'var(--p-dark-primary-400, var(--p-primary-500))',
                 colorInverse: 'var(--p-dark-surface-900, var(--p-surface-0))',
                 colorText: 'var(--p-primary-color-inverse)'
-            },
-            highlight: {
-                bg: 'var(--p-dark-highlight-bg, var(--p-highlight-bg))',
-                textColor: 'var(--p-dark-highlight-text-color, var(--p-highlight-text-color))'
             },
             anchorGutter: '2px',
             mask: {

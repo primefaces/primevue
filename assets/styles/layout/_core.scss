@@ -25,8 +25,8 @@ a {
 }
 
 ::selection {
-    background-color: var(--p-highlight-bg);
-    color: var(--p-highlight-text-color);
+    background-color: var(--p-dark-highlight-bg, var(--p-highlight-bg));
+    color: var(--p-dark-highlight-text-color, var(--p-highlight-text-color));
 } 
 
 h1, h2, h3, h4, h5, h6 {
