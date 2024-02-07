@@ -3,6 +3,7 @@ import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
 import panel from 'primevue/theme/aura/panel';
+import splitter from 'primevue/theme/aura/splitter';
 
 export default {
     primitive: {
@@ -127,7 +128,7 @@ export default {
             borderRadius: '6px',
             transitionDuration: '.2s',
             focusRing: {
-                width: '2px',
+                width: '1px',
                 style: 'solid',
                 color: '{primary.500}',
                 offset: '2px'
@@ -163,6 +164,7 @@ export default {
         panel,
         divider,
         fieldset,
-        avatar
+        avatar,
+        splitter
     }
 };
