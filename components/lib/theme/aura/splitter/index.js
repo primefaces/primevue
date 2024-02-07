@@ -5,7 +5,7 @@ export default {
     flex-wrap: nowrap;
     border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
     background: var(--p-dark-surface-900, var(--p-surface-0));
-    border-radius: 6px;
+    border-radius: var(--p-border-radius);
     color: var(--p-text-color);
 }
 
@@ -24,7 +24,7 @@ export default {
 }
 
 .p-splitter-gutter-handle {
-    border-radius: 6px;
+    border-radius: var(--p-border-radius);
     background: transparent;
     outline-color: transparent;
 }
