@@ -48,7 +48,7 @@
                     height: 2rem;
                     border-radius: var(--p-border-radius);
                     margin-right: .5rem;
-                    border: 1px solid var(--p-surface-border);
+                    border: 1px solid var(--surface-border);
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
@@ -69,7 +69,7 @@
 
                 &:hover {
                     .menu-icon {
-                        background-color: var(--p-surface-card);
+                        background-color: var(--surface-card);
 
                         i {
                             color: var(--primary-color-default);
@@ -102,7 +102,7 @@
 
                     li {
                         a {
-                            border-left: 1px solid var(--p-surface-border);
+                            border-left: 1px solid var(--surface-border);
                             transition: all .2s;
                             font-weight: 450;
                             display: flex;

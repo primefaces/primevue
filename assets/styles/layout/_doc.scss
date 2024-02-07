@@ -12,7 +12,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        border-bottom: 1px solid var(--p-surface-border);
+        border-bottom: 1px solid var(--surface-border);
         content: '';
     }
 
@@ -163,7 +163,7 @@
 
     > .navbar-item {
         .navbar-item-content {
-            border-left: 1px solid var(--p-surface-border);
+            border-left: 1px solid var(--surface-border);
             padding-left: .25rem;
             transition: all .2s;
 
@@ -293,7 +293,7 @@
     margin-bottom: 1.5rem;
 
     th {
-        border-bottom: 1px solid var(--p-surface-border);
+        border-bottom: 1px solid var(--surface-border);
         padding: .75rem 1rem;
         text-align: left;
         text-transform: capitalize;
@@ -301,12 +301,12 @@
 
     tbody {
         tr:hover {
-            background: var(--p-surface-hover);
+            background: var(--surface-hover);
         }
 
         td {
             padding: .75rem 1rem;
-            border-bottom: 1px solid var(--p-surface-border);
+            border-bottom: 1px solid var(--surface-border);
             white-space: pre-line;
             line-height: 1.5;
             scroll-margin-top: 6.5rem;
@@ -381,8 +381,8 @@
                 border-radius: 6px;
                 padding: 2px 6px;
                 max-width: min-content;
-                border-color: var(--p-surface-border);
-                background-color: var(--p-surface-card);
+                border-color: var(--surface-border);
+                background-color: var(--surface-card);
                 color: var(--p-text-secondary-color);
             }
 

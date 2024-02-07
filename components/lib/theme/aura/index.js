@@ -133,13 +133,6 @@ export default {
                 color: '{primary.500}',
                 offset: '2px'
             },
-            surface: {
-                card: 'var(--p-dark-surface-900, var(--p-surface-0))',
-                border: 'var(--p-dark-surface-800, var(--p-surface-200))',
-                ground: 'var(--p-dark-surface-950, var(--p-surface-50))',
-                overlay: 'var(--p-dark-surface-900, var(--p-surface-0))',
-                hover: 'var(--p-dark-hover-bg, var(--p-hover-bg))'
-            },
             text: {
                 color: 'var(--p-dark-surface-0, var(--p-surface-700))',
                 secondaryColor: 'var(--p-dark-surface-400, var(--p-surface-500))'

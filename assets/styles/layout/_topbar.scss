@@ -8,7 +8,7 @@
     border-bottom: 1px solid transparent;
 
     &.layout-topbar-sticky {
-        border-bottom: 1px solid var(--p-surface-border);
+        border-bottom: 1px solid var(--surface-border);
         background-color: var(--topbar-sticky-bg);
         backdrop-filter: blur(8px);
     }
@@ -73,14 +73,14 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            border: 1px solid var(--p-surface-border);
+            border: 1px solid var(--surface-border);
             width: 2rem;
             height: 2rem;
             transition: all .2s;
             border-radius: 6px;
             margin: 0;
             padding: 0;
-            background-color: var(--p-surface-card);
+            background-color: var(--surface-card);
             cursor: pointer;
     
             @include focus-visible();
@@ -108,9 +108,9 @@
             right: 0;
             width: 14rem;
             padding: .75rem;
-            background-color: var(--p-surface-overlay);
+            background-color: var(--surface-overlay);
             border-radius: var(--p-border-radius);
-            border: 1px solid var(--p-surface-border);
+            border: 1px solid var(--surface-border);
             transform-origin: top;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             
@@ -179,12 +179,12 @@
 
         .versions-panel {
             padding: .25rem;
-            background-color: var(--p-surface-overlay);
+            background-color: var(--surface-overlay);
             position: absolute;
             right: 0;
             top: calc(100% + 2px);
             border-radius: var(--p-border-radius);
-            border: 1px solid var(--p-surface-border);
+            border: 1px solid var(--surface-border);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transform-origin: top;
             width: 8rem;
@@ -210,7 +210,7 @@
                     overflow: hidden;
 
                     &:hover {
-                        background-color: var(--p-surface-hover);
+                        background-color: var(--surface-hover);
                     }
 
                     span:first-child {

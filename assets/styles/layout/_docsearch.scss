@@ -1,8 +1,8 @@
 .DocSearch-Button {
     border-radius: var(--p-border-radius);
-    border: 1px solid var(--p-surface-border);
+    border: 1px solid var(--surface-border);
     height: 2rem;
-    background-color: var(--p-surface-card);
+    background-color: var(--surface-card);
     margin: 0;
     transition: all .3s;
     padding: 0 .5rem;
@@ -79,20 +79,20 @@
 }
 
 .DocSearch-Modal {
-    border: 1px solid var(--p-surface-border);
+    border: 1px solid var(--surface-border);
     box-shadow: none;
 }
 
 .DocSearch-Footer {
     box-shadow: none;
-    border-top: 1px solid var(--p-surface-border);
-    background-color: var(--p-surface-overlay);
+    border-top: 1px solid var(--surface-border);
+    background-color: var(--surface-overlay);
 }
 
 .DocSearch-Form {
-    background: var(--p-surface-card);
+    background: var(--surface-card);
     box-shadow: none;
-    border: 1px solid var(--p-surface-border);
+    border: 1px solid var(--surface-border);
     border-radius: var(--p-border-radius);
     transition: border-color .3s;
 
@@ -106,7 +106,7 @@
 }
 
 .DocSearch-Hit {
-    border-bottom: 1px solid var(--p-surface-border);
+    border-bottom: 1px solid var(--surface-border);
     padding-bottom: 0;
     margin-bottom: .25rem;
 }
@@ -130,16 +130,16 @@
 }
 
 :root {
-    --docsearch-searchbox-focus-background: var(--p-surface-card);
+    --docsearch-searchbox-focus-background: var(--surface-card);
     --docsearch-text-color: var(--p-text-color);
     --docsearch-muted-color: var(--p-text-color);
-    --docsearch-searchbox-background: var(--p-surface-card);
+    --docsearch-searchbox-background: var(--surface-card);
     --docsearch-text-color: var(--p-text-color);
-    --docsearch-modal-background: var(--p-surface-overlay);
-    --docsearch-key-gradient: var(--p-surface-ground);
+    --docsearch-modal-background: var(--surface-overlay);
+    --docsearch-key-gradient: var(--surface-ground);
     --docsearch-key-shadow: none;
     --docsearch-container-background: var(--p-mask-bg);
-    --docsearch-hit-background: var(--p-surface-overlay);
+    --docsearch-hit-background: var(--surface-overlay);
     --docsearch-hit-shadow: none;
     --docsearch-spacing: 1rem;
     --docsearch-hit-color: var(--p-text-color);
