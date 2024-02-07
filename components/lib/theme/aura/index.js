@@ -1,3 +1,4 @@
+import divider from 'primevue/theme/aura/divider';
 import global from 'primevue/theme/aura/global';
 import panel from 'primevue/theme/aura/panel';
 
@@ -160,6 +161,7 @@ export default {
     },
     components: {
         global,
-        panel
+        panel,
+        divider
     }
 };

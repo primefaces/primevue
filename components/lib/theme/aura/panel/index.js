@@ -3,7 +3,7 @@ export default {
 .p-panel {
     border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
     border-radius: 6px;
-    background-color: var(--p-dark-surface-900, var(--p-surface-0));
+    background: var(--p-dark-surface-900, var(--p-surface-0));
     color: var(--p-text-color);
 }
 
