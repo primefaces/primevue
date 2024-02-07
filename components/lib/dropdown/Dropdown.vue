@@ -80,6 +80,7 @@
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
+                                @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
