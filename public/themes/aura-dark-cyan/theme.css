@@ -11511,8 +11511,8 @@
     position: absolute;
     left: 0.25rem;
     top: 0.25rem;
-    width: calc(100% - .5rem);
-    height: calc(100% - .5rem);
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem);
     border-radius: 4px;
   }
   .p-selectbutton .p-button.p-highlight::before {
@@ -11610,7 +11610,7 @@
     margin-top: calc(-1rem + 1px);
   }
   .p-steps .p-steps-item:first-child::before {
-    width: calc(50% + math.div($stepsItemNumberWidth,2));
+    width: calc(50% + 1rem);
     transform: translateX(100%);
   }
   .p-steps .p-steps-item:last-child::before {
@@ -11808,8 +11808,8 @@
     position: absolute;
     left: 0.25rem;
     top: 0.25rem;
-    width: calc(100% - .5rem);
-    height: calc(100% - .5rem);
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem);
     border-radius: 4px;
   }
   .p-togglebutton.p-highlight .p-button::before {
