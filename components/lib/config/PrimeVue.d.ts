@@ -222,7 +222,7 @@ export interface PrimeVuePTOptions {
         animate?: AnimateOnScrollDirectivePassThroughOptions;
     };
     global?: {
-        css?: (options: any) => string | string | undefined;
+        css?: ((options: any) => string | undefined) | string | undefined;
     };
 }
 
