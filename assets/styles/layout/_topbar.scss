@@ -8,7 +8,7 @@
     border-bottom: 1px solid transparent;
 
     &.layout-topbar-sticky {
-        border-bottom: 1px solid var(--surface-border);
+        border-bottom: 1px solid var(--p-surface-border);
         background-color: var(--topbar-sticky-bg);
         backdrop-filter: blur(8px);
     }
@@ -28,7 +28,7 @@
 
     .layout-topbar-logo,
     .layout-topbar-icon {
-        border-radius: var(--border-radius);
+        border-radius: 6px;
         @include focus-visible();
 
         svg {
@@ -54,5 +54,177 @@
     
     .menu-button {
         display: none;
+    }
+
+    .topbar-items {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: 0.5rem;
+        align-items: center;
+
+        li {
+            position: relative;
+        }
+
+        .topbar-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--p-surface-border);
+            width: 2rem;
+            height: 2rem;
+            transition: all .2s;
+            border-radius: 6px;
+            margin: 0;
+            padding: 0;
+            background-color: var(--p-surface-card);
+            cursor: pointer;
+    
+            @include focus-visible();
+    
+            &:hover {
+                border-color: var(--primary-color-default);
+            }
+    
+            i, span {
+                color: var(--p-text-color);
+            }
+        }
+
+        .config-item {
+            background-color: var(--p-primary-color);
+            
+            i {
+                color: var(--p-primary-color-inverse);
+            }
+        }
+
+        .config-panel {
+            position: absolute;
+            top: 2.5rem;
+            right: 0;
+            width: 14rem;
+            padding: .75rem;
+            background-color: var(--p-surface-overlay);
+            border-radius: var(--p-border-radius);
+            border: 1px solid var(--p-surface-border);
+            transform-origin: top;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            
+            .config-panel-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .config-panel-label {
+                font-size: .875rem;
+                color: var(--p-text-secondary-color);
+                font-weight: 600;
+                line-height: 1;
+            }
+
+            .config-panel-colors {
+                > div {
+                    padding-top: .5rem;
+                    display: flex;
+                    gap: .5rem;
+                    flex-wrap: wrap;
+    
+                    button {
+                        border: none;
+                        width: 1em;
+                        height: 1rem;
+                        border-radius: 50%;
+                        cursor: pointer;
+    
+                        &.active-color {
+                            outline: 2px solid currentcolor;
+                            outline-offset: 2px;
+                        }
+                    }
+                }
+            }
+
+            .config-panel-settings {
+                > div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .version-item {
+            width: auto;
+            padding: 0.5rem;
+
+            .version-text {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .version-icon {
+                margin-left: .25rem;
+                color: var(--p-text-secondary-color);
+            }
+        }
+
+        .versions-panel {
+            padding: .25rem;
+            background-color: var(--p-surface-overlay);
+            position: absolute;
+            right: 0;
+            top: auto;
+            border-radius: var(--p-border-radius);
+            border: 1px solid var(--p-surface-border);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transform-origin: top;
+            width: 8rem;
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                li {
+                    margin: 2px;
+
+                }
+
+                a {
+                    display: inline-flex;
+                    padding: 0.5rem .75rem;
+                    border-radius: var(--p-border-radius);
+                    width: 100%;
+                    overflow: hidden;
+
+                    &:hover {
+                        background-color: var(--p-surface-hover);
+                    }
+
+                    span:first-child {
+                        font-weight: bold;
+                        color: var(--p-dark-surface-0, var(--p-surface-900));
+                    }
+
+                    span:last-child {
+                        margin-left: 0.5rem;
+                        color: var(--p-text-color);
+                        white-space: nowrap;
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
     }
 }

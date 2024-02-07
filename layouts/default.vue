@@ -1,8 +1,7 @@
 <template>
     <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews />
-        <AppTopBar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" @darkswitch-click="onDarkModeToggle" />
-        <AppConfigurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" @darkswitch-click="onDarkModeToggle" />
+        <AppTopBar @menubutton-click="onMenuButtonClick" @darkswitch-click="onDarkModeToggle" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <app-menu :active="sidebarActive" />
@@ -21,7 +20,6 @@
 <script>
 import DomHandler from '@/components/lib/utils/DomHandler';
 import EventBus from '@/layouts/AppEventBus';
-import AppConfigurator from './AppConfigurator';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
 import AppNews from './AppNews.vue';
@@ -30,43 +28,21 @@ import AppTopBar from './AppTopBar.vue';
 export default {
     data() {
         return {
-            sidebarActive: false,
-            appConfigActive: false,
-            defaultRipple: false
+            sidebarActive: false
         };
     },
     watch: {
         $route: {
             immediate: true,
-            handler(to, from) {
+            handler() {
                 if (!process.client || typeof window === 'undefined') {
                     return;
-                }
-
-                if (!this.defaultRipple) {
-                    if (to.name === 'ripple') {
-                        this.$appState.ripple = true;
-                    } else if (from?.name === 'ripple') {
-                        this.$appState.ripple = this.defaultRipple;
-                    }
                 }
 
                 this.sidebarActive = false;
                 DomHandler.unblockBodyScroll('blocked-scroll');
                 this.$toast.removeAllGroups();
             }
-        }
-    },
-    beforeCreate() {
-        this.defaultRipple = this.$appState.ripple;
-    },
-    mounted() {
-        if (this.isOutdatedIE()) {
-            this.$toast.add({
-                severity: 'warn',
-                summary: 'Limited Functionality',
-                detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'
-            });
         }
     },
     methods: {
@@ -91,12 +67,6 @@ export default {
             }
 
             return false;
-        },
-        onConfigButtonClick() {
-            this.appConfigActive = true;
-        },
-        onUpdateConfigActive() {
-            this.appConfigActive = false;
         },
         onDarkModeToggle() {
             /*let newTheme = null;
@@ -129,7 +99,6 @@ export default {
         AppTopBar,
         AppMenu,
         AppFooter,
-        AppConfigurator,
         AppNews
     }
 };

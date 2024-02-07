@@ -73,8 +73,13 @@ export default {
                     900: '{slate.900}',
                     950: '{slate.950}'
                 },
-                textColor: '{surface.700}',
-                textSecondaryColor: '{surface.500}'
+                highlight: {
+                    bg: '{primary.50}',
+                    textColor: '{primary.700}'
+                },
+                hover: {
+                    bg: '{surface.100}'
+                }
             },
             dark: {
                 primary: {
@@ -104,12 +109,18 @@ export default {
                     900: '{zinc.900}',
                     950: '{zinc.950}'
                 },
-                textColor: '{dark.surface.0}',
-                textSecondaryColor: '{dark.surface.400}'
+                highlight: {
+                    bg: 'color-mix(in srgb, {primary.50}, transparency %16)',
+                    textColor: 'rgba(255,255,255,.87)'
+                },
+                hover: {
+                    bg: 'rgba(255, 255, 255, 0.03)'
+                }
             }
         },
         common: {
-            fontFamily: '"Inter var", sans-serif',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+            fontFeatureSettings: '"cv02", "cv03", "cv04", "cv11"',
             borderRadius: '6px',
             transitionDuration: '.2s',
             focusRing: {
@@ -121,7 +132,26 @@ export default {
             surface: {
                 card: 'var(--p-dark-surface-900, var(--p-surface-0))',
                 border: 'var(--p-dark-surface-700, var(--p-surface-200))',
-                ground: 'var(--p-dark-surface-950, var(--p-surface-50))'
+                ground: 'var(--p-dark-surface-950, var(--p-surface-50))',
+                overlay: 'var(--p-dark-surface-900, var(--p-surface-0))',
+                hover: 'var(--p-dark-hover-bg, var(--p-hover-bg))'
+            },
+            text: {
+                color: 'var(--p-dark-surface-0, var(--p-surface-700))',
+                secondaryColor: 'var(--p-dark-surface-400, var(--p-surface-500))'
+            },
+            primary: {
+                color: 'var(--p-dark-primary-400, var(--p-primary-500))',
+                colorInverse: 'var(--p-dark-surface-900, var(--p-surface-0))',
+                colorText: 'var(--p-primary-color-inverse)'
+            },
+            highlight: {
+                bg: 'var(--p-dark-highlight-bg, var(--p-highlight-bg))',
+                textColor: 'var(--p-dark-highlight-text-color, var(--p-highlight-text-color))'
+            },
+            anchorGutter: '2px',
+            mask: {
+                bg: 'rgba(0,0,0,0.4)'
             }
         }
     },

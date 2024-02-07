@@ -1,0 +1,72 @@
+@keyframes px-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes px-fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes px-scalein {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.8);
+        transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes px-slidedown {
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: auto;
+    }
+}
+
+@keyframes px-slideup {
+    0% {
+        max-height: 1000px;
+    }
+    100% {
+        max-height: 0;
+    }
+}
+
+.px-hidden {
+    display: none;
+}
+
+.px-scalein {
+    animation: scalein 150ms linear;
+}
+
+.px-fadein {
+    animation: fadein 150ms linear;
+}
+
+.px-fadeout {
+    animation: fadeout 150ms linear;
+}
+
+.px-slidedown {
+    animation: slidedown 0.45s ease-in-out;
+}
+
+.px-slideup {
+    animation: slideup 0.45s cubic-bezier(0, 1, 0, 1);
+}
+  

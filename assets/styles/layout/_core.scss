@@ -9,13 +9,11 @@ body {
     overflow-y: auto;
     background-color: var(--p-surface-ground);
     font-weight: normal;
-    color: var(--text-color);
+    color: var(--p-text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.layout-wrapper {
-    background-color: var(--p-surface-ground);
+    font-family: var(--p-font-family);
+    font-feature-settings: var(--p-font-feature-settings);
 }
 
 a {
@@ -23,8 +21,8 @@ a {
 }
 
 ::selection {
-    background-color: var(--highlight-bg);
-    color: var(--highlight-text-color);
+    background-color: var(--p-highlight-bg);
+    color: var(--p-highlight-text-color);
 } 
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
     font-weight: 600;
     line-height: 1.2;
-    color: var(--surface-900);
+    color: var(--p-dark-surface-0, var(--p-surface-900));
 
     &:first-child {
         margin-top: 0;
@@ -68,16 +66,6 @@ p {
     margin: 0 0 1rem 0;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-}
-
 .p-toast.p-toast-top-right,
 .p-toast.p-toast-top-left {
     top: 7rem;
@@ -85,7 +73,7 @@ input[type="number"] {
 
 .px-link {
     font-size: 1rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--p-border-radius);
     text-align: left;
 	background-color: transparent;
 	margin: 0;
@@ -102,6 +90,6 @@ input[type="number"] {
 }
 
 button {
-    font-family: var(--font-family);
-    font-feature-settings: var(--font-feature-settings);
+    font-family: var(--p-font-family);
+    font-feature-settings: var(--p-font-feature-settings);
 }

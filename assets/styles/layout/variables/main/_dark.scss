@@ -1,17 +1,15 @@
-.layout-dark {
-    --primary-color-default:var(--primary-400);
-    --primary-color-inverse-default:var(--gray-900);
-    --topbar-sticky-bg:rgba(0,0,0,.3);
+:root[class="p-dark"] {
+    --primary-color-default:var(--p-dark-primary-400);
+    --primary-color-inverse-default:var(--p-dark-zinc-900);
     --card-border: 1px solid transparent;
-    --card-bg: var(--p-surface-card);
     --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--primary-color) 0%, #000000 100%);
     --glow-blend: hard-light, color-dodge;
-    --topbar-border: var(--surface-border);
+    --topbar-sticky-bg:rgba(0,0,0,.3);
     --mobile-menu-bg: rgba(0,0,0,.3);
-    --demo-code-bg: var(--surface-card);
-    --demo-code-button-color: var(--surface-500);
+    --demo-code-bg: var(--p-dark-surface-900);
+    --demo-code-button-color: var(--p-dark-surface-300);
     --demo-code-button-hover-bg: rgba(255,255,255,.1);
-    --demo-code-button-hover-color: var(--surface-700);
-    --doc-highlight-text-bg: var(--surface-50);
-    --doc-highlight-text-color: var(--surface-500);
+    --demo-code-button-hover-color: var(--p-dark-surface-100);
+    --doc-highlight-text-bg: var(--p-dark-surface-800);
+    --doc-highlight-text-color: var(--p-dark-surface-300);
 }
