@@ -6507,12 +6507,12 @@
     margin: 0;
   }
   .p-confirm-popup:after {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(42, 50, 61, 0);
     border-bottom-color: #2a323d;
   }
   .p-confirm-popup:before {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(63, 75, 91, 0);
     border-bottom-color: #3c4756;
   }
@@ -6834,12 +6834,12 @@
     color: #151515;
   }
   .p-overlaypanel:after {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(42, 50, 61, 0);
     border-bottom-color: #2a323d;
   }
   .p-overlaypanel:before {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(63, 75, 91, 0);
     border-bottom-color: #3c4756;
   }

@@ -6433,12 +6433,12 @@
     margin: 0;
   }
   .p-confirm-popup:after {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(255, 255, 255, 0);
     border-bottom-color: #ffffff;
   }
   .p-confirm-popup:before {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(200, 200, 200, 0);
     border-bottom-color: #bebebe;
   }
@@ -6760,12 +6760,12 @@
     color: #ffffff;
   }
   .p-overlaypanel:after {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(255, 255, 255, 0);
     border-bottom-color: #ffffff;
   }
   .p-overlaypanel:before {
-    border: solid transparent;
+    border-style: solid;
     border-color: rgba(200, 200, 200, 0);
     border-bottom-color: #bebebe;
   }
