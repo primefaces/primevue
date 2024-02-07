@@ -118,7 +118,7 @@ export default {
 
             colors.forEach((color, index) => {
                 document.documentElement.style.setProperty(`--p-${type}-${shades[index]}`, color);
-                document.documentElement.style.setProperty(`--p-dark-${type}-${shades[index]}`, color);
+                //document.documentElement.style.setProperty(`--p-dark-${type}-${shades[index]}`, color);
             });
         },
         onRippleChange(value) {

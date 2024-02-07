@@ -150,6 +150,9 @@ export default {
                 textColor: 'var(--p-dark-highlight-text-color, var(--p-highlight-text-color))'
             },
             anchorGutter: '2px',
+            hover: {
+                bg: 'var(--p-dark-hover-bg, var(--p-hover-bg))'
+            },
             mask: {
                 bg: 'rgba(0,0,0,0.4)'
             }
