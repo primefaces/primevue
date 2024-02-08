@@ -306,7 +306,7 @@ export default {
                 this.scrollInView({ element });
 
                 if (this.selectOnFocus) {
-                    const index = parseInt(element.parentElement.dataset.index, 10);
+                    const index = parseInt(element.parentElement.dataset.pcIndex, 10);
                     const tab = this.tabs[index];
 
                     this.changeActiveIndex(event, tab, index);
