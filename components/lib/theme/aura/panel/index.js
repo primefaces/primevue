@@ -1,13 +1,26 @@
 export default {
     variables: {
-        light: {},
-        dark: {}
+        common: {},
+        colorScheme: {
+            light: {
+                root: {
+                    borderColor: '{surface.200}',
+                    backgroundColor: '{white}'
+                }
+            },
+            dark: {
+                root: {
+                    borderColor: '{surface.700}',
+                    backgroundColor: '{surface.0}'
+                }
+            }
+        }
     },
     css: `
 .p-panel {
-    border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
+    border: 1px solid var(--p-panel-border-color);
     border-radius: var(--p-border-radius);
-    background: var(--p-dark-surface-900, var(--p-surface-0));
+    background: var(--p-dark-surface-900, var(--p-white));
     color: var(--p-dark-surface-0, var(--p-surface-700));
 }
 
