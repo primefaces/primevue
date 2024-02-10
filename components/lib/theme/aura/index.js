@@ -1,3 +1,4 @@
+import accordion from 'primevue/theme/aura/accordion';
 import avatar from 'primevue/theme/aura/avatar';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
@@ -140,10 +141,11 @@ export default {
     },
     components: {
         global,
-        panel,
+        accordion,
+        avatar,
         divider,
         fieldset,
-        avatar,
+        panel,
         splitter
     }
 };
