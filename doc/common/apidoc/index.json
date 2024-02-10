@@ -27152,14 +27152,6 @@
                             "type": "ComponentHooks",
                             "default": "",
                             "description": "Used to manage all lifecycle hooks."
-                        },
-                        {
-                            "name": "transition",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FloatLabelPassThroughTransitionType",
-                            "default": "",
-                            "description": "Used to control Vue Transition API."
                         }
                     ],
                     "methods": []
@@ -31913,14 +31905,6 @@
                             "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
-                        },
-                        {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
                             "name": "ariaLabelledby",

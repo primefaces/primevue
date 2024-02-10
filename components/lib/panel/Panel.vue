@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div :class="cx('header')" v-bind="ptm('header')">
             <slot :id="id + '_header'" name="header" :class="cx('title')">
                 <span v-if="header" :id="id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
@@ -49,6 +49,7 @@ import BasePanel from './BasePanel.vue';
 export default {
     name: 'Panel',
     extends: BasePanel,
+    inheritAttrs: false,
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {

@@ -8,7 +8,7 @@
             :aria-label="getOptionLabel(option)"
             :role="multiple ? 'checkbox' : 'radio'"
             :aria-checked="isSelected(option)"
-            :aria-disabled="optionDisabled"
+            :aria-disabled="isOptionDisabled(option)"
             :class="cx('button', { option })"
             @click="onOptionSelect($event, option, i)"
             @keydown="onKeydown($event, option, i)"

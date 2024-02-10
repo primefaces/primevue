@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.48.1](https://github.com/primefaces/primevue/tree/3.48.1) (2024-02-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.48.0...3.48.1)
+
+**Fixed bugs:**
+
+-   Fix PrimeVuePTOptions.global.css (missing parenthesis) [\#5232](https://github.com/primefaces/primevue/issues/5232)
+-   Overwritten styles defect [\#5231](https://github.com/primefaces/primevue/issues/5231)
+-   Steps: Aura extension defect [\#5230](https://github.com/primefaces/primevue/issues/5230)
+-   Remove missed inputProps from InputSwitch [\#5227](https://github.com/primefaces/primevue/issues/5227)
+-   The scrollToIndex method on VirtualScroller does not scroll to the correct index when triggered twice. [\#5223](https://github.com/primefaces/primevue/issues/5223)
+-   Splitter: Fix keyboard repeat behavior [\#5219](https://github.com/primefaces/primevue/issues/5219)
+-   Dropdown / MultiSelect : Incorrect alignment on filtering [\#5215](https://github.com/primefaces/primevue/issues/5215)
+
 ## [3.48.0](https://github.com/primefaces/primevue/tree/3.48.0) (2024-02-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.47.2...3.48.0)
