@@ -120,10 +120,16 @@ export default {
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
             const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || this.$config?.ptOptions || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
-            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
+            const self = searchOut ? undefined : this._getPTSelf(obj, this._getPTClassValue, key, { ...params, global: global || {} });
             const datasets = this._getPTDatasets(key);
 
             return mergeSections || (!mergeSections && self) ? (useMergeProps ? this._mergeProps(useMergeProps, global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
+        },
+        _getPTSelf(obj = {}, ...args) {
+            return mergeProps(
+                this._usePT(this._getPT(obj, this.$name), ...args), // Exp; <component :pt="{}"
+                this._usePT(this.$_attrsPT, ...args) // Exp; <component :pt:[passthrough_key]:[attribute]="{value}" or <component :pt:[passthrough_key]="() =>{value}"
+            );
         },
         _getPTDatasets(key = '') {
             const datasetPrefix = 'data-pc-';
@@ -187,6 +193,9 @@ export default {
         ptm(key = '', params = {}) {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
+        ptmi(key = '', params = {}) {
+            return mergeProps(this.$_attrsNoPT, this.ptm(key, params));
+        },
         ptmo(obj = {}, key = '', params = {}) {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
         },
@@ -240,6 +249,27 @@ export default {
         },
         $name() {
             return this.$options.hostName || this.$.type.name;
+        },
+        $_attrsPT() {
+            return Object.entries(this.$attrs || {})
+                .filter(([key]) => key?.startsWith('pt:'))
+                .reduce((result, [key, value]) => {
+                    const [, ...rest] = key.split(':');
+
+                    rest?.reduce((currentObj, nestedKey, index, array) => {
+                        !currentObj[nestedKey] && (currentObj[nestedKey] = index === array.length - 1 ? value : {});
+
+                        return currentObj[nestedKey];
+                    }, result);
+
+                    return result;
+                }, {});
+        },
+        $_attrsNoPT() {
+            // $attrs without `pt:*`
+            return Object.entries(this.$attrs || {})
+                .filter(([key]) => !key?.startsWith('pt:'))
+                .reduce((acc, [key, value]) => (acc[key] = value) && acc, {});
         }
     }
 };
