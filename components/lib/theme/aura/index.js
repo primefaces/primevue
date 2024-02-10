@@ -7,6 +7,7 @@ import global from 'primevue/theme/aura/global';
 import panel from 'primevue/theme/aura/panel';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import splitter from 'primevue/theme/aura/splitter';
+import toolbar from 'primevue/theme/aura/toolbar';
 
 export default {
     primitive: {
@@ -149,7 +150,8 @@ export default {
         divider,
         fieldset,
         panel,
+        scrollpanel,
         splitter,
-        scrollpanel
+        toolbar
     }
 };
