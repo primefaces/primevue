@@ -1,4 +1,8 @@
 export default {
+    variables: {
+        light: {},
+        dark: {}
+    },
     css: `
 .p-panel {
     border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
