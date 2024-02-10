@@ -7,6 +7,7 @@ import global from 'primevue/theme/aura/global';
 import panel from 'primevue/theme/aura/panel';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import splitter from 'primevue/theme/aura/splitter';
+import tabview from 'primevue/theme/aura/tabview';
 import toolbar from 'primevue/theme/aura/toolbar';
 
 export default {
@@ -152,6 +153,7 @@ export default {
         panel,
         scrollpanel,
         splitter,
+        tabview,
         toolbar
     }
 };

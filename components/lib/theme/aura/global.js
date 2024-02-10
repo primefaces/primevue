@@ -154,7 +154,7 @@ export default {
 
 .p-component-overlay {
     background-color: rgba(0, 0, 0, 0.4);
-    transition-duration: 0.2s;
+    transition-duration: var(--p-transition-duration);
 }
 
 .p-disabled,

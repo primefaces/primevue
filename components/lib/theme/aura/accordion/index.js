@@ -13,7 +13,7 @@ export default {
     background: var(--p-dark-surface-900, var(--p-surface-0));
     font-weight: 600;
     border-radius: var(--p-border-radius);
-    transition: color 0.2s, outline-color 0.2s;
+    transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
     outline-color: transparent;
 }
 
