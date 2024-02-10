@@ -2,9 +2,9 @@ export default {
     css: `
 .p-panel {
     border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
-    border-radius: 6px;
+    border-radius: var(--p-border-radius);
     background: var(--p-dark-surface-900, var(--p-surface-0));
-    color: var(--p-text-color);
+    color: var(--p-dark-surface-0, var(--p-surface-700));
 }
 
 .p-panel-header {
@@ -31,17 +31,17 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-text-secondary-color);
+    color: var(--p-dark-surface-400, var(--p-surface-500));
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color 0.2s, color 0.2s, outline-color 0.2s;
+    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
     outline-color: transparent;
 }
 
 .p-panel-header-icon:enabled:hover {
-    color: var(--p-text-color);
-    background: var(--p-dark-hover-bg, var(--p-hover-bg));
+    color: var(--p-dark-surface-300, var(--p-surface-600));
+    background: var(--p-dark-surface-800, var(--p-surface-100));
 }
 
 .p-panel-header-icon:focus-visible {

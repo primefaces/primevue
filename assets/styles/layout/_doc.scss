@@ -26,7 +26,7 @@
             display: block;
             padding: 0 2rem 1rem 2rem;
             text-align: center;
-            color: var(--p-text-color);
+            color: var(--text-color);
             font-size: 1rem;
             letter-spacing: 1px;
             cursor: pointer;
@@ -78,7 +78,7 @@
 
     p {
         font-size: 1.125rem;
-        color: var(--p-text-color);
+        color: var(--text-color);
         margin: 0;
 
         a {
@@ -120,7 +120,7 @@
 .doc-section-description {
     > p {
         font-size: 1rem;
-        color: var(--p-text-color);
+        color: var(--text-color);
 
         i {
             border-radius: 6px;
@@ -179,7 +179,7 @@
 
             .px-link {
                 padding: 0.25rem 1rem 0.25rem 1rem;
-                color: var(--p-text-color);
+                color: var(--text-color);
                 font-weight: 400;
                 white-space: nowrap;
                 min-width: 0;
@@ -190,7 +190,7 @@
 
             &:hover {
                 .px-link {
-                    color: var(--p-text-color);
+                    color: var(--text-color);
                 }
             }
         }
@@ -383,7 +383,7 @@
                 max-width: min-content;
                 border-color: var(--surface-border);
                 background-color: var(--surface-card);
-                color: var(--p-text-secondary-color);
+                color: var(--text-secondary-color);
             }
 
             .doc-option-parameter-name {

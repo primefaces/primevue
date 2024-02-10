@@ -80,9 +80,6 @@ export default {
                 highlight: {
                     bg: '{primary.50}',
                     textColor: '{primary.700}'
-                },
-                hover: {
-                    bg: '{surface.100}'
                 }
             },
             dark: {
@@ -116,9 +113,6 @@ export default {
                 highlight: {
                     bg: 'color-mix(in srgb, {primary.400}, transparent 84%)',
                     textColor: 'rgba(255,255,255,.87)'
-                },
-                hover: {
-                    bg: 'rgba(255, 255, 255, 0.03)'
                 }
             }
         },
@@ -132,10 +126,6 @@ export default {
                 style: 'solid',
                 color: '{primary.500}',
                 offset: '2px'
-            },
-            text: {
-                color: 'var(--p-dark-surface-0, var(--p-surface-700))',
-                secondaryColor: 'var(--p-dark-surface-400, var(--p-surface-500))'
             },
             primary: {
                 color: 'var(--p-dark-primary-400, var(--p-primary-500))',

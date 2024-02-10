@@ -37,7 +37,7 @@
                 width: 100%;
                 align-items: center;
                 padding: .5rem 0;
-                color: var(--p-text-color);
+                color: var(--text-color);
                 font-weight: 600;
                 transition: all .2s;
                 position: relative;
@@ -57,13 +57,13 @@
                     background-color: transparent;
     
                     i {
-                        color: var(--p-text-color);
+                        color: var(--text-color);
                         transition: all .2s;
                     }
                 }
     
                 .menu-toggle-icon {
-                    color: var(--p-text-secondary-color);
+                    color: var(--text-secondary-color);
                     margin-left: auto;
                 }
 
@@ -108,7 +108,7 @@
                             display: flex;
                             align-items: center;
                             padding: .5rem .5rem .5rem 1rem;
-                            color: var(--p-text-color);
+                            color: var(--text-color);
                             transition: border-color .2s;
                             position: relative;
 
@@ -161,7 +161,7 @@
             font-size: .875rem;
             font-weight: 600;
             letter-spacing: 1px;
-            color: var(--p-text-secondary-color);
+            color: var(--text-secondary-color);
             margin-bottom: .25rem;
         }
     }

@@ -63,6 +63,6 @@ export default {
 
 .p-avatar-group .p-avatar {
     border: 2px solid var(--p-dark-surface-900, var(--p-surface-0));
-}     
+}
     `
 };

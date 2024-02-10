@@ -90,7 +90,7 @@
             }
     
             i, span {
-                color: var(--p-text-color);
+                color: var(--text-color);
             }
         }
 
@@ -122,7 +122,7 @@
 
             .config-panel-label {
                 font-size: .875rem;
-                color: var(--p-text-secondary-color);
+                color: var(--text-secondary-color);
                 font-weight: 600;
                 line-height: 1;
             }
@@ -173,7 +173,7 @@
 
             .version-icon {
                 margin-left: .25rem;
-                color: var(--p-text-secondary-color);
+                color: var(--text-secondary-color);
             }
         }
 
@@ -220,7 +220,7 @@
 
                     span:last-child {
                         margin-left: 0.5rem;
-                        color: var(--p-text-color);
+                        color: var(--text-color);
                         white-space: nowrap;
                         display: block;
                         overflow: hidden;

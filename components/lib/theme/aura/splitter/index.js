@@ -6,7 +6,7 @@ export default {
     border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
     background: var(--p-dark-surface-900, var(--p-surface-0));
     border-radius: var(--p-border-radius);
-    color: var(--p-text-color);
+    color: var(--p-dark-surface-0, var(--p-surface-700));
 }
 
 .p-splitter-vertical {
@@ -26,6 +26,7 @@ export default {
 .p-splitter-gutter-handle {
     border-radius: var(--p-border-radius);
     background: transparent;
+    transition: outline-color var(--p-transition-duration);
     outline-color: transparent;
 }
 
