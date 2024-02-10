@@ -1,5 +1,6 @@
 import accordion from 'primevue/theme/aura/accordion';
 import avatar from 'primevue/theme/aura/avatar';
+import card from 'primevue/theme/aura/card';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
@@ -143,6 +144,7 @@ export default {
         global,
         accordion,
         avatar,
+        card,
         divider,
         fieldset,
         panel,
