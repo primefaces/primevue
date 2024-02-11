@@ -32,7 +32,7 @@ export default {
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
-            const _ptm = root === 'root' ? this.ptmi : this.ptm;
+            const _ptm = key === 'root' ? this.ptmi : this.ptm;
 
             return _ptm(key, {
                 context: {
