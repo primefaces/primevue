@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
             <div ref="content" :id="contentId" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
@@ -46,6 +46,7 @@ import BaseScrollPanel from './BaseScrollPanel.vue';
 export default {
     name: 'ScrollPanel',
     extends: BaseScrollPanel,
+    inheritAttrs: false,
     initialized: false,
     documentResizeListener: null,
     documentMouseMoveListener: null,

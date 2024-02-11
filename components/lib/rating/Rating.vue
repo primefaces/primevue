@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="getPTOptions('cancelItem', 0)" :data-p-focused="focusedOptionIndex === 0">
             <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
                 <input
@@ -58,6 +58,7 @@ import BaseRating from './BaseRating.vue';
 export default {
     name: 'Rating',
     extends: BaseRating,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     data() {
         return {

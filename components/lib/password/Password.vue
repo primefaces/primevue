@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <PInputText
             ref="input"
             :id="inputId"
@@ -64,6 +64,7 @@ import BasePassword from './BasePassword.vue';
 export default {
     name: 'Password',
     extends: BasePassword,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     data() {
         return {
