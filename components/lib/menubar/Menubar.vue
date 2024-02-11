@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :class="cx('root')" v-bind="ptm('root')">
+    <div :ref="containerRef" :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
@@ -62,6 +62,7 @@ import MenubarSub from './MenubarSub.vue';
 export default {
     name: 'Menubar',
     extends: BaseMenubar,
+    inheritAttrs: false,
     emits: ['focus', 'blur'],
     matchMediaListener: null,
     data() {

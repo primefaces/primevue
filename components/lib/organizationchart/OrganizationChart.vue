@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <OrganizationChartNode
             :node="value"
             :templates="$slots"
@@ -22,6 +22,7 @@ import OrganizationChartNode from './OrganizationChartNode.vue';
 export default {
     name: 'OrganizationChart',
     extends: BaseOrganizationChart,
+    inheritAttrs: false,
     emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
     data() {
         return {

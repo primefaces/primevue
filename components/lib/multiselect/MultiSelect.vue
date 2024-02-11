@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -214,6 +214,7 @@ import BaseMultiSelect from './BaseMultiSelect.vue';
 export default {
     name: 'MultiSelect',
     extends: BaseMultiSelect,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
     outsideClickListener: null,
     scrollHandler: null,

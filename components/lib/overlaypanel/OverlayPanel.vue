@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :onClose="hide" :onKeydown="(event) => onButtonKeydown(event)" :closeCallback="hide" :keydownCallback="(event) => onButtonKeydown(event)"></slot>
                 <template v-else>
                     <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
