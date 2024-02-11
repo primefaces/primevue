@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="toolbar" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
+    <div :class="cx('root')" role="toolbar" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <div :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
@@ -17,6 +17,7 @@ import BaseToolbar from './BaseToolbar.vue';
 
 export default {
     name: 'Toolbar',
-    extends: BaseToolbar
+    extends: BaseToolbar,
+    inheritAttrs: false
 };
 </script>

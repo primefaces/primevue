@@ -1,6 +1,6 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptm('root')">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptmi('root')">
             <slot
                 name="content"
                 :styleClass="contentClass"
@@ -51,14 +51,17 @@ import BaseVirtualScroller from './BaseVirtualScroller.vue';
 export default {
     name: 'VirtualScroller',
     extends: BaseVirtualScroller,
+    inheritAttrs: false,
     emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
     data() {
+        const both = this.isBoth();
+
         return {
-            first: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            last: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            page: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            numItemsInViewport: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            lastScrollPos: this.isBoth() ? { top: 0, left: 0 } : 0,
+            first: both ? { rows: 0, cols: 0 } : 0,
+            last: both ? { rows: 0, cols: 0 } : 0,
+            page: both ? { rows: 0, cols: 0 } : 0,
+            numItemsInViewport: both ? { rows: 0, cols: 0 } : 0,
+            lastScrollPos: both ? { top: 0, left: 0 } : 0,
             d_numToleratedItems: this.numToleratedItems,
             d_loading: this.loading,
             loaderArr: [],
