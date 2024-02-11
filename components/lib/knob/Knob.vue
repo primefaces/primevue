@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <svg
             viewBox="0 0 100 100"
             role="slider"
@@ -35,6 +35,7 @@ const Math_PI = 3.14159265358979;
 export default {
     name: 'Knob',
     extends: BaseKnob,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change'],
     data() {
         return {

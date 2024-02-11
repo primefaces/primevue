@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptm('root')">
+    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptmi('root')">
         <span
             ref="firstHiddenFocusableElement"
             role="presentation"
@@ -132,6 +132,7 @@ import BaseListbox from './BaseListbox.vue';
 export default {
     name: 'Listbox',
     extends: BaseListbox,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter'],
     list: null,
     virtualScroller: null,
