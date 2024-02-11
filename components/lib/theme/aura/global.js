@@ -1,22 +1,5 @@
 export default {
     css: `
-@font-face {
-    font-family: "Inter var";
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-    font-named-instance: "Regular";
-    src: url("./fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
-}
-@font-face {
-    font-family: "Inter var";
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: italic;
-    font-named-instance: "Italic";
-    src: url("./fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
-}
-
 .p-component,
 .p-component * {
     box-sizing: border-box;

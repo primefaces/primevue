@@ -4,24 +4,36 @@ export default {
         colorScheme: {
             light: {
                 root: {
-                    borderColor: '{surface.200}',
-                    backgroundColor: '{white}'
+                    border: '1px solid {surface.200}',
+                    background: '{surface.0}',
+                    textColor: '{surface.700}'
+                },
+                headerIcon: {
+                    color: '{surface.500}',
+                    colorHover: '{surface.600}',
+                    backgroundHover: '{surface.100}'
                 }
             },
             dark: {
                 root: {
-                    borderColor: '{surface.700}',
-                    backgroundColor: '{surface.0}'
+                    border: '1px solid {surface.700}',
+                    background: '{surface.900}',
+                    textColor: '{text.color}'
+                },
+                headerIcon: {
+                    color: '{surface.400}',
+                    colorHover: '{surface.300}',
+                    backgroundHover: '{surface.800}'
                 }
             }
         }
     },
     css: `
 .p-panel {
-    border: 1px solid var(--p-panel-border-color);
+    border: var(--p-panel-border);
     border-radius: var(--p-border-radius);
-    background: var(--p-dark-surface-900, var(--p-white));
-    color: var(--p-dark-surface-0, var(--p-surface-700));
+    background: var(--p-panel-background);
+    color: var(--p-panel-text-color);
 }
 
 .p-panel-header {
@@ -48,7 +60,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-dark-surface-400, var(--p-surface-500));
+    color: var(--p-panel-header-icon-color);
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -57,8 +69,8 @@ export default {
 }
 
 .p-panel-header-icon:enabled:hover {
-    color: var(--p-dark-surface-300, var(--p-surface-600));
-    background: var(--p-dark-surface-800, var(--p-surface-100));
+    color: var(--p-panel-header-icon-color-hover);
+    background: var(--p-panel-header-icon-background-hover);
 }
 
 .p-panel-header-icon:focus-visible {
