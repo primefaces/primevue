@@ -270,7 +270,11 @@ export default {
             // $attrs without `pt:*`
             return Object.entries(this.$attrs || {})
                 .filter(([key]) => !key?.startsWith('pt:'))
-                .reduce((acc, [key, value]) => (acc[key] = value) && acc, {});
+                .reduce((acc, [key, value]) => {
+                    acc[key] = value;
+
+                    return acc;
+                }, {});
         }
     }
 };
