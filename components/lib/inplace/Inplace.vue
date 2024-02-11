@@ -1,5 +1,5 @@
 <template>
-    <div v-focustrap :class="cx('root')" aria-live="polite" v-bind="ptm('root')">
+    <div v-focustrap :class="cx('root')" aria-live="polite" v-bind="ptmi('root')">
         <div v-if="!d_active" ref="display" :class="cx('display')" :tabindex="$attrs.tabindex || '0'" role="button" @click="open" @keydown.enter="open" v-bind="{ ...displayProps, ...ptm('display') }">
             <slot name="display"></slot>
         </div>
@@ -25,6 +25,7 @@ import BaseInplace from './BaseInplace.vue';
 export default {
     name: 'Inplace',
     extends: BaseInplace,
+    inheritAttrs: false,
     emits: ['open', 'close', 'update:active'],
     data() {
         return {

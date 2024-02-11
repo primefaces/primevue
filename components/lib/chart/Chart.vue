@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="{ ...canvasProps, ...ptm('canvas') }"></canvas>
     </div>
 </template>
@@ -10,6 +10,7 @@ import BaseChart from './BaseChart.vue';
 export default {
     name: 'Chart',
     extends: BaseChart,
+    inheritAttrs: false,
     emits: ['select', 'loaded'],
     chart: null,
     watch: {

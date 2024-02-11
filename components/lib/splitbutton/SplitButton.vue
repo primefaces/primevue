@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" :style="style" v-bind="ptm('root')" :data-pc-severity="severity">
+    <div :class="containerClass" :style="style" v-bind="ptmi('root')" :data-p-severity="severity">
         <PVSButton
             type="button"
             :class="cx('button')"
@@ -69,6 +69,7 @@ import BaseSplitButton from './BaseSplitButton.vue';
 export default {
     name: 'SplitButton',
     extends: BaseSplitButton,
+    inheritAttrs: false,
     emits: ['click'],
     data() {
         return {

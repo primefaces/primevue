@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')">
+    <span :class="cx('root')" v-bind="ptmi('root')">
         <INInputText
             ref="input"
             :id="inputId"
@@ -90,6 +90,7 @@ import BaseInputNumber from './BaseInputNumber.vue';
 export default {
     name: 'InputNumber',
     extends: BaseInputNumber,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
     numberFormat: null,
     _numeral: null,

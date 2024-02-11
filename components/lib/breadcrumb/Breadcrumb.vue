@@ -1,5 +1,5 @@
 <template>
-    <nav :class="cx('root')" v-bind="ptm('root')">
+    <nav :class="cx('root')" v-bind="ptmi('root')">
         <ol :class="cx('menu')" v-bind="ptm('menu')">
             <BreadcrumbItem v-if="home" :item="home" :class="cx('home')" :templates="$slots" :pt="pt" :unstyled="unstyled" v-bind="ptm('home')" />
             <template v-for="(item, i) of model" :key="item.label + '_' + i">
@@ -22,9 +22,10 @@ import BreadcrumbItem from './BreadcrumbItem.vue';
 export default {
     name: 'Breadcrumb',
     extends: BaseBreadcrumb,
+    inheritAttrs: false,
     components: {
-        BreadcrumbItem: BreadcrumbItem,
-        ChevronRightIcon: ChevronRightIcon
+        BreadcrumbItem,
+        ChevronRightIcon
     }
 };
 </script>

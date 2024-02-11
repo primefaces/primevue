@@ -1,5 +1,5 @@
 <template>
-    <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptm('root')">
+    <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptmi('root')">
         <slot>
             <img v-if="image" :src="image" v-bind="ptm('image')" />
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
@@ -19,6 +19,7 @@ import BaseChip from './BaseChip.vue';
 export default {
     name: 'Chip',
     extends: BaseChip,
+    inheritAttrs: false,
     emits: ['remove'],
     data() {
         return {

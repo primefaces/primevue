@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root', ptmParams)" />
+    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptmi('root', ptmParams)" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import BaseInputMask from './BaseInputMask.vue';
 export default {
     name: 'InputMask',
     extends: BaseInputMask,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     watch: {
         mask(newMask, oldMask) {

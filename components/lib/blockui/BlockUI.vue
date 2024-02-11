@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :aria-busy="isBlocked" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" :aria-busy="isBlocked" v-bind="ptmi('root')">
         <slot></slot>
     </div>
 </template>
@@ -11,6 +11,7 @@ import BaseBlockUI from './BaseBlockUI.vue';
 export default {
     name: 'BlockUI',
     extends: BaseBlockUI,
+    inheritAttrs: false,
     emits: ['block', 'unblock'],
     mask: null,
     data() {

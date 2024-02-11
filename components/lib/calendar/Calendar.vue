@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -521,6 +521,7 @@ import BaseCalendar from './BaseCalendar.vue';
 export default {
     name: 'Calendar',
     extends: BaseCalendar,
+    inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     navigationState: null,
     timePickerChange: false,

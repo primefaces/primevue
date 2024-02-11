@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div ref="toolbarElement" :class="cx('toolbar')" v-bind="ptm('toolbar')">
             <slot name="toolbar">
                 <span class="ql-formats" v-bind="ptm('formats')">
@@ -62,6 +62,7 @@ const QuillJS = (function () {
 export default {
     name: 'Editor',
     extends: BaseEditor,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'text-change', 'selection-change', 'load'],
     data() {
         return {

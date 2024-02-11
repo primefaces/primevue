@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" :style="style" v-bind="ptm('root')">
+    <span :class="containerClass" :style="style" v-bind="ptmi('root')">
         <slot name="image" :onError="onError" :errorCallback="onError">
             <img :style="imageStyle" :class="[cx('image'), imageClass]" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
