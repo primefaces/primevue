@@ -41,16 +41,14 @@ export default {
             handler(newValue) {
                 if (newValue) {
                     const { variables, css } = this.$globalTheme;
-                    /* variables */
-                    //const { dark, ...rest } = variables || {};
+                    const { colorScheme, ...vRest } = variables || {};
+                    const { dark, ...csRest } = colorScheme || {};
+                    const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [this.$style.name]: vRest }).css : '';
+                    const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ [this.$style.name]: csRest }).css : '';
+                    const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css : '';
+                    const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
 
-                    // common + light
-                    //this.$style?.loadTheme(toVariables({ [this.$style.name]: rest }).css, { name: `${this.$style.name}-variables`, nonce: this.$config?.csp?.nonce });
-                    // dark
-                    //this.$style?.loadTheme(toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css, { name: `${this.$style.name}-dark-variables`, nonce: this.$config?.csp?.nonce });
-
-                    /* css */
-                    this.$style?.loadTheme(css, { useStyleOptions: this.$styleOptions });
+                    this.$style?.loadTheme(`${variables_css}${css}`, { useStyleOptions: this.$styleOptions });
                 }
             }
         }
@@ -124,7 +122,16 @@ export default {
             BaseComponentStyle.loadGlobalTheme(this.$presetTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
         },
         _loadThemeVariables() {
-            const { primitive, semantic } = this.$presetTheme;
+            const { variables } = this.$presetTheme;
+            const { colorScheme, ...vRest } = variables || {};
+            const { dark, ...csRest } = colorScheme || {};
+            const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ light: vRest }).css : '';
+            const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ light: csRest }).css : '';
+            const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ dark }, { selector: '.p-dark' }).css : '';
+            const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
+
+            BaseStyle.loadTheme(variables_css, { name: 'theme-variables', nonce: this.$config?.csp?.nonce });
+            /*const { primitive, semantic } = this.$presetTheme;
             const { colorScheme, ...sRest } = semantic || {};
             const { dark, ...csRest } = colorScheme || {};
 
@@ -140,7 +147,8 @@ export default {
                 const v = toVariables({ [key]: value });
 
                 BaseStyle.loadTheme(v.css, { name: `${key}-variables`, nonce: this.$config?.csp?.nonce });
-            });*/
+            });
+            */
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
