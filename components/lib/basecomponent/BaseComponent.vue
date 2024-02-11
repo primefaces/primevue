@@ -194,6 +194,7 @@ export default {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
         ptmi(key = '', params = {}) {
+            // inheritAttrs:true without `pt:*`
             return mergeProps(this.$_attrsNoPT, this.ptm(key, params));
         },
         ptmo(obj = {}, key = '', params = {}) {

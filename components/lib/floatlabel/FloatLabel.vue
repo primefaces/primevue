@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')">
+    <span :class="cx('root')" v-bind="ptmi('root')">
         <slot />
     </span>
 </template>
@@ -9,6 +9,7 @@ import BaseFloatLabel from './BaseFloatLabel.vue';
 
 export default {
     name: 'FloatLabel',
-    extends: BaseFloatLabel
+    extends: BaseFloatLabel,
+    inheritAttrs: false
 };
 </script>

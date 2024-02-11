@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" :style="style" v-bind="ptm('root')">
+    <div :class="containerClass" :style="style" v-bind="ptmi('root')">
         <DockSub :model="model" :templates="$slots" :tooltipOptions="tooltipOptions" :position="position" :menuId="menuId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex" :pt="pt" :unstyled="unstyled"></DockSub>
     </div>
 </template>
@@ -11,6 +11,7 @@ import DockSub from './DockSub.vue';
 export default {
     name: 'Dock',
     extends: BaseDock,
+    inheritAttrs: false,
     matchMediaListener: null,
     data() {
         return {

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="region" v-bind="ptm('root')">
+    <div :class="cx('root')" role="region" v-bind="ptmi('root')">
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
@@ -107,6 +107,7 @@ import BaseCarousel from './BaseCarousel.vue';
 export default {
     name: 'Carousel',
     extends: BaseCarousel,
+    inheritAttrs: false,
     emits: ['update:page'],
     isRemainingItemsAdded: false,
     data() {

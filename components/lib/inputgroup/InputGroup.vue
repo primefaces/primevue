@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <slot />
     </div>
 </template>
@@ -9,6 +9,7 @@ import BaseInputGroup from './BaseInputGroup.vue';
 
 export default {
     name: 'InputGroup',
-    extends: BaseInputGroup
+    extends: BaseInputGroup,
+    inheritAttrs: false
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick($event)" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick($event)" v-bind="ptmi('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -89,6 +89,7 @@ import CascadeSelectSub from './CascadeSelectSub.vue';
 export default {
     name: 'CascadeSelect',
     extends: BaseCascadeSelect,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,
     scrollHandler: null,

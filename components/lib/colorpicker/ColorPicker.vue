@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" v-bind="ptmi('root')">
         <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
@@ -29,6 +29,7 @@ import BaseColorPicker from './BaseColorPicker.vue';
 export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
     data() {
         return {

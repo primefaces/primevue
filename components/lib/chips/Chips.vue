@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <ul
             ref="container"
             :class="cx('container')"
@@ -64,6 +64,7 @@ import BaseChips from './BaseChips.vue';
 export default {
     name: 'Chips',
     extends: BaseChips,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {

@@ -1,5 +1,5 @@
 <template>
-    <fieldset :class="cx('root')" v-bind="ptm('root')">
+    <fieldset :class="cx('root')" v-bind="ptmi('root')">
         <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
                 <span :id="id + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
@@ -45,6 +45,7 @@ import BaseFieldset from './BaseFieldset.vue';
 export default {
     name: 'Fieldset',
     extends: BaseFieldset,
+    inheritAttrs: false,
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isAdvanced" :class="cx('root')" v-bind="ptm('root')">
+    <div v-if="isAdvanced" :class="cx('root')" v-bind="ptmi('root')">
         <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" v-bind="ptm('input')" />
         <div :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
             <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div v-else-if="isBasic" :class="cx('root')" v-bind="ptm('root')">
+    <div v-else-if="isBasic" :class="cx('root')" v-bind="ptmi('root')">
         <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('messages')">{{ msg }}</FileUploadMessage>
         <span v-ripple :class="chooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0" v-bind="ptm('chooseButton')">
             <slot v-if="!hasFiles || auto" name="uploadicon" :class="cx('uploadIcon')">
@@ -67,6 +67,7 @@ import FileContent from './FileContent.vue';
 export default {
     name: 'FileUpload',
     extends: BaseFileUpload,
+    inheritAttrs: false,
     emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'remove-uploaded-file'],
     duplicateIEEvent: false,
     data() {

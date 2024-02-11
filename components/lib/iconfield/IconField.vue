@@ -1,14 +1,15 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <slot />
     </div>
 </template>
 
 <script>
-import BaseIconFeild from './BaseIconField.vue';
+import BaseIconField from './BaseIconField.vue';
 
 export default {
     name: 'IconField',
-    extends: BaseIconFeild
+    extends: BaseIconField,
+    inheritAttrs: false
 };
 </script>

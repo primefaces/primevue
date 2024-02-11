@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
+    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
         <input
             v-if="editable"
             ref="focusInput"
@@ -194,6 +194,7 @@ import BaseDropdown from './BaseDropdown.vue';
 export default {
     name: 'Dropdown',
     extends: BaseDropdown,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
     outsideClickListener: null,
     scrollHandler: null,

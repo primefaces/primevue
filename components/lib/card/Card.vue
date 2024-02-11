@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
@@ -27,6 +27,7 @@ import BaseCard from './BaseCard.vue';
 
 export default {
     name: 'Card',
-    extends: BaseCard
+    extends: BaseCard,
+    inheritAttrs: false
 };
 </script>

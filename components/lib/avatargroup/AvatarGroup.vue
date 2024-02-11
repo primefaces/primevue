@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <slot></slot>
     </div>
 </template>
@@ -9,6 +9,7 @@ import BaseAvatarGroup from './BaseAvatarGroup.vue';
 
 export default {
     name: 'AvatarGroup',
-    extends: BaseAvatarGroup
+    extends: BaseAvatarGroup,
+    inheritAttrs: false
 };
 </script>
