@@ -8,8 +8,8 @@
     border-bottom: 1px solid transparent;
 
     &.layout-topbar-sticky {
-        border-bottom: 1px solid var(--surface-border);
-        background-color: var(--topbar-sticky-bg);
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--topbar-sticky-background);
         backdrop-filter: blur(8px);
     }
 }
@@ -28,7 +28,8 @@
 
     .layout-topbar-logo,
     .layout-topbar-icon {
-        border-radius: 6px;
+        transition: outline-color .2s;
+        outline-color: transparent;
         @include focus-visible();
 
         svg {
@@ -73,20 +74,21 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            border: 1px solid var(--surface-border);
+            border: 1px solid var(--border-color);
             width: 2rem;
             height: 2rem;
-            transition: all .2s;
+            transition: outline-color .2s, border-color .2s;
             border-radius: 6px;
             margin: 0;
             padding: 0;
-            background-color: var(--surface-card);
+            outline-color: transparent;
+            background-color: var(--card-background);
             cursor: pointer;
     
             @include focus-visible();
     
             &:hover {
-                border-color: var(--primary-color-default);
+                border-color: var(--p-primary-color);
             }
     
             i, span {
@@ -98,7 +100,7 @@
             background-color: var(--p-primary-color);
             
             i {
-                color: var(--p-primary-color-inverse);
+                color: var(--p-primary-inverse-color);
             }
         }
 
@@ -108,9 +110,9 @@
             right: 0;
             width: 14rem;
             padding: .75rem;
-            background-color: var(--surface-overlay);
-            border-radius: var(--p-border-radius);
-            border: 1px solid var(--surface-border);
+            background-color: var(--overlay-background);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
             transform-origin: top;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             
@@ -146,7 +148,7 @@
                         outline-offset: 1px;
     
                         &.active-color {
-                            outline-color: var(--primary-color-default);
+                            outline-color: var(--p-primary-color);
                         }
                     }
                 }
@@ -179,12 +181,12 @@
 
         .versions-panel {
             padding: .25rem;
-            background-color: var(--surface-overlay);
+            background-color: var(--overlay-background);
             position: absolute;
             right: 0;
             top: calc(100% + 2px);
-            border-radius: var(--p-border-radius);
-            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transform-origin: top;
             width: 8rem;
@@ -205,17 +207,17 @@
                 a {
                     display: inline-flex;
                     padding: 0.5rem .75rem;
-                    border-radius: var(--p-border-radius);
+                    border-radius: 6px;
                     width: 100%;
                     overflow: hidden;
 
                     &:hover {
-                        background-color: var(--surface-hover);
+                        background-color: var(--hover-background);
                     }
 
                     span:first-child {
                         font-weight: bold;
-                        color: var(--p-dark-surface-0, var(--p-surface-900));
+                        color: var(--high-contrast-text-color);
                     }
 
                     span:last-child {

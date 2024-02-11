@@ -1,5 +1,7 @@
 html {
     font-size: 14px;
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-feature-settings: "cv02","cv03","cv04","cv11";
 }
 
 body {
@@ -7,17 +9,15 @@ body {
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--surface-ground);
+    background-color: var(--ground-background);
     font-weight: normal;
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--p-font-family);
-    font-feature-settings: var(--p-font-feature-settings);
 }
 
 .layout-wrapper {
-    background-color: var(--surface-ground);
+    background-color: var(--ground-background);
 }
 
 a {
@@ -25,8 +25,8 @@ a {
 }
 
 ::selection {
-    background-color: var(--p-dark-highlight-bg, var(--p-highlight-bg));
-    color: var(--p-dark-highlight-text-color, var(--p-highlight-text-color));
+    background-color: var(--selection-background);
+    color: var(--selection-text-color);
 } 
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
     font-weight: 600;
     line-height: 1.2;
-    color: var(--p-dark-surface-0, var(--p-surface-900));
+    color: var(--high-contrast-text-color);
 
     &:first-child {
         margin-top: 0;
@@ -77,7 +77,7 @@ p {
 
 .px-link {
     font-size: 1rem;
-    border-radius: var(--p-border-radius);
+    border-radius: 6px;
     text-align: left;
 	background-color: transparent;
 	margin: 0;
@@ -85,7 +85,6 @@ p {
 	border: none;
     cursor: pointer;
     user-select: none;
-
     @include focus-visible();
 }
 
@@ -94,6 +93,6 @@ p {
 }
 
 button {
-    font-family: var(--p-font-family);
-    font-feature-settings: var(--p-font-feature-settings);
+    font-family: inherit;
+    font-feature-settings: inherit;
 }

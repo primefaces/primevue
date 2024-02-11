@@ -85,10 +85,14 @@ export default {
                 },
                 primary: {
                     color: '{primary.500}',
-                    colorInverse: '{primary.0}'
+                    inverseColor: '#ffffff'
+                },
+                text: {
+                    color: '{surface.700}',
+                    secondaryColor: '{surface.500}'
                 },
                 highlight: {
-                    bg: '{primary.50}',
+                    background: '{primary.50}',
                     textColor: '{primary.700}'
                 }
             },
@@ -109,10 +113,14 @@ export default {
                 },
                 primary: {
                     color: '{primary.400}',
-                    colorInverse: '{surface.900}'
+                    inverseColor: '{surface.900}'
+                },
+                text: {
+                    color: '{surface.700}',
+                    secondaryColor: '{surface.500}'
                 },
                 highlight: {
-                    bg: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                    background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
                     textColor: 'rgba(255,255,255,.87)'
                 }
             }

@@ -12,7 +12,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        border-bottom: 1px solid var(--surface-border);
+        border-bottom: 1px solid var(--border-color);
         content: '';
     }
 
@@ -31,14 +31,16 @@
             letter-spacing: 1px;
             cursor: pointer;
             margin: 0;
-            transition: all 0.2s;
+            transition: outline-color 0.2s, border-color 0.2s;
+            outline-color: transparent;
             border-bottom: 1px solid transparent;
-            border-top-right-radius: var(--p-border-radius);
-            border-top-left-radius: var(--p-border-radius);
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
             white-space: nowrap;
+            --focus-ring-offset: -1px;
 
             &:hover {
-                border-bottom-color: var(--p-dark-surface-600, var(--p-surface-400));
+                border-bottom-color: var(--hover-border-color);
             }
 
             &:focus {
@@ -50,8 +52,8 @@
 
         &.doc-tabmenu-active {
             button {
-                border-bottom-color: var(--primary-color-default);
-                color: var(--primary-color-default);
+                border-bottom-color: var(--primary-text-color);
+                color: var(--primary-text-color);
             }
         }
     }
@@ -78,7 +80,6 @@
 
     p {
         font-size: 1.125rem;
-        color: var(--text-color);
         margin: 0;
 
         a {
@@ -97,12 +98,13 @@
     scroll-margin-top: 6.5rem;
 
     > a {
-        color: var(--primary-color-default);
+        color: var(--primary-text-color);
         opacity: 0.7;
         margin-left: 1rem;
         display: none;
-        transition: all .2s;
-        border-radius: var(--p-border-radius);
+        transition: outline-color 0.2s, border-color 0.2s, opacity 0.2s;
+        outline-color: transparent;
+        border-radius: 6px;
         @include focus-visible();
     }
 
@@ -120,7 +122,6 @@
 .doc-section-description {
     > p {
         font-size: 1rem;
-        color: var(--text-color);
 
         i {
             border-radius: 6px;
@@ -128,8 +129,8 @@
             font-size: .875rem;
             font-weight: 500;
             font-style: normal;
-            background-color: var(--p-dark-surface-800, var(--p-surface-200));
-            color: var(--p-dark-surface-300, var(--p-surface-700));
+            background: var(--mark-background);
+            color: var(--mark-text);
         }
 
         a {
@@ -142,8 +143,8 @@
         padding: 1rem;
         font-weight: 500;
         border-radius: 10px;
-        background-color:  var(--p-dark-surface-800, var(--p-surface-200));
-        color: var(--p-dark-surface-300, var(--p-surface-700));
+        background: var(--mark-background);
+        color: var(--mark-text);
     }
 }
 
@@ -163,12 +164,12 @@
 
     > .navbar-item {
         .navbar-item-content {
-            border-left: 1px solid var(--surface-border);
+            border-left: 1px solid var(--border-color);
             padding-left: .25rem;
             transition: all .2s;
 
             &:hover {
-                border-left-color: var(--p-dark-surface-600, var(--p-surface-400));
+                border-left-color: var(--hover-border-color);
             }
         }
     }
@@ -185,7 +186,8 @@
                 min-width: 0;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                transition: all .2s;
+                transition: outline-color 0.2s, border-color .2s;
+                outline-color: transparent;
             }
 
             &:hover {
@@ -197,10 +199,10 @@
 
         &.active-navbar-item {
             > .navbar-item-content {
-                border-color: var(--primary-color-default);
+                border-color: var(--primary-text-color);
 
                 .px-link {
-                    color: var(--primary-color-default);
+                    color: var(--primary-text-color);
                 }
             }
         }
@@ -261,12 +263,12 @@
         background-color: transparent;
         transition: background-color .2s, box-shadow .2s;
         border: 0 none;
-        color: var(--p-dark-surface-300, var(--p-surface-300));
+        color: var(--code-button-text-color);
         cursor: pointer;
 
         &:hover {
             background-color: rgba(255,255,255,.1);
-            color: var(--p-dark-surface-100, var(--p-surface-100));
+            color: var(--code-button-text-color);
         }
 
         &.code-active {
@@ -293,7 +295,7 @@
     margin-bottom: 1.5rem;
 
     th {
-        border-bottom: 1px solid var(--surface-border);
+        border-bottom: 1px solid var(--border-color);
         padding: .75rem 1rem;
         text-align: left;
         text-transform: capitalize;
@@ -301,25 +303,25 @@
 
     tbody {
         tr:hover {
-            background: var(--surface-hover);
+            background: var(--hover-background);
         }
 
         td {
             padding: .75rem 1rem;
-            border-bottom: 1px solid var(--surface-border);
+            border-bottom: 1px solid var(--border-color);
             white-space: pre-line;
             line-height: 1.5;
             scroll-margin-top: 6.5rem;
 
             &:first-child {
-                color: var(--primary-color-default);
+                color: var(--primary-text-color);
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 font-weight: 600;
             }
 
             .doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-color-default);
+                color: var(--primary-text-color);
                 font-weight: 500;
 
                 .doc-option-type-options-container {
@@ -339,8 +341,8 @@
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
-                background-color: var(--p-dark-surface-800, var(--p-surface-200));
-                color: var(--p-dark-surface-300, var(--p-surface-700));
+                background-color: var(--mark-background);
+                color: var(--mark-text);
                 border-radius: 6px;
                 padding: 2px 6px;
                 font-weight: 600;
@@ -351,7 +353,7 @@
                     position: absolute;
                     top: 0;
                     right: -1.5rem;
-                    color: var(--primary-color-default);
+                    color: var(--primary-text-color);
                     opacity: 0.7;
                     display: none;
                     transition: opacity 0.3s, colors 0.3s;
@@ -381,8 +383,8 @@
                 border-radius: 6px;
                 padding: 2px 6px;
                 max-width: min-content;
-                border-color: var(--surface-border);
-                background-color: var(--surface-card);
+                border-color: var(--border-color);
+                background-color: var(--card-background);
                 color: var(--text-secondary-color);
             }
 
@@ -392,7 +394,7 @@
 
             .doc-option-parameter-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
-                color: var(--primary-color-default);
+                color: var(--primary-text-color);
             }
 
             .doc-option-params {

@@ -1,16 +1,16 @@
-@mixin focus-visible($type:null) {
+@mixin focus-visible() {
     &:focus-visible {
-        outline: 0 none;
-        outline-offset: 0;
-        box-shadow: $type var(--focus-ring);
+        outline: 1px solid var(--primary-color);
+        outline-offset: var(--focus-ring-offset, 2px);
     }
 }
 
 @mixin doc-link() {
-    color: var(--primary-color-default);
+    color: var(--primary-text-color);
     font-weight: 500;
-    transition: all .2s;
-    border-radius: var(--p-border-radius);
+    transition: outline-color .2s, border-color .2s;
+    outline-color: transparent;
+    border-radius: 6px;
     @include focus-visible();
 
     &:hover {

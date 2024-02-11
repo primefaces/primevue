@@ -6,14 +6,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
     font-weight: 500;
-    color: var(--text-800);
-    border-top: 1px solid var(--surface-border);
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
 
     a {
-        color: var(--primary-color-default);
+        color: var(--primary-text-color);
         font-weight: 700;
-        transition: all .3s;
-        border-radius: var(--p-border-radius);
+        transition: outline-color .2s, border-color .2s;
+        outline-color: transparent;
+        border-radius: 6px;
 
         @include focus-visible();
 

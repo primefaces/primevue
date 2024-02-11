@@ -1,16 +1,26 @@
 :root[class="p-dark"] {
-    --primary-color-default:var(--p-dark-primary-400);
-    --primary-color-inverse-default:var(--p-dark-zinc-900);
-    --text-color: var(--p-dark-surface-0);
-    --text-secondary-color: var(--p-dark-surface-400);
-    --card-border: 1px solid transparent;
+    --primary-text-color:var(--p-primary-400);
+    --primary-color: var(--p-primary-color);
+    --primary-inverse-color:var(--p-primary-inverse-color);
+    --text-color: var(--p-text-color);
+    --text-secondary-color: var(--p-text-secondar-color);
     --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--p-primary-color) 0%, #000000 100%);
     --glow-blend: hard-light, color-dodge;
-    --topbar-sticky-bg:rgba(0,0,0,.3);
-    --mobile-menu-bg: rgba(0,0,0,.3);
-    --surface-card: var(--p-dark-surface-900);
-    --surface-border: var(--p-dark-surface-800);
-    --surface-ground: var(--p-dark-surface-950);
-    --surface-overlay: var(--p-dark-surface-900);
-    --surface-hover: var(--p-dark-surface-800);
+    --topbar-sticky-background:rgba(0,0,0,.3);
+    --mobile-menu-background: rgba(0,0,0,.3);
+    --card-border: 1px solid transparent;
+    --card-background: var(--p-surface-900);
+    --border-color: var(--p-surface-800);
+    --ground-background: var(--p-surface-950);
+    --overlay-background: var(--p-surface-900);
+    --hover-background: var(--p-surface-800);
+    --code-background: var(--p-surface-900);
+    --high-contrast-text-color: var(--p-surface-0);
+    --hover-border-color: var(--p-surface-600);
+    --mark-background: var(--p-surface-800);
+    --mark-text-color: var(--p-surface-300);
+    --selection-background: color-mix(in srgb, var(--primary-color-default), transparent 84%);
+    --selection-text-color: rgba(255,255,255,.87);
+    --code-button-text-color: var(--p-surface-300);
+    --docsearch-mask-background: var(-p-mask-bg);
 }
