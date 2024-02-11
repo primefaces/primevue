@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <ul ref="nav" :class="cx('menu')" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <li
@@ -37,6 +37,7 @@ import BaseTabMenu from './BaseTabMenu.vue';
 export default {
     name: 'TabMenu',
     extends: BaseTabMenu,
+    inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-change'],
     timeout: null,
     data() {

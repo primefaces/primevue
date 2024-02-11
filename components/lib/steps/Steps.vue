@@ -1,5 +1,5 @@
 <template>
-    <nav :id="id" :class="cx('root')" v-bind="ptm('root')">
+    <nav :id="id" :class="cx('root')" v-bind="ptmi('root')">
         <ol ref="list" :class="cx('menu')" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="label(item) + '_' + index.toString()">
                 <li
@@ -34,6 +34,7 @@ import BaseSteps from './BaseSteps.vue';
 export default {
     name: 'Steps',
     extends: BaseSteps,
+    inheritAttrs: false,
     emits: ['update:activeStep', 'step-change'],
     data() {
         return {

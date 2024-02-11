@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="tablist" v-bind="ptm('root')">
+    <div :class="cx('root')" role="tablist" v-bind="ptmi('root')">
         <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
@@ -102,6 +102,7 @@ import BaseTabView from './BaseTabView.vue';
 export default {
     name: 'TabView',
     extends: BaseTabView,
+    inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     data() {
         return {
