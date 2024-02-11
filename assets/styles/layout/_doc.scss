@@ -188,6 +188,8 @@
                 text-overflow: ellipsis;
                 transition: outline-color 0.2s, border-color .2s;
                 outline-color: transparent;
+                @include focus-visible();
+                --focus-ring-offset: -1px;
             }
 
             &:hover {
