@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onBarClick" v-bind="ptm('root')" :data-p-sliding="false">
+    <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false">
         <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
@@ -68,6 +68,7 @@ import BaseSlider from './BaseSlider.vue';
 export default {
     name: 'Slider',
     extends: BaseSlider,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'slideend'],
     dragging: false,
     handleIndex: null,

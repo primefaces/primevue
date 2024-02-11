@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
@@ -33,6 +33,7 @@ import BaseSelectButton from './BaseSelectButton.vue';
 export default {
     name: 'SelectButton',
     extends: BaseSelectButton,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'focus', 'blur', 'change'],
     data() {
         return {

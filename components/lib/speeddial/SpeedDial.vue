@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')">
+    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
         <slot name="button" :onClick="onClick" :toggleCallback="onClick">
             <SDButton
                 type="button"
@@ -63,6 +63,7 @@ import BaseSpeedDial from './BaseSpeedDial.vue';
 export default {
     name: 'SpeedDial',
     extends: BaseSpeedDial,
+    inheritAttrs: false,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
     documentClickListener: null,
     container: null,
