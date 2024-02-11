@@ -4,9 +4,10 @@ export default {
         colorScheme: {
             light: {
                 root: {
-                    border: '1px solid {surface.200}',
+                    borderColor: '{surface.200}',
                     background: '{surface.0}',
-                    textColor: '{surface.700}'
+                    textColor: '{text.color}',
+                    borderRadius: '{borderRadius}'
                 },
                 headerIcon: {
                     color: '{surface.500}',
@@ -16,9 +17,10 @@ export default {
             },
             dark: {
                 root: {
-                    border: '1px solid {surface.700}',
+                    borderColor: '{surface.700}',
                     background: '{surface.900}',
-                    textColor: '{text.color}'
+                    textColor: '{text.color}',
+                    borderRadius: '{borderRadius}'
                 },
                 headerIcon: {
                     color: '{surface.400}',
@@ -30,8 +32,8 @@ export default {
     },
     css: `
 .p-panel {
-    border: var(--p-panel-border);
-    border-radius: var(--p-border-radius);
+    border: 1px solid var(--p-panel-border-color);
+    border-radius: var(--p-panel-border-radius);
     background: var(--p-panel-background);
     color: var(--p-panel-text-color);
 }
