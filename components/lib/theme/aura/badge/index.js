@@ -2,6 +2,10 @@ export default {
     variables: {
         colorScheme: {
             light: {
+                primary: {
+                    background: '{primary.color}',
+                    textColor: '{primary.inverseColor}'
+                },
                 secondary: {
                     background: '{surface.100}',
                     textColor: '{surface.600}'
@@ -28,6 +32,10 @@ export default {
                 }
             },
             dark: {
+                primary: {
+                    background: '{primary.color}',
+                    textColor: '{primary.inverseColor}'
+                },
                 secondary: {
                     background: '{surface.800}',
                     textColor: '{surface.300}'
@@ -61,8 +69,8 @@ export default {
     border-radius: 10px;
     justify-content: center;
     padding: 0 0.5rem;
-    background: var(--p-primary-color);
-    color: var(--p-primary-inverse-color);
+    background: var(--p-badge-primary-background);
+    color: var(--p-badge-primary-text-color);
     font-size: 0.75rem;
     font-weight: 700;
     min-width: 1.5rem;

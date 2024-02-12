@@ -17,6 +17,8 @@ import scrolltop from 'primevue/theme/aura/scrolltop';
 import skeleton from 'primevue/theme/aura/skeleton';
 import splitter from 'primevue/theme/aura/splitter';
 import tabview from 'primevue/theme/aura/tabview';
+import tag from 'primevue/theme/aura/tag';
+import terminal from 'primevue/theme/aura/terminal';
 import toolbar from 'primevue/theme/aura/toolbar';
 
 export default {
@@ -146,6 +148,8 @@ export default {
         skeleton,
         splitter,
         tabview,
+        tag,
+        terminal,
         toolbar
     }
 };
