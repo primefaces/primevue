@@ -1,13 +1,11 @@
 export default {
     variables: {
-        common: {},
         colorScheme: {
             light: {
                 root: {
                     borderColor: '{surface.200}',
                     background: '{surface.0}',
-                    textColor: '{text.color}',
-                    borderRadius: '{borderRadius}'
+                    textColor: '{text.color}'
                 },
                 headerIcon: {
                     color: '{surface.500}',
@@ -19,8 +17,7 @@ export default {
                 root: {
                     borderColor: '{surface.700}',
                     background: '{surface.900}',
-                    textColor: '{text.color}',
-                    borderRadius: '{borderRadius}'
+                    textColor: '{text.color}'
                 },
                 headerIcon: {
                     color: '{surface.400}',
@@ -33,7 +30,7 @@ export default {
     css: `
 .p-panel {
     border: 1px solid var(--p-panel-border-color);
-    border-radius: var(--p-panel-border-radius);
+    border-radius: var(--p-border-radius-base);
     background: var(--p-panel-background);
     color: var(--p-panel-text-color);
 }
@@ -80,11 +77,11 @@ export default {
     outline-offset: var(--p-focus-ring-offset);
 }
 
-.p-panel .p-panel-content {
+.p-panel-content {
     padding: 0 1.125rem 1.125rem 1.125rem;
 }
 
-.p-panel .p-panel-footer {
+.p-panel-footer {
     padding: 0 1.125rem 1.125rem 1.125rem;
 }
     `
