@@ -11,6 +11,7 @@ import inplace from 'primevue/theme/aura/inplace';
 import metergroup from 'primevue/theme/aura/metergroup';
 import panel from 'primevue/theme/aura/panel';
 import progressbar from 'primevue/theme/aura/progressbar';
+import progressspinner from 'primevue/theme/aura/progressspinner';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
 import skeleton from 'primevue/theme/aura/skeleton';
@@ -139,6 +140,7 @@ export default {
         inplace,
         panel,
         progressbar,
+        progressspinner,
         scrollpanel,
         scrolltop,
         skeleton,
