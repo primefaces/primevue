@@ -95,6 +95,6 @@ export default {
 
 .p-fieldset .p-fieldset-content {
     padding: 0;
-}    
+}
     `
 };

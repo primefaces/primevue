@@ -7,6 +7,7 @@ import chip from 'primevue/theme/aura/chip';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
+import inplace from 'primevue/theme/aura/inplace';
 import panel from 'primevue/theme/aura/panel';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import splitter from 'primevue/theme/aura/splitter';
@@ -130,6 +131,7 @@ export default {
         chip,
         divider,
         fieldset,
+        inplace,
         panel,
         scrollpanel,
         splitter,
