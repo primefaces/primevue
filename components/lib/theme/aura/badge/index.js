@@ -1,4 +1,60 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                secondary: {
+                    background: '{surface.100}',
+                    textColor: '{surface.600}'
+                },
+                success: {
+                    background: '{green.500}',
+                    textColor: '{surface.0}'
+                },
+                info: {
+                    background: '{sky.500}',
+                    textColor: '{surface.0}'
+                },
+                warn: {
+                    background: '{orange.500}',
+                    textColor: '{surface.0}'
+                },
+                danger: {
+                    background: '{red.500}',
+                    textColor: '{surface.0}'
+                },
+                contrast: {
+                    background: '{surface.950}',
+                    textColor: '{surface.0}'
+                }
+            },
+            dark: {
+                secondary: {
+                    background: '{surface.800}',
+                    textColor: '{surface.300}'
+                },
+                success: {
+                    background: '{green.400}',
+                    textColor: '{green.950}'
+                },
+                info: {
+                    background: '{sky.400}',
+                    textColor: '{sky.950}'
+                },
+                warn: {
+                    background: '{orange.400}',
+                    textColor: '{orange.950}'
+                },
+                danger: {
+                    background: '{red.400}',
+                    textColor: '{red.950}'
+                },
+                contrast: {
+                    background: '{surface.0}',
+                    textColor: '{surface.950}'
+                }
+            }
+        }
+    },
     css: `
 .p-badge {
     display: inline-flex;
@@ -6,7 +62,7 @@ export default {
     justify-content: center;
     padding: 0 0.5rem;
     background: var(--p-primary-color);
-    color: var(--p-primary-color-inverse);
+    color: var(--p-primary-inverse-color);
     font-size: 0.75rem;
     font-weight: 700;
     min-width: 1.5rem;
@@ -41,33 +97,33 @@ export default {
 }
 
 .p-badge-secondary {
-    background-color: var(--p-dark-surface-800, var(--p-surface-100));
-    color: var(--p-dark-surface-300, var(--p-surface-600));
+    background-color: var(--p-badge-secondary-background);
+    color: var(--p-badge-secondary-text-color);
 }
 
 .p-badge-success {
-    background-color: var(--p-dark-green-400, var(--p-green-500));
-    color: var(--p-dark-green-950, var(--p-surface-0));
+    background-color: var(--p-badge-success-background);
+    color: var(--p-badge-success-text-color);
 }
 
 .p-badge-info {
-    background-color:var(--p-dark-sky-400, var(--p-sky-500));
-    color: var(--p-dark-sky-950, var(--p-surface-0));
+    background-color: var(--p-badge-info-background);
+    color: var(--p-badge-info-text-color);
 }
 
 .p-badge-warning {
-    background-color: var(--p-dark-orange-400, var(--p-orange-500));
-    color: var(--p-dark-orange-950, var(--p-surface-0));
+    background-color: var(--p-badge-warn-background);
+    color: var(--p-badge-warn-text-color);
 }
 
 .p-badge-danger {
-    background-color:var(--p-dark-red-400, var(--p-red-500));
-    color: var(--p-dark-red-950, var(--p-surface-0));
+    background-color: var(--p-badge-danger-background);
+    color: var(--p-badge-danger-text-color);
 }
 
 .p-badge-contrast {
-    background-color: var(--p-dark-surface-0, var(--p-surface-950));
-    color: var(--p-dark-surface-950, var(--p-surface-0));
+    background-color: var(--p-badge-contrast-background);
+    color: var(--p-badge-contrast-text-color);
 }
 
 .p-badge-lg {
