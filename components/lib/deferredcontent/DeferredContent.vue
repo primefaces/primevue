@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" v-bind="ptm('root')">
+    <div ref="container" v-bind="ptmi('root')">
         <slot v-if="loaded"></slot>
     </div>
 </template>
@@ -11,6 +11,7 @@ import DeferredContentStyle from 'primevue/deferredcontent/style';
 export default {
     name: 'DeferredContent',
     extends: BaseComponent,
+    inheritAttrs: false,
     emits: ['load'],
     style: DeferredContentStyle,
     data() {
