@@ -122,7 +122,19 @@ export default {
             BaseComponentStyle.loadGlobalTheme(this.$presetTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
         },
         _loadThemeVariables() {
-            const { variables } = this.$presetTheme;
+            const { primitive, semantic } = this.$presetTheme;
+            const { colorScheme, ...sRest } = semantic || {};
+            const { dark, ...csRest } = colorScheme || {};
+            const primitive_css = ObjectUtils.isNotEmpty(primitive) ? toVariables({ primitive }).css : '';
+            const sRest_css = ObjectUtils.isNotEmpty(sRest) ? toVariables({ semantic: sRest }).css : '';
+            const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ light: csRest }).css : '';
+            const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ dark }, { selector: '.p-dark' }).css : '';
+            const semantic_css = `${sRest_css}${csRest_css}${dark_css}`;
+
+            BaseStyle.loadTheme(primitive_css, { name: 'primitive-variables', nonce: this.$config?.csp?.nonce });
+            BaseStyle.loadTheme(semantic_css, { name: 'semantic-variables', nonce: this.$config?.csp?.nonce });
+
+            /*const { variables } = this.$presetTheme;
             const { colorScheme, ...vRest } = variables || {};
             const { dark, ...csRest } = colorScheme || {};
             const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ light: vRest }).css : '';
@@ -130,7 +142,7 @@ export default {
             const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ dark }, { selector: '.p-dark' }).css : '';
             const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
 
-            BaseStyle.loadTheme(variables_css, { name: 'theme-variables', nonce: this.$config?.csp?.nonce });
+            BaseStyle.loadTheme(variables_css, { name: 'theme-variables', nonce: this.$config?.csp?.nonce });*/
             /*const { primitive, semantic } = this.$presetTheme;
             const { colorScheme, ...sRest } = semantic || {};
             const { dark, ...csRest } = colorScheme || {};
