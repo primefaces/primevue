@@ -202,6 +202,7 @@ const THEME_ALIAS = {
     'primevue/theme/aura/menu': path.resolve(__dirname, './components/lib/theme/aura/menu/index.js'),
     'primevue/theme/aura/menubar': path.resolve(__dirname, './components/lib/theme/aura/menubar/index.js'),
     'primevue/theme/aura/message': path.resolve(__dirname, './components/lib/theme/aura/message/index.js'),
+    'primevue/theme/aura/metergroup': path.resolve(__dirname, './components/lib/theme/aura/metergroup/index.js'),
     'primevue/theme/aura/multiselect': path.resolve(__dirname, './components/lib/theme/aura/multiselect/index.js'),
     'primevue/theme/aura/orderlist': path.resolve(__dirname, './components/lib/theme/aura/orderlist/index.js'),
     'primevue/theme/aura/organizationchart': path.resolve(__dirname, './components/lib/theme/aura/organizationchart/index.js'),

@@ -8,8 +8,11 @@ import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
 import inplace from 'primevue/theme/aura/inplace';
+import metergroup from 'primevue/theme/aura/metergroup';
 import panel from 'primevue/theme/aura/panel';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
+import scrolltop from 'primevue/theme/aura/scrolltop';
+import skeleton from 'primevue/theme/aura/skeleton';
 import splitter from 'primevue/theme/aura/splitter';
 import tabview from 'primevue/theme/aura/tabview';
 import toolbar from 'primevue/theme/aura/toolbar';
@@ -131,9 +134,12 @@ export default {
         chip,
         divider,
         fieldset,
+        metergroup,
         inplace,
         panel,
         scrollpanel,
+        scrolltop,
+        skeleton,
         splitter,
         tabview,
         toolbar
