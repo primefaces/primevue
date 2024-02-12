@@ -3,6 +3,7 @@ import avatar from 'primevue/theme/aura/avatar';
 import badge from 'primevue/theme/aura/badge';
 import blockui from 'primevue/theme/aura/blockui';
 import card from 'primevue/theme/aura/card';
+import chip from 'primevue/theme/aura/chip';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
@@ -126,6 +127,7 @@ export default {
         badge,
         blockui,
         card,
+        chip,
         divider,
         fieldset,
         panel,
