@@ -1,6 +1,7 @@
 import accordion from 'primevue/theme/aura/accordion';
 import avatar from 'primevue/theme/aura/avatar';
 import badge from 'primevue/theme/aura/badge';
+import blockui from 'primevue/theme/aura/blockui';
 import card from 'primevue/theme/aura/card';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
@@ -52,7 +53,6 @@ export default {
             offset: '2px'
         },
         anchorGutter: '2px',
-        maskBackground: 'rgba(0,0,0,0.4)',
         primary: {
             50: '{emerald.50}',
             100: '{emerald.100}',
@@ -89,7 +89,8 @@ export default {
                 highlight: {
                     background: '{primary.50}',
                     textColor: '{primary.700}'
-                }
+                },
+                maskBackground: 'rgba(0,0,0,0.4)'
             },
             dark: {
                 surface: {
@@ -113,7 +114,8 @@ export default {
                 highlight: {
                     background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
                     textColor: 'rgba(255,255,255,.87)'
-                }
+                },
+                maskBackground: 'rgba(0,0,0,0.4)'
             }
         }
     },
@@ -122,6 +124,7 @@ export default {
         accordion,
         avatar,
         badge,
+        blockui,
         card,
         divider,
         fieldset,

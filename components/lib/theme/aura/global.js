@@ -188,12 +188,12 @@ export default {
         background-color: transparent;
     }
     to {
-        background-color: var(--maskbg);
+        background-color: var(--p-mask-background);
     }
 }
 @keyframes p-component-overlay-leave-animation {
     from {
-        background-color: var(--maskbg);
+        background-color: var(--p-mask-background);
     }
     to {
         background-color: transparent;
