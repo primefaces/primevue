@@ -42,19 +42,19 @@ export default {
                 },
                 success: {
                     background: 'color-mix(in srgb, var(--p-green-500), transparent 84%)',
-                    textColor: '{green.500}'
+                    textColor: '{green.300}'
                 },
                 info: {
-                    background: 'color-mix(in srgb, var(--p-blue-500), transparent 84%)',
-                    textColor: '{blue.500}'
+                    background: 'color-mix(in srgb, var(--p-sky-500), transparent 84%)',
+                    textColor: '{sky.300}'
                 },
                 warn: {
-                    background: 'color-mix(in srgb, var(--p-yellow-500), transparent 84%)',
-                    textColor: '{yellow.500}'
+                    background: 'color-mix(in srgb, var(--p-orange-500), transparent 84%)',
+                    textColor: '{orange.300}'
                 },
                 danger: {
                     background: 'color-mix(in srgb, var(--p-red-500), transparent 84%)',
-                    textColor: '{red.500}'
+                    textColor: '{red.300}'
                 },
                 contrast: {
                     background: '{surface.0}',
