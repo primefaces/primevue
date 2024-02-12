@@ -1,4 +1,50 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                nav: {
+                    background: '{surface.0}',
+                    borderColor: '{surface.200}'
+                },
+                header: {
+                    borderColor: '{surface.200}',
+                    textColor: '{surface.500}',
+                    textColorHover: '{surface.700}'
+                },
+                navigatorIcon: {
+                    background: '{surface.0}',
+                    color: '{surface.500}',
+                    colorHover: '{surface.700}',
+                    boxShadow: '0px 0px 10px 50px rgba(255, 255, 255, 0.6)'
+                },
+                content: {
+                    background: '{surface.0}',
+                    textColor: '{surface.700}'
+                }
+            },
+            dark: {
+                nav: {
+                    background: '{surface.900}',
+                    borderColor: '{surface.700}'
+                },
+                header: {
+                    borderColor: '{surface.700}',
+                    textColor: '{surface.400}',
+                    textColorHover: '{surface.0}'
+                },
+                navigatorIcon: {
+                    background: '{surface.900}',
+                    color: '{surface.400}',
+                    colorHover: '{surface.0}',
+                    boxShadow: '0px 0px 10px 50px color-mix(in srgb, var(--p-surface-900), transparent 50%)'
+                },
+                content: {
+                    background: '{surface.900}',
+                    textColor: '{surface.0}'
+                }
+            }
+        }
+    },
     css: `
 .p-tabview-nav-container {
     position: relative;
@@ -22,8 +68,8 @@ export default {
     padding: 0;
     list-style-type: none;
     flex: 1 1 auto;
-    background: var(--p-dark-surface-900, var(--p-surface-0));
-    border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
+    background: var(--p-tabview-nav-background);
+    border: 1px solid var(--p-tabview-nav-border-color);
     border-width: 0 0 1px 0;
     position: relative;
 }
@@ -38,12 +84,12 @@ export default {
     overflow: hidden;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent var(--p-dark-surface-700, var(--p-surface-200)) transparent;
-    color: var(--p-dark-surface-400, var(--p-surface-500));
+    border-color: transparent transparent var(--p-tabview-header-border-color) transparent;
+    color: var(--p-tabview-header-text-color);
     padding: 1rem 1.125rem;
     font-weight: 600;
-    border-top-right-radius: var(--p-border-radius);
-    border-top-left-radius: var(--p-border-radius);;
+    border-top-right-radius: var(--p-rounded-base);
+    border-top-left-radius: var(--p-rounded-base);
     transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
     margin: 0 0 -1px 0;
     outline-color: transparent;
@@ -55,7 +101,7 @@ export default {
 }
 
 .p-tabview-header:not(.p-highlight):not(.p-disabled):hover >.p-tabview-nav-link {
-    color: var(--p-dark-surface-0, var(--p-surface-700));
+    color: var(--p-tabview-header-text-color-hover);
 }
 
 .p-tabview-header.p-highlight > .p-tabview-nav-link {
@@ -80,13 +126,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--p-dark-surface-900, var(--p-surface-0));
-    color: var(--p-dark-surface-400, var(--p-surface-500));
+    background: var(--p-tabview-navigator-icon-background);
+    color: var(--p-tabview-navigator-icon-color);
     width: 2.5rem;
     border-radius: 0;
     outline-color: transparent;
     transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    box-shadow: 0px 0px 10px 50px color-mix(in srgb, var(--p-dark-surface-900, var(--p-surface-0)), transparent 50%);
+    box-shadow: var(--p-tabview-navigator-icon-box-shadow);
 }
 
 .p-tabview-nav-btn:focus-visible {
@@ -95,7 +141,7 @@ export default {
 }
 
 .p-tabview-nav-btn:hover {
-    color: var(--p-dark-surface-0, var(--p-surface-700))
+    color: var(--p-tabview-navigator-icon-color-hover);
 }
 
 .p-tabview-nav-prev {
@@ -111,9 +157,9 @@ export default {
 }
 
 .p-tabview-panels {
-    background: var(--p-dark-surface-900, var(--p-surface-0));
+    background: var(--p-tabview-content-background);
+    color: var(--p-tabview-content-text-color);
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
-    color: var(--p-dark-surface-0, var(--p-surface-700))
 }
 
 .p-tabview-ink-bar {

@@ -1,4 +1,20 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                root: {
+                    background: '{surface.200}',
+                    borderColor: '{surface.0}'
+                }
+            },
+            dark: {
+                root: {
+                    background: '{surface.700}',
+                    borderColor: '{surface.900}'
+                }
+            }
+        }
+    },
     css: `
 .p-avatar {
     display: inline-flex;
@@ -7,8 +23,8 @@ export default {
     width: 2rem;
     height: 2rem;
     font-size: 1rem;
-    background-color: var(--p-dark-surface-700, var(--p-surface-200));
-    border-radius: 6px;
+    background: var(--p-avatar-background);
+    border-radius: var(--p-rounded-base);
 }
 
 .p-avatar-image {
@@ -62,7 +78,7 @@ export default {
 }
 
 .p-avatar-group .p-avatar {
-    border: 2px solid var(--p-dark-surface-900, var(--p-surface-0));
+    border: 2px solid var(--p-avatar-border-color);
 }
     `
 };

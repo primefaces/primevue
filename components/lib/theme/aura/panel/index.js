@@ -3,9 +3,9 @@ export default {
         colorScheme: {
             light: {
                 root: {
-                    borderColor: '{surface.200}',
                     background: '{surface.0}',
-                    textColor: '{text.color}'
+                    borderColor: '{surface.200}',
+                    textColor: '{surface.700}'
                 },
                 headerIcon: {
                     color: '{surface.500}',
@@ -15,9 +15,9 @@ export default {
             },
             dark: {
                 root: {
-                    borderColor: '{surface.700}',
                     background: '{surface.900}',
-                    textColor: '{text.color}'
+                    borderColor: '{surface.700}',
+                    textColor: '{surface.0}'
                 },
                 headerIcon: {
                     color: '{surface.400}',
@@ -30,7 +30,7 @@ export default {
     css: `
 .p-panel {
     border: 1px solid var(--p-panel-border-color);
-    border-radius: var(--p-border-radius-base);
+    border-radius: var(--p-rounded-base);
     background: var(--p-panel-background);
     color: var(--p-panel-text-color);
 }

@@ -1,4 +1,26 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                root: {
+                    borderColor: '{surface.200}'
+                },
+                content: {
+                    background: '{surface.0}',
+                    textColor: '{surface.700}'
+                }
+            },
+            dark: {
+                root: {
+                    borderColor: '{surface.700}'
+                },
+                content: {
+                    background: '{surface.900}',
+                    textColor: '{surface.0}'
+                }
+            }
+        }
+    },
     css: `
 .p-divider-horizontal {
     display: flex;
@@ -16,7 +38,7 @@ export default {
     left: 0;
     width: 100%;
     content: "";
-    border-top: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
+    border-top: 1px solid var(--p-divider-border-color);
 }
 
 .p-divider-horizontal .p-divider-content {
@@ -40,7 +62,7 @@ export default {
     left: 50%;
     height: 100%;
     content: "";
-    border-left: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
+    border-left: 1px solid var(--p-divider-border-color);
 }
 
 .p-divider.p-divider-vertical .p-divider-content {
@@ -49,7 +71,8 @@ export default {
 
 .p-divider-content {
     z-index: 1;
-    background: var(--p-dark-surface-900, var(--p-surface-0))
+    background: var(--p-divider-content-background);
+    color: var(--p-divider-content-text-color);
 }
 
 .p-divider-solid.p-divider-horizontal:before {

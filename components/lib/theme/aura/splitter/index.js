@@ -1,12 +1,36 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                root: {
+                    background: '{surface.0}',
+                    borderColor: '{surface.200}',
+                    textColor: '{surface.700}'
+                },
+                gutter: {
+                    background: '{surface.200}'
+                }
+            },
+            dark: {
+                root: {
+                    background: '{surface.900}',
+                    borderColor: '{surface.700}',
+                    textColor: '{surface.0}'
+                },
+                gutter: {
+                    background: '{surface.700}'
+                }
+            }
+        }
+    },
     css: `
 .p-splitter {
     display: flex;
     flex-wrap: nowrap;
-    border: 1px solid var(--p-dark-surface-700, var(--p-surface-200));
-    background: var(--p-dark-surface-900, var(--p-surface-0));
-    border-radius: var(--p-border-radius);
-    color: var(--p-dark-surface-0, var(--p-surface-700));
+    border: 1px solid var(--p-splitter-border-color);
+    background: var(--p-splitter-background);
+    border-radius: var(--p-rounded-base);
+    color: var(--p-splitter-text-color);
 }
 
 .p-splitter-vertical {
@@ -20,11 +44,11 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    background: var(--p-dark-surface-700, var(--p-surface-200));
+    background: var(--p-splitter-gutter-background);
 }
 
 .p-splitter-gutter-handle {
-    border-radius: var(--p-border-radius);
+    border-radius: var(--p-rounded-base);
     background: transparent;
     transition: outline-color var(--p-transition-duration);
     outline-color: transparent;

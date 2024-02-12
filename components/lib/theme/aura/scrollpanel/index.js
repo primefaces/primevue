@@ -1,4 +1,18 @@
 export default {
+    variables: {
+        colorScheme: {
+            light: {
+                bar: {
+                    background: '{surface.100}'
+                }
+            },
+            dark: {
+                bar: {
+                    background: '{surface.800}'
+                }
+            }
+        }
+    },
     css: `
 .p-scrollpanel-wrapper {
     overflow: hidden;
@@ -31,7 +45,7 @@ export default {
     opacity: 0;
     outline-color: transparent;
     transition: outline-color var(--p-transition-duration);
-    background: var(--p-dark-surface-800, var(--p-surface-100));
+    background: var(--p-scrollpanel-bar-background);
     border: 0 none;
     transition: outline-color var(--p-transition-duration), opacity var(--p-transition-duration);
 }
