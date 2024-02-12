@@ -50550,7 +50550,7 @@
         "description": "TabPanel is a helper component for TabPanel component.\n\n[Live Demo](https://www.primevue.org/tabview/)",
         "components": {
             "default": {
-                "description": "TabPanel is a helper component for TabPanel component.",
+                "description": "TabPanel is a helper component for TabView component.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
