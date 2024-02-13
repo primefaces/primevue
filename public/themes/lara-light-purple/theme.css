@@ -6232,6 +6232,174 @@
     background: #e5e7eb;
   }
 
+  .p-stepper .p-stepper-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow-x: auto;
+  }
+
+  .p-stepper-vertical .p-stepper-nav {
+    flex-direction: column;
+  }
+
+  .p-stepper-header {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+  }
+  .p-stepper-header:last-of-type {
+    flex: initial;
+  }
+
+  .p-stepper-header .p-stepper-action {
+    border: 0 none;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .p-stepper-header .p-stepper-action:focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #DDD6FE;
+  }
+
+  .p-stepper.p-stepper-readonly .p-stepper-header {
+    cursor: auto;
+  }
+
+  .p-stepper-header.p-highlight .p-stepper-action {
+    cursor: default;
+  }
+
+  .p-stepper-title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .p-stepper-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-stepper-separator {
+    flex: 1 1 0;
+  }
+
+  .p-stepper .p-stepper-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .p-stepper .p-stepper-header {
+    padding: 0.5rem;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action {
+    transition: box-shadow 0.2s;
+    border-radius: 6px;
+    background: #ffffff;
+    outline-color: transparent;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action .p-stepper-number {
+    color: #4b5563;
+    border: 1px solid #f3f4f6;
+    border-width: 2px;
+    background: #ffffff;
+    min-width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.143rem;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action .p-stepper-title {
+    margin-left: 0.5rem;
+    color: #6b7280;
+    font-weight: 700;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action:not(.p-disabled):focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #DDD6FE;
+  }
+  .p-stepper .p-stepper-header.p-highlight .p-stepper-number {
+    background: #F5F3FF;
+    color: #6D28D9;
+  }
+  .p-stepper .p-stepper-header.p-highlight .p-stepper-title {
+    color: #4b5563;
+  }
+  .p-stepper .p-stepper-header:not(.p-disabled):focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #DDD6FE;
+  }
+  .p-stepper .p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
+    background-color: #8B5CF6;
+  }
+  .p-stepper .p-stepper-panels {
+    background: #ffffff;
+    padding: 1.25rem;
+    color: #4b5563;
+  }
+  .p-stepper .p-stepper-separator {
+    background-color: #e5e7eb;
+    width: 100%;
+    height: 2px;
+    margin-inline-start: 1rem;
+    transition: box-shadow 0.2s;
+  }
+  .p-stepper.p-stepper-vertical {
+    display: flex;
+    flex-direction: column;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-toggleable-content {
+    display: flex;
+    flex: 1 1 auto;
+    background: #ffffff;
+    color: #4b5563;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel {
+    display: flex;
+    flex-direction: column;
+    flex: initial;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel.p-stepper-panel-active {
+    flex: 1 1 auto;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-header {
+    flex: initial;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+    padding-left: 1rem;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
+    flex: 0 0 auto;
+    width: 2px;
+    min-height: 28px;
+    height: auto;
+    margin-inline-start: calc(1.75rem + 2px);
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel:has(~ .p-stepper-panel-active) .p-stepper-separator {
+    background-color: #8B5CF6;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+    padding-left: 3rem;
+  }
+
   .p-tabview-nav-container {
     position: relative;
   }
@@ -10590,6 +10758,11 @@
   }
 
   .p-steps .p-steps-item.p-highlight .p-steps-number {
+    background: #8B5CF6;
+    color: #ffffff;
+  }
+
+  .p-stepper .p-stepper-header.p-highlight .p-stepper-number {
     background: #8B5CF6;
     color: #ffffff;
   }

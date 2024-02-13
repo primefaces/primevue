@@ -6164,6 +6164,174 @@
     background: #dadada;
   }
 
+  .p-stepper .p-stepper-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow-x: auto;
+  }
+
+  .p-stepper-vertical .p-stepper-nav {
+    flex-direction: column;
+  }
+
+  .p-stepper-header {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+  }
+  .p-stepper-header:last-of-type {
+    flex: initial;
+  }
+
+  .p-stepper-header .p-stepper-action {
+    border: 0 none;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .p-stepper-header .p-stepper-action:focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #e4e9ec;
+  }
+
+  .p-stepper.p-stepper-readonly .p-stepper-header {
+    cursor: auto;
+  }
+
+  .p-stepper-header.p-highlight .p-stepper-action {
+    cursor: default;
+  }
+
+  .p-stepper-title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .p-stepper-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-stepper-separator {
+    flex: 1 1 0;
+  }
+
+  .p-stepper .p-stepper-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .p-stepper .p-stepper-header {
+    padding: 0.5rem;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 2px;
+    background: #ffffff;
+    outline-color: transparent;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action .p-stepper-number {
+    color: #a6a6a6;
+    border: 1px solid #c8c8c8;
+    border-width: 2px;
+    background: #ffffff;
+    min-width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.143rem;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action .p-stepper-title {
+    margin-left: 0.5rem;
+    color: #a6a6a6;
+    font-weight: 700;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .p-stepper .p-stepper-header .p-stepper-action:not(.p-disabled):focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #e4e9ec;
+  }
+  .p-stepper .p-stepper-header.p-highlight .p-stepper-number {
+    background: #AFD3C8;
+    color: #385048;
+  }
+  .p-stepper .p-stepper-header.p-highlight .p-stepper-title {
+    color: #666666;
+  }
+  .p-stepper .p-stepper-header:not(.p-disabled):focus-visible {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #e4e9ec;
+  }
+  .p-stepper .p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
+    background-color: #7B95A3;
+  }
+  .p-stepper .p-stepper-panels {
+    background: #ffffff;
+    padding: 0.571rem 1rem;
+    color: #666666;
+  }
+  .p-stepper .p-stepper-separator {
+    background-color: #c8c8c8;
+    width: 100%;
+    height: 2px;
+    margin-inline-start: 1rem;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .p-stepper.p-stepper-vertical {
+    display: flex;
+    flex-direction: column;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-toggleable-content {
+    display: flex;
+    flex: 1 1 auto;
+    background: #ffffff;
+    color: #666666;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel {
+    display: flex;
+    flex-direction: column;
+    flex: initial;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel.p-stepper-panel-active {
+    flex: 1 1 auto;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-header {
+    flex: initial;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+    padding-left: 1rem;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
+    flex: 0 0 auto;
+    width: 2px;
+    min-height: 28px;
+    height: auto;
+    margin-inline-start: calc(1.75rem + 2px);
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel:has(~ .p-stepper-panel-active) .p-stepper-separator {
+    background-color: #7B95A3;
+  }
+  .p-stepper.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+    padding-left: 3rem;
+  }
+
   .p-tabview-nav-container {
     position: relative;
   }
