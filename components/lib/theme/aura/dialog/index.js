@@ -87,8 +87,8 @@ export default {
 }
 
 .p-dialog-header-icon:enabled:hover {
-    color: var(--p-dialog-header-icon-color-hover);
     background: var(--p-dialog-header-icon-background-hover);
+    color: var(--p-dialog-header-icon-color-hover);
 }
 
 .p-dialog-header-icon:focus-visible {

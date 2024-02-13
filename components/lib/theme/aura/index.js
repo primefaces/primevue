@@ -12,6 +12,7 @@ import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
 import inplace from 'primevue/theme/aura/inplace';
 import metergroup from 'primevue/theme/aura/metergroup';
+import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import panel from 'primevue/theme/aura/panel';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
@@ -147,6 +148,7 @@ export default {
         fieldset,
         metergroup,
         inplace,
+        overlaypanel,
         panel,
         progressbar,
         progressspinner,
