@@ -1,4 +1,5 @@
 import BaseStyle from 'primevue/base/style';
+import { toVariables } from 'primevue/theme';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -73,6 +74,21 @@ const BaseDirective = {
     _useDefaultPT: (instance = {}, defaultPT = {}, callback, key, params) => {
         return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
+    _loadThemeStyle: (instance = {}, useStyleOptions) => {
+        const theme = instance.globalTheme();
+
+        if (theme) {
+            const { variables, css } = theme;
+            const { colorScheme, ...vRest } = variables || {};
+            const { dark, ...csRest } = colorScheme || {};
+            const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [instance.$name]: vRest }).css : '';
+            const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ [instance.$name]: csRest }).css : '';
+            const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ [instance.$name]: dark }, { selector: '.p-dark' }).css : '';
+            const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
+
+            instance.$style?.loadTheme(`${variables_css}${css}`, { name: `${instance.$name}-directive-style`, useStyleOptions });
+        }
+    },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
         const config = BaseDirective._getConfig(binding, vnode);
@@ -104,11 +120,13 @@ const BaseDirective = {
                 $modifiers: binding?.modifiers,
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
-                $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.style },
+                $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadTheme: () => {}, ...options?.style },
                 $config: config,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
+                presetTheme: () => ObjectUtils.getItemValue(config?.theme?.preset, config?.theme?.options),
+                globalTheme: () => ObjectUtils.getItemValue(el.$instance?.presetTheme?.()?.directives?.[name], undefined),
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),
@@ -132,6 +150,7 @@ const BaseDirective = {
 
                 BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
                 !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
+                BaseDirective._loadThemeStyle(el.$instance, { nonce: config?.csp?.nonce });
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
@@ -139,6 +158,7 @@ const BaseDirective = {
 
                 BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
                 !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
+                BaseDirective._loadThemeStyle(el.$instance, { nonce: config?.csp?.nonce });
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {

@@ -40,7 +40,7 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (newValue) {
-                    const { variables, css } = this.$globalTheme;
+                    const { variables, css } = newValue;
                     const { colorScheme, ...vRest } = variables || {};
                     const { dark, ...csRest } = colorScheme || {};
                     const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [this.$style.name]: vRest }).css : '';
@@ -313,7 +313,7 @@ export default {
             };
         },
         $style() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
             return { nonce: this.$config?.csp?.nonce };
@@ -342,7 +342,7 @@ export default {
         $_attrsNoPT() {
             // $attrs without `pt:*`
             return Object.entries(this.$attrs || {})
-                .filter(([key]) => !key?.startsWith('pt:'))
+                .filter(([key]) => !key?.startsWith('pt:') && !key?.startsWith('sx:'))
                 .reduce((acc, [key, value]) => {
                     acc[key] = value;
 

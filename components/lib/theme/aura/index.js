@@ -162,7 +162,9 @@ export default {
         tabview,
         tag,
         terminal,
-        toolbar,
+        toolbar
+    },
+    directives: {
         tooltip
     }
 };
