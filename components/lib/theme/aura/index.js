@@ -10,7 +10,9 @@ import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
+import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
+import message from 'primevue/theme/aura/message';
 import metergroup from 'primevue/theme/aura/metergroup';
 import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import panel from 'primevue/theme/aura/panel';
@@ -24,6 +26,7 @@ import splitter from 'primevue/theme/aura/splitter';
 import tabview from 'primevue/theme/aura/tabview';
 import tag from 'primevue/theme/aura/tag';
 import terminal from 'primevue/theme/aura/terminal';
+import toast from 'primevue/theme/aura/toast';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
 
@@ -148,7 +151,9 @@ export default {
         dialog,
         divider,
         fieldset,
+        message,
         metergroup,
+        inlinemessage,
         inplace,
         overlaypanel,
         panel,
@@ -162,6 +167,7 @@ export default {
         tabview,
         tag,
         terminal,
+        toast,
         toolbar
     },
     directives: {
