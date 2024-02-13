@@ -27,13 +27,13 @@ export default {
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)'
                 },
                 secondary: {
-                    background: 'color-mix(in srgb, {surface.100}, transparent 5%)',
+                    background: '{surface.100}',
                     borderColor: '{surface.200}',
                     textColor: '{surface.600}',
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)'
                 },
                 contrast: {
-                    background: 'color-mix(in srgb, {surface.900}, transparent 5%)',
+                    background: '{surface.900}',
                     borderColor: '{surface.950}',
                     textColor: '{surface.50}',
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)'
@@ -65,13 +65,13 @@ export default {
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)'
                 },
                 secondary: {
-                    background: 'color-mix(in srgb, {surface.800}, transparent 5%)',
+                    background: '{surface.800}',
                     borderColor: '{surface.700}',
                     textColor: '{surface.300}',
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)'
                 },
                 contrast: {
-                    background: 'color-mix(in srgb, {surface.0}, transparent 5%)',
+                    background: '{surface.0}',
                     borderColor: '{surface.100}',
                     textColor: '{surface.950}',
                     boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)'
