@@ -150,7 +150,7 @@ const items = ref([
         label: 'Programmatic',
         icon: 'pi pi-link',
         command: () => {
-            this.$router.push('/introduction');
+          router.push('/introduction');
         }
     },
     {
