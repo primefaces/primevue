@@ -18,6 +18,7 @@ import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
+import sidebar from 'primevue/theme/aura/sidebar';
 import skeleton from 'primevue/theme/aura/skeleton';
 import splitter from 'primevue/theme/aura/splitter';
 import tabview from 'primevue/theme/aura/tabview';
@@ -155,6 +156,7 @@ export default {
         scrollpanel,
         scrolltop,
         skeleton,
+        sidebar,
         splitter,
         tabview,
         tag,
