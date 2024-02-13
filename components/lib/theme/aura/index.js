@@ -5,6 +5,7 @@ import blockui from 'primevue/theme/aura/blockui';
 import card from 'primevue/theme/aura/card';
 import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
+import confirmpopup from 'primevue/theme/aura/confirmpopup';
 import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
@@ -140,6 +141,7 @@ export default {
         card,
         chip,
         confirmdialog,
+        confirmpopup,
         dialog,
         divider,
         fieldset,
