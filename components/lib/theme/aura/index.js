@@ -25,6 +25,7 @@ import tabview from 'primevue/theme/aura/tabview';
 import tag from 'primevue/theme/aura/tag';
 import terminal from 'primevue/theme/aura/terminal';
 import toolbar from 'primevue/theme/aura/toolbar';
+import tooltip from 'primevue/theme/aura/tooltip';
 
 export default {
     primitive: {
@@ -161,6 +162,7 @@ export default {
         tabview,
         tag,
         terminal,
-        toolbar
+        toolbar,
+        tooltip
     }
 };
