@@ -630,6 +630,7 @@ export default {
         onEscapeKey(event) {
             this.overlayVisible && this.hide(true);
             event.preventDefault();
+            event.stopPropagation();
         },
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
