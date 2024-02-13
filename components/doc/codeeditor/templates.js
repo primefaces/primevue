@@ -79,7 +79,7 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
     } else {
         // main.js
         pvTheme += `import "primeflex/primeflex.css";
-import "primevue/resources/themes/lara-light-green/theme.css";`;
+import "primevue/resources/themes/aura-light-green/theme.css";`;
 
         // package.json
         dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';
