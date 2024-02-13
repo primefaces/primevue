@@ -342,7 +342,7 @@ export default {
         $_attrsNoPT() {
             // $attrs without `pt:*`
             return Object.entries(this.$attrs || {})
-                .filter(([key]) => !key?.startsWith('pt:') && !key?.startsWith('sx:'))
+                .filter(([key]) => !key?.startsWith('pt:'))
                 .reduce((acc, [key, value]) => {
                     acc[key] = value;
 
