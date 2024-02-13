@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center">
         <Button type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
 
-        <OverlayPanel ref="op" showCloseIcon>
+        <OverlayPanel ref="op">
             <div class="flex flex-column gap-3 w-25rem">
                 <div>
                     <span class="font-medium text-900 block mb-2">Share this document</span>
