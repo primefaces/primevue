@@ -19,7 +19,7 @@
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
@@ -53,7 +53,7 @@ export default {
     </div>
     <div class="flex align-items-center gap-3 mb-2">
         <label for="email" class="font-semibold w-6rem">Email</label>
-        <InputText id="Email" class="flex-auto" autocomplete="off" />
+        <InputText id="email" class="flex-auto" autocomplete="off" />
     </div>
     <template #footer>
         <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
@@ -79,7 +79,7 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
@@ -117,7 +117,7 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
