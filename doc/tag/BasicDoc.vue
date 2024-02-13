@@ -2,8 +2,12 @@
     <DocSectionText v-bind="$attrs">
         <p>Label of the tag is defined with the <i>value</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Tag value="New"></Tag>
+    <div class="card">
+        <Stepper>
+            <StepperPanel header="Header 1">Content 1</StepperPanel>
+            <StepperPanel header="Header 2">Content 2</StepperPanel>
+            <StepperPanel header="Header 3">Content 3</StepperPanel>
+        </Stepper>
     </div>
     <DocSectionCode :code="code" />
 </template>

@@ -5364,7 +5364,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -49444,6 +49444,755 @@
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
                 "SplitterPanelStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "stepper": {
+        "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "components": {
+            "default": {
+                "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "StepperProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "navContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the nav container's DOM element."
+                        },
+                        {
+                            "name": "nav",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the nav's DOM element."
+                        },
+                        {
+                            "name": "panelContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the panel container's DOM element."
+                        },
+                        {
+                            "name": "stepperpanel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the end handler's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperState": {
+                    "description": "Defines current inline state in Stepper component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_activeStep",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current active index state."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Unique id for the Stepper component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperChangeEvent": {
+                    "description": "Custom tab change event.",
+                    "relatedProp": "StepperEmits['step-change']",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the selected stepper panel"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperProps": {
+                    "description": "Defines valid properties in Stepper component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "activeStep",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Active step index of stepper."
+                        },
+                        {
+                            "name": "orientation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"horizontal\" | \"vertical\"",
+                            "default": "horizontal",
+                            "description": "Orientation of the stepper."
+                        },
+                        {
+                            "name": "linear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether the steps are clickable or not."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<StepperPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperSlots": {
+                    "description": "Defines valid slots in Stepper component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
+                "StepperEmits": {
+                    "description": "Defines valid emits in Stepper component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:activeStep",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "number",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "step-change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "StepperChangeEvent"
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when an active panel is changed."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPassThroughOptionType": {
+                    "values": "StepperPassThroughAttributes | (options: StepperPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "stepper/style/StepperStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "stepperpanel": {
+        "description": "StepperPanel is a helper component for StepperPanel component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "components": {
+            "default": {
+                "description": "StepperPanel is a helper component for Stepper component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperPanelProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperPanelContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "StepperPanelProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "number",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the number's DOM element."
+                        },
+                        {
+                            "name": "title",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "toggleableContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the toggleable content's DOM element."
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughTransitionType",
+                            "default": "",
+                            "description": "Used to control Vue Transition API."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelProps": {
+                    "description": "Defines valid properties in StepperPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Orientation of tab headers."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<StepperPanelPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelContext": {
+                    "description": "Defines current options in StepperPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the stepperpanel."
+                        },
+                        {
+                            "name": "count",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Count of stepperpanels"
+                        },
+                        {
+                            "name": "first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is first."
+                        },
+                        {
+                            "name": "last",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is last."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is active."
+                        },
+                        {
+                            "name": "highlighted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is highlighted."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is disabled."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelSlots": {
+                    "description": "Defines valid slots in StepperPanel slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        },
+                        {
+                            "name": "header",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Header click function.</span>\n}"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header template."
+                        },
+                        {
+                            "name": "content",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">prevCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content previous panel click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">nextCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content next panel click function.</span>\n}"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        },
+                        {
+                            "name": "separator",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom separator template."
+                        }
+                    ]
+                },
+                "StepperPanelEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelPassThroughOptionType": {
+                    "values": "StepperPanelPassThroughAttributes | (options: StepperPanelPassThroughMethodOptions) => undefined | string | null | undefined"
+                },
+                "StepperPanelPassThroughTransitionType": {
+                    "values": "TransitionProps | (options: StepperPanelPassThroughMethodOptions) => TransitionProps | undefined"
+                }
+            }
+        }
+    },
+    "stepperpanel/style/StepperPanelStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelStyle": {
                     "relatedProp": "",
                     "props": [
                         {

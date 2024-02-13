@@ -34,7 +34,7 @@ const button = ['Button', 'SpeedDial', 'SplitButton'];
 
 const data = ['Column', 'Row', 'ColumnGroup', 'DataTable', 'DataView', 'DataViewLayoutOptions', 'OrderList', 'OrganizationChart', 'Paginator', 'PickList', 'Tree', 'TreeTable', 'Timeline', 'VirtualScroller'];
 
-const panel = ['Accordion', 'AccordionTab', 'Card', 'DeferredContent', 'Divider', 'Fieldset', 'Panel', 'ScrollPanel', 'Splitter', 'SplitterPanel', 'TabView', 'TabPanel', 'Toolbar'];
+const panel = ['Accordion', 'AccordionTab', 'Card', 'DeferredContent', 'Divider', 'Fieldset', 'Panel', 'ScrollPanel', 'Splitter', 'SplitterPanel', 'Stepper', 'StepperPanel', 'TabView', 'TabPanel', 'Toolbar'];
 
 const overlay = [{ name: 'ConfirmDialog', use: { as: 'ConfirmationService' } }, { name: 'ConfirmPopup', use: { as: 'ConfirmationService' } }, 'Dialog', { name: 'DynamicDialog', use: { as: 'DialogService' } }, 'OverlayPanel', 'Sidebar'];
 

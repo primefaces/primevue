@@ -271,6 +271,11 @@
                             "to": "/splitter"
                         },
                         {
+                            "name": "Stepper",
+                            "to": "/stepper",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "TabView",
                             "to": "/tabview"
                         },
