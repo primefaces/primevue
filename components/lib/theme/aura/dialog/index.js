@@ -13,7 +13,18 @@ export default {
                     backgroundHover: '{surface.100}'
                 }
             },
-            dark: {}
+            dark: {
+                root: {
+                    background: '{surface.900}',
+                    borderColor: '{surface.700}',
+                    textColor: '{surface.0}'
+                },
+                headerIcon: {
+                    color: '{surface.400}',
+                    colorHover: '{surface.300}',
+                    backgroundHover: '{surface.800}'
+                }
+            }
         }
     },
     css: `
