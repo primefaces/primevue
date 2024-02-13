@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue IconFiled" header="IconFiled" description="IconField wraps an input and an icon." :componentDocs="docs" :ptTabComponent="ptComponent" :apiDocs="['IconField', 'InputIcon']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue IconField" header="IconField" description="IconField wraps an input and an icon." :componentDocs="docs" :ptTabComponent="ptComponent" :apiDocs="['IconField', 'InputIcon']" :themingDocs="themingDoc" />
 </template>
 
 <script>
