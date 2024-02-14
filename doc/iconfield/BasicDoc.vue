@@ -7,16 +7,12 @@
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <IconField iconPosition="left">
-            <InputIcon>
-                <i class="pi pi-search" />
-            </InputIcon>
+            <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>
 
         <IconField>
-            <InputIcon>
-                <i class="pi pi-spin pi-spinner" />
-            </InputIcon>
+            <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
             <InputText v-model="value2" />
         </IconField>
     </div>
@@ -32,16 +28,12 @@ export default {
             code: {
                 basic: `
 <IconField iconPosition="left">
-    <InputIcon>
-        <i class="pi pi-search" />
-    </InputIcon>
+    <InputIcon class="pi pi-search"> </InputIcon>
     <InputText v-model="value1" placeholder="Search" />
 </IconField>
 
 <IconField>
-    <InputIcon>
-        <i class="pi pi-spin pi-spinner" />
-    </InputIcon>
+    <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
     <InputText v-model="value2" />
 </IconField>
 `,
@@ -49,16 +41,13 @@ export default {
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <IconField iconPosition="left">
-            <InputIcon>
-                <i class="pi pi-search" />
-            </InputIcon>
+            <IconField iconPosition="left">
+            <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>
 
         <IconField>
-            <InputIcon>
-                <i class="pi pi-spin pi-spinner" />
-            </InputIcon>
+            <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
             <InputText v-model="value2" />
         </IconField>
     </div>
@@ -79,16 +68,12 @@ export default {
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <IconField iconPosition="left">
-            <InputIcon>
-                <i class="pi pi-search" />
-            </InputIcon>
+            <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>
 
         <IconField>
-            <InputIcon>
-                <i class="pi pi-spin pi-spinner" />
-            </InputIcon>
+            <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
             <InputText v-model="value2" />
         </IconField>
     </div>
