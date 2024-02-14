@@ -14,7 +14,7 @@
         <div :class="cx('content')" @click="onItemClick($event)" v-bind="getPTOptions('content')">
             <template v-if="!templates.item">
                 <a v-ripple :href="item.url" :class="cx('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon')" />
                     <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
                     <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
