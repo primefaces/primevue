@@ -129,8 +129,8 @@ export default {
 }
 
 .p-component {
-    font-family: var(--font-family);
-    font-feature-settings: var(--font-feature-settings, normal);
+    font-family: var(--p-font-family);
+    font-feature-settings: var(--p-font-feature-settings, normal);
     font-size: 1rem;
     font-weight: normal;
 }
@@ -163,8 +163,8 @@ export default {
 }
 
 .p-link {
-    font-family: var(--font-family);
-    font-feature-settings: var(--font-feature-settings, normal);
+    font-family: var(--p-font-family);
+    font-feature-settings: var(--p-font-feature-settings, normal);
     font-size: 1rem;
     border-radius: 6px;
     outline-color: transparent;

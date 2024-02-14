@@ -2,23 +2,30 @@ import accordion from 'primevue/theme/aura/accordion';
 import avatar from 'primevue/theme/aura/avatar';
 import badge from 'primevue/theme/aura/badge';
 import blockui from 'primevue/theme/aura/blockui';
+import breadcrumb from 'primevue/theme/aura/breadcrumb';
 import card from 'primevue/theme/aura/card';
 import carousel from 'primevue/theme/aura/carousel';
 import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
+import contextmenu from 'primevue/theme/aura/contextmenu';
 import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
+import dock from 'primevue/theme/aura/dock';
 import fieldset from 'primevue/theme/aura/fieldset';
 import galleria from 'primevue/theme/aura/galleria';
 import global from 'primevue/theme/aura/global';
 import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
+import megamenu from 'primevue/theme/aura/megamenu';
+import menu from 'primevue/theme/aura/menu';
+import menubar from 'primevue/theme/aura/menubar';
 import message from 'primevue/theme/aura/message';
 import metergroup from 'primevue/theme/aura/metergroup';
 import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import panel from 'primevue/theme/aura/panel';
+import panelmenu from 'primevue/theme/aura/panelmenu';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
@@ -26,9 +33,12 @@ import scrolltop from 'primevue/theme/aura/scrolltop';
 import sidebar from 'primevue/theme/aura/sidebar';
 import skeleton from 'primevue/theme/aura/skeleton';
 import splitter from 'primevue/theme/aura/splitter';
+import steps from 'primevue/theme/aura/steps';
+import tabmenu from 'primevue/theme/aura/tabmenu';
 import tabview from 'primevue/theme/aura/tabview';
 import tag from 'primevue/theme/aura/tag';
 import terminal from 'primevue/theme/aura/terminal';
+import tieredmenu from 'primevue/theme/aura/tieredmenu';
 import toast from 'primevue/theme/aura/toast';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
@@ -147,15 +157,21 @@ export default {
         avatar,
         badge,
         blockui,
+        breadcrumb,
         card,
         carousel,
         chip,
         confirmdialog,
         confirmpopup,
+        contextmenu,
         dialog,
         divider,
+        dock,
         fieldset,
         galleria,
+        megamenu,
+        menu,
+        menubar,
         message,
         metergroup,
         image,
@@ -163,6 +179,7 @@ export default {
         inplace,
         overlaypanel,
         panel,
+        panelmenu,
         progressbar,
         progressspinner,
         scrollpanel,
@@ -170,7 +187,10 @@ export default {
         skeleton,
         sidebar,
         splitter,
+        steps,
+        tabmenu,
         tabview,
+        tieredmenu,
         tag,
         terminal,
         toast,
