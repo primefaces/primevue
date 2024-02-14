@@ -2,9 +2,10 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ props }) => [
+        'p-icon-field',
         {
-            'p-input-icon-right': props.iconPosition === 'right',
-            'p-input-icon-left': props.iconPosition === 'left'
+            'p-icon-field-right': props.iconPosition === 'right',
+            'p-icon-field-left': props.iconPosition === 'left'
         }
     ]
 };
