@@ -864,7 +864,7 @@ export default {
                         break;
 
                     default:
-                        if (event.code === 'KeyA' && metaKey) {
+                        if (event.code === 'KeyA' && metaKey && this.isMultipleSelectionMode()) {
                             const data = this.dataToRender(slotProps.rows);
 
                             this.$emit('update:selection', data);
