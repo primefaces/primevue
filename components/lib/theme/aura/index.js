@@ -3,12 +3,14 @@ import avatar from 'primevue/theme/aura/avatar';
 import badge from 'primevue/theme/aura/badge';
 import blockui from 'primevue/theme/aura/blockui';
 import card from 'primevue/theme/aura/card';
+import carousel from 'primevue/theme/aura/carousel';
 import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
 import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
+import galleria from 'primevue/theme/aura/galleria';
 import global from 'primevue/theme/aura/global';
 import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
@@ -146,12 +148,14 @@ export default {
         badge,
         blockui,
         card,
+        carousel,
         chip,
         confirmdialog,
         confirmpopup,
         dialog,
         divider,
         fieldset,
+        galleria,
         message,
         metergroup,
         image,
