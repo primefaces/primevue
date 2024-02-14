@@ -198,17 +198,6 @@ export default {
     }
 }
 
-.p-sidebar-mask {
-    display: none;
-    pointer-events: none;
-    background-color: transparent;
-    transition-property: background-color;
-}
-
-.p-sidebar-mask.p-component-overlay {
-    pointer-events: auto;
-}
-
 .p-sidebar-visible {
     display: flex;
 }
