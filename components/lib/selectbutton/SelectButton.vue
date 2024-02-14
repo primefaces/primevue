@@ -4,7 +4,7 @@
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
             v-ripple
-            :tabindex="disabled || isOptionDisabled(option) || i !== focusedIndex ? '-1' : '0'"
+            :tabindex="findTabindex(option, i)"
             :aria-label="getOptionLabel(option)"
             :role="multiple ? 'checkbox' : 'radio'"
             :aria-checked="isSelected(option)"
@@ -198,6 +198,9 @@ export default {
             }
 
             this.$emit('blur', event, option);
+        },
+        findTabindex(option, index) {
+            return this.disabled || this.isOptionDisabled(option) || index !== this.focusedIndex ? '-1' : '0';
         }
     },
     computed: {
