@@ -94,12 +94,18 @@ export default {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    outline-color: transparent;
     transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
 }
 
 .p-image-action:hover {
     color: var(--p-image-action-color-hover);
     background: var(--p-image-action-background-hover);
+}
+
+.p-image-action:focus-visible {
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: var(--p-focus-ring-offset);
 }
 
 .p-image-action .p-icon {
