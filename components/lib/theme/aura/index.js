@@ -10,6 +10,7 @@ import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
 import fieldset from 'primevue/theme/aura/fieldset';
 import global from 'primevue/theme/aura/global';
+import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
 import message from 'primevue/theme/aura/message';
@@ -153,6 +154,7 @@ export default {
         fieldset,
         message,
         metergroup,
+        image,
         inlinemessage,
         inplace,
         overlaypanel,
