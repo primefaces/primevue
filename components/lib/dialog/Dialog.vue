@@ -301,7 +301,7 @@ export default {
                 this.lastPageY = event.pageY;
 
                 this.container.style.margin = '0';
-                document.body.setAttribute('data-p-unselectable-text', '');
+                document.body.setAttribute('data-p-unselectable-text', 'true');
                 !this.isUnstyled && DomHandler.addClass(document.body, 'p-unselectable-text');
             }
         },
