@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -210,7 +210,7 @@ export interface TreeSelectProps {
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
      * @defaultValue No results found

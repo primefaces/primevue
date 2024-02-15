@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -205,7 +205,7 @@ export interface MenuProps {
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Whether to automatically manage layering.
      * @defaultValue true

@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
@@ -395,7 +395,7 @@ export interface MultiSelectProps {
      * Defines the filtering algorithm to use when searching the options.
      * @defaultValue contains
      */
-    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | string | undefined;
+    filterMatchMode?: HintedString<'contains' | 'startsWith' | 'endsWith'> | undefined;
     /**
      * Fields used when filtering the options, defaults to optionLabel.
      */
@@ -404,7 +404,7 @@ export interface MultiSelectProps {
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Defines how the selected items are displayed.
      * @defaultValue comma

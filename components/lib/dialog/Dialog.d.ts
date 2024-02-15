@@ -10,7 +10,7 @@
 import { HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type DialogPassThroughOptionType<T = any> = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions<T>) => DialogPassThroughAttributes | string) | string | null | undefined;
 
@@ -259,7 +259,7 @@ export interface DialogProps {
      * A valid query selector or an HTMLElement to specify where the dialog gets attached.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Style of the dynamic dialog.
      */
