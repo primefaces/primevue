@@ -16,6 +16,7 @@ export default {
 .p-speeddial {
     position: absolute;
     display: flex;
+    gap: 0.25rem;
 }
 
 .p-speeddial-button {
