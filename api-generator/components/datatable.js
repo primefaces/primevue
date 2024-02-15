@@ -1167,6 +1167,10 @@ const DataTableSlots = [
         description: "Custom content for the component's subgroup footer."
     },
     {
+        name: 'tableheader',
+        description: 'Custom row below column headers and filters.'
+    },
+    {
         name: 'loading',
         description: 'Custom loading template.'
     },

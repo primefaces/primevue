@@ -125,6 +125,8 @@
                 </template>
             </tr>
         </template>
+
+        <component v-if="templates['tableheader']" :is="templates['tableheader']" />
     </thead>
 </template>
 
@@ -224,6 +226,10 @@ export default {
             default: false
         },
         filterInputProps: {
+            type: null,
+            default: null
+        },
+        templates: {
             type: null,
             default: null
         }

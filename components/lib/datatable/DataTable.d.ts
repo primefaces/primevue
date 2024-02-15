@@ -1200,6 +1200,10 @@ export interface DataTableSlots {
         index: number;
     }): VNode[];
     /**
+     * Custom row below column headers and filters.
+     */
+    tableheader(): VNode[];
+    /**
      * Custom loading template.
      * @param {Object} scope - loading slot's params.
      */
