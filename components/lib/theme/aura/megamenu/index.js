@@ -24,7 +24,7 @@ export default {
                 separator: {
                     borderColor: '{surface.200}'
                 },
-                toggleIcon: {
+                mobileToggle: {
                     color: '{surface.500}',
                     colorHover: '{surface.600}',
                     backgroundHover: '{surface.100}'
@@ -269,7 +269,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-megamenu-toggle-icon-color);
+    color: var(--p-megamenu-mobile-toggle-color);
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -278,8 +278,8 @@ export default {
 }
 
 .p-megamenu-button:hover {
-    color: var(--p-megamenu-toggle-icon-color-hover);
-    background: var(--p-megamenu-toggle-icon-background-hover);
+    color: var(--p-megamenu-mobile-toggle-color-hover);
+    background: var(--p-megamenu-mobile-toggle-background-hover);
 }
 
 .p-megamenu-button:focus-visible {

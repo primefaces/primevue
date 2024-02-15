@@ -21,7 +21,7 @@ export default {
                 separator: {
                     borderColor: '{surface.200}'
                 },
-                toggleIcon: {
+                mobileToggle: {
                     color: '{surface.500}',
                     colorHover: '{surface.600}',
                     backgroundHover: '{surface.100}'
@@ -47,7 +47,7 @@ export default {
                 separator: {
                     borderColor: '{surface.700}'
                 },
-                toggleIcon: {
+                mobileToggle: {
                     color: '{surface.400}',
                     colorHover: '{surface.300}',
                     backgroundHover: '{surface.800}'
@@ -202,7 +202,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-menubar-toggle-icon-color);
+    color: var(--p-menubar-mobile-toggle-color);
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -211,8 +211,8 @@ export default {
 }
 
 .p-menubar-button:hover {
-    color: var(--p-menubar-toggle-icon-color-hover);
-    background: var(--p-menubar-toggle-icon-background-hover);
+    color: var(--p-menubar-mobile-toggle-color-hover);
+    background: var(--p-menubar-mobile-toggle-background-hover);
 }
 
 .p-menubar-button:focus-visible {
