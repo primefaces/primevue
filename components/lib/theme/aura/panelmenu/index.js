@@ -19,7 +19,24 @@ export default {
                     }
                 }
             },
-            dark: {}
+            dark: {
+                panel: {
+                    background: '{surface.900}',
+                    borderColor: '{surface.700}',
+                    textColor: '{surface.0}'
+                },
+                item: {
+                    backgroundFocus: '{surface.800}',
+                    text: {
+                        color: '{surface.0}',
+                        colorFocus: '{surface.0}'
+                    },
+                    icon: {
+                        color: '{surface.500}',
+                        colorFocus: '{surface.400}'
+                    }
+                }
+            }
         }
     },
     css: `
