@@ -108,11 +108,6 @@ export default {
     color: var(--p-primary-color);
 }
 
-.p-tabview-ink-bar {
-    display: none;
-    z-index: 1;
-}
-
 .p-tabview-title {
     line-height: 1;
     white-space: nowrap;
