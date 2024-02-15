@@ -76,7 +76,7 @@ export default {
     emits: ['activeitem-change', 'mask-hide'],
     data() {
         return {
-            id: this.$attrs.id,
+            id: this.$attrs.id || UniqueComponentId(),
             activeIndex: this.$attrs.activeIndex,
             numVisible: this.$attrs.numVisible,
             slideShowActive: false
