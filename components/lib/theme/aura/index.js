@@ -3,6 +3,7 @@ import avatar from 'primevue/theme/aura/avatar';
 import badge from 'primevue/theme/aura/badge';
 import blockui from 'primevue/theme/aura/blockui';
 import breadcrumb from 'primevue/theme/aura/breadcrumb';
+import button from 'primevue/theme/aura/button';
 import card from 'primevue/theme/aura/card';
 import carousel from 'primevue/theme/aura/carousel';
 import chip from 'primevue/theme/aura/chip';
@@ -32,6 +33,8 @@ import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
 import sidebar from 'primevue/theme/aura/sidebar';
 import skeleton from 'primevue/theme/aura/skeleton';
+import speeddial from 'primevue/theme/aura/speeddial';
+import splitbutton from 'primevue/theme/aura/splitbutton';
 import splitter from 'primevue/theme/aura/splitter';
 import steps from 'primevue/theme/aura/steps';
 import tabmenu from 'primevue/theme/aura/tabmenu';
@@ -116,7 +119,9 @@ export default {
                 },
                 primary: {
                     color: '{primary.500}',
-                    inverseColor: '#ffffff'
+                    inverseColor: '#ffffff',
+                    hoverColor: '{primary.600}',
+                    activeColor: '{primary.700}'
                 },
                 highlight: {
                     background: '{primary.50}',
@@ -141,7 +146,9 @@ export default {
                 },
                 primary: {
                     color: '{primary.400}',
-                    inverseColor: '{surface.900}'
+                    inverseColor: '{surface.900}',
+                    hoverColor: '{primary.300}',
+                    activeColor: '{primary.200}'
                 },
                 highlight: {
                     background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
@@ -158,6 +165,7 @@ export default {
         badge,
         blockui,
         breadcrumb,
+        button,
         card,
         carousel,
         chip,
@@ -186,7 +194,9 @@ export default {
         scrolltop,
         skeleton,
         sidebar,
+        speeddial,
         splitter,
+        splitbutton,
         steps,
         tabmenu,
         tabview,
