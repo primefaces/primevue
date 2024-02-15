@@ -145,13 +145,13 @@ export default {
     color: var(--p-contextmenu-item-icon-color-focus);
 }
 
-.p-contextmenu .p-menuitem.p-highlight > .p-menuitem-content {
+.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content {
     color: var(--p-contextmenu-item-text-color-focus);
     background: var(--p-contextmenu-item-background-focus);
 }
 
-.p-contextmenu .p-menuitem.p-highlight > .p-menuitem-content .p-menuitem-icon,
-.p-contextmenu .p-menuitem.p-highlight > .p-menuitem-content .p-submenu-icon {
+.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
+.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-submenu-icon {
     color: var(--p-contextmenu-item-icon-color-focus);
 }
 
