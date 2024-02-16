@@ -30,7 +30,7 @@ const form = [
     'TriStateCheckbox'
 ];
 
-const button = ['Button', 'ButtonSet', 'SpeedDial', 'SplitButton'];
+const button = ['Button', 'ButtonGroup', 'SpeedDial', 'SplitButton'];
 
 const data = ['Column', 'Row', 'ColumnGroup', 'DataTable', 'DataView', 'DataViewLayoutOptions', 'OrderList', 'OrganizationChart', 'Paginator', 'PickList', 'Tree', 'TreeTable', 'Timeline', 'VirtualScroller'];
 

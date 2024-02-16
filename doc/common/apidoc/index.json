@@ -5371,7 +5371,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -6911,11 +6911,11 @@
             }
         }
     },
-    "buttonset": {
-        "description": "A set of Buttons can be displayed together using the ButtonSet component.\n\n[Live Demo](https://www.primevue.org/button/)",
+    "buttongroup": {
+        "description": "A set of Buttons can be displayed together using the ButtonGroup component.\n\n[Live Demo](https://www.primevue.org/button/)",
         "components": {
             "default": {
-                "description": "A set of Buttons can be displayed together using the ButtonSet component.",
+                "description": "A set of Buttons can be displayed together using the ButtonGroup component.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -6928,7 +6928,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "ButtonSetPassThroughMethodOptions": {
+                "ButtonGroupPassThroughMethodOptions": {
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
@@ -6944,7 +6944,7 @@
                             "name": "props",
                             "optional": false,
                             "readonly": false,
-                            "type": "ButtonSetProps",
+                            "type": "ButtonGroupProps",
                             "default": "",
                             "description": "Defines valid properties."
                         },
@@ -6959,15 +6959,15 @@
                     ],
                     "methods": []
                 },
-                "ButtonSetPassThroughOptions": {
+                "ButtonGroupPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "ButtonSetProps.pt",
+                    "relatedProp": "ButtonGroupProps.pt",
                     "props": [
                         {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonSetPassThroughOptionType",
+                            "type": "ButtonGroupPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -6982,7 +6982,7 @@
                     ],
                     "methods": []
                 },
-                "ButtonSetPassThroughAttributes": {
+                "ButtonGroupPassThroughAttributes": {
                     "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
@@ -6995,15 +6995,15 @@
                     ],
                     "methods": []
                 },
-                "ButtonSetProps": {
-                    "description": "Defines valid properties in ButtonSet component.",
+                "ButtonGroupProps": {
+                    "description": "Defines valid properties in ButtonGroup component.",
                     "relatedProp": "",
                     "props": [
                         {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<ButtonSetPassThroughOptions>",
+                            "type": "PassThrough<ButtonGroupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -7026,8 +7026,8 @@
                     ],
                     "methods": []
                 },
-                "ButtonSetSlots": {
-                    "description": "Defines valid slots in ButtonSet component.",
+                "ButtonGroupSlots": {
+                    "description": "Defines valid slots in ButtonGroup component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [
@@ -7039,8 +7039,8 @@
                         }
                     ]
                 },
-                "ButtonSetEmits": {
-                    "description": "Defines valid emits in ButtonSet component.",
+                "ButtonGroupEmits": {
+                    "description": "Defines valid emits in ButtonGroup component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": []
@@ -7050,20 +7050,20 @@
         "types": {
             "description": "Defines the custom types used by the module.",
             "values": {
-                "ButtonSetPassThroughOptionType": {
-                    "values": "ButtonSetPassThroughAttributes | (options: ButtonSetPassThroughMethodOptions) => undefined | string | null | undefined"
+                "ButtonGroupPassThroughOptionType": {
+                    "values": "ButtonGroupPassThroughAttributes | (options: ButtonGroupPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
     },
-    "buttonset/style/ButtonSetStyle": {
+    "buttongroup/style/ButtonGroupStyle": {
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "ButtonStyle": {
+                "ButtonGroupStyle": {
                     "relatedProp": "",
                     "props": [
                         {

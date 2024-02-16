@@ -1,13 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Multiple buttons are grouped when wrapped inside an element with <i>ButtonSet</i> component.</p>
+        <p>Multiple buttons are grouped when wrapped inside an element with <i>ButtonGroup</i> component.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <ButtonSet>
+        <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />
             <Button label="Cancel" icon="pi pi-times" />
-        </ButtonSet>
+        </ButtonGroup>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,20 +18,20 @@ export default {
         return {
             code: {
                 basic: `
-<ButtonSet>
+<ButtonGroup>
     <Button label="Save" icon="pi pi-check" />
     <Button label="Delete" icon="pi pi-trash" />
     <Button label="Cancel" icon="pi pi-times" />
-</ButtonSet>
+</ButtonGroup>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <ButtonSet>
+        <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />
             <Button label="Cancel" icon="pi pi-times" />
-        </ButtonSet>
+        </ButtonGroup>
     </div>
 </template>
 
@@ -41,11 +41,11 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <ButtonSet>
+        <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />
             <Button label="Cancel" icon="pi pi-times" />
-        </ButtonSet>
+        </ButtonGroup>
     </div>
 </template>
 
