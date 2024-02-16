@@ -22,7 +22,8 @@ export default {
                     textColorHover: '{surface.800}'
                 },
                 bodyCell: {
-                    borderColor: '{surface.200}'
+                    borderColor: '{surface.200}',
+                    borderColorSelected: '{highlight.backgroundFocus}'
                 },
                 footerCell: {
                     background: '{surface.0}',
@@ -70,7 +71,8 @@ export default {
                     textColorHover: '{surface.0}'
                 },
                 bodyCell: {
-                    borderColor: '{surface.800}'
+                    borderColor: '{surface.800}',
+                    borderColorSelected: '{highlight.backgroundFocus}'
                 },
                 footerCell: {
                     background: '{surface.900}',
@@ -371,11 +373,11 @@ export default {
 }
 
 .p-treetable-tbody > tr:has(+ .p-highlight) > td {
-    border-bottom-color: var(--p-highlight-background);
+    border-bottom-color: var(--p-treetable-body-cell-border-color-selected);
 }
 
 .p-treetable-tbody > tr.p-highlight > td {
-    border-bottom-color: var(--p-highlight-background);
+    border-bottom-color: var(--p-treetable-body-cell-border-color-selected);
 }
 
 .p-treetable-tbody > tr:focus-visible {
