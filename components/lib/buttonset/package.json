@@ -1,0 +1,9 @@
+{
+    "main": "./buttonset.cjs.js",
+    "module": "./buttonset.esm.js",
+    "unpkg": "./buttonset.min.js",
+    "types": "./ButtonSet.d.ts",
+    "browser": {
+        "./sfc": "./ButtonSet.vue"
+    }
+}

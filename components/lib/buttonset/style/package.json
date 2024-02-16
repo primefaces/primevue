@@ -1,0 +1,6 @@
+{
+    "main": "./buttonsetstyle.cjs.js",
+    "module": "./buttonsetstyle.esm.js",
+    "unpkg": "./buttonsetstyle.min.js",
+    "types": "./ButtonSetStyle.d.ts"
+}
