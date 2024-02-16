@@ -26,6 +26,7 @@ import menubar from 'primevue/theme/aura/menubar';
 import message from 'primevue/theme/aura/message';
 import metergroup from 'primevue/theme/aura/metergroup';
 import orderlist from 'primevue/theme/aura/orderlist';
+import organizationchart from 'primevue/theme/aura/organizationchart';
 import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import panel from 'primevue/theme/aura/panel';
 import panelmenu from 'primevue/theme/aura/panelmenu';
@@ -195,6 +196,7 @@ export default {
         inlinemessage,
         inplace,
         orderlist,
+        organizationchart,
         overlaypanel,
         panel,
         panelmenu,
