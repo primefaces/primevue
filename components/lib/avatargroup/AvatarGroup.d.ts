@@ -1,12 +1,13 @@
 /**
  *
- * AvatarGroup is a helper component for Avatar.
+ * A set of Avatars can be displayed together using the AvatarGroup component.
  *
  * [Live Demo](https://www.primevue.org/accordion/)
  *
  * @module avatargroup
  *
  */
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -60,7 +61,12 @@ export interface AvatarGroupProps {
 /**
  * Defines valid slots in AvatarGroup component.
  */
-export interface AvatarGroupSlots {}
+export interface AvatarGroupSlots {
+    /**
+     * Default slot to detect Avatar components.
+     */
+    default(): VNode[];
+}
 
 /**
  * Defines valid emits in AvatarGroup component.
