@@ -1,11 +1,11 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import ButtonSetStyle from 'primevue/buttonset/style';
+import ButtonGroupStyle from 'primevue/buttongroup/style';
 
 export default {
-    name: 'BaseButtonSet',
+    name: 'BaseButtonGroup',
     extends: BaseComponent,
-    style: ButtonSetStyle,
+    style: ButtonGroupStyle,
     provide() {
         return {
             $parentInstance: this

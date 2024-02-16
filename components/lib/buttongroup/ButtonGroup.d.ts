@@ -1,23 +1,23 @@
 /**
  *
- * A set of Buttons can be displayed together using the ButtonSet component.
+ * A set of Buttons can be displayed together using the ButtonGroup component.
  *
  * [Live Demo](https://www.primevue.org/button/)
  *
- * @module buttonset
+ * @module buttongroup
  *
  */
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ButtonSetPassThroughOptionType = ButtonSetPassThroughAttributes | ((options: ButtonSetPassThroughMethodOptions) => ButtonSetPassThroughAttributes | string) | string | null | undefined;
+export declare type ButtonGroupPassThroughOptionType = ButtonGroupPassThroughAttributes | ((options: ButtonGroupPassThroughMethodOptions) => ButtonGroupPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ButtonSetPassThroughMethodOptions {
+export interface ButtonGroupPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -25,7 +25,7 @@ export interface ButtonSetPassThroughMethodOptions {
     /**
      * Defines valid properties.
      */
-    props: ButtonSetProps;
+    props: ButtonGroupProps;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -34,13 +34,13 @@ export interface ButtonSetPassThroughMethodOptions {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link ButtonSetProps.pt}
+ * @see {@link ButtonGroupProps.pt}
  */
-export interface ButtonSetPassThroughOptions {
+export interface ButtonGroupPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ButtonSetPassThroughOptionType;
+    root?: ButtonGroupPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -51,19 +51,19 @@ export interface ButtonSetPassThroughOptions {
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface ButtonSetPassThroughAttributes {
+export interface ButtonGroupPassThroughAttributes {
     [key: string]: any;
 }
 
 /**
- * Defines valid properties in ButtonSet component.
+ * Defines valid properties in ButtonGroup component.
  */
-export interface ButtonSetProps {
+export interface ButtonGroupProps {
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {ButtonSetPassThroughOptions}
+     * @type {ButtonGroupPassThroughOptions}
      */
-    pt?: PassThrough<ButtonSetPassThroughOptions>;
+    pt?: PassThrough<ButtonGroupPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -77,9 +77,9 @@ export interface ButtonSetProps {
 }
 
 /**
- * Defines valid slots in ButtonSet component.
+ * Defines valid slots in ButtonGroup component.
  */
-export interface ButtonSetSlots {
+export interface ButtonGroupSlots {
     /**
      * Default slot to detect Button components.
      */
@@ -87,14 +87,14 @@ export interface ButtonSetSlots {
 }
 
 /**
- * Defines valid emits in ButtonSet component.
+ * Defines valid emits in ButtonGroup component.
  */
-export interface ButtonSetEmits {}
+export interface ButtonGroupEmits {}
 
 /**
- * **PrimeVue - ButtonSet**
+ * **PrimeVue - ButtonGroup**
  *
- * _A set of Buttons can be displayed together using the ButtonSet component._
+ * _A set of Buttons can be displayed together using the ButtonGroup component._
  *
  * [Live Demo](https://www.primevue.org/button/)
  * --- ---
@@ -102,12 +102,12 @@ export interface ButtonSetEmits {}
  *
  * @group Component
  */
-declare class ButtonSet extends ClassComponent<ButtonSetProps, ButtonSetSlots, ButtonSetEmits> {}
+declare class ButtonGroup extends ClassComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ButtonSet: GlobalComponentConstructor<ButtonSet>;
+        ButtonGroup: GlobalComponentConstructor<ButtonGroup>;
     }
 }
 
-export default ButtonSet;
+export default ButtonGroup;

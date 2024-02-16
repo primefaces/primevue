@@ -17,7 +17,7 @@ const STYLE_ALIAS = {
     'primevue/blockui/style': path.resolve(__dirname, './components/lib/blockui/style/BlockUIStyle.js'),
     'primevue/breadcrumb/style': path.resolve(__dirname, './components/lib/breadcrumb/style/BreadcrumbStyle.js'),
     'primevue/button/style': path.resolve(__dirname, './components/lib/button/style/ButtonStyle.js'),
-    'primevue/buttonset/style': path.resolve(__dirname, './components/lib/buttonset/style/ButtonSetStyle.js'),
+    'primevue/buttongroup/style': path.resolve(__dirname, './components/lib/buttongroup/style/ButtonGroupStyle.js'),
     'primevue/calendar/style': path.resolve(__dirname, './components/lib/calendar/style/CalendarStyle.js'),
     'primevue/card/style': path.resolve(__dirname, './components/lib/card/style/CardStyle.js'),
     'primevue/carousel/style': path.resolve(__dirname, './components/lib/carousel/style/CarouselStyle.js'),

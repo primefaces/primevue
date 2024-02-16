@@ -1,10 +1,10 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-buttonset p-component'
+    root: 'p-button-group p-component'
 };
 
 export default BaseStyle.extend({
-    name: 'buttonset',
+    name: 'buttongroup',
     classes
 });
