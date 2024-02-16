@@ -16,6 +16,7 @@
             :aria-controls="panelId"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             inputmode="none"
             :disabled="disabled"
             :readonly="!manualInput || readonly"

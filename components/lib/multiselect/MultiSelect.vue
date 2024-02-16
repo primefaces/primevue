@@ -16,6 +16,7 @@
                 :aria-expanded="overlayVisible"
                 :aria-controls="id + '_list'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
+                :aria-invalid="invalid || undefined"
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"

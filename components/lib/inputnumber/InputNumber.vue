@@ -15,6 +15,7 @@
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             @input="onUserInput"
             @keydown="onInputKeyDown"
             @keypress="onInputKeyPress"

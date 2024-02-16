@@ -1,5 +1,5 @@
 <template>
-    <textarea :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptmi('root', ptmParams)"></textarea>
+    <textarea :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="ptmi('root', ptmParams)"></textarea>
 </template>
 
 <script>
