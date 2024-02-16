@@ -4608,7 +4608,7 @@
         }
     },
     "avatargroup": {
-        "description": "AvatarGroup is a helper component for Avatar.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "description": "A set of Avatars can be displayed together using the AvatarGroup component.\n\n[Live Demo](https://www.primevue.org/accordion/)",
         "components": {
             "default": {
                 "description": "A set of Avatars can be displayed together using the AvatarGroup component.",
@@ -4695,7 +4695,14 @@
                     "description": "Defines valid slots in AvatarGroup component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot to detect Avatar components."
+                        }
+                    ]
                 },
                 "AvatarGroupEmits": {
                     "description": "Defines valid emits in AvatarGroup component.",
