@@ -28,6 +28,7 @@ import metergroup from 'primevue/theme/aura/metergroup';
 import orderlist from 'primevue/theme/aura/orderlist';
 import organizationchart from 'primevue/theme/aura/organizationchart';
 import overlaypanel from 'primevue/theme/aura/overlaypanel';
+import paginator from 'primevue/theme/aura/paginator';
 import panel from 'primevue/theme/aura/panel';
 import panelmenu from 'primevue/theme/aura/panelmenu';
 import picklist from 'primevue/theme/aura/picklist';
@@ -198,6 +199,7 @@ export default {
         orderlist,
         organizationchart,
         overlaypanel,
+        paginator,
         panel,
         panelmenu,
         picklist,
