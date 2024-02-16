@@ -1,0 +1,9 @@
+{
+    "main": "./text.cjs.js",
+    "module": "./text.esm.js",
+    "unpkg": "./text.min.js",
+    "types": "./Text.d.ts",
+    "browser": {
+        "./sfc": "./Text.vue"
+    }
+}

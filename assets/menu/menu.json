@@ -191,6 +191,16 @@
                     ]
                 },
                 {
+                    "name": "Typography",
+                    "children": [
+                        {
+                            "name": "Text",
+                            "to": "/text",
+                            "badge": "NEW"
+                        }
+                    ]
+                },
+                {
                     "name": "Data",
                     "children": [
                         {

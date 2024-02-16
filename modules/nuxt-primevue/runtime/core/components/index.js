@@ -27,7 +27,8 @@ const form = [
     'Textarea',
     'ToggleButton',
     'TreeSelect',
-    'TriStateCheckbox'
+    'TriStateCheckbox',
+    'Text'
 ];
 
 const button = ['Button', 'SpeedDial', 'SplitButton'];

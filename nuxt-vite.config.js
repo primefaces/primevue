@@ -98,6 +98,7 @@ const STYLE_ALIAS = {
     'primevue/tabview/style': path.resolve(__dirname, './components/lib/tabview/style/TabViewStyle.js'),
     'primevue/tag/style': path.resolve(__dirname, './components/lib/tag/style/TagStyle.js'),
     'primevue/terminal/style': path.resolve(__dirname, './components/lib/terminal/style/TerminalStyle.js'),
+    'primevue/text/style': path.resolve(__dirname, './components/lib/text/style/TextStyle.js'),
     'primevue/textarea/style': path.resolve(__dirname, './components/lib/textarea/style/TextareaStyle.js'),
     'primevue/tieredmenu/style': path.resolve(__dirname, './components/lib/tieredmenu/style/TieredMenuStyle.js'),
     'primevue/timeline/style': path.resolve(__dirname, './components/lib/timeline/style/TimelineStyle.js'),

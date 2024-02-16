@@ -1,4 +1,4 @@
-export default {
+const ObjectUtils = {
     equals(obj1, obj2, field) {
         if (field) return this.resolveFieldData(obj1, field) === this.resolveFieldData(obj2, field);
         else return this.deepEquals(obj1, obj2);
@@ -141,6 +141,18 @@ export default {
         return index;
     },
 
+    test(regex, str) {
+        if (regex) {
+            const match = regex.test(str);
+
+            regex.lastIndex = 0;
+
+            return match;
+        }
+
+        return false;
+    },
+
     contains(value, list) {
         if (value != null && list && list.length) {
             for (let val of list) {
@@ -264,6 +276,10 @@ export default {
         return typeof value === 'string' && (empty || value !== '');
     },
 
+    isNumber(value) {
+        return !isNaN(value);
+    },
+
     isPrintableCharacter(char = '') {
         return this.isNotEmpty(char) && char.length === 1 && char.match(/\S| /);
     },
@@ -367,5 +383,66 @@ export default {
         } else {
             return JSON.stringify(value);
         }
+    },
+
+    css: {
+        setProperty(properties, key, value) {
+            properties.push(this.getDeclaration(key, value));
+        },
+        getDeclaration(key, value) {
+            return `${key}:${value};`;
+        },
+        getRule(selector, properties) {
+            return selector ? `${selector}{${properties}}` : '';
+        },
+        toUnit(value, variable = '') {
+            const excludedProperties = ['opacity', 'z-index', 'line-height', 'font-weight', 'flex', 'flex-grow', 'flex-shrink', 'order'];
+
+            if (!excludedProperties.some((property) => variable.endsWith(property))) {
+                const val = `${value}`.trim();
+                const valArr = val.split(' ');
+
+                return valArr.map((v) => (ObjectUtils.isNumber(v) ? `${v}px` : v)).join(' ');
+            }
+
+            return value;
+        },
+        toNormalizePrefix(prefix) {
+            return prefix.replaceAll(/ /g, '').replace(/[^\w]/g, '-');
+        },
+        toNormalizeVariable(prefix = '', variable = '') {
+            return this.toNormalizePrefix(`${ObjectUtils.isNotEmpty(prefix) && ObjectUtils.isNotEmpty(variable) ? `${prefix}-` : prefix}${variable}`);
+        },
+        getVariableName(prefix = '', variable = '') {
+            return `--${this.toNormalizeVariable(prefix, variable)}`;
+        },
+        getVariableValue(value, variable = '', prefix = '', excludedKeyRegexes = []) {
+            if (ObjectUtils.isString(value)) {
+                const regex = /{([^}]*)}/g;
+                const val = value.trim();
+
+                if (ObjectUtils.test(regex, val)) {
+                    const _val = val.replaceAll(regex, (v) => {
+                        const path = v.replace(/{|}/g, '');
+                        const keys = path.split('.').filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)));
+
+                        return `var(${this.getVariableName(prefix, ObjectUtils.toKebabCase(keys.join('-')))})`;
+                    });
+
+                    const calculationRegex = /(\d+\s+[\+\-\*\/]\s+\d+)/g;
+                    const cleanedVarRegex = /var\([^)]+\)/g;
+
+                    return ObjectUtils.test(calculationRegex, _val.replace(cleanedVarRegex, '0')) ? `calc(${_val})` : _val;
+                }
+
+                return this.toUnit(val, variable);
+            } else if (ObjectUtils.isNumber(value)) {
+                return this.toUnit(value, variable);
+            }
+
+            return undefined;
+        }
     }
 };
+
+export default ObjectUtils;

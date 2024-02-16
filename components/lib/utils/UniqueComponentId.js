@@ -1,7 +1,11 @@
-var lastId = 0;
+var prefixIds = {};
 
-export default function (prefix = 'pv_id_') {
-    lastId++;
+export default function (prefix = 'pv_id_', suffix = '') {
+    if (!prefixIds.hasOwnProperty(prefix)) {
+        prefixIds[prefix] = 0;
+    }
 
-    return `${prefix}${lastId}`;
+    prefixIds[prefix]++;
+
+    return `${prefix}${prefixIds[prefix]}${suffix}`;
 }
