@@ -10,6 +10,7 @@ import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
 import contextmenu from 'primevue/theme/aura/contextmenu';
+import dataview from 'primevue/theme/aura/dataview';
 import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
 import dock from 'primevue/theme/aura/dock';
@@ -24,9 +25,11 @@ import menu from 'primevue/theme/aura/menu';
 import menubar from 'primevue/theme/aura/menubar';
 import message from 'primevue/theme/aura/message';
 import metergroup from 'primevue/theme/aura/metergroup';
+import orderlist from 'primevue/theme/aura/orderlist';
 import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import panel from 'primevue/theme/aura/panel';
 import panelmenu from 'primevue/theme/aura/panelmenu';
+import picklist from 'primevue/theme/aura/picklist';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
@@ -124,9 +127,11 @@ export default {
                     hoverColor: '{primary.600}',
                     activeColor: '{primary.700}'
                 },
-                highlight: {
+                listItemHighlight: {
                     background: '{primary.50}',
-                    textColor: '{primary.700}'
+                    backgroundFocus: '{primary.100}',
+                    textColor: '{primary.700}',
+                    textColorFocus: '{primary.800}'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)'
             },
@@ -151,9 +156,11 @@ export default {
                     hoverColor: '{primary.300}',
                     activeColor: '{primary.200}'
                 },
-                highlight: {
+                listItemHighlight: {
                     background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
-                    textColor: 'rgba(255,255,255,.87)'
+                    backgroundFocus: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                    textColor: 'rgba(255,255,255,.87)',
+                    textColorFocus: 'rgba(255,255,255,.87)'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)'
             }
@@ -173,6 +180,7 @@ export default {
         confirmdialog,
         confirmpopup,
         contextmenu,
+        dataview,
         dialog,
         divider,
         dock,
@@ -186,9 +194,11 @@ export default {
         image,
         inlinemessage,
         inplace,
+        orderlist,
         overlaypanel,
         panel,
         panelmenu,
+        picklist,
         progressbar,
         progressspinner,
         scrollpanel,
