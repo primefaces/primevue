@@ -108,6 +108,7 @@ export default {
 .p-datatable .p-sortable-column {
     cursor: pointer;
     user-select: none;
+    outline-color: transparent;
 }
 
 .p-datatable .p-sortable-column .p-column-title,
@@ -147,13 +148,13 @@ export default {
     color: var(--p-highlight-text-color);
 }
 
-.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
-    color: var(--p-highlight-text-color);
+.p-datatable .p-sortable-column:focus-visible {
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: -1px;
 }
 
-.p-datatable .p-sortable-column:focus-visible {
-    box-shadow: 0 none;
-    outline: 0 none;
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+    color: var(--p-highlight-text-color);
 }
 
 .p-datatable-hoverable-rows .p-selectable-row {
@@ -169,7 +170,7 @@ export default {
     z-index: 1;
 }
 
-.p-datatable-scrollable-table>.p-datatable-frozen-tbody {
+.p-datatable-scrollable-table > .p-datatable-frozen-tbody {
     position: sticky;
     z-index: 1;
 }
