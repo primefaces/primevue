@@ -55,8 +55,8 @@ export default {
 }
 
 .p-organizationchart-node-content.p-highlight {
-    background: var(--p-list-item-highlight-background);
-    color: var(--p-list-item-highlight-text-color);
+    background: var(--p-highlight-background);
+    color: var(--p-highlight-text-color);
 }
 
 .p-organizationchart-node-content .p-node-toggler {

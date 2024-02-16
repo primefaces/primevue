@@ -129,7 +129,7 @@ export default {
                     hoverColor: '{primary.600}',
                     activeColor: '{primary.700}'
                 },
-                listItemHighlight: {
+                highlight: {
                     background: '{primary.50}',
                     backgroundFocus: '{primary.100}',
                     textColor: '{primary.700}',
@@ -158,7 +158,7 @@ export default {
                     hoverColor: '{primary.300}',
                     activeColor: '{primary.200}'
                 },
-                listItemHighlight: {
+                highlight: {
                     background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
                     backgroundFocus: 'color-mix(in srgb, {primary.400}, transparent 76%)',
                     textColor: 'rgba(255,255,255,.87)',

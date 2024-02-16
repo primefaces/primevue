@@ -130,13 +130,13 @@ export default {
 }
 
 .p-orderlist-item.p-highlight {
-    background: var(--p-list-item-highlight-background);
-    color: var(--p-list-item-highlight-text-color);
+    background: var(--p-highlight-background);
+    color: var(--p-highlight-text-color);
 }
 
 .p-orderlist-item.p-highlight.p-focus {
-    background: var(--p-list-item-highlight-background-focus);
-    color: var(--p-list-item-highlight-text-color-focus);
+    background: var(--p-highlight-background-focus);
+    color: var(--p-highlight-text-color-focus);
 }
 
 .p-orderlist-controls .p-button {
