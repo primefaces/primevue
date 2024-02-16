@@ -23,7 +23,7 @@ export default {
                 },
                 bodyCell: {
                     borderColor: '{surface.200}',
-                    borderColorSelected: '{highlight.backgroundFocus}'
+                    borderColorSelected: '{primary.100}'
                 },
                 footerCell: {
                     background: '{surface.0}',
@@ -70,7 +70,7 @@ export default {
                 },
                 bodyCell: {
                     borderColor: '{surface.800}',
-                    borderColorSelected: '{highlight.backgroundFocus}'
+                    borderColorSelected: '{primary.900}'
                 },
                 footerCell: {
                     background: '{surface.900}',
