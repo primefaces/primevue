@@ -1810,7 +1810,7 @@ export default {
             let parts = text.split(' ');
 
             if (this.timeOnly) {
-                date = new Date(this.modelValue);
+                date = new Date();
                 this.populateTime(date, parts[0], parts[1]);
             } else {
                 const dateFormat = this.datePattern;
