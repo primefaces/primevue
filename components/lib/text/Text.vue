@@ -41,7 +41,7 @@ export default {
     },
     computed: {
         styles() {
-            return styleData.toString(this.$props);
+            return styleData.filterP(this.$props).getStyleDeclarations(this.$config.theme);
         }
     }
 };
