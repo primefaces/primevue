@@ -25,7 +25,30 @@ export default {
                     color: '{surface.500}'
                 }
             },
-            dark: {}
+            dark: {
+                root: {
+                    background: '{surface.900}',
+                    textColor: '{surface.0}'
+                },
+                node: {
+                    backgroundHover: '{surface.800}',
+                    textColor: '{surface.0}',
+                    textColorHover: '{surface.0}'
+                },
+                nodeIcon: {
+                    color: '{surface.400}',
+                    colorHover: '{surface.300}'
+                },
+                toggle: {
+                    backgroundHover: '{surface.800}',
+                    backgroundHoverHighlight: '{surface.900}',
+                    color: '{surface.400}',
+                    colorHover: '{surface.300}'
+                },
+                indeterminate: {
+                    color: '{surface.400}'
+                }
+            }
         }
     },
     css: `
