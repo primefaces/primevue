@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ props }) => [
-        'p-selectbutton p-buttonset p-component',
+        'p-selectbutton p-button-group p-component',
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid
