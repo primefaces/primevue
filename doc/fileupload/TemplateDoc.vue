@@ -287,7 +287,11 @@ export default {
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { usePrimeVue } from 'primevue/config';
 import { useToast } from "primevue/usetoast";
+
+const $primevue = usePrimeVue();
 const toast = useToast();
 
 const totalSize = ref(0);
@@ -325,7 +329,7 @@ const onTemplatedUpload = () => {
 const formatSize = (bytes) => {
     const k = 1024;
     const dm = 3;
-    const sizes = this.$primevue.config.locale.fileSizeTypes;
+    const sizes = $primevue.config.locale.fileSizeTypes;
 
     if (bytes === 0) {
         return \`0 \${sizes[0]}\`;
@@ -335,7 +339,7 @@ const formatSize = (bytes) => {
     const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
     return \`\${formattedSize} \${sizes[i]}\`;
-},
+};
 <\/script>
 `
             }
