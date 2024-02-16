@@ -4,7 +4,7 @@
         header="Button"
         description="Button is an extension to standard input element with icons and theming."
         :componentDocs="docs"
-        :apiDocs="['Button']"
+        :apiDocs="['Button', 'ButtonSet']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />
