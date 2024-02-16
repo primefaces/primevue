@@ -42,6 +42,7 @@ import tabview from 'primevue/theme/aura/tabview';
 import tag from 'primevue/theme/aura/tag';
 import terminal from 'primevue/theme/aura/terminal';
 import tieredmenu from 'primevue/theme/aura/tieredmenu';
+import timeline from 'primevue/theme/aura/timeline';
 import toast from 'primevue/theme/aura/toast';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
@@ -203,6 +204,7 @@ export default {
         tieredmenu,
         tag,
         terminal,
+        timeline,
         toast,
         toolbar
     },
