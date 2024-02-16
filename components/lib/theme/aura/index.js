@@ -39,6 +39,7 @@ import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
 import sidebar from 'primevue/theme/aura/sidebar';
 import skeleton from 'primevue/theme/aura/skeleton';
+import slider from 'primevue/theme/aura/slider';
 import speeddial from 'primevue/theme/aura/speeddial';
 import splitbutton from 'primevue/theme/aura/splitbutton';
 import splitter from 'primevue/theme/aura/splitter';
@@ -213,6 +214,7 @@ export default {
         scrolltop,
         skeleton,
         sidebar,
+        slider,
         speeddial,
         splitter,
         splitbutton,
