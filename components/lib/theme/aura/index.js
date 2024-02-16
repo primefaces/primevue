@@ -10,6 +10,7 @@ import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
 import contextmenu from 'primevue/theme/aura/contextmenu';
+import datatable from 'primevue/theme/aura/datatable';
 import dataview from 'primevue/theme/aura/dataview';
 import dialog from 'primevue/theme/aura/dialog';
 import divider from 'primevue/theme/aura/divider';
@@ -51,6 +52,8 @@ import timeline from 'primevue/theme/aura/timeline';
 import toast from 'primevue/theme/aura/toast';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
+import tree from 'primevue/theme/aura/tree';
+import treetable from 'primevue/theme/aura/treetable';
 
 export default {
     primitive: {
@@ -183,6 +186,7 @@ export default {
         confirmpopup,
         contextmenu,
         dataview,
+        datatable,
         dialog,
         divider,
         dock,
@@ -219,6 +223,8 @@ export default {
         tag,
         terminal,
         timeline,
+        tree,
+        treetable,
         toast,
         toolbar
     },
