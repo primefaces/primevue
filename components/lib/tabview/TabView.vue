@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
                 data-pc-group-section="navbutton"
             >
-                <slot name="previcon">
+                <slot name="previousicon">
                     <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
                 </slot>
             </button>
