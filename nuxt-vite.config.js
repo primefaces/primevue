@@ -234,6 +234,7 @@ const THEME_ALIAS = {
     'primevue/theme/aura/tabview': path.resolve(__dirname, './components/lib/theme/aura/tabview/index.js'),
     'primevue/theme/aura/tag': path.resolve(__dirname, './components/lib/theme/aura/tag/index.js'),
     'primevue/theme/aura/terminal': path.resolve(__dirname, './components/lib/theme/aura/terminal/index.js'),
+    'primevue/theme/aura/textarea': path.resolve(__dirname, './components/lib/theme/aura/textarea/index.js'),
     'primevue/theme/aura/tieredmenu': path.resolve(__dirname, './components/lib/theme/aura/tieredmenu/index.js'),
     'primevue/theme/aura/timeline': path.resolve(__dirname, './components/lib/theme/aura/timeline/index.js'),
     'primevue/theme/aura/toast': path.resolve(__dirname, './components/lib/theme/aura/toast/index.js'),

@@ -36,68 +36,62 @@ export default {
         }
     },
     css: `
-.p-inputtext {
+.p-inputtextarea {
     font-family: inherit;
     font-feature-settings: inherit;
     font-size: 1rem;
-    color: var(--p-inputtext-text-color);
-    background: var(--p-inputtext-background);
+    color: var(--p-textarea-text-color);
+    background: var(--p-textarea-background);
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--p-inputtext-border-color);
+    border: 1px solid var(--p-textarea-border-color);
     transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
     appearance: none;
     border-radius: var(--p-rounded-base);
     outline-color: transparent;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
 }
 
-.p-inputtext:enabled:hover {
-    border-color: var(--p-inputtext-border-color-hover);
+.p-inputtextarea:enabled:hover {
+    border-color: var(--p-textarea-border-color-hover);
 }
 
-.p-inputtext:enabled:focus {
-    border-color: var(--p-inputtext-border-color-focus);
+.p-inputtextarea:enabled:focus {
+    border-color: var(--p-textarea-border-color-focus);
     outline: 0 none;
 }
 
-.p-inputtext.p-invalid {
-    border-color: var(--p-inputtext-border-color-invalid);
+.p-inputtextarea.p-invalid {
+    border-color: var(--p-textarea-border-color-invalid);
 }
 
-.p-inputtext.p-variant-filled {
-    background-color: var(--p-inputtext-background-filled);
+.p-inputtextarea.p-variant-filled {
+    background-color: var(--p-textarea-background-filled);
 }
 
-.p-inputtext.p-variant-filled:enabled:hover {
-    background-color: var(--p-inputtext-background-filled-hover);
+.p-inputtextarea.p-variant-filled:enabled:hover {
+    background-color: var(--p-textarea-background-filled-hover);
 }
 
-.p-inputtext.p-variant-filled:enabled:focus {
-    background-color: var(--p-inputtext-background-filled-focus);
+.p-inputtextarea.p-variant-filled:enabled:focus {
+    background-color: var(--p-textarea-background-filled-focus);
 }
 
-.p-input-icon-right > svg:last-of-type,
-.p-input-icon-right > i:last-of-type {
-    right: 0.75rem;
-    color: #94a3b8;
+.p-inputtextarea::placeholder {
+    color: var(--p-textarea-placeholder-text-color);
 }
 
-.p-input-icon-right > .p-inputtext {
-    padding-right: 2.5rem;
-}
-
-.p-inputtext::placeholder {
-    color: var(--p-inputtext-placeholder-text-color);
-}
-
-.p-fluid .p-inputtext {
+.p-fluid .p-inputtextarea {
     width: 100%;
 }
 
-.p-inputtext:disabled {
+.p-inputtextarea-resizable {
+    overflow: hidden;
+    resize: none;
+}
+
+.p-inputtextarea:disabled {
     opacity: 1;
-    background: var(--p-inputtext-background-disabled);
-    color: var(--p-inputtext-text-color-disabled);
+    background: var(--p-textarea-background-disabled);
+    color: var(--p-textarea-text-color-disabled);
 }
 `
 };
