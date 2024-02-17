@@ -200,6 +200,7 @@ const THEME_ALIAS = {
     'primevue/theme/aura/inputnumber': path.resolve(__dirname, './components/lib/theme/aura/inputnumber/index.js'),
     'primevue/theme/aura/inputswitch': path.resolve(__dirname, './components/lib/theme/aura/inputswitch/index.js'),
     'primevue/theme/aura/inputtext': path.resolve(__dirname, './components/lib/theme/aura/inputtext/index.js'),
+    'primevue/theme/aura/knob': path.resolve(__dirname, './components/lib/theme/aura/knob/index.js'),
     'primevue/theme/aura/listbox': path.resolve(__dirname, './components/lib/theme/aura/listbox/index.js'),
     'primevue/theme/aura/megamenu': path.resolve(__dirname, './components/lib/theme/aura/megamenu/index.js'),
     'primevue/theme/aura/menu': path.resolve(__dirname, './components/lib/theme/aura/menu/index.js'),

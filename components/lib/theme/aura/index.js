@@ -22,6 +22,7 @@ import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
 import inputswitch from 'primevue/theme/aura/inputswitch';
+import knob from 'primevue/theme/aura/knob';
 import megamenu from 'primevue/theme/aura/megamenu';
 import menu from 'primevue/theme/aura/menu';
 import menubar from 'primevue/theme/aura/menubar';
@@ -194,6 +195,7 @@ export default {
         dock,
         fieldset,
         galleria,
+        knob,
         megamenu,
         menu,
         menubar,
