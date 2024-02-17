@@ -21,6 +21,7 @@ import global from 'primevue/theme/aura/global';
 import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
+import inputswitch from 'primevue/theme/aura/inputswitch';
 import megamenu from 'primevue/theme/aura/megamenu';
 import menu from 'primevue/theme/aura/menu';
 import menubar from 'primevue/theme/aura/menubar';
@@ -201,6 +202,7 @@ export default {
         image,
         inlinemessage,
         inplace,
+        inputswitch,
         orderlist,
         organizationchart,
         overlaypanel,
