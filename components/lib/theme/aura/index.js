@@ -22,6 +22,7 @@ import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
 import inputswitch from 'primevue/theme/aura/inputswitch';
+import inputtext from 'primevue/theme/aura/inputtext';
 import knob from 'primevue/theme/aura/knob';
 import megamenu from 'primevue/theme/aura/megamenu';
 import menu from 'primevue/theme/aura/menu';
@@ -206,6 +207,7 @@ export default {
         inlinemessage,
         inplace,
         inputswitch,
+        inputtext,
         orderlist,
         organizationchart,
         overlaypanel,
