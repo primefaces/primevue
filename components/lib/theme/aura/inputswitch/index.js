@@ -7,14 +7,14 @@ export default {
                     backgroundInvalid: '{red.400}',
                     backgroundHover: '{surface.400}',
                     backgroundChecked: '{primary.500}',
-                    backgroundHoverChecked: '{primary.600}',
+                    backgroundCheckedHover: '{primary.600}',
                     borderRadius: '30px'
                 },
                 handle: {
                     background: '{surface.0}',
                     backgroundHover: '{surface.0}',
                     backgroundChecked: '{surface.0}',
-                    backgroundHoverChecked: '{surface.0}',
+                    backgroundCheckedHover: '{surface.0}',
                     backgroundInvalid: '{surface.0}'
                 }
             },
@@ -24,14 +24,14 @@ export default {
                     backgroundInvalid: '{red.300}',
                     backgroundHover: '{surface.600}',
                     backgroundChecked: '{primary.400}',
-                    backgroundHoverChecked: '{primary.300}',
+                    backgroundCheckedHover: '{primary.300}',
                     borderRadius: '30px'
                 },
                 handle: {
                     background: '{surface.400}',
                     backgroundHover: '{surface.300}',
                     backgroundChecked: '{surface.900}',
-                    backgroundHoverChecked: '{surface.900}',
+                    backgroundCheckedHover: '{surface.900}',
                     backgroundInvalid: '{surface.900}'
                 }
             }
@@ -105,11 +105,11 @@ export default {
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider {
-    background: var(--p-inputswitch-background-hover-checked);
+    background: var(--p-inputswitch-background-checked-hover);
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider:before {
-    background: var(--p-inputswitch-handle-background-hover-checked);
+    background: var(--p-inputswitch-handle-background-checked-hover);
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:focus-visible) .p-inputswitch-slider {
