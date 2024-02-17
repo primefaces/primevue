@@ -37,6 +37,7 @@ import panelmenu from 'primevue/theme/aura/panelmenu';
 import picklist from 'primevue/theme/aura/picklist';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
+import rating from 'primevue/theme/aura/rating';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
 import sidebar from 'primevue/theme/aura/sidebar';
@@ -214,6 +215,7 @@ export default {
         picklist,
         progressbar,
         progressspinner,
+        rating,
         scrollpanel,
         scrolltop,
         skeleton,
