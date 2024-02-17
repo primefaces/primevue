@@ -617,10 +617,6 @@ export default {
             if (!this.disabled) {
                 this.preventFocus = true;
                 this.initFocusableCell();
-
-                if (this.numberOfMonths === 1) {
-                    this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
-                }
             }
         } else {
             this.input.value = this.formatValue(this.modelValue);
