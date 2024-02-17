@@ -1,3 +1,10 @@
+import { token } from '../..';
+
+export default {
+    backgroundImage: token.prop('backgroundImage'),
+    bgImg: token.prop('backgroundImage')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

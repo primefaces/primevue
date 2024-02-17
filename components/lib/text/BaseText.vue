@@ -1,10 +1,10 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import TextStyle from 'primevue/text/style';
-import { useDeclarations } from '../props/style';
+import { defineDeclarations } from '../props/style';
 import SPACING from '../props/style/spacing.js';
 
-export const styleData = useDeclarations(SPACING);
+export const styleData = defineDeclarations(SPACING);
 
 export default {
     name: 'BaseText',

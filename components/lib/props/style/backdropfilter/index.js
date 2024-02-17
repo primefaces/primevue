@@ -1,3 +1,9 @@
+import { token } from '..';
+
+export default {
+    backdropFilter: token.prop('backdropFilter')
+};
+
 /* const { styleClass } = require('../../utils');
 const { blur, brightness, contrast, grayscale, hueRotate, invert, saturate, sepia, dropShadow, addBackdrop } = require('../base/filter');
 

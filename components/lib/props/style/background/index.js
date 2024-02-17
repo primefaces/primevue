@@ -1,3 +1,22 @@
+import { token } from '..';
+import color from './properties/color';
+import image from './properties/image';
+import position from './properties/position';
+import repeat from './properties/repeat';
+import size from './properties/size';
+
+export default {
+    background: token.prop('background'),
+    bg: token.prop('background'),
+
+    // properties
+    ...color,
+    ...image,
+    ...position,
+    ...repeat,
+    ...size
+};
+
 /* const color = require('./properties/color');
 const image = require('./properties/image');
 const position = require('./properties/position');

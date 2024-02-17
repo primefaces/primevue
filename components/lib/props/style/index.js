@@ -36,56 +36,38 @@ export const token = {
     }
 };
 
-export const defineDeclarations = (data = {}) => {
-    return Object.entries(data).reduce((acc, [key, value]) => ((acc[key] = { key, ...value }), acc), {});
-};
+export const defineDeclarations = (...args) => {
+    const getData = (keys, props, declarations) => {
+        return {
+            keys,
+            props,
+            declarations,
+            getStyleDeclarations(options) {
+                return Object.entries(declarations)
+                    .reduce((acc, [key, value]) => {
+                        const v = props[key];
 
-export const useDeclarations = (...args) => {
+                        ObjectUtils.isNotEmpty(v) && acc.push(value.toString(v, options));
+
+                        return acc;
+                    }, [])
+                    .join('');
+            },
+            filterP(inProps) {
+                const _props = Object.entries(inProps)
+                    .filter(([key]) => keys.includes(key))
+                    .reduce((acc, [key, value]) => ((acc[key] = value), acc), {});
+                const _keys = Object.keys(_props);
+                const _declarations = Object.entries(_props).reduce((acc, [key]) => ((acc[key] = declarations[key]), acc), {});
+
+                return getData(_keys, _props, _declarations);
+            }
+        };
+    };
+
     const declarations = Object.assign({}, ...args);
     const keys = Object.keys(declarations);
     const props = keys.reduce((acc, k) => ((acc[k] = undefined), acc), {});
 
-    return {
-        keys,
-        props,
-        declarations,
-        getStyleDeclarations(options) {},
-        filterP(_props) {
-            const __props = Object.entries(_props)
-                .filter(([key]) => keys.includes(key))
-                .reduce((acc, [k, v]) => ((acc[k] = v), acc), {});
-            const __ks = Object.keys(__props);
-            const __declarations = Object.entries(__props).reduce((acc, [key]) => ((acc[key] = declarations[key]), acc), {});
-
-            /*const declarations = props.reduce((acc, [key, value]) => {
-                    if (ObjectUtils.isNotEmpty(value)) {
-                        const rule = ObjectUtils.toKebabCase(key);
-
-                        acc.push(rules[key].toString(ObjectUtils.css.getVariableValue(value, rule)));
-                    }
-
-                    return acc;
-                }, [])
-                .join('');*/
-
-            return {
-                keys: __ks,
-                props: __props,
-                declarations: __declarations,
-                getStyleDeclarations(options) {
-                    return Object.entries(__declarations)
-                        .reduce((acc, [, value]) => {
-                            const { key, toString } = value;
-
-                            const v = __props[key];
-
-                            ObjectUtils.isNotEmpty(v) && acc.push(value.toString(v, options));
-
-                            return acc;
-                        }, [])
-                        .join('');
-                }
-            };
-        }
-    };
+    return getData(keys, props, declarations);
 };

@@ -1,3 +1,9 @@
+import { token } from '..';
+
+export default {
+    all: token.prop('all')
+};
+
 /* const { styleClass } = require('../../utils');
 
 module.exports = (root, opts) => {

@@ -1,3 +1,9 @@
+import { token } from '../..';
+
+export default {
+    animationFillMode: token.prop('animationFillMode')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

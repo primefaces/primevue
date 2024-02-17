@@ -1,3 +1,19 @@
+import { token } from '..';
+import delay from './properties/delay';
+import duration from './properties/duration';
+import fillMode from './properties/fillMode';
+import iterationCount from './properties/iterationCount';
+import timingFunction from './properties/timingFunction';
+
+export default {
+    animation: token.prop('animation'),
+    ...delay,
+    ...duration,
+    ...fillMode,
+    ...iterationCount,
+    ...timingFunction
+};
+
 /* const delay = require('./properties/delay');
 const duration = require('./properties/duration');
 const fill_mode = require('./properties/fill_mode');

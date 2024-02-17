@@ -1,7 +1,7 @@
 import { token } from '../..';
 
 export default {
-    borderRadius: token.prop('borderRadius')
+    borderBottomRadius: token.prop('borderBottomRadius')
 };
 
 /* const { styleClass } = require('../../../utils');

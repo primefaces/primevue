@@ -1,3 +1,10 @@
+import { token } from '../..';
+
+export default {
+    backgroundSize: token.prop('backgroundSize'),
+    bgSize: token.prop('backgroundSize')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

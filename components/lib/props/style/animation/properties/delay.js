@@ -1,3 +1,9 @@
+import { token } from '../..';
+
+export default {
+    animationDelay: token.prop('animationDelay')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

@@ -1,3 +1,10 @@
+import { token } from '../..';
+
+export default {
+    backgroundPosition: token.prop('backgroundPosition'),
+    bgPos: token.prop('backgroundPosition')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

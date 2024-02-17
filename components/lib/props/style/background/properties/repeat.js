@@ -1,3 +1,10 @@
+import { token } from '../..';
+
+export default {
+    backgroundRepeat: token.prop('backgroundRepeat'),
+    bgRepeat: token.prop('backgroundRepeat')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

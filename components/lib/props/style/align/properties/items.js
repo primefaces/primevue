@@ -1,3 +1,9 @@
+import { token } from '../..';
+
+export default {
+    alignItems: token.prop('alignItems')
+};
+
 /*const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {

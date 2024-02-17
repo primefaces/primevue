@@ -1,3 +1,10 @@
+import { token } from '../..';
+
+export default {
+    backgroundColor: token.prop('backgroundColor'),
+    bgColor: token.prop('backgroundColor')
+};
+
 /* const { styleClass } = require('../../../utils');
 const { getColors, getThemeColors, getWhiteAndBlackRgbaColors } = require('../../base/color');
 

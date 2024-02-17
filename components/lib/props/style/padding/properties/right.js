@@ -1,6 +1,6 @@
-import { defineDeclarations, token } from '../..';
+import { token } from '../..';
 
-export default defineDeclarations({
+export default {
     paddingRight: token.spacing('paddingRight'),
     pr: token.spacing('paddingRight')
-});
+};

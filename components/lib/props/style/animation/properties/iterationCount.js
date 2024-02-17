@@ -1,3 +1,9 @@
+import { token } from '../..';
+
+export default {
+    animationIterationCount: token.prop('animationIterationCount')
+};
+
 /* const { styleClass } = require('../../../utils');
 
 module.exports = (root, opts) => {
