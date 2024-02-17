@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
@@ -72,6 +72,7 @@ import BaseDataView from './BaseDataView.vue';
 export default {
     name: 'DataView',
     extends: BaseDataView,
+    inheritAttrs: false,
     emits: ['update:first', 'update:rows', 'page'],
     data() {
         return {

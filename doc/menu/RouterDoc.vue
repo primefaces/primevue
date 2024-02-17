@@ -136,7 +136,7 @@ export default {
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -150,7 +150,7 @@ const items = ref([
         label: 'Programmatic',
         icon: 'pi pi-link',
         command: () => {
-            this.$router.push('/introduction');
+            router.push('/introduction');
         }
     },
     {

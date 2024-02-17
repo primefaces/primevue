@@ -4,6 +4,7 @@ import BaseColumnGroup from './BaseColumnGroup.vue';
 export default {
     name: 'ColumnGroup',
     extends: BaseColumnGroup,
+    inheritAttrs: false,
     inject: ['$columnGroups'],
     mounted() {
         this.$columnGroups?.add(this.$);

@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :class="cx('root')" v-bind="ptm('root')">
+    <div :ref="containerRef" :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
@@ -46,6 +46,7 @@
             @keydown="onKeyDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
+            @item-mousemove="onItemMouseMove"
         />
         <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
             <slot name="end"></slot>
@@ -62,6 +63,7 @@ import MenubarSub from './MenubarSub.vue';
 export default {
     name: 'Menubar',
     extends: BaseMenubar,
+    inheritAttrs: false,
     emits: ['focus', 'blur'],
     matchMediaListener: null,
     data() {
@@ -148,8 +150,6 @@ export default {
             event.preventDefault();
         },
         show() {
-            this.focusedItemInfo = { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
-
             DomHandler.focus(this.menubar);
         },
         hide(event, isFocus) {
@@ -168,7 +168,11 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
+
+            if (!this.popup) {
+                this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
+            }
+
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -287,6 +291,11 @@ export default {
         onItemMouseEnter(event) {
             if (!this.mobileActive && this.dirty) {
                 this.onItemChange(event);
+            }
+        },
+        onItemMouseMove(event) {
+            if (this.focused) {
+                this.changeFocusedItemIndex(event, event.processedItem.index);
             }
         },
         menuButtonClick(event) {

@@ -7,6 +7,7 @@ import BaseAccordionTab from './BaseAccordionTab.vue';
 
 export default {
     name: 'AccordionTab',
-    extends: BaseAccordionTab
+    extends: BaseAccordionTab,
+    inheritAttrs: false
 };
 </script>

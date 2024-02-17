@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptm('root')">
+    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
@@ -64,6 +64,7 @@ import MegaMenuSub from './MegaMenuSub.vue';
 export default {
     name: 'MegaMenu',
     extends: BaseMegaMenu,
+    inheritAttrs: false,
     emits: ['focus', 'blur'],
     outsideClickListener: null,
     resizeListener: null,

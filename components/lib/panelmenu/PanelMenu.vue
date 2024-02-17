@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" v-bind="ptm('root')">
+    <div :id="id" :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="(item, index) of model" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="[cx('panel'), getItemProp(item, 'class')]" v-bind="ptm('panel')">
                 <div
@@ -63,6 +63,7 @@ import PanelMenuList from './PanelMenuList.vue';
 export default {
     name: 'PanelMenu',
     extends: BasePanelMenu,
+    inheritAttrs: false,
     emits: ['update:expandedKeys', 'panel-open', 'panel-close'],
     data() {
         return {

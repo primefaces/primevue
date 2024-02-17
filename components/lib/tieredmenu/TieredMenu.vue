@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
+            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
@@ -29,6 +29,7 @@
                     @keydown="onKeyDown"
                     @item-click="onItemClick"
                     @item-mouseenter="onItemMouseEnter"
+                    @item-mousemove="onItemMouseMove"
                 />
                 <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                     <slot name="end"></slot>
@@ -137,8 +138,6 @@ export default {
                 this.relatedTarget = event.relatedTarget || null;
             }
 
-            this.focusedItemInfo = { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
-
             isFocus && DomHandler.focus(this.menubar);
         },
         hide(event, isFocus) {
@@ -155,7 +154,10 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
+
+            if (!this.popup) {
+                this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
+            }
 
             this.$emit('focus', event);
         },
@@ -290,6 +292,11 @@ export default {
         onItemMouseEnter(event) {
             if (this.dirty) {
                 this.onItemChange(event);
+            }
+        },
+        onItemMouseMove(event) {
+            if (this.focused) {
+                this.changeFocusedItemIndex(event, event.processedItem.index);
             }
         },
         onArrowDownKey(event) {

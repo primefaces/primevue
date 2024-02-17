@@ -1,5 +1,5 @@
 <template>
-    <textarea :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root', ptmParams)"></textarea>
+    <textarea :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="ptmi('root', ptmParams)"></textarea>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import BaseTextarea from './BaseTextarea.vue';
 export default {
     name: 'Textarea',
     extends: BaseTextarea,
+    inheritAttrs: false,
     emits: ['update:modelValue'],
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {

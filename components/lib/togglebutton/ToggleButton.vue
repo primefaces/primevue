@@ -13,6 +13,7 @@
             :readonly="readonly"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @change="onChange"
@@ -35,10 +36,13 @@ import BaseToggleButton from './BaseToggleButton.vue';
 export default {
     name: 'ToggleButton',
     extends: BaseToggleButton,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
-            return this.ptm(key, {
+            const _ptm = key === 'root' ? this.ptmi : this.ptm;
+
+            return _ptm(key, {
                 context: {
                     active: this.active,
                     disabled: this.disabled

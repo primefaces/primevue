@@ -16,6 +16,7 @@
             :aria-controls="panelId"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             inputmode="none"
             :disabled="disabled"
             :readonly="!manualInput || readonly"
@@ -1809,7 +1810,7 @@ export default {
             let parts = text.split(' ');
 
             if (this.timeOnly) {
-                date = new Date(this.modelValue);
+                date = new Date();
                 this.populateTime(date, parts[0], parts[1]);
             } else {
                 const dateFormat = this.datePattern;

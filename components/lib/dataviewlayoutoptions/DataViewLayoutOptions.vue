@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="group" v-bind="ptm('root')">
+    <div :class="cx('root')" role="group" v-bind="ptmi('root')">
         <button :aria-label="listViewAriaLabel" :class="cx('listButton')" @click="changeLayout('list')" type="button" :aria-pressed="isListButtonPressed" v-bind="ptm('listButton')">
             <slot name="listicon">
                 <BarsIcon v-bind="ptm('listIcon')" />
@@ -21,6 +21,7 @@ import BaseDataViewLayoutOptions from './BaseDataViewLayoutOptions.vue';
 export default {
     name: 'DataViewLayoutOptions',
     extends: BaseDataViewLayoutOptions,
+    inheritAttrs: false,
     emits: ['update:modelValue'],
     data() {
         return {

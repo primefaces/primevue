@@ -181,7 +181,7 @@ export interface TabPanelEmits {}
 /**
  * **PrimeVue - TabPanel**
  *
- * _TabPanel is a helper component for TabPanel component._
+ * _TabPanel is a helper component for TabView component._
  *
  * [Live Demo](https://www.primevue.org/tabview/)
  * --- ---

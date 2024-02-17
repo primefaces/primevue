@@ -1,5 +1,5 @@
 <template>
-    <div role="progressbar" :class="cx('root')" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')">
+    <div role="progressbar" :class="cx('root')" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptmi('root')">
         <div v-if="determinate" :class="cx('value')" :style="progressStyle" v-bind="ptm('value')">
             <div v-if="value != null && value !== 0 && showValue" :class="cx('label')" v-bind="ptm('label')">
                 <slot>{{ value + '%' }}</slot>
@@ -17,6 +17,7 @@ import BaseProgressBar from './BaseProgressBar.vue';
 export default {
     name: 'ProgressBar',
     extends: BaseProgressBar,
+    inheritAttrs: false,
     computed: {
         progressStyle() {
             return {

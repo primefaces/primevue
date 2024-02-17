@@ -11,12 +11,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>p-input-icon-right</td>
+                        <td>p-icon-field</td>
+                        <td>Container of element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-icon-field-right</td>
                         <td>Right input icon element.</td>
                     </tr>
                     <tr>
-                        <td>p-input-icon-left</td>
+                        <td>p-icon-field-left</td>
                         <td>Left input icon element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-input-icon</td>
+                        <td>Container of input icon.</td>
                     </tr>
                 </tbody>
             </table>

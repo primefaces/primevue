@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptmi('root', ptmParams)" />
+    <input :class="cx('root')" :readonly="readonly" :aria-invalid="invalid || undefined" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptmi('root', ptmParams)" />
 </template>
 
 <script>

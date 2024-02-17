@@ -1,0 +1,9 @@
+{
+    "main": "./stepper.cjs.js",
+    "module": "./stepper.esm.js",
+    "unpkg": "./stepper.min.js",
+    "types": "./Stepper.d.ts",
+    "browser": {
+        "./sfc": "./Stepper.vue"
+    }
+}

@@ -20,10 +20,16 @@
                     :data-p-focused="isItemFocused(processedItem)"
                     :data-p-disabled="isItemDisabled(processedItem)"
                 >
-                    <div :class="cx('content')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions('content', processedItem, index)">
+                    <div
+                        :class="cx('content')"
+                        @click="onItemClick($event, processedItem)"
+                        @mouseenter="onItemMouseEnter($event, processedItem)"
+                        @mousemove="onItemMouseMove($event, processedItem)"
+                        v-bind="getPTOptions('content', processedItem, index)"
+                    >
                         <template v-if="!templates.item">
                             <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
-                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
+                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('icon')" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
                                 <span :id="getItemLabelId(processedItem)" :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                                 <template v-if="getItemProp(processedItem, 'items')">
@@ -50,6 +56,7 @@
                         :unstyled="unstyled"
                         @item-click="$emit('item-click', $event)"
                         @item-mouseenter="$emit('item-mouseenter', $event)"
+                        @item-mousemove="$emit('item-mousemove', $event)"
                         :aria-labelledby="getItemLabelId(processedItem)"
                         v-bind="ptm('submenu')"
                     />
@@ -78,7 +85,7 @@ export default {
     name: 'ContextMenuSub',
     hostName: 'ContextMenu',
     extends: BaseComponent,
-    emits: ['item-click', 'item-mouseenter'],
+    emits: ['item-click', 'item-mouseenter', 'item-mousemove'],
     props: {
         items: {
             type: Array,
@@ -165,6 +172,9 @@ export default {
         },
         onItemMouseEnter(event, processedItem) {
             this.$emit('item-mouseenter', { originalEvent: event, processedItem });
+        },
+        onItemMouseMove(event, processedItem) {
+            this.$emit('item-mousemove', { originalEvent: event, processedItem, isFocus: true });
         },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;

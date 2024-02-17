@@ -11,10 +11,10 @@
         :data-p-focused="isItemFocused()"
         :data-p-disabled="disabled() || false"
     >
-        <div :class="cx('content')" @click="onItemClick($event)" v-bind="getPTOptions('content')">
+        <div :class="cx('content')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" v-bind="getPTOptions('content')">
             <template v-if="!templates.item">
                 <a v-ripple :href="item.url" :class="cx('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon')" />
                     <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
                     <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
@@ -35,7 +35,7 @@ export default {
     hostName: 'Menu',
     extends: BaseComponent,
     inheritAttrs: false,
-    emits: ['item-click'],
+    emits: ['item-click', 'item-mousemove'],
     props: {
         item: null,
         templates: null,
@@ -65,6 +65,9 @@ export default {
 
             command && command({ originalEvent: event, item: this.item.item });
             this.$emit('item-click', { originalEvent: event, item: this.item, id: this.id });
+        },
+        onItemMouseMove(event) {
+            this.$emit('item-mousemove', { originalEvent: event, item: this.item, id: this.id });
         },
         visible() {
             return typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false;

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <ul ref="nav" :class="cx('menu')" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <li
@@ -15,7 +15,7 @@
                 >
                     <template v-if="!$slots.item">
                         <a ref="tabLink" v-ripple role="menuitem" :href="item.url" :class="cx('action')" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="-1" v-bind="getPTOptions('action', item, i)">
-                            <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                            <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="cx('icon')" />
                             <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', item, i)" />
                             <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
                         </a>
@@ -37,6 +37,7 @@ import BaseTabMenu from './BaseTabMenu.vue';
 export default {
     name: 'TabMenu',
     extends: BaseTabMenu,
+    inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-change'],
     timeout: null,
     data() {

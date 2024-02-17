@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')">
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
@@ -180,6 +180,7 @@ import TreeTableRow from './TreeTableRow.vue';
 export default {
     name: 'TreeTable',
     extends: BaseTreeTable,
+    inheritAttrs: false,
     emits: [
         'node-expand',
         'node-collapse',

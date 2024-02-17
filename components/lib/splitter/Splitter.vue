@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptm('root', getPTOptions())">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions())">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -28,6 +28,7 @@ import BaseSplitter from './BaseSplitter.vue';
 export default {
     name: 'Splitter',
     extends: BaseSplitter,
+    inheritAttrs: false,
     emits: ['resizestart', 'resizeend', 'resize'],
     dragging: false,
     mouseMoveListener: null,

@@ -44,6 +44,7 @@
                     :style="inputStyle"
                     :disabled="disabled || maxedOut"
                     :placeholder="placeholder"
+                    :aria-invalid="invalid || undefined"
                     @focus="onFocus($event)"
                     @blur="onBlur($event)"
                     @input="onInput"

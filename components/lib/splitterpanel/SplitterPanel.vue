@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" v-bind="ptm('root', getPTOptions)">
+    <div ref="container" :class="cx('root')" v-bind="ptmi('root', getPTOptions)">
         <slot></slot>
     </div>
 </template>
@@ -10,6 +10,7 @@ import BaseSplitterPanel from './BaseSplitterPanel.vue';
 export default {
     name: 'SplitterPanel',
     extends: BaseSplitterPanel,
+    inheritAttrs: false,
     computed: {
         isNested() {
             return this.$slots.default().some((child) => {

@@ -18,6 +18,7 @@
                 :aria-expanded="overlayVisible"
                 :aria-controls="id + '_tree'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
+                :aria-invalid="invalid || undefined"
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
@@ -283,13 +284,24 @@ export default {
 
             const { index, level, parentKey, children } = processedOption;
             const grouped = ObjectUtils.isNotEmpty(children);
+            const root = ObjectUtils.isEmpty(processedOption.parent);
+            const selected = this.isSelected(processedOption);
 
-            const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+            if (selected) {
+                const { index, key, level, parentKey } = processedOption;
 
-            activeOptionPath.push(processedOption);
+                this.focusedOptionInfo = { index, level, parentKey };
+                this.activeOptionPath = this.activeOptionPath.filter((p) => key !== p.key && key.startsWith(p.key));
 
-            this.focusedOptionInfo = { index, level, parentKey };
-            this.activeOptionPath = activeOptionPath;
+                this.dirty = !root;
+            } else {
+                const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+
+                activeOptionPath.push(processedOption);
+
+                this.focusedOptionInfo = { index, level, parentKey };
+                this.activeOptionPath = activeOptionPath;
+            }
 
             grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && DomHandler.focus(this.$refs.focusInput);

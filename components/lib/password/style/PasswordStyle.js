@@ -10,7 +10,7 @@ const classes = {
         {
             'p-inputwrapper-filled': instance.filled,
             'p-inputwrapper-focus': instance.focused,
-            'p-input-icon-right': props.toggleMask
+            'p-icon-field p-icon-field-right': props.toggleMask
         }
     ],
     input: ({ props }) => [
@@ -19,7 +19,9 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    panel: ({ props, instance }) => [
+    hideIcon: 'p-input-icon',
+    showIcon: 'p-input-icon',
+    panel: ({ instance }) => [
         'p-password-panel p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false

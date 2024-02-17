@@ -15,7 +15,7 @@
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>
@@ -36,7 +36,7 @@ export default {
 <Calendar v-model="icondisplay" showIcon iconDisplay="input" />
 <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly>
     <template #inputicon="{ clickCallback }">
-        <i class="pi pi-clock cursor-pointer" @click="clickCallback" />
+        <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
     </template>
 </Calendar>
 `,
@@ -55,7 +55,7 @@ export default {
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>
@@ -89,7 +89,7 @@ export default {
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>
