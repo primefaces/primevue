@@ -23,6 +23,7 @@ import global from 'primevue/theme/aura/global';
 import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
+import inputgroup from 'primevue/theme/aura/inputgroup';
 import inputswitch from 'primevue/theme/aura/inputswitch';
 import inputtext from 'primevue/theme/aura/inputtext';
 import knob from 'primevue/theme/aura/knob';
@@ -243,6 +244,7 @@ export default {
         image,
         inlinemessage,
         inplace,
+        inputgroup,
         inputswitch,
         inputtext,
         orderlist,
