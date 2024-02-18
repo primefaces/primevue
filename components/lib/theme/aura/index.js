@@ -6,6 +6,7 @@ import breadcrumb from 'primevue/theme/aura/breadcrumb';
 import button from 'primevue/theme/aura/button';
 import card from 'primevue/theme/aura/card';
 import carousel from 'primevue/theme/aura/carousel';
+import checkbox from 'primevue/theme/aura/checkbox';
 import chip from 'primevue/theme/aura/chip';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
@@ -38,6 +39,7 @@ import panelmenu from 'primevue/theme/aura/panelmenu';
 import picklist from 'primevue/theme/aura/picklist';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
+import radiobutton from 'primevue/theme/aura/radiobutton';
 import rating from 'primevue/theme/aura/rating';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
@@ -145,11 +147,10 @@ export default {
                     textColorFocus: '{primary.800}'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)',
-                textfield: {
+                formField: {
                     background: '{surface.0}',
                     backgroundDisabled: '{surface.200}',
                     backgroundFilled: '{surface.50}',
-                    backgroundFilledHover: '{surface.50}',
                     backgroundFilledFocus: '{surface.0}',
                     borderColor: '{surface.300}',
                     borderColorHover: '{surface.400}',
@@ -189,11 +190,10 @@ export default {
                     textColorFocus: 'rgba(255,255,255,.87)'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)',
-                textfield: {
+                formField: {
                     background: '{surface.950}',
                     backgroundDisabled: '{surface.700}',
                     backgroundFilled: '{surface.800}',
-                    backgroundFilledHover: '{surface.800}',
                     backgroundFilledFocus: '{surface.950}',
                     borderColor: '{surface.700}',
                     borderColorHover: '{surface.600}',
@@ -217,6 +217,7 @@ export default {
         button,
         card,
         carousel,
+        checkbox,
         chip,
         confirmdialog,
         confirmpopup,
@@ -248,6 +249,7 @@ export default {
         picklist,
         progressbar,
         progressspinner,
+        radiobutton,
         rating,
         scrollpanel,
         scrolltop,

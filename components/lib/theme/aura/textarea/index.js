@@ -2,19 +2,18 @@ export default {
     variables: {
         common: {
             root: {
-                background: '{textfield.background}',
-                backgroundDisabled: '{textfield.background.disabled}',
-                backgroundFilled: '{textfield.background.filled}',
-                backgroundFilledHover: '{textfield.background.filled.hover}',
-                backgroundFilledFocus: '{textfield.background.filled.focus}',
-                borderColor: '{textfield.border.color}',
-                borderColorHover: '{textfield.border.color.hover}',
-                borderColorFocus: '{textfield.border.color.focus}',
-                borderColorInvalid: '{textfield.border.color.invalid}',
-                textColor: '{textfield.text.color}',
-                textColorDisabled: '{textfield.text.disabled}',
-                placeholderTextColor: '{textfield.placeholder.text.color}',
-                boxShadow: '{textfield.box.shadow}'
+                background: '{form.field.background}',
+                backgroundDisabled: '{form.field.background.disabled}',
+                backgroundFilled: '{form.field.background.filled}',
+                backgroundFilledFocus: '{form.field.background.filled.focus}',
+                borderColor: '{form.field.border.color}',
+                borderColorHover: '{form.field.border.color.hover}',
+                borderColorFocus: '{form.field.border.color.focus}',
+                borderColorInvalid: '{form.field.border.color.invalid}',
+                textColor: '{form.field.text.color}',
+                textColorDisabled: '{form.field.text.disabled}',
+                placeholderTextColor: '{form.field.placeholder.text.color}',
+                boxShadow: '{form.field.box.shadow}'
             }
         }
     },
@@ -49,10 +48,6 @@ export default {
 
 .p-inputtextarea.p-variant-filled {
     background-color: var(--p-textarea-background-filled);
-}
-
-.p-inputtextarea.p-variant-filled:enabled:hover {
-    background-color: var(--p-textarea-background-filled-hover);
 }
 
 .p-inputtextarea.p-variant-filled:enabled:focus {
