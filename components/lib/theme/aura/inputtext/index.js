@@ -54,6 +54,12 @@ export default {
     background-color: var(--p-inputtext-background-filled-focus);
 }
 
+.p-inputtext:disabled {
+    opacity: 1;
+    background: var(--p-inputtext-background-disabled);
+    color: var(--p-inputtext-text-color-disabled);
+}
+
 .p-input-icon-right > svg:last-of-type,
 .p-input-icon-right > i:last-of-type {
     right: 0.75rem;
@@ -70,12 +76,6 @@ export default {
 
 .p-fluid .p-inputtext {
     width: 100%;
-}
-
-.p-inputtext:disabled {
-    opacity: 1;
-    background: var(--p-inputtext-background-disabled);
-    color: var(--p-inputtext-text-color-disabled);
 }
 `
 };

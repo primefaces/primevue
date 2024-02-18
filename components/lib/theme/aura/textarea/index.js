@@ -54,6 +54,12 @@ export default {
     background-color: var(--p-textarea-background-filled-focus);
 }
 
+.p-inputtextarea:disabled {
+    opacity: 1;
+    background: var(--p-textarea-background-disabled);
+    color: var(--p-textarea-text-color-disabled);
+}
+
 .p-inputtextarea::placeholder {
     color: var(--p-textarea-placeholder-text-color);
 }
@@ -65,12 +71,6 @@ export default {
 .p-inputtextarea-resizable {
     overflow: hidden;
     resize: none;
-}
-
-.p-inputtextarea:disabled {
-    opacity: 1;
-    background: var(--p-textarea-background-disabled);
-    color: var(--p-textarea-text-color-disabled);
 }
 `
 };
