@@ -36,6 +36,7 @@ import overlaypanel from 'primevue/theme/aura/overlaypanel';
 import paginator from 'primevue/theme/aura/paginator';
 import panel from 'primevue/theme/aura/panel';
 import panelmenu from 'primevue/theme/aura/panelmenu';
+import password from 'primevue/theme/aura/password';
 import picklist from 'primevue/theme/aura/picklist';
 import progressbar from 'primevue/theme/aura/progressbar';
 import progressspinner from 'primevue/theme/aura/progressspinner';
@@ -58,8 +59,8 @@ import terminal from 'primevue/theme/aura/terminal';
 import textarea from 'primevue/theme/aura/textarea';
 import tieredmenu from 'primevue/theme/aura/tieredmenu';
 import timeline from 'primevue/theme/aura/timeline';
-import togglebutton from 'primevue/theme/aura/togglebutton';
 import toast from 'primevue/theme/aura/toast';
+import togglebutton from 'primevue/theme/aura/togglebutton';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
 import tree from 'primevue/theme/aura/tree';
@@ -246,6 +247,7 @@ export default {
         organizationchart,
         overlaypanel,
         paginator,
+        password,
         panel,
         panelmenu,
         picklist,
