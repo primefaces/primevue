@@ -43,6 +43,7 @@ import radiobutton from 'primevue/theme/aura/radiobutton';
 import rating from 'primevue/theme/aura/rating';
 import scrollpanel from 'primevue/theme/aura/scrollpanel';
 import scrolltop from 'primevue/theme/aura/scrolltop';
+import selectbutton from 'primevue/theme/aura/selectbutton';
 import sidebar from 'primevue/theme/aura/sidebar';
 import skeleton from 'primevue/theme/aura/skeleton';
 import slider from 'primevue/theme/aura/slider';
@@ -57,6 +58,7 @@ import terminal from 'primevue/theme/aura/terminal';
 import textarea from 'primevue/theme/aura/textarea';
 import tieredmenu from 'primevue/theme/aura/tieredmenu';
 import timeline from 'primevue/theme/aura/timeline';
+import togglebutton from 'primevue/theme/aura/togglebutton';
 import toast from 'primevue/theme/aura/toast';
 import toolbar from 'primevue/theme/aura/toolbar';
 import tooltip from 'primevue/theme/aura/tooltip';
@@ -253,6 +255,7 @@ export default {
         rating,
         scrollpanel,
         scrolltop,
+        selectbutton,
         skeleton,
         sidebar,
         slider,
@@ -267,6 +270,7 @@ export default {
         tag,
         terminal,
         timeline,
+        togglebutton,
         tree,
         treetable,
         toast,
