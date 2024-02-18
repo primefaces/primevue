@@ -144,7 +144,22 @@ export default {
                     textColor: '{primary.700}',
                     textColorFocus: '{primary.800}'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)'
+                maskBackground: 'rgba(0,0,0,0.4)',
+                textfield: {
+                    background: '{surface.0}',
+                    backgroundDisabled: '{surface.200}',
+                    backgroundFilled: '{surface.50}',
+                    backgroundFilledHover: '{surface.50}',
+                    backgroundFilledFocus: '{surface.0}',
+                    borderColor: '{surface.300}',
+                    borderColorHover: '{surface.400}',
+                    borderColorFocus: '{primary.color}',
+                    borderColorInvalid: '{red.400}',
+                    textColor: '{surface.700}',
+                    textColorDisabled: '{surface.500}',
+                    placeholderTextColor: '{surface.500}',
+                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                }
             },
             dark: {
                 surface: {
@@ -173,7 +188,22 @@ export default {
                     textColor: 'rgba(255,255,255,.87)',
                     textColorFocus: 'rgba(255,255,255,.87)'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)'
+                maskBackground: 'rgba(0,0,0,0.4)',
+                textfield: {
+                    background: '{surface.950}',
+                    backgroundDisabled: '{surface.700}',
+                    backgroundFilled: '{surface.800}',
+                    backgroundFilledHover: '{surface.800}',
+                    backgroundFilledFocus: '{surface.950}',
+                    borderColor: '{surface.700}',
+                    borderColorHover: '{surface.600}',
+                    borderColorFocus: '{primary.color}',
+                    borderColorInvalid: '{red.300}',
+                    textColor: '{surface.0}',
+                    textColorDisabled: '{surface.400}',
+                    placeholderTextColor: '{surface.400}',
+                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                }
             }
         }
     },

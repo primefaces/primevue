@@ -1,37 +1,20 @@
 export default {
     variables: {
-        colorScheme: {
-            light: {
-                root: {
-                    background: '{surface.0}',
-                    backgroundDisabled: '{surface.200}',
-                    backgroundFilled: '{surface.50}',
-                    backgroundFilledHover: '{surface.50}',
-                    backgroundFilledFocus: '{surface.0}',
-                    borderColor: '{surface.300}',
-                    borderColorHover: '{surface.400}',
-                    borderColorFocus: '{primary.color}',
-                    borderColorInvalid: '{red.400}',
-                    textColor: '{surface.700}',
-                    textColorDisabled: '{surface.500}',
-                    placeholderTextColor: '{surface.500}'
-                }
-            },
-            dark: {
-                root: {
-                    background: '{surface.950}',
-                    backgroundDisabled: '{surface.700}',
-                    backgroundFilled: '{surface.800}',
-                    backgroundFilledHover: '{surface.800}',
-                    backgroundFilledFocus: '{surface.950}',
-                    borderColor: '{surface.700}',
-                    borderColorHover: '{surface.600}',
-                    borderColorFocus: '{primary.color}',
-                    borderColorInvalid: '{red.300}',
-                    textColor: '{surface.0}',
-                    textColorDisabled: '{surface.400}',
-                    placeholderTextColor: '{surface.400}'
-                }
+        common: {
+            root: {
+                background: '{textfield.background}',
+                backgroundDisabled: '{textfield.background.disabled}',
+                backgroundFilled: '{textfield.background.filled}',
+                backgroundFilledHover: '{textfield.background.filled.hover}',
+                backgroundFilledFocus: '{textfield.background.filled.focus}',
+                borderColor: '{textfield.border.color}',
+                borderColorHover: '{textfield.border.color.hover}',
+                borderColorFocus: '{textfield.border.color.focus}',
+                borderColorInvalid: '{textfield.border.color.invalid}',
+                textColor: '{textfield.text.color}',
+                textColorDisabled: '{textfield.text.disabled}',
+                placeholderTextColor: '{textfield.placeholder.text.color}',
+                boxShadow: '{textfield.box.shadow}'
             }
         }
     },
@@ -48,7 +31,7 @@ export default {
     appearance: none;
     border-radius: var(--p-rounded-base);
     outline-color: transparent;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
+    box-shadow: var(--p-inputtext-box-shadow);
 }
 
 .p-inputtext:enabled:hover {
