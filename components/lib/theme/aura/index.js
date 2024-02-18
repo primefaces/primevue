@@ -8,6 +8,7 @@ import card from 'primevue/theme/aura/card';
 import carousel from 'primevue/theme/aura/carousel';
 import checkbox from 'primevue/theme/aura/checkbox';
 import chip from 'primevue/theme/aura/chip';
+import colorpicker from 'primevue/theme/aura/colorpicker';
 import confirmdialog from 'primevue/theme/aura/confirmdialog';
 import confirmpopup from 'primevue/theme/aura/confirmpopup';
 import contextmenu from 'primevue/theme/aura/contextmenu';
@@ -222,6 +223,7 @@ export default {
         carousel,
         checkbox,
         chip,
+        colorpicker,
         confirmdialog,
         confirmpopup,
         contextmenu,
