@@ -1,4 +1,10 @@
-import { t } from '.';
+import width from './width';
+
+export default {
+    ...width
+};
+
+/*import { t } from '.';
 import ObjectUtils from '../../utils/ObjectUtils';
 
 export const WIDTH_DATA = {
@@ -46,3 +52,4 @@ export const SPACING = {
             .join('');
     }
 };
+*/

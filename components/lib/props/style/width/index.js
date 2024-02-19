@@ -1,3 +1,10 @@
+import { token } from '..';
+
+export default {
+    width: token.sizing('width'),
+    w: token.sizing('width')
+};
+
 /* const { styleClass } = require('../../utils');
 const { addFixedSize } = require('../base/size');
 

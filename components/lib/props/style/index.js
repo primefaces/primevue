@@ -1,5 +1,18 @@
 import ObjectUtils from '../../utils/ObjectUtils';
 
+/* Custom Theme */
+const defaultStyleOptions = {
+    //spacing: 2 // 2 * value
+    //spacing: [0, 1, 3, 5, 7]
+    //spacing: (value) => value * 2
+    spacing: {
+        0: 0,
+        1: 2,
+        2: 4,
+        3: 6
+    }
+};
+
 export const getDeclaration = (property, value) => {
     return [property]
         .flat()
@@ -7,26 +20,67 @@ export const getDeclaration = (property, value) => {
         .join('');
 };
 
-const importantRegex = /.*!$/;
+const importantRegex = /!$/;
+
+const formatter = {
+    format(computedValue, value) {
+        return importantRegex.test(value) ? this.important(computedValue) : computedValue;
+    },
+    important(value) {
+        return `${value}!important`;
+    }
+};
 
 export const token = {
-    spacing: (property, options) => {
+    spacing: (property) => {
+        const transform = (key, value, options = {}) => {
+            const spacing = options.spacing; // theming and default spacing
+            let computedValue = `${value}`.replace(importantRegex, '').trim();
+
+            if (ObjectUtils.isNumber(spacing)) {
+                computedValue = ObjectUtils.isNumber(computedValue) ? +computedValue * spacing : computedValue;
+            } else if (ObjectUtils.isArray(spacing)) {
+                computedValue = ObjectUtils.isNumber(computedValue) ? spacing[+computedValue] ?? computedValue : computedValue;
+            } else if (ObjectUtils.isObject(spacing)) {
+                computedValue = ObjectUtils.isNumber(computedValue) ? spacing[+computedValue] ?? computedValue : computedValue;
+            } else if (ObjectUtils.isFunction(spacing)) {
+                computedValue = ObjectUtils.isNumber(computedValue) ? spacing(+computedValue) : computedValue;
+            }
+
+            return formatter.format(ObjectUtils.css.getVariableValue(computedValue, key), value);
+        };
+
         return {
             type: 'spacing',
             property,
-            transform(value) {
-                return importantRegex.test(value) ? value + 'important' : value;
-            },
-            toString(value, options) {
-                return getDeclaration(property, this.transform(value));
+            transform,
+            getStyleDeclaration(key, value, options) {
+                return getDeclaration(property, transform(key, value, defaultStyleOptions));
             }
         };
     },
     sizing: (property) => {
+        const transform = (key, value, options = {}) => {
+            let computedValue = `${value}`.replace(importantRegex, '').trim();
+
+            try {
+                computedValue = Function(`'use strict'; return ${computedValue}`)();
+            } catch {}
+
+            if (ObjectUtils.isNumber(computedValue)) {
+                computedValue = computedValue <= 1 && computedValue !== 0 ? `${computedValue * 100}%` : computedValue;
+            }
+
+            return formatter.format(ObjectUtils.css.getVariableValue(computedValue, key), value);
+        };
+
         return {
             type: 'sizing',
             property,
-            declaration: (value) => declaration(property, value)
+            transform,
+            getStyleDeclaration(key, value, options) {
+                return getDeclaration(property, transform(key, value, defaultStyleOptions));
+            }
         };
     },
     prop: (property) => {
@@ -47,7 +101,7 @@ export const defineDeclarations = (...args) => {
                     .reduce((acc, [key, value]) => {
                         const v = props[key];
 
-                        ObjectUtils.isNotEmpty(v) && acc.push(value.toString(v, options));
+                        ObjectUtils.isNotEmpty(v) && acc.push(value.getStyleDeclaration(key, v, options));
 
                         return acc;
                     }, [])
