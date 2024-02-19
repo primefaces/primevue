@@ -1,5 +1,6 @@
 import { FilterMatchMode } from 'primevue/api';
-import Aura from 'primevue/theme/aura';
+import PrimeOne from 'primevue/themes/primeone';
+import Aura from 'primevue/themes/primeone/aura';
 import { inject, reactive } from 'vue';
 
 export const defaultOptions = {
@@ -135,6 +136,7 @@ export const defaultOptions = {
         tooltip: 1100
     },
     theme: {
+        base: PrimeOne,
         preset: Aura,
         options: undefined
     },

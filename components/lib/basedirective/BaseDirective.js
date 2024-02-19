@@ -1,5 +1,5 @@
 import BaseStyle from 'primevue/base/style';
-import { toVariables } from 'primevue/theme';
+import { toVariables } from 'primevue/themes';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -75,10 +75,10 @@ const BaseDirective = {
         return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
     _loadThemeStyle: (instance = {}, useStyleOptions) => {
-        const theme = instance.globalTheme();
+        const preset = instance.globalPresetTheme();
 
-        if (theme) {
-            const { variables, css } = theme;
+        if (preset) {
+            const { variables } = preset;
             const { colorScheme, ...vRest } = variables || {};
             const { dark, ...csRest } = colorScheme || {};
             const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [instance.$name]: vRest }).css : '';
@@ -86,7 +86,15 @@ const BaseDirective = {
             const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ [instance.$name]: dark }, { selector: '.p-dark' }).css : '';
             const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
 
-            instance.$style?.loadTheme(`${variables_css}${css}`, { name: `${instance.$name}-directive-style`, useStyleOptions });
+            instance.$style?.loadTheme(`${variables_css}`, { name: `${instance.$name}-directive-variable`, useStyleOptions });
+        }
+
+        const base = instance.globalBaseTheme();
+
+        if (base) {
+            const { css } = base;
+
+            instance.$style?.loadTheme(`${css}`, { name: `${instance.$name}-directive-style`, useStyleOptions });
         }
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
@@ -125,8 +133,10 @@ const BaseDirective = {
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
+                baseTheme: () => ObjectUtils.getItemValue(config?.theme?.base),
                 presetTheme: () => ObjectUtils.getItemValue(config?.theme?.preset, config?.theme?.options),
-                globalTheme: () => ObjectUtils.getItemValue(el.$instance?.presetTheme?.()?.directives?.[name], undefined),
+                globalBaseTheme: () => ObjectUtils.getItemValue(el.$instance?.baseTheme?.()?.directives?.[name], undefined),
+                globalPresetTheme: () => ObjectUtils.getItemValue(el.$instance?.presetTheme?.()?.directives?.[name], undefined),
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),

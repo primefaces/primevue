@@ -1,6 +1,6 @@
 <script>
 import BaseStyle from 'primevue/base/style';
-import { toVariables } from 'primevue/theme';
+import { toVariables } from 'primevue/themes';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
@@ -36,11 +36,11 @@ export default {
                 }
             }
         },
-        $globalTheme: {
+        $globalPresetTheme: {
             immediate: true,
             handler(newValue) {
                 if (newValue) {
-                    const { variables, css } = newValue;
+                    const { variables } = newValue;
                     const { colorScheme, ...vRest } = variables || {};
                     const { dark, ...csRest } = colorScheme || {};
                     const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [this.$style.name]: vRest }).css : '';
@@ -48,7 +48,17 @@ export default {
                     const dark_css = ObjectUtils.isNotEmpty(dark) ? toVariables({ [this.$style.name]: dark }, { selector: '.p-dark' }).css : '';
                     const variables_css = `${vRest_css}${csRest_css}${dark_css}`;
 
-                    this.$style?.loadTheme(`${variables_css}${css}`, { useStyleOptions: this.$styleOptions });
+                    this.$style?.loadTheme(`${variables_css}`, { name: `${this.$style.name}-variables`, useStyleOptions: this.$styleOptions });
+                }
+            }
+        },
+        $globalBaseTheme: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    const { css } = newValue;
+
+                    this.$style?.loadTheme(`${css}`, { useStyleOptions: this.$styleOptions });
                 }
             }
         }
@@ -119,7 +129,7 @@ export default {
 
             this._loadThemeVariables();
 
-            BaseComponentStyle.loadGlobalTheme(this.$presetTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
+            BaseComponentStyle.loadGlobalTheme(this.$baseTheme?.components?.global?.css, { nonce: this.$config?.csp?.nonce });
         },
         _loadThemeVariables() {
             const { primitive, semantic } = this.$presetTheme;
@@ -286,12 +296,20 @@ export default {
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
+        $baseTheme() {
+            const { base } = this.$config?.theme || {};
+
+            return ObjectUtils.getItemValue(base);
+        },
         $presetTheme() {
             const { preset, options } = this.$config?.theme || {};
 
             return ObjectUtils.getItemValue(preset, options);
         },
-        $globalTheme() {
+        $globalBaseTheme() {
+            return ObjectUtils.getItemValue(this.$baseTheme?.components?.[this.$style.name], this.$params);
+        },
+        $globalPresetTheme() {
             return ObjectUtils.getItemValue(this.$presetTheme?.components?.[this.$style.name], this.$params);
         },
         $params() {
