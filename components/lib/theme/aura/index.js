@@ -21,6 +21,7 @@ import dock from 'primevue/theme/aura/dock';
 import fieldset from 'primevue/theme/aura/fieldset';
 import galleria from 'primevue/theme/aura/galleria';
 import global from 'primevue/theme/aura/global';
+import iconfield from 'primevue/theme/aura/iconfield';
 import image from 'primevue/theme/aura/image';
 import inlinemessage from 'primevue/theme/aura/inlinemessage';
 import inplace from 'primevue/theme/aura/inplace';
@@ -237,18 +238,19 @@ export default {
         dock,
         fieldset,
         galleria,
-        knob,
-        megamenu,
-        menu,
-        menubar,
-        message,
-        metergroup,
+        iconfield,
         image,
         inlinemessage,
         inplace,
         inputgroup,
         inputswitch,
         inputtext,
+        knob,
+        megamenu,
+        menu,
+        menubar,
+        message,
+        metergroup,
         orderlist,
         organizationchart,
         overlaypanel,
