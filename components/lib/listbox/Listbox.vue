@@ -500,8 +500,6 @@ export default {
                 if (this.multiple && event.shiftKey) this.onOptionSelectRange(event, this.focusedOptionIndex);
                 else this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
             }
-
-            event.preventDefault();
         },
         onSpaceKey(event) {
             this.onEnterKey(event);
