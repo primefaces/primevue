@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: {
-            type: Array,
+            type: [String, Array],
             default: null
         },
         max: {

@@ -82,6 +82,13 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
+
+        if (typeof this.modelValue === 'string') {
+            let value = this.modelValue.split(this.separator);
+
+            value = value.filter((val) => this.allowDuplicate || value.indexOf(val) === -1);
+            this.$emit('update:modelValue', [...value]);
+        }
     },
     methods: {
         onWrapperClick() {
