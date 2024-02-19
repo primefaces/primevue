@@ -20321,7 +20321,7 @@
                             "name": "tableStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the table element."
                         },
@@ -20329,7 +20329,7 @@
                             "name": "tableClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the table element."
                         },
