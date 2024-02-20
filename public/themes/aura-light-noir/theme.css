@@ -11301,6 +11301,12 @@
     left: 1.25rem;
     transform: none;
   }
+  .p-inputswitch.p-invalid > .p-inputswitch-slider {
+    background: #f87171;
+  }
+  .p-inputswitch.p-invalid > .p-inputswitch-slider:before {
+    background: #ffffff;
+  }
 
   .p-inputtext {
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
