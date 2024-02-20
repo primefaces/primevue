@@ -100,7 +100,7 @@
                 </div>
 
                 <transition name="p-toggleable-content" v-bind="getStepPT(step, 'transition', index)">
-                    <div v-if="isStepActive(index)" :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
+                    <div v-show="isStepActive(index)" :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
                         <slot v-if="index !== stepperpanels.length - 1" name="separator">
                             <StepperSeparator
                                 v-if="index !== stepperpanels.length - 1"
@@ -115,7 +115,6 @@
                         </slot>
                         <slot name="content">
                             <StepperContent
-                                v-show="isStepActive(index)"
                                 :id="getStepContentId(index)"
                                 :template="step?.children?.content"
                                 :stepperpanel="step"
