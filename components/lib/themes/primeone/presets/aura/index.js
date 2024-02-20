@@ -1,4 +1,5 @@
 import accordion from 'primevue/themes/primeone/presets/aura/accordion';
+import autocomplete from 'primevue/themes/primeone/presets/aura/autocomplete';
 import avatar from 'primevue/themes/primeone/presets/aura/avatar';
 import badge from 'primevue/themes/primeone/presets/aura/badge';
 import blockui from 'primevue/themes/primeone/presets/aura/blockui';
@@ -215,6 +216,7 @@ export default {
     },
     components: {
         accordion,
+        autocomplete,
         avatar,
         badge,
         blockui,

@@ -1,4 +1,5 @@
 import accordion from 'primevue/themes/primeone/base/accordion';
+import autocomplete from 'primevue/themes/primeone/base/autocomplete';
 import avatar from 'primevue/themes/primeone/base/avatar';
 import badge from 'primevue/themes/primeone/base/badge';
 import blockui from 'primevue/themes/primeone/base/blockui';
@@ -74,6 +75,7 @@ export default {
     components: {
         global,
         accordion,
+        autocomplete,
         avatar,
         badge,
         blockui,
