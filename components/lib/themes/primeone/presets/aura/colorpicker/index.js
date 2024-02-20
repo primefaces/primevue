@@ -1,23 +1,21 @@
 export default {
-    variables: {
-        colorScheme: {
-            light: {
-                panel: {
-                    background: '{surface.800}',
-                    borderColor: '{surface.900}'
-                },
-                handle: {
-                    color: '{surface.0}'
-                }
+    colorScheme: {
+        light: {
+            panel: {
+                background: '{surface.800}',
+                borderColor: '{surface.900}'
             },
-            dark: {
-                panel: {
-                    background: '{surface.900}',
-                    borderColor: '{surface.700}'
-                },
-                handle: {
-                    color: '{surface.0}'
-                }
+            handle: {
+                color: '{surface.0}'
+            }
+        },
+        dark: {
+            panel: {
+                background: '{surface.900}',
+                borderColor: '{surface.700}'
+            },
+            handle: {
+                color: '{surface.0}'
             }
         }
     }
