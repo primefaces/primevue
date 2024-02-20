@@ -74,8 +74,8 @@ const BaseDirective = {
     _useDefaultPT: (instance = {}, defaultPT = {}, callback, key, params) => {
         return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
-    _loadThemeStyle: (instance = {}, useStyleOptions) => {
-        const preset = instance.globalPresetTheme();
+    _loadGlobalThemeStyles: (instance = {}, useStyleOptions) => {
+        const preset = instance.globalPresetCTheme();
 
         if (preset) {
             const { variables } = preset;
@@ -89,7 +89,7 @@ const BaseDirective = {
             instance.$style?.loadTheme(`${variables_css}`, { name: `${instance.$name}-directive-variable`, useStyleOptions });
         }
 
-        const base = instance.globalBaseTheme();
+        const base = instance.globalBaseCTheme();
 
         if (base) {
             const { css } = base;
@@ -133,10 +133,11 @@ const BaseDirective = {
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
-                baseTheme: () => ObjectUtils.getItemValue(config?.theme?.base),
-                presetTheme: () => ObjectUtils.getItemValue(config?.theme?.preset, config?.theme?.options),
-                globalBaseTheme: () => ObjectUtils.getItemValue(el.$instance?.baseTheme?.()?.directives?.[name], undefined),
-                globalPresetTheme: () => ObjectUtils.getItemValue(el.$instance?.presetTheme?.()?.directives?.[name], undefined),
+                globalTheme: () => config?.theme,
+                globalBaseTheme: () => ObjectUtils.getItemValue(el.$instance?.globalTheme?.()?.base),
+                globalBaseCTheme: () => ObjectUtils.getItemValue(el.$instance?.globalBaseTheme?.()?.directives?.[name], undefined),
+                globalPresetTheme: () => ObjectUtils.getItemValue(el.$instance?.globalTheme?.()?.preset, el.$instance?.globalTheme?.()?.options),
+                globalPresetCTheme: () => ObjectUtils.getItemValue(el.$instance?.globalPresetTheme?.()?.directives?.[name], undefined),
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),
@@ -160,7 +161,7 @@ const BaseDirective = {
 
                 BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
                 !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
-                BaseDirective._loadThemeStyle(el.$instance, { nonce: config?.csp?.nonce });
+                BaseDirective._loadGlobalThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
@@ -168,7 +169,7 @@ const BaseDirective = {
 
                 BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
                 !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
-                BaseDirective._loadThemeStyle(el.$instance, { nonce: config?.csp?.nonce });
+                BaseDirective._loadGlobalThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {
