@@ -205,7 +205,9 @@
                                                             context: {
                                                                 date,
                                                                 today: date.today,
-                                                                otherMonth: date.otherMonth
+                                                                otherMonth: date.otherMonth,
+                                                                selected: isSelected(date),
+                                                                disabled: !date.selectable
                                                             }
                                                         })
                                                     "
@@ -225,6 +227,8 @@
                                                             ptm('dayLabel', {
                                                                 context: {
                                                                     date,
+                                                                    today: date.today,
+                                                                    otherMonth: date.otherMonth,
                                                                     selected: isSelected(date),
                                                                     disabled: !date.selectable
                                                                 }
