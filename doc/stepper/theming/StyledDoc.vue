@@ -23,10 +23,6 @@
                         <td>Container element with vertical layout.</td>
                     </tr>
                     <tr>
-                        <td>p-stepper-nav-container</td>
-                        <td>Container element of navigator container.</td>
-                    </tr>
-                    <tr>
                         <td>p-stepper-nav</td>
                         <td>Container element of navigator.</td>
                     </tr>

@@ -13,8 +13,8 @@
 <script>
 import AccessibilityDoc from '@/doc/stepper/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/stepper/BasicDoc.vue';
+import ExampleDoc from '@/doc/stepper/ExampleDoc.vue';
 import ImportDoc from '@/doc/stepper/ImportDoc.vue';
-import TemplateDoc from '@/doc/stepper/TemplateDoc.vue';
 import VerticalDoc from '@/doc/stepper/VerticalDoc.vue';
 import PTComponent from '@/doc/stepper/pt/index.vue';
 import ThemingDoc from '@/doc/stepper/theming/index.vue';
@@ -39,9 +39,9 @@ export default {
                     component: VerticalDoc
                 },
                 {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
+                    id: 'example',
+                    label: 'Example',
+                    component: ExampleDoc
                 },
                 {
                     id: 'accessibility',
