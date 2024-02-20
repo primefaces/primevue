@@ -6307,12 +6307,12 @@
     flex: initial;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+    width: 100%;
     padding-left: 1rem;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
     flex: 0 0 auto;
     width: 2px;
-    min-height: 28px;
     height: auto;
     margin-inline-start: calc(1.75rem + 2px);
   }

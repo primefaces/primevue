@@ -9,7 +9,6 @@ const classes = {
             'p-readonly': props.linear
         }
     ],
-    navContainer: 'p-stepper-nav-container',
     nav: 'p-stepper-nav',
     stepper: {
         header: ({ instance, step, index }) => [

@@ -7,6 +7,7 @@
  * @module stepper
  *
  */
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { StepperPanelPassThroughOptionType } from '../stepperpanel';
@@ -53,10 +54,6 @@ export interface StepperPassThroughOptions {
      * Used to pass attributes to the root's DOM element.
      */
     root?: StepperPassThroughOptionType;
-    /**
-     * Used to pass attributes to the nav container's DOM element.
-     */
-    navContainer?: StepperPassThroughOptionType;
     /**
      * Used to pass attributes to the nav's DOM element.
      */
@@ -151,7 +148,16 @@ export interface StepperProps {
 /**
  * Defines valid slots in Stepper component.
  */
-export interface StepperSlots {}
+export interface StepperSlots {
+    /**
+     * Custom start template.
+     */
+    start(): VNode[];
+    /**
+     * Custom end template.
+     */
+    end(): VNode[];
+}
 
 /**
  * Defines valid emits in Stepper component.
