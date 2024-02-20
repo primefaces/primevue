@@ -78,8 +78,7 @@ const BaseDirective = {
         const preset = instance.globalPresetCTheme();
 
         if (preset) {
-            const { variables } = preset;
-            const { colorScheme, ...vRest } = variables || {};
+            const { colorScheme, ...vRest } = preset;
             const { dark, ...csRest } = colorScheme || {};
             const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [instance.$name]: vRest }).css : '';
             const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ [instance.$name]: csRest }).css : '';
