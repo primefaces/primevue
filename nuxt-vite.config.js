@@ -252,6 +252,7 @@ const THEME_ALIAS = {
     ...THEME_COMPONENTS.reduce((acc, name) => ((acc[`primevue/themes/primeone/base/${name}`] = path.resolve(__dirname, `./components/lib/themes/primeone/base/${name}/index.js`)), acc), {}),
     'primevue/themes/primeone/base': path.resolve(__dirname, './components/lib/themes/primeone/base/index.js'),
     'primevue/themes/primeone/presets/aura': path.resolve(__dirname, './components/lib/themes/primeone/presets/aura/index.js'),
+    'primevue/themes/primeone/presets': path.resolve(__dirname, './components/lib/themes/primeone/presets/index.js'),
     'primevue/themes/primeone/aura': path.resolve(__dirname, './components/lib/themes/primeone/aura/index.js'),
     'primevue/themes/primeone': path.resolve(__dirname, './components/lib/themes/primeone/index.js'),
     'primevue/themes': path.resolve(__dirname, './components/lib/themes/index.js')
