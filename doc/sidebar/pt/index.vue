@@ -11,7 +11,6 @@
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
 import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
-import PtDoc from './PTDoc.vue';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -28,11 +27,6 @@ export default {
                     label: 'Sidebar PT Options',
                     component: DocApiTable,
                     data: getPTOption('Sidebar')
-                },
-                {
-                    id: 'pt.demo',
-                    label: 'Demo',
-                    component: PtDoc
                 }
             ]
         };
