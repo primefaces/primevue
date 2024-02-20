@@ -40,8 +40,7 @@ export default {
             immediate: true,
             handler(newValue, oldValue) {
                 if (newValue && newValue !== oldValue) {
-                    const { variables } = newValue;
-                    const { colorScheme, ...vRest } = variables || {};
+                    const { colorScheme, ...vRest } = newValue;
                     const { dark, ...csRest } = colorScheme || {};
                     const vRest_css = ObjectUtils.isNotEmpty(vRest) ? toVariables({ [this.$style.name]: vRest }).css : '';
                     const csRest_css = ObjectUtils.isNotEmpty(csRest) ? toVariables({ [this.$style.name]: csRest }).css : '';
