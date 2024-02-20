@@ -49877,14 +49877,6 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "navContainer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "StepperPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the nav container's DOM element."
-                        },
-                        {
                             "name": "nav",
                             "optional": true,
                             "readonly": false,
@@ -50037,7 +50029,20 @@
                     "description": "Defines valid slots in Stepper component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "start",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom start template."
+                        },
+                        {
+                            "name": "end",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom end template."
+                        }
+                    ]
                 },
                 "StepperEmits": {
                     "description": "Defines valid emits in Stepper component.",
@@ -50431,7 +50436,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Header click function.</span>\n}"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">headerClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">numberClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the number content container</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">titleClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the title content container</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Header click function.</span>\n}"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
