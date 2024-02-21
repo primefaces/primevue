@@ -32,6 +32,7 @@ import inputgroup from 'primevue/themes/primeone/presets/aura/inputgroup';
 import inputswitch from 'primevue/themes/primeone/presets/aura/inputswitch';
 import inputtext from 'primevue/themes/primeone/presets/aura/inputtext';
 import knob from 'primevue/themes/primeone/presets/aura/knob';
+import listbox from 'primevue/themes/primeone/presets/aura/listbox';
 import megamenu from 'primevue/themes/primeone/presets/aura/megamenu';
 import menu from 'primevue/themes/primeone/presets/aura/menu';
 import menubar from 'primevue/themes/primeone/presets/aura/menubar';
@@ -254,6 +255,7 @@ export default {
         inputswitch,
         inputtext,
         knob,
+        listbox,
         megamenu,
         menu,
         menubar,

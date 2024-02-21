@@ -33,6 +33,7 @@ import inputgroup from 'primevue/themes/primeone/base/inputgroup';
 import inputswitch from 'primevue/themes/primeone/base/inputswitch';
 import inputtext from 'primevue/themes/primeone/base/inputtext';
 import knob from 'primevue/themes/primeone/base/knob';
+import listbox from 'primevue/themes/primeone/base/listbox';
 import megamenu from 'primevue/themes/primeone/base/megamenu';
 import menu from 'primevue/themes/primeone/base/menu';
 import menubar from 'primevue/themes/primeone/base/menubar';
@@ -113,6 +114,7 @@ export default {
         inputswitch,
         inputtext,
         knob,
+        listbox,
         megamenu,
         menu,
         menubar,
