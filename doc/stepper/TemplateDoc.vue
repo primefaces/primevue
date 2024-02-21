@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Each StepperPanel content can easily be customized with the default slot instead of using the built-in modes. Additionally, header, content, and separator sections of the StepperPanel are customizable via templating.</p>
     </DocSectionText>
-    <div class="card flex flex-column justify-content-center">
+    <div class="card flex flex-column justify-content-center" style="padding-left: 20rem; padding-right: 20rem">
         <Stepper v-model:activeStep="active">
             <StepperPanel>
                 <template #header="{ index, clickCallback, headerClass, numberClass }">

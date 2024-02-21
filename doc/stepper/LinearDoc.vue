@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Stepper consists of one or more StepperPanel elements.</p>
     </DocSectionText>
-    <div class="card">
+    <div class="card" style="padding-left: 20rem; padding-right: 20rem">
         <Stepper v-model:activeStep="active" linear>
             <StepperPanel header="Header I">
                 <template #content="{ prevCallback, nextCallback }">
