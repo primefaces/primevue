@@ -147,7 +147,7 @@ import StepperSeparator from './StepperSeparator.vue';
 export default {
     name: 'Stepper',
     extends: BaseStepper,
-    nheritAttrs: false,
+    inheritAttrs: false,
     emits: ['update:activeStep', 'step-change'],
     data() {
         return {
