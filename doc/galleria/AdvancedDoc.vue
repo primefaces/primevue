@@ -2,52 +2,54 @@
     <DocSectionText v-bind="$attrs">
         <p>Advanced Galleria implementation with a custom UI.</p>
     </DocSectionText>
-    <div class="card">
-        <Galleria
-            ref="galleria"
-            v-model:activeIndex="activeIndex"
-            :value="images"
-            :numVisible="5"
-            containerStyle="max-width: 640px"
-            :showThumbnails="showThumbnails"
-            :showItemNavigators="true"
-            :showItemNavigatorsOnHover="true"
-            :circular="true"
-            :autoPlay="isAutoPlay"
-            :transitionInterval="3000"
-            :responsiveOptions="responsiveOptions"
-            :pt="{
-                root: {
-                    class: [{ 'flex flex-column': fullScreen }]
-                },
-                content: {
-                    class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
-                },
-                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
-            }"
-        >
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
-            </template>
-            <template #thumbnail="slotProps">
-                <div class="grid grid-nogutter justify-content-center">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
-                </div>
-            </template>
-            <template #footer>
-                <div class="flex align-items-center bg-black-alpha-90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
-                    <span v-if="images" class="title-container">
-                        <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
-                        <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
-                    </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
-                </div>
-            </template>
-        </Galleria>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <Galleria
+                ref="galleria"
+                v-model:activeIndex="activeIndex"
+                :value="images"
+                :numVisible="5"
+                containerStyle="max-width: 640px"
+                :showThumbnails="showThumbnails"
+                :showItemNavigators="true"
+                :showItemNavigatorsOnHover="true"
+                :circular="true"
+                :autoPlay="isAutoPlay"
+                :transitionInterval="3000"
+                :responsiveOptions="responsiveOptions"
+                :pt="{
+                    root: {
+                        class: [{ 'flex flex-column': fullScreen }]
+                    },
+                    content: {
+                        class: ['relative', { 'flex-1 justify-content-center': fullScreen }]
+                    },
+                    thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+                }"
+            >
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+                </template>
+                <template #thumbnail="slotProps">
+                    <div class="grid grid-nogutter justify-content-center">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                    </div>
+                </template>
+                <template #footer>
+                    <div class="flex align-items-center bg-black-alpha-90 text-white">
+                        <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                        <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none border-noround hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                        <span v-if="images" class="title-container">
+                            <span class="text-sm p-3">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                            <span class="font-bold text-sm p-3">{{ images[activeIndex].title }}</span>
+                            <span class="text-sm p-3">{{ images[activeIndex].alt }}</span>
+                        </span>
+                        <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none border-noround ml-auto hover:bg-white-alpha-10 text-white', style: 'background: transparent' } }" />
+                    </div>
+                </template>
+            </Galleria>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" :dependencies="{ sass: '1.45.0', 'sass-loader': '8.0.2' }" />
 </template>
 
@@ -424,11 +426,11 @@ const slideButtonIcon = computed(() => {
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
-        this.bindDocumentListeners();
-    },
     methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+            this.bindDocumentListeners();
+        },
         toggleAutoSlide() {
             this.isAutoPlay = !this.isAutoPlay;
         },

@@ -2,14 +2,16 @@
     <DocSectionText v-bind="$attrs">
         <p>Expansion state is controlled with <i>expandedKeys</i> property. The <i>expandedKeys</i> should be an object whose keys refer to the node key and values represent the expanded state e.g. <i>&#123;'0-0': true&#125;</i>.</p>
     </DocSectionText>
-    <div class="card">
-        <Button @click="toggleApplications" label="Toggle Applications" />
-        <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes" class="mt-4">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <Button @click="toggleApplications" label="Toggle Applications" />
+            <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes" class="mt-4">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -131,10 +133,10 @@ const toggleApplications = () => {
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
-    },
     methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        },
         toggleApplications() {
             let _expandedKeys = { ...this.expandedKeys };
 

@@ -2,33 +2,35 @@
     <DocSectionText v-bind="$attrs">
         <p>Using <i>activeIndex</i>, Galleria is displayed with a specific initial image.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Galleria
-            v-model:activeIndex="activeIndex"
-            v-model:visible="displayCustom"
-            :value="images"
-            :responsiveOptions="responsiveOptions"
-            :numVisible="7"
-            containerStyle="max-width: 850px"
-            :circular="true"
-            :fullScreen="true"
-            :showItemNavigators="true"
-            :showThumbnails="false"
-        >
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
-            </template>
-            <template #thumbnail="slotProps">
-                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
-            </template>
-        </Galleria>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card flex justify-content-center">
+            <Galleria
+                v-model:activeIndex="activeIndex"
+                v-model:visible="displayCustom"
+                :value="images"
+                :responsiveOptions="responsiveOptions"
+                :numVisible="7"
+                containerStyle="max-width: 850px"
+                :circular="true"
+                :fullScreen="true"
+                :showItemNavigators="true"
+                :showThumbnails="false"
+            >
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                </template>
+                <template #thumbnail="slotProps">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                </template>
+            </Galleria>
 
-        <div v-if="images" class="grid" style="max-width: 400px">
-            <div v-for="(image, index) of images" :key="index" class="col-4">
-                <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
+            <div v-if="images" class="grid" style="max-width: 400px">
+                <div v-for="(image, index) of images" :key="index" class="col-4">
+                    <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
+                </div>
             </div>
         </div>
-    </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" />
 </template>
 
@@ -191,10 +193,10 @@ const imageClick = (index) => {
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
-    },
     methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+        },
         imageClick(index) {
             this.activeIndex = index;
             this.displayCustom = true;
