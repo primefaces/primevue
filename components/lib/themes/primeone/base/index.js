@@ -8,6 +8,7 @@ import button from 'primevue/themes/primeone/base/button';
 import calendar from 'primevue/themes/primeone/base/calendar';
 import card from 'primevue/themes/primeone/base/card';
 import carousel from 'primevue/themes/primeone/base/carousel';
+import cascadeselect from 'primevue/themes/primeone/base/cascadeselect';
 import checkbox from 'primevue/themes/primeone/base/checkbox';
 import chip from 'primevue/themes/primeone/base/chip';
 import chips from 'primevue/themes/primeone/base/chips';
@@ -37,6 +38,7 @@ import menu from 'primevue/themes/primeone/base/menu';
 import menubar from 'primevue/themes/primeone/base/menubar';
 import message from 'primevue/themes/primeone/base/message';
 import metergroup from 'primevue/themes/primeone/base/metergroup';
+import multiselect from 'primevue/themes/primeone/base/multiselect';
 import orderlist from 'primevue/themes/primeone/base/orderlist';
 import organizationchart from 'primevue/themes/primeone/base/organizationchart';
 import overlaypanel from 'primevue/themes/primeone/base/overlaypanel';
@@ -71,6 +73,7 @@ import togglebutton from 'primevue/themes/primeone/base/togglebutton';
 import toolbar from 'primevue/themes/primeone/base/toolbar';
 import tooltip from 'primevue/themes/primeone/base/tooltip';
 import tree from 'primevue/themes/primeone/base/tree';
+import treeselect from 'primevue/themes/primeone/base/treeselect';
 import treetable from 'primevue/themes/primeone/base/treetable';
 
 export default {
@@ -86,6 +89,7 @@ export default {
         calendar,
         card,
         carousel,
+        cascadeselect,
         checkbox,
         chip,
         chips,
@@ -114,6 +118,7 @@ export default {
         menubar,
         message,
         metergroup,
+        multiselect,
         orderlist,
         organizationchart,
         overlaypanel,
@@ -145,6 +150,7 @@ export default {
         timeline,
         togglebutton,
         tree,
+        treeselect,
         treetable,
         toast,
         toolbar

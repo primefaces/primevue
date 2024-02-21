@@ -8,6 +8,7 @@ import button from 'primevue/themes/primeone/presets/aura/button';
 import calendar from 'primevue/themes/primeone/presets/aura/calendar';
 import card from 'primevue/themes/primeone/presets/aura/card';
 import carousel from 'primevue/themes/primeone/presets/aura/carousel';
+import cascadeselect from 'primevue/themes/primeone/presets/aura/cascadeselect';
 import checkbox from 'primevue/themes/primeone/presets/aura/checkbox';
 import chip from 'primevue/themes/primeone/presets/aura/chip';
 import chips from 'primevue/themes/primeone/presets/aura/chips';
@@ -36,6 +37,7 @@ import menu from 'primevue/themes/primeone/presets/aura/menu';
 import menubar from 'primevue/themes/primeone/presets/aura/menubar';
 import message from 'primevue/themes/primeone/presets/aura/message';
 import metergroup from 'primevue/themes/primeone/presets/aura/metergroup';
+import multiselect from 'primevue/themes/primeone/presets/aura/multiselect';
 import orderlist from 'primevue/themes/primeone/presets/aura/orderlist';
 import organizationchart from 'primevue/themes/primeone/presets/aura/organizationchart';
 import overlaypanel from 'primevue/themes/primeone/presets/aura/overlaypanel';
@@ -70,6 +72,7 @@ import togglebutton from 'primevue/themes/primeone/presets/aura/togglebutton';
 import toolbar from 'primevue/themes/primeone/presets/aura/toolbar';
 import tooltip from 'primevue/themes/primeone/presets/aura/tooltip';
 import tree from 'primevue/themes/primeone/presets/aura/tree';
+import treeselect from 'primevue/themes/primeone/presets/aura/treeselect';
 import treetable from 'primevue/themes/primeone/presets/aura/treetable';
 
 export default {
@@ -227,6 +230,7 @@ export default {
         calendar,
         card,
         carousel,
+        cascadeselect,
         checkbox,
         chip,
         chips,
@@ -255,6 +259,7 @@ export default {
         menubar,
         message,
         metergroup,
+        multiselect,
         orderlist,
         organizationchart,
         overlaypanel,
@@ -286,6 +291,7 @@ export default {
         timeline,
         togglebutton,
         tree,
+        treeselect,
         treetable,
         toast,
         toolbar

@@ -197,11 +197,11 @@ input.p-dropdown-label {
     position: relative;
     margin-left: -0.375rem;
     margin-right: 0.375rem;
+    color: var(--p-dropdown-checkmark-color);
 }
 
 .p-dropdown-empty-message {
     padding: 0.5rem 0.75rem;
-    color: var(--p-dropdown-checkmark-color);
     background: transparent;
 }
 
