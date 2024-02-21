@@ -14,6 +14,7 @@ const form = [
     'InputIcon',
     'InputMask',
     'InputNumber',
+    'InputOtp',
     'InputSwitch',
     'InputText',
     'Knob',

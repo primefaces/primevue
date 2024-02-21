@@ -5418,7 +5418,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -31923,6 +31923,435 @@
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
                 "InputNumberStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "inputotp": {
+        "description": "InputSwitch is used to select a boolean value.\n\n[Live Demo](https://www.primevue.org/inputswitch/)",
+        "components": {
+            "default": {
+                "description": "InputSwitch is used to select a boolean value.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputSwitchPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputSwitchProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "slider",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the slider's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchState": {
+                    "description": "Defines current inline state in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchProps": {
+                    "description": "Defines valid properties in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "modelValue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | boolean",
+                            "default": "false",
+                            "description": "Specifies whether a inputswitch should be checked or not."
+                        },
+                        {
+                            "name": "trueValue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "true",
+                            "description": "Value in checked state."
+                        },
+                        {
+                            "name": "falseValue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "false",
+                            "description": "Value in unchecked state."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
+                            "name": "tabindex",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the element in tabbing order."
+                        },
+                        {
+                            "name": "inputId",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Identifier of the underlying input element."
+                        },
+                        {
+                            "name": "inputClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the input field."
+                        },
+                        {
+                            "name": "inputStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the input field."
+                        },
+                        {
+                            "name": "ariaLabelledby",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+                        },
+                        {
+                            "name": "ariaLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputSwitchPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchContext": {
+                    "description": "Defines current options in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchSlots": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
+                "InputSwitchEmits": {
+                    "description": "Defines valid emits in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:modelValue",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "boolean",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on value change."
+                        },
+                        {
+                            "name": "focus",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputSwitchPassThroughOptionType": {
+                    "values": "InputSwitchPassThroughAttributes | (options: InputSwitchPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputotp/style/InputOtpStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputOtpStyle": {
                     "relatedProp": "",
                     "props": [
                         {

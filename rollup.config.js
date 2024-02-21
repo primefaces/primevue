@@ -117,6 +117,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/inputgroupaddon/style': 'primevue.inputgroupaddon.style',
     'primevue/inputmask/style': 'primevue.inputmask.style',
     'primevue/inputnumber/style': 'primevue.inputnumber.style',
+    'primevue/inputotp/style': 'primevue.inputotp.style',
     'primevue/inputswitch/style': 'primevue.inputswitch.style',
     'primevue/inputtext/style': 'primevue.inputtext.style',
     'primevue/knob/style': 'primevue.knob.style',

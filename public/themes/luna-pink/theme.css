@@ -1717,6 +1717,17 @@
     margin-top: -0.5rem;
   }
 
+  .p-inputotp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .p-inputotp-input {
+    text-align: center;
+    width: 1.858rem;
+  }
+
   .p-inputgroup {
     display: flex;
     align-items: stretch;
