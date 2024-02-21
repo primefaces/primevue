@@ -66,9 +66,9 @@ export default {
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
+    border-radius: var(--p-rounded-sm);
     color: var(--p-listbox-item-text-color);
     transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-listbox-rounded-sm);
 }
 
 .p-listbox-item:first-child {
