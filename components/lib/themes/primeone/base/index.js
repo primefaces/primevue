@@ -22,6 +22,7 @@ import dialog from 'primevue/themes/primeone/base/dialog';
 import divider from 'primevue/themes/primeone/base/divider';
 import dock from 'primevue/themes/primeone/base/dock';
 import dropdown from 'primevue/themes/primeone/base/dropdown';
+import editor from 'primevue/themes/primeone/base/editor';
 import fieldset from 'primevue/themes/primeone/base/fieldset';
 import galleria from 'primevue/themes/primeone/base/galleria';
 import global from 'primevue/themes/primeone/base/global';
@@ -104,6 +105,7 @@ export default {
         divider,
         dropdown,
         dock,
+        editor,
         fieldset,
         galleria,
         iconfield,
