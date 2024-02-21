@@ -15,7 +15,7 @@ const classes = {
             'p-stepper-header',
             {
                 'p-highlight': instance.isStepActive(index),
-                'p-disabled': instance.isItemDisabled(step, index)
+                'p-disabled': instance.isItemDisabled(index)
             }
         ],
         action: 'p-stepper-action',

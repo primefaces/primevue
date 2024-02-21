@@ -232,12 +232,12 @@ export default {
         },
         prevCallback(event, index) {
             if (index !== 0) {
-                this.onItemClick(event, index - 1);
+                this.updateActiveStep(event, index - 1);
             }
         },
         nextCallback(event, index) {
             if (index !== this.stepperpanels.length - 1) {
-                this.onItemClick(event, index + 1);
+                this.updateActiveStep(event, index + 1);
             }
         }
     },
