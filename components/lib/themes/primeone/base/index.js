@@ -20,6 +20,7 @@ import dataview from 'primevue/themes/primeone/base/dataview';
 import dialog from 'primevue/themes/primeone/base/dialog';
 import divider from 'primevue/themes/primeone/base/divider';
 import dock from 'primevue/themes/primeone/base/dock';
+import dropdown from 'primevue/themes/primeone/base/dropdown';
 import fieldset from 'primevue/themes/primeone/base/fieldset';
 import galleria from 'primevue/themes/primeone/base/galleria';
 import global from 'primevue/themes/primeone/base/global';
@@ -96,6 +97,7 @@ export default {
         datatable,
         dialog,
         divider,
+        dropdown,
         dock,
         fieldset,
         galleria,

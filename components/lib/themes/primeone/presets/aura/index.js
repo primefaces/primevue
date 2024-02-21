@@ -20,6 +20,7 @@ import dataview from 'primevue/themes/primeone/presets/aura/dataview';
 import dialog from 'primevue/themes/primeone/presets/aura/dialog';
 import divider from 'primevue/themes/primeone/presets/aura/divider';
 import dock from 'primevue/themes/primeone/presets/aura/dock';
+import dropdown from 'primevue/themes/primeone/presets/aura/dropdown';
 import fieldset from 'primevue/themes/primeone/presets/aura/fieldset';
 import galleria from 'primevue/themes/primeone/presets/aura/galleria';
 import iconfield from 'primevue/themes/primeone/presets/aura/iconfield';
@@ -238,6 +239,7 @@ export default {
         dialog,
         divider,
         dock,
+        dropdown,
         fieldset,
         galleria,
         iconfield,
