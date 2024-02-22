@@ -12,16 +12,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>p-inputswitch</td>
+                    <td>p-inputotp</td>
                     <td>Container element.</td>
                 </tr>
                 <tr>
-                    <td>p-inputswitch-checked</td>
-                    <td>Container element in active state.</td>
-                </tr>
-                <tr>
-                    <td>p-inputswitch-slider</td>
-                    <td>Slider element behind the handle.</td>
+                    <td>p-inputotp-input</td>
+                    <td>Input element of the component.</td>
                 </tr>
             </tbody>
         </table>

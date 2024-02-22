@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ props }) => ['p-inputotp p-component'],
+    root: 'p-inputotp p-component',
     input: 'p-inputotp-input'
 };
 

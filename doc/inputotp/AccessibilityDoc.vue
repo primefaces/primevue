@@ -23,7 +23,11 @@
                     </tr>
                     <tr>
                         <td><i>left arrow</i></td>
-                        <td>Moves focus to the next previous element.</td>
+                        <td>Moves focus to the previous input element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>backspace</i></td>
+                        <td>Deletes the input and moves focus to the previous input element.</td>
                     </tr>
                 </tbody>
             </table>

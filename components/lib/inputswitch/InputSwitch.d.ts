@@ -26,10 +26,6 @@ export interface InputSwitchPassThroughMethodOptions {
      */
     props: InputSwitchProps;
     /**
-     * Defines current inline state.
-     */
-    state: InputSwitchState;
-    /**
      * Defines current options.
      */
     context: InputSwitchContext;
@@ -75,13 +71,6 @@ export interface InputSwitchPassThroughOptions {
  * Custom passthrough attributes for each DOM elements
  */
 export interface InputSwitchPassThroughAttributes {
-    [key: string]: any;
-}
-
-/**
- * Defines current inline state in InputSwitch component.
- */
-export interface InputSwitchState {
     [key: string]: any;
 }
 
