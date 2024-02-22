@@ -1,0 +1,9 @@
+{
+    "main": "./inputotp.cjs.js",
+    "module": "./inputotp.esm.js",
+    "unpkg": "./inputotp.min.js",
+    "types": "./inputotp.d.ts",
+    "browser": {
+        "./sfc": "./inputotp.vue"
+    }
+}

@@ -116,6 +116,11 @@
                             "to": "/inputnumber"
                         },
                         {
+                            "name": "InputOtp",
+                            "to": "/inputotp",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "InputSwitch",
                             "to": "/inputswitch"
                         },

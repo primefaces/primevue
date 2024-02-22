@@ -185,6 +185,18 @@ export interface StepperPanelSlots {
          */
         class: string;
         /**
+         * Style class of the stepperpanel
+         */
+        headerClass: string;
+        /**
+         * Style class of the number content container
+         */
+        numberClass: string;
+        /**
+         * Style class of the title content container
+         */
+        titleClass: string;
+        /**
          * Header click function.
          * @param {Event} event - Browser event
          */

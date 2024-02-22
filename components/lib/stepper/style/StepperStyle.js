@@ -9,14 +9,13 @@ const classes = {
             'p-readonly': props.linear
         }
     ],
-    navContainer: 'p-stepper-nav-container',
     nav: 'p-stepper-nav',
     stepper: {
         header: ({ instance, step, index }) => [
             'p-stepper-header',
             {
                 'p-highlight': instance.isStepActive(index),
-                'p-disabled': instance.isItemDisabled(step, index)
+                'p-disabled': instance.isItemDisabled(index)
             }
         ],
         action: 'p-stepper-action',

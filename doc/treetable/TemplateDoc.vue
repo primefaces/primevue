@@ -2,29 +2,31 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content at <i>header</i> and <i>footer</i> slots are supported via templating.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes">
-            <template #header>
-                <div class="text-xl font-bold">File Viewer</div>
-            </template>
-            <Column field="name" header="Name" :expander="true"></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-            <Column headerStyle="width: 10rem">
-                <template #body>
-                    <div class="flex flex-wrap gap-2">
-                        <Button type="button" icon="pi pi-search" rounded />
-                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes">
+                <template #header>
+                    <div class="text-xl font-bold">File Viewer</div>
+                </template>
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+                <Column headerStyle="width: 10rem">
+                    <template #body>
+                        <div class="flex flex-wrap gap-2">
+                            <Button type="button" icon="pi pi-search" rounded />
+                            <Button type="button" icon="pi pi-pencil" rounded severity="success" />
+                        </div>
+                    </template>
+                </Column>
+                <template #footer>
+                    <div class="flex justify-content-start">
+                        <Button icon="pi pi-refresh" label="Reload" severity="warning" />
                     </div>
                 </template>
-            </Column>
-            <template #footer>
-                <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
-                </div>
-            </template>
-        </TreeTable>
-    </div>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -170,8 +172,10 @@ const nodes = ref();
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

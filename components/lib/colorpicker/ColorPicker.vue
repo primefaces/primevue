@@ -4,7 +4,7 @@
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
-                    <div :class="cx('panel')" v-bind="ptm('content')">
+                    <div :class="cx('content')" v-bind="ptm('content')">
                         <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
                             <div :class="cx('color')" v-bind="ptm('color')">
                                 <div :ref="colorHandleRef" :class="cx('colorHandle')" v-bind="ptm('colorHandle')"></div>

@@ -2,13 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>Indicators are displayed at the bottom by enabling <i>showIndicators</i> property and interacted with the click event by default.</p>
     </DocSectionText>
-    <div class="card">
-        <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true">
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
-            </template>
-        </Galleria>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <Galleria :value="images" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true">
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                </template>
+            </Galleria>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" />
 </template>
 
@@ -91,8 +93,10 @@ const images = ref();
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
+    methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+        }
     }
 };
 </script>

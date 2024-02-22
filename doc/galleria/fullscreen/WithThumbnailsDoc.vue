@@ -2,18 +2,20 @@
     <DocSectionText v-bind="$attrs">
         <p>Full screen mode is enabled by adding <i>fullScreen</i> property and and visibility is controlled with a binding to <i>visible</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveOptions" :numVisible="9" containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
-            </template>
-            <template #thumbnail="slotProps">
-                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
-            </template>
-        </Galleria>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card flex justify-content-center">
+            <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveOptions" :numVisible="9" containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                </template>
+                <template #thumbnail="slotProps">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                </template>
+            </Galleria>
 
-        <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
-    </div>
+            <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" />
 </template>
 
@@ -165,8 +167,10 @@ onMounted(() => {
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
+    methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+        }
     }
 };
 </script>

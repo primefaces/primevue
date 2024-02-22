@@ -3,52 +3,50 @@
         <slot v-if="$slots.start" name="start" />
 
         <template v-if="orientation === 'horizontal'">
-            <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
-                <ul ref="nav" :class="cx('nav')" v-bind="ptm('nav')">
-                    <li
-                        v-for="(step, index) of stepperpanels"
-                        :key="getStepKey(step, index)"
-                        :class="cx('stepper.header', { step, index })"
-                        :aria-current="isStepActive(index) ? 'step' : undefined"
-                        role="presentation"
-                        v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'header', index) }"
-                        data-pc-name="stepperpanel"
-                        :data-p-highlight="isStepActive(index)"
-                        :data-p-disabled="isItemDisabled(index)"
-                        :data-pc-index="index"
-                        :data-p-active="isStepActive(index)"
-                    >
-                        <slot name="header">
-                            <StepperHeader
-                                :id="getStepHeaderActionId(index)"
-                                :template="step.children?.header"
-                                :stepperpanel="step"
-                                :index="index"
-                                :disabled="isItemDisabled(index)"
-                                :active="isStepActive(index)"
-                                :highlighted="index < d_activeStep"
-                                :class="cx('stepper.action')"
-                                :aria-controls="getStepContentId(index)"
-                                :clickCallback="(event) => onItemClick(event, index)"
-                                :getStepPT="getStepPT"
-                                :getStepProp="getStepProp"
-                            />
-                        </slot>
-                        <slot v-if="index !== stepperpanels.length - 1" name="separator">
-                            <StepperSeparator
-                                v-if="index !== stepperpanels.length - 1"
-                                :template="step.children?.separator"
-                                :separatorClass="cx('stepper.separator')"
-                                :stepperpanel="step"
-                                :index="index"
-                                :active="isStepActive(index)"
-                                :highlighted="index < d_activeStep"
-                                :getStepPT="getStepPT(step, 'separator', index)"
-                            />
-                        </slot>
-                    </li>
-                </ul>
-            </div>
+            <ul ref="nav" :class="cx('nav')" v-bind="ptm('nav')">
+                <li
+                    v-for="(step, index) of stepperpanels"
+                    :key="getStepKey(step, index)"
+                    :class="cx('stepper.header', { step, index })"
+                    :aria-current="isStepActive(index) ? 'step' : undefined"
+                    role="presentation"
+                    v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'header', index) }"
+                    data-pc-name="stepperpanel"
+                    :data-p-highlight="isStepActive(index)"
+                    :data-p-disabled="isItemDisabled(index)"
+                    :data-pc-index="index"
+                    :data-p-active="isStepActive(index)"
+                >
+                    <slot name="header">
+                        <StepperHeader
+                            :id="getStepHeaderActionId(index)"
+                            :template="step.children?.header"
+                            :stepperpanel="step"
+                            :index="index"
+                            :disabled="isItemDisabled(index)"
+                            :active="isStepActive(index)"
+                            :highlighted="index < d_activeStep"
+                            :class="cx('stepper.action')"
+                            :aria-controls="getStepContentId(index)"
+                            :clickCallback="(event) => onItemClick(event, index)"
+                            :getStepPT="getStepPT"
+                            :getStepProp="getStepProp"
+                        />
+                    </slot>
+                    <slot v-if="index !== stepperpanels.length - 1" name="separator">
+                        <StepperSeparator
+                            v-if="index !== stepperpanels.length - 1"
+                            :template="step.children?.separator"
+                            :separatorClass="cx('stepper.separator')"
+                            :stepperpanel="step"
+                            :index="index"
+                            :active="isStepActive(index)"
+                            :highlighted="index < d_activeStep"
+                            :getStepPT="getStepPT(step, 'separator', index)"
+                        />
+                    </slot>
+                </li>
+            </ul>
             <div :class="cx('panelContainer')" v-bind="ptm('panelContainer')">
                 <template v-for="(step, index) of stepperpanels" :key="getStepKey(step, index)">
                     <StepperContent
@@ -100,23 +98,23 @@
                         />
                     </slot>
                 </div>
-                <div :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
-                    <slot v-if="index !== stepperpanels.length - 1" name="separator">
-                        <StepperSeparator
-                            v-if="index !== stepperpanels.length - 1"
-                            :template="step.children?.separator"
-                            :separatorClass="cx('stepper.separator')"
-                            :stepperpanel="step"
-                            :index="index"
-                            :active="isStepActive(index)"
-                            :highlighted="index < d_activeStep"
-                            :getStepPT="getStepPT(step, 'separator', index)"
-                        />
-                    </slot>
-                    <transition name="p-toggleable-content" v-bind="getStepPT(step, 'transition', index)">
+
+                <transition name="p-toggleable-content" v-bind="getStepPT(step, 'transition', index)">
+                    <div v-show="isStepActive(index)" :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
+                        <slot v-if="index !== stepperpanels.length - 1" name="separator">
+                            <StepperSeparator
+                                v-if="index !== stepperpanels.length - 1"
+                                :template="step.children?.separator"
+                                :separatorClass="cx('stepper.separator')"
+                                :stepperpanel="step"
+                                :index="index"
+                                :active="isStepActive(index)"
+                                :highlighted="index < d_activeStep"
+                                :getStepPT="getStepPT(step, 'separator', index)"
+                            />
+                        </slot>
                         <slot name="content">
                             <StepperContent
-                                v-show="isStepActive(index)"
                                 :id="getStepContentId(index)"
                                 :template="step?.children?.content"
                                 :stepperpanel="step"
@@ -130,8 +128,8 @@
                                 :aria-labelledby="getStepHeaderActionId(index)"
                             />
                         </slot>
-                    </transition>
-                </div>
+                    </div>
+                </transition>
             </div>
         </template>
         <slot v-if="$slots.end" name="end" />
@@ -149,7 +147,7 @@ import StepperSeparator from './StepperSeparator.vue';
 export default {
     name: 'Stepper',
     extends: BaseStepper,
-    nheritAttrs: false,
+    inheritAttrs: false,
     emits: ['update:activeStep', 'step-change'],
     data() {
         return {
@@ -234,12 +232,12 @@ export default {
         },
         prevCallback(event, index) {
             if (index !== 0) {
-                this.onItemClick(event, index - 1);
+                this.updateActiveStep(event, index - 1);
             }
         },
         nextCallback(event, index) {
             if (index !== this.stepperpanels.length - 1) {
-                this.onItemClick(event, index + 1);
+                this.updateActiveStep(event, index + 1);
             }
         }
     },

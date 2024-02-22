@@ -1,40 +1,37 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Layout of the Stepper is configured with the <i>orientation</i> property that accepts <i>horizontal</i> and <i>vertical</i> as options.</p>
+        <p>Layout of the Stepper is configured with the <i>orientation</i> property that accepts <i>horizontal</i> and <i>vertical</i> as available options.</p>
     </DocSectionText>
     <div class="card">
         <Stepper orientation="vertical">
-            <StepperPanel header="Header 1">
+            <StepperPanel header="Header I">
                 <template #content="{ nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 2">
+            <StepperPanel header="Header II">
                 <template #content="{ prevCallback, nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 3">
+            <StepperPanel header="Header III">
                 <template #content="{ prevCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -50,37 +47,34 @@ export default {
             code: {
                 basic: `
 <Stepper orientation="vertical">
-    <StepperPanel header="Header 1">
+    <StepperPanel header="Header I">
         <template #content="{ nextCallback }">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div class="flex gap-2 justify-content-end">
-                <Button label="Next" @click="(event) => nextCallback(event)" />
+            <div class="flex flex-column h-12rem">
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
+            </div>
+            <div class="flex py-4">
+                <Button label="Next" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
-    <StepperPanel header="Header 2">
+    <StepperPanel header="Header II">
         <template #content="{ prevCallback, nextCallback }">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div class="flex gap-2 justify-content-end">
-                <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
-                <Button label="Next" @click="(event) => nextCallback(event)" />
+            <div class="flex flex-column h-12rem">
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
+            </div>
+            <div class="flex py-4 gap-2">
+                <Button label="Back" severity="secondary" @click="prevCallback" />
+                <Button label="Next" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
-    <StepperPanel header="Header 3">
+    <StepperPanel header="Header III">
         <template #content="{ prevCallback }">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div class="flex gap-2 justify-content-end">
-                <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
+            <div class="flex flex-column h-12rem">
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
+            </div>
+            <div class="flex py-4">
+                <Button label="Back" severity="secondary" @click="prevCallback" />
             </div>
         </template>
     </StepperPanel>
@@ -90,37 +84,34 @@ export default {
 <template>
     <div class="card">
         <Stepper orientation="vertical">
-            <StepperPanel header="Header 1">
+            <StepperPanel header="Header I">
                 <template #content="{ nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 2">
+            <StepperPanel header="Header II">
                 <template #content="{ prevCallback, nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 3">
+            <StepperPanel header="Header III">
                 <template #content="{ prevCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -132,37 +123,34 @@ export default {
 <template>
     <div class="card">
         <Stepper orientation="vertical">
-            <StepperPanel header="Header 1">
+            <StepperPanel header="Header I">
                 <template #content="{ nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 2">
+            <StepperPanel header="Header II">
                 <template #content="{ prevCallback, nextCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
-                        <Button label="Next" @click="(event) => nextCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
-            <StepperPanel header="Header 3">
+            <StepperPanel header="Header III">
                 <template #content="{ prevCallback }">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="flex gap-2 justify-content-end">
-                        <Button label="Prev" severity="secondary" @click="(event) => prevCallback(event)" />
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
+                    </div>
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>

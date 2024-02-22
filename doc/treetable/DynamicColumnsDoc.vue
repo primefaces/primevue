@@ -2,11 +2,13 @@
     <DocSectionText v-bind="$attrs">
         <p>Columns can be created programmatically.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes">
-            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes">
+                <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -119,8 +121,10 @@ const columns = ref([
             { field: 'type', header: 'Type' }
         ];
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

@@ -56,6 +56,7 @@ const STYLE_ALIAS = {
     'primevue/inputicon/style': path.resolve(__dirname, './components/lib/inputicon/style/InputIconStyle.js'),
     'primevue/inputmask/style': path.resolve(__dirname, './components/lib/inputmask/style/InputMaskStyle.js'),
     'primevue/inputnumber/style': path.resolve(__dirname, './components/lib/inputnumber/style/InputNumberStyle.js'),
+    'primevue/inputotp/style': path.resolve(__dirname, './components/lib/inputotp/style/InputOtpStyle.js'),
     'primevue/inputswitch/style': path.resolve(__dirname, './components/lib/inputswitch/style/InputSwitchStyle.js'),
     'primevue/inputtext/style': path.resolve(__dirname, './components/lib/inputtext/style/InputTextStyle.js'),
     'primevue/knob/style': path.resolve(__dirname, './components/lib/knob/style/KnobStyle.js'),

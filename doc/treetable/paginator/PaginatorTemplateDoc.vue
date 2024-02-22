@@ -5,26 +5,28 @@
             <PrimeVueNuxtLink to="/paginator">Paginator</PrimeVueNuxtLink> component for more information about the advanced customization options.
         </p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable
-            :value="nodes"
-            :paginator="true"
-            :rows="5"
-            :rowsPerPageOptions="[5, 10, 25, 50]"
-            paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-            currentPageReportTemplate="{first} to {last} of {totalRecords}"
-        >
-            <template #paginatorstart>
-                <Button type="button" icon="pi pi-refresh" text />
-            </template>
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-            <template #paginatorend>
-                <Button type="button" icon="pi pi-download" text />
-            </template>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable
+                :value="nodes"
+                :paginator="true"
+                :rows="5"
+                :rowsPerPageOptions="[5, 10, 25, 50]"
+                paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                currentPageReportTemplate="{first} to {last} of {totalRecords}"
+            >
+                <template #paginatorstart>
+                    <Button type="button" icon="pi pi-refresh" text />
+                </template>
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+                <template #paginatorend>
+                    <Button type="button" icon="pi pi-download" text />
+                </template>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" />
 </template>
 
@@ -155,39 +157,41 @@ for (let i = 0; i < 50; i++) {
 }
 
 nodes.value = files;
-    
+
 <\/script>
 `
             }
         };
     },
-    mounted() {
-        let files = [];
+    methods: {
+        loadDemoData() {
+            let files = [];
 
-        for (let i = 0; i < 50; i++) {
-            let node = {
-                key: i,
-                data: {
-                    name: 'Item ' + i,
-                    size: Math.floor(Math.random() * 1000) + 1 + 'kb',
-                    type: 'Type ' + i
-                },
-                children: [
-                    {
-                        key: i + ' - 0',
-                        data: {
-                            name: 'Item ' + i + ' - 0',
-                            size: Math.floor(Math.random() * 1000) + 1 + 'kb',
-                            type: 'Type ' + i
+            for (let i = 0; i < 50; i++) {
+                let node = {
+                    key: i,
+                    data: {
+                        name: 'Item ' + i,
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'Type ' + i
+                    },
+                    children: [
+                        {
+                            key: i + ' - 0',
+                            data: {
+                                name: 'Item ' + i + ' - 0',
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'Type ' + i
+                            }
                         }
-                    }
-                ]
-            };
+                    ]
+                };
 
-            files.push(node);
+                files.push(node);
+            }
+
+            this.nodes = files;
         }
-
-        this.nodes = files;
     }
 };
 </script>

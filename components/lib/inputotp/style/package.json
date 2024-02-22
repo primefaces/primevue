@@ -1,0 +1,6 @@
+{
+    "main": "./inputotpstyle.cjs.js",
+    "module": "./inputotpstyle.esm.js",
+    "unpkg": "./inputotpstyle.min.js",
+    "types": "./inputotpstyle.d.ts"
+}

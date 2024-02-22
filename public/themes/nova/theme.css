@@ -1717,6 +1717,17 @@
     margin-top: -0.5rem;
   }
 
+  .p-inputotp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .p-inputotp-input {
+    text-align: center;
+    width: 1.858rem;
+  }
+
   .p-inputgroup {
     display: flex;
     align-items: stretch;
@@ -6322,12 +6333,12 @@
     flex: initial;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+    width: 100%;
     padding-left: 1rem;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
     flex: 0 0 auto;
     width: 2px;
-    min-height: 28px;
     height: auto;
     margin-inline-start: calc(1.75rem + 2px);
   }

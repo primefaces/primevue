@@ -6,13 +6,15 @@
         </p>
     </DocSectionText>
     <DocSectionCode :code="introCode" hideToggleCode importCode hideStackBlitz />
-    <div class="card">
-        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -123,8 +125,10 @@ const selectedKey = ref();
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

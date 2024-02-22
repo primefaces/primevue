@@ -1734,6 +1734,17 @@
     margin-top: -0.5rem;
   }
 
+  .p-inputotp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .p-inputotp-input {
+    text-align: center;
+    width: 2.5rem;
+  }
+
   .p-inputgroup {
     display: flex;
     align-items: stretch;
@@ -6405,12 +6416,12 @@
     flex: initial;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+    width: 100%;
     padding-left: 1rem;
   }
   .p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
     flex: 0 0 auto;
     width: 2px;
-    min-height: 28px;
     height: auto;
     margin-inline-start: calc(1.75rem + 2px);
   }
@@ -11293,6 +11304,12 @@
     left: 1.25rem;
     transform: none;
   }
+  .p-inputswitch.p-invalid > .p-inputswitch-slider {
+    background: #f87171;
+  }
+  .p-inputswitch.p-invalid > .p-inputswitch-slider:before {
+    background: #ffffff;
+  }
 
   .p-inputtext {
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
@@ -11789,6 +11806,9 @@
     border-radius: 6px;
   }
 
+  .p-stepper .p-stepper-header .p-stepper-number {
+    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  }
   .p-stepper .p-stepper-header.p-highlight .p-stepper-number {
     background: #ffffff;
     color: #8B5CF6;

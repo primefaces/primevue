@@ -1117,11 +1117,11 @@ export interface DataTableProps {
     /**
      * Inline style of the table element.
      */
-    tableStyle?: any;
+    tableStyle?: object | undefined;
     /**
      * Style class of the table element.
      */
-    tableClass?: any;
+    tableClass?: string | object | undefined;
     /**
      * Used to pass all properties of the TableHTMLAttributes to table element inside the component.
      */

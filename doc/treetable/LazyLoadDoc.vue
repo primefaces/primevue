@@ -10,13 +10,15 @@
         </p>
         <p>In addition, only the root elements should be loaded, children can be loaded on demand using <i>nodeExpand</i> callback.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" />
 </template>
 
@@ -147,7 +149,7 @@ export default {
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
         </TreeTable>
-    </div>                   
+    </div>
 </template>
 
 <script setup>
@@ -237,16 +239,17 @@ const loadNodes = (first, rows) => {
             }
         };
     },
-    mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.loading = false;
-            this.nodes = this.loadNodes(0, this.rows);
-            this.totalRecords = 1000;
-        }, 1000);
-    },
     methods: {
+        loadDemoData() {
+            this.loading = true;
+
+            setTimeout(() => {
+                this.loading = false;
+                this.nodes = this.loadNodes(0, this.rows);
+                this.totalRecords = 1000;
+            }, 1000);
+        },
+
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;

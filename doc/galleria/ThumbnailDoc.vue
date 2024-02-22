@@ -2,24 +2,26 @@
     <DocSectionText v-bind="$attrs">
         <p>Thumbnails represent a smaller version of the actual content.</p>
     </DocSectionText>
-    <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5">
-            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
-                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
-                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
-            </div>
-        </div>
-        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :thumbnailsPosition="position" containerStyle="max-width: 640px">
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
-            </template>
-            <template #thumbnail="slotProps">
-                <div class="grid grid-nogutter justify-content-center">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="flex flex-wrap gap-3 mb-5">
+                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+                    <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                    <label :for="option.label" class="ml-2"> {{ option.label }} </label>
                 </div>
-            </template>
-        </Galleria>
-    </div>
+            </div>
+            <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :thumbnailsPosition="position" containerStyle="max-width: 640px">
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                </template>
+                <template #thumbnail="slotProps">
+                    <div class="grid grid-nogutter justify-content-center">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                    </div>
+                </template>
+            </Galleria>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" />
 </template>
 
@@ -213,8 +215,10 @@ onMounted(() => {
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
+    methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+        }
     }
 };
 </script>

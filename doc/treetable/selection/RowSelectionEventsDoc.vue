@@ -2,13 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>TreeTable provides <i>nodeSelect</i> and <i>nodeUnselect</i> events to listen selection events.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" :metaKeySelection="false">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" :metaKeySelection="false">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -130,10 +132,10 @@ const onNodeUnselect = (node) => {
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
-    },
     methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        },
         onNodeSelect(node) {
             this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.data.name, life: 3000 });
         },

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions())">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -80,13 +80,6 @@ export default {
         this.unbindMouseListeners();
     },
     methods: {
-        getPTOptions() {
-            return {
-                context: {
-                    nested: DomHandler.getAttribute(this.$parentInstance?.$el, 'data-pc-name') === 'splitterpanel'
-                }
-            };
-        },
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
@@ -379,6 +372,13 @@ export default {
         },
         horizontal() {
             return this.layout === 'horizontal';
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    nested: this.$parentInstance?.nestedState
+                }
+            };
         }
     }
 };
