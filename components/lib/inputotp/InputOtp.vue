@@ -1,12 +1,17 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="i in length" :key="i">
-            <slot :events="getTemplateEvents(i - 1)" :attrs="getTemplateAttrs(i - 1)">
+            <slot :events="getTemplateEvents(i - 1)" :attrs="getTemplateAttrs(i - 1)" :index="i">
                 <OtpInputText
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('input')"
                     :inputmode="inputMode"
+                    :variant="variant"
+                    :readonly="readonly"
+                    :disabled="disabled"
+                    :invalid="invalid"
+                    :tabindex="tabindex"
                     @input="onInput($event, i - 1)"
                     @focus="onFocus($event)"
                     @blur="onBlur($event)"
@@ -86,20 +91,30 @@ export default {
             });
         },
         moveToPrev(event) {
-            var prevElement = event.target.previousElementSibling;
+            var prevInput = this.findPrevInput(event.target);
 
-            if (prevElement) {
-                prevElement.focus();
-                prevElement.select();
+            if (prevInput) {
+                prevInput.focus();
+                prevInput.select();
             }
         },
         moveToNext(event) {
-            var nextElement = event.target.nextElementSibling;
+            var nextInput = this.findNextInput(event.target);
 
-            if (nextElement) {
-                nextElement.focus();
-                nextElement.select();
+            if (nextInput) {
+                nextInput.focus();
+                nextInput.select();
             }
+        },
+        findNextInput(element) {
+            var nextElement = element.nextElementSibling;
+
+            return nextElement.nodeName === 'INPUT' ? nextElement : this.findNextInput(nextElement);
+        },
+        findPrevInput(element) {
+            var prevElement = element.previousElementSibling;
+
+            return prevElement.nodeName === 'INPUT' ? prevElement : this.findPrevInput(prevElement);
         },
         onFocus(event) {
             event.target.select();

@@ -7,8 +7,11 @@
             <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
             <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
             <InputOtp v-model="value" :length="6" style="gap: 0">
-                <template #default="{ attrs, events }">
+                <template #default="{ attrs, events, index }">
                     <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                    <div v-if="index === 3" class="px-3">
+                        <i class="pi pi-minus" />
+                    </div>
                 </template>
             </InputOtp>
             <div class="flex justify-content-between mt-5 align-self-stretch">
@@ -31,8 +34,11 @@ export default {
     <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
     <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
     <InputOtp v-model="value" :length="6" style="gap: 0">
-        <template #default="{ attrs, events }">
+        <template #default="{ attrs, events, index }">
             <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+            <div v-if="index === 3" class="px-3">
+                <i class="pi pi-minus" />
+            </div>
         </template>
     </InputOtp>
     <div class="flex justify-content-between mt-5 align-self-stretch">
@@ -43,17 +49,22 @@ export default {
 `,
                 options: `
 <template>
-    <div class="flex flex-column align-items-center">
-        <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
-        <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
-        <InputOtp v-model="value" :length="6" style="gap: 0">
-            <template #default="{ attrs, events }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
-            </template>
-        </InputOtp>
-        <div class="flex justify-content-between mt-5 align-self-stretch">
-            <Button label="Resend Code" link class="p-0"></Button>
-            <Button label="Submit Code"></Button>
+    <div class="card flex justify-content-center">
+        <div class="flex flex-column align-items-center">
+            <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+            <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
+            <InputOtp v-model="value" :length="6" style="gap: 0">
+                <template #default="{ attrs, events, index }">
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                    <div v-if="index === 3" class="px-3">
+                        <i class="pi pi-minus" />
+                    </div>
+                </template>
+            </InputOtp>
+            <div class="flex justify-content-between mt-5 align-self-stretch">
+                <Button label="Resend Code" link class="p-0"></Button>
+                <Button label="Submit Code"></Button>
+            </div>
         </div>
     </div>
 </template>
@@ -90,32 +101,40 @@ export default {
     outline: 2px solid var(--primary-color);
 }
 
-.custom-otp-input:first-child {
+.custom-otp-input:first-child,
+.custom-otp-input:nth-child(5) {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
+.custom-otp-input:nth-child(3),
 .custom-otp-input:last-child {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
+    border-color: var(--surface-400);
 }
 <\/style>
 `,
                 composition: `
 <template>
-    <div class="flex flex-column align-items-center">
-        <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
-        <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
-        <InputOtp v-model="value" :length="6" style="gap: 0">
-            <template #default="{ attrs, events }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
-            </template>
-        </InputOtp>
-        <div class="flex justify-content-between mt-5 align-self-stretch">
-            <Button label="Resend Code" link class="p-0"></Button>
-            <Button label="Submit Code"></Button>
+    <div class="card flex justify-content-center">
+        <div class="flex flex-column align-items-center">
+            <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+            <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
+            <InputOtp v-model="value" :length="6" style="gap: 0">
+                <template #default="{ attrs, events, index }">
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                    <div v-if="index === 3" class="px-3">
+                        <i class="pi pi-minus" />
+                    </div>
+                </template>
+            </InputOtp>
+            <div class="flex justify-content-between mt-5 align-self-stretch">
+                <Button label="Resend Code" link class="p-0"></Button>
+                <Button label="Submit Code"></Button>
+            </div>
         </div>
     </div>
 </template>
@@ -148,16 +167,19 @@ const value = ref(null);
     outline: 2px solid var(--primary-color);
 }
 
-.custom-otp-input:first-child {
+.custom-otp-input:first-child,
+.custom-otp-input:nth-child(5) {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
+.custom-otp-input:nth-child(3),
 .custom-otp-input:last-child {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
+    border-color: var(--surface-400);
 }
 <\/style>
 `
@@ -189,15 +211,18 @@ const value = ref(null);
     outline: 2px solid var(--primary-color);
 }
 
-.custom-otp-input:first-child {
+.custom-otp-input:first-child,
+.custom-otp-input:nth-child(5) {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
+.custom-otp-input:nth-child(3),
 .custom-otp-input:last-child {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
+    border-color: var(--surface-400);
 }
 </style>
