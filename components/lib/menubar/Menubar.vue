@@ -417,8 +417,12 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            this.hide(event, true);
-            this.focusedItemInfo.index = this.findFirstFocusedItemIndex();
+            if (this.focusedItemInfo.level !== 0) {
+                const _focusedItemInfo = this.focusedItemInfo;
+
+                this.hide(event, false);
+                this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey[0]), level: 0, parentKey: '' };
+            }
 
             event.preventDefault();
         },
