@@ -11,10 +11,17 @@ export default {
     name: 'SplitterPanel',
     extends: BaseSplitterPanel,
     inheritAttrs: false,
+    data() {
+        return {
+            nestedState: null
+        };
+    },
     computed: {
         isNested() {
             return this.$slots.default().some((child) => {
-                return child.type.name === 'Splitter';
+                this.nestedState = child.type.name === 'Splitter' ? true : null;
+
+                return this.nestedState;
             });
         },
         getPTOptions() {
