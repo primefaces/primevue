@@ -92,7 +92,7 @@ export default {
             });
         },
         moveToPrev(event) {
-            var prevInput = this.findPrevInput(event.target);
+            let prevInput = this.findPrevInput(event.target);
 
             if (prevInput) {
                 prevInput.focus();
@@ -100,7 +100,7 @@ export default {
             }
         },
         moveToNext(event) {
-            var nextInput = this.findNextInput(event.target);
+            let nextInput = this.findNextInput(event.target);
 
             if (nextInput) {
                 nextInput.focus();
@@ -108,12 +108,16 @@ export default {
             }
         },
         findNextInput(element) {
-            var nextElement = element.nextElementSibling;
+            let nextElement = element.nextElementSibling;
+
+            if (!nextElement) return;
 
             return nextElement.nodeName === 'INPUT' ? nextElement : this.findNextInput(nextElement);
         },
         findPrevInput(element) {
-            var prevElement = element.previousElementSibling;
+            let prevElement = element.previousElementSibling;
+
+            if (!prevElement) return;
 
             return prevElement.nodeName === 'INPUT' ? prevElement : this.findPrevInput(prevElement);
         },
