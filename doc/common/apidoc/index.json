@@ -31975,10 +31975,10 @@
         }
     },
     "inputotp": {
-        "description": "InputSwitch is used to select a boolean value.\n\n[Live Demo](https://www.primevue.org/inputswitch/)",
+        "description": "InputOtp is used to enter one time passwords.\n\n[Live Demo](https://www.primevue.org/inputotp/)",
         "components": {
             "default": {
-                "description": "InputSwitch is used to select a boolean value.",
+                "description": "InputOtp  is used to enter one time passwords.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -31991,7 +31991,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "InputSwitchPassThroughMethodOptions": {
+                "InputOtpPassThroughMethodOptions": {
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
@@ -32007,7 +32007,7 @@
                             "name": "props",
                             "optional": false,
                             "readonly": false,
-                            "type": "InputSwitchProps",
+                            "type": "InputOtpProps",
                             "default": "",
                             "description": "Defines valid properties."
                         },
@@ -32015,17 +32015,9 @@
                             "name": "state",
                             "optional": false,
                             "readonly": false,
-                            "type": "InputSwitchState",
+                            "type": "InputOtpState",
                             "default": "",
                             "description": "Defines current inline state."
-                        },
-                        {
-                            "name": "context",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "InputSwitchContext",
-                            "default": "",
-                            "description": "Defines current options."
                         },
                         {
                             "name": "attrs",
@@ -32034,14 +32026,6 @@
                             "type": "any",
                             "default": "",
                             "description": "Defines valid attributes."
-                        },
-                        {
-                            "name": "parent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Defines parent options."
                         },
                         {
                             "name": "global",
@@ -32054,15 +32038,38 @@
                     ],
                     "methods": []
                 },
-                "InputSwitchPassThroughOptions": {
+                "InputOtpSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "InputSwitchProps.pt",
+                    "relatedProp": "InputOtpProps.pt",
                     "props": [
                         {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputSwitchPassThroughOptionType",
+                            "type": "InputOtpPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -32070,17 +32077,9 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputSwitchPassThroughOptionType",
+                            "type": "InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
-                        },
-                        {
-                            "name": "slider",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputSwitchPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the slider's DOM element."
+                            "description": "Used to pass attributes to the InputText component."
                         },
                         {
                             "name": "hooks",
@@ -32093,7 +32092,7 @@
                     ],
                     "methods": []
                 },
-                "InputSwitchPassThroughAttributes": {
+                "InputOtpPassThroughAttributes": {
                     "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
@@ -32106,21 +32105,80 @@
                     ],
                     "methods": []
                 },
-                "InputSwitchState": {
-                    "description": "Defines current inline state in InputSwitch component.",
+                "InputOtpState": {
+                    "description": "Defines current inline state in InputOtp component.",
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "[key: string]",
+                            "name": "tokens",
                             "optional": false,
                             "readonly": false,
-                            "type": "any"
+                            "type": "string[] | number[]",
+                            "default": "",
+                            "description": "Array of input tokens"
                         }
                     ],
                     "methods": []
                 },
-                "InputSwitchProps": {
-                    "description": "Defines valid properties in InputSwitch component.",
+                "InputOtpTemplateAttrsOptions": {
+                    "description": "InputOtp attr options",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Input token value"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpTemplateEvents": {
+                    "description": "InputOtp templating events",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "input",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "keydown",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "focus",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "blur",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "paste",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpProps": {
+                    "description": "Defines valid properties in InputOtp component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -32129,23 +32187,7 @@
                             "readonly": false,
                             "type": "string | boolean",
                             "default": "false",
-                            "description": "Specifies whether a inputswitch should be checked or not."
-                        },
-                        {
-                            "name": "trueValue",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "true",
-                            "description": "Value in checked state."
-                        },
-                        {
-                            "name": "falseValue",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "false",
-                            "description": "Value in unchecked state."
+                            "description": "Specifies whether a inputotp should be checked or not."
                         },
                         {
                             "name": "invalid",
@@ -32168,8 +32210,16 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "tabindex",
@@ -32180,50 +32230,34 @@
                             "description": "Index of the element in tabbing order."
                         },
                         {
-                            "name": "inputId",
+                            "name": "length",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Identifier of the underlying input element."
+                            "type": "number",
+                            "default": "4",
+                            "description": "Number of characters to initiate."
                         },
                         {
-                            "name": "inputClass",
+                            "name": "mask",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | object",
-                            "default": "",
-                            "description": "Style class of the input field."
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Mask pattern."
                         },
                         {
-                            "name": "inputStyle",
+                            "name": "integerOnly",
                             "optional": true,
                             "readonly": false,
-                            "type": "object",
-                            "default": "",
-                            "description": "Inline style of the input field."
-                        },
-                        {
-                            "name": "ariaLabelledby",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-                        },
-                        {
-                            "name": "ariaLabel",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Establishes a string value that labels the component."
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that an input field is integer-only."
                         },
                         {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<InputSwitchPassThroughOptions>",
+                            "type": "PassThrough<InputOtpPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -32246,36 +32280,27 @@
                     ],
                     "methods": []
                 },
-                "InputSwitchContext": {
-                    "description": "Defines current options in InputSwitch component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "checked",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current checked state of the item as a boolean."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current disabled state of the item as a boolean."
-                        }
-                    ],
-                    "methods": []
-                },
-                "InputSwitchSlots": {
+                "InputOtpSlots": {
+                    "description": "",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">events</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; InputOtpTemplateEvents</span>, <span class=\"doc-option-parameter-type\">// Events of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">attrs</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; InputOtpTemplateAttrsOptions</span>, <span class=\"doc-option-parameter-type\">// Attributes of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the input field</span>\n }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default content slot."
+                        }
+                    ]
                 },
-                "InputSwitchEmits": {
-                    "description": "Defines valid emits in InputSwitch component.",
+                "InputOtpEmits": {
+                    "description": "Defines valid emits in InputOtp component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [
@@ -32338,8 +32363,8 @@
         "types": {
             "description": "Defines the custom types used by the module.",
             "values": {
-                "InputSwitchPassThroughOptionType": {
-                    "values": "InputSwitchPassThroughAttributes | (options: InputSwitchPassThroughMethodOptions) => undefined | string | null | undefined"
+                "InputOtpPassThroughOptionType": {
+                    "values": "InputOtpPassThroughAttributes | (options: InputOtpPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -32441,14 +32466,6 @@
                             "description": "Defines valid properties."
                         },
                         {
-                            "name": "state",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "InputSwitchState",
-                            "default": "",
-                            "description": "Defines current inline state."
-                        },
-                        {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
@@ -32524,19 +32541,6 @@
                 },
                 "InputSwitchPassThroughAttributes": {
                     "description": "Custom passthrough attributes for each DOM elements",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "[key: string]",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any"
-                        }
-                    ],
-                    "methods": []
-                },
-                "InputSwitchState": {
-                    "description": "Defines current inline state in InputSwitch component.",
                     "relatedProp": "",
                     "props": [
                         {
