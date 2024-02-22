@@ -24,6 +24,7 @@ import dock from 'primevue/themes/primeone/presets/aura/dock';
 import dropdown from 'primevue/themes/primeone/presets/aura/dropdown';
 import editor from 'primevue/themes/primeone/presets/aura/editor';
 import fieldset from 'primevue/themes/primeone/presets/aura/fieldset';
+import floatlabel from 'primevue/themes/primeone/presets/aura/floatlabel';
 import galleria from 'primevue/themes/primeone/presets/aura/galleria';
 import iconfield from 'primevue/themes/primeone/presets/aura/iconfield';
 import image from 'primevue/themes/primeone/presets/aura/image';
@@ -173,6 +174,9 @@ export default {
                     textColor: '{surface.700}',
                     textColorDisabled: '{surface.500}',
                     placeholderTextColor: '{surface.500}',
+                    floatLabelTextColor: '{surface.500}',
+                    floatLabelTextColorInvalid: '{red.400}',
+                    floatLabelTextColorFocus: '{surface.500}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 }
             },
@@ -216,6 +220,9 @@ export default {
                     textColor: '{surface.0}',
                     textColorDisabled: '{surface.400}',
                     placeholderTextColor: '{surface.400}',
+                    floatLabelTextColor: '{surface.400}',
+                    floatLabelTextColorInvalid: '{red.300}',
+                    floatLabelTextColorFocus: '{surface.400}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 }
             }
@@ -248,6 +255,7 @@ export default {
         dropdown,
         editor,
         fieldset,
+        floatlabel,
         galleria,
         iconfield,
         image,
