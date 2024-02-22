@@ -1,22 +1,24 @@
 /**
  *
- * InputSwitch is used to select a boolean value.
+ * InputOtp is used to enter one time passwords.
  *
- * [Live Demo](https://www.primevue.org/inputswitch/)
+ * [Live Demo](https://www.primevue.org/inputotp/)
  *
  * @module inputotp
  *
  */
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes | string) | string | null | undefined;
+export declare type InputOtpPassThroughOptionType = InputOtpPassThroughAttributes | ((options: InputOtpPassThroughMethodOptions) => InputOtpPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface InputSwitchPassThroughMethodOptions {
+export interface InputOtpPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -24,23 +26,15 @@ export interface InputSwitchPassThroughMethodOptions {
     /**
      * Defines valid properties.
      */
-    props: InputSwitchProps;
+    props: InputOtpProps;
     /**
      * Defines current inline state.
      */
-    state: InputSwitchState;
-    /**
-     * Defines current options.
-     */
-    context: InputSwitchContext;
+    state: InputOtpState;
     /**
      * Defines valid attributes.
      */
     attrs: any;
-    /**
-     * Defines parent options.
-     */
-    parent: any;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -48,22 +42,33 @@ export interface InputSwitchPassThroughMethodOptions {
 }
 
 /**
- * Custom passthrough(pt) options.
- * @see {@link InputSwitchProps.pt}
+ * Custom shared passthrough(pt) option method.
  */
-export interface InputSwitchPassThroughOptions {
+export interface InputOtpSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: InputOtpProps;
+    /**
+     * Defines current inline state.
+     */
+    state: InputOtpState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputOtpProps.pt}
+ */
+export interface InputOtpPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: InputSwitchPassThroughOptionType;
+    root?: InputOtpPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: InputSwitchPassThroughOptionType;
-    /**
-     * Used to pass attributes to the slider's DOM element.
-     */
-    slider?: InputSwitchPassThroughOptionType;
+    input?: InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -74,36 +79,70 @@ export interface InputSwitchPassThroughOptions {
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface InputSwitchPassThroughAttributes {
+export interface InputOtpPassThroughAttributes {
     [key: string]: any;
 }
 
 /**
- * Defines current inline state in InputSwitch component.
+ * Defines current inline state in InputOtp component.
  */
-export interface InputSwitchState {
-    [key: string]: any;
-}
-
-/**
- * Defines valid properties in InputSwitch component.
- */
-export interface InputSwitchProps {
+export interface InputOtpState {
     /**
-     * Specifies whether a inputswitch should be checked or not.
+     * Array of input tokens
+     */
+    tokens: string[] | number[];
+}
+
+/**
+ * InputOtp attr options
+ */
+export interface InputOtpTemplateAttrsOptions {
+    /**
+     * Input token value
+     */
+    value: string;
+}
+
+/**
+ * InputOtp templating events
+ */
+export interface InputOtpTemplateEvents {
+    /**
+     * Input event
+     * @param {Event} event - Browser event
+     */
+    input: (event: Event) => void;
+    /**
+     * Keydown event
+     * @param {Event} event - Browser event
+     */
+    keydown: (event: Event) => void;
+    /**
+     * Focus event
+     * @param {Event} event - Browser event
+     */
+    focus: (event: Event) => void;
+    /**
+     * Blur event
+     * @param {Event} event - Browser event
+     */
+    blur: (event: Event) => void;
+    /**
+     * Paste event
+     * @param {Event} event - Browser event
+     */
+    paste: (event: Event) => void;
+}
+
+/**
+ * Defines valid properties in InputOtp component.
+ */
+export interface InputOtpProps {
+    /**
+     * Specifies whether a inputotp should be checked or not.
      * @defaultValue false
      */
     modelValue?: boolean | string | undefined;
-    /**
-     * Value in checked state.
-     * @defaultValue true
-     */
-    trueValue?: any;
-    /**
-     * Value in unchecked state.
-     * @defaultValue false
-     */
-    falseValue?: any;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -116,38 +155,38 @@ export interface InputSwitchProps {
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that an input field is read-only.
-     * @default false
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | undefined;
     /**
-     * 	Identifier of the underlying input element.
+     * Number of characters to initiate.
+     * @defaultValue 4
      */
-    inputId?: string | undefined;
+    length?: number | undefined;
     /**
-     * Style class of the input field.
+     * Mask pattern.
+     * @defaultValue false
      */
-    inputClass?: string | object | undefined;
+    mask?: boolean | undefined;
     /**
-     * Inline style of the input field.
+     * When present, it specifies that an input field is integer-only.
+     * @defaultValue false
      */
-    inputStyle?: object | undefined;
-    /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledby?: string | undefined;
-    /**
-     * Establishes a string value that labels the component.
-     */
-    ariaLabel?: string | undefined;
+    integerOnly?: boolean | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {InputSwitchPassThroughOptions}
+     * @type {InputOtpPassThroughOptions}
      */
-    pt?: PassThrough<InputSwitchPassThroughOptions>;
+    pt?: PassThrough<InputOtpPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -161,27 +200,36 @@ export interface InputSwitchProps {
 }
 
 /**
- * Defines current options in InputSwitch component.
+ *
  */
-export interface InputSwitchContext {
+export interface InputOtpSlots {
     /**
-     * Current checked state of the item as a boolean.
-     * @defaultValue false
+     * Default content slot.
      */
-    checked: boolean;
-    /**
-     * Current disabled state of the item as a boolean.
-     * @defaultValue false
-     */
-    disabled: boolean;
+    default(scope: {
+        /**
+         * Events of the component
+         * @param {number} index - Index of the input field
+         * @return {InputOtpTemplateEvents}
+         */
+        events: (index: number) => InputOtpTemplateEvents;
+        /**
+         * Attributes of the component
+         * @param {number} index - Index of the input field
+         * @return {InputOtpTemplateAttrsOptions}
+         */
+        attrs: (index: number) => InputOtpTemplateAttrsOptions;
+        /**
+         * Index of the input field
+         */
+        index: number;
+    }): VNode[];
 }
 
-export interface InputSwitchSlots {}
-
 /**
- * Defines valid emits in InputSwitch component.
+ * Defines valid emits in InputOtp component.
  */
-export interface InputSwitchEmits {
+export interface InputOtpEmits {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
@@ -205,23 +253,23 @@ export interface InputSwitchEmits {
 }
 
 /**
- * **PrimeVue - InputSwitch**
+ * **PrimeVue - InputOtp**
  *
- * _InputSwitch is used to select a boolean value._
+ * _InputOtp  is used to enter one time passwords._
  *
- * [Live Demo](https://www.primevue.org/inputswitch/)
+ * [Live Demo](https://www.primevue.org/inputotp/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *
  */
-declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
+declare class InputOtp extends ClassComponent<InputOtpProps, InputOtpSlots, InputOtpEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InputSwitch: GlobalComponentConstructor<InputSwitch>;
+        InputOtp: GlobalComponentConstructor<InputOtp>;
     }
 }
 
-export default InputSwitch;
+export default InputOtp;

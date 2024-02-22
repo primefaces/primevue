@@ -1,9 +1,9 @@
-const InputSwitchProps = [
+const InputOtpProps = [
     {
         name: 'modelValue',
         type: 'boolean',
         default: 'null',
-        description: 'Specifies whether a inputswitch should be checked or not.'
+        description: 'Specifies whether a inputOtp should be checked or not.'
     },
     {
         name: 'trueValue',
@@ -55,7 +55,7 @@ const InputSwitchProps = [
     }
 ];
 
-const InputSwitchEvents = [
+const InputOtpEvents = [
     {
         name: 'click',
         description: 'Callback to invoke on click.'
@@ -71,10 +71,10 @@ const InputSwitchEvents = [
 ];
 
 module.exports = {
-    inputswitch: {
-        name: 'InputSwitch',
-        description: 'InputSwitch is used to select a boolean value.',
-        props: InputSwitchProps,
-        events: InputSwitchEvents
+    inputotp: {
+        name: 'InputOtp',
+        description: 'InputOtp  is used to enter one time passwords.',
+        props: InputOtpProps,
+        events: InputOtpEvents
     }
 };

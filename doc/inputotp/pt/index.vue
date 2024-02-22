@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>InputSwitch Pass Through</h1>
+            <h1>InputOtp Pass Through</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -23,10 +23,10 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.inputswitch',
-                    label: 'InputSwitch PT Options',
+                    id: 'pt.doc.inputotp',
+                    label: 'InputOtp PT Options',
                     component: DocApiTable,
-                    data: getPTOption('InputSwitch')
+                    data: getPTOption('InputOtp')
                 }
             ]
         };

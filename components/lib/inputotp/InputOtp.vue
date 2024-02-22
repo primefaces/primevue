@@ -12,6 +12,7 @@
                     :disabled="disabled"
                     :invalid="invalid"
                     :tabindex="tabindex"
+                    :unstyled="unstyled"
                     @input="onInput($event, i - 1)"
                     @focus="onFocus($event)"
                     @blur="onBlur($event)"
