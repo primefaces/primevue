@@ -3,7 +3,7 @@
         <slot></slot>
     </template>
     <template v-else-if="mounted">
-        <Teleport :to="appendTo">
+        <Teleport :to="to">
             <slot></slot>
         </Teleport>
     </template>
@@ -33,6 +33,9 @@ export default {
         this.mounted = DomHandler.isClient();
     },
     computed: {
+        to() {
+            return this.appendTo === 'body' ? this.$primeVue.config.appendTo ?? this.appendTo : this.appendTo;
+        },
         inline() {
             return this.disabled || this.appendTo === 'self';
         }

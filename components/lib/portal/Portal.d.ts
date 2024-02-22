@@ -1,7 +1,7 @@
-import { VNode } from 'vue';
+import { Ref, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type PortalAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
+export type PortalAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface PortalProps {
     /**
@@ -26,7 +26,7 @@ export interface PortalSlots {
 
 export declare type PortalEmits = {};
 
-declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> {}
+declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> { }
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
