@@ -5,13 +5,12 @@
     <div class="card">
         <Stepper orientation="vertical">
             <StepperPanel header="Header I">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ nextCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -20,20 +19,19 @@
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel header="Header III">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ prevCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -50,13 +48,12 @@ export default {
                 basic: `
 <Stepper orientation="vertical">
     <StepperPanel header="Header I">
-        <template #content="{ prevCallback, nextCallback }">
+        <template #content="{ nextCallback }">
             <div class="flex flex-column h-12rem">
                 <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
             </div>
-            <div class="flex py-4 justify-content-between">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+            <div class="flex py-4">
+                <Button label="Next" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
@@ -65,20 +62,19 @@ export default {
             <div class="flex flex-column h-12rem">
                 <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
             </div>
-            <div class="flex py-4 justify-content-between">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+            <div class="flex py-4 gap-2">
+                <Button label="Back" severity="secondary" @click="prevCallback" />
+                <Button label="Next" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
     <StepperPanel header="Header III">
-        <template #content="{ prevCallback, nextCallback }">
+        <template #content="{ prevCallback }">
             <div class="flex flex-column h-12rem">
                 <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
             </div>
-            <div class="flex py-4 justify-content-between">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
+            <div class="flex py-4">
+                <Button label="Back" severity="secondary" @click="prevCallback" />
             </div>
         </template>
     </StepperPanel>
@@ -89,13 +85,12 @@ export default {
     <div class="card">
         <Stepper orientation="vertical">
             <StepperPanel header="Header I">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ nextCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -104,20 +99,19 @@ export default {
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel header="Header III">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ prevCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -130,13 +124,12 @@ export default {
     <div class="card">
         <Stepper orientation="vertical">
             <StepperPanel header="Header I">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ nextCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -145,20 +138,19 @@ export default {
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4 gap-2">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
+                        <Button label="Next" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel header="Header III">
-                <template #content="{ prevCallback, nextCallback }">
+                <template #content="{ prevCallback }">
                     <div class="flex flex-column h-12rem">
                         <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex py-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
+                    <div class="flex py-4">
+                        <Button label="Back" severity="secondary" @click="prevCallback" />
                     </div>
                 </template>
             </StepperPanel>

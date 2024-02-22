@@ -2,23 +2,19 @@
     <DocSectionText v-bind="$attrs">
         <p>Each StepperPanel content can easily be customized with the default slot instead of using the built-in modes. Additionally, header, content, and separator sections of the StepperPanel are customizable via templating.</p>
     </DocSectionText>
-    <div class="card flex flex-column justify-content-center" style="padding-left: 20rem; padding-right: 20rem">
+    <div class="card flex justify-content-center">
         <Stepper v-model:activeStep="active">
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-user" />
                         </span>
-                        <span class="text-base ml-2">Account</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-2 mx-auto" style="max-width: 20rem">
-                        <h3 class="text-center mt-3">Create your account</h3>
+                <template #content="{ nextCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
                             <IconField>
                                 <InputIcon>
@@ -39,66 +35,58 @@
                             <Password v-model="password" toggleMask placeholder="Password" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex pt-4 justify-content-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-star" />
                         </span>
-                        <span class="text-base ml-2">Interests</span>
-                    </div>
+                    </button>
                 </template>
                 <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3">Create your interests</h3>
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-content-center gap-3">
-                            <ToggleButton v-model="option1" class="w-9rem" onLabel="Table Tennis" offLabel="Table Tennis" />
-                            <ToggleButton v-model="option2" class="w-4rem" onLabel="Art" offLabel="Art" />
-                            <ToggleButton v-model="option3" class="w-5rem" onLabel="Music" offLabel="Music" />
-                            <ToggleButton v-model="option4" class="w-6rem" onLabel="Netflix" offLabel="Netflix" />
-                            <ToggleButton v-model="option5" class="w-9rem" onLabel="Guitar Hero" offLabel="Guitar Hero" />
-                            <ToggleButton v-model="option6" class="w-6rem" onLabel="Movie" offLabel="Movie" />
-                            <ToggleButton v-model="option7" class="w-9rem" onLabel="Basketball" offLabel="Basketball" />
-                            <ToggleButton v-model="option8" class="w-8rem" onLabel="PlayStation" offLabel="PlayStation" />
+                            <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                            <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                            <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                            <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                            <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                            <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                            <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                            <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                            <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                            <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
                         </div>
                     </div>
                     <div class="flex pt-4 justify-content-between">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-id-card" />
                         </span>
-                        <span class="text-base ml-2">Complete</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3 mb-6">Account created successfully</h3>
-                        <div class="flex justify-content-center">
-                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper-content.svg" />
+                <template #content="{ prevCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Account created successfully</div>
+                        <div class="text-center">
+                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
+                    <div class="flex pt-4 justify-content-start">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -116,31 +104,29 @@ export default {
             email: null,
             password: null,
             option1: false,
-            option2: true,
+            option2: false,
             option3: false,
-            option4: true,
+            option4: false,
             option5: false,
-            option6: true,
-            option7: true,
-            option8: true,
+            option6: false,
+            option7: false,
+            option8: false,
+            option9: false,
+            option10: false,
             code: {
                 basic: `
 <Stepper v-model:activeStep="active">
     <StepperPanel>
-        <template #header="{ index, clickCallback, headerClass, numberClass }">
-            <div :class="headerClass" @click="clickCallback">
-                <span :class="[numberClass, 'text-color']">
-                    <i v-if="index < active" class="pi pi-check font-semibold" />
-                    <template v-else>
-                        {{ index + 1 }}
-                    </template>
+        <template #header="{ index, clickCallback }">
+            <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                    <i class="pi pi-user" />
                 </span>
-                <span class="text-base ml-2">Account</span>
-            </div>
+            </button>
         </template>
-        <template #content="{ prevCallback, nextCallback }">
-            <div class="flex flex-column justify-content-center gap-2 mx-auto" style="max-width: 20rem">
-                <h3 class="text-center mt-3">Create your account</h3>
+        <template #content="{ nextCallback }">
+            <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                <div class="text-center mt-3 mb-3 text-xl font-semibold">Create your account</div>
                 <div class="field p-fluid">
                     <IconField>
                         <InputIcon>
@@ -161,63 +147,58 @@ export default {
                     <Password v-model="password" toggleMask placeholder="Password" />
                 </div>
             </div>
-            <div class="flex pt-4 justify-content-between">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+            <div class="flex pt-4 justify-content-end">
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
     <StepperPanel>
-        <template #header="{ index, clickCallback, headerClass, numberClass }">
-            <div :class="headerClass" @click="clickCallback">
-                <span :class="[numberClass, 'text-color']">
-                    <i v-if="index < active" class="pi pi-check font-semibold" />
-                    <template v-else>
-                        {{ index + 1 }}
-                    </template>
+        <template #header="{ index, clickCallback }">
+            <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                    <i class="pi pi-star" />
                 </span>
-                <span class="text-base ml-2">Interests</span>
-            </div>
+            </button>
         </template>
         <template #content="{ prevCallback, nextCallback }">
-            <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                <h3 class="text-center mt-3">Create your interests</h3>
+            <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                <div class="text-center mt-3 mb-3 text-xl font-semibold">Choose your interests</div>
                 <div class="flex flex-wrap justify-content-center gap-3">
-                    <ToggleButton v-model="option1" class="w-9rem" onLabel="Table Tennis" offLabel="Table Tennis" />
-                    <ToggleButton v-model="option2" class="w-4rem" onLabel="Art" offLabel="Art" />
-                    <ToggleButton v-model="option3" class="w-5rem" onLabel="Music" offLabel="Music" />
-                    <ToggleButton v-model="option4" class="w-6rem" onLabel="Netflix" offLabel="Netflix" />
-                    <ToggleButton v-model="option5" class="w-9rem" onLabel="Guitar Hero" offLabel="Guitar Hero" />
-                    <ToggleButton v-model="option6" class="w-6rem" onLabel="Movie" offLabel="Movie" />
-                    <ToggleButton v-model="option7" class="w-9rem" onLabel="Basketball" offLabel="Basketball" />
-                    <ToggleButton v-model="option8" class="w-8rem" onLabel="PlayStation" offLabel="PlayStation" />
+                    <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                    <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                    <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                    <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                    <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                    <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                    <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                    <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                    <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                    <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
                 </div>
             </div>
             <div class="flex pt-4 justify-content-between">
                 <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
     <StepperPanel>
-        <template #header="{ index, clickCallback, headerClass, numberClass }">
-            <div :class="headerClass" @click="clickCallback">
-                <span :class="[numberClass, 'text-color']">
-                    <i v-if="index < active" class="pi pi-check font-semibold" />
-                    <template v-else>
-                        {{ index + 1 }}
-                    </template>
+        <template #header="{ index, clickCallback }">
+            <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                    <i class="pi pi-id-card" />
                 </span>
-                <span class="text-base ml-2">Complete</span>
-            </div>
+            </button>
         </template>
-        <template #content="{ prevCallback, nextCallback }">
-            <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                <h3 class="text-center mt-3 mb-6">Account created successfully</h3>
+        <template #content="{ prevCallback }">
+            <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                <div class="text-center mt-3 mb-3 text-xl font-semibold">Account created successfully</div>
+                <div class="text-center">
+                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
+                </div>
             </div>
-            <div class="flex pt-4 justify-content-between">
+            <div class="flex pt-4 justify-content-start">
                 <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
             </div>
         </template>
     </StepperPanel>
@@ -225,23 +206,19 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column justify-content-center">
+    <div class="card flex justify-content-center">
         <Stepper v-model:activeStep="active">
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-user" />
                         </span>
-                        <span class="text-base ml-2">Account</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-2 mx-auto" style="max-width: 20rem">
-                        <h3 class="text-center mt-3">Create your account</h3>
+                <template #content="{ nextCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
                             <IconField>
                                 <InputIcon>
@@ -262,66 +239,58 @@ export default {
                             <Password v-model="password" toggleMask placeholder="Password" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex pt-4 justify-content-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-star" />
                         </span>
-                        <span class="text-base ml-2">Interests</span>
-                    </div>
+                    </button>
                 </template>
                 <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3">Create your interests</h3>
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-content-center gap-3">
-                            <ToggleButton v-model="option1" class="w-9rem" onLabel="Table Tennis" offLabel="Table Tennis" />
-                            <ToggleButton v-model="option2" class="w-4rem" onLabel="Art" offLabel="Art" />
-                            <ToggleButton v-model="option3" class="w-5rem" onLabel="Music" offLabel="Music" />
-                            <ToggleButton v-model="option4" class="w-6rem" onLabel="Netflix" offLabel="Netflix" />
-                            <ToggleButton v-model="option5" class="w-9rem" onLabel="Guitar Hero" offLabel="Guitar Hero" />
-                            <ToggleButton v-model="option6" class="w-6rem" onLabel="Movie" offLabel="Movie" />
-                            <ToggleButton v-model="option7" class="w-9rem" onLabel="Basketball" offLabel="Basketball" />
-                            <ToggleButton v-model="option8" class="w-8rem" onLabel="PlayStation" offLabel="PlayStation" />
+                            <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                            <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                            <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                            <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                            <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                            <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                            <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                            <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                            <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                            <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
                         </div>
                     </div>
                     <div class="flex pt-4 justify-content-between">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-id-card" />
                         </span>
-                        <span class="text-base ml-2">Complete</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3 mb-6">Account created successfully</h3>
-                        <div class="flex justify-content-center">
-                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper-content.svg" />
+                <template #content="{ prevCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Account created successfully</div>
+                        <div class="text-center">
+                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
+                    <div class="flex pt-4 justify-content-start">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -338,37 +307,42 @@ export default {
             email: null,
             password: null,
             option1: false,
-            option2: true,
+            option2: false,
             option3: false,
-            option4: true,
+            option4: false,
             option5: false,
-            option6: true,
-            option7: true,
-            option8: true,
+            option6: false,
+            option7: false,
+            option8: false,
+            option9: false,
+            option10: false
         }
     }
 }
 <\/script>
+
+<style scoped>
+.p-stepper {
+    flex-basis: 40rem;
+}
+<\/style>
+
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column justify-content-center">
+    <div class="card flex justify-content-center">
         <Stepper v-model:activeStep="active">
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-user" />
                         </span>
-                        <span class="text-base ml-2">Account</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-2 mx-auto" style="max-width: 20rem">
-                        <h3 class="text-center mt-3">Create your account</h3>
+                <template #content="{ nextCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
                             <IconField>
                                 <InputIcon>
@@ -389,66 +363,58 @@ export default {
                             <Password v-model="password" toggleMask placeholder="Password" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" disabled @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                    <div class="flex pt-4 justify-content-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-star" />
                         </span>
-                        <span class="text-base ml-2">Interests</span>
-                    </div>
+                    </button>
                 </template>
                 <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3">Create your interests</h3>
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-content-center gap-3">
-                            <ToggleButton v-model="option1" class="w-9rem" onLabel="Table Tennis" offLabel="Table Tennis" />
-                            <ToggleButton v-model="option2" class="w-4rem" onLabel="Art" offLabel="Art" />
-                            <ToggleButton v-model="option3" class="w-5rem" onLabel="Music" offLabel="Music" />
-                            <ToggleButton v-model="option4" class="w-6rem" onLabel="Netflix" offLabel="Netflix" />
-                            <ToggleButton v-model="option5" class="w-9rem" onLabel="Guitar Hero" offLabel="Guitar Hero" />
-                            <ToggleButton v-model="option6" class="w-6rem" onLabel="Movie" offLabel="Movie" />
-                            <ToggleButton v-model="option7" class="w-9rem" onLabel="Basketball" offLabel="Basketball" />
-                            <ToggleButton v-model="option8" class="w-8rem" onLabel="PlayStation" offLabel="PlayStation" />
+                            <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                            <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                            <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                            <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                            <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                            <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                            <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                            <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                            <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                            <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
                         </div>
                     </div>
                     <div class="flex pt-4 justify-content-between">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
             <StepperPanel>
-                <template #header="{ index, clickCallback, headerClass, numberClass }">
-                    <div :class="headerClass" @click="clickCallback">
-                        <span :class="[numberClass, 'text-color']">
-                            <i v-if="index < active" class="pi pi-check font-semibold" />
-                            <template v-else>
-                                {{ index + 1 }}
-                            </template>
+                <template #header="{ index, clickCallback }">
+                    <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                        <span :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
+                            <i class="pi pi-id-card" />
                         </span>
-                        <span class="text-base ml-2">Complete</span>
-                    </div>
+                    </button>
                 </template>
-                <template #content="{ prevCallback, nextCallback }">
-                    <div class="flex flex-column justify-content-center gap-3 mx-auto" style="max-width: 24rem">
-                        <h3 class="text-center mt-3 mb-6">Account created successfully</h3>
-                        <div class="flex justify-content-center">
-                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper-content.svg" />
+                <template #content="{ prevCallback }">
+                    <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-3 mb-3 text-xl font-semibold">Account created successfully</div>
+                        <div class="text-center">
+                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
                         </div>
                     </div>
-                    <div class="flex pt-4 justify-content-between">
+                    <div class="flex pt-4 justify-content-start">
                         <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" severity="contrast" icon="pi pi-arrow-right" disabled iconPos="right" @click="nextCallback" />
                     </div>
                 </template>
             </StepperPanel>
@@ -466,18 +432,33 @@ const name = ref();
 const email = ref();
 const password = ref();
 const option1 = ref(false);
-const option2 = ref(true);
+const option2 = ref(false);
 const option3 = ref(false);
-const option4 = ref(true);
+const option4 = ref(false);
 const option5 = ref(false);
-const option6 = ref(true);
-const option7 = ref(true);
-const option8 = ref(true);
+const option6 = ref(false);
+const option7 = ref(false);
+const option8 = ref(false);
+const option9 = ref(false);
+const option10 = ref(false);
 
 <\/script>
+
+<style scoped>
+.p-stepper {
+    flex-basis: 40rem;
+}
+<\/style>
+
 `
             }
         };
     }
 };
 </script>
+
+<style scoped>
+.p-stepper {
+    flex-basis: 40rem;
+}
+</style>
