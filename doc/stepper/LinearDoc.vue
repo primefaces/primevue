@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Stepper is linear by default to enforce completion of a previus step to proceed, set <i>linear</i> as true for non-linear mode.</p>
+        <p>When <i>linear</i> property is present, current step must be completed in order to move to the next step.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Stepper linear>

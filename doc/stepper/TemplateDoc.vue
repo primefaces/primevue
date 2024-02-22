@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Each StepperPanel content can easily be customized with the default slot instead of using the built-in modes. Additionally, header, content, and separator sections of the StepperPanel are customizable via templating.</p>
+        <p>Stepper provides various templating options to customize the default UI design.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Stepper v-model:activeStep="active">

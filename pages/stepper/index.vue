@@ -2,7 +2,7 @@
     <DocComponent
         title="Vue Stepper Component"
         header="Stepper"
-        description="Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process."
+        description="The Stepper component displays a wizard-like workflow by guiding users through the multi-step progression."
         :componentDocs="docs"
         :themingDocs="themingDoc"
         :ptTabComponent="ptComponent"
