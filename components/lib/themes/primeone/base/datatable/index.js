@@ -233,11 +233,7 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-}
-
-.p-column-filter-menu {
-    display: inline-flex;
-    margin-left: auto;
+    gap: 0.5rem;
 }
 
 .p-column-filter-row .p-column-filter-element {
@@ -245,7 +241,46 @@ export default {
     width: 1%;
 }
 
-.p-column-filter-menu-button,
+.p-column-filter-menu-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--p-datatable-filter-menu-button-text-color);
+    border: 0 none;
+    background: transparent;
+    border-radius: 50%;
+    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    outline-color: transparent;
+}
+
+.p-column-filter-menu-button:hover {
+    background: var(--p-datatable-filter-menu-button-background-hover);
+    color: var(--p-datatable-filter-menu-button-text-color-hover);
+}
+
+.p-column-filter-menu-button.p-column-filter-menu-button-open,
+.p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
+    background: var(--p-datatable-filter-menu-button-background-open);
+    color: var(--p-datatable-filter-menu-button-text-color-open);
+}
+
+.p-column-filter-menu-button.p-column-filter-menu-button-active,
+.p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
+    background: var(--p-datatable-filter-menu-button-background-active);
+    color: var(--p-datatable-filter-menu-button-text-color-active);
+}
+
+.p-column-filter-menu-button:focus-visible {
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: var(--p-focus-ring-offset);
+}
+
 .p-column-filter-clear-button {
     display: inline-flex;
     justify-content: center;
@@ -254,16 +289,81 @@ export default {
     text-decoration: none;
     overflow: hidden;
     position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--p-datatable-filter-clear-button-text-color);
+    border: 0 none;
+    background: transparent;
+    border-radius: 50%;
+    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    outline-color: transparent;
 }
 
-.p-column-filter-row-items {
-    margin: 0;
+.p-column-filter-clear-button:hover {
+    background: var(--p-datatable-filter-clear-button-background-hover);
+    color: var(--p-datatable-filter-clear-button-text-color-hover);
+}
+
+.p-column-filter-clear-button:focus-visible {
+    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline-offset: var(--p-focus-ring-offset);
+}
+
+.p-column-filter-menu {
+    display: inline-flex;
+    margin-left: auto;
+}
+
+.p-column-filter-operator {
     padding: 0;
-    list-style: none;
 }
 
-.p-column-filter-row-item {
-    cursor: pointer;
+.p-column-filter-constraints {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.p-column-filter-constraint {
+    padding: 0;
+    border-bottom: 1px solid var(--p-datatable-filter-constraint-border-color);
+}
+
+.p-column-filter-constraint:last-child {
+    border-bottom: 0 none;
+}
+
+.p-column-filter-matchmode-dropdown {
+    margin-bottom: 0.5rem;
+}
+
+.p-column-filter-remove-button {
+    margin-top: 0.5rem;
+}
+
+.p-column-filter-constraint:last-child .p-column-filter-remove-button {
+    margin-bottom: 0;
+}
+
+.p-column-filter-overlay-menu {
+    background: var(--p-datatable-filter-overlay-background);
+    color: var(--p-datatable-filter-overlay-text-color);
+    border: 1px solid var(--p-datatable-filter-overlay-border-color);
+    border-radius: var(--p-rounded-base);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    min-width: 12.5rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.p-column-filter-add-rule {
+    padding: 0;
+}
+
+.p-column-filter-buttonbar {
+    padding: 0;
 }
 
 .p-column-filter-add-button,
