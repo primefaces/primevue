@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Stepper consists of one or more StepperPanel elements.</p>
+        <p>Stepper is linear by default to enforce completion of a previus step to proceed, set <i>linear</i> as true for non-linear mode.</p>
     </DocSectionText>
     <div class="card" style="padding-left: 20rem; padding-right: 20rem">
-        <Stepper v-model:activeStep="active" linear>
+        <Stepper linear>
             <StepperPanel header="Header I">
                 <template #content="{ prevCallback, nextCallback }">
                     <div class="flex flex-column h-12rem">
@@ -46,10 +46,9 @@
 export default {
     data() {
         return {
-            active: 0,
             code: {
                 basic: `
-<Stepper>
+<Stepper linear>
     <StepperPanel header="Header I">
         <template #content="{ prevCallback, nextCallback }">
             <div class="flex flex-column h-12rem">
@@ -88,7 +87,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Stepper>
+        <Stepper linear>
             <StepperPanel header="Header I">
                 <template #content="{ prevCallback, nextCallback }">
                     <div class="flex flex-column h-12rem">
@@ -129,7 +128,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Stepper>
+        <Stepper linear>
             <StepperPanel header="Header I">
                 <template #content="{ prevCallback, nextCallback }">
                     <div class="flex flex-column h-12rem">
