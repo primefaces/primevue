@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
+import SampleDoc from '@/doc/inputotp/SampleDoc.vue';
 import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/integerOnlyDoc.vue';
 import PTComponent from '@/doc/inputotp/pt/index.vue';
@@ -40,6 +41,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'sample',
+                    label: 'Sample',
+                    component: SampleDoc
                 },
                 {
                     id: 'accessibility',

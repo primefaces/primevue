@@ -124,6 +124,19 @@ export default {
 
                     break;
 
+                case 8:
+                    if (event.target.value.length === 0) {
+                        this.moveToPrev(event);
+                        event.preventDefault();
+                    }
+
+                    break;
+
+                case 40:
+                    event.preventDefault();
+
+                    break;
+
                 case 39:
                     this.moveToNext(event);
                     event.preventDefault();
