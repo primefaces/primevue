@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
+import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/integerOnlyDoc.vue';
 import PTComponent from '@/doc/inputotp/pt/index.vue';
 import ThemingDoc from '@/doc/inputotp/theming/index.vue';
@@ -34,6 +35,11 @@ export default {
                     id: 'integeronly',
                     label: 'Integer Only',
                     component: IntegerOnlyDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'accessibility',

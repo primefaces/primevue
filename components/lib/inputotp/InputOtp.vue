@@ -1,20 +1,21 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
-        <OtpInputText
-            v-for="i in length"
-            :key="i"
-            v-model="tokens[i - 1]"
-            :type="inputType"
-            :class="cx('input')"
-            maxlength="1"
-            :inputmode="inputMode"
-            @input="onInput"
-            @focus="onFocus"
-            @blur="onBlur"
-            @paste="onPaste"
-            @keydown="onKeyDown($event, i - 1)"
-            :pt="ptm('input')"
-        />
+        <template v-for="i in length" :key="i">
+            <slot :events="getTemplateEvents(i - 1)" :attrs="getTemplateAttrs(i - 1)">
+                <OtpInputText
+                    :value="tokens[i - 1]"
+                    :type="inputType"
+                    :class="cx('input')"
+                    :inputmode="inputMode"
+                    @input="onInput($event, i - 1)"
+                    @focus="onFocus($event)"
+                    @blur="onBlur($event)"
+                    @paste="onPaste($event)"
+                    @keydown="onKeyDown($event)"
+                    :pt="ptm('input')"
+                />
+            </slot>
+        </template>
     </div>
 </template>
 
@@ -41,6 +42,20 @@ export default {
         }
     },
     methods: {
+        getTemplateAttrs(index) {
+            return {
+                value: this.tokens[index]
+            };
+        },
+        getTemplateEvents(index) {
+            return {
+                input: (event) => this.onInput(event, index),
+                keydown: (event) => this.onKeyDown(event),
+                focus: (event) => this.onFocus(event),
+                blur: (event) => this.onBlur(event),
+                paste: (event) => this.onPaste(event)
+            };
+        },
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
 
@@ -51,9 +66,15 @@ export default {
                 }
             });
         },
-        onInput(event) {
-            this.moveToNext(event);
+        onInput(event, index) {
+            this.tokens[index] = event.target.value;
             this.updateModel(event);
+
+            if (event.inputType === 'deleteContentBackward') {
+                this.moveToPrev(event);
+            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward') {
+                this.moveToNext(event);
+            }
         },
         updateModel(event) {
             const newValue = this.tokens.join('');
@@ -87,7 +108,7 @@ export default {
         onBlur(event) {
             this.$emit('blur', event);
         },
-        onKeyDown(event, index) {
+        onKeyDown(event) {
             const keyCode = event.keyCode;
 
             switch (keyCode) {
@@ -106,14 +127,6 @@ export default {
                 case 39:
                     this.moveToNext(event);
                     event.preventDefault();
-
-                    break;
-
-                case 8:
-                    event.preventDefault();
-                    this.tokens[index] = '';
-                    this.moveToPrev(event);
-                    this.updateModel(event);
 
                     break;
 
