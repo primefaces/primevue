@@ -1,5 +1,46 @@
 # Changelog
 
+## [3.49.0](https://github.com/primefaces/primevue/tree/3.49.0) (2024-02-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.48.1...3.49.0)
+
+**Fixed bugs:**
+
+-   SplitterPanel: nested context hydration fixed [\#5322](https://github.com/primefaces/primevue/issues/5322)
+-   Password: after reset password meter not reset [\#5304](https://github.com/primefaces/primevue/issues/5304)
+-   DataTable: tableClass prop specifies String type, though Array also works [\#5297](https://github.com/primefaces/primevue/issues/5297)
+-   document.body.setAttribute('data-p-unselectable-text') missing second arguments. [\#5280](https://github.com/primefaces/primevue/issues/5280)
+-   Galleria animation defect [\#5279](https://github.com/primefaces/primevue/issues/5279)
+-   Menu components itemicon slot does not work expected [\#5276](https://github.com/primefaces/primevue/issues/5276)
+-   SelectButton: (accessibility) disabled mode focus defects [\#5274](https://github.com/primefaces/primevue/issues/5274)
+-   DataTable: "Ctrl + A" selects all rows even in selectionMode "single" [\#5271](https://github.com/primefaces/primevue/issues/5271)
+-   Galleria: fullscreen mode bug with thumbnails [\#5267](https://github.com/primefaces/primevue/issues/5267)
+-   TabView: previousicon slot doesn't work [\#5264](https://github.com/primefaces/primevue/issues/5264)
+-   Calendar: When entering the time by hand into timeOnly calendar, values switch to NaN:NaN [\#5254](https://github.com/primefaces/primevue/issues/5254)
+-   MeterGroup: Cutoff at the beginning when the first element is 0 [\#5252](https://github.com/primefaces/primevue/issues/5252)
+-   TabView: selectOnFocus mode defect [\#5245](https://github.com/primefaces/primevue/issues/5245)
+-   ConfirmDialog: Dragging dialog fires an error [\#5244](https://github.com/primefaces/primevue/issues/5244)
+-   Dialog: Error when clicking on header to drag [\#5240](https://github.com/primefaces/primevue/issues/5240)
+-   SelectButton: aria-disabled contains code instead of a boolean value [\#5235](https://github.com/primefaces/primevue/issues/5235)
+-   Tooltip: OutOfBounds alignment does not affect tooltip arrow position [\#5153](https://github.com/primefaces/primevue/issues/5153)
+-   Dropdown: esc keypress propagates and triggers close in dialogs [\#5138](https://github.com/primefaces/primevue/issues/5138)
+-   The arrow position is wrong after overlayPanel/confirmPopup is flipped[\#5091](https://github.com/primefaces/primevue/issues/5091)
+-   Listbox: issue with navigating through list items using tab and enter buttons [\#4906](https://github.com/primefaces/primevue/issues/4906)
+
+**Implemented New Features and Enhancements:**
+
+-   New InputOtp component [\#5321](https://github.com/primefaces/primevue/issues/5321)
+-   MenuBar: Pressing Escape-Key in submenu moves focus to first menuitem [\#5316](https://github.com/primefaces/primevue/issues/5316)
+-   Calendar: pt.day missing disabled and selected attrs in options.context [\#5312](https://github.com/primefaces/primevue/issues/5312)
+-   InputSwitch: Aura invalid state updates [\#5311](https://github.com/primefaces/primevue/issues/5311)
+-   aria-invalid state added to Input components [\#5293](https://github.com/primefaces/primevue/issues/5293)
+-   New ButtonGroup component [\#5292](https://github.com/primefaces/primevue/issues/5292)
+-   CascadeSelect: second click should close the submenu [\#5289](https://github.com/primefaces/primevue/issues/5289)
+-   Menu components: track focus with also mousemove [\#5288](https://github.com/primefaces/primevue/issues/5288)
+-   InputIcon class support & InputField style updates [\#5273](https://github.com/primefaces/primevue/issues/5273)
+-   New Stepper component [\#5266](https://github.com/primefaces/primevue/issues/5266)
+-   Upload: Error showing when all the files are removed. [\#5260](https://github.com/primefaces/primevue/issues/5260)
+
 ## [3.48.1](https://github.com/primefaces/primevue/tree/3.48.1) (2024-02-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.48.0...3.48.1)
