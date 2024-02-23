@@ -11187,6 +11187,7 @@
 
   .p-fileupload .p-fileupload-content {
     border-top: 0 none;
+    padding-top: 1.125rem;
   }
 
   .p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
