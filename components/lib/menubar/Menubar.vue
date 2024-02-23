@@ -421,7 +421,7 @@ export default {
                 const _focusedItemInfo = this.focusedItemInfo;
 
                 this.hide(event, false);
-                this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey[0]), level: 0, parentKey: '' };
+                this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey.split('_')[0]), level: 0, parentKey: '' };
             }
 
             event.preventDefault();
