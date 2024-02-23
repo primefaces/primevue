@@ -233,6 +233,7 @@ const THEME_COMPONENTS = [
     'splitbutton',
     'splitter',
     'steps',
+    'stepper',
     'tabmenu',
     'tabview',
     'tag',

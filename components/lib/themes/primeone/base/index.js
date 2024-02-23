@@ -65,6 +65,7 @@ import slider from 'primevue/themes/primeone/base/slider';
 import speeddial from 'primevue/themes/primeone/base/speeddial';
 import splitbutton from 'primevue/themes/primeone/base/splitbutton';
 import splitter from 'primevue/themes/primeone/base/splitter';
+import stepper from 'primevue/themes/primeone/base/stepper';
 import steps from 'primevue/themes/primeone/base/steps';
 import tabmenu from 'primevue/themes/primeone/base/tabmenu';
 import tabview from 'primevue/themes/primeone/base/tabview';
@@ -151,6 +152,7 @@ export default {
         splitter,
         splitbutton,
         steps,
+        stepper,
         tabmenu,
         tabview,
         textarea,

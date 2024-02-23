@@ -64,6 +64,7 @@ import slider from 'primevue/themes/primeone/presets/aura/slider';
 import speeddial from 'primevue/themes/primeone/presets/aura/speeddial';
 import splitbutton from 'primevue/themes/primeone/presets/aura/splitbutton';
 import splitter from 'primevue/themes/primeone/presets/aura/splitter';
+import stepper from 'primevue/themes/primeone/presets/aura/stepper';
 import steps from 'primevue/themes/primeone/presets/aura/steps';
 import tabmenu from 'primevue/themes/primeone/presets/aura/tabmenu';
 import tabview from 'primevue/themes/primeone/presets/aura/tabview';
@@ -297,6 +298,7 @@ export default {
         speeddial,
         splitter,
         splitbutton,
+        stepper,
         steps,
         tabmenu,
         tabview,
