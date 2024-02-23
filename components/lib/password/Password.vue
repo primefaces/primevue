@@ -182,7 +182,12 @@ export default {
             }
         },
         setPasswordMeter() {
-            if (!this.modelValue) return;
+            if (!this.modelValue) {
+                this.meter = null;
+                this.infoText = this.promptText;
+
+                return;
+            }
 
             const { meter, label } = this.checkPasswordStrength(this.modelValue);
 
