@@ -24,6 +24,7 @@ import dock from 'primevue/themes/primeone/presets/aura/dock';
 import dropdown from 'primevue/themes/primeone/presets/aura/dropdown';
 import editor from 'primevue/themes/primeone/presets/aura/editor';
 import fieldset from 'primevue/themes/primeone/presets/aura/fieldset';
+import fileupload from 'primevue/themes/primeone/presets/aura/fileupload';
 import floatlabel from 'primevue/themes/primeone/presets/aura/floatlabel';
 import galleria from 'primevue/themes/primeone/presets/aura/galleria';
 import iconfield from 'primevue/themes/primeone/presets/aura/iconfield';
@@ -255,6 +256,7 @@ export default {
         dropdown,
         editor,
         fieldset,
+        fileupload,
         floatlabel,
         galleria,
         iconfield,

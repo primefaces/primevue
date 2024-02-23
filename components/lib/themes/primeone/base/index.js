@@ -24,6 +24,7 @@ import dock from 'primevue/themes/primeone/base/dock';
 import dropdown from 'primevue/themes/primeone/base/dropdown';
 import editor from 'primevue/themes/primeone/base/editor';
 import fieldset from 'primevue/themes/primeone/base/fieldset';
+import fileupload from 'primevue/themes/primeone/base/fileupload';
 import floatlabel from 'primevue/themes/primeone/base/floatlabel';
 import galleria from 'primevue/themes/primeone/base/galleria';
 import global from 'primevue/themes/primeone/base/global';
@@ -108,6 +109,7 @@ export default {
         dock,
         editor,
         fieldset,
+        fileupload,
         floatlabel,
         galleria,
         iconfield,
