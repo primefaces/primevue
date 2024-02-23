@@ -200,6 +200,7 @@ const THEME_COMPONENTS = [
     'inplace',
     'inputgroup',
     'inputnumber',
+    'inputotp',
     'inputswitch',
     'inputtext',
     'knob',

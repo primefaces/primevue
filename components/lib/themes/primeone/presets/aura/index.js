@@ -32,6 +32,7 @@ import image from 'primevue/themes/primeone/presets/aura/image';
 import inlinemessage from 'primevue/themes/primeone/presets/aura/inlinemessage';
 import inplace from 'primevue/themes/primeone/presets/aura/inplace';
 import inputgroup from 'primevue/themes/primeone/presets/aura/inputgroup';
+import inputotp from 'primevue/themes/primeone/presets/aura/inputotp';
 import inputswitch from 'primevue/themes/primeone/presets/aura/inputswitch';
 import inputtext from 'primevue/themes/primeone/presets/aura/inputtext';
 import knob from 'primevue/themes/primeone/presets/aura/knob';
@@ -265,6 +266,7 @@ export default {
         inplace,
         inputgroup,
         inputswitch,
+        inputotp,
         inputtext,
         knob,
         listbox,

@@ -33,6 +33,7 @@ import image from 'primevue/themes/primeone/base/image';
 import inlinemessage from 'primevue/themes/primeone/base/inlinemessage';
 import inplace from 'primevue/themes/primeone/base/inplace';
 import inputgroup from 'primevue/themes/primeone/base/inputgroup';
+import inputotp from 'primevue/themes/primeone/base/inputotp';
 import inputswitch from 'primevue/themes/primeone/base/inputswitch';
 import inputtext from 'primevue/themes/primeone/base/inputtext';
 import knob from 'primevue/themes/primeone/base/knob';
@@ -117,6 +118,7 @@ export default {
         inlinemessage,
         inplace,
         inputgroup,
+        inputotp,
         inputswitch,
         inputtext,
         knob,
