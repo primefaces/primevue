@@ -13,7 +13,7 @@ import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
 
@@ -76,7 +76,7 @@ export interface TreeTableFilterMetaData {
     /**
      * Filter match mode
      */
-    matchMode: 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | string | undefined;
+    matchMode: HintedString<'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter'> | undefined;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface TreeTableSortEvent {
     /**
      * Match modes per field
      */
-    filterMatchModes: 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | string | undefined;
+    filterMatchModes: HintedString<'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter'> | undefined;
 }
 
 /**
@@ -585,7 +585,7 @@ export interface TreeTableProps {
     /**
      * Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.
      */
-    scrollHeight?: 'flex' | string | undefined;
+    scrollHeight?: HintedString<'flex'> | undefined;
     /**
      * Orientation of the scrolling.
      * @defaultValue vertical

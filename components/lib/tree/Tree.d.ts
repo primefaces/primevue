@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -279,7 +279,7 @@ export interface TreeProps {
     /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */
-    scrollHeight?: 'flex' | string | undefined;
+    scrollHeight?: HintedString<'flex'> | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */

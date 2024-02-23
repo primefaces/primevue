@@ -9,7 +9,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PassThrough } from '../ts-helpers';
+import { PassThrough, HintedString } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.
@@ -18,7 +18,7 @@ export interface StyleClassOptions {
     /**
      * Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'.
      */
-    selector?: '@next' | '@prev' | '@parent' | '@grandparent' | string | undefined;
+    selector?: HintedString<'@next' | '@prev' | '@parent' | '@grandparent'> | undefined;
     /**
      * Style class to add when item begins to get displayed.
      * @deprecated since v3.41.0. Use 'enterFromClass' option instead.
