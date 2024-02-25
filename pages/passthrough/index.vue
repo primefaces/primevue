@@ -18,6 +18,7 @@
 <script>
 import BasicDoc from '@/doc/passthrough/BasicDoc.vue';
 import CustomCSSDoc from '@/doc/passthrough/CustomCSSDoc.vue';
+import DeclarativeDoc from '@/doc/passthrough/DeclarativeDoc.vue';
 import GlobalDoc from '@/doc/passthrough/GlobalDoc.vue';
 import LifecycleDoc from '@/doc/passthrough/LifecycleDoc.vue';
 import UsePassThroughDoc from '@/doc/passthrough/UsePassThroughDoc.vue';
@@ -30,6 +31,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'declarative',
+                    label: 'Declarative',
+                    component: DeclarativeDoc
                 },
                 {
                     id: 'lifecycle',
