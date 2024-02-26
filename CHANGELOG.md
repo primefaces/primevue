@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.49.1](https://github.com/primefaces/primevue/tree/3.49.1) (2024-02-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.49.0...3.49.1)
+
+**Fixed bugs:**
+
+-   Stepper component style build is broken [\#5332](https://github.com/primefaces/primevue/issues/5332)
+
 ## [3.49.0](https://github.com/primefaces/primevue/tree/3.49.0) (2024-02-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.48.1...3.49.0)
