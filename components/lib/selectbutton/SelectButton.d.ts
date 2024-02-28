@@ -119,6 +119,11 @@ export interface SelectButtonContext {
      */
     focused: boolean;
     /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
      * Available option.
      */
     option: any;
