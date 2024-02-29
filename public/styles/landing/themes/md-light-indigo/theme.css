@@ -487,25 +487,25 @@
 .landing-themes .p-float-label > label.p-error {
   color: #B00020;
 }
-.landing-themes .p-input-icon-left > i:first-of-type,
-.landing-themes .p-input-icon-left > svg:first-of-type,
-.landing-themes .p-input-icon-left > .p-input-prefix {
+.landing-themes .p-icon-field-left > i:first-of-type,
+.landing-themes .p-icon-field-left > svg:first-of-type,
+.landing-themes .p-icon-field-left > .p-input-prefix {
   left: 1rem;
   color: rgba(0, 0, 0, 0.6);
 }
-.landing-themes .p-input-icon-left > .p-inputtext {
+.landing-themes .p-icon-field-left > .p-inputtext {
   padding-left: 3rem;
 }
-.landing-themes .p-input-icon-left.p-float-label > label {
+.landing-themes .p-icon-field-left.p-float-label > label {
   left: 3rem;
 }
-.landing-themes .p-input-icon-right > i:last-of-type,
-.landing-themes .p-input-icon-right > svg:last-of-type,
-.landing-themes .p-input-icon-right > .p-input-suffix {
+.landing-themes .p-icon-field-right > i:last-of-type,
+.landing-themes .p-icon-field-right > svg:last-of-type,
+.landing-themes .p-icon-field-right > .p-input-suffix {
   right: 1rem;
   color: rgba(0, 0, 0, 0.6);
 }
-.landing-themes .p-input-icon-right > .p-inputtext {
+.landing-themes .p-icon-field-right > .p-inputtext {
   padding-right: 3rem;
 }
 .landing-themes ::-webkit-input-placeholder {
