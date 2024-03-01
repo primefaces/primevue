@@ -27,10 +27,10 @@
             :unstyled="unstyled"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
+            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" @keypress="onToggleMaskKeyDown" tabindex="0"/>
         </slot>
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" />
+            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" @keypress="onToggleMaskKeyDown" tabindex="0"/>
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
@@ -276,6 +276,17 @@ export default {
         },
         onMaskToggle() {
             this.unmasked = !this.unmasked;
+        },
+        onToggleMaskKeyDown(event) {
+            switch (event.code) {
+                case 'Enter':
+                case 'Space':
+                    this.onMaskToggle();
+                    event.preventDefault();
+                    break;
+                default:
+                    break;
+            }
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
