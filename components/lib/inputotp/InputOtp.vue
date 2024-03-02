@@ -132,15 +132,43 @@ export default {
             return !isNaN(Number(key)) || key === 'Backspace' || key === 'ArrowLeft' || key === 'ArrowRight';
         },
         onKeyDown(event) {
-            if (this.integerOnly && !this.isNumericKey(event.key)) {
+            const { key, target } = event;
+            const index = target.dataset.index;
+
+            if (this.integerOnly && !this.isNumericKey(key)) {
                 event.preventDefault();
-            } else {
-                if (event.key === 'ArrowLeft') this.moveToPrev(event);
-                else if (event.key === 'ArrowRight') this.moveToNext(event);
+                return;
+            }
+
+            const movementKeys = {
+                ArrowLeft: () => this.moveToPrev(event),
+                ArrowRight: () => this.moveToNext(event)
+            };
+
+            const deletionConditions = {
+                Backspace: () => target.value === '' && target.selectionStart === 0,
+                Delete: () => target.value !== ''
+            };
+
+            if (movementKeys[key]) {
+                movementKeys[key]();
+                event.preventDefault();
+            } else if (deletionConditions[key] && deletionConditions[key]()) {
+                if (key === 'Delete') {
+                    target.value = '';
+                }
+                this.tokens[index] = '';
+                this.updateModel(event);
+                event.preventDefault();
             }
         },
+
         onPaste(event) {
-            let paste = event.clipboardData.getData('text').split('').filter(char => this.isNumericKey(char)).join('');
+            let paste = event.clipboardData
+                .getData('text')
+                .split('')
+                .filter((char) => this.isNumericKey(char))
+                .join('');
 
             if (paste.length) {
                 let pastedCode = paste.substring(0, this.length + 1);
