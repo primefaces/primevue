@@ -128,51 +128,19 @@ export default {
         onBlur(event) {
             this.$emit('blur', event);
         },
+        isNumericKey(key) {
+            return !isNaN(Number(key)) || key === 'Backspace' || key === 'ArrowLeft' || key === 'ArrowRight';
+        },
         onKeyDown(event) {
-            const keyCode = event.keyCode;
-
-            switch (keyCode) {
-                case 37:
-                    this.moveToPrev(event);
-                    event.preventDefault();
-
-                    break;
-
-                case 38:
-                case 40:
-                    event.preventDefault();
-
-                    break;
-
-                case 8:
-                    if (event.target.value.length === 0) {
-                        this.moveToPrev(event);
-                        event.preventDefault();
-                    }
-
-                    break;
-
-                case 40:
-                    event.preventDefault();
-
-                    break;
-
-                case 39:
-                    this.moveToNext(event);
-                    event.preventDefault();
-
-                    break;
-
-                default:
-                    if (this.integerOnly && !(event.keyCode >= 48 && event.keyCode <= 57)) {
-                        event.preventDefault();
-                    }
-
-                    break;
+            if (this.integerOnly && !this.isNumericKey(event.key)) {
+                event.preventDefault();
+            } else {
+                if (event.key === 'ArrowLeft') this.moveToPrev(event);
+                else if (event.key === 'ArrowRight') this.moveToNext(event);
             }
         },
         onPaste(event) {
-            let paste = event.clipboardData.getData('text');
+            let paste = event.clipboardData.getData('text').split('').filter(char => this.isNumericKey(char)).join('');
 
             if (paste.length) {
                 let pastedCode = paste.substring(0, this.length + 1);
