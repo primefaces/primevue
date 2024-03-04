@@ -95,10 +95,10 @@ export interface TooltipOptions {
      */
     unstyled?: boolean;
     /**
-     * A valid query selector or an HTMLElement to specify where the dialog gets attached.
-     * @defaultValue body
+     * Specifies where the tooltip gets attached. It can be a valid query selector, the string 'self' to attach to the element itself, or null to append to the document body.
+     * @defaultValue null
      */
-    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
+    appendTo?: HintedString<'self'> | null | HTMLElement;
 }
 
 /**
