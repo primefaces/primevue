@@ -18,6 +18,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
+            target.$_ptooltipAppendTo = null;
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
@@ -30,6 +31,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
+                target.$_ptooltipAppendTo = options.value.appendTo;
             }
         }
 
@@ -58,6 +60,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
+            target.$_ptooltipAppendTo = null;
 
             this.bindEvents(target, options);
         } else if (typeof options.value === 'object' && options.value) {
@@ -75,6 +78,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
+                target.$_ptooltipAppendTo = options.value.appendTo;
 
                 this.bindEvents(target, options);
             }
@@ -287,7 +291,17 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 tooltipText
             );
 
-            document.body.appendChild(container);
+            let appendToElement;
+            if (el.$_ptooltipAppendTo) {
+                if (el.$_ptooltipAppendTo === 'self') {
+                    appendToElement = el;
+                } else {
+                   appendToElement = document.querySelector(el.$_ptooltipAppendTo);
+                }
+            } else {
+                appendToElement = document.body;
+            }
+            appendToElement.appendChild(container);
 
             el.$_ptooltipId = container.id;
             this.$el = container;
@@ -300,7 +314,17 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
                 if (tooltipElement && tooltipElement.parentElement) {
                     ZIndexUtils.clear(tooltipElement);
-                    document.body.removeChild(tooltipElement);
+
+                    if (el.$_ptooltipAppendTo === 'self') {
+                        el.removeChild(tooltipElement);
+                    } else if (el.$_ptooltipAppendTo) {
+                          const customElement = document.querySelector(el.$_ptooltipAppendTo);
+                          if (customElement) {
+                             customElement.removeChild(tooltipElement);
+                          }
+                    } else {
+                          document.body.removeChild(tooltipElement);
+                    }
                 }
 
                 el.$_ptooltipId = null;

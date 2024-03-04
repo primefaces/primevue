@@ -10,7 +10,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PassThrough } from '../ts-helpers';
+import { PassThrough, HintedString } from '../ts-helpers';
 
 export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
 
@@ -94,6 +94,11 @@ export interface TooltipOptions {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached.
+     * @defaultValue body
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
 }
 
 /**
