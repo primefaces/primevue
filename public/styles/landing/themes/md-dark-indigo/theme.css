@@ -505,25 +505,21 @@
 .landing-themes .p-float-label > label.p-error {
   color: #f44435;
 }
-.landing-themes .p-input-icon-left > i:first-of-type,
-.landing-themes .p-input-icon-left > svg:first-of-type,
-.landing-themes .p-input-icon-left > .p-input-prefix {
+.landing-themes > .p-icon-field-left > .p-input-icon:first-of-type {
   left: 1rem;
   color: rgba(255, 255, 255, 0.6);
 }
-.landing-themes .p-input-icon-left > .p-inputtext {
+.landing-themes .p-icon-field-left > .p-inputtext {
   padding-left: 3rem;
 }
 .landing-themes .p-input-icon-left.p-float-label > label {
   left: 3rem;
 }
-.landing-themes .p-input-icon-right > i:last-of-type,
-.landing-themes .p-input-icon-right > svg:last-of-type,
-.landing-themes .p-input-icon-right > .p-input-suffix {
+.landing-themes .p-icon-field-right > .p-input-icon:last-of-type {
   right: 1rem;
   color: rgba(255, 255, 255, 0.6);
 }
-.landing-themes .p-input-icon-right > .p-inputtext {
+.landing-themes .p-icon-field-right > .p-inputtext {
   padding-right: 3rem;
 }
 .landing-themes ::-webkit-input-placeholder {
