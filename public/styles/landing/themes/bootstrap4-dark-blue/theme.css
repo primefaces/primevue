@@ -485,6 +485,7 @@
 .landing-themes .p-float-label > label.p-error {
   color: #f19ea6;
 }
+
 .landing-themes .p-icon-field-left > i:first-of-type,
 .landing-themes .p-icon-field-left > svg:first-of-type,
 .landing-themes .p-icon-field-left > .p-input-prefix {
@@ -497,6 +498,7 @@
 .landing-themes .p-icon-field-left.p-float-label > label {
   left: 2.5rem;
 }
+
 .landing-themes .p-icon-field-right > i:last-of-type,
 .landing-themes .p-icon-field-right > svg:last-of-type,
 .landing-themes .p-icon-field-right > .p-input-suffix {

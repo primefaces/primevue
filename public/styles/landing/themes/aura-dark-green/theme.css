@@ -177,6 +177,7 @@
 .landing-themes .p-float-label > .p-invalid + label {
   color: #FCA5A5;
 }
+
 .landing-themes .p-icon-field-left > svg:first-of-type,
 .landing-themes .p-icon-field-left > i:first-of-type {
   left: 0.75rem;
@@ -188,6 +189,7 @@
 .landing-themes .p-icon-field-left.p-float-label > label {
   left: 2.5rem;
 }
+
 .landing-themes .p-icon-field-right > svg:last-of-type,
 .landing-themes .p-icon-field-right > i:last-of-type {
   right: 0.75rem;
