@@ -46983,6 +46983,14 @@
                             "description": "Current focused state of item as a boolean."
                         },
                         {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
+                        },
+                        {
                             "name": "option",
                             "optional": false,
                             "readonly": false,
