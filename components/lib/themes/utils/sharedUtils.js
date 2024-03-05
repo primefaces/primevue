@@ -41,6 +41,19 @@ export default {
                 Object.assign(value1, value2);
             }
         },
+        getItemValue(obj, ...params) {
+            return this.isFunction(obj) ? obj(...params) : obj;
+        },
+        getOptionValue(options, key = '', params = {}) {
+            const fKeys = this.toFlatCase(key).split('.');
+            const fKey = fKeys.shift();
+
+            return fKey
+                ? this.isObject(options)
+                    ? this.getOptionValue(this.getItemValue(options[Object.keys(options).find((k) => this.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    : undefined
+                : this.getItemValue(options, params);
+        },
         test(regex, str) {
             if (regex) {
                 const match = regex.test(str);
@@ -70,19 +83,23 @@ export default {
         toNormalizePrefix(prefix) {
             return prefix.replaceAll(/ /g, '').replace(/[^\w]/g, '-');
         },
+        toNormalizeVariable(prefix = '', variable = '') {
+            return this.toNormalizePrefix(`${this.isString(prefix, false) && this.isString(variable, false) ? `${prefix}-` : prefix}${variable}`);
+        },
+        getVariableName(prefix = '', variable = '') {
+            return `--${this.toNormalizeVariable(prefix, variable)}`;
+        },
         getVariableValue(value, variable = '', prefix = '', excludedKeyRegexes = []) {
             if (this.isString(value)) {
                 const regex = /{([^}]*)}/g;
                 const val = value.trim();
-                const px = prefix.trim();
 
                 if (this.test(regex, val)) {
-                    const computedPx = this.isNotEmpty(px) ? `${px}-` : px;
                     const _val = val.replaceAll(regex, (v) => {
                         const path = v.replace(/{|}/g, '');
                         const keys = path.split('.').filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)));
 
-                        return `var(--${computedPx}${this.toKebabCase(keys.join('-'))})`;
+                        return `var(${this.getVariableName(prefix, this.toKebabCase(keys.join('-')))})`;
                     });
 
                     const calculationRegex = /(\d+\s+[\+\-\*\/]\s+\d+)/g;
@@ -98,6 +115,18 @@ export default {
 
             return undefined;
         },
+        getComputedValue(obj = {}, value) {
+            if (this.isString(value)) {
+                const regex = /{([^}]*)}/g;
+                const val = value.trim();
+
+                return this.test(regex, val) ? val.replaceAll(regex, (v) => this.getOptionValue(obj, v.replace(/{|}/g, ''))) : val;
+            } else if (this.isNumber(value)) {
+                return value;
+            }
+
+            return undefined;
+        },
         setProperty(properties, key, value) {
             if (this.isString(key, false)) {
                 properties.push(`${key}:${value};`);
@@ -109,6 +138,31 @@ export default {
             }
 
             return '';
+        }
+    },
+    dom: {
+        isClient() {
+            return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+        },
+        addClass(element, className) {
+            if (element && className && !this.hasClass(element, className)) {
+                if (element.classList) element.classList.add(className);
+                else element.className += ' ' + className;
+            }
+        },
+        removeClass(element, className) {
+            if (element && className) {
+                if (element.classList) element.classList.remove(className);
+                else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            }
+        },
+        hasClass(element, className) {
+            if (element) {
+                if (element.classList) return element.classList.contains(className);
+                else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+            }
+
+            return false;
         }
     }
 };

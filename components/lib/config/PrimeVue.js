@@ -1,7 +1,8 @@
 import { FilterMatchMode } from 'primevue/api';
+import Theme from 'primevue/themes';
 import PrimeOne from 'primevue/themes/primeone';
 import Aura from 'primevue/themes/primeone/aura';
-import { inject, reactive } from 'vue';
+import { inject, reactive, watch } from 'vue';
 
 export const defaultOptions = {
     ripple: false,
@@ -138,7 +139,35 @@ export const defaultOptions = {
     theme: {
         base: PrimeOne,
         preset: Aura,
-        options: undefined
+        options: {
+            prefix: 'p',
+            colorScheme: {
+                dark: {
+                    class: 'p-dark',
+                    rule: `.p-dark { [CSS] }`
+                    //default: false
+                }
+            },
+            layer: false
+            /*colorScheme: {
+                // mode: 'light' | 'dark' | 'auto' | object // default: auto
+                light: {
+                    class: '',
+                    rule: `:root { [CSS] }`
+                    //default: true
+                },
+                dark: {
+                    class: 'p-dark',
+                    rule: `.p-dark { [CSS] }`
+                    //default: false
+                }
+            },
+            layer: {
+                // layer: true | false | undefined | object // default: undefined
+                name: '', // (component_name, type=variable|style) => layer_names // default: primevue
+                order: '' // (layer_names) => layer_order // default: @layer primevue
+            }*/
+        }
     },
     pt: undefined,
     ptOptions: {
@@ -193,6 +222,14 @@ export default {
             config: reactive(configOptions),
             changeTheme: switchTheme
         };
+
+        watch(
+            PrimeVue.config,
+            (newValue) => {
+                Theme.setPConfig(newValue);
+            },
+            { immediate: true }
+        );
 
         app.config.globalProperties.$primevue = PrimeVue;
         app.provide(PrimeVueSymbol, PrimeVue);

@@ -1,10 +1,10 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-panel {
-    border: 1px solid var(--p-panel-border-color);
-    border-radius: var(--p-rounded-base);
-    background: var(--p-panel-background);
-    color: var(--p-panel-text-color);
+    border: 1px solid ${dt('panel.border.color')};
+    border-radius: ${dt('{rounded.base} * 2')};
+    background: ${dt('panel.background')};
+    color: ${dt('panel.text.color')};
 }
 
 .p-panel-header {
@@ -31,22 +31,22 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-panel-header-icon-color);
+    color: ${dt('panel.header.icon.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
 .p-panel-header-icon:enabled:hover {
-    color: var(--p-panel-header-icon-color-hover);
-    background: var(--p-panel-header-icon-background-hover);
+    color: ${dt('panel.header.icon.color.hover')};
+    background: ${dt('panel.header.icon.background.hover')};
 }
 
 .p-panel-header-icon:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-panel-content {

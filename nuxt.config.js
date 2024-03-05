@@ -26,6 +26,7 @@ export default defineNuxtConfig({
             ripple: true
         },
         layerOrder: 'primevue',
+        //importTheme: { from: '@/mytheme.js' },
         resolvePath: function ({ as, from, type }) {
             const resolvedPath = from.replace('primevue', '@/components/lib');
 

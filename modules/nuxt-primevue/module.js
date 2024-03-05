@@ -14,6 +14,7 @@ export default defineNuxtModule({
         resolvePath: undefined,
         layerOrder: 'tailwind-base, primevue, tailwind-utilities',
         importPT: undefined,
+        importTheme: undefined,
         options: {},
         components: {
             prefix: '',
@@ -38,7 +39,7 @@ export default defineNuxtModule({
     setup(moduleOptions, nuxt) {
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
-        const { importPT, options } = moduleOptions;
+        const { importPT, importTheme, options } = moduleOptions;
 
         nuxt.options.runtimeConfig.public.primevue = {
             ...moduleOptions,
@@ -50,6 +51,8 @@ export default defineNuxtModule({
 
         const styleContent = () => `
 ${registered.styles.map((style) => `import ${style.as} from '${style.from}';`).join('\n')}
+${importTheme ? `import ${importTheme.as} from '${importTheme.from}';\n` : ''}
+
 const styleProps = {
     ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
 }
@@ -58,7 +61,12 @@ const styles = [
   ${registered.styles.map((item) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
-export { styles };
+const themes = [
+    ${importTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getGlobalThemeStyleSheet ? ${registered.styles[0].as}.getGlobalThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''` : ''},
+    ${importTheme ? registered.styles.map((item) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''`).join(',') : ''}
+].join('');
+
+export { styles, themes };
 `;
 
         nuxt.options.alias['#primevue-style'] = addTemplate({
@@ -77,14 +85,16 @@ ${registered.config.map((config) => `import ${config.as} from '${config.from}';`
 ${registered.services.map((service) => `import ${service.as} from '${service.from}';`).join('\n')}
 ${registered.directives.map((directive) => `import ${directive.as} from '${directive.from}';`).join('\n')}
 ${importPT ? `import ${importPT.as} from '${importPT.from}';\n` : ''}
+${importTheme ? `import ${importTheme.as} from '${importTheme.from}';\n` : ''}
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const runtimeConfig = useRuntimeConfig();
   const config = runtimeConfig?.public?.primevue ?? {};
   const { usePrimeVue = true, options = {} } = config;
   const pt = ${importPT ? `{ pt: ${importPT.as} }` : `{}`};
+  const theme = ${importTheme ? `{ theme: ${importTheme.as} }` : `{}`};
 
-  usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt });
+  usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt, ...theme });
   ${registered.services.map((service) => `vueApp.use(${service.as});`).join('\n')}
   ${registered.directives.map((directive) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
 });
