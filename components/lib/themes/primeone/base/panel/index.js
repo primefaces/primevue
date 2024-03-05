@@ -2,7 +2,7 @@ export default {
     css: ({ dt }) => `
 .p-panel {
     border: 1px solid ${dt('panel.border.color')};
-    border-radius: ${dt('{rounded.base} * 2')};
+    border-radius: ${dt('rounded.base')};
     background: ${dt('panel.background')};
     color: ${dt('panel.text.color')};
 }

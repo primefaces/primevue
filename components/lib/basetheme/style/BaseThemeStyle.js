@@ -122,7 +122,7 @@ export default {
         if (layer) {
             let layerOptions = {
                 name: 'primevue'
-                //order: 'primevue'
+                //order: 'primevue' // @todo
             };
 
             ObjectUtils.isObject(layer) && (layerOptions.name = ObjectUtils.getItemValue(layer.name, { name, type }));
