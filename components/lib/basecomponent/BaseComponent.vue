@@ -40,7 +40,7 @@ export default {
             deep: true,
             immediate: true,
             handler(newValue) {
-                const { primitive, semantic, global } = this.$style?.getGlobalThemeCSS(newValue, this.$globalBaseTheme, this.$themeParams, this.$globalTheme);
+                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS(newValue, this.$globalBaseTheme, this.$themeParams, this.$globalTheme);
 
                 BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions: this.$styleOptions });
                 BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions: this.$styleOptions });

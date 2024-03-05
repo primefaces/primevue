@@ -1,0 +1,6 @@
+{
+    "main": "./basethemestyle.cjs.js",
+    "module": "./basethemestyle.esm.js",
+    "unpkg": "./basethemestyle.min.js",
+    "types": "./BaseThemeStyle.d.ts"
+}

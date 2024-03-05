@@ -62,7 +62,7 @@ const styles = [
 ].join('');
 
 const themes = [
-    ${importTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getGlobalThemeStyleSheet ? ${registered.styles[0].as}.getGlobalThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''` : ''},
+    ${importTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getCommonThemeStyleSheet ? ${registered.styles[0].as}.getCommonThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''` : ''},
     ${importTheme ? registered.styles.map((item) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''`).join(',') : ''}
 ].join('');
 
