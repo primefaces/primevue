@@ -49,6 +49,9 @@ export default {
     getBaseThemeCSS(baseCTheme, params, theme) {
         return BaseThemeStyle.getBaseC(this.name, baseCTheme, params, theme);
     },
+    getColorSchemeOption(colorScheme) {
+        return BaseThemeStyle.getColorSchemeOption(colorScheme);
+    },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
             const _css = ObjectUtils.minifyCSS(`${this.css}${extendedCSS}`);

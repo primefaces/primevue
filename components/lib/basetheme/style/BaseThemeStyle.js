@@ -80,6 +80,32 @@ export default {
 
         return css.join('');
     },
+    getColorSchemeOption(colorScheme) {
+        let options = {
+            light: {
+                class: '',
+                rule: `:root{[CSS]}`,
+                default: false
+            },
+            dark: {
+                class: 'p-dark',
+                rule: `.p-dark{[CSS]}`,
+                default: false
+            }
+        };
+
+        if (colorScheme) {
+            if (ObjectUtils.isObject(colorScheme)) {
+                options.light = { ...options.light, ...colorScheme.light };
+                options.dark = { ...options.dark, ...colorScheme.dark };
+            } else {
+                options.light = { ...options.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
+                options.dark = { ...options.dark, default: colorScheme === 'dark' };
+            }
+        }
+
+        return options;
+    },
     _toVariables(theme, options) {
         return toVariables(theme, { prefix: options?.prefix });
     },
@@ -87,28 +113,7 @@ export default {
         const { layer, colorScheme } = options;
 
         if (type !== 'style') {
-            let colorSchemeOption = {
-                light: {
-                    class: '',
-                    rule: `:root{[CSS]}`,
-                    default: false
-                },
-                dark: {
-                    class: 'p-dark',
-                    rule: `.p-dark{[CSS]}`,
-                    default: false
-                }
-            };
-
-            if (colorScheme) {
-                if (ObjectUtils.isObject(colorScheme)) {
-                    colorSchemeOption.light = { ...colorSchemeOption.light, ...colorScheme.light };
-                    colorSchemeOption.dark = { ...colorSchemeOption.dark, ...colorScheme.dark };
-                } else {
-                    colorSchemeOption.light = { ...colorSchemeOption.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
-                    colorSchemeOption.dark = { ...colorSchemeOption.dark, default: colorScheme === 'dark' };
-                }
-            }
+            const colorSchemeOption = this.getColorSchemeOption(colorScheme);
 
             mode = mode === 'dark' ? 'dark' : 'light';
             css = colorSchemeOption[mode]?.rule?.replace('[CSS]', css);
@@ -117,12 +122,10 @@ export default {
         if (layer) {
             let layerOptions = {
                 name: 'primevue'
-                //order: '@layer'
+                //order: 'primevue'
             };
 
-            const _layer = ObjectUtils.isObject(layer) ? layer.name : layer;
-
-            layerOptions.name = ObjectUtils.getItemValue(_layer, { name, type });
+            ObjectUtils.isObject(layer) && (layerOptions.name = ObjectUtils.getItemValue(layer.name, { name, type }));
             css = ObjectUtils.isNotEmpty(layerOptions.name) ? SharedUtils.object.getRule(`@layer ${layerOptions.name}`, css) : css;
         }
 

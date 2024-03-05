@@ -91,32 +91,15 @@ export default {
         this._loadGlobalStyles();
         this._hook('onBeforeMount');
 
-        // @todo
+        // apply colorScheme settings
         const { colorScheme } = this.$globalThemeOptions || {};
 
-        let colorSchemeOption = {
-            light: {
-                class: '',
-                default: false
-            },
-            dark: {
-                class: 'p-dark',
-                default: false
-            }
-        };
-
         if (colorScheme) {
-            if (ObjectUtils.isObject(colorScheme)) {
-                colorSchemeOption.light = { ...colorSchemeOption.light, ...colorScheme.light };
-                colorSchemeOption.dark = { ...colorSchemeOption.dark, ...colorScheme.dark };
-            } else {
-                colorSchemeOption.light = { ...colorSchemeOption.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
-                colorSchemeOption.dark = { ...colorSchemeOption.dark, default: colorScheme === 'dark' };
-            }
-
+            const colorSchemeOption = BaseStyle.getColorSchemeOption(colorScheme);
+            const isClient = DomHandler.isClient();
             const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
-            const isDark = isAuto ? window.matchMedia('(prefers-color-scheme: dark)') : colorSchemeOption.dark?.default;
-            const defaultDocument = DomHandler.isClient() ? window.document : undefined;
+            const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)') : colorSchemeOption.dark?.default;
+            const defaultDocument = isClient ? window.document : undefined;
 
             Theme.setColorMode(isDark ? 'dark' : 'light');
 
