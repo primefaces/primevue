@@ -71,8 +71,6 @@ export const defaultOptions = {
         emptySelectionMessage: 'No selected item',
         emptySearchMessage: 'No results found',
         emptyMessage: 'No available options',
-        passwordHide: 'Hide Password',
-        passwordShow: 'Show Password',
         aria: {
             trueLabel: 'True',
             falseLabel: 'False',
@@ -121,7 +119,9 @@ export const defaultOptions = {
             zoomIn: 'Zoom In',
             zoomOut: 'Zoom Out',
             rotateRight: 'Rotate Right',
-            rotateLeft: 'Rotate Left'
+            rotateLeft: 'Rotate Left',
+            passwordHide: 'Hide Password',
+            passwordShow: 'Show Password'
         }
     },
     filterMatchModeOptions: {
