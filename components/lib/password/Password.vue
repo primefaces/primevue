@@ -280,6 +280,7 @@ export default {
         onToggleMaskKeyDown(event) {
             switch (event.code) {
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Space':
                     this.onMaskToggle();
                     event.preventDefault();
