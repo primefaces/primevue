@@ -345,6 +345,8 @@ export interface PrimeVueLocaleOptions {
     emptySearchMessage?: string;
     emptyMessage?: string;
     aria?: PrimeVueLocaleAriaOptions;
+    passwordHide?: string;
+    passwordShow?: string;
 }
 
 export type PrimeVueChangeTheme = (currentTheme: string, newTheme: string, linkElementId: string, callback?: Function) => void;

@@ -71,6 +71,8 @@ export const defaultOptions = {
         emptySelectionMessage: 'No selected item',
         emptySearchMessage: 'No results found',
         emptyMessage: 'No available options',
+        passwordHide: 'Hide Password',
+        passwordShow: 'Show Password',
         aria: {
             trueLabel: 'True',
             falseLabel: 'False',

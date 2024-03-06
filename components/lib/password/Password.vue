@@ -27,10 +27,10 @@
             :unstyled="unstyled"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" @keypress="onToggleMaskKeyDown" tabindex="0" />
+            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" @keypress="onToggleMaskKeyDown" tabindex="0" :aria-label="$primevue.config.locale.passwordHide" />
         </slot>
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" @keypress="onToggleMaskKeyDown" tabindex="0" />
+            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" @keypress="onToggleMaskKeyDown" tabindex="0" :aria-label="$primevue.config.locale.passwordShow" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
