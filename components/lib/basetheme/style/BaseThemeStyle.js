@@ -6,14 +6,17 @@ export default {
         let primitive_css, semantic_css, global_css;
 
         if (ObjectUtils.isNotEmpty(preset)) {
-            const { options } = theme;
+            const { options, extend } = theme;
             const { primitive, semantic } = preset;
             const { colorScheme, ...sRest } = semantic || {};
             const { dark, ...csRest } = colorScheme || {};
-            const prim_css = ObjectUtils.isNotEmpty(primitive) ? this._toVariables({ primitive }, options).declarations : '';
-            const sRest_css = ObjectUtils.isNotEmpty(sRest) ? this._toVariables({ semantic: sRest }, options).declarations : '';
-            const csRest_css = ObjectUtils.isNotEmpty(csRest) ? this._toVariables({ light: csRest }, options).declarations : '';
-            const dark_css = ObjectUtils.isNotEmpty(dark) ? this._toVariables({ dark }, options).declarations : '';
+            const { primitive: primitiveExt, semantic: semanticExt } = extend || {};
+            const { colorScheme: colorSchemeExt, ...sRestExt } = semanticExt || {};
+            const { dark: darkExt, ...csRestExt } = colorSchemeExt || {};
+            const prim_css = ObjectUtils.isNotEmpty(primitive) ? this._toVariables({ primitive: { ...primitive, ...primitiveExt } }, options).declarations : '';
+            const sRest_css = ObjectUtils.isNotEmpty(sRest) ? this._toVariables({ semantic: { ...sRest, ...sRestExt } }, options).declarations : '';
+            const csRest_css = ObjectUtils.isNotEmpty(csRest) ? this._toVariables({ light: { ...csRest, ...csRestExt } }, options).declarations : '';
+            const dark_css = ObjectUtils.isNotEmpty(dark) ? this._toVariables({ dark: { ...dark, ...darkExt } }, options).declarations : '';
 
             primitive_css = this._transformCSS(name, prim_css, 'light', 'variable', options);
             semantic_css = `${this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options)}${this._transformCSS(name, `${dark_css}color-scheme:dark`, 'dark', 'variable', options)}`;
@@ -28,12 +31,14 @@ export default {
         };
     },
     getPresetC(name, presetCTheme = {}, theme) {
-        const { options } = theme;
+        const { options, extend } = theme;
         const { colorScheme, ...vRest } = presetCTheme;
         const { dark, ...csRest } = colorScheme || {};
-        const vRest_css = ObjectUtils.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
-        const csRest_css = ObjectUtils.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
-        const dark_css = ObjectUtils.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
+        const { colorScheme: colorSchemeExt, ...vRestExt } = extend?.components?.[name] || {};
+        const { dark: darkExt, ...csRestExt } = colorSchemeExt || {};
+        const vRest_css = ObjectUtils.isNotEmpty(vRest) ? this._toVariables({ [name]: { ...vRest, ...vRestExt } }, options).declarations : '';
+        const csRest_css = ObjectUtils.isNotEmpty(csRest) ? this._toVariables({ [name]: { ...csRest, ...csRestExt } }, options).declarations : '';
+        const dark_css = ObjectUtils.isNotEmpty(dark) ? this._toVariables({ [name]: { ...dark, ...darkExt } }, options).declarations : '';
 
         return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options)}${this._transformCSS(name, dark_css, 'dark', 'variable', options)}`;
     },
