@@ -4,7 +4,7 @@ const ServiceSymbol = Symbol();
 
 export default {
     _pConfig: undefined,
-    _colorMode: 'dark',
+    _colorScheme: 'dark',
     getPConfig() {
         return this._pConfig;
     },
@@ -15,20 +15,44 @@ export default {
     onPConfigChange(callback) {
         ThemeService.on(ServiceSymbol, callback);
     },
-    getColorMode() {
-        return this._colorMode;
+    getColorScheme() {
+        return this._colorScheme;
     },
-    setColorMode(newValue) {
-        this._colorMode = newValue;
+    setColorScheme(newValue) {
+        this._colorScheme = newValue;
     },
-    toggleColorMode() {
-        this._colorMode = this._colorMode === 'dark' ? 'light' : 'dark';
+    toggleColorScheme() {
+        this._colorScheme = this._colorScheme === 'dark' ? 'light' : 'dark';
         const defaultDocument = SharedUtils.dom.isClient() ? window.document : undefined;
 
         if (defaultDocument) {
-            const className = 'p-dark'; // @todo
+            //@todo
+            const { colorScheme } = this._pConfig?.theme?.options;
+            let options = {
+                light: {
+                    class: '',
+                    rule: `:root{[CSS]}`,
+                    default: false
+                },
+                dark: {
+                    class: 'p-dark',
+                    rule: `.p-dark{[CSS]}`,
+                    default: false
+                }
+            };
 
-            this._colorMode !== 'dark' ? SharedUtils.dom.removeClass(defaultDocument.documentElement, className) : SharedUtils.dom.addClass(defaultDocument.documentElement, className);
+            if (colorScheme) {
+                if (SharedUtils.object.isObject(colorScheme)) {
+                    options.light = { ...options.light, ...colorScheme.light };
+                    options.dark = { ...options.dark, ...colorScheme.dark };
+                } else {
+                    options.light = { ...options.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
+                    options.dark = { ...options.dark, default: colorScheme === 'dark' };
+                }
+            }
+
+            SharedUtils.dom.removeMultipleClasses(defaultDocument.documentElement, [options.dark.class, options.light.class]);
+            SharedUtils.dom.addClass(defaultDocument.documentElement, this._colorScheme === 'dark' ? options.dark.class : options.light.class);
         }
 
         return this._colorMode;

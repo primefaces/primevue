@@ -101,7 +101,7 @@ export default {
             const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)') : colorSchemeOption.dark?.default;
             const defaultDocument = isClient ? window.document : undefined;
 
-            Theme.setColorMode(isDark ? 'dark' : 'light');
+            Theme.setColorScheme(isDark ? 'dark' : 'light');
 
             if (isDark && defaultDocument) {
                 DomHandler.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);

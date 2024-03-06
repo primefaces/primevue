@@ -163,6 +163,14 @@ export default {
             }
 
             return false;
+        },
+        removeMultipleClasses(element, classNames) {
+            if (element && classNames) {
+                [classNames]
+                    .flat()
+                    .filter(Boolean)
+                    .forEach((cNames) => cNames.split(' ').forEach((className) => this.removeClass(element, className)));
+            }
         }
     }
 };

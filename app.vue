@@ -6,7 +6,7 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import { useColorMode } from 'primevue/themes';
+import { useColorScheme } from 'primevue/themes';
 
 export default {
     mounted() {
@@ -26,9 +26,9 @@ export default {
             document.startViewTransition(() => this.applyTheme(event));
         },
         applyTheme(event) {
-            const { toggleColorMode } = useColorMode();
+            const { toggleColorScheme } = useColorScheme();
 
-            toggleColorMode();
+            toggleColorScheme();
             /*this.$appState.darkTheme = event.dark;
 
             if (event.dark) document.documentElement.classList.add('p-dark');
