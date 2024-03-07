@@ -174,9 +174,11 @@ export default {
                     if (this.integerOnly && !(event.keyCode >= 48 && event.keyCode <= 57)) {
                         event.preventDefault();
                     }
+
                     if (limitReached && event.keyCode != 46) {
                         event.preventDefault();
                     }
+
                     break;
             }
         },
