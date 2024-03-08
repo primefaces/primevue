@@ -281,6 +281,9 @@ export default {
         $globalThemeOptions() {
             return this.$globalTheme?.options;
         },
+        $globalThemeExtend() {
+            return this.$globalTheme?.extend;
+        },
         $globalBaseTheme() {
             return ObjectUtils.getItemValue(this.$globalTheme?.base);
         },
@@ -329,7 +332,8 @@ export default {
                 globalTheme: {
                     base: { ...this.$globalBaseTheme },
                     preset: { ...this.$globalPresetTheme },
-                    options: { ...this.$globalThemeOptions }
+                    options: { ...this.$globalThemeOptions },
+                    extend: { ...this.$globalThemeExtend }
                 }
             };
         },

@@ -1,11 +1,14 @@
 import shade from './shade';
 import tint from './tint';
 
-export default (color) =>
-    typeof color === 'string'
-        ? Array.from({ length: 10 }).reduce((acc, _, i) => {
-              i <= 5 ? (acc[i === 0 ? '50' : `${i * 100}`] = tint(color, (5 - i) * 19)) : (acc[`${i * 100}`] = shade(color, (i - 5) * 15));
+const scales = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-              return acc;
-          }, {})
-        : color;
+export default (color) => {
+    if (/{([^}]*)}/g.test(color)) {
+        const token = color.replace(/{|}/g, '');
+
+        return scales.reduce((acc, scale) => ((acc[scale] = `{${token}.${scale}}`), acc), {});
+    }
+
+    return typeof color === 'string' ? scales.reduce((acc, scale, i) => ((acc[scale] = i <= 5 ? tint(color, (5 - i) * 19) : shade(color, (i - 5) * 15)), acc), {}) : color;
+};

@@ -260,6 +260,7 @@ const THEME_ALIAS = {
     'primevue/themes/primeone/aura': path.resolve(__dirname, './components/lib/themes/primeone/aura/index.js'),
     'primevue/themes/primeone': path.resolve(__dirname, './components/lib/themes/primeone/index.js'),
     'primevue/themes/config': path.resolve(__dirname, './components/lib/themes/config/index.js'),
+    'primevue/themes/utils': path.resolve(__dirname, './components/lib/themes/utils/index.js'),
     'primevue/themes': path.resolve(__dirname, './components/lib/themes/index.js')
 };
 
