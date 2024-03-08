@@ -294,6 +294,11 @@ export interface DialogProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Whether to close the dialog on outside click or not.
+     * @defaultValue false
+     */
+    closeOnClickOutside?: boolean | undefined;
 }
 
 /**

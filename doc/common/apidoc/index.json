@@ -22678,6 +22678,14 @@
                             "description": "Specifies if pressing escape key should hide the dialog."
                         },
                         {
+                            "name": "closeOnClickOutside",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Specifies if clicking outside should hide the dialog."
+                        },
+                        {
                             "name": "showHeader",
                             "optional": true,
                             "readonly": false,

@@ -30,6 +30,12 @@ const DialogProps = [
         description: 'Specifies if pressing escape key should hide the dialog.'
     },
     {
+        name: 'closeOnClickOutside',
+        type: 'boolean',
+        default: 'false',
+        description: 'Specifies if clicking outside should hide the dialog.'
+    },
+    {
         name: 'dismissableMask',
         type: 'boolean',
         default: 'false',

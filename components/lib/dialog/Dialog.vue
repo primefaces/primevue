@@ -93,6 +93,7 @@ export default {
         }
     },
     documentKeydownListener: null,
+    outsideClickListener: null,
     container: null,
     mask: null,
     content: null,
@@ -241,6 +242,26 @@ export default {
                 this.documentKeydownListener = null;
             }
         },
+        bindOutsideClickListener() {
+            if (!this.outsideClickListener && DomHandler.isClient()) {
+                this.outsideClickListener = (event) => {
+                    if (this.visible && !this.isTargetClicked(event)) {
+                        this.close();
+                    }
+                };
+
+                document.addEventListener('click', this.outsideClickListener);
+            }
+        },
+        unbindOutsideClickListener() {
+            if (this.outsideClickListener) {
+                document.removeEventListener('click', this.outsideClickListener);
+                this.outsideClickListener = null;
+            }
+        },
+        isTargetClicked(event) {
+            return this.container && (this.container === event.target || this.container.contains(event.target));
+        },
         containerRef(el) {
             this.container = el;
         },
@@ -314,11 +335,18 @@ export default {
             if (this.closeOnEscape && this.closable) {
                 this.bindDocumentKeyDownListener();
             }
+
+            if (this.closeOnClickOutside) {
+                setTimeout(() => {
+                    this.bindOutsideClickListener();
+                }, 500);
+            }
         },
         unbindGlobalListeners() {
             this.unbindDocumentDragListener();
             this.unbindDocumentDragEndListener();
             this.unbindDocumentKeyDownListener();
+            this.unbindOutsideClickListener();
         },
         bindDocumentDragListener() {
             this.documentDragListener = (event) => {

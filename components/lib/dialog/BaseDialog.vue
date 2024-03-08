@@ -114,6 +114,10 @@ export default {
             type: null,
             default: null
         },
+        closeOnClickOutside: {
+            type: Boolean,
+            default: false
+        },
         _instance: null
     },
     style: DialogStyle,
