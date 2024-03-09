@@ -12,6 +12,12 @@ const TieredMenuProps = [
         description: 'Defines if menu would displayed as a popup.'
     },
     {
+        name: 'overlayOffsetY',
+        type: 'number',
+        default: '0',
+        description: 'Number of px to be given as panel offset when visible.'
+    },
+    {
         name: 'appendTo',
         type: 'string',
         default: 'body',

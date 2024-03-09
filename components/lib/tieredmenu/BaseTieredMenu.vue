@@ -14,6 +14,10 @@ export default {
             type: Array,
             default: null
         },
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
         appendTo: {
             type: [String, Object],
             default: 'body'

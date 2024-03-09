@@ -427,7 +427,7 @@ export default {
             }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target);
+            DomHandler.absolutePosition(this.container, this.target, true, this.overlayOffsetY);
             const targetWidth = DomHandler.getOuterWidth(this.target);
 
             if (targetWidth > DomHandler.getOuterWidth(this.container)) {

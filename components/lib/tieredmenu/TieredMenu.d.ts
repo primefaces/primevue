@@ -227,6 +227,11 @@ export interface TieredMenuProps {
      */
     popup?: boolean | undefined;
     /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
