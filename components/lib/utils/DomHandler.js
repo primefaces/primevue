@@ -309,7 +309,7 @@ export default {
                 left,
                 origin = 'top';
 
-            if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
+            if (targetOffset.top + targetOuterHeight + elementOuterHeight + offsetY > viewport.height) {
                 top = targetOffset.top + windowScrollTop - elementOuterHeight - offsetY;
                 origin = 'bottom';
 
@@ -331,6 +331,8 @@ export default {
     },
 
     relativePosition(element, target, gutter = true, offsetY = 0) {
+        console.log(element)
+        
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;
@@ -340,7 +342,7 @@ export default {
                 left,
                 origin = 'top';
 
-            if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
+            if (targetOffset.top + targetHeight + elementDimensions.height + offsetY > viewport.height) {
                 top = (-1 * elementDimensions.height) - offsetY;
                 origin = 'bottom';
 

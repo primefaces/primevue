@@ -719,10 +719,10 @@ export default {
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$el);
+                DomHandler.relativePosition(this.overlay, this.$el, true, this.overlayOffsetY);
             } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+                DomHandler.absolutePosition(this.overlay, this.$el, true, this.overlayOffsetY);
             }
         },
         bindOutsideClickListener() {
