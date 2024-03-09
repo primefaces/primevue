@@ -1,9 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const inlineStyles = {
-    root: ({ props }) => ({ position: props.appendTo === 'self' ? 'relative' : undefined })
-};
-
 const classes = {
     root: ({ instance, props }) => [
         'p-multiselect p-component p-inputwrapper',
@@ -66,5 +62,4 @@ const classes = {
 export default BaseStyle.extend({
     name: 'multiselect',
     classes,
-    inlineStyles
 });
