@@ -42,7 +42,11 @@ export default {
             type: [String, Object],
             default: 'body'
         },
-        panelClass: null
+        panelClass: null,
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
     },
     style: ColorPickerStyle,
     provide() {
