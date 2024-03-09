@@ -48,7 +48,7 @@ const DropdownProps = [
         description: 'Height of the viewport, a scrollbar is defined if height of list exceeds this value.'
     },
     {
-        name: 'overlayOffsetY',
+        name: 'panelOffsetY',
         type: 'number',
         default: '0',
         description: 'Number of px to be given as panel offset when visible.'

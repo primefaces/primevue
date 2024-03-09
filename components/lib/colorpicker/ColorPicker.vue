@@ -368,9 +368,9 @@ export default {
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.picker, this.$refs.input, true, this.overlayOffsetY);
+                DomHandler.relativePosition(this.picker, this.$refs.input, true, this.panelOffsetY);
             } else {
-                DomHandler.absolutePosition(this.picker, this.$refs.input, true, this.overlayOffsetY);
+                DomHandler.absolutePosition(this.picker, this.$refs.input, true, this.panelOffsetY);
             }
         },
         onInputClick() {

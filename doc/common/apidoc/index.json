@@ -3585,7 +3585,7 @@
                             "description": "Maximum height of the suggestions panel."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -8513,7 +8513,7 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -10506,7 +10506,7 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -12968,7 +12968,7 @@
                             "description": "Style class of the overlay panel."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -17400,7 +17400,7 @@
                             "description": "When enabled, it removes component related styles in the core."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -24419,7 +24419,7 @@
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -38039,7 +38039,7 @@
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -40422,7 +40422,7 @@
                             "description": "When enabled, displays a close icon at top right corner."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -42943,7 +42943,7 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -54352,7 +54352,7 @@
                             "description": "Defines if menu would displayed as a popup."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
@@ -57995,7 +57995,7 @@
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
-                            "name": "overlayOffsetY",
+                            "name": "panelOffsetY",
                             "optional": true,
                             "readonly": false,
                             "type": "number",

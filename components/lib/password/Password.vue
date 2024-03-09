@@ -124,10 +124,10 @@ export default {
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$refs.input.$el, true, this.overlayOffsetY);
+                DomHandler.relativePosition(this.overlay, this.$refs.input.$el, true, this.panelOffsetY);
             } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el, true, this.overlayOffsetY);
+                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el, true, this.panelOffsetY);
             }
         },
         testStrength(str) {

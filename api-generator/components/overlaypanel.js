@@ -12,7 +12,7 @@ const OverlayPanelProps = [
         description: 'When enabled, displays a close icon at top right corner.'
     },
     {
-        name: 'overlayOffsetY',
+        name: 'panelOffsetY',
         type: 'number',
         default: '0',
         description: 'Number of px to be given as panel offset when visible.'

@@ -228,7 +228,7 @@ export default {
             type: null,
             default: null
         },
-        overlayOffsetY: {
+        panelOffsetY: {
             type: Number,
             default: 0
         },

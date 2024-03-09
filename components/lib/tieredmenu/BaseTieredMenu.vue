@@ -14,7 +14,7 @@ export default {
             type: Array,
             default: null
         },
-        overlayOffsetY: {
+        panelOffsetY: {
             type: Number,
             default: 0
         },

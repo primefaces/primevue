@@ -1073,9 +1073,9 @@ export default {
                 this.enableModality();
             } else if (this.overlay) {
                 if (this.appendTo === 'self' || this.inline) {
-                    const overlayOffsetY = this.inline ? 0 : this.overlayOffsetY;
+                    const panelOffsetY = this.inline ? 0 : this.panelOffsetY;
                     
-                    DomHandler.relativePosition(this.overlay, this.$el, true, overlayOffsetY);
+                    DomHandler.relativePosition(this.overlay, this.$el, true, panelOffsetY);
                 } else {
                     if (this.view === 'date') {
                         this.overlay.style.width = DomHandler.getOuterWidth(this.overlay) + 'px';
@@ -1084,7 +1084,7 @@ export default {
                         this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
                     }
 
-                    DomHandler.absolutePosition(this.overlay, this.$el, true, this.overlayOffsetY);
+                    DomHandler.absolutePosition(this.overlay, this.$el, true, this.panelOffsetY);
                 }
             }
         },

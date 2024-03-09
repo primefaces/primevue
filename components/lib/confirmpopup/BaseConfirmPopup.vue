@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         group: String,
-        overlayOffsetY: {
+        panelOffsetY: {
             type: Number,
             default: 0
         },

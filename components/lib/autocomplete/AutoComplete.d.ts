@@ -324,7 +324,7 @@ export interface AutoCompleteProps {
      * Number of px to be given as panel offset when visible.
      * @defaultValue 0
      */
-    overlayOffsetY?: number | undefined;
+    panelOffsetY?: number | undefined;
     /**
      * Displays a button next to the input field when enabled.
      * @defaultValue false

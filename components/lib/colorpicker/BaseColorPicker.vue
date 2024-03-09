@@ -43,7 +43,7 @@ export default {
             default: 'body'
         },
         panelClass: null,
-        overlayOffsetY: {
+        panelOffsetY: {
             type: Number,
             default: 0
         },

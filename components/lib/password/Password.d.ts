@@ -281,7 +281,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Number of px to be given as panel offset when visible.
      * @defaultValue 0
      */
-    overlayOffsetY?: number | undefined;
+    panelOffsetY?: number | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

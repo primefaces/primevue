@@ -150,7 +150,7 @@ export default {
             }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target, false, this.overlayOffsetY);
+            DomHandler.absolutePosition(this.container, this.target, false, this.panelOffsetY);
 
             const containerOffset = DomHandler.getOffset(this.container);
             const targetOffset = DomHandler.getOffset(this.target);

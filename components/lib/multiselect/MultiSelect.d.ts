@@ -331,7 +331,7 @@ export interface MultiSelectProps {
      * Number of px to be given as panel offset when visible.
      * @defaultValue 0
      */
-    overlayOffsetY?: number | undefined;
+    panelOffsetY?: number | undefined;
     /**
      * Label to display when there are no selections.
      */

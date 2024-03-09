@@ -12,7 +12,7 @@ export default {
             type: String,
             default: '400px'
         },
-        overlayOffsetY: {
+        panelOffsetY: {
             type: Number,
             default: 0
         },

@@ -150,7 +150,7 @@ const PasswordProps = [
         description: 'Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
-        name: 'overlayOffsetY',
+        name: 'panelOffsetY',
         type: 'number',
         default: '0',
         description: 'Number of px to be given as panel offset when visible.'

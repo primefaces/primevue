@@ -696,10 +696,10 @@ export default {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.focusInput;
 
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, target, true, this.overlayOffsetY);
+                DomHandler.relativePosition(this.overlay, target, true, this.panelOffsetY);
             } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px';
-                DomHandler.absolutePosition(this.overlay, target, true, this.overlayOffsetY);
+                DomHandler.absolutePosition(this.overlay, target, true, this.panelOffsetY);
             }
         },
         bindOutsideClickListener() {

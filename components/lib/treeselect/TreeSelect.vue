@@ -325,10 +325,10 @@ export default {
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$el, true, this.overlayOffsetY);
+                DomHandler.relativePosition(this.overlay, this.$el, true, this.panelOffsetY);
             } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el, true, this.overlayOffsetY);
+                DomHandler.absolutePosition(this.overlay, this.$el, true, this.panelOffsetY);
             }
         },
         bindOutsideClickListener() {
