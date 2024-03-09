@@ -6,7 +6,11 @@ export default {
     name: 'BaseConfirmPopup',
     extends: BaseComponent,
     props: {
-        group: String
+        group: String,
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
     },
     style: ConfirmPopupStyle,
     provide() {

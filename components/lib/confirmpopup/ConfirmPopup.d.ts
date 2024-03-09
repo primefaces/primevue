@@ -153,6 +153,11 @@ export interface ConfirmPopupProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
 }
 
 /**
