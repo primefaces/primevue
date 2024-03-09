@@ -12,6 +12,10 @@ export default {
             type: String,
             default: '400px'
         },
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
         placeholder: {
             type: String,
             default: null
