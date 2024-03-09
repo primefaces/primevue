@@ -319,6 +319,11 @@ export interface CascadeSelectProps {
      */
     panelProps?: HTMLAttributes | undefined;
     /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @defaultValue body
      */
