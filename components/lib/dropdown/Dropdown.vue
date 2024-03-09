@@ -455,9 +455,14 @@ export default {
             DomHandler.focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
-            const value = this.getOptionValue(option);
+            if (this.resetFilterOnAlreadySelectedOption && this.isSelected(option)) {
+                this.onClearClick(event);
+            } else {
+                const value = this.getOptionValue(option);
+    
+                this.updateModel(event, value);
+            }
 
-            this.updateModel(event, value);
             isHide && this.hide(true);
         },
         onOptionMouseMove(event, index) {

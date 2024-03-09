@@ -24616,6 +24616,14 @@
                             "description": "Clears the filter value when clicking on the clear icon."
                         },
                         {
+                            "name": "resetFilterOnAlreadySelectedOption",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Clears the filter value when clicking on the already selected option."
+                        },
+                        {
                             "name": "virtualScrollerOptions",
                             "optional": true,
                             "readonly": false,
