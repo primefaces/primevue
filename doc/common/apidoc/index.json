@@ -3585,6 +3585,14 @@
                             "description": "Maximum height of the suggestions panel."
                         },
                         {
+                            "name": "overlayOffsetY",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Number of px to be given as panel offset when visible."
+                        },
+                        {
                             "name": "dropdown",
                             "optional": true,
                             "readonly": false,

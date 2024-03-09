@@ -330,9 +330,7 @@ export default {
         }
     },
 
-    relativePosition(element, target, gutter = true, offsetY = 0) {
-        console.log(element)
-        
+    relativePosition(element, target, gutter = true, offsetY = 0) {        
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;

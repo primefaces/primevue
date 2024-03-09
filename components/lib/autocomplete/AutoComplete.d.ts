@@ -321,6 +321,11 @@ export interface AutoCompleteProps {
      */
     scrollHeight?: string | undefined;
     /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
+    /**
      * Displays a button next to the input field when enabled.
      * @defaultValue false
      */

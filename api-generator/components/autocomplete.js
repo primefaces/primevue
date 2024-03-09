@@ -48,6 +48,12 @@ const AutoCompleteProps = [
         description: 'Maximum height of the suggestions panel.'
     },
     {
+        name: 'overlayOffsetY',
+        type: 'number',
+        default: '0',
+        description: 'Number of px to be given as panel offset when visible.'
+    },
+    {
         name: 'dropdown',
         type: 'boolean',
         default: 'false',
