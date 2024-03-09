@@ -120,7 +120,7 @@ declare class IconField extends ClassComponent<IconFieldProps, IconFieldSlots, I
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        iconfield: GlobalComponentConstructor<IconField>;
+        IconField: GlobalComponentConstructor<IconField>;
     }
 }
 
