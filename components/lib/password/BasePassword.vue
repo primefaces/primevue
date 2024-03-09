@@ -87,6 +87,10 @@ export default {
             type: null,
             default: null
         },
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
         panelId: {
             type: String,
             default: null
