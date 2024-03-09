@@ -773,6 +773,11 @@ export interface CalendarProps {
      */
     panelProps?: HTMLAttributes | undefined;
     /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;

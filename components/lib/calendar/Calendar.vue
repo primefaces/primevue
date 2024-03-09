@@ -1073,7 +1073,9 @@ export default {
                 this.enableModality();
             } else if (this.overlay) {
                 if (this.appendTo === 'self' || this.inline) {
-                    DomHandler.relativePosition(this.overlay, this.$el);
+                    const overlayOffsetY = this.inline ? 0 : this.overlayOffsetY;
+                    
+                    DomHandler.relativePosition(this.overlay, this.$el, true, overlayOffsetY);
                 } else {
                     if (this.view === 'date') {
                         this.overlay.style.width = DomHandler.getOuterWidth(this.overlay) + 'px';
@@ -1082,7 +1084,7 @@ export default {
                         this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
                     }
 
-                    DomHandler.absolutePosition(this.overlay, this.$el);
+                    DomHandler.absolutePosition(this.overlay, this.$el, true, this.overlayOffsetY);
                 }
             }
         },

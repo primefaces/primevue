@@ -228,6 +228,10 @@ export default {
             type: null,
             default: null
         },
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
         ariaLabelledby: {
             type: String,
             default: null
