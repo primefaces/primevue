@@ -204,6 +204,12 @@ const DropdownProps = [
         description: 'Clears the filter value when clicking on the clear icon.'
     },
     {
+        name: 'resetFilterOnAlreadySelectedOption',
+        type: 'boolean',
+        default: 'false',
+        description: 'Clears the filter value when clicking on the already selected option.'
+    },
+    {
         name: 'virtualScrollerOptions',
         type: 'object',
         default: 'null',
