@@ -17,6 +17,10 @@ export default {
             type: String,
             default: '200px'
         },
+        overlayOffsetY: {
+            type: Number,
+            default: 0
+        },
         filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,

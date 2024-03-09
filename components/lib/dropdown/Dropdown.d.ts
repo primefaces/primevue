@@ -289,6 +289,11 @@ export interface DropdownProps {
      */
     scrollHeight?: string | undefined;
     /**
+     * Number of px to be given as panel offset when visible.
+     * @defaultValue 0
+     */
+    overlayOffsetY?: number | undefined;
+    /**
      * When specified, displays a filter input at header.
      * @defaultValue false
      */

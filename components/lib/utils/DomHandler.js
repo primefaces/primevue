@@ -294,7 +294,7 @@ export default {
         return 0;
     },
 
-    absolutePosition(element, target, gutter = true) {
+    absolutePosition(element, target, gutter = true, offsetY = 0) {
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const elementOuterHeight = elementDimensions.height;
@@ -310,14 +310,14 @@ export default {
                 origin = 'top';
 
             if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
-                top = targetOffset.top + windowScrollTop - elementOuterHeight;
+                top = targetOffset.top + windowScrollTop - elementOuterHeight - offsetY;
                 origin = 'bottom';
 
                 if (top < 0) {
                     top = windowScrollTop;
                 }
             } else {
-                top = targetOuterHeight + targetOffset.top + windowScrollTop;
+                top = targetOuterHeight + targetOffset.top + windowScrollTop + offsetY;
             }
 
             if (targetOffset.left + elementOuterWidth > viewport.width) left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
@@ -330,7 +330,7 @@ export default {
         }
     },
 
-    relativePosition(element, target, gutter = true) {
+    relativePosition(element, target, gutter = true, offsetY = 0) {
         if (element) {
             const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;
@@ -341,14 +341,14 @@ export default {
                 origin = 'top';
 
             if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
-                top = -1 * elementDimensions.height;
+                top = (-1 * elementDimensions.height) - offsetY;
                 origin = 'bottom';
 
                 if (targetOffset.top + top < 0) {
                     top = -1 * targetOffset.top;
                 }
             } else {
-                top = targetHeight;
+                top = targetHeight + offsetY;
             }
 
             if (elementDimensions.width > viewport.width) {
