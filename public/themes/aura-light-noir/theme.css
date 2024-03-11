@@ -2300,6 +2300,7 @@
     display: inline-flex;
     cursor: pointer;
     user-select: none;
+    position: relative;
   }
 
   .p-multiselect-trigger {
