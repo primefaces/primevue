@@ -26,7 +26,7 @@ export default {
     align-items: center;
     overflow: hidden;
     background: transparent;
-    color: var(--p-galleria-navigator-color);
+    color: ${dt('galleria.navigator.color')};
     width: 3rem;
     height: 3rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -35,7 +35,7 @@ export default {
 }
 
 .p-galleria-item-nav:not(.p-disabled):hover {
-    background: var(--p-galleria-navigator-background-hover);
+    background: ${dt('galleria.navigator.hover.background')};
 }
 
 .p-galleria-item-prev-icon,
@@ -81,8 +81,8 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: var(--p-galleria-caption-background);
-    color: var(--p-galleria-caption-text-color);
+    background: ${dt('galleria.caption.background')};
+    color: ${dt('galleria.caption.color')};
     padding: 1rem;
 }
 
@@ -104,7 +104,7 @@ export default {
     position: relative;
     margin: 0.5rem;
     background: transparent;
-    color: var(--p-galleria-thumbnail-navigator-color);
+    color: ${dt('galleria.thumbnail.navigator.color')};
     width: 2rem;
     height: 2rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -114,8 +114,8 @@ export default {
 
 .p-galleria-thumbnail-prev:hover,
 .p-galleria-thumbnail-next:hover {
-    background: var(--p-galleria-thumbnail-navigator-background-hover);
-    color: var(--p-galleria-thumbnail-navigator-color-hover);
+    background: ${dt('galleria.thumbnail.navigator.hover.background')};
+    color: ${dt('galleria.thumbnail.navigator.hover.color')};
 }
 
 .p-galleria-thumbnail-prev:focus-visible,
@@ -134,7 +134,7 @@ export default {
 .p-galleria-thumbnail-container {
     display: flex;
     flex-direction: row;
-    background: var(--p-galleria-thumbnail-container-background);
+    background: ${dt('galleria.thumbnail.container.background')};
     padding: 1rem 0.25rem;
 }
 
@@ -217,7 +217,7 @@ export default {
 .p-galleria-indicator > button {
     display: inline-flex;
     align-items: center;
-    background-color: var(--p-galleria-indicator-background);
+    background: ${dt('galleria.indicator.background')};
     width: 1rem;
     height: 1rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -226,7 +226,7 @@ export default {
 }
 
 .p-galleria-indicator > button:hover {
-    background: var(--p-galleria-indicator-background-hover);
+    background: ${dt('galleria.indicator.hover.background')};
 }
 
 .p-galleria-indicator > button:focus-visible {
@@ -235,7 +235,7 @@ export default {
 }
 
 .p-galleria-indicator.p-highlight > button {
-    background-color: var(--p-galleria-indicator-background-active);
+    background-color: ${dt('galleria.indicator.active.background')};
 }
 
 .p-galleria-indicators-left .p-galleria-item-wrapper,
@@ -263,15 +263,15 @@ export default {
     position: absolute;
     display: flex;
     z-index: 1;
-    background: var(--p-galleria-inset-indicators-background);
+    background: ${dt('galleria.inset.indicators.background')};
 }
 
 .p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator > button {
-    background: var(--p-galleria-inset-indicator-background);
+    background: ${dt('galleria.inset.indicator.background')};
 }
 
 .p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight > button {
-    background-color: var(--p-galleria-inset-indicator-background-active);
+    background: ${dt('galleria.inset.indicator.active.background')};
 }
 
 .p-galleria-indicator-onitem.p-galleria-indicators-top .p-galleria-indicators {
@@ -302,7 +302,6 @@ export default {
     align-items: flex-start;
 }
 
-
 .p-galleria-mask {
     position: fixed;
     top: 0;
@@ -312,7 +311,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    --p-mask-background: var(--p-galleria-mask-background);
+    --p-mask-background: ${dt('galleria.mask.background')};
 }
 
 .p-galleria-close {
@@ -325,7 +324,7 @@ export default {
     overflow: hidden;
     margin: 0.5rem;
     background: transparent;
-    color: var(--p-galleria-close-color);
+    color: ${dt('galleria.close.color')};
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -340,8 +339,8 @@ export default {
 }
 
 .p-galleria-close:hover {
-    background: var(--p-galleria-close-background-hover);
-    color: var(--p-galleria-close-color-hover);
+    background: ${dt('galleria.close.hover.background')};
+    color: ${dt('galleria.close.hover.color')};
 }
 
 .p-galleria-close:focus-visible {

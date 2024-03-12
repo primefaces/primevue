@@ -38,7 +38,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-carousel-navigator-color);
+    color: ${dt('carousel.navigator.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -49,8 +49,8 @@ export default {
 
 .p-carousel-prev:enabled:hover,
 .p-carousel-next:enabled:hover {
-    color: var(--p-carousel-navigator-color-hover);
-    background: var(--p-carousel-navigator-background-hover);
+    color: ${dt('carousel.navigator.hover.color')};
+    background: ${dt('carousel.navigator.hover.background')};
 }
 
 .p-carousel-prev:focus-visible,
@@ -72,7 +72,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--p-carousel-indicator-background);
+    background: ${dt('carousel.indicator.background')};
     width: 2rem;
     height: 0.5rem;
     border: 0 none;
@@ -87,11 +87,11 @@ export default {
 }
 
 .p-carousel-indicator button:hover {
-    background: var(--p-carousel-indicator-background-hover);
+    background: ${dt('carousel.indicator.hover.background')};
 }
 
 .p-carousel-indicator.p-highlight button {
-    background: var(--p-carousel-indicator-background-active);
+    background: ${dt('carousel.indicator.active.background')};
 }
 
 .p-carousel-vertical .p-carousel-container {

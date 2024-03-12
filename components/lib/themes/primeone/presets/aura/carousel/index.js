@@ -3,25 +3,25 @@ export default {
         light: {
             navigator: {
                 color: '{surface.500}',
-                colorHover: '{surface.600}',
-                backgroundHover: '{surface.100}'
+                hoverColor: '{surface.600}',
+                hoverBackground: '{surface.100}'
             },
             indicator: {
                 background: '{surface.200}',
-                backgroundHover: '{surface.300}',
-                backgroundActive: '{primary.color}'
+                hoverBackground: '{surface.300}',
+                activeBackground: '{primary.color}'
             }
         },
         dark: {
             navigator: {
                 color: '{surface.400}',
-                colorHover: '{surface.300}',
-                backgroundHover: '{surface.800}'
+                hoverColor: '{surface.300}',
+                hoverBackground: '{surface.800}'
             },
             indicator: {
                 background: '{surface.700}',
-                backgroundHover: '{surface.600}',
-                backgroundActive: '{primary.color}'
+                hoverBackground: '{surface.600}',
+                activeBackground: '{primary.color}'
             }
         }
     }

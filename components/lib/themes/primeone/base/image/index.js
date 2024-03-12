@@ -4,7 +4,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    --p-mask-background: var(--p-image-mask-background);
+    --p-mask-background: ${dt('image.mask.background')};
 }
 
 .p-image-preview-container {
@@ -28,14 +28,14 @@ export default {
     padding: 0;
     cursor: pointer;
     background: transparent;
-    color: var(--p-image-preview-indicator-text-color);
+    color: ${dt('image.preview.indicator.color')};
     transition: background-color ${dt('transition.duration')};
 }
 
 .p-image-preview-container:hover > .p-image-preview-indicator {
     opacity: 1;
     cursor: pointer;
-    background: var(--p-image-preview-indicator-background);
+    background: ${dt('image.preview.indicator.background')};
 }
 
 .p-image-preview-icon {
@@ -57,7 +57,7 @@ export default {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: var(--p-image-action-color);
+    color: ${dt('image.action.color')};
     background: transparent;
     width: 3rem;
     height: 3rem;
@@ -67,8 +67,8 @@ export default {
 }
 
 .p-image-action:hover {
-    color: var(--p-image-action-color-hover);
-    background: var(--p-image-action-background-hover);
+    color: ${dt('image.action.hover.color')};
+    background: ${dt('image.action.hover.background')};
 }
 
 .p-image-action:focus-visible {
