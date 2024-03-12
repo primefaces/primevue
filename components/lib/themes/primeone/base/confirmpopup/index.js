@@ -5,9 +5,9 @@ export default {
     margin-top: 10px;
     top: 0;
     left: 0;
-    background: var(--p-confirmpopup-background);
-    color: var(--p-confirmpopup-text-color);
-    border: 1px solid var(--p-confirmpopup-border-color);
+    background: ${dt('confirmpopup.background')};
+    color: ${dt('confirmpopup.color')};
+    border: 1px solid ${dt('confirmpopup.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -81,7 +81,7 @@ export default {
     margin-left: -8px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: var(--p-confirmpopup-background);
+    border-bottom-color: ${dt('confirmpopup.background')};
 }
 
 .p-confirm-popup:before {
@@ -89,7 +89,7 @@ export default {
     margin-left: -10px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: var(--p-confirmpopup-border-color);
+    border-bottom-color: ${dt('confirmpopup.border.color')};
 }
 
 .p-confirm-popup-flipped:after,
@@ -100,12 +100,12 @@ export default {
 
 .p-confirm-popup-flipped:after {
     border-bottom-color: transparent;
-    border-top-color: var(--p-confirmpopup-background);
+    border-top-color: ${dt('confirmpopup.background')};
 }
 
 .p-confirm-popup-flipped:before {
     border-bottom-color: transparent;
-    border-top-color: var(--p-confirmpopup-border-color);
+    border-top-color: ${dt('confirmpopup.border.color')};
 }
 `
 };

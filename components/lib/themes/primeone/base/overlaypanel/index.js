@@ -2,9 +2,9 @@ export default {
     css: ({ dt }) => `
 .p-overlaypanel {
     margin-top: 10px;
-    background: var(--p-overlaypanel-background);
-    color: var(--p-overlaypanel-text-color);
-    border: 1px solid var(--p-overlaypanel-border-color);
+    background: ${dt('overlaypanel.background')};
+    color: ${dt('overlaypanel.color')};
+    border: 1px solid ${dt('overlaypanel.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -26,7 +26,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     background: transparent;
-    color: var(--p-overlaypanel-close-icon-color);
+    color: ${dt('overlaypanel.close.icon.color')};
     border: 0 none;
     border-radius: 50%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -37,8 +37,8 @@ export default {
 }
 
 .p-overlaypanel-close:enabled:hover {
-    background: var(--p-overlaypanel-close-icon-background-hover);
-    color: var(--p-overlaypanel-close-icon-color-hover);
+    background: ${dt('overlaypanel.close.icon.hover.background')};
+    color: ${dt('overlaypanel.close.icon.hover.color')};
 }
 
 .p-overlaypanel-close:focus-visible {
@@ -79,7 +79,7 @@ export default {
     margin-left: -8px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: var(--p-overlaypanel-background);
+    border-bottom-color: ${dt('overlaypanel.background')};
 }
 
 .p-overlaypanel:before {
@@ -87,7 +87,7 @@ export default {
     margin-left: -10px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: var(--p-overlaypanel-border-color);
+    border-bottom-color: ${dt('overlaypanel.border.color')};
 }
 
 .p-overlaypanel-flipped:after,
@@ -98,12 +98,12 @@ export default {
 
 .p-overlaypanel.p-overlaypanel-flipped:after {
     border-bottom-color: transparent;
-    border-top-color: var(--p-overlaypanel-background);
+    border-top-color: ${dt('overlaypanel.background')};
 }
 
 .p-overlaypanel.p-overlaypanel-flipped:before {
     border-bottom-color: transparent;
-    border-top-color: var(--p-overlaypanel-border-color);
+    border-top-color: ${dt('overlaypanel.border.color')};
 }
 `
 };

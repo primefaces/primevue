@@ -3,13 +3,13 @@ export default {
         light: {
             root: {
                 background: '{surface.700}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             }
         },
         dark: {
             root: {
                 background: '{surface.700}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             }
         }
     }

@@ -19,8 +19,8 @@ export default {
 .p-tooltip-text {
     white-space: pre-line;
     word-break: break-word;
-    background: var(--p-tooltip-background);
-    color: var(--p-tooltip-text-color);
+    background: ${dt('tooltip.background')};
+    color: ${dt('tooltip.color')};
     padding: 0.5rem 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -38,20 +38,20 @@ export default {
 .p-tooltip-right .p-tooltip-arrow {
     margin-top: -0.25rem;
     border-width: 0.25em 0.25em 0.25em 0;
-    border-right-color: var(--p-tooltip-background);
+    border-right-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-left .p-tooltip-arrow {
     margin-top: -0.25rem;
     border-width: 0.25em 0 0.25em 0.25rem;
-    border-left-color: var(--p-tooltip-background);
+    border-left-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-top .p-tooltip-arrow {
     margin-left: -0.25rem;
     border-width: 0.25em 0.25em 0;
-    border-top-color: var(--p-tooltip-background);
-    border-bottom-color: var(--p-tooltip-background);
+    border-top-color: ${dt('tooltip.background')};
+    border-bottom-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-bottom .p-tooltip-arrow {

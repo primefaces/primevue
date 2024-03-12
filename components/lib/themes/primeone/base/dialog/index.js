@@ -3,11 +3,11 @@ export default {
 .p-dialog {
     max-height: 90%;
     transform: scale(1);
-    border-radius: var(--p-rounded-xl);
+    border-radius: ${dt('rounded.xl')};
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    background: var(--p-dialog-background);
-    border: 1px solid var(--p-dialog-border-color);
-    color: var(--p-dialog-text-color);
+    background: ${dt('dialog.background')};
+    border: 1px solid ${dt('dialog.border.color')};
+    color: ${dt('dialog.color')};
 }
 
 .p-dialog-content {
@@ -50,7 +50,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-dialog-header-icon-color);
+    color: ${dt('dialog.header.icon.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -59,8 +59,8 @@ export default {
 }
 
 .p-dialog-header-icon:enabled:hover {
-    background: var(--p-dialog-header-icon-background-hover);
-    color: var(--p-dialog-header-icon-color-hover);
+    background: ${dt('dialog.header.icon.hover.background')};
+    color: ${dt('dialog.header.icon.hover.color')};
 }
 
 .p-dialog-header-icon:focus-visible {

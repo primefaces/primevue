@@ -7,9 +7,9 @@ export default {
     transform: translate3d(0px, 0px, 0px);
     position: relative;
     transition: transform 0.3s;
-    background: var(--p-sidebar-background);
-    color: var(--p-sidebar-text-color);
-    border: 0 solid var(--p-sidebar-border-color);
+    background: ${dt('sidebar.background')};
+    color: ${dt('sidebar.color')};
+    border: 1px solid ${dt('sidebar.border.color')};
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
@@ -40,7 +40,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-sidebar-header-icon-color);
+    color: ${dt('sidebar.header.icon.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -49,8 +49,8 @@ export default {
 }
 
 .p-sidebar-icon:enabled:hover {
-    background: var(--p-sidebar-header-icon-background-hover);
-    color: var(--p-sidebar-header-icon-color-hover);
+    background: ${dt('sidebar.header.icon.hover.background')};
+    color: ${dt('sidebar.header.icon.hover.color')};
 }
 
 .p-sidebar-icon:focus-visible {
