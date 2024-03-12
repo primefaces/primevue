@@ -7,7 +7,7 @@ export default {
     width: 2rem;
     height: 2rem;
     font-size: 1rem;
-    background: var(--p-avatar-background);
+    background: ${dt('avatar.background')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -62,7 +62,7 @@ export default {
 }
 
 .p-avatar-group .p-avatar {
-    border: 2px solid var(--p-avatar-border-color);
+    border: 2px solid ${dt('avatar.grouped.border.color')};
 }
     `
 };

@@ -26,8 +26,8 @@ export default {
 }
 
 .p-inplace-display:not(.p-disabled):hover {
-    background: var(--p-inplace-display-background-hover);
-    color: var(--p-inplace-display-text-color-hover);
+    background: ${dt('inplace.hover.background')};
+    color: ${dt('inplace.hover.color')};
 }
 
 .p-inplace-display:focus-visible {

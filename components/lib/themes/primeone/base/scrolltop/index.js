@@ -7,13 +7,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--p-scrolltop-background);
-    color: var(--p-scrolltop-text-color);
+    background: ${dt('scrolltop.background')};
+    color: ${dt('scrolltop.color')};
 }
 
 .p-scrolltop:hover {
-    background: var(--p-scrolltop-background-hover);
-    color: var(--p-scrolltop-text-color-hover);
+    background: ${dt('scrolltop.hover.background')};
+    color: ${dt('scrolltop.hover.text')};
 }
 
 .p-scrolltop-icon {

@@ -4,8 +4,8 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--p-tag-primary-background);
-    color: var(--p-tag-primary-text-color);
+    background: ${dt('tag.primary.background')};
+    color: ${dt('tag.primary.color')};
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.25rem 0.4rem;
@@ -24,33 +24,33 @@ export default {
 }
 
 .p-tag-success {
-    background-color: var(--p-tag-success-background);
-    color: var(--p-tag-success-text-color);
+    background: ${dt('tag.success.background')};
+    color: ${dt('tag.success.color')};
 }
 
 .p-tag-info {
-    background-color: var(--p-tag-info-background);
-    color: var(--p-tag-info-text-color);
+    background: ${dt('tag.info.background')};
+    color: ${dt('tag.info.color')};
 }
 
 .p-tag-warning {
-    background-color: var(--p-tag-warn-background);
-    color: var(--p-tag-warn-text-color);
+    background: ${dt('tag.warn.background')};
+    color: ${dt('tag.warn.color')};
 }
 
 .p-tag-danger {
-    background-color: var(--p-tag-danger-background);
-    color: var(--p-tag-danger-text-color);
+    background: ${dt('tag.danger.background')};
+    color: ${dt('tag.danger.color')};
 }
 
 .p-tag-secondary {
-    background-color: var(--p-tag-secondary-background);
-    color: var(--p-tag-secondary-text-color);
+    background: ${dt('tag.secondary.background')};
+    color: ${dt('tag.secondary.color')};
 }
 
 .p-tag-contrast {
-    background-color: var(--p-tag-contrast-background);
-    color: var(--p-tag-contrast-text-color);
+    background: ${dt('tag.contrast.background')};
+    color: ${dt('tag.contrast.color')};
 }
 `
 };

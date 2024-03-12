@@ -7,13 +7,12 @@ export default {
 
 .p-metergroup-meters {
     display: flex;
-    background: var(--p-metergroup-meters-background);
+    background: ${dt('metergroup.meters.background.color')};
     border-radius: ${dt('rounded.base')};
 }
 
 .p-metergroup-meter {
     border: 0 none;
-    background: var(--p-primary-color);
 }
 
 .p-metergroup-labels {
@@ -32,7 +31,6 @@ export default {
 
 .p-metergroup-label-marker {
     display: inline-flex;
-    background: var(--p-primary-color);
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 100%;

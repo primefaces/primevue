@@ -5,8 +5,8 @@ export default {
     border-radius: 10px;
     justify-content: center;
     padding: 0 0.5rem;
-    background: var(--p-badge-primary-background);
-    color: var(--p-badge-primary-text-color);
+    background: ${dt('badge.primary.background')};
+    color: ${dt('badge.primary.color')};
     font-size: 0.75rem;
     font-weight: 700;
     min-width: 1.5rem;
@@ -41,33 +41,33 @@ export default {
 }
 
 .p-badge-secondary {
-    background-color: var(--p-badge-secondary-background);
-    color: var(--p-badge-secondary-text-color);
+    background: ${dt('badge.secondary.background')};
+    color: ${dt('badge.secondary.color')};
 }
 
 .p-badge-success {
-    background-color: var(--p-badge-success-background);
-    color: var(--p-badge-success-text-color);
+    background: ${dt('badge.success.background')};
+    color: ${dt('badge.success.color')};
 }
 
 .p-badge-info {
-    background-color: var(--p-badge-info-background);
-    color: var(--p-badge-info-text-color);
+    background: ${dt('badge.info.background')};
+    color: ${dt('badge.info.color')};
 }
 
 .p-badge-warning {
-    background-color: var(--p-badge-warn-background);
-    color: var(--p-badge-warn-text-color);
+    background: ${dt('badge.warn.background')};
+    color: ${dt('badge.warn.color')};
 }
 
 .p-badge-danger {
-    background-color: var(--p-badge-danger-background);
-    color: var(--p-badge-danger-text-color);
+    background: ${dt('badge.danger.background')};
+    color: ${dt('badge.danger.color')};
 }
 
 .p-badge-contrast {
-    background-color: var(--p-badge-contrast-background);
-    color: var(--p-badge-contrast-text-color);
+    background: ${dt('badge.contrast.background')};
+    color: ${dt('badge.contrast.color')};
 }
 
 .p-badge-lg {

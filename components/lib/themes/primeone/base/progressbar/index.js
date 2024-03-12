@@ -5,18 +5,18 @@ export default {
     overflow: hidden;
     border: 0 none;
     height: 1.25rem;
-    background: var(--p-progressbar-background);
+    background: ${dt('progressbar.background')};
     border-radius: ${dt('rounded.base')};
 }
 
 .p-progressbar-value {
     border: 0 none;
     margin: 0;
-    background: var(--p-primary-color);
+    background: ${dt('progressbar.value.background')};
 }
 
 .p-progressbar-label {
-    color: var(--p-primary-inverse-color);
+    color: ${dt('progressbar.label.color')};
     line-height: 1.25rem;
     font-size: .75rem;
     font-weight: 600;

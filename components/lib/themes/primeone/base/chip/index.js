@@ -3,8 +3,8 @@ export default {
 .p-chip {
     display: inline-flex;
     align-items: center;
-    background-color: var(--p-chip-background);
-    color: var(--p-chip-text-color);
+    background: ${dt('chip.background')};
+    color: ${dt('chip.color')};
     border-radius: 16px;
     padding: 0.25rem 0.75rem;
 }

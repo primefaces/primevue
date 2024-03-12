@@ -2,7 +2,7 @@ export default {
     css: ({ dt }) => `
 .p-skeleton {
     overflow: hidden;
-    background-color: var(--p-skeleton-background);
+    background-color: ${dt('skeleton.background')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -16,7 +16,7 @@ export default {
     top: 0;
     transform: translateX(-100%);
     z-index: 1;
-    background: linear-gradient( 90deg, rgba(255, 255, 255, 0), var(--p-skeleton-animation-background), rgba(255, 255, 255, 0) );
+    background: linear-gradient( 90deg, rgba(255, 255, 255, 0), ${dt('skeleton.animation.background')}, rgba(255, 255, 255, 0) );
 }
 
 .p-skeleton-circle {

@@ -3,9 +3,9 @@ export default {
 .p-terminal {
     height: 18rem;
     overflow: auto;
-    background: var(--p-terminal-background);
-    color: var(--p-terminal-text-color);
-    border: 1px solid var(--p-terminal-border-color);
+    background: ${dt('terminal.background')};
+    color: ${dt('terminal.color')};
+    border: 1px solid ${dt('terminal.border.color')};
     padding: 0.5rem 0.75rem;
     border-radius: ${dt('rounded.base')};
 }
