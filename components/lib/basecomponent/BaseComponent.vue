@@ -40,7 +40,7 @@ export default {
             deep: true,
             immediate: true,
             handler(newValue) {
-                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS(newValue, this.$globalBaseTheme, this.$themeParams, this.$globalTheme);
+                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(newValue, this.$globalBaseTheme, this.$themeParams, this.$globalTheme) || {};
 
                 BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions: this.$styleOptions });
                 BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions: this.$styleOptions });
@@ -52,7 +52,7 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (newValue) {
-                    const variables_css = this.$style?.getPresetThemeCSS(newValue, this.$globalTheme);
+                    const variables_css = this.$style?.getPresetThemeCSS?.(newValue, this.$globalTheme);
 
                     this.$style?.loadTheme(`${variables_css}`, { name: `${this.$style.name}-variables`, useStyleOptions: this.$styleOptions });
                 }
@@ -94,14 +94,17 @@ export default {
         // apply colorScheme settings
         const { colorScheme } = this.$globalThemeOptions || {};
 
-        if (colorScheme) {
+        if (colorScheme && !Theme.isColorSchemeInit()) {
             const colorSchemeOption = BaseStyle.getColorSchemeOption(colorScheme);
             const isClient = DomHandler.isClient();
+
+            console.log(window.matchMedia('(prefers-color-scheme: dark)'));
             const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
-            const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)') : colorSchemeOption.dark?.default;
+            const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
             const defaultDocument = isClient ? window.document : undefined;
 
             Theme.setColorScheme(isDark ? 'dark' : 'light');
+            Theme.setColorSchemeInit(true);
 
             if (isDark && defaultDocument) {
                 DomHandler.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);

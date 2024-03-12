@@ -5,6 +5,7 @@ const ServiceSymbol = Symbol();
 export default {
     _pConfig: undefined,
     _colorScheme: 'dark',
+    _initializeColorScheme: false,
     getPConfig() {
         return this._pConfig;
     },
@@ -20,6 +21,12 @@ export default {
     },
     setColorScheme(newValue) {
         this._colorScheme = newValue;
+    },
+    isColorSchemeInit() {
+        return this._initializeColorScheme;
+    },
+    setColorSchemeInit(newValue) {
+        this._initializeColorScheme = newValue;
     },
     toggleColorScheme() {
         this._colorScheme = this._colorScheme === 'dark' ? 'light' : 'dark';
