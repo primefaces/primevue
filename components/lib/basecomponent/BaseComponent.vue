@@ -98,7 +98,6 @@ export default {
             const colorSchemeOption = BaseStyle.getColorSchemeOption(colorScheme);
             const isClient = DomHandler.isClient();
 
-            console.log(window.matchMedia('(prefers-color-scheme: dark)'));
             const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
             const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
             const defaultDocument = isClient ? window.document : undefined;
