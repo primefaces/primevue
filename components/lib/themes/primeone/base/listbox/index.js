@@ -1,11 +1,11 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-listbox {
     background: var(--p-listbox-background);
     color: var(--p-listbox-text-color);
     border: 1px solid var(--p-listbox-border-color);
-    border-radius: var(--p-rounded-base);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    border-radius: ${dt('rounded.base')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
 }
@@ -68,7 +68,7 @@ export default {
     border: 0 none;
     border-radius: var(--p-rounded-sm);
     color: var(--p-listbox-item-text-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-listbox-item:first-child {

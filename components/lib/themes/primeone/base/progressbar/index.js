@@ -1,12 +1,12 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-progressbar {
     position: relative;
     overflow: hidden;
     border: 0 none;
     height: 1.25rem;
     background: var(--p-progressbar-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-progressbar-value {

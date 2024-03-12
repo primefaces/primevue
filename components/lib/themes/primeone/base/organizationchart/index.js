@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-organizationchart-table {
     border-spacing: 0;
     border-collapse: separate;
@@ -19,8 +19,8 @@ export default {
     background: var(--p-organizationchart-node-background);
     color: var(--p-organizationchart-node-text-color);
     padding: 0.75rem 1rem;
-    border-radius: var(--p-rounded-base);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    border-radius: ${dt('rounded.base')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
 }
 
 .p-organizationchart-node-content:has(.p-node-toggler) {
@@ -56,12 +56,12 @@ export default {
     justify-content: center;
     align-items: center;
     outline-color: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-organizationchart-node-content .p-node-toggler:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
@@ -79,7 +79,7 @@ export default {
 .p-organizationchart-line-right {
     border-radius: 0;
     border-left: 1px solid var(--p-organizationchart-connector-color);
-    border-top-left-radius: var(--p-rounded-base);
+    border-top-left-radius: ${dt('rounded.base')};
 }
 
 .p-organizationchart-line-left {
@@ -100,12 +100,12 @@ export default {
 }
 
 .p-organizationchart-lines :nth-last-child(1 of .p-organizationchart-line-left) {
-    border-top-right-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
 }
 
 .p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-right) {
     border-left: 1px solid var(--p-organizationchart-connector-color);
-    border-top-left-radius: var(--p-rounded-base);
+    border-top-left-radius: ${dt('rounded.base')};
 }
 `
 };

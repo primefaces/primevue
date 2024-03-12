@@ -1,9 +1,9 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-skeleton {
     overflow: hidden;
     background-color: var(--p-skeleton-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-skeleton::after {

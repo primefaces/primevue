@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-terminal {
     height: 18rem;
     overflow: auto;
@@ -7,7 +7,7 @@ export default {
     color: var(--p-terminal-text-color);
     border: 1px solid var(--p-terminal-border-color);
     padding: 0.5rem 0.75rem;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-terminal-prompt-container {

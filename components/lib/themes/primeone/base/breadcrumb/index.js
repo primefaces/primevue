@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-breadcrumb {
     background: var(--p-breadcrumb-background);
     border: 0 none;
@@ -33,19 +33,19 @@ export default {
 }
 
 .p-breadcrumb .p-menuitem-link {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
 }
 
 .p-breadcrumb .p-menuitem-link:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-breadcrumb .p-menuitem-text {
     color: var(--p-breadcrumb-item-text-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     line-height: 1;
 }
 

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-galleria-content {
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@ export default {
     color: var(--p-galleria-navigator-color);
     width: 3rem;
     height: 3rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: 50%;
     margin: 0 0.5rem;
 }
@@ -64,7 +64,7 @@ export default {
 .p-galleria-item-nav-onhover .p-galleria-item-nav {
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--p-transition-duration) ease-in-out;
+    transition: opacity ${dt('transition.duration')} ease-in-out;
 }
 
 .p-galleria-item-nav-onhover .p-galleria-item-wrapper:hover .p-galleria-item-nav {
@@ -107,7 +107,7 @@ export default {
     color: var(--p-galleria-thumbnail-navigator-color);
     width: 2rem;
     height: 2rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     border-radius: 50%;
 }
@@ -120,8 +120,8 @@ export default {
 
 .p-galleria-thumbnail-prev:focus-visible,
 .p-galleria-thumbnail-next:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-galleria-thumbnail-prev span,
@@ -161,8 +161,8 @@ export default {
 }
 
 .p-galleria-thumbnail-item-content:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-galleria-thumbnail-item:hover {
@@ -220,7 +220,7 @@ export default {
     background-color: var(--p-galleria-indicator-background);
     width: 1rem;
     height: 1rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     border-radius: 50%;
 }
@@ -230,8 +230,8 @@ export default {
 }
 
 .p-galleria-indicator > button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-galleria-indicator.p-highlight > button {
@@ -330,7 +330,7 @@ export default {
     height: 3rem;
     border-radius: 50%;
     outline-color: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-galleria-close-icon {
@@ -345,8 +345,8 @@ export default {
 }
 
 .p-galleria-close:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-galleria-mask .p-galleria-item-nav {

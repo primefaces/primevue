@@ -1,14 +1,14 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-selectbutton {
     display: inline-flex;
     user-select: none;
     vertical-align: bottom;
     border: 1px solid transparent;
     background: var(--p-selectbutton-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-selectbutton .p-button {
@@ -16,13 +16,13 @@ export default {
     background: transparent;
     border: 0 none;
     color: var(--p-selectbutton-item-text-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     padding: 0.5rem 1rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     gap: 0.5rem;
     position: relative;
     cursor: pointer;
@@ -31,7 +31,7 @@ export default {
 .p-selectbutton .p-button::before {
     content: "";
     background: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     position: absolute;
     left: 0.25rem;
     top: 0.25rem;
@@ -59,8 +59,8 @@ export default {
 }
 
 .p-selectbutton .p-button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
     --p-focus-ring-offset: 0;
 }
 

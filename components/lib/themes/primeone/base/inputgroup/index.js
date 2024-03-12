@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-inputgroup {
     display: flex;
     align-items: stretch;

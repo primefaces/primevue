@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-panelmenu {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@ export default {
     background: var(--p-panelmenu-panel-background);
     border: 1px solid var(--p-panelmenu-panel-border-color);
     color: var(--p-panelmenu-panel-text-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     padding: 0.25rem 0.25rem;
 }
 
@@ -22,7 +22,7 @@ export default {
 .p-panelmenu-header-content {
     border: 0 none;
     color: var(--p-panelmenu-item-text-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     transition: background-color 0.2s, color 0.2s, outline-color 0.2s;
     outline-color: transparent;
 }
@@ -101,7 +101,7 @@ export default {
 }
 
 .p-panelmenu .p-menuitem-content {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
     color: var(--p-menu-item-text-color);
 }

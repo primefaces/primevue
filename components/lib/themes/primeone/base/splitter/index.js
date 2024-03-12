@@ -1,12 +1,12 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-splitter {
     display: flex;
     flex-wrap: nowrap;
-    border: 1px solid var(--p-splitter-border-color);
-    background: var(--p-splitter-background);
-    border-radius: var(--p-rounded-base);
-    color: var(--p-splitter-text-color);
+    border: 1px solid ${dt('splitter.border.color')};
+    background: ${dt('splitter.background')};
+    border-radius: ${dt('rounded.base')};
+    color: ${dt('splitter.color')};
 }
 
 .p-splitter-vertical {
@@ -20,19 +20,19 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    background: var(--p-splitter-gutter-background);
+    background: ${dt('splitter.gutter.background')};
 }
 
 .p-splitter-gutter-handle {
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     background: transparent;
-    transition: outline-color var(--p-transition-duration);
+    transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
 .p-splitter-gutter-handle:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-splitter-horizontal.p-splitter-resizing {

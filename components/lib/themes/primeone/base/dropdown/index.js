@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-dropdown {
     display: inline-flex;
     cursor: pointer;
@@ -7,8 +7,8 @@ export default {
     user-select: none;
     background: var(--p-dropdown-background);
     border: 1px solid var(--p-dropdown-border-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     box-shadow: var(--p-dropdown-box-shadow);
 }
@@ -55,8 +55,8 @@ export default {
     background: transparent;
     color: var(--p-dropdown-toggle-color);
     width: 2.5rem;
-    border-top-right-radius: var(--p-rounded-base);
-    border-bottom-right-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
 }
 
 .p-dropdown-label {
@@ -106,7 +106,7 @@ input.p-dropdown-label {
     background: var(--p-dropdown-overlay-background);
     color: var(--p-dropdown-overlay-text-color);
     border: 1px solid var(--p-dropdown-overlay-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -166,7 +166,7 @@ input.p-dropdown-label {
     border: 0 none;
     color: var(--p-dropdown-item-text-color);
     background: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
 }
 

@@ -1,9 +1,9 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-editor-container .p-editor-toolbar {
     background: var(--p-editor-toolbar-background);
-    border-top-right-radius: var(--p-rounded-base);
-    border-top-left-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('rounded.base')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow {
@@ -51,7 +51,7 @@ export default {
     background: var(--p-editor-overlay-background);
     border: 1px solid var(--p-editor-overlay-border-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     padding: 0.25rem 0.25rem;
 }
 
@@ -69,8 +69,8 @@ export default {
 }
 
 .p-editor-container .p-editor-content {
-    border-bottom-right-radius: var(--p-rounded-base);
-    border-bottom-left-radius: var(--p-rounded-base);
+    border-bottom-right-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('rounded.base')};
 }
 
 .p-editor-container .p-editor-content.ql-snow {
@@ -80,8 +80,8 @@ export default {
 .p-editor-container .p-editor-content .ql-editor {
     background: var(--p-editor-content-background);
     color: var(--p-editor-content-text-color);
-    border-bottom-right-radius: var(--p-rounded-base);
-    border-bottom-left-radius: var(--p-rounded-base);
+    border-bottom-right-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('rounded.base')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button:hover,

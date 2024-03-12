@@ -1,11 +1,11 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-overlaypanel {
     margin-top: 10px;
     background: var(--p-overlaypanel-background);
     color: var(--p-overlaypanel-text-color);
     border: 1px solid var(--p-overlaypanel-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -29,7 +29,7 @@ export default {
     color: var(--p-overlaypanel-close-icon-color);
     border: 0 none;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     position: absolute;
     top: 0.25rem;
@@ -42,8 +42,8 @@ export default {
 }
 
 .p-overlaypanel-close:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-overlaypanel-enter-from {

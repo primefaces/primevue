@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-treeselect {
     display: inline-flex;
     cursor: pointer;
@@ -7,8 +7,8 @@ export default {
     user-select: none;
     background: var(--p-treeselect-background);
     border: 1px solid var(--p-treeselect-border-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     box-shadow: var(--p-treeselect-box-shadow);
 }
@@ -47,8 +47,8 @@ export default {
     background: transparent;
     color: var(--p-treeselect-toggle-color);
     width: 2.5rem;
-    border-top-right-radius: var(--p-rounded-base);
-    border-bottom-right-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
 }
 
 .p-treeselect-label-container {
@@ -112,7 +112,7 @@ export default {
     background: var(--p-treeselect-overlay-background);
     color: var(--p-treeselect-overlay-text-color);
     border: 1px solid var(--p-treeselect-overlay-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 

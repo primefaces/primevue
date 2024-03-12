@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-knob-range {
     fill: none;
     transition: stroke 0.1s ease-in;
@@ -17,13 +17,13 @@ export default {
 }
 
 .p-knob svg {
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    transition: outline-color var(--p-transition-duration);
+    transition: outline-color ${dt('transition.duration')};
 }
 .p-knob svg:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 @keyframes p-knob-dash-frame {

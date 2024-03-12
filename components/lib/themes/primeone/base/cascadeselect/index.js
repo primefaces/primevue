@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-cascadeselect {
     display: inline-flex;
     cursor: pointer;
@@ -7,8 +7,8 @@ export default {
     user-select: none;
     background: var(--p-cascadeselect-background);
     border: 1px solid var(--p-cascadeselect-border-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     box-shadow: var(--p-cascadeselect-box-shadow);
 }
@@ -47,8 +47,8 @@ export default {
     background: transparent;
     color: var(--p-cascadeselect-toggle-color);
     width: 2.5rem;
-    border-top-right-radius: var(--p-rounded-base);
-    border-bottom-right-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
 }
 
 .p-cascadeselect-label {

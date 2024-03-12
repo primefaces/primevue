@@ -1,7 +1,7 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-blockui {
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 .p-blockui-container {
     position: relative;

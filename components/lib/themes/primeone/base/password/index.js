@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-password {
     display: inline-flex;
     position: relative;
@@ -13,14 +13,14 @@ export default {
     height: 10px;
     margin-bottom: 0.75rem;
     background: var(--p-password-meter-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-password-strength {
     height: 100%;
     width: 0;
     transition: width 1s ease-in-out;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-password-strength.weak {
@@ -50,7 +50,7 @@ export default {
     color: var(--p-password-overlay-text-color);
     border: 1px solid var(--p-password-overlay-border-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-password > svg:last-of-type,

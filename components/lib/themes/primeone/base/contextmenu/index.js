@@ -1,11 +1,11 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-contextmenu {
     padding: 0.25rem 0.25rem;
     background: var(--p-contextmenu-background);
     color: var(--p-contextmenu-text-color);
     border: 1px solid var(--p-contextmenu-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
 }
@@ -28,7 +28,7 @@ export default {
     background: var(--p-contextmenu-background);
     color: var(--p-contextmenu-text-color);
     border: 1px solid var(--p-contextmenu-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -61,7 +61,7 @@ export default {
 }
 
 .p-contextmenu .p-menuitem-content {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
     color: var(--p-contextmenu-item-text-color);
 }

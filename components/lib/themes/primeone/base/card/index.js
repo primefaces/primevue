@@ -1,8 +1,8 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-card {
-    background: var(--p-card-background);
-    color: var(--p-card-text-color);
+    background: ${dt('card.background')};
+    color: ${dt('card.color')};
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     display: flex;
@@ -29,7 +29,7 @@ export default {
 
 .p-card-subtitle {
     font-weight: 400;
-    color: var(--p-card-subtitle-text-color);
+    color: ${dt('card.subtitle.color')};
 }
 `
 };

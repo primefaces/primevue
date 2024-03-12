@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-component,
 .p-component * {
     box-sizing: border-box;
@@ -137,7 +137,7 @@ export default {
 
 .p-component-overlay {
     background-color: rgba(0, 0, 0, 0.4);
-    transition-duration: var(--p-transition-duration);
+    transition-duration: ${dt('transition.duration')};
 }
 
 .p-disabled,
@@ -170,7 +170,7 @@ export default {
     outline-color: transparent;
 }
 .p-link:focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
+    outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: 2px;
     box-shadow: none;
 }

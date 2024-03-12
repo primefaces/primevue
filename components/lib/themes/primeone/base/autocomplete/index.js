@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-autocomplete {
     display: inline-flex;
 }
@@ -43,7 +43,7 @@ export default {
     background: var(--p-autocomplete-overlay-background);
     color: var(--p-autocomplete-overlay-text-color);
     border: 1px solid var(--p-autocomplete-overlay-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -64,7 +64,7 @@ export default {
     border: 0 none;
     color: var(--p-autocomplete-item-text-color);
     background: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
 }
 
@@ -113,9 +113,9 @@ export default {
     color: var(--p-autocomplete-input-multiple-text-color);
     background: var(--p-autocomplete-input-multiple-background);
     border: 1px solid var(--p-autocomplete-input-multiple-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     width: 100%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: var(--p-autocomplete-input-multiple-box-shadow);
 }

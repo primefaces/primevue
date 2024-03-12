@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-tabmenu {
     overflow-x: auto;
 }
@@ -30,15 +30,15 @@ export default {
     color: var(--p-tabmenu-header-text-color);
     padding: 1rem 1.125rem;
     font-weight: 600;
-    border-top-right-radius: var(--p-rounded-base);
-    border-top-left-radius: var(--p-rounded-base);
-    transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('rounded.base')};
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     margin: 0 0 -1px 0;
     outline-color: transparent;
 }
 
 .p-tabmenuitem .p-menuitem-link:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 

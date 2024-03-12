@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-paginator {
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@ export default {
     color: var(--p-paginator-text-color);
     border: 0 none;
     padding: 0.5rem 1rem;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     gap: 0.25rem;
 }
 
@@ -39,7 +39,7 @@ export default {
     color: var(--p-paginator-navigator-color);
     min-width: 2.5rem;
     height: 2.5rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: 50%;
 }
 

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-checkbox {
     position: relative;
     display: inline-flex;
@@ -35,13 +35,13 @@ export default {
     background:  var(--p-checkbox-background);
     width: var(--p-checkbox-width);
     height: var(--p-checkbox-height);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: var(--p-checkbox-box-shadow);
 }
 
 .p-checkbox-icon {
-    transition-duration: var(--p-transition-duration);
+    transition-duration: ${dt('transition.duration')};
     color: var(--p-checkbox-icon-color);
     font-size: var(--p-checkbox-icon-size);
     width: var(--p-checkbox-icon-size);
@@ -71,8 +71,8 @@ export default {
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-checkbox.p-invalid > .p-checkbox-box {

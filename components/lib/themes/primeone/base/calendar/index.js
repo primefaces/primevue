@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-calendar {
     display: inline-flex;
     max-width: 100%;
@@ -42,7 +42,7 @@ export default {
     background: var(--p-calendar-background);
     color: var(--p-calendar-text-color);
     border: 1px solid var(--p-calendar-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,7 +82,7 @@ export default {
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -94,15 +94,15 @@ export default {
 
 .p-datepicker-prev:focus-visible,
 .p-datepicker-next:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-datepicker-year,
 .p-datepicker-month {
     font-weight: 500;
     padding: 0.25rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-datepicker-month {
@@ -179,7 +179,7 @@ export default {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border: 1px solid transparent;
     outline-color: transparent;
     color: var(--p-calendar-date-text-color);
@@ -191,8 +191,8 @@ export default {
 }
 
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: 1px solid ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-datepicker table td > span.p-highlight {
@@ -223,8 +223,8 @@ export default {
     overflow: hidden;
     position: relative;
     padding: 0.25rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     color: var(--p-calendar-month-text-color);
 }
@@ -240,7 +240,7 @@ export default {
 }
 
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus-visible {
-    outline: var(--p-focus-ring-width) solid var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} solid ${dt('focus.ring.color')};
     outline-offset: 0;
 }
 
@@ -258,8 +258,8 @@ export default {
     overflow: hidden;
     position: relative;
     padding: 0.25rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     color: var(--p-calendar-year-text-color);
 }
@@ -275,7 +275,7 @@ export default {
 }
 
 .p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus-visible {
-    outline: var(--p-focus-ring-width) solid var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} solid ${dt('focus.ring.color')};
     outline-offset: 0;
 }
 
@@ -326,7 +326,7 @@ export default {
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -336,8 +336,8 @@ export default {
 }
 
 .p-timepicker button:focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: 1px solid ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-timepicker button:last-child {

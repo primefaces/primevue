@@ -6,7 +6,7 @@ export default {
             },
             content: {
                 background: '{surface.0}',
-                textColor: '{surface.700}'
+                color: '{surface.700}'
             }
         },
         dark: {
@@ -15,7 +15,7 @@ export default {
             },
             content: {
                 background: '{surface.900}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             }
         }
     }

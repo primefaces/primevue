@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-badge {
     display: inline-flex;
     border-radius: 10px;

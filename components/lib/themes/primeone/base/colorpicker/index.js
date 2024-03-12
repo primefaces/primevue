@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-colorpicker-color {
     background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -20,20 +20,20 @@ export default {
     height: 1.5rem;
     padding: 0;
     border: 0 none;
-    border-radius: var(--p-rounded-base);
-    transition: outline-color var(--p-transition-duration);
+    border-radius: ${dt('rounded.base')};
+    transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
 .p-colorpicker-preview:enabled:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-colorpicker > .p-colorpicker-panel {
     background: var(--p-colorpicker-panel-background);
     border: 1px solid var(--p-colorpicker-panel-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-colorpicker-panel .p-colorpicker-color-handle,

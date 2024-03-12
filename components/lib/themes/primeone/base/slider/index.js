@@ -1,9 +1,9 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-slider {
     position: relative;
     background: var(--p-slider-track-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-slider-handle {
@@ -17,7 +17,7 @@ export default {
     background: var(--p-slider-handle-background);
     border: 0 none;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -37,14 +37,14 @@ export default {
 }
 
 .p-slider-handle:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: 0;
 }
 
 .p-slider-range {
     display: block;
     background: var(--p-slider-range-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-slider.p-slider-horizontal {

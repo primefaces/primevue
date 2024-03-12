@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-inputtextarea {
     font-family: inherit;
     font-feature-settings: inherit;
@@ -8,9 +8,9 @@ export default {
     background: var(--p-textarea-background);
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--p-textarea-border-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     appearance: none;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     box-shadow: var(--p-textarea-box-shadow);
 }

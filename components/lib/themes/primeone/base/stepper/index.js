@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-stepper-nav {
     position: relative;
     display: flex;
@@ -29,15 +29,15 @@ export default {
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     background: transparent;
 }
 
 .p-stepper-header .p-stepper-action:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-stepper.p-stepper-readonly .p-stepper-header {
@@ -51,26 +51,26 @@ export default {
     text-overflow: ellipsis;
     max-width: 100%;
     margin-left: 0.5rem;
-    color: var(--p-stepper-title-text-color);
+    color: ${dt('stepper.title.color')};
     font-weight: 500;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-stepper-number {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--p-stepper-marker-text-color);
-    border: 1px solid var(--p-stepper-marker-border-color);
+    color: ${dt('stepper.marker.color')};
+    border: 1px solid ${dt('stepper.marker.border.color')};
     border-width: 2px;
-    background: var(--p-stepper-marker-background);
+    background: ${dt('stepper.marker.background')};
     min-width: 2rem;
     height: 2rem;
     line-height: 2rem;
     font-size: 1.143rem;
     border-radius: 50%;
     box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-stepper-header.p-highlight .p-stepper-action {
@@ -78,35 +78,35 @@ export default {
 }
 
 .p-stepper-header.p-highlight .p-stepper-number {
-    background: var(--p-stepper-marker-background-highlight);
-    color: var(--p-stepper-marker-text-color-highlight);
+    background: ${dt('stepper.marker.active.background')};
+    color: ${dt('stepper.marker.active.background')};
 }
 
 .p-stepper-header.p-highlight .p-stepper-title {
-    color: var(--p-stepper-title-text-color-highlight);
+    color: ${dt('stepper.title.active.background')};
 }
 
 .p-stepper-header:not(.p-disabled):focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
-    background: var(--p-stepper-connector-background-highlight);
+    background: ${dt('stepper.connector.active.background')};
 }
 
 .p-stepper-separator {
     flex: 1 1 0;
-    background: var(--p-stepper-connector-background);
+    background: ${dt('stepper.connector.background')};
     width: 100%;
     height: 2px;
     margin-inline-start: 1rem;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-stepper-content {
-    background: var(--p-stepper-content-background);
-    color: var(--p-stepper-content-text-color);
+    background: ${dt('stepper.content.background')};
+    color: ${dt('stepper.content.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
@@ -151,7 +151,7 @@ export default {
 }
 
 .p-stepper-vertical .p-stepper-panel:has(~ .p-stepper-panel-active) .p-stepper-separator {
-    background: var(--p-stepper-connector-background-highlight);
+    background: ${dt('stepper.connector.active.background')};
 }
 
 .p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {

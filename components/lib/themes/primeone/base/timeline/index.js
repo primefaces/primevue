@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-timeline {
     display: flex;
     flex-grow: 1;

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-tooltip {
     position: absolute;
     display: none;

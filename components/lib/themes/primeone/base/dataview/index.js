@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-dataview .p-paginator-top {
     border-width: 0 0 1px 0;
     border-radius: 0;

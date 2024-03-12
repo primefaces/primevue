@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-message-wrapper {
     display: flex;
     align-items: center;
@@ -27,15 +27,15 @@ export default {
     height: 1.75rem;
     border-radius: 50%;
     background: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     color: inherit;
 }
 
 .p-message-close:focus-visible {
-    outline-width: var(--p-focus-ring-width);
-    outline-style: var(--p-focus-ring-style);
-    outline-offset: var(--p-focus-ring-offset);
+    outline-width: ${dt('focus.ring.width')};
+    outline-style: ${dt('focus.ring.style')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-message-info {

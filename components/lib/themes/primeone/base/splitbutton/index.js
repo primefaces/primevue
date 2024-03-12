@@ -1,9 +1,9 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-splitbutton {
     display: inline-flex;
     position: relative;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-splitbutton-defaultbutton {

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-progress-spinner {
     position: relative;
     margin: 0 auto;

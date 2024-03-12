@@ -1,11 +1,11 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-menu {
     padding: 0.25rem 0.25rem;
     background: var(--p-menu-background);
     color: var(--p-menu-text-color);
     border: 1px solid var(--p-menu-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     min-width: 12.5rem;
 }
 
@@ -44,7 +44,7 @@ export default {
 }
 
 .p-menu .p-menuitem-content {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
     color: var(--p-menu-item-text-color);
 }

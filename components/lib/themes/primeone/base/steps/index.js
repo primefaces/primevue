@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-steps {
     position: relative;
 }
@@ -53,14 +53,14 @@ export default {
     align-items: center;
     overflow: hidden;
     text-decoration: none;
-    transition: outline-color var(--p-transition-duration);
-    border-radius: var(--p-rounded-base);
+    transition: outline-color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.base')};
     outline-color: transparent;
 }
 
 .p-steps-item .p-menuitem-link:not(.p-disabled):focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-steps-title {

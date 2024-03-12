@@ -1,12 +1,12 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-inline-message {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0.5rem 0.75rem;
     margin: 0;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-inline-message-text {

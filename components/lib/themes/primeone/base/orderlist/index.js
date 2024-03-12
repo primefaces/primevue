@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-orderlist {
     display: flex;
     gap: 1.125rem;
@@ -16,7 +16,7 @@ export default {
     flex: 1 1 auto;
     background: var(--p-orderlist-list-background);
     border: 1px solid var(--p-orderlist-list-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-orderlist .p-orderlist-header {
@@ -43,12 +43,12 @@ export default {
     position: relative;
     padding: 0.5rem 0.75rem;
     margin: 2px 0;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     border: 0 none;
     color: var(--p-orderlist-item-text-color);
     background: var(--p-orderlist-item-background);
     outline-color: transparent;
-    transition: transform var(--p-transition-duration), background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: transform ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-orderlist-item:first-child {
@@ -84,7 +84,7 @@ export default {
     border: 1px solid var(--p-orderlist-control-border-color);
     color: var(--p-order-listcontrol-text-color);
     outline-color: transparent;
-    transition: opacity var(--p-transition-duration), outline-color var(--p-transition-duration), background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration);
+    transition: opacity ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
 }
 
 .p-orderlist-controls .p-button:not(:disabled):hover {
@@ -100,8 +100,8 @@ export default {
 }
 
 .p-orderlist-controls .p-button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-button-primary-background);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} var(--p-button-primary-background);
+    outline-offset: ${dt('focus.ring.offset')};
 }
 `
 };

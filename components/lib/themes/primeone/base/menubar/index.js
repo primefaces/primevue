@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-menubar {
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@ export default {
     background: var(--p-menubar-background);
     color: var(--p-menubar-text-color);
     border: 1px solid var(--p-menubar-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-menubar ul {
@@ -44,7 +44,7 @@ export default {
 }
 
 .p-menubar .p-menuitem-content {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
     color: var(--p-menubar-item-text-color);
 }
@@ -105,7 +105,7 @@ export default {
     background: var(--p-menubar-background);
     color: var(--p-menubar-text-color);
     border: 1px solid var(--p-menubar-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -150,7 +150,7 @@ export default {
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -160,8 +160,8 @@ export default {
 }
 
 .p-menubar-button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-menubar-mobile {

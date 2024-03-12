@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-fileupload-choose {
     position: relative;
     overflow: hidden;
@@ -21,8 +21,8 @@ export default {
     border: 1px solid var(--p-fileupload-header-border-color);
     color: var(--p-fileupload-header-text-color);
     border-bottom: 0 none;
-    border-top-right-radius: var(--p-rounded-base);
-    border-top-left-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('rounded.base')};
     gap: 0.5rem;
 }
 
@@ -32,8 +32,8 @@ export default {
     padding: 0 1.125rem 1.125rem 1.125rem;
     border: 1px solid var(--p-fileupload-content-border-color);
     color: var(--p-fileupload-content-text-color);
-    border-bottom-right-radius: var(--p-rounded-base);
-    border-bottom-left-radius: var(--p-rounded-base);
+    border-bottom-right-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('rounded.base')};
     border-top: 0 none;
 }
 
@@ -51,7 +51,7 @@ export default {
     align-items: center;
     padding: 1rem;
     border: 1px solid var(--p-fileupload-file-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-datatable {
     position: relative;
 }
@@ -24,7 +24,7 @@ export default {
 .p-datatable .p-sortable-column .p-sortable-column-icon {
     color: var(--p-datatable-sort-icon-color);
     margin-left: 0.5rem;
-    transition: color var(--p-transition-duration);
+    transition: color ${dt('transition.duration')};
 }
 
 .p-datatable .p-sortable-column .p-sortable-column-badge {
@@ -53,7 +53,7 @@ export default {
 }
 
 .p-datatable .p-sortable-column:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 
@@ -178,7 +178,7 @@ export default {
     color: var(--p-datatable-row-action-color);
     border: 0 none;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -194,7 +194,7 @@ export default {
 .p-datatable .p-row-editor-init:focus-visible,
 .p-datatable .p-row-editor-save:focus-visible,
 .p-datatable .p-row-editor-cancel:focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
+    outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: 2px;
 }
 
@@ -255,7 +255,7 @@ export default {
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -277,8 +277,8 @@ export default {
 }
 
 .p-column-filter-menu-button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-column-filter-clear-button {
@@ -295,7 +295,7 @@ export default {
     border: 0 none;
     background: transparent;
     border-radius: 50%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -305,8 +305,8 @@ export default {
 }
 
 .p-column-filter-clear-button:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-column-filter-menu {
@@ -349,7 +349,7 @@ export default {
     background: var(--p-datatable-filter-overlay-background);
     color: var(--p-datatable-filter-overlay-text-color);
     border: 1px solid var(--p-datatable-filter-overlay-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
     padding: 0.75rem;
@@ -434,14 +434,14 @@ export default {
     border-width: 0 0 1px 0;
     color: var(--p-datatable-header-cell-text-color);
     font-weight: 600;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-datatable-tbody > tr {
     outline-color: transparent;
     background: var(--p-datatable-row-background);
     color: var(--p-datatable-row-text-color);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-datatable-tbody > tr > td {
@@ -470,12 +470,12 @@ export default {
 }
 
 .p-datatable-tbody > tr:focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
+    outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 
 .p-datatable-tbody > tr.p-highlight-contextmenu {
-    outline: 1px solid var(--p-focus-ring-color);
+    outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 

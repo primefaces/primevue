@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-inputotp {
     display: flex;
     align-items: center;

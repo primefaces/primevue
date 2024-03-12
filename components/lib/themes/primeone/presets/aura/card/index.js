@@ -3,19 +3,19 @@ export default {
         light: {
             root: {
                 background: '{surface.0}',
-                textColor: '{surface.700}'
+                color: '{surface.700}'
             },
             subtitle: {
-                textColor: '{surface.500}'
+                color: '{surface.500}'
             }
         },
         dark: {
             root: {
                 background: '{surface.900}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             },
             subtitle: {
-                textColor: '{surface.400}'
+                color: '{surface.400}'
             }
         }
     }

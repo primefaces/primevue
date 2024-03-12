@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-confirm-dialog .p-dialog-content {
     display: flex;
     align-items: center;

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-tag {
     display: inline-flex;
     align-items: center;

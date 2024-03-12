@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-tabview-nav-container {
     position: relative;
 }
@@ -22,8 +22,8 @@ export default {
     padding: 0;
     list-style-type: none;
     flex: 1 1 auto;
-    background: var(--p-tabview-nav-background);
-    border: 1px solid var(--p-tabview-nav-border-color);
+    background: ${dt('tabview.nav.background')};
+    border: 1px solid ${dt('tabview.nav.border.color')};
     border-width: 0 0 1px 0;
     position: relative;
 }
@@ -38,28 +38,28 @@ export default {
     overflow: hidden;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent var(--p-tabview-header-border-color) transparent;
-    color: var(--p-tabview-header-text-color);
+    border-color: transparent transparent ${dt('tabview.header.border.color')} transparent;
+    color: ${dt('tabview.header.color')};
     padding: 1rem 1.125rem;
     font-weight: 600;
-    border-top-right-radius: var(--p-rounded-base);
-    border-top-left-radius: var(--p-rounded-base);
-    transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('rounded.base')};
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     margin: 0 0 -1px 0;
     outline-color: transparent;
 }
 
 .p-tabview-header:not(.p-disabled) .p-tabview-nav-link:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 
 .p-tabview-header:not(.p-highlight):not(.p-disabled):hover >.p-tabview-nav-link {
-    color: var(--p-tabview-header-text-color-hover);
+    color: ${dt('tabview.header.hover.color')};
 }
 
 .p-tabview-header.p-highlight > .p-tabview-nav-link {
-    color: var(--p-primary-color);
+    color: ${dt('tabview.header.active.color')};
 }
 
 .p-tabview-title {
@@ -75,22 +75,22 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--p-tabview-navigator-icon-background);
-    color: var(--p-tabview-navigator-icon-color);
+    background: ${dt('tabview.navigatior.icon.background')};
+    color: ${dt('tabview.navigatior.icon.color')};
     width: 2.5rem;
     border-radius: 0;
     outline-color: transparent;
-    transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
-    box-shadow: var(--p-tabview-navigator-icon-box-shadow);
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    box-shadow: ${dt('tabview.navigatior.icon.box.shadow')};
 }
 
 .p-tabview-nav-btn:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: -2px;
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-tabview-nav-btn:hover {
-    color: var(--p-tabview-navigator-icon-color-hover);
+    color: ${dt('tabview.navigatior.icon.hover.color')};
 }
 
 .p-tabview-nav-prev {
@@ -106,8 +106,8 @@ export default {
 }
 
 .p-tabview-panels {
-    background: var(--p-tabview-content-background);
-    color: var(--p-tabview-content-text-color);
+    background: ${dt('tabview.navigatior.content.background')};
+    color: ${dt('tabview.navigatior.content.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
@@ -117,7 +117,7 @@ export default {
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: var(--p-primary-color);
+    background-color: ${dt('tabview.header.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 `

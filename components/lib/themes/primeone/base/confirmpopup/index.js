@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-confirm-popup {
     position: absolute;
     margin-top: 10px;
@@ -8,7 +8,7 @@ export default {
     background: var(--p-confirmpopup-background);
     color: var(--p-confirmpopup-text-color);
     border: 1px solid var(--p-confirmpopup-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 

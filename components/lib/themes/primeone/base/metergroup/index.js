@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-metergroup {
     display: flex;
     gap: 1rem;
@@ -8,7 +8,7 @@ export default {
 .p-metergroup-meters {
     display: flex;
     background: var(--p-metergroup-meters-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-metergroup-meter {
@@ -56,12 +56,12 @@ export default {
 }
 
 .p-metergroup-horizontal .p-metergroup-meter:first-of-type {
-    border-top-left-radius: var(--p-rounded-base);
-    border-bottom-left-radius: var(--p-rounded-base);
+    border-top-left-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('rounded.base')};
 }
 .p-metergroup-horizontal .p-metergroup-meter:last-of-type {
-    border-top-right-radius: var(--p-rounded-base);
-    border-bottom-right-radius: var(--p-rounded-base);
+    border-top-right-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
 }
 
 .p-metergroup-vertical {
@@ -84,12 +84,12 @@ export default {
 }
 
 .p-metergroup-vertical .p-metergroup-meter:first-of-type {
-    border-top-left-radius: var(--p-rounded-base);
-    border-top-right-radius: var(--p-rounded-base);
+    border-top-left-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('rounded.base')};
 }
 .p-metergroup-vertical .p-metergroup-meter:last-of-type {
-    border-bottom-left-radius: var(--p-rounded-base);
-    border-bottom-right-radius: var(--p-rounded-base);
+    border-bottom-left-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
 }
 `
 };

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-speeddial {
     position: absolute;
     display: flex;
@@ -13,7 +13,9 @@ export default {
 }
 
 .p-speeddial-button.p-speeddial-rotate {
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt(
+        'transition.duration'
+    )}, outline-color ${dt('transition.duration')};
     will-change: transform;
 }
 
@@ -24,7 +26,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: top 0s linear var(--p-transition-duration);
+    transition: top 0s linear ${dt('transition.duration')};
     pointer-events: none;
     outline: 0 none;
     z-index: 2;
@@ -39,8 +41,8 @@ export default {
 }
 
 .p-speeddial-item.p-focus > .p-speeddial-action {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-speeddial-action {
@@ -55,7 +57,7 @@ export default {
     background: var(--p-speeddial-item-background);
     color: var(--p-speeddial-item-text-color);
     outline-color: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-speeddial-action:hover {

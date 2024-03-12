@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-avatar {
     display: inline-flex;
     align-items: center;
@@ -8,7 +8,7 @@ export default {
     height: 2rem;
     font-size: 1rem;
     background: var(--p-avatar-background);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-avatar-image {

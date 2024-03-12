@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-inputswitch {
     display: inline-block;
     width: 2.5rem;
@@ -31,7 +31,7 @@ export default {
     bottom: 0;
     border: 0 none;
     background: var(--p-inputswitch-background);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: var(--p-inputswitch-border-radius);
     outline-color: transparent;
 }
@@ -46,7 +46,7 @@ export default {
     left: 0.25rem;
     margin-top: -0.5rem;
     border-radius: 50%;
-    transition: all var(--p-transition-duration);
+    transition: all ${dt('transition.duration')};
 }
 
 .p-inputswitch.p-highlight .p-inputswitch-slider {
@@ -75,8 +75,8 @@ export default {
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:focus-visible) .p-inputswitch-slider {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-inputswitch.p-invalid > .p-inputswitch-slider {

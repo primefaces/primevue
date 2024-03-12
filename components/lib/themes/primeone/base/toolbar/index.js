@@ -1,15 +1,15 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-toolbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0.75rem;
-    background: var(--p-toolbar-background);
-    border: 1px solid var(--p-toolbar-border-color);
-    color: var(--p-toolbar-text-color);
-    border-radius: var(--p-rounded-base);
+    background: ${dt('toolbar.background')};
+    border: 1px solid ${dt('toolbar.border.color')};
+    color: ${dt('toolbar.color')};
+    border-radius: ${dt('rounded.base')};
     gap: 0.5rem;
 }
 

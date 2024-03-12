@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-radiobutton {
     position: relative;
     display: inline-flex;
@@ -35,13 +35,13 @@ export default {
     background:  var(--p-radiobutton-background);
     width: var(--p-radiobutton-width);
     height: var(--p-radiobutton-height);
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), box-shadow var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: var(--p-radiobutton-box-shadow);
 }
 
 .p-radiobutton-icon {
-    transition-duration: var(--p-transition-duration);
+    transition-duration: ${dt('transition.duration')};
     background: transparent;
     font-size: var(--p-radiobutton-icon-size);
     width: var(--p-radiobutton-icon-size);
@@ -76,8 +76,8 @@ export default {
 }
 
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-radiobutton.p-invalid > .p-radiobutton-box {

@@ -3,43 +3,43 @@ export default {
         light: {
             connector: {
                 background: '{surface.200}',
-                backgroundHighlight: '{primary.color}'
+                activeBackground: '{primary.color}'
             },
             title: {
-                textColor: '{surface.700}',
-                textColorHighlight: '{primary.color}'
+                color: '{surface.700}',
+                activeColor: '{primary.color}'
             },
             marker: {
                 background: '{surface.0}',
-                backgroundHighlight: '{surface.0}',
+                activeBackground: '{surface.0}',
                 borderColor: '{surface.200}',
-                textColor: '{surface.500}',
-                textColorHighlight: '{primary.color}'
+                color: '{surface.500}',
+                activeColor: '{primary.color}'
             },
             content: {
                 background: '{surface.0}',
-                textColor: '{surface.700}'
+                color: '{surface.700}'
             }
         },
         dark: {
             connector: {
                 background: '{surface.700}',
-                backgroundHighlight: '{primary.color}'
+                activeBackground: '{primary.color}'
             },
             title: {
-                textColor: '{surface.0}',
-                textColorHighlight: '{primary.color}'
+                color: '{surface.0}',
+                activeColor: '{primary.color}'
             },
             marker: {
                 background: '{surface.900}',
-                backgroundHighlight: '{surface.900}',
+                activeBackground: '{surface.900}',
                 borderColor: '{surface.700}',
-                textColor: '{surface.400}',
-                textColorHighlight: '{primary.color}'
+                color: '{surface.400}',
+                activeColor: '{primary.color}'
             },
             content: {
                 background: '{surface.900}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             }
         }
     }

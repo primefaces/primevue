@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-image-mask {
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ export default {
     cursor: pointer;
     background: transparent;
     color: var(--p-image-preview-indicator-text-color);
-    transition: background-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')};
 }
 
 .p-image-preview-container:hover > .p-image-preview-indicator {
@@ -63,7 +63,7 @@ export default {
     height: 3rem;
     border-radius: 50%;
     outline-color: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-image-action:hover {
@@ -72,8 +72,8 @@ export default {
 }
 
 .p-image-action:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-image-action .p-icon {

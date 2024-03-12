@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-chip {
     display: inline-flex;
     align-items: center;
@@ -27,7 +27,7 @@ export default {
     cursor: pointer;
     margin-left: 0.375rem;
     border-radius: 6px;
-    transition: outline-color var(--p-transition-duration);
+    transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -40,8 +40,8 @@ export default {
 }
 
 .p-chip-remove-icon:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
     `
 };

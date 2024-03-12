@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-float-label {
     display: block;
     position: relative;
@@ -15,7 +15,7 @@ export default {
     line-height: 1;
     left: 0.75rem;
     color: var(--p-float-label-text-color);
-    transition-duration: var(--p-transition-duration);
+    transition-duration: ${dt('transition.duration')};
 }
 
 .p-float-label:has(textarea) label {

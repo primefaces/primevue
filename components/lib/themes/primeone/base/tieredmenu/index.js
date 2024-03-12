@@ -1,11 +1,11 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-tieredmenu {
     padding: 0.25rem 0.25rem;
     background: var(--p-tieredmenu-background);
     color: var(--p-tieredmenu-text-color);
     border: 1px solid var(--p-tieredmenu-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     min-width: 12.5rem;
 }
 
@@ -27,7 +27,7 @@ export default {
     background: var(--p-tieredmenu-background);
     color: var(--p-tieredmenu-text-color);
     border: 1px solid var(--p-tieredmenu-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,7 +60,7 @@ export default {
 }
 
 .p-tieredmenu .p-menuitem-content {
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: var(--p-rounded-sm);
     color: var(--p-tieredmenu-item-text-color);
 }

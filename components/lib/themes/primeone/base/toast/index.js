@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-toast {
     width: 25rem;
     white-space: pre-line;
@@ -9,7 +9,7 @@ export default {
 .p-toast-message {
     backdrop-filter: blur(var(--p-toast-blur));
     margin: 0 0 1rem 0;
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-toast-message-icon {
@@ -47,7 +47,7 @@ export default {
     border-radius: 50%;
     cursor: pointer;
     background: transparent;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     color: inherit;
     width: 1.75rem;
@@ -57,9 +57,9 @@ export default {
 }
 
 .p-toast-icon-close:focus-visible {
-    outline-width: var(--p-focus-ring-width);
-    outline-style: var(--p-focus-ring-style);
-    outline-offset: var(--p-focus-ring-offset);
+    outline-width: ${dt('focus.ring.width')};
+    outline-style: ${dt('focus.ring.style')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-toast-message-info {

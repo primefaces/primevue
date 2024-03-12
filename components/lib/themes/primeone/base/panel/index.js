@@ -4,7 +4,7 @@ export default {
     border: 1px solid ${dt('panel.border.color')};
     border-radius: ${dt('rounded.base')};
     background: ${dt('panel.background')};
-    color: ${dt('panel.text.color')};
+    color: ${dt('panel.color')};
 }
 
 .p-panel-header {
@@ -40,8 +40,8 @@ export default {
 }
 
 .p-panel-header-icon:enabled:hover {
-    color: ${dt('panel.header.icon.color.hover')};
-    background: ${dt('panel.header.icon.background.hover')};
+    color: ${dt('panel.header.icon.hover.color')};
+    background: ${dt('panel.header.icon.hover.background')};
 }
 
 .p-panel-header-icon:focus-visible {

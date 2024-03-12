@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-divider-horizontal {
     display: flex;
     width: 100%;
@@ -16,7 +16,7 @@ export default {
     left: 0;
     width: 100%;
     content: "";
-    border-top: 1px solid var(--p-divider-border-color);
+    border-top: 1px solid ${dt('divider.border.color')};
 }
 
 .p-divider-horizontal .p-divider-content {
@@ -40,7 +40,7 @@ export default {
     left: 50%;
     height: 100%;
     content: "";
-    border-left: 1px solid var(--p-divider-border-color);
+    border-left: 1px solid ${dt('divider.border.color')};
 }
 
 .p-divider.p-divider-vertical .p-divider-content {
@@ -49,8 +49,8 @@ export default {
 
 .p-divider-content {
     z-index: 1;
-    background: var(--p-divider-content-background);
-    color: var(--p-divider-content-text-color);
+    background: ${dt('divider.content.background')};
+    color: ${dt('divider.content.color')};
 }
 
 .p-divider-solid.p-divider-horizontal:before {

@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-accordion-header-link {
     cursor: pointer;
     display: flex;
@@ -9,11 +9,11 @@ export default {
     user-select: none;
     text-decoration: none;
     padding: 1.125rem 1.125rem 1.125rem 1.125rem;
-    color: var(--p-accordion-header-text-color);
-    background: var(--p-accordion-header-background);
+    color: ${dt('accordion.header.color')};
+    background: ${dt('accordion.header.background')};
     font-weight: 600;
-    border-radius: var(--p-rounded-base);
-    transition: color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    border-radius: ${dt('rounded.base')};
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -22,14 +22,16 @@ export default {
 }
 
 .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -2px;
 }
+
 .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
-    color: var(--p-accordion-header-text-color-hover);
+    color: ${dt('accordion.header.hover.color')}
 }
+
 .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
-    color: var(--p-accordion-header-text-color-active);
+    color: ${dt('accordion.header.active.color')}
 }
 
 .p-accordion-toggle-icon {
@@ -42,12 +44,12 @@ export default {
 
 .p-accordion-content {
     padding: 0 1.125rem 1.125rem 1.125rem;
-    background: var(--p-accordion-content-background);
-    color: var(--p-accordion-content-text-color);
+    background: color: ${dt('accordion.content.background')}
+    color: ${dt('accordion.content.color')}
 }
 
 .p-accordion-tab {
-    border-bottom: 1px solid var(--p-accordion-content-border-color);
+    border-bottom: 1px solid ${dt('accordion.content.border.color')};
 }
 
 .p-accordion-tab:last-child {

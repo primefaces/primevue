@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-chips {
     display: inline-flex;
 }
@@ -18,9 +18,9 @@ export default {
     color: var(--p-chips-text-color);
     background: var(--p-chips-background);
     border: 1px solid var(--p-chips-border-color);
-    border-radius: var(--p-rounded-base);
+    border-radius: ${dt('rounded.base')};
     width: 100%;
-    transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: var(--p-chips-box-shadow);
 }

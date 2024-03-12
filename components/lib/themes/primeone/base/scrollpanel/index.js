@@ -1,5 +1,5 @@
 export default {
-    css: `
+    css: ({ dt }) => `
 .p-scrollpanel-wrapper {
     overflow: hidden;
     width: 100%;
@@ -30,15 +30,15 @@ export default {
     cursor: pointer;
     opacity: 0;
     outline-color: transparent;
-    transition: outline-color var(--p-transition-duration);
-    background: var(--p-scrollpanel-bar-background);
+    transition: outline-color ${dt('transition.duration')};
+    background: ${dt('scrollpanel.bar.background')};
     border: 0 none;
-    transition: outline-color var(--p-transition-duration), opacity var(--p-transition-duration);
+    transition: outline-color ${dt('transition.duration')}, opacity ${dt('transition.duration')};
 }
 
 .p-scrollpanel-bar:focus-visible {
-    outline: var(--p-focus-ring-width) var(--p-focus-ring-style) var(--p-focus-ring-color);
-    outline-offset: var(--p-focus-ring-offset);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-scrollpanel-bar-y {
