@@ -16,10 +16,10 @@ export default {
 .p-fileupload-buttonbar {
     display: flex;
     flex-wrap: wrap;
-    background: var(--p-fileupload-header-background);
+    background: ${dt('fileupload.header.background')};
     padding: 1.125rem;
-    border: 1px solid var(--p-fileupload-header-border-color);
-    color: var(--p-fileupload-header-text-color);
+    border: 1px solid ${dt('fileupload.header.border.color')};
+    color: ${dt('fileupload.header.color')};
     border-bottom: 0 none;
     border-top-right-radius: ${dt('rounded.base')};
     border-top-left-radius: ${dt('rounded.base')};
@@ -28,10 +28,10 @@ export default {
 
 .p-fileupload-content {
     position: relative;
-    background: var(--p-fileupload-content-background);
+    background: ${dt('fileupload.content.background')};
     padding: 0 1.125rem 1.125rem 1.125rem;
-    border: 1px solid var(--p-fileupload-content-border-color);
-    color: var(--p-fileupload-content-text-color);
+    border: 1px solid ${dt('fileupload.content.border.color')};
+    color: ${dt('fileupload.content.color')};
     border-bottom-right-radius: ${dt('rounded.base')};
     border-bottom-left-radius: ${dt('rounded.base')};
     border-top: 0 none;
@@ -50,7 +50,7 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     padding: 1rem;
-    border: 1px solid var(--p-fileupload-file-border-color);
+    border: 1px solid ${dt('fileupload.file.border.color')};
     border-radius: ${dt('rounded.base')};
     gap: 0.5rem;
     margin-bottom: 0.5rem;
@@ -69,8 +69,8 @@ export default {
 }
 
 .p-fileupload-highlight {
-    border: 1px dashed var(--p-fileupload-highlight-border-color-highlight);
-    background-color: var(--p-fileupload-highlight-background-highlight);
+    border: 1px dashed ${dt('fileupload.content.highlight.border.color')};
+    background: ${dt('fileupload.content.highlight.background')};
 }
 
 .p-fileupload-file-name {
