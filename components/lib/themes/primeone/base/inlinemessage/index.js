@@ -28,63 +28,64 @@ export default {
 }
 
 .p-inline-message-info {
-    background: var(--p-inlinemessage-info-background);
-    border: 1px solid var(--p-inlinemessage-info-border-color);
-    color: var(--p-inlinemessage-info-text-color);
-    box-shadow: var(--p-inlinemessage-info-box-shadow);
+    background: ${dt('inlinemessage.info.background')};
+    border: 1px solid ${dt('inlinemessage.info.border.color')};
+    color: ${dt('inlinemessage.info.color')};
+    box-shadow: ${dt('inlinemessage.info.box.shadow')};
 }
+
 .p-inline-message-info .p-inline-message-icon {
-    color: var(--p-inlinemessage-info-text-color);
+    color: ${dt('inlinemessage.info.color')};
 }
 
 .p-inline-message-success {
-    background: var(--p-inlinemessage-success-background);
-    border: 1px solid var(--p-inlinemessage-success-border-color);
-    color: var(--p-inlinemessage-success-text-color);
-    box-shadow: var(--p-inlinemessage-success-box-shadow);
+    background: ${dt('inlinemessage.success.background')};
+    border: 1px solid ${dt('inlinemessage.success.border.color')};
+    color: ${dt('inlinemessage.success.color')};
+    box-shadow: ${dt('inlinemessage.success.box.shadow')};
 }
 .p-inline-message-success .p-inline-message-icon {
-    color: var(--p-inlinemessage-success-text-color);
+    color: ${dt('inlinemessage.success.color')};
 }
 
 .p-inline-message-warn {
-    background: var(--p-inlinemessage-warn-background);
-    border: 1px solid var(--p-inlinemessage-warn-border-color);
-    color: var(--p-inlinemessage-warn-text-color);
-    box-shadow: var(--p-inlinemessage-warn-box-shadow);
+    background: ${dt('inlinemessage.warn.background')};
+    border: 1px solid ${dt('inlinemessage.warn.border.color')};
+    color: ${dt('inlinemessage.warn.color')};
+    box-shadow: ${dt('inlinemessage.warn.box.shadow')};
 }
 .p-inline-message-warn .p-inline-message-icon {
-    color: var(--p-inlinemessage-warn-text-color);
+    color: ${dt('inlinemessage.warn.color')};
 }
 
 .p-inline-message-error {
-    background: var(--p-inlinemessage-error-background);
-    border: 1px solid var(--p-inlinemessage-error-border-color);
-    color: var(--p-inlinemessage-error-text-color);
-    box-shadow: var(--p-inlinemessage-error-box-shadow);
+    background: ${dt('inlinemessage.error.background')};
+    border: 1px solid ${dt('inlinemessage.error.border.color')};
+    color: ${dt('inlinemessage.error.color')};
+    box-shadow: ${dt('inlinemessage.error.box.shadow')};
 }
 .p-inline-message-error .p-inline-message-icon {
-    color: var(--p-inlinemessage-error-text-color);
+    color: ${dt('inlinemessage.error.color')};
 }
 
 .p-inline-message-secondary {
-    background: var(--p-inlinemessage-secondary-background);
-    border: 1px solid var(--p-inlinemessage-secondary-border-color);
-    color: var(--p-inlinemessage-secondary-text-color);
-    box-shadow: var(--p-inlinemessage-secondary-box-shadow);
+    background: ${dt('inlinemessage.secondary.background')};
+    border: 1px solid ${dt('inlinemessage.secondary.border.color')};
+    color: ${dt('inlinemessage.secondary.color')};
+    box-shadow: ${dt('inlinemessage.secondary.box.shadow')};
 }
 .p-inline-message-secondary .p-inline-message-icon {
-    color: var(--p-inlinemessage-secondary-text-color);
+    color: ${dt('inlinemessage.secondary.color')};
 }
 
 .p-inline-message-contrast {
-    background: var(--p-inlinemessage-contrast-background);
-    border: 1px solid var(--p-inlinemessage-contrast-border-color);
-    color: var(--p-inlinemessage-contrast-text-color);
-    box-shadow: var(--p-inlinemessage-contrast-box-shadow);
+    background: ${dt('inlinemessage.contrast.background')};
+    border: 1px solid ${dt('inlinemessage.contrast.border.color')};
+    color: ${dt('inlinemessage.contrast.color')};
+    box-shadow: ${dt('inlinemessage.contrast.box.shadow')};
 }
 .p-inline-message-contrast .p-inline-message-icon {
-    color: var(--p-inlinemessage-contrast-text-color);
+    color: ${dt('inlinemessage.contrast.color')};
 }
 
 .p-inline-message-icon-only .p-inline-message-icon {
