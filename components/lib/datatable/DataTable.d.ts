@@ -1117,7 +1117,7 @@ export interface DataTableProps {
     /**
      * Inline style of the table element.
      */
-    tableStyle?: object | undefined;
+    tableStyle?: string | object | undefined;
     /**
      * Style class of the table element.
      */
