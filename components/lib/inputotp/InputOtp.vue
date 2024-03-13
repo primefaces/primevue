@@ -130,12 +130,6 @@ export default {
         },
         onKeyDown(event) {
             const newValue = this.tokens.join('');
-            let limitReached = false;
-
-            if (newValue.length >= this.length) {
-                limitReached = true;
-            }
-
             const keyCode = event.keyCode;
 
             switch (keyCode) {
@@ -171,11 +165,7 @@ export default {
                     break;
 
                 default:
-                    if (this.integerOnly && !(event.keyCode >= 48 && event.keyCode <= 57)) {
-                        event.preventDefault();
-                    }
-
-                    if (limitReached && event.keyCode != 46) {
+                    if ((this.integerOnly && !(event.keyCode >= 48 && event.keyCode <= 57)) || (this.tokens.join('').length >= this.length && event.keyCode != 46)) {
                         event.preventDefault();
                     }
 
