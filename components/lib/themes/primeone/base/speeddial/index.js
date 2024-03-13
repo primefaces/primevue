@@ -54,15 +54,15 @@ export default {
     overflow: hidden;
     width: 2.5rem;
     height: 2.5rem;
-    background: var(--p-speeddial-item-background);
-    color: var(--p-speeddial-item-text-color);
+    background: ${dt('speeddial.item.background')};
+    color: ${dt('speeddial.item.color')};
     outline-color: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-speeddial-action:hover {
-    background: var(--p-speeddial-item-background-hover);
-    color: var(--p-speeddial-item-text-color-hover);
+    background: ${dt('speeddial.item.hover.background')};
+    color: ${dt('speeddial.item.hover.color')};
 }
 
 .p-speeddial-circle .p-speeddial-item,
@@ -78,7 +78,7 @@ export default {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background-color: var(--p-mask-background);
+    background-color: ${dt('mask.background')};
     border-radius: 6px;
     transition: opacity 150ms;
 }

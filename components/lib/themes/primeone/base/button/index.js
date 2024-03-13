@@ -8,9 +8,9 @@ export default {
     justify-content: center;
     overflow: hidden;
     position: relative;
-    color: var(--p-button-primary-text-color);
-    background: var(--p-button-primary-background);
-    border: 1px solid var(--p-button-primary-border-color);
+    color: ${dt('button.primary.color')};
+    background: ${dt('button.primary.background')};
+    border: 1px solid ${dt('button.primary.border.color')};
     padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -104,19 +104,19 @@ export default {
 }
 
 .p-button:not(:disabled):hover {
-    background: var(--p-button-primary-background-hover);
-    border: 1px solid var(--p-button-primary-border-color-hover);
-    color: var(--p-button-primary-text-color-hover);
+    background: ${dt('button.primary.hover.background')};
+    border: 1px solid ${dt('button.primary.hover.border.color')};
+    color: ${dt('button.primary.hover.color')};
 }
 
 .p-button:not(:disabled):active {
-    background: var(--p-button-primary-background-active);
-    border: 1px solid var(--p-button-primary-border-color-active);
-    color: var(--p-button-primary-text-color-active);
+    background: ${dt('button.primary.active.background')};
+    border: 1px solid ${dt('button.primary.active.border.color')};
+    color: ${dt('button.primary.active.color')};
 }
 
 .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} var(--p-button-primary-background);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('button.primary.background')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
@@ -125,8 +125,8 @@ export default {
     min-width: 1rem;
     height: 1rem;
     line-height: 1rem;
-    background: var(--p-button-primary-text-color);
-    color: var(--p-button-primary-background);
+    background: ${dt('button.primary.color')};
+    color: ${dt('button.primary.background')};
 }
 
 .p-button-raised {
@@ -139,467 +139,467 @@ export default {
 
 /* Default Severities */
 .p-button-secondary {
-    background: var(--p-button-secondary-background);
-    border: 1px solid var(--p-button-secondary-border-color);
-    color: var(--p-button-secondary-text-color);
+    background: ${dt('button.secondary.background')};
+    border: 1px solid ${dt('button.secondary.border.color')};
+    color: ${dt('button.secondary.color')};
 }
 
 .p-button-secondary:not(:disabled):hover {
-    background: var(--p-button-secondary-background-hover);
-    border: 1px solid var(--p-button-secondary-border-color-hover);
-    color: var(--p-button-secondary-text-color-hover);
+    background: ${dt('button.secondary.hover.background')};
+    border: 1px solid ${dt('button.secondary.hover.border.color')};
+    color: ${dt('button.secondary.hover.color')};
 }
 
 .p-button-secondary:not(:disabled):active {
-    background: var(--p-button-secondary-background-active);
-    border: 1px solid var(--p-button-secondary-border-color-active);
-    color: var(--p-button-secondary-text-color-active);
+    background: ${dt('button.secondary.active.background')};
+    border: 1px solid ${dt('button.secondary.active.border.color')};
+    color: ${dt('button.secondary.active.color')};
 }
 
 .p-button-success {
-    background: var(--p-button-success-background);
-    border: 1px solid var(--p-button-success-border-color);
-    color: var(--p-button-success-text-color);
+    background: ${dt('button.success.background')};
+    border: 1px solid ${dt('button.success.border.color')};
+    color: ${dt('button.success.color')};
 }
 
 .p-button-success:not(:disabled):hover {
-    background: var(--p-button-success-background-hover);
-    border: 1px solid var(--p-button-success-border-color-hover);
-    color: var(--p-button-success-text-color-hover);
+    background: ${dt('button.success.hover.background')};
+    border: 1px solid ${dt('button.success.hover.border.color')};
+    color: ${dt('button.success.hover.color')};
 }
 
 .p-button-success:not(:disabled):active {
-    background: var(--p-button-success-background-active);
-    border: 1px solid var(--p-button-success-border-color-active);
-    color: var(--p-button-success-text-color-active);
+    background: ${dt('button.success.active.background')};
+    border: 1px solid ${dt('button.success.active.border.color')};
+    color: ${dt('button.success.active.color')};
 }
 
 .p-button-success:focus-visible {
-    outline-color: var(--p-button-success-background);
+    outline-color: ${dt('button.success.background')};
 }
 
 .p-button-info {
-    background: var(--p-button-info-background);
-    border: 1px solid var(--p-button-info-border-color);
-    color: var(--p-button-info-text-color);
+    background: ${dt('button.info.background')};
+    border: 1px solid ${dt('button.info.border.color')};
+    color: ${dt('button.info.color')};
 }
 
 .p-button-info:not(:disabled):hover {
-    background: var(--p-button-info-background-hover);
-    border: 1px solid var(--p-button-info-border-color-hover);
-    color: var(--p-button-info-text-color-hover);
+    background: ${dt('button.info.hover.background')};
+    border: 1px solid ${dt('button.info.hover.border.color')};
+    color: ${dt('button.info.hover.color')};
 }
 
 .p-button-info:not(:disabled):active {
-    background: var(--p-button-info-background-active);
-    border: 1px solid var(--p-button-info-border-color-active);
-    color: var(--p-button-info-text-color-active);
+    background: ${dt('button.info.active.background')};
+    border: 1px solid ${dt('button.info.active.border.color')};
+    color: ${dt('button.info.active.color')};
 }
 
 .p-button-info:focus-visible {
-    outline-color: var(--p-button-info-background);
+    outline-color: ${dt('button.info.background')};
 }
 
 .p-button-warning {
-    background: var(--p-button-warn-background);
-    border: 1px solid var(--p-button-warn-border-color);
-    color: var(--p-button-warn-text-color);
+    background: ${dt('button.warn.background')};
+    border: 1px solid ${dt('button.warn.border.color')};
+    color: ${dt('button.warn.color')};
 }
 
 .p-button-warning:not(:disabled):hover {
-    background: var(--p-button-warn-background-hover);
-    border: 1px solid var(--p-button-warn-border-color-hover);
-    color: var(--p-button-warn-text-color-hover);
+    background: ${dt('button.warn.hover.background')};
+    border: 1px solid ${dt('button.warn.hover.border.color')};
+    color: ${dt('button.warn.hover.color')};
 }
 
 .p-button-warning:not(:disabled):active {
-    background: var(--p-button-warn-background-active);
-    border: 1px solid var(--p-button-warn-border-color-active);
-    color: var(--p-button-warn-text-color-active);
+    background: ${dt('button.warn.active.background')};
+    border: 1px solid ${dt('button.warn.active.border.color')};
+    color: ${dt('button.warn.active.color')};
 }
 
 .p-button-warning:focus-visible {
-    outline-color: var(--p-button-warn-background);
+    background: ${dt('button.warn.background')};
 }
 
 .p-button-help {
-    background: var(--p-button-help-background);
-    border: 1px solid var(--p-button-help-border-color);
-    color: var(--p-button-help-text-color);
+    background: ${dt('button.help.background')};
+    border: 1px solid ${dt('button.help.border.color')};
+    color: ${dt('button.help.color')};
 }
 
 .p-button-help:not(:disabled):hover {
-    background: var(--p-button-help-background-hover);
-    border: 1px solid var(--p-button-help-border-color-hover);
-    color: var(--p-button-help-text-color-hover);
+    background: ${dt('button.help.hover.background')};
+    border: 1px solid ${dt('button.help.hover.border.color')};
+    color: ${dt('button.help.hover.color')};
 }
 
 .p-button-help:not(:disabled):active {
-    background: var(--p-button-help-background-active);
-    border: 1px solid var(--p-button-help-border-color-active);
-    color: var(--p-button-help-text-color-active);
+    background: ${dt('button.help.active.background')};
+    border: 1px solid ${dt('button.help.active.border.color')};
+    color: ${dt('button.help.active.color')};
 }
 
 .p-button-help:focus-visible {
-    outline-color: var(--p-button-help-background);
+    outline-color: ${dt('button.help.background')};
 }
 
 .p-button-danger {
-    background: var(--p-button-danger-background);
-    border: 1px solid var(--p-button-danger-border-color);
-    color: var(--p-button-danger-text-color);
+    background: ${dt('button.danger.background')};
+    border: 1px solid ${dt('button.danger.border.color')};
+    color: ${dt('button.danger.color')};
 }
 
 .p-button-danger:not(:disabled):hover {
-    background: var(--p-button-danger-background-hover);
-    border: 1px solid var(--p-button-danger-border-color-hover);
-    color: var(--p-button-danger-text-color-hover);
+    background: ${dt('button.danger.hover.background')};
+    border: 1px solid ${dt('button.danger.hover.border.color')};
+    color: ${dt('button.danger.hover.color')};
 }
 
 .p-button-danger:not(:disabled):active {
-    background: var(--p-button-danger-background-active);
-    border: 1px solid var(--p-button-danger-border-color-active);
-    color: var(--p-button-danger-text-color-active);
+    background: ${dt('button.danger.active.background')};
+    border: 1px solid ${dt('button.danger.active.border.color')};
+    color: ${dt('button.danger.active.color')};
 }
 
 .p-button-danger:focus-visible {
-    outline-color: var(--p-button-danger-background);
+    background: ${dt('button.danger.background')};
 }
 
 .p-button-contrast {
-    background: var(--p-button-contrast-background);
-    border: 1px solid var(--p-button-contrast-border-color);
-    color: var(--p-button-contrast-text-color);
+    background: ${dt('button.contrast.background')};
+    border: 1px solid ${dt('button.contrast.border.color')};
+    color: ${dt('button.contrast.color')};
 }
 
 .p-button-contrast:not(:disabled):hover {
-    background: var(--p-button-contrast-background-hover);
-    border: 1px solid var(--p-button-contrast-border-color-hover);
-    color: var(--p-button-contrast-text-color-hover);
+    background: ${dt('button.contrast.hover.background')};
+    border: 1px solid ${dt('button.contrast.hover.border.color')};
+    color: ${dt('button.contrast.hover.color')};
 }
 
 .p-button-contrast:not(:disabled):active {
-    background: var(--p-button-contrast-background-active);
-    border: 1px solid var(--p-button-contrast-border-color-active);
-    color: var(--p-button-contrast-text-color-active);
+    background: ${dt('button.contrast.active.background')};
+    border: 1px solid ${dt('button.contrast.active.border.color')};
+    color: ${dt('button.contrast.active.color')};
 }
 
 .p-button-contrast:focus-visible {
-    outline-color: var(--p-button-contrast-background);
+    outline-color: ${dt('button.contrast.background')};
 }
 
 
 /* Outlined Buttons */
 .p-button-outlined {
     background: transparent;
-    border-color: var(--p-button-outlined-primary-border-color);
-    color: var(--p-button-outlined-primary-text-color);
+    border-color: ${dt('button.outlined.primary.border.color')};
+    color: ${dt('button.outlined.primary.color')};
 }
 
 .p-button-outlined:not(:disabled):hover {
-    background: var(--p-button-outlined-primary-background-hover);
-    border-color: var(--p-button-outlined-primary-border-color);
-    color: var(--p-button-outlined-primary-text-color);
+    background: ${dt('button.outlined.primary.hover.background')};
+    border-color: ${dt('button.outlined.primary.border.color')};
+    color: ${dt('button.outlined.primary.color')};
 }
 
 .p-button-outlined:not(:disabled):active {
-    background: var(--p-button-outlined-primary-background-active);
-    border-color: var(--p-button-outlined-primary-border-color);
-    color: var(--p-button-outlined-primary-text-color);
+    background: ${dt('button.outlined.primary.active.background')};
+    border-color: ${dt('button.outlined.primary.border.color')};
+    color: ${dt('button.outlined.primary.color')};
 }
 
 .p-button-outlined.p-button-secondary {
-    border-color: var(--p-button-outlined-secondary-border-color);
-    color: var(--p-button-outlined-secondary-text-color);
+    border-color: ${dt('button.outlined.secondary.border.color')};
+    color: ${dt('button.outlined.secondary.color')};
 }
 
 .p-button-outlined.p-button-secondary:not(:disabled):hover {
-    background: var(--p-button-outlined-secondary-background-hover);
-    border-color: var(--p-button-outlined-secondary-border-color);
-    color: var(--p-button-outlined-secondary-text-color);
+    background: ${dt('button.outlined.secondary.hover.background')};
+    border-color: ${dt('button.outlined.secondary.border.color')};
+    color: ${dt('button.outlined.secondary.color')};
 }
 
 .p-button-outlined.p-button-secondary:not(:disabled):active {
-    background: var(--p-button-outlined-secondary-background-active);
-    border-color: var(--p-button-outlined-secondary-border-color);
-    color: var(--p-button-outlined-secondary-text-color);
+    background: ${dt('button.outlined.secondary.active.background')};
+    border-color: ${dt('button.outlined.secondary.border.color')};
+    color: ${dt('button.outlined.secondary.color')};
 }
 
 .p-button-outlined.p-button-success {
-    border-color: var(--p-button-outlined-success-border-color);
-    color: var(--p-button-outlined-success-text-color);
+    border-color: ${dt('button.outlined.success.border.color')};
+    color: ${dt('button.outlined.success.color')};
 }
 
 .p-button-outlined.p-button-success:not(:disabled):hover {
-    background: var(--p-button-outlined-success-background-hover);
-    border-color: var(--p-button-outlined-success-border-color);
-    color: var(--p-button-outlined-success-text-color);
+    background: ${dt('button.outlined.success.hover.background')};
+    border-color: ${dt('button.outlined.success.border.color')};
+    color: ${dt('button.outlined.success.color')};
 }
 
 .p-button-outlined.p-button-success:not(:disabled):active {
-    background: var(--p-button-outlined-success-background-active);
-    border-color: var(--p-button-outlined-success-border-color);
-    color: var(--p-button-outlined-success-text-color);
+    background: ${dt('button.outlined.success.active.background')};
+    border-color: ${dt('button.outlined.success.border.color')};
+    color: ${dt('button.outlined.success.color')};
 }
 
 .p-button-outlined.p-button-info {
-    border-color: var(--p-button-outlined-info-border-color);
-    color: var(--p-button-outlined-info-text-color);
+    border-color: ${dt('button.outlined.info.border.color')};
+    color: ${dt('button.outlined.info.color')};
 }
 
 .p-button-outlined.p-button-info:not(:disabled):hover {
-    background: var(--p-button-outlined-info-background-hover);
-    border-color: var(--p-button-outlined-info-border-color);
-    color: var(--p-button-outlined-info-text-color);
+    background: ${dt('button.outlined.info.hover.background')};
+    border-color: ${dt('button.outlined.info.border.color')};
+    color: ${dt('button.outlined.info.color')};
 }
 
 .p-button-outlined.p-button-info:not(:disabled):active {
-    background: var(--p-button-outlined-info-background-active);
-    border-color: var(--p-button-outlined-info-border-color);
-    color: var(--p-button-outlined-info-text-color);
+    background: ${dt('button.outlined.info.active.background')};
+    border-color: ${dt('button.outlined.info.border.color')};
+    color: ${dt('button.outlined.info.color')};
 }
 
 .p-button-outlined.p-button-warning {
-    border-color: var(--p-button-outlined-warn-border-color);
-    color: var(--p-button-outlined-warn-text-color);
+    border-color: ${dt('button.outlined.warn.border.color')};
+    color: ${dt('button.outlined.warn.color')};
 }
 
 .p-button-outlined.p-button-warning:not(:disabled):hover {
-    background: var(--p-button-outlined-warn-background-hover);
-    border-color: var(--p-button-outlined-warn-border-color);
-    color: var(--p-button-outlined-warn-text-color);
+    background: ${dt('button.outlined.warn.hover.background')};
+    border-color: ${dt('button.outlined.warn.border.color')};
+    color: ${dt('button.outlined.warn.color')};
 }
 
 .p-button-outlined.p-button-warning:not(:disabled):active {
-    background: var(--p-button-outlined-warn-background-active);
-    border-color: var(--p-button-outlined-warn-border-color);
-    color: var(--p-button-outlined-warn-text-color);
+    background: ${dt('button.outlined.warn.active.background')};
+    border-color: ${dt('button.outlined.warn.border.color')};
+    color: ${dt('button.outlined.warn.color')};
 }
 
 .p-button-outlined.p-button-help {
-    border-color: var(--p-button-outlined-help-border-color);
-    color: var(--p-button-outlined-help-text-color);
+    border-color: ${dt('button.outlined.help.border.color')};
+    color: ${dt('button.outlined.help.color')};
 }
 
 .p-button-outlined.p-button-help:not(:disabled):hover {
-    background: var(--p-button-outlined-help-background-hover);
-    border-color: var(--p-button-outlined-help-border-color);
-    color: var(--p-button-outlined-help-text-color);
+    background: ${dt('button.outlined.help.hover.background')};
+    border-color: ${dt('button.outlined.help.border.color')};
+    color: ${dt('button.outlined.help.color')};
 }
 
 .p-button-outlined.p-button-help:not(:disabled):active {
-    background: var(--p-button-outlined-help-background-active);
-    border-color: var(--p-button-outlined-help-border-color);
-    color: var(--p-button-outlined-help-text-color);
+    background: ${dt('button.outlined.help.active.background')};
+    border-color: ${dt('button.outlined.help.border.color')};
+    color: ${dt('button.outlined.help.color')};
 }
 
 .p-button-outlined.p-button-danger {
-    border-color: var(--p-button-outlined-danger-border-color);
-    color: var(--p-button-outlined-danger-text-color);
+    border-color: ${dt('button.outlined.danger.border.color')};
+    color: ${dt('button.outlined.danger.color')};
 }
 
 .p-button-outlined.p-button-danger:not(:disabled):hover {
-    background: var(--p-button-outlined-danger-background-hover);
-    border-color: var(--p-button-outlined-danger-border-color);
-    color: var(--p-button-outlined-danger-text-color);
+    background: ${dt('button.outlined.danger.hover.background')};
+    border-color: ${dt('button.outlined.danger.border.color')};
+    color: ${dt('button.outlined.danger.color')};
 }
 
 .p-button-outlined.p-button-danger:not(:disabled):active {
-    background: var(--p-button-outlined-danger-background-active);
-    border-color: var(--p-button-outlined-danger-border-color);
-    color: var(--p-button-outlined-danger-text-color);
+    background: ${dt('button.outlined.danger.active.background')};
+    border-color: ${dt('button.outlined.danger.border.color')};
+    color: ${dt('button.outlined.danger.color')};
 }
 
 .p-button-outlined.p-button-contrast {
-    border-color: var(--p-button-outlined-contrast-border-color);
-    color: var(--p-button-outlined-contrast-text-color);
+    border-color: ${dt('button.outlined.contrast.border.color')};
+    color: ${dt('button.outlined.contrast.color')};
 }
 
 .p-button-outlined.p-button-contrast:not(:disabled):hover {
-    background: var(--p-button-outlined-contrast-background-hover);
-    border-color: var(--p-button-outlined-contrast-border-color);
-    color: var(--p-button-outlined-contrast-text-color);
+    background: ${dt('button.outlined.contrast.hover.background')};
+    border-color: ${dt('button.outlined.contrast.border.color')};
+    color: ${dt('button.outlined.contrast.color')};
 }
 
 .p-button-outlined.p-button-contrast:not(:disabled):active {
-    background: var(--p-button-outlined-contrast-background-active);
-    border-color: var(--p-button-outlined-contrast-border-color);
-    color: var(--p-button-outlined-contrast-text-color);
+    background: ${dt('button.outlined.contrast.active.background')};
+    border-color: ${dt('button.outlined.contrast.border.color')};
+    color: ${dt('button.outlined.contrast.color')};
 }
 
 .p-button-outlined.p-button-plain {
-    border-color: var(--p-button-outlined-plain-border-color);
-    color: var(--p-button-outlined-plain-text-color);
+    border-color: ${dt('button.outlined.plain.border.color')};
+    color: ${dt('button.outlined.plain.color')};
 }
 
 .p-button-outlined.p-button-plain:not(:disabled):hover {
-    background: var(--p-button-outlined-plain-background-hover);
-    border-color: var(--p-button-outlined-plain-border-color);
-    color: var(--p-button-outlined-plain-text-color);
+    background: ${dt('button.outlined.plain.hover.background')};
+    border-color: ${dt('button.outlined.plain.border.color')};
+    color: ${dt('button.outlined.plain.color')};
 }
 
 .p-button-outlined.p-button-plain:not(:disabled):active {
-    background: var(--p-button-outlined-plain-background-active);
-    border-color: var(--p-button-outlined-plain-border-color);
-    color: var(--p-button-outlined-plain-text-color);
+    background: ${dt('button.outlined.plain.active.background')};
+    border-color: ${dt('button.outlined.plain.border.color')};
+    color: ${dt('button.outlined.plain.color')};
 }
 
 /* Text Button */
 .p-button-text {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-primary-text-color);
+    color: ${dt('button.text.primary.color')};
 }
 
 .p-button-text:not(:disabled):hover {
-    background: var(--p-button-text-primary-background-hover);
+    background: ${dt('button.text.primary.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-primary-text-color);
+    color: ${dt('button.text.primary.color')};
 }
 
 .p-button-text:not(:disabled):active {
-    background: var(--p-button-text-primary-background-active);
+    background: ${dt('button.text.primary.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-primary-text-color);
+    color: ${dt('button.text.primary.color')};
 }
 
 .p-button-text.p-button-secondary {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-secondary-text-color);
+    color: ${dt('button.text.secondary.color')};
 }
 
 .p-button-text.p-button-secondary:not(:disabled):hover {
-    background: var(--p-button-text-secondary-background-hover);
+    background: ${dt('button.text.secondary.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-secondary-text-color);
+    color: ${dt('button.text.secondary.color')};
 }
 
 .p-button-text.p-button-secondary:not(:disabled):active {
-    background: var(--p-button-text-secondary-background-active);
+    background: ${dt('button.text.secondary.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-secondary-text-color);
+    color: ${dt('button.text.secondary.color')};
 }
 
 .p-button-text.p-button-success {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-success-text-color);
+    color: ${dt('button.text.success.color')};
 }
 
 .p-button-text.p-button-success:not(:disabled):hover {
-    background: var(--p-button-text-success-background-hover);
+    background: ${dt('button.text.success.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-success-text-color);
+    color: ${dt('button.text.success.color')};
 }
 
 .p-button-text.p-button-success:not(:disabled):active {
-    background: var(--p-button-text-success-background-active);
+    background: ${dt('button.text.success.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-success-text-color);
+    color: ${dt('button.text.success.color')};
 }
 
 .p-button-text.p-button-info {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-info-text-color);
+    color: ${dt('button.text.info.color')};
 }
 
 .p-button-text.p-button-info:not(:disabled):hover {
-    background: var(--p-button-text-info-background-hover);
+    background: ${dt('button.text.info.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-info-text-color);
+    color: ${dt('button.text.info.color')};
 }
 
 .p-button-text.p-button-info:not(:disabled):active {
-    background: var(--p-button-text-info-background-active);
+    background: ${dt('button.text.info.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-info-text-color);
+    color: ${dt('button.text.info.color')};
 }
 
 .p-button-text.p-button-warning {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-warn-text-color);
+    color: ${dt('button.text.warn.color')};
 }
 
 .p-button-text.p-button-warning:not(:disabled):hover {
-    background: var(--p-button-text-warn-background-hover);
+    background: ${dt('button.text.warn.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-warn-text-color);
+    color: ${dt('button.text.warn.color')};
 }
 
 .p-button-text.p-button-warning:not(:disabled):active {
-    background: var(--p-button-text-warn-background-active);
+    background: ${dt('button.text.warn.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-warn-text-color);
+    color: ${dt('button.text.warn.color')};
 }
 
 .p-button-text.p-button-help {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-help-text-color);
+    color: ${dt('button.text.help.color')};
 }
 
 .p-button-text.p-button-help:not(:disabled):hover {
-    background: var(--p-button-text-help-background-hover);
+    background: ${dt('button.text.help.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-help-text-color);
+    color: ${dt('button.text.help.color')};
 }
 
 .p-button-text.p-button-help:not(:disabled):active {
-    background: var(--p-button-text-help-background-active);
+    background: ${dt('button.text.help.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-help-text-color);
+    color: ${dt('button.text.help.color')};
 }
 
 .p-button-text.p-button-danger {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-danger-text-color);
+    color: ${dt('button.text.danger.color')};
 }
 
 .p-button-text.p-button-danger:not(:disabled):hover {
-    background: var(--p-button-text-danger-background-hover);
+    background: ${dt('button.text.danger.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-danger-text-color);
+    color: ${dt('button.text.danger.color')};
 }
 
 .p-button-text.p-button-danger:not(:disabled):active {
-    background: var(--p-button-text-danger-background-active);
+    background: ${dt('button.text.danger.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-danger-text-color);
+    color: ${dt('button.text.danger.color')};
 }
 
 .p-button-text.p-button-plain {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-text-plain-text-color);
+    color: ${dt('button.text.plain.color')};
 }
 
 .p-button-text.p-button-plain:not(:disabled):hover {
-    background: var(--p-button-text-plain-background-hover);
+    background: ${dt('button.text.plain.hover.background')};
     border-color: transparent;
-    color: var(--p-button-text-plain-text-color);
+    color: ${dt('button.text.plain.color')};
 }
 
 .p-button-text.p-button-plain:not(:disabled):active {
-    background: var(--p-button-text-plain-background-active);
+    background: ${dt('button.text.plain.active.background')};
     border-color: transparent;
-    color: var(--p-button-text-plain-text-color);
+    color: ${dt('button.text.plain.color')};
 }
 
 /* Link Button */
 .p-button-link {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-link-text-color);
+    color: ${dt('button.link.color')};
 }
 
 .p-button-link:not(:disabled):hover {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-link-text-color-hover);
+    color: ${dt('button.link.hover.color')};
 }
 
 .p-button-link:not(:disabled):hover .p-button-label {
@@ -609,7 +609,7 @@ export default {
 .p-button-link:not(:disabled):active {
     background: transparent;
     border-color: transparent;
-    color: var(--p-button-link-text-color-active);
+    color: ${dt('button.link.active.color')};
 }
 
 .p-buttonset .p-button {

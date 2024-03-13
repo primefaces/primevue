@@ -3,11 +3,18 @@ export default {
         light: {
             item: {
                 background: '{surface.100}',
-                backgroundHover: '{surface.200}',
-                textColor: '{surface.600}',
-                textColorHover: '{surface.700}'
+                hoverBackground: '{surface.200}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}'
             }
         },
-        dark: {}
+        dark: {
+            item: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}'
+            }
+        }
     }
 };
