@@ -188,7 +188,7 @@ export default {
             if (paste.length) {
                 let pastedCode = paste.substring(0, this.length + 1);
 
-                if (!this.isIntegerOnly || !isNaN(pastedCode)) {
+                if (!this.integerOnly || !isNaN(pastedCode)) {
                     this.tokens = pastedCode.split('');
                     this.updateModel(event);
                 }
@@ -199,7 +199,7 @@ export default {
     },
     computed: {
         inputMode() {
-            return this.integerOnly ? 'number' : 'text';
+            return this.integerOnly ? 'numeric' : 'text';
         },
         inputType() {
             return this.mask ? 'password' : 'text';

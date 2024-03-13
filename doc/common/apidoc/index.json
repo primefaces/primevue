@@ -20407,7 +20407,7 @@
                             "name": "tableStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "object",
+                            "type": "string | object",
                             "default": "",
                             "description": "Inline style of the table element."
                         },
@@ -29376,7 +29376,7 @@
                             "type": "string",
                             "default": "",
                             "description": "Custom indicator icon.",
-                            "deprecated": "since v3.27.0. Use 'indicator' slot."
+                            "deprecated": "since v3.27.0. Use 'indicatoricon' slot."
                         },
                         {
                             "name": "zoomInDisabled",
@@ -29427,7 +29427,7 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "indicator",
+                            "name": "indicatoricon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
