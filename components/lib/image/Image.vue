@@ -9,7 +9,7 @@
             </slot>
         </button>
         <Portal>
-            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="cx('mask')" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown" v-bind="ptm('mask')">
+            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="cx('mask')" :aria-modal="maskVisible" @click="onMaskClick" v-bind="ptm('mask')">
                 <div :class="cx('toolbar')" v-bind="ptm('toolbar')">
                     <button :class="cx('rotateRightButton')" @click="rotateRight" type="button" :aria-label="rightAriaLabel" v-bind="ptm('rotateRightButton')" data-pc-group-section="action">
                         <slot name="refresh">
@@ -71,6 +71,7 @@ export default {
     inheritAttrs: false,
     emits: ['show', 'hide', 'error'],
     mask: null,
+    documentKeydownListener: null,
     data() {
         return {
             maskVisible: false,
@@ -90,6 +91,18 @@ export default {
         },
         toolbarRef(el) {
             this.toolbarRef = el;
+        },
+        bindDocumentKeyDownListener() {
+            if (!this.documentKeydownListener) {
+                this.documentKeydownListener = this.onMaskKeydown;
+                document.addEventListener('keydown', this.documentKeydownListener);
+            }
+        },
+        unbindDocumentKeyDownListener() {
+            if (this.documentKeydownListener) {
+                document.removeEventListener('keydown', this.documentKeydownListener);
+                this.documentKeydownListener = null;
+            }
         },
         onImageClick() {
             if (this.preview) {
@@ -152,6 +165,7 @@ export default {
             ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
         },
         onEnter() {
+            this.bindDocumentKeyDownListener();
             this.focus();
             this.$emit('show');
         },
@@ -159,6 +173,7 @@ export default {
             !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onLeave() {
+            this.unbindDocumentKeyDownListener();
             DomHandler.unblockBodyScroll();
             this.$emit('hide');
         },
