@@ -1,5 +1,0 @@
-{
-    "main": "./basetheme.cjs.js",
-    "module": "./basetheme.esm.js",
-    "unpkg": "./basetheme.min.js"
-}

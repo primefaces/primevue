@@ -4,7 +4,6 @@ import path from 'path';
 
 const STYLE_ALIAS = {
     'primevue/base/style': path.resolve(__dirname, './components/lib/base/style/BaseStyle.js'),
-    'primevue/basetheme/style': path.resolve(__dirname, './components/lib/basetheme/style/BaseThemeStyle.js'),
     'primevue/basecomponent/style': path.resolve(__dirname, './components/lib/basecomponent/style/BaseComponentStyle.js'),
     'primevue/accordion/style': path.resolve(__dirname, './components/lib/accordion/style/AccordionStyle.js'),
     'primevue/accordiontab/style': path.resolve(__dirname, './components/lib/accordiontab/style/AccordionTabStyle.js'),
@@ -272,7 +271,6 @@ export default {
             ...STYLE_ALIAS,
             ...THEME_ALIAS,
             'primevue/base': path.resolve(__dirname, './components/lib/base/Base.js'),
-            'primevue/basetheme': path.resolve(__dirname, './components/lib/basetheme/BaseTheme.js'),
             'primevue/basedirective': path.resolve(__dirname, './components/lib/basedirective/BaseDirective.js'),
             'primevue/ripple': path.resolve(__dirname, './components/lib/ripple/Ripple.js'),
             'primevue/tooltip': path.resolve(__dirname, './components/lib/tooltip/Tooltip.js'),

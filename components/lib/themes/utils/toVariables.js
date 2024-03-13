@@ -1,13 +1,9 @@
-import SharedUtils from './sharedUtils';
+import Theme, { SharedUtils } from 'primevue/themes';
 
-const VARIABLE = {
-    PREFIX: '',
-    SELECTOR: ':root',
-    EXCLUDED_KEY_REGEX: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states)$/gi
-};
+const VARIABLE = Theme.defaults.variable;
 
 export default function (theme, options = {}) {
-    const { prefix = VARIABLE.PREFIX, selector = VARIABLE.SELECTOR, excludedKeyRegex = VARIABLE.EXCLUDED_KEY_REGEX } = options;
+    const { prefix = VARIABLE.prefix, selector = VARIABLE.selector, excludedKeyRegex = VARIABLE.excludedKeyRegex } = options;
 
     const _toVariables = (_theme, _prefix = '') => {
         return Object.entries(_theme).reduce((acc, [key, value]) => {

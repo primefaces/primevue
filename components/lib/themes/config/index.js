@@ -1,67 +1,107 @@
-import { SharedUtils, ThemeService } from 'primevue/themes';
-
-const ServiceSymbol = Symbol();
+import { ThemeUtils } from 'primevue/themes';
 
 export default {
+    defaults: {
+        variable: {
+            prefix: '',
+            selector: ':root',
+            excludedKeyRegex: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states)$/gi
+        },
+        colorScheme: {
+            light: {
+                class: '',
+                rule: `:root{[CSS]}`,
+                default: false
+            },
+            dark: {
+                class: 'p-dark',
+                rule: `.p-dark{[CSS]}`,
+                default: false
+            }
+        },
+        layer: {
+            name: 'primevue'
+            //order: 'primevue' // @todo
+        }
+    },
     _pConfig: undefined,
-    _colorScheme: 'dark',
-    _initializeColorScheme: false,
+    _theme: undefined,
+    _initialized: false,
+    _currentColorScheme: 'light',
+    init() {
+        if (!this._initialized) {
+            this.applyColorScheme();
+        }
+
+        this._initialized = true;
+    },
+    get theme() {
+        return this._theme || this._pConfig?.theme;
+    },
+    get base() {
+        return this.theme?.base || {};
+    },
+    get preset() {
+        return this.theme?.preset || {};
+    },
+    get options() {
+        return this.theme?.options || {};
+    },
+    get extend() {
+        return this.theme?.extend || {};
+    },
     getPConfig() {
         return this._pConfig;
     },
     setPConfig(newValue) {
         this._pConfig = newValue;
-        ThemeService.emit(ServiceSymbol, this._pConfig);
     },
-    onPConfigChange(callback) {
-        ThemeService.on(ServiceSymbol, callback);
+    setTheme(newValue) {
+        this._theme = newValue;
     },
-    getColorScheme() {
-        return this._colorScheme;
+    getCurrentColorScheme() {
+        return this._currentColorScheme;
     },
-    setColorScheme(newValue) {
-        this._colorScheme = newValue;
+    setCurrentColorScheme(newValue) {
+        this._currentColorScheme = newValue;
     },
-    isColorSchemeInit() {
-        return this._initializeColorScheme;
-    },
-    setColorSchemeInit(newValue) {
-        this._initializeColorScheme = newValue;
+    applyColorScheme() {
+        const newColorScheme = ThemeUtils.applyColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
+
+        this.setCurrentColorScheme(newColorScheme);
+
+        return newColorScheme;
     },
     toggleColorScheme() {
-        this._colorScheme = this._colorScheme === 'dark' ? 'light' : 'dark';
-        const defaultDocument = SharedUtils.dom.isClient() ? window.document : undefined;
+        const newColorScheme = ThemeUtils.toggleColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
 
-        if (defaultDocument) {
-            //@todo
-            const { colorScheme } = this._pConfig?.theme?.options;
-            let options = {
-                light: {
-                    class: '',
-                    rule: `:root{[CSS]}`,
-                    default: false
-                },
-                dark: {
-                    class: 'p-dark',
-                    rule: `.p-dark{[CSS]}`,
-                    default: false
-                }
-            };
+        this.setCurrentColorScheme(newColorScheme);
 
-            if (colorScheme) {
-                if (SharedUtils.object.isObject(colorScheme)) {
-                    options.light = { ...options.light, ...colorScheme.light };
-                    options.dark = { ...options.dark, ...colorScheme.dark };
-                } else {
-                    options.light = { ...options.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
-                    options.dark = { ...options.dark, default: colorScheme === 'dark' };
-                }
-            }
+        return newColorScheme;
+    },
+    getCommonCSS(name = '', theme, params) {
+        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults });
+    },
+    getComponentCSS(name = '', theme, params) {
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults };
 
-            SharedUtils.dom.removeMultipleClasses(defaultDocument.documentElement, [options.dark.class, options.light.class]);
-            SharedUtils.dom.addClass(defaultDocument.documentElement, this._colorScheme === 'dark' ? options.dark.class : options.light.class);
-        }
+        return {
+            style: ThemeUtils.getBaseC(options),
+            variables: ThemeUtils.getPresetC(options)
+        };
+    },
+    getDirectiveCSS(name = '', theme, params) {
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults };
 
-        return this._colorMode;
+        return {
+            style: ThemeUtils.getBaseD(options),
+            variables: ThemeUtils.getPresetD(options)
+        };
+    },
+    getCommonStyleSheet(name = '', theme, params, props = {}) {
+        return ThemeUtils.getCommonStyleSheet(name, theme, params, props);
+    },
+    getStyleSheet(name, theme = {}, params, props = {}) {
+        return ThemeUtils.getStyleSheet(name, theme, params, props);
     }
 };
