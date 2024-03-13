@@ -1,6 +1,6 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
-const EXCLUDED_KEY_REGEX = /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states)$/gi;
+const VARIABLE = Theme.defaults.variable;
 
 export const $dt = (tokenPath) => {
     const config = Theme.getPConfig();
@@ -15,7 +15,7 @@ export const dt = (theme = {}, tokenPath) => {
         const token = SharedUtils.object.test(regex, tokenPath) ? tokenPath : `{${tokenPath}}`;
         const isStrictTransform = transform === 'strict'; // @todo - TRANSFORM: strict | lenient
 
-        return isStrictTransform ? SharedUtils.object.getComputedValue(theme?.preset, token, [EXCLUDED_KEY_REGEX]) : SharedUtils.object.getVariableValue(token, undefined, prefix, [EXCLUDED_KEY_REGEX]);
+        return isStrictTransform ? SharedUtils.object.getComputedValue(theme?.preset, token, [VARIABLE.excludedKeyRegex]) : SharedUtils.object.getVariableValue(token, undefined, prefix, [VARIABLE.excludedKeyRegex]);
     }
 
     return '';

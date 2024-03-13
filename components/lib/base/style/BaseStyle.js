@@ -1,4 +1,4 @@
-import BaseThemeStyle from 'primevue/basetheme/style';
+import Theme from 'primevue/themes';
 import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
@@ -40,17 +40,14 @@ export default {
     loadTheme(theme, options = {}) {
         return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: `${this.name}-style`, ...options }) : {};
     },
-    getCommonThemeCSS(preset, base, params, theme) {
-        return BaseThemeStyle.getCommon(this.name, preset, base, params, theme);
+    getCommonThemeCSS(theme, params) {
+        return Theme.getCommonCSS(this.name, theme, params);
     },
-    getPresetThemeCSS(presetCTheme, theme) {
-        return BaseThemeStyle.getPresetC(this.name, presetCTheme, theme);
+    getComponentThemeCSS(theme, params) {
+        return Theme.getComponentCSS(this.name, theme, params);
     },
-    getBaseThemeCSS(baseCTheme, params, theme) {
-        return BaseThemeStyle.getBaseC(this.name, baseCTheme, params, theme);
-    },
-    getColorSchemeOption(colorScheme) {
-        return BaseThemeStyle.getColorSchemeOption(colorScheme);
+    getDirectiveThemeCSS(theme, params) {
+        return Theme.getDirectiveCSS(this.name, theme, params);
     },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
@@ -65,10 +62,10 @@ export default {
         return '';
     },
     getCommonThemeStyleSheet(theme = {}, params, props = {}) {
-        return BaseThemeStyle.getCommonStyleSheet(this.name, theme, params, props);
+        return Theme.getCommonStyleSheet(this.name, theme, params, props);
     },
     getThemeStyleSheet(theme = {}, params, props = {}) {
-        return BaseThemeStyle.getStyleSheet(this.name, theme, params, props);
+        return Theme.getStyleSheet(this.name, theme, params, props);
     },
     extend(style) {
         return { ...this, css: undefined, ...style };

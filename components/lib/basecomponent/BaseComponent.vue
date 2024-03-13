@@ -1,7 +1,7 @@
 <script>
 import BaseStyle from 'primevue/base/style';
 import Theme from 'primevue/themes';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -36,37 +36,11 @@ export default {
                 }
             }
         },
-        $globalPresetTheme: {
+        $theme: {
             deep: true,
             immediate: true,
             handler(newValue) {
-                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(newValue, this.$globalBaseTheme, this.$themeParams, this.$globalTheme) || {};
-
-                BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions: this.$styleOptions });
-                BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions: this.$styleOptions });
-                BaseComponentStyle.loadGlobalTheme(global, this.$styleOptions);
-            }
-        },
-        $globalPresetCTheme: {
-            deep: true,
-            immediate: true,
-            handler(newValue) {
-                if (newValue) {
-                    const variables_css = this.$style?.getPresetThemeCSS?.(newValue, this.$globalTheme);
-
-                    this.$style?.loadTheme(`${variables_css}`, { name: `${this.$style.name}-variables`, useStyleOptions: this.$styleOptions });
-                }
-            }
-        },
-        $globalBaseCTheme: {
-            deep: true,
-            immediate: true,
-            handler(newValue) {
-                if (newValue) {
-                    const style_css = this.$style?.getBaseThemeCSS(newValue, this.$themeParams, this.$globalTheme);
-
-                    this.$style?.loadTheme(style_css, { useStyleOptions: this.$styleOptions });
-                }
+                this._loadThemeStyles(newValue);
             }
         }
     },
@@ -87,28 +61,8 @@ export default {
         this._hook('onCreated');
     },
     beforeMount() {
-        BaseStyle.loadStyle(this.$styleOptions);
-        this._loadGlobalStyles();
+        this._loadStyles();
         this._hook('onBeforeMount');
-
-        // apply colorScheme settings
-        const { colorScheme } = this.$globalThemeOptions || {};
-
-        if (colorScheme && !Theme.isColorSchemeInit()) {
-            const colorSchemeOption = BaseStyle.getColorSchemeOption(colorScheme);
-            const isClient = DomHandler.isClient();
-
-            const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
-            const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
-            const defaultDocument = isClient ? window.document : undefined;
-
-            Theme.setColorScheme(isDark ? 'dark' : 'light');
-            Theme.setColorSchemeInit(true);
-
-            if (isDark && defaultDocument) {
-                DomHandler.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);
-            }
-        }
     },
     mounted() {
         this._hook('onMounted');
@@ -138,6 +92,13 @@ export default {
         _mergeProps(fn, ...args) {
             return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
         },
+        _loadStyles() {
+            BaseStyle.loadStyle(this.$styleOptions);
+            this._loadGlobalStyles();
+
+            // apply theme settings
+            Theme.init();
+        },
         _loadGlobalStyles() {
             /*
              * @todo Add self custom css support;
@@ -152,6 +113,20 @@ export default {
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
             ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, this.$styleOptions);
+        },
+        _loadThemeStyles(theme) {
+            // common
+            const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(theme, this.$themeParams) || {};
+
+            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions: this.$styleOptions });
+            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions: this.$styleOptions });
+            BaseComponentStyle.loadGlobalTheme(global, this.$styleOptions);
+
+            // component
+            const { variables, style } = this.$style?.getComponentThemeCSS?.(theme, this.$themeParams) || {};
+
+            this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, useStyleOptions: this.$styleOptions });
+            this.$style?.loadTheme(style, { useStyleOptions: this.$styleOptions });
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -277,26 +252,8 @@ export default {
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
-        $globalTheme() {
+        $theme() {
             return this.$config?.theme;
-        },
-        $globalThemeOptions() {
-            return this.$globalTheme?.options;
-        },
-        $globalThemeExtend() {
-            return this.$globalTheme?.extend;
-        },
-        $globalBaseTheme() {
-            return ObjectUtils.getItemValue(this.$globalTheme?.base);
-        },
-        $globalBaseCTheme() {
-            return ObjectUtils.getItemValue(this.$globalBaseTheme?.components?.[this.$style.name], this.$themeParams);
-        },
-        $globalPresetTheme() {
-            return ObjectUtils.getItemValue(this.$globalTheme?.preset, { options: { ...this.$globalThemeOptions } });
-        },
-        $globalPresetCTheme() {
-            return ObjectUtils.getItemValue(this.$globalPresetTheme?.components?.[this.$style.name], this.$themeParams);
         },
         $style() {
             return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
@@ -331,12 +288,7 @@ export default {
         $themeParams() {
             return {
                 ...this.$params,
-                globalTheme: {
-                    base: { ...this.$globalBaseTheme },
-                    preset: { ...this.$globalPresetTheme },
-                    options: { ...this.$globalThemeOptions },
-                    extend: { ...this.$globalThemeExtend }
-                }
+                theme: this.$theme
             };
         },
         $_attrsPT() {
