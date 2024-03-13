@@ -57310,7 +57310,7 @@
                             "description": "Custom toggler icon template."
                         },
                         {
-                            "name": "nodeIcon",
+                            "name": "nodeicon",
                             "parameters": [
                                 {
                                     "name": "scope",
