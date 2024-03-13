@@ -22,7 +22,7 @@ export default {
 }
 
 .p-datatable .p-sortable-column .p-sortable-column-icon {
-    color: var(--p-datatable-sort-icon-color);
+    color: ${dt('datatable.sort.icon.color')};
     margin-left: 0.5rem;
     transition: color ${dt('transition.duration')};
 }
@@ -39,17 +39,17 @@ export default {
 }
 
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
-    background: var(--p-datatable-header-cell-background-hover);
-    color: var(--p-datatable-header-cell-text-color-hover);
+    background: ${dt('datatable.header.cell.hover.background')};
+    color: ${dt('datatable.header.cell.hover.color')};
 }
 
 .p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {
-    color: var(--p-datatable-sort-icon-color-hover);
+    color: ${dt('datatable.sort.icon.hover.color')};
 }
 
 .p-datatable .p-sortable-column.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    background: ${dt('highlight.background')};
+    color: ${dt('highlight.color')};
 }
 
 .p-datatable .p-sortable-column:focus-visible {
@@ -58,7 +58,7 @@ export default {
 }
 
 .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
-    color: var(--p-highlight-text-color);
+    color: ${dt('highlight.color')};
 }
 
 .p-datatable-hoverable-rows .p-selectable-row {
@@ -95,12 +95,12 @@ export default {
 
 .p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead {
-    background: var(--p-datatable-header-cell-background);
+    background: ${dt('datatable.header.cell.background')};
 }
 
 .p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot,
 .p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {
-    background: var(--p-datatable-footer-cell-background);
+    background: ${dt('datatable.footer.cell.background')};
 }
 
 .p-datatable-flex-scrollable {
@@ -161,7 +161,7 @@ export default {
     position: absolute;
     z-index: 10;
     display: none;
-    background: var(--p-datatable-resizer-color);
+    background: ${dt('datatable.resizer.color')};
 }
 
 .p-datatable .p-row-toggler,
@@ -175,7 +175,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-datatable-row-action-color);
+    color: ${dt('datatable.row.action.color')};
     border: 0 none;
     border-radius: 50%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -186,8 +186,8 @@ export default {
 .p-datatable .p-row-editor-init:enabled:hover,
 .p-datatable .p-row-editor-save:enabled:hover,
 .p-datatable .p-row-editor-cancel:enabled:hover {
-    color: var(--p-datatable-row-action-color-hover);
-    background: var(--p-datatable-row-action-background-hover);
+    color: ${dt('datatable.row.action.hover.color')};
+    background: ${dt('datatable.row.action.hover.background')};
 }
 
 .p-datatable .p-row-toggler:focus-visible,
@@ -206,7 +206,7 @@ export default {
 .p-datatable-tbody > tr.p-highlight .p-row-editor-init:hover,
 .p-datatable-tbody > tr.p-highlight .p-row-editor-save:hover,
 .p-datatable-tbody > tr.p-highlight .p-row-editor-cancel:hover {
-    background: var(--p-datatable-row-action-background-hover-highlight);
+    background: ${dt('datatable.row.action.highlight.hover.background')};
     color: inherit;
 }
 
@@ -251,7 +251,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-datatable-filter-menu-button-text-color);
+    color: ${dt('datatable.fiter.menu.button.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -260,20 +260,20 @@ export default {
 }
 
 .p-column-filter-menu-button:hover {
-    background: var(--p-datatable-filter-menu-button-background-hover);
-    color: var(--p-datatable-filter-menu-button-text-color-hover);
+    background: ${dt('datatable.fiter.menu.button.hover.background')};
+    color: ${dt('datatable.fiter.menu.button.hover.color')};
 }
 
 .p-column-filter-menu-button.p-column-filter-menu-button-open,
 .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
-    background: var(--p-datatable-filter-menu-button-background-open);
-    color: var(--p-datatable-filter-menu-button-text-color-open);
+    background: ${dt('datatable.fiter.menu.button.open.background')};
+    color: ${dt('datatable.fiter.menu.button.open.color')};
 }
 
 .p-column-filter-menu-button.p-column-filter-menu-button-active,
 .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
-    background: var(--p-datatable-filter-menu-button-background-active);
-    color: var(--p-datatable-filter-menu-button-text-color-active);
+    background: ${dt('datatable.fiter.menu.button.active.background')};
+    color: ${dt('datatable.fiter.menu.button.active.color')};
 }
 
 .p-column-filter-menu-button:focus-visible {
@@ -291,7 +291,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-datatable-filter-clear-button-text-color);
+    color: ${dt('datatable.fiter.clear.button.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -300,8 +300,8 @@ export default {
 }
 
 .p-column-filter-clear-button:hover {
-    background: var(--p-datatable-filter-clear-button-background-hover);
-    color: var(--p-datatable-filter-clear-button-text-color-hover);
+    background: ${dt('datatable.fiter.clear.button.hover.background')};
+    color: ${dt('datatable.fiter.clear.button.hover.color')};
 }
 
 .p-column-filter-clear-button:focus-visible {
@@ -326,7 +326,7 @@ export default {
 
 .p-column-filter-constraint {
     padding: 0;
-    border-bottom: 1px solid var(--p-datatable-filter-constraint-border-color);
+    border-bottom: 1px solid ${dt('datatable.fiter.contstraint.border.color')};
 }
 
 .p-column-filter-constraint:last-child {
@@ -346,9 +346,9 @@ export default {
 }
 
 .p-column-filter-overlay-menu {
-    background: var(--p-datatable-filter-overlay-background);
-    color: var(--p-datatable-filter-overlay-text-color);
-    border: 1px solid var(--p-datatable-filter-overlay-border-color);
+    background: ${dt('datatable.fiter.overlay.background')};
+    color: ${dt('datatable.fiter.overlay.color')};
+    border: 1px solid ${dt('datatable.fiter.overlay.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
@@ -409,18 +409,18 @@ export default {
 }
 
 .p-datatable-header {
-    background: var(--p-datatable-header-background);
-    color: var(--p-datatable-header-text-color);
-    border: 1px solid var(--p-datatable-header-border-color);
+    background: ${dt('datatable.header.background')};
+    color: ${dt('datatable.header.color')};
+    border: 1px solid ${dt('datatable.header.border.color')};
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
 }
 
 .p-datatable-footer {
-    background: var(--p-datatable-header-background);
-    color: var(--p-datatable-header-text-color);
-    border: 1px solid var(--p-datatable-header-border-color);
+    background: ${dt('datatable.footer.background')};
+    color: ${dt('datatable.footer.color')};
+    border: 1px solid ${dt('datatable.footer.border.color')};
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -429,44 +429,44 @@ export default {
 .p-datatable-thead > tr > th {
     text-align: left;
     padding: 0.75rem 1rem;
-    background: var(--p-datatable-header-cell-background);
-    border: 1px solid var(--p-datatable-header-cell-border-color);
+    background: ${dt('datatable.header.cell.background')};
+    border: 1px solid ${dt('datatable.header.cell.border.color')};
     border-width: 0 0 1px 0;
-    color: var(--p-datatable-header-cell-text-color);
+    color: ${dt('datatable.header.cell.color')};
     font-weight: 600;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-datatable-tbody > tr {
     outline-color: transparent;
-    background: var(--p-datatable-row-background);
-    color: var(--p-datatable-row-text-color);
+    background: ${dt('datatable.row.background')};
+    color: ${dt('datatable.row.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-datatable-tbody > tr > td {
     text-align: left;
-    border: 1px solid var(--p-datatable-body-cell-border-color);
+    border: 1px solid ${dt('datatable.body.cell.border.color')};
     border-width: 0 0 1px 0;
     padding: 0.75rem 1rem;
 }
 
 .p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
-    background: var(--p-datatable-row-background-hover);
-    color: var(--p-datatable-row-text-color-hover);
+    background: ${dt('datatable.row.hover.background')};
+    color: ${dt('datatable.row.hover.color')};
 }
 
 .p-datatable-tbody > tr.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    background: ${dt('highlight.background')};
+    color: ${dt('highlight.color')};
 }
 
 .p-datatable-tbody > tr:has(+ .p-highlight) > td {
-    border-bottom-color: var(--p-datatable-body-cell-border-color-selected);
+    border-bottom-color: ${dt('datatable.body.cell.selected.border.color')};
 }
 
 .p-datatable-tbody > tr.p-highlight > td {
-    border-bottom-color: var(--p-datatable-body-cell-border-color-selected);
+    border-bottom-color: ${dt('datatable.body.cell.selected.border.color')};
 }
 
 .p-datatable-tbody > tr:focus-visible {
@@ -482,19 +482,19 @@ export default {
 .p-datatable-tfoot > tr > td {
     text-align: left;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--p-datatable-footer-cell-border-color);
+    border: 1px solid ${dt('datatable.footer.cell.border.color')};
     border-width: 0 0 1px 0;
     font-weight: 600;
-    color: var(--p-datatable-footer-cell-text-color);
-    background: var(--p-datatable-footer-cell-background);
+    color: ${dt('datatable.footer.cell.color')};
+    background: ${dt('datatable.footer.cell.background')};
 }
 
 .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
-    box-shadow: inset 0 2px 0 0 var(--p-datatable-drop-point-color);
+    box-shadow: inset 0 2px 0 0 ${dt('datatable.drop.point.color')};
 }
 
 .p-datatable-tbody>tr.p-datatable-dragpoint-bottom > td {
-    box-shadow: inset 0 -2px 0 0 var(--p-datatable-drop-point-color);
+    box-shadow: inset 0 -2px 0 0 ${dt('datatable.drop.point.color')};
 }
 
 .p-datatable-loading-icon {
@@ -576,12 +576,12 @@ export default {
 }
 
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {
-    background: var(--p-datatable-row-background-striped);
+    background: ${dt('datatable.row.striped.background')});
 }
 
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    background: ${dt('highlight.background')});
+    color: ${dt('highlight.color')});
 }
 
 .p-datatable.p-datatable-sm .p-datatable-header {

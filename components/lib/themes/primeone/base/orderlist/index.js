@@ -14,13 +14,13 @@ export default {
 
 .p-orderlist-list-container {
     flex: 1 1 auto;
-    background: var(--p-orderlist-list-background);
-    border: 1px solid var(--p-orderlist-list-border-color);
+    background: ${dt('orderlist.list.background')};
+    border: 1px solid ${dt('orderlist.list.border.color')};
     border-radius: ${dt('rounded.base')};
 }
 
 .p-orderlist .p-orderlist-header {
-    color: var(--p-orderlist-header-text-color);
+    color: ${dt('orderlist.header.color')};
     border: 0 none;
     padding: 0.75rem 1rem 0.5rem 1rem;
     font-weight: 600;
@@ -45,8 +45,8 @@ export default {
     margin: 2px 0;
     border-radius: ${dt('rounded.base')};
     border: 0 none;
-    color: var(--p-orderlist-item-text-color);
-    background: var(--p-orderlist-item-background);
+    color: ${dt('orderlist.item.color')};
+    background: ${dt('orderlist.item.background')};
     outline-color: transparent;
     transition: transform ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
@@ -60,47 +60,47 @@ export default {
 }
 
 .p-orderlist-item:not(.p-highlight):hover {
-    color: var(--p-orderlist-item-text-color-focus);
-    background: var(--p-orderlist-item-background-focus);
+    color: ${dt('orderlist.item.focus.color')};
+    background: ${dt('orderlist.item.focus.background')};
 }
 
 .p-orderlist-item.p-focus {
-    color: var(--p-orderlist-item-text-color-focus);
-    background: var(--p-orderlist-item-background-focus);
+    color: ${dt('orderlist.item.focus.color')};
+    background: ${dt('orderlist.item.focus.background')};
 }
 
 .p-orderlist-item.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    color: ${dt('highlight.color')};
+    background: ${dt('highlight.background')};
 }
 
 .p-orderlist-item.p-highlight.p-focus {
-    background: var(--p-highlight-background-focus);
-    color: var(--p-highlight-text-color-focus);
+    color: ${dt('highlight.focus.color')};
+    background: ${dt('highlight.focus.background')};
 }
 
 .p-orderlist-controls .p-button {
-    background: var(--p-orderlist-control-background);
-    border: 1px solid var(--p-orderlist-control-border-color);
-    color: var(--p-order-listcontrol-text-color);
+    background: ${dt('orderlist.control.background')};
+    border: 1px solid ${dt('orderlist.control.border.color')};
+    color: ${dt('orderlist.control.color')};
     outline-color: transparent;
     transition: opacity ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
 }
 
 .p-orderlist-controls .p-button:not(:disabled):hover {
-    background: var(--p-orderlist-control-background-hover);
-    border: 1px solid var(--p-orderlist-control-border-color-hover);
-    color: var(--p-order-listcontrol-text-color-hover);
+    background: ${dt('orderlist.control.hover.background')};
+    border: 1px solid ${dt('orderlist.control.hover.border.color')};
+    color: ${dt('orderlist.control.hover.color')};
 }
 
 .p-orderlist-controls .p-button:not(:disabled):active {
-    background: var(--p-orderlist-control-background-active);
-    border: 1px solid var(--p-orderlist-control-border-color-active);
-    color: var(--p-order-listcontrol-text-color-active);
+    background: ${dt('orderlist.control.active.background')};
+    border: 1px solid ${dt('orderlist.control.active.border.color')};
+    color: ${dt('orderlist.control.hover.active')};
 }
 
 .p-orderlist-controls .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} var(--p-button-primary-background);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 `

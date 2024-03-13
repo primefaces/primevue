@@ -5,8 +5,8 @@ export default {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background: var(--p-paginator-background);
-    color: var(--p-paginator-text-color);
+    background: ${dt('paginator.background')};
+    color: ${dt('paginator.color')};
     border: 0 none;
     padding: 0.5rem 1rem;
     border-radius: ${dt('rounded.base')};
@@ -36,7 +36,7 @@ export default {
     position: relative;
     background: transparent;
     border: 0 none;
-    color: var(--p-paginator-navigator-color);
+    color: ${dt('paginator.navigator.color')};
     min-width: 2.5rem;
     height: 2.5rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -48,12 +48,12 @@ export default {
 .p-paginator-prev:not(.p-disabled):hover,
 .p-paginator-next:not(.p-disabled):hover,
 .p-paginator-last:not(.p-disabled):hover {
-    background: var(--p-paginator-navigator-background-hover);
-    color: var(--p-paginator-navigator-color-hover);
+    background: ${dt('paginator.navigator.hover.background')};
+    color: ${dt('paginator.navigator.hover.color')};
 }
 
 .p-paginator-current {
-    color: var(--p-paginator-current-page-report-text-color);
+    color: ${dt('paginator.current.page.report.color')};
 }
 
 .p-paginator-pages {
@@ -63,8 +63,8 @@ export default {
 }
 
 .p-paginator-page.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    background: ${dt('highlight.background')};
+    color: ${dt('highlight.color')};
 }
 
 .p-paginator-page-input .p-inputtext {

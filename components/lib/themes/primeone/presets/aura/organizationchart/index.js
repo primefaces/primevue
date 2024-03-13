@@ -3,10 +3,10 @@ export default {
         light: {
             node: {
                 background: '{surface.0}',
-                backgroundHover: '{surface.100}',
+                hoverBackground: '{surface.100}',
                 borderColor: '{surface.200}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}'
+                color: '{surface.700}',
+                hoverColor: '{surface.800}'
             },
             toggleIcon: {
                 background: '{surface.0}',
@@ -17,6 +17,22 @@ export default {
                 color: '{surface.200}'
             }
         },
-        dark: {}
+        dark: {
+            node: {
+                background: '{surface.900}',
+                hoverBackground: '{surface.800}',
+                borderColor: '{surface.700}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}'
+            },
+            toggleIcon: {
+                background: '{surface.800}',
+                borderColor: '{surface.700}',
+                color: '{surface.400}'
+            },
+            connector: {
+                color: '{surface.700}'
+            }
+        }
     }
 };

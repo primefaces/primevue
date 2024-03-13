@@ -14,13 +14,13 @@ export default {
 
 .p-picklist-list-wrapper {
     flex: 1 1 50%;
-    background: var(--p-picklist-list-background);
-    border: 1px solid var(--p-picklist-list-border-color);
-    border-radius: var(--p-picklist-base);
+    background: ${dt('picklist.list.background')};
+    border: 1px solid ${dt('picklist.list.border.color')};
+    border-radius: ${dt('rounded.base')};
 }
 
 .p-picklist .p-picklist-header {
-    color: var(--p-picklist-header-text-color);
+    color: ${dt('picklist.header.color')};
     border: 0 none;
     padding: 0.75rem 1rem 0.5rem 1rem;
     font-weight: 600;
@@ -45,8 +45,8 @@ export default {
     margin: 2px 0;
     border-radius: ${dt('rounded.base')};
     border: 0 none;
-    color: var(--p-picklist-item-text-color);
-    background: var(--p-picklist-item-background);
+    color: ${dt('picklist.item.color')};
+    background: ${dt('picklist.item.background')};
     outline-color: transparent;
     transition: transform ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
@@ -60,47 +60,47 @@ export default {
 }
 
 .p-picklist-item:not(.p-highlight):hover {
-    color: var(--p-picklist-item-text-color-focus);
-    background: var(--p-picklist-item-background-focus);
+    color: ${dt('picklist.item.focus.color')};
+    background: ${dt('picklist.item.focus.background')};
 }
 
 .p-picklist-item.p-focus {
-    color: var(--p-picklist-item-text-color-focus);
-    background: var(--p-picklist-item-background-focus);
+    color: ${dt('picklist.item.focus.color')};
+    background: ${dt('picklist.item.focus.background')};
 }
 
 .p-picklist-item.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    color: ${dt('highlight.color')};
+    background: ${dt('highlight.background')};
 }
 
 .p-picklist-item.p-highlight.p-focus {
-    background: var(--p-highlight-background-focus);
-    color: var(--p-highlight-text-color-focus);
+    color: ${dt('highlight.focus.color')};
+    background: ${dt('highlight.focus.background')};
 }
 
 .p-picklist-buttons .p-button {
-    background: var(--p-picklist-control-background);
-    border: 1px solid var(--p-picklist-control-border-color);
-    color: var(--p-order-listcontrol-text-color);
+    background: ${dt('picklist.control.background')};
+    border: 1px solid ${dt('picklist.control.border.color')};
+    color: ${dt('picklist.control.color')};
     outline-color: transparent;
     transition: opacity ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
 }
 
 .p-picklist-buttons .p-button:not(:disabled):hover {
-    background: var(--p-picklist-control-background-hover);
-    border: 1px solid var(--p-picklist-control-border-color-hover);
-    color: var(--p-order-listcontrol-text-color-hover);
+    background: ${dt('picklist.control.hover.background')};
+    border: 1px solid ${dt('picklist.control.hover.border.color')};
+    color: ${dt('picklist.control.hover.color')};
 }
 
 .p-picklist-buttons .p-button:not(:disabled):active {
-    background: var(--p-picklist-control-background-active);
-    border: 1px solid var(--p-picklist-control-border-color-active);
-    color: var(--p-order-listcontrol-text-color-active);
+    background: ${dt('picklist.control.active.background')};
+    border: 1px solid ${dt('picklist.control.active.border.color')};
+    color: ${dt('picklist.control.active.color')};
 }
 
 .p-picklist-buttons .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} var(--p-button-primary-background);
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 `

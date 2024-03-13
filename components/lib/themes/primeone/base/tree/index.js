@@ -1,8 +1,8 @@
 export default {
     css: ({ dt }) => `
 .p-tree {
-    background: var(--p-tree-background);
-    color: var(--p-tree-text-color);
+    background: ${dt('tree.background')};
+    color: ${dt('tree.color')};
     border-radius: ${dt('rounded.base')};
     border: 0 none;
     padding: 1rem;
@@ -35,7 +35,7 @@ export default {
     display: flex;
     align-items: center;
     outline-color: transparent;
-    color: var(--p-tree-node-text-color);
+    color: ${dt('tree.node.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
@@ -45,8 +45,8 @@ export default {
 }
 
 .p-treenode-content.p-highlight {
-    background: var(--p-highlight-background);
-    color: var(--p-highlight-text-color);
+    background: ${dt('highlight.background')};
+    color: ${dt('highlight.color')};
 }
 
 .p-tree-toggler {
@@ -61,7 +61,7 @@ export default {
     margin-right: 0.5rem;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-tree-toggle-color);
+    color: ${dt('tree.toggle.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -70,8 +70,8 @@ export default {
 }
 
 .p-tree-toggler:enabled:hover {
-    background: var(--p-tree-toggle-background-hover);
-    color: var(--p-tree-toggle-color-hover);
+    background: ${dt('tree.toggle.hover.background')};
+    color: ${dt('tree.toggle.hover.color')};
 }
 
 .p-treenode-content.p-highlight .p-tree-toggler,
@@ -80,20 +80,20 @@ export default {
 }
 
 .p-treenode-content.p-highlight .p-tree-toggler:hover {
-    background: var(--p-tree-toggle-background-hover-highlight);
+    background: ${dt('tree.toggle.highlight.hover.background')};
 }
 
 .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
-    background: var(--p-tree-node-background-hover);
-    color: var(--p-tree-node-text-color-hover);
+    background: ${dt('tree.node.hover.background')};
+    color: ${dt('tree.node.hover.color')};
 }
 
 .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-tree-toggler {
-    color: var(--p-tree-toggle-color-hover);
+    color: ${dt('tree.toggle.hover.color')};
 }
 
 .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-treenode-icon {
-    color: var(--p-tree-node-icon-color-hover);
+    color: ${dt('tree.icon.hover.color')};
 }
 
 .p-treenode-children {
@@ -118,7 +118,7 @@ export default {
 
 .p-treenode-icon {
     margin-right: 0.5rem;
-    color: var(--p-tree-node-icon-color);
+    color: ${dt('tree.icon.color')};
     transition: color ${dt('transition.duration')};
 }
 
@@ -127,7 +127,7 @@ export default {
 }
 
 .p-treenode-content .p-checkbox.p-indeterminate .p-checkbox-icon {
-    color: var(--p-tree-indeterminate-color);
+    color: ${dt('tree.indeterminate.color')};
 }
 
 .p-tree-filter {

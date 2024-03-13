@@ -88,11 +88,11 @@ export default {
     justify-content: center;
     position: relative;
     align-self: baseline;
-    border: 2px solid var(--p-timeline-marker-border-color);
+    border: 2px solid ${dt('timeline.marker.border.color')};
     border-radius: 50%;
     width: 1.125rem;
     height: 1.125rem;
-    background-color: var(--p-timeline-marker-background);
+    background-color: ${dt('timeline.marker.background')};
 }
 
 .p-timeline-event-marker::before {
@@ -100,7 +100,7 @@ export default {
     border-radius: 50%;
     width: 0.375rem;
     height: 0.375rem;
-    background-color: var(--p-timeline-marker-content-color);
+    background: ${dt('timeline.marker.content.color')};
 }
 
 .p-timeline-event-marker::after {
@@ -114,7 +114,7 @@ export default {
 
 .p-timeline-event-connector {
     flex-grow: 1;
-    background-color: var(--p-timeline-connector-color);
+    background-color: ${dt('timeline.connector.color')};
 }
 
 .p-timeline-horizontal {
