@@ -5,8 +5,8 @@ export default {
     display: inline-flex;
     user-select: none;
     vertical-align: bottom;
-    width: var(--p-checkbox-width);
-    height: var(--p-checkbox-height);
+    width: ${dt('checkbox.width')};
+    height: ${dt('checkbox.height')};
 }
 
 .p-checkbox-input {
@@ -23,51 +23,51 @@ export default {
     z-index: 1;
     outline: 0 none;
     border: 1px solid transparent;
-    border-radius: var(--p-checkbox-border-radius);
+    border-radius: ${dt('checkbox.border.radius')};
 }
 
 .p-checkbox-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--p-rounded-sm);
-    border: 1px solid var(--p-checkbox-border-color);
-    background:  var(--p-checkbox-background);
-    width: var(--p-checkbox-width);
-    height: var(--p-checkbox-height);
+    border-radius: ${dt('checkbox.border.radius')};
+    border: 1px solid ${dt('checkbox.border.color')};
+    background: ${dt('checkbox.background')};
+    width: ${dt('checkbox.width')};
+    height: ${dt('checkbox.width')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: var(--p-checkbox-box-shadow);
+    box-shadow: ${dt('checkbox.box.shadow')};
 }
 
 .p-checkbox-icon {
     transition-duration: ${dt('transition.duration')};
-    color: var(--p-checkbox-icon-color);
-    font-size: var(--p-checkbox-icon-size);
-    width: var(--p-checkbox-icon-size);
-    height: var(--p-checkbox-icon-size);
+    color: ${dt('checkbox.icon.color')};
+    font-size: ${dt('checkbox.icon.size')};
+    width: ${dt('checkbox.icon.size')};
+    height: ${dt('checkbox.icon.size')};
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
-    border-color: var(--p-checkbox-border-color-hover);
+    border-color: ${dt('checkbox.hover.border.color')};
 }
 
 .p-checkbox.p-highlight .p-checkbox-box {
-    border-color: var(--p-checkbox-border-color-checked);
-    background: var(--p-checkbox-background-checked);
+    border-color: ${dt('checkbox.checked.border.color')};
+    background: ${dt('checkbox.checked.background')};
 }
 
 .p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon {
-    color: var(--p-checkbox-icon-color-checked);
+    color: ${dt('checkbox.icon.checked.color')};
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
-    border-color: var(--p-checkbox-border-color-checked-hover);
-    background: var(--p-checkbox-background-checked-hover)
+    background: ${dt('checkbox.checked.hover.background')};
+    border-color: ${dt('checkbox.checked.hover.border.color')};
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box .p-checkbox-icon {
-    color: var(--p-checkbox-icon-color-checked-hover);
+    color: ${dt('checkbox.icon.checked.hover.color')};
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {
@@ -76,19 +76,19 @@ export default {
 }
 
 .p-checkbox.p-invalid > .p-checkbox-box {
-    border-color: var(--p-checkbox-border-color-invalid);
+    border-color: ${dt('checkbox.invalid.border.color')};
 }
 
 .p-checkbox.p-variant-filled .p-checkbox-box {
-    background: var(--p-checkbox-background-filled);
+    background: ${dt('checkbox.checked.filled.background')};
 }
 
 .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
-    background: var(--p-checkbox-background-checked);
+    background: ${dt('checkbox.checked.background')};
 }
 
 .p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
-    background: var(--p-checkbox-background-checked-hover);
+    background: ${dt('checkbox.checked.hover.background')};
 }
 
 .p-checkbox.p-disabled {
@@ -96,11 +96,11 @@ export default {
 }
 
 .p-checkbox.p-disabled .p-checkbox-box {
-    background: var(--p-checkbox-background-disabled);
+    background: ${dt('checkbox.disabled.background')};
 }
 
 .p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {
-    color: var(--p-checkbox-icon-color-disabled);
+    color: ${dt('checkbox.icon.disabled.color')};
 }
 `
 };

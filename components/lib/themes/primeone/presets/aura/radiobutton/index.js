@@ -3,21 +3,21 @@ export default {
         width: '1.25rem',
         height: '1.25rem',
         background: '{form.field.background}',
-        backgroundChecked: '{form.field.background}',
-        backgroundCheckedHover: '{form.field.background}',
-        backgroundDisabled: '{form.field.background.disabled}',
-        backgroundFilled: '{form.field.background.filled}',
+        checkedBackground: '{primary.color}',
+        checkedHoverBackground: '{primary.hover.color}',
+        disabledBackground: '{form.field.disabled.background}',
+        filledBackground: '{form.field.filled.background}',
         borderColor: '{form.field.border.color}',
-        borderColorHover: '{form.field.border.color.hover}',
-        borderColorChecked: '{primary.color}',
-        borderColorCheckedHover: '{primary.hover.color}',
-        borderColorInvalid: '{form.field.border.color.invalid}',
+        hoverBordercolor: '{form.field.hover.border.color}',
+        checkedBorderColor: '{primary.color}',
+        checkedHoverBorderColor: '{primary.hover.color}',
+        invalidBorderColor: '{form.field.invalid.border.color}',
         boxShadow: '{form.field.box.shadow}'
     },
     icon: {
         size: '0.75rem',
-        colorChecked: '{primary.color}',
-        colorCheckedHover: '{primary.hover.color}',
-        colorDisabled: '{form.field.text.disabled}'
+        checkedColor: '{primary.inverse.color}',
+        checkedHoverColor: '{primary.inverse.color}',
+        disabledColor: '{form.field.disabled.color}'
     }
 };

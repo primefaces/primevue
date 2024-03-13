@@ -1,16 +1,16 @@
 export default {
     root: {
         background: '{form.field.background}',
-        backgroundDisabled: '{form.field.background.disabled}',
-        backgroundFilled: '{form.field.background.filled}',
-        backgroundFilledFocus: '{form.field.background.filled.focus}',
+        disabledBackground: '{form.field.disabled.background}',
+        filledBackground: '{form.field.filled.background}',
+        filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
-        borderColorHover: '{form.field.border.color.hover}',
-        borderColorFocus: '{form.field.border.color.focus}',
-        borderColorInvalid: '{form.field.border.color.invalid}',
-        textColor: '{form.field.text.color}',
-        textColorDisabled: '{form.field.text.disabled}',
-        placeholderTextColor: '{form.field.placeholder.text.color}',
+        hoverBorderColor: '{form.field.hover.border.color}',
+        focusBorderColor: '{form.field.focus.border.color}',
+        invalidBorderColor: '{form.field.invalid.border.color}',
+        color: '{form.field.color}',
+        disabledColor: '{form.field.disabled.color}',
+        placeholderColor: '{form.field.placeholder.color}',
         boxShadow: '{form.field.box.shadow}'
     }
 };

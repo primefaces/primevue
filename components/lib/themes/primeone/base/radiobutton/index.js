@@ -5,8 +5,8 @@ export default {
     display: inline-flex;
     user-select: none;
     vertical-align: bottom;
-    width: var(--p-radiobutton-width);
-    height: var(--p-radiobutton-height);
+    width: ${dt('radiobutton.width')};
+    height: ${dt('radiobutton.height')};
 }
 
 .p-radiobutton-input {
@@ -31,48 +31,48 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid var(--p-radiobutton-border-color);
-    background:  var(--p-radiobutton-background);
-    width: var(--p-radiobutton-width);
-    height: var(--p-radiobutton-height);
+    border: 1px solid ${dt('radiobutton.border.color')};
+    background: ${dt('radiobutton.background')};
+    width: ${dt('radiobutton.width')};
+    height: ${dt('radiobutton.height')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: var(--p-radiobutton-box-shadow);
+    box-shadow: ${dt('radiobutton.box.shadow')};
 }
 
 .p-radiobutton-icon {
     transition-duration: ${dt('transition.duration')};
     background: transparent;
-    font-size: var(--p-radiobutton-icon-size);
-    width: var(--p-radiobutton-icon-size);
-    height: var(--p-radiobutton-icon-size);
+    font-size: ${dt('radiobutton.icon.size')};
+    width: ${dt('radiobutton.icon.size')};
+    height: ${dt('radiobutton.icon.size')};
     border-radius: 50%;
     backface-visibility: hidden;
     transform: translateZ(0) scale(0.1);
 }
 
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
-    border-color: var(--p-radiobutton-border-color-hover);
+    border-color: ${dt('radiobutton.hover.border.color')};
 }
 
 .p-radiobutton.p-highlight .p-radiobutton-box {
-    border-color: var(--p-radiobutton-border-color-checked);
-    background: var(--p-radiobutton-background-checked);
+    border-color: ${dt('radiobutton.checked.border.color')};
+    background: ${dt('radiobutton.checked.background')};
 }
 
 .p-radiobutton.p-highlight .p-radiobutton-box .p-radiobutton-icon {
-    background: var(--p-radiobutton-icon-color-checked);
+    background: ${dt('radiobutton.icon.checked.color')};
     transform: translateZ(0) scale(1, 1);
     visibility: visible;
 }
 
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
-    border-color: var(--p-radiobutton-border-color-checked-hover);
-    background: var(--p-radiobutton-background-checked-hover)
+    border-color: ${dt('radiobutton.checked.hover.border.color')};
+    background: ${dt('radiobutton.checked.hover.background')};
 }
 
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box .p-radiobutton-icon {
-    background: var(--p-radiobutton-icon-color-checked-hover);
+    background: ${dt('radiobutton.icon.checked.hover.color')};
 }
 
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {
@@ -81,19 +81,19 @@ export default {
 }
 
 .p-radiobutton.p-invalid > .p-radiobutton-box {
-    border-color: var(--p-radiobutton-border-color-invalid);
+    border-color: ${dt('radiobutton.invalid.border.color')};
 }
 
 .p-radiobutton.p-variant-filled .p-radiobutton-box {
-    background: var(--p-radiobutton-background-filled);
+    background: ${dt('radiobutton.filled.background')};
 }
 
 .p-radiobutton.p-variant-filled.p-highlight .p-radiobutton-box {
-    background: var(--p-radiobutton-background-checked);
+    background: ${dt('radiobutton.checked.background')};
 }
 
 .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
-    background: var(--p-radiobutton-background-checked-hover);
+    background: ${dt('radiobutton.checked.hover.background')};
 }
 
 .p-radiobutton.p-disabled {
@@ -101,11 +101,11 @@ export default {
 }
 
 .p-radiobutton.p-disabled .p-radiobutton-box {
-    background: var(--p-radiobutton-background-disabled);
+    background: ${dt('radiobutton.disabled.background')};
 }
 
 .p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon {
-    color: var(--p-radiobutton-icon-color-disabled);
+    color: ${dt('radiobutton.icon.disabled.color')};
 }
 `
 };
