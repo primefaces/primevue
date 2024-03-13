@@ -353,6 +353,16 @@ export interface TreeSlots {
         expanded: boolean;
     }): VNode[];
     /**
+     * Custom node icon template.
+     * @param {Object} scope - togglericon slot's params.
+     */
+    nodeIcon(scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+    }): VNode[];
+    /**
      * Custom checkbox icon
      * @param {Object} scope - checkboxicon slot's params.
      */
