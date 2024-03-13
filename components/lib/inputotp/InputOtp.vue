@@ -188,7 +188,7 @@ export default {
     },
     computed: {
         inputMode() {
-            return this.integerOnly ? 'number' : 'text';
+            return this.integerOnly ? 'numeric' : 'text';
         },
         inputType() {
             return this.mask ? 'password' : 'text';
