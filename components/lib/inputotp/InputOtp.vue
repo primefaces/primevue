@@ -152,11 +152,6 @@ export default {
 
                     break;
 
-                case 40:
-                    event.preventDefault();
-
-                    break;
-
                 case 39:
                     this.moveToNext(event);
                     event.preventDefault();
