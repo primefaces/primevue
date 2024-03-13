@@ -10,8 +10,8 @@ export default {
     padding: 0;
     list-style-type: none;
     flex: 1 1 auto;
-    background: var(--p-tabmenu-nav-background);
-    border: 1px solid var(--p-tabmenu-nav-border-color);
+    background: ${dt('tabmenu.nav.background')};
+    border: 1px solid ${dt('tabmenu.nav.border.color')};
     border-width: 0 0 1px 0;
     position: relative;
 }
@@ -26,8 +26,8 @@ export default {
     overflow: hidden;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent var(--p-tabmenu-header-border-color) transparent;
-    color: var(--p-tabmenu-header-text-color);
+    border-color: transparent transparent ${dt('tabmenu.header.border.color')} transparent;
+    color: ${dt('tabmenu.header.color')};
     padding: 1rem 1.125rem;
     font-weight: 600;
     border-top-right-radius: ${dt('rounded.base')};
@@ -51,11 +51,11 @@ export default {
 }
 
 .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
-    color: var(--p-tabmenu-header-text-color-hover);
+    color: ${dt('tabmenu.header.hover.color')};
 }
 
 .p-tabmenuitem.p-highlight .p-menuitem-link {
-    color: var(--p-primary-color);
+    color: ${dt('tabmenu.header.active.border.color')};
 }
 
 .p-tabmenu-ink-bar {
@@ -64,7 +64,7 @@ export default {
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: var(--p-primary-color);
+    background-color: ${dt('tabmenu.header.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 

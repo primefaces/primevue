@@ -5,8 +5,8 @@ export default {
         },
         light: {
             item: {
-                textColor: '{surface.500}',
-                textColorHover: '{surface.700}',
+                color: '{surface.500}',
+                hoverColor: '{surface.700}',
                 iconColor: '{surface.400}'
             },
             separator: {
@@ -18,8 +18,8 @@ export default {
                 background: '{surface.900}'
             },
             item: {
-                textColor: '{surface.400}',
-                textColorHover: '{surface.0}',
+                color: '{surface.400}',
+                hoverColor: '{surface.0}',
                 iconColor: '{surface.500}'
             },
             separator: {

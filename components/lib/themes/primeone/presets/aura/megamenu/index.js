@@ -4,58 +4,54 @@ export default {
             root: {
                 background: '{surface.0}',
                 borderColor: '{surface.200}',
-                textColor: '{surface.700}'
+                color: '{surface.700}'
             },
             item: {
-                backgroundFocus: '{surface.100}',
-                text: {
-                    color: '{surface.700}',
-                    colorFocus: '{surface.800}'
-                },
+                focusBackground: '{surface.100}',
+                color: '{surface.700}',
+                focusColor: '{surface.800}',
                 icon: {
                     color: '{surface.400}',
-                    colorFocus: '{surface.500}'
+                    focusColor: '{surface.500}'
                 }
             },
             submenuHeader: {
-                textColor: '{surface.400}'
+                color: '{surface.400}'
             },
             separator: {
                 borderColor: '{surface.200}'
             },
             mobileToggle: {
                 color: '{surface.500}',
-                colorHover: '{surface.600}',
-                backgroundHover: '{surface.100}'
+                hoverColor: '{surface.600}',
+                hoverBackground: '{surface.100}'
             }
         },
         dark: {
             root: {
                 background: '{surface.900}',
                 borderColor: '{surface.700}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             },
             item: {
-                backgroundFocus: '{surface.800}',
-                text: {
-                    color: '{surface.0}',
-                    colorFocus: '{surface.0}'
-                },
+                focusBackground: '{surface.800}',
+                color: '{surface.0}',
+                focusColor: '{surface.0}',
                 icon: {
                     color: '{surface.500}',
-                    colorFocus: '{surface.400}'
+                    focusColor: '{surface.400}'
                 }
             },
             submenuHeader: {
-                textColor: '{surface.500}'
+                color: '{surface.500}'
             },
             separator: {
                 borderColor: '{surface.700}'
             },
             toggleIcon: {
                 color: '{surface.400}',
-                colorHover: '{surface.300}',
-                backgroundHover: '{surface.800}'
+                hoverColor: '{surface.300}',
+                hoverBackground: '{surface.800}'
             }
         }
     }

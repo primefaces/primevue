@@ -4,9 +4,9 @@ export default {
     display: flex;
     align-items: center;
     padding: 0.5rem 0.5rem;
-    background: var(--p-menubar-background);
-    color: var(--p-menubar-text-color);
-    border: 1px solid var(--p-menubar-border-color);
+    background: ${dt('menubar.background')};
+    color: ${dt('menubar.color')};
+    border: 1px solid ${dt('menubar.border.color')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -45,47 +45,47 @@ export default {
 
 .p-menubar .p-menuitem-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
-    color: var(--p-menubar-item-text-color);
+    border-radius: ${dt('rounded.sm')});
+    color: ${dt('menubar.item.color')};
 }
 
 .p-menubar .p-menuitem-icon {
-    color: var(--p-menubar-item-icon-color);
+    color: ${dt('menubar.item.icon.color')};
     margin-right: 0.5rem;
 }
 
 .p-menubar .p-menuitem.p-focus > .p-menuitem-content {
-    color: var(--p-menubar-item-text-color-focus);
-    background: var(--p-menubar-item-background-focus);
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-icon,
 .p-menubar .p-menuitem.p-focus > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-menubar-item-icon-color-focus);
+    color: ${dt('menubar.item.icon.focus.color')};
 }
 
 .p-menubar .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover {
-    color: var(--p-menubar-item-text-color-focus);
-    background: var(--p-menubar-item-background-focus);
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
 .p-menubar .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
-    color: var(--p-menubar-item-icon-color-focus);
+    color: ${dt('menubar.item.icon.focus.color')};
 }
 
 .p-menubar .p-menuitem-active > .p-menuitem-content {
-    color: var(--p-menubar-item-text-color-focus);
-    background: var(--p-menubar-item-background-focus);
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar .p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
 .p-menubar .p-menuitem-active > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-menubar-item-icon-color-focus);
+    color: ${dt('menubar.item.icon.focus.color')};
 }
 
 .p-menubar .p-submenu-icon {
-    color: var(--p-menubar-item-icon-color);
+    color: ${dt('menubar.item.icon.color')};
     margin-left: auto;
     font-size: 0.875rem;
     width: 0.875rem;
@@ -102,15 +102,15 @@ export default {
     min-width: 12.5rem;
     z-index: 1;
     padding: 0.25rem 0.25rem;
-    background: var(--p-menubar-background);
-    color: var(--p-menubar-text-color);
-    border: 1px solid var(--p-menubar-border-color);
+    background: ${dt('menubar.background')};
+    color: ${dt('menubar.color')};
+    border: 1px solid ${dt('menubar.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .p-menubar .p-submenu-list .p-menuitem-separator {
-    border-top: 1px solid var(--p-menubar-separator-border-color);
+    border-top: 1px solid ${dt('menubar.separator.border.color')};
     margin: 2px 0;
 }
 
@@ -146,7 +146,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-menubar-mobile-toggle-color);
+    color: ${dt('menubar.mobile.toggle.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -155,8 +155,8 @@ export default {
 }
 
 .p-menubar-button:hover {
-    color: var(--p-menubar-mobile-toggle-color-hover);
-    background: var(--p-menubar-mobile-toggle-background-hover);
+    color: ${dt('menubar.mobile.toggle.hover.color')};
+    background: ${dt('menubar.mobile.toggle.hover.background')};
 }
 
 .p-menubar-button:focus-visible {
@@ -177,8 +177,8 @@ export default {
     display: none;
     width: 100%;
     padding: 0.25rem 0.25rem;
-    background: var(--p-menubar-background);
-    border: 1px solid var(--p-menubar-border-color);
+    background: ${dt('menubar.background')};
+    border: 1px solid ${dt('menubar.border.color')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 

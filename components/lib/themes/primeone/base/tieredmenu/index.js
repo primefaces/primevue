@@ -2,9 +2,9 @@ export default {
     css: ({ dt }) => `
 .p-tieredmenu {
     padding: 0.25rem 0.25rem;
-    background: var(--p-tieredmenu-background);
-    color: var(--p-tieredmenu-text-color);
-    border: 1px solid var(--p-tieredmenu-border-color);
+    background: ${dt('tieredmenu.background')};
+    color: ${dt('tieredmenu.color')};
+    border: 1px solid ${dt('tieredmenu.border.color')};
     border-radius: ${dt('rounded.base')};
     min-width: 12.5rem;
 }
@@ -24,9 +24,9 @@ export default {
     min-width: 100%;
     z-index: 1;
     padding: 0.25rem 0.25rem;
-    background: var(--p-tieredmenu-background);
-    color: var(--p-tieredmenu-text-color);
-    border: 1px solid var(--p-tieredmenu-border-color);
+    background: ${dt('tieredmenu.background')};
+    color: ${dt('tieredmenu.color')};
+    border: 1px solid ${dt('tieredmenu.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -61,17 +61,17 @@ export default {
 
 .p-tieredmenu .p-menuitem-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
-    color: var(--p-tieredmenu-item-text-color);
+    border-radius: ${dt('rounded.sm')};
+    color: ${dt('tieredmenu.item.color')};
 }
 
 .p-tieredmenu .p-menuitem-icon {
-    color: var(--p-tieredmenu-item-icon-color);
+    color: ${dt('tieredmenu.item.icon.color')};
     margin-right: 0.5rem;
 }
 
 .p-tieredmenu .p-submenu-icon {
-    color: var(--p-tieredmenu-item-icon-color);
+    color: ${dt('tieredmenu.item.icon.color')};
     margin-left: auto;
     font-size: 0.875rem;
     width: 0.875rem;
@@ -79,37 +79,37 @@ export default {
 }
 
 .p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content {
-    color: var(--p-tieredmenu-item-text-color-focus);
-    background: var(--p-tieredmenu-item-background-focus);
+    color: ${dt('tieredmenu.item.focus.color')};
+    background: ${dt('tieredmenu.item.focus.background')};
 }
 
 .p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-icon,
 .p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-tieredmenu-item-icon-color-focus);
+    color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
 .p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover {
-    color: var(--p-tieredmenu-item-text-color-focus);
-    background: var(--p-tieredmenu-item-background-focus);
+    color: ${dt('tieredmenu.item.focus.color')};
+    background: ${dt('tieredmenu.item.focus.background')};
 }
 
 .p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
 .p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
-    color: var(--p-tieredmenu-item-icon-color-focus);
+    color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
 .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content {
-    color: var(--p-tieredmenu-item-text-color-focus);
-    background: var(--p-tieredmenu-item-background-focus);
+    color: ${dt('tieredmenu.item.focus.color')};
+    background: ${dt('tieredmenu.item.focus.background')};
 }
 
 .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
 .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-tieredmenu-item-icon-color-focus);
+    color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
 .p-tieredmenu .p-menuitem-separator {
-    border-top: 1px solid var(--p-tieredmenu-separator-border-color);
+    border-top: 1px solid ${dt('tieredmenu.separator.border.color')};
     margin: 2px 0;
 }
 

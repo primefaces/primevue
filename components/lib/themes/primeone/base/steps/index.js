@@ -28,7 +28,7 @@ export default {
 
 .p-steps-item:before {
     content: " ";
-    border-top: 2px solid var(--p-steps-connector-border-color);
+    border-top: 2px solid ${dt('steps.connector.border.color')};
     width: 100%;
     top: 50%;
     left: 0;
@@ -69,7 +69,7 @@ export default {
     text-overflow: ellipsis;
     max-width: 100%;
     margin-top: 0.5rem;
-    color: var(--p-steps-item-text-color);
+    color: ${dt('steps.item.color')};
     display: block;
     font-weight: 500;
 }
@@ -78,9 +78,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--p-steps-marker-text-color);
-    border: 2px solid var(--p-steps-marker-border-color);
-    background: var(--p-steps-marker-background);
+    color: ${dt('steps.marker.color')};
+    border: 2px solid ${dt('steps.marker.border.color')};
+    background: ${dt('steps.marker.background')};
     min-width: 2rem;
     height: 2rem;
     line-height: 2rem;
@@ -105,13 +105,13 @@ export default {
 }
 
 .p-steps-current .p-steps-number {
-    background: var(--p-steps-marker-background-active);
-    color: var(--p-steps-marker-text-color-active);
+    background: ${dt('steps.marker.active.background')};
+    color: ${dt('steps.marker.active.color')};
 }
 
 .p-steps-current .p-steps-title {
     font-weight: 500;
-    color: var(--p-steps-item-text-color-active);
+    color: ${dt('steps.item.active.color')};
 }
 `
 };

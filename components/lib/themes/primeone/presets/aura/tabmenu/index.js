@@ -7,8 +7,9 @@ export default {
             },
             header: {
                 borderColor: '{surface.200}',
-                textColor: '{surface.500}',
-                textColorHover: '{surface.700}'
+                activeBorderColor: '{primary.color}',
+                color: '{surface.500}',
+                hoverColor: '{surface.700}'
             }
         },
         dark: {
@@ -18,8 +19,9 @@ export default {
             },
             header: {
                 borderColor: '{surface.700}',
-                textColor: '{surface.400}',
-                textColorHover: '{surface.0}'
+                activeBorderColor: '{primary.color}',
+                color: '{surface.400}',
+                hoverColor: '{surface.0}'
             }
         }
     }

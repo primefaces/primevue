@@ -2,9 +2,9 @@ export default {
     css: ({ dt }) => `
 .p-menu {
     padding: 0.25rem 0.25rem;
-    background: var(--p-menu-background);
-    color: var(--p-menu-text-color);
-    border: 1px solid var(--p-menu-border-color);
+    background: ${dt('menu.background')};
+    color: ${dt('menu.color')};
+    border: 1px solid ${dt('menu.border.color')};
     border-radius: ${dt('rounded.base')};
     min-width: 12.5rem;
 }
@@ -45,32 +45,32 @@ export default {
 
 .p-menu .p-menuitem-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
-    color: var(--p-menu-item-text-color);
+    border-radius:  ${dt('rounded.sm')};
+    color: ${dt('menu.item.color')};
 }
 
 .p-menu .p-menuitem-icon {
-    color: var(--p-menu-item-icon-color);
+    color: ${dt('menu.item.icon.color')};
     margin-right: 0.5rem;
 }
 
 .p-menu .p-menuitem.p-focus .p-menuitem-content {
-    color: var(--p-menu-item-text-color-focus);
-    background: var(--p-menu-item-background-focus);
+    color: ${dt('menu.item.focus.color')};
+    background: ${dt('menu.item.focus.background')};
 }
 
 .p-menu .p-menuitem.p-focus .p-menuitem-icon {
-    color: var(--p-menu-item-icon-color-focus);
+    color: ${dt('menu.item.icon.focus.color')};
 }
 
 .p-menu .p-menuitem:not(.p-disabled) .p-menuitem-content:hover {
-    color: var(--p-menu-item-text-color-focus);
-    background: var(--p-menu-item-background-focus);
+    color: ${dt('menu.item.focus.color')};
+    background: ${dt('menu.item.focus.background')};
 }
 
 .p-menu .p-menuitem:not(.p-disabled) .p-menuitem-content:hover .p-menuitem-icon,
 .p-menu .p-menuitem:not(.p-disabled) .p-menuitem-content:hover .p-submenu-icon {
-    color: var(--p-menu-item-icon-color-focus);
+    color: ${dt('menu.item.icon.focus.color')};
 }
 
 .p-menu.p-menu-overlay {
@@ -80,12 +80,12 @@ export default {
 .p-menu .p-submenu-header {
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: var(--p-menu-submenu-header-text-color);
+    color: ${dt('menu.submenu.header.color')};
     font-weight: 600;
 }
 
 .p-menu .p-menuitem-separator {
-    border-top: 1px solid var(--p-menu-separator-border-color);
+    border-top: 1px solid ${dt('menu.separator.border.color.color')};
     margin: 2px 0;
 }
 `

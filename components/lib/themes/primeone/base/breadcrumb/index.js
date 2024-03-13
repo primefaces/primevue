@@ -1,9 +1,9 @@
 export default {
     css: ({ dt }) => `
 .p-breadcrumb {
-    background: var(--p-breadcrumb-background);
+    background: ${dt('breadcrumb.background')};
     border: 0 none;
-    border-radius: 6px;
+    border-radius: ${dt('rounded.base')};
     padding: 1rem;
     overflow-x: auto;
 }
@@ -44,23 +44,23 @@ export default {
 }
 
 .p-breadcrumb .p-menuitem-text {
-    color: var(--p-breadcrumb-item-text-color);
+    color: ${dt('breadcrumb.item.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     line-height: 1;
 }
 
 .p-breadcrumb .p-menuitem-text:hover {
-    color: var(--p-breadcrumb-item-text-color-hover);
+    color: ${dt('breadcrumb.item.hover.color')};
     line-height: 1;
 }
 
 .p-breadcrumb .p-menuitem-icon {
-    color: var(--p-breadcrumb-item-icon-color);
+    color: ${dt('breadcrumb.item.icon.color')};
 }
 
 .p-breadcrumb .p-breadcrumb-list li.p-menuitem-separator {
     margin: 0 0.5rem 0 0.5rem;
-    color: var(--p-breadcrumb-separator-color);
+    color: ${dt('breadcrumb.separator.color')};
 }
 `
 };

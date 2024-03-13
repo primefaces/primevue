@@ -4,9 +4,9 @@ export default {
     display: flex;
     position: relative;
     padding: 0.5rem 0.5rem;
-    background: var(--p-megamenu-background);
-    color: var(--p-megamenu-text-color);
-    border: 1px solid var(--p-megamenu-border-color);
+    background: ${dt('megamenu.background')};
+    color: ${dt('megamenu.color')};
+    border: 1px solid ${dt('megamenu.border.color')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -18,8 +18,8 @@ export default {
 
 .p-megamenu .p-menuitem-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
-    color: var(--p-megamenu-item-text-color);
+    border-radius: ${dt('rounded.sm')};
+    color: ${dt('megamenu.item.color')};
 }
 
 .p-megamenu .p-menuitem-link {
@@ -39,42 +39,41 @@ export default {
 }
 
 .p-megamenu .p-menuitem-icon {
-    color: var(--p-megamenu-item-icon-color);
+    color: ${dt('megamenu.item.icon.color')};
     margin-right: 0.5rem;
 }
 
 .p-megamenu .p-menuitem.p-focus > .p-menuitem-content {
-    color: var(--p-megamenu-item-text-color-focus);
-    background: var(--p-megamenu-item-background-focus);
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-icon,
 .p-megamenu .p-menuitem.p-focus > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-megamenu-item-icon-color-focus);
+    color: ${dt('megamenu.item.icon.focus.color')};
 }
 
 .p-megamenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover {
-    color: var(--p-megamenu-item-text-color-focus);
-    background: var(--p-megamenu-item-background-focus);
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
 .p-megamenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
-    color: var(--p-megamenu-item-icon-color-focus);
-}
+    color: ${dt('megamenu.item.icon.focus.color')};
 
 .p-megamenu .p-menuitem-active > .p-menuitem-content {
-    color: var(--p-megamenu-item-text-color-focus);
-    background: var(--p-megamenu-item-background-focus);
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu .p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
 .p-megamenu .p-menuitem-active > .p-menuitem-content .p-submenu-icon {
-    color: var(--p-megamenu-item-icon-color-focus);
+    color: ${dt('megamenu.item.icon.focus.color')};
 }
 
 .p-megamenu .p-submenu-icon {
-    color: var(--p-megamenu-item-icon-color);
+    color: ${dt('megamenu.item.icon.color')};
     margin-left: 0.5rem;
     font-size: 0.875rem;
     width: 0.875rem;
@@ -88,9 +87,9 @@ export default {
     z-index: 1;
     left: 0;
     min-width: 100%;
-    background: var(--p-megamenu-background);
-    color: var(--p-megamenu-text-color);
-    border: 1px solid var(--p-megamenu-border-color);
+    background: ${dt('megamenu.background')};
+    color: ${dt('megamenu.color')};
+    border: 1px solid ${dt('megamenu.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)
 }
@@ -121,13 +120,13 @@ export default {
 .p-megamenu-submenu .p-submenu-header {
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: var(--p-megamenu-submenu-header-text-color);
+    color: ${dt('megamenu.submenu.header.color')};
     font-weight: 600;
     margin-bottom: 2px;
 }
 
 .p-megamenu-submenu .p-menuitem-separator {
-    border-top: 1px solid var(--p-megamenu-separator-border-color);
+    border-top: 1px solid ${dt('megamenu.separator.border.color')};
     margin: 2px 0;
 }
 
@@ -207,7 +206,7 @@ export default {
     width: 1.75rem;
     height: 1.75rem;
     position: relative;
-    color: var(--p-megamenu-mobile-toggle-color);
+    color: ${dt('megamenu.mobile.toggle.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -216,8 +215,8 @@ export default {
 }
 
 .p-megamenu-button:hover {
-    color: var(--p-megamenu-mobile-toggle-color-hover);
-    background: var(--p-megamenu-mobile-toggle-background-hover);
+    color: ${dt('megamenu.mobile.toggle.hover.color')};
+    background: ${dt('megamenu.mobile.toggle.hover.background')};
 }
 
 .p-megamenu-button:focus-visible {
@@ -242,8 +241,8 @@ export default {
     z-index: 1;
     width: 100%;
     padding: 0.25rem 0.25rem;
-    background: var(--p-megamenu-background);
-    border: 1px solid var(--p-megamenu-border-color);
+    background: ${dt('megamenu.background')};
+    border: 1px solid ${dt('megamenu.border.color')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     gap: 2px;
 }
