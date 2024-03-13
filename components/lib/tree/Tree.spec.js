@@ -55,12 +55,12 @@ describe('Tree.vue', () => {
         expect(wrapper.emitted('filter')).toBeTruthy();
     });
 
-    it('should render icon', ({expect})=>{
+    it('should render icon', ({ expect }) => {
         expect(wrapper.find('span.pi-inbox').exists()).toBeTruthy();
-        expect(wrapper.find('span.pi-inbox').classes('p-treenode-icon')).toBeTruthy()
-    })
+        expect(wrapper.find('span.pi-inbox').classes('p-treenode-icon')).toBeTruthy();
+    });
 
-    it('should render icon slot', ({expect})=>{
+    it('should render icon slot', ({ expect }) => {
         let wrapper = mount(Tree, {
             slots: {
                 nodeIcon: `<i data-node-icon/>`
@@ -80,5 +80,5 @@ describe('Tree.vue', () => {
         const nodeIcon = wrapper.find('i[data-node-icon]');
 
         expect(nodeIcon.exists()).toBeTruthy();
-    })
+    });
 });

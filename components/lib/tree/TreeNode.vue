@@ -33,10 +33,10 @@
                 </template>
             </Checkbox>
             <template v-if="templates['nodeIcon']">
-              <component :is="templates['nodeIcon']" v-bind="getPTOptions('nodeIcon')" :class="cx('nodeIcon')" :node="node"></component>
+                <component :is="templates['nodeIcon']" v-bind="getPTOptions('nodeIcon')" :class="cx('nodeIcon')" :node="node"></component>
             </template>
             <template v-else>
-              <span :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
+                <span :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             </template>
             <span :class="cx('label')" v-bind="getPTOptions('label')" @keydown.stop>
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
