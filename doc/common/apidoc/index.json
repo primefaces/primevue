@@ -20407,7 +20407,7 @@
                             "name": "tableStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "object",
+                            "type": "string | object",
                             "default": "",
                             "description": "Inline style of the table element."
                         },
