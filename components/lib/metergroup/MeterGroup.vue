@@ -7,7 +7,7 @@
         <div :class="cx('metercontainer')" v-bind="ptm('metercontainer')">
             <template v-for="(val, index) in value" :key="index">
                 <slot name="meter" :value="val" :index="index" :class="cx('meter')" :orientation="orientation" :size="percentValue(val.value)" :totalPercent="totalPercent">
-                    <span v-if="percent(val.value)" :class="cx('meter')" :style="meterSize(val)" v-bind="getPTOptions('meter', val, index)" />
+                    <span v-if="percent(val.value)" :class="cx('meter')" :style="meterCalculatedStyles(val)" v-bind="getPTOptions('meter', val, index)" />
                 </slot>
             </template>
         </div>
@@ -43,7 +43,7 @@ export default {
         percentValue(meter) {
             return this.percent(meter) + '%';
         },
-        meterSize(val) {
+        meterCalculatedStyles(val) {
             return {
                 backgroundColor: val.color,
                 width: this.orientation === 'horizontal' && this.percentValue(val.value),
