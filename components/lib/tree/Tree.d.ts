@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -356,7 +356,7 @@ export interface TreeSlots {
      * Custom node icon template.
      * @param {Object} scope - togglericon slot's params.
      */
-    nodeIcon(scope: {
+    nodeicon(scope: {
         /**
          * Tree node instance
          */
