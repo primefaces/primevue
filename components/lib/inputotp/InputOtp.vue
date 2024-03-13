@@ -129,7 +129,6 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            const newValue = this.tokens.join('');
             const keyCode = event.keyCode;
 
             switch (keyCode) {
