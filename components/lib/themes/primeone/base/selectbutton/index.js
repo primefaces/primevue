@@ -5,7 +5,7 @@ export default {
     user-select: none;
     vertical-align: bottom;
     border: 1px solid transparent;
-    background: var(--p-selectbutton-background);
+    background: ${dt('selectbutton.background')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -15,7 +15,7 @@ export default {
     flex: 1 1 auto;
     background: transparent;
     border: 0 none;
-    color: var(--p-selectbutton-item-text-color);
+    color: ${dt('selectbutton.item.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     padding: 0.5rem 1rem;
@@ -37,7 +37,7 @@ export default {
     top: 0.25rem;
     width: calc(100% - 0.5rem);
     height: calc(100% - 0.5rem);
-    border-radius: var(--p-rounded-sm);
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-selectbutton .p-button .p-button-label {
@@ -46,15 +46,15 @@ export default {
 }
 
 .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
-    color: var(--p-selectbutton-item-text-color-hover);
+    color: ${dt('selectbutton.item.hover.color')};
 }
 
 .p-selectbutton .p-button.p-highlight {
-    color: var(--p-selectbutton-item-text-color-checked);
+    color: ${dt('selectbutton.item.checked.color')};
 }
 
 .p-selectbutton .p-button.p-highlight::before {
-    background: var(--p-selectbutton-item-background-checked);
+    background: ${dt('selectbutton.item.checked.background')};
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
 }
 
@@ -65,18 +65,18 @@ export default {
 }
 
 .p-selectbutton.p-invalid {
-    border-color: var(--p-selectbutton-border-color-invalid);
+    border-color: ${dt('selectbutton.invalid.border.color')};
 }
 
 .p-selectbutton.p-disabled {
     opacity: 1;
-    background: var(--p-selectbutton-background-disabled);
+    background: ${dt('selectbutton.disabled.background')};
 }
 
 .p-selectbutton.p-disabled .p-button,
 .p-selectbutton .p-button.p-disabled {
-    background: var(--p-selectbutton-background-disabled);
-    color: var(--p-selectbutton-item-text-color-disabled);
+    background: ${dt('selectbutton.disabled.background')};
+    color: ${dt('selectbutton.item.disabled.color')};
 }
 `
 };

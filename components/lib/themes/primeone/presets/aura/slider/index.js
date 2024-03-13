@@ -6,7 +6,7 @@ export default {
             },
             handle: {
                 background: '{surface.200}',
-                backgroundHover: '{surface.200}',
+                hoverBackground: '{surface.200}',
                 contentBackground: '{surface.0}'
             },
             range: {
@@ -19,7 +19,7 @@ export default {
             },
             handle: {
                 background: '{surface.700}',
-                backgroundHover: '{surface.700}',
+                hoverBackground: '{surface.700}',
                 contentBackground: '{surface.950}'
             },
             range: {

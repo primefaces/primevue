@@ -1,13 +1,13 @@
 export default {
     root: {
         background: '{form.field.background}',
-        backgroundDisabled: '{form.field.background.disabled}',
+        disabledBackground: '{form.field.disabled.background}',
         borderColor: '{form.field.border.color}',
-        borderColorHover: '{form.field.border.color.hover}',
-        borderColorFocus: '{form.field.border.color.focus}',
-        borderColorInvalid: '{form.field.border.color.invalid}',
-        textColor: '{form.field.text.color}',
-        textColorDisabled: '{form.field.text.disabled}',
+        hoverBorderColor: '{form.field.hover.border.color}',
+        focusBorderColor: '{form.field.focus.border.color}',
+        invalidBorderColor: '{form.field.invalid.border.color}',
+        color: '{form.field.color}',
+        disabledColor: '{form.field.disabled.color}',
         boxShadow: '{form.field.box.shadow}'
     },
     colorScheme: {
@@ -17,16 +17,16 @@ export default {
             },
             itemGroup: {
                 background: '{surface.0}',
-                textColor: '{surface.500}'
+                color: '{surface.500}'
             },
             item: {
-                backgroundFocus: '{surface.100}',
-                backgroundSelected: '{highlight.background}',
-                backgroundSelectedFocus: '{highlight.background.focus}',
-                textColor: '{surface.700}',
-                textColorFocus: '{surface.800}',
-                textColorSelected: '{highlight.text.color}',
-                textColorSelectedFocus: '{highlight.text.color.focus}'
+                focusBackground: '{surface.100}',
+                selectedBackground: '{highlight.background}',
+                selectedFocusBackground: '{highlight.background.focus}',
+                color: '{surface.700}',
+                focusColor: '{surface.800}',
+                selectedColor: '{highlight.text.color}',
+                selectedFocusColor: '{highlight.text.color.focus}'
             }
         },
         dark: {
@@ -35,16 +35,16 @@ export default {
             },
             itemGroup: {
                 background: '{surface.900}',
-                textColor: '{surface.400}'
+                color: '{surface.400}'
             },
             item: {
-                backgroundFocus: '{surface.800}',
-                backgroundSelected: '{highlight.background}',
-                backgroundSelectedFocus: '{highlight.background.focus}',
-                textColor: '{surface.0}',
-                textColorFocus: '{surface.0}',
-                textColorSelected: '{highlight.text.color}',
-                textColorSelectedFocus: '{highlight.text.color.focus}'
+                focusBackground: '{surface.800}',
+                selectedBackground: '{highlight.background}',
+                selectedFocusBackground: '{highlight.background.focus}',
+                color: '{surface.0}',
+                focusColor: '{surface.0}',
+                selectedColor: '{highlight.text.color}',
+                selectedFocusColor: '{highlight.text.color.focus}'
             }
         }
     }

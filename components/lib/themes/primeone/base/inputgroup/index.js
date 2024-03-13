@@ -11,11 +11,11 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    background: var(--p-inputgroup-addon-background);
-    color: var(--p-inputgroup-addon-text-color);
-    border-top: 1px solid var(--p-inputgroup-addon-border-color);
-    border-left: 1px solid var(--p-inputgroup-addon-border-color);
-    border-bottom: 1px solid var(--p-inputgroup-addon-border-color);
+    background: ${dt('inputgroup.addon.background')};
+    color: ${dt('inputgroup.addon.color')};
+    border-top: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-left: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-bottom: 1px solid ${dt('inputgroup.addon.border.color')};
     padding: 0.5rem 0.75rem;
     min-width: 2.5rem;
 }
@@ -35,7 +35,7 @@ export default {
 }
 
 .p-inputgroup-addon:last-child {
-    border-right: 1px solid var(--p-inputgroup-addon-border-color);
+    border-right: 1px solid ${dt('inputgroup.addon.border.color')};
 }
 
 .p-inputgroup > .p-component,

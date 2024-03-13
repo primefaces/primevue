@@ -22,7 +22,7 @@ export default {
 }
 
 .p-rating-icon {
-    color: var(--p-rating-icon-color);
+    color: ${dt('rating.icon.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     font-size: 1rem;
     width: 1rem;
@@ -30,11 +30,11 @@ export default {
 }
 
 .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
-    color: var(--p-rating-icon-color-hover);
+    color: ${dt('rating.icon.hover.color')};
 }
 
 .p-rating-item-active .p-rating-icon {
-    color: var(--p-rating-icon-color-active);
+    color: ${dt('rating.icon.active.color')};
 }
 `
 };

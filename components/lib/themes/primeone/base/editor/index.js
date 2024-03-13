@@ -1,67 +1,67 @@
 export default {
     css: ({ dt }) => `
 .p-editor-container .p-editor-toolbar {
-    background: var(--p-editor-toolbar-background);
+    background: ${dt('editor.toolbar.background')};
     border-top-right-radius: ${dt('rounded.base')};
     border-top-left-radius: ${dt('rounded.base')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow {
-    border: 1px solid var(--p-editor-toolbar-border-color);
+    border: 1px solid ${dt('editor.toolbar.border.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {
-    stroke: var(--p-editor-toolbar-item-text-color);
+    stroke: ${dt('editor.toolbar.item.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-fill {
-    fill: var(--p-editor-toolbar-item-text-color);
+    fill: ${dt('editor.toolbar.item.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {
     border: 0 none;
-    color: var(--p-editor-toolbar-item-text-color);
+    color: ${dt('editor.toolbar.item.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover {
-    color: var(--p-editor-toolbar-item-text-color-hover);
+    color: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-stroke {
-    stroke: var(--p-editor-toolbar-item-text-color-hover);
+    stroke: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-fill {
-    fill: var(--p-editor-toolbar-item-text-color-hover);
+    fill: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
-    color: var(--p-editor-toolbar-item-text-color-active);
+    color: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
-    stroke: var(--p-editor-toolbar-item-text-color-active);
+    stroke: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
-    fill: var(--p-editor-toolbar-item-text-color-active);
+    fill: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
-    background: var(--p-editor-overlay-background);
-    border: 1px solid var(--p-editor-overlay-border-color);
+    background: ${dt('editor.overlay.background')};
+    border: 1px solid ${dt('editor.overlay.border.color')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     border-radius: ${dt('rounded.base')};
     padding: 0.25rem 0.25rem;
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {
-    color: var(--p-editor-overlay-item-text-color);
+    color: ${dt('editor.overlay.item.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
-    color: var(--p-editor-overlay-item-text-color-hover);
-    background: var(--p-editor-overlay-item-background-hover);
+    background: ${dt('editor.overlay.item.hover.background')};
+    color: ${dt('editor.overlay.item.hover.color')};
 }
 
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
@@ -74,53 +74,53 @@ export default {
 }
 
 .p-editor-container .p-editor-content.ql-snow {
-    border: 1px solid var(--p-editor-content-border-color);
+    border: 1px solid ${dt('editor.content.border.color')};
 }
 
 .p-editor-container .p-editor-content .ql-editor {
-    background: var(--p-editor-content-background);
-    color: var(--p-editor-content-text-color);
+    background: ${dt('editor.content.background')};
+    color: ${dt('editor.content.color')};
     border-bottom-right-radius: ${dt('rounded.base')};
     border-bottom-left-radius: ${dt('rounded.base')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button:hover,
 .p-editor-container .ql-snow.ql-toolbar button:focus {
-    color: var(--p-editor-toolbar-item-text-color-hover);
+    color: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,
 .p-editor-container .ql-snow.ql-toolbar button:focus .ql-stroke {
-    stroke: var(--p-editor-toolbar-item-text-color-hover);
+    stroke: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button:hover .ql-fill,
 .p-editor-container .ql-snow.ql-toolbar button:focus .ql-fill {
-    fill: var(--p-editor-toolbar-item-text-color-hover);
+    fill: ${dt('editor.toolbar.item.hover.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button.ql-active,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected {
-    color: var(--p-editor-toolbar-item-text-color-active);
+    color: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
-    stroke: var(--p-editor-toolbar-item-text-color-active);
+    stroke: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-fill,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {
-    fill: var(--p-editor-toolbar-item-text-color-active);
+    fill: ${dt('editor.toolbar.item.active.color')};
 }
 
 .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-picker-label,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-picker-label,
 .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-picker-label {
-    color: var(--p-editor-toolbar-item-text-color-active);
+    color: ${dt('editor.toolbar.item.active.color')};
 }
 `
 };

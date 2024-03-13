@@ -15,41 +15,41 @@ export default {
     flex-wrap: wrap;
     padding: 0.25rem 0.25rem;
     gap: 0.25rem;
-    color: var(--p-chips-text-color);
-    background: var(--p-chips-background);
-    border: 1px solid var(--p-chips-border-color);
+    color: ${dt('chips.color')};
+    background: ${dt('chips.background')};
+    border: 1px solid ${dt('chips.border.color')};
     border-radius: ${dt('rounded.base')};
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: var(--p-chips-box-shadow);
+    box-shadow: ${dt('chips.box.shadow')};
 }
 
 .p-chips:not(.p-disabled):hover .p-chips-multiple-container {
-    border-color:  var(--p-chips-border-color-hover);
+    border-color: ${dt('chips.hover.border.color')};
 }
 
 .p-chips:not(.p-disabled).p-focus .p-chips-multiple-container {
-    border-color: var(--p-chips-border-color-focus);
+    border-color: ${dt('chips.focus.border.color')};
     outline: 0 none;
 }
 
 .p-chips.p-invalid .p-chips-multiple-container {
-    border-color: var(--p-chips-border-color-invalid);
+    border-color: ${dt('chips.invalid.border.color')};
 }
 
 .p-variant-filled.p-chips-multiple-container {
-    background: var(--p-chips-background-filled);
+    background: ${dt('chips.filled.background')};
 }
 
 .p-chips:not(.p-disabled).p-focus .p-variant-filled.p-chips-multiple-container  {
-    background: var(--p-chips-background-filled-focus);
+    background: ${dt('chips.filled.focus.background')};
 }
 
 .p-chips.p-disabled .p-chips-multiple-container {
     opacity: 1;
-    background: var(--p-chips-background-disabled);
-    color: var(--p-chips-text-color-disabled);
+    background: ${dt('chips.disabled.background')};
+    color: ${dt('chips.disabled.color')};
 }
 
 .p-chips-token {
@@ -58,14 +58,14 @@ export default {
     align-items: center;
     flex: 0 0 auto;
     padding: 0.25rem 0.75rem;
-    background: var(--p-chips-chip-background);
-    color: var(--p-chips-chip-text-color);
-    border-radius: var(--p-rounded-sm);
+    background: ${dt('chips.chip.background')};
+    color: ${dt('chips.chip.color')};
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-chips-token.p-focus {
-    background: var(--p-chips-chip-background-focus);
-    color: var(--p-chips-chip-text-color-focus);
+    background: ${dt('chips.chip.focus.background')};
+    color: ${dt('chips.chip.focus.color')};
 }
 
 .p-chips-input-token {
@@ -101,7 +101,7 @@ export default {
 }
 
 .p-chips-input-token input::placeholder {
-    color: var(--p-chips-placeholder-text-color);
+    color: ${dt('chips.placeholder.color')};
 }
 
 .p-fluid .p-chips {

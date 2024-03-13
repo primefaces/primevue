@@ -1,4 +1,7 @@
 export default {
-    color: '{form.field.placeholder.text.color}',
-    focusColor: '{form.field.placeholder.text.color}'
+    root: {
+        color: '{form.field.float.label.color}',
+        focusColor: '{form.field.float.label.focus.color}',
+        invalidColor: '{form.field.float.label.invalid.color}',
+    }
 };

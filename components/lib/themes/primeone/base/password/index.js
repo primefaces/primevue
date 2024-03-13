@@ -12,7 +12,7 @@ export default {
 .p-password-meter {
     height: 10px;
     margin-bottom: 0.75rem;
-    background: var(--p-password-meter-border-color);
+    background: ${dt('password.meter.border.color')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -24,15 +24,15 @@ export default {
 }
 
 .p-password-strength.weak {
-    background: var(--p-password-strength-background-weak);
+    background: ${dt('password.weak.background')};
 }
 
 .p-password-strength.medium {
-    background: var(--p-password-strength-background-medium);
+    background: ${dt('password.medium.background')};
 }
 
 .p-password-strength.strong {
-    background: var(--p-password-strength-background-strong);
+    background: ${dt('password.strong.background')};
 }
 
 .p-fluid .p-password {
@@ -46,9 +46,9 @@ export default {
 
 .p-password-panel {
     padding: 0.75rem;
-    background: var(--p-password-overlay-background);
-    color: var(--p-password-overlay-text-color);
-    border: 1px solid var(--p-password-overlay-border-color);
+    background: ${dt('password.overlay.background')};
+    color: ${dt('password.overlay.color')};
+    border: 1px solid ${dt('password.overlay.border.color')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     border-radius: ${dt('rounded.base')};
 }
@@ -56,7 +56,7 @@ export default {
 .p-password > svg:last-of-type,
 .p-password > i:last-of-type {
     right: 0.75rem;
-    color: var(--p-password-icon-color);
+    color: ${dt('password.icon.color')};
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;

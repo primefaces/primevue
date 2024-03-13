@@ -178,8 +178,8 @@ export default {
                     disabledColor: '{surface.500}',
                     placeholderColor: '{surface.500}',
                     floatLabelColor: '{surface.500}',
-                    invalidFloatLabelColor: '{red.400}',
-                    focusFloatLabelColor: '{surface.500}',
+                    floatLabelFocusColor: '{surface.500}',
+                    floatLabelInvalidColor: '{red.400}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 }
             },

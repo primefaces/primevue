@@ -5,7 +5,7 @@ export default {
     user-select: none;
     vertical-align: bottom;
     border: 1px solid transparent;
-    background: var(--p-togglebutton-background);
+    background: ${dt('togglebutton.background')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
     position: relative;
@@ -33,7 +33,7 @@ export default {
     flex: 1 1 auto;
     background: transparent;
     border: 0 none;
-    color: var(--p-togglebutton-item-text-color);
+    color: ${dt('togglebutton.item.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     padding: 0.5rem 1rem;
@@ -54,7 +54,7 @@ export default {
     top: 0.25rem;
     width: calc(100% - 0.5rem);
     height: calc(100% - 0.5rem);
-    border-radius: var(--p-rounded-sm);
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-togglebutton .p-button .p-button-label,
@@ -65,30 +65,30 @@ export default {
 
 .p-togglebutton .p-button .p-button-icon-left,
 .p-togglebutton .p-button .p-button-icon-right {
-    color: var(--p-togglebutton-item-icon-color);
+    color: ${dt('togglebutton.item.icon.color')};
 }
 
 .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button {
-    color: var(--p-togglebutton-item-text-color-hover);
+    color: ${dt('togglebutton.item.hover.color')};
 }
 
 .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button .p-button-icon-left,
 .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:hover):not(.p-highlight) .p-button .p-button-icon-right {
-    color: var(--p-togglebutton-item-icon-color-hover);
+    color: ${dt('togglebutton.item.icon.hover.color')};
 }
 
 .p-togglebutton.p-highlight .p-button {
-    color: var(--p-togglebutton-item-text-color-checked);
+    color: ${dt('togglebutton.item.checked.color')};
 }
 
 .p-togglebutton.p-highlight .p-button::before {
-    background: var(--p-togglebutton-item-background-checked);
+    background: ${dt('togglebutton.item.checked.background')};
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
 }
 
 .p-togglebutton.p-highlight .p-button .p-button-icon-left,
 .p-togglebutton.p-highlight .p-button .p-button-icon-right {
-    color: var(--p-togglebutton-item-icon-color-checked);
+    color: ${dt('togglebutton.item.icon.checked.color')};
 }
 
 .p-togglebutton:not(.p-disabled):has(.p-togglebutton-input:focus-visible) {
@@ -97,20 +97,20 @@ export default {
 }
 
 .p-togglebutton.p-invalid {
-    border-color: var(--p-togglebutton-border-color-invalid);
+    border-color: ${dt('togglebutton.invalid.border.color')};
 }
 
 .p-togglebutton.p-disabled {
     opacity: 1;
-    background: var(--p-togglebutton-background-disabled);
+    background: ${dt('togglebutton.disabled.background')};
 }
 
 .p-togglebutton.p-disabled .p-button {
-    color: var(--p-togglebutton-item-text-color-disabled);
+    color: ${dt('togglebutton.item.disabled.color')};
 }
 
 .p-togglebutton.p-disabled .p-button .p-button-icon {
-    color: var(--p-togglebutton-item-icon-color-disabled);
+    color: ${dt('togglebutton.item.icon.disabled.color')};
 }
 `
 };

@@ -5,38 +5,38 @@ export default {
     cursor: pointer;
     position: relative;
     user-select: none;
-    background: var(--p-multiselect-background);
-    border: 1px solid var(--p-multiselect-border-color);
+    background: ${dt('multiselect.background')};
+    border: 1px solid ${dt('multiselect.border.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    box-shadow: var(--p-multiselect-box-shadow);
+    box-shadow: ${dt('multiselect.box.shadow')};
 }
 
 .p-multiselect:not(.p-disabled):hover {
-    border-color: var(--p-multiselect-border-color-hover);
+    border-color: ${dt('multiselect.hover.border.color')};
 }
 
 .p-multiselect:not(.p-disabled).p-focus {
-    border-color: var(--p-multiselect-border-color-focus);
+    border-color: ${dt('multiselect.focus.border.color')};
     outline: 0 none;
 }
 
 .p-multiselect.p-variant-filled {
-    background: var(--p-multiselect-background-filled);
+    background: ${dt('multiselect.filled.background')};
 }
 
 .p-multiselect.p-variant-filled.p-focus {
-    background: var(--p-multiselect-background-filled-focus);
+    background: ${dt('multiselect.filled.focus.background')};
 }
 
 .p-multiselect.p-invalid {
-    border-color: var(--p-multiselect-border-color-invalid);
+    border-color: ${dt('multiselect.invalid.border.color')};
 }
 
 .p-multiselect.p-disabled {
     opacity: 1;
-    background: var(--p-multiselect-background-disabled);
+    background: ${dt('multiselect.disabled.background')};
 }
 
 .p-multiselect-trigger {
@@ -45,7 +45,7 @@ export default {
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    color: var(--p-multiselect-toggle-color);
+    color: ${dt('multiselect.toggle.color')};
     width: 2.5rem;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -64,15 +64,15 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0.5rem 0.75rem;
-    color: var(--p-multiselect-text-color);
+    color: ${dt('multiselect.color')};
 }
 
 .p-multiselect-label.p-placeholder {
-    color: var(--p-multiselect-placeholder-text-color);
+    color: ${dt('multiselect.placeholder.color')};
 }
 
 .p-multiselect.p-disabled .p-multiselect-label {
-    color: var(--p-multiselect-text-color-disabled);
+    color: ${dt('multiselect.disabled.color')};
 }
 
 .p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {
@@ -90,9 +90,9 @@ export default {
     align-items: center;
     flex: 0 0 auto;
     padding: 0.25rem 0.75rem;
-    background: var(--p-multiselect-chip-background);
-    color: var(--p-multiselect-chip-text-color);
-    border-radius: var(--p-rounded-sm);
+    background: ${dt('multiselect.chip.background')};
+    color: ${dt('multiselect.chip.color')};
+    border-radius: ${dt('rounded.sm')};
     margin-right: 0.25rem;
 }
 
@@ -109,9 +109,9 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    background: var(--p-multiselect-overlay-background);
-    color: var(--p-multiselect-overlay-text-color);
-    border: 1px solid var(--p-multiselect-overlay-border-color);
+    background: ${dt('multiselect.overlay.background')};
+    color: ${dt('multiselect.overlay.color')};
+    border: 1px solid ${dt('multiselect.overlay.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -137,7 +137,7 @@ export default {
     top: 50%;
     margin-top: -0.5rem;
     right: 0.75rem;
-    color: var(--p-multiselect-filter-icon-color);
+    color: ${dt('multiselect.filter.icon.color')};
 }
 
 .p-multiselect-filter-container .p-inputtext {
@@ -167,10 +167,10 @@ export default {
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    color: var(--p-multiselect-item-text-color);
+    color: ${dt('multiselect.item.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-multiselect-item:first-child {
@@ -182,18 +182,18 @@ export default {
 }
 
 .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
-    color: var(--p-multiselect-item-text-color-focus);
-    background: var(--p-multiselect-item-background-focus);
+    background: ${dt('multiselect.item.focus.background')};
+    color: ${dt('multiselect.item.focus.color')};
 }
 
 .p-multiselect-item.p-highlight {
-    color: var(--p-multiselect-item-text-color-selected);
-    background: var(--p-multiselect-item-background-selected);
+    background: ${dt('multiselect.item.selected.background')};
+    color: ${dt('multiselect.item.selected.color')};
 }
 
 .p-multiselect-item.p-highlight.p-focus {
-    color: var(--p-multiselect-item-text-color-selected-focus);
-    background: var(--p-multiselect-item-background-selected-focus);
+    background: ${dt('multiselect.item.selected.focus.background')};
+    color: ${dt('multiselect.item.selected.focus.color')};
 }
 
 .p-multiselect-item .p-checkbox {
@@ -204,8 +204,8 @@ export default {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: var(--p-multiselect-item-group-text-color);
-    background: var(--p-multiselect-item-group-background);
+    color: ${dt('multiselect.item.group.color')};
+    background: ${dt('multiselect.item.group.background')};
     font-weight: 600;
 }
 

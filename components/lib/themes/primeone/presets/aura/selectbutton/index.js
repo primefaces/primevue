@@ -3,29 +3,29 @@ export default {
         light: {
             root: {
                 background: '{surface.100}',
-                backgroundDisabled: '{form.field.background.disabled}',
-                borderColorInvalid: '{form.field.border.color.invalid}'
+                disabledBackground: '{form.field.background.disabled}',
+                invalidBorderColor: '{form.field.border.color.invalid}'
             },
             item: {
-                backgroundChecked: '{surface.0}',
-                textColor: '{surface.500}',
-                textColorHover: '{surface.700}',
-                textColorChecked: '{surface.900}',
-                textColorDisabled: '{form.field.text.color.disabled}'
+                checkedBackground: '{surface.0}',
+                color: '{surface.500}',
+                hoverColor: '{surface.700}',
+                checkedColor: '{surface.900}',
+                disabledColor: '{form.field.text.color.disabled}'
             }
         },
         dark: {
             root: {
                 background: '{surface.950}',
-                backgroundDisabled: '{form.field.background.disabled}',
-                borderColorInvalid: '{form.field.border.color.invalid}'
+                disabledBackground: '{form.field.background.disabled}',
+                invalidBorderColor: '{form.field.border.color.invalid}'
             },
             item: {
-                backgroundChecked: '{surface.800}',
-                textColor: '{surface.400}',
-                textColorHover: '{surface.300}',
-                textColorChecked: '{surface.0}',
-                textColorDisabled: '{form.field.text.color.disabled}'
+                checkedBackground: '{surface.800}',
+                color: '{surface.400}',
+                hoverColor: '{surface.300}',
+                checkedColor: '{surface.0}',
+                disabledColor: '{form.field.text.color.disabled}'
             }
         }
     }

@@ -8,14 +8,14 @@ export default {
                 color: '{surface.500}'
             },
             strength: {
-                backgroundWeak: '{red.500}',
-                backgroundMedium: '{amber.500}',
-                backgroundStrong: '{green.500}'
+                weakBackground: '{red.500}',
+                mediumBackground: '{amber.500}',
+                strongBackground: '{green.500}'
             },
             overlay: {
                 background: '{surface.0}',
                 borderColor: '{surface.200}',
-                textColor: '{surface.700}'
+                color: '{surface.700}'
             }
         },
         dark: {
@@ -26,14 +26,14 @@ export default {
                 color: '{surface.400}'
             },
             strength: {
-                backgroundWeak: '{red.400}',
-                backgroundMedium: '{amber.400}',
-                backgroundStrong: '{green.400}'
+                weakBackground: '{red.400}',
+                mediumBackground: '{amber.400}',
+                strongBackground: '{green.400}'
             },
             overlay: {
                 background: '{surface.900}',
                 borderColor: '{surface.700}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             }
         }
     }

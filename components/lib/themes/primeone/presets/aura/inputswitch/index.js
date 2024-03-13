@@ -3,35 +3,35 @@ export default {
         light: {
             root: {
                 background: '{surface.300}',
-                backgroundInvalid: '{red.400}',
-                backgroundHover: '{surface.400}',
-                backgroundChecked: '{primary.500}',
-                backgroundCheckedHover: '{primary.600}',
+                invalidBackground: '{red.400}',
+                hoverBackground: '{surface.400}',
+                checkedBackground: '{primary.500}',
+                checkedHoverBackground: '{primary.600}',
                 borderRadius: '30px'
             },
             handle: {
                 background: '{surface.0}',
-                backgroundHover: '{surface.0}',
-                backgroundChecked: '{surface.0}',
-                backgroundCheckedHover: '{surface.0}',
-                backgroundInvalid: '{surface.0}'
+                hoverBackground: '{surface.0}',
+                checkedBackground: '{surface.0}',
+                checkedHoverBackground: '{surface.0}',
+                invalidBackground: '{surface.0}'
             }
         },
         dark: {
             root: {
                 background: '{surface.700}',
-                backgroundInvalid: '{red.300}',
-                backgroundHover: '{surface.600}',
-                backgroundChecked: '{primary.400}',
-                backgroundCheckedHover: '{primary.300}',
+                invalidBackground: '{red.300}',
+                hoverBackground: '{surface.600}',
+                checkedBackground: '{primary.400}',
+                checkedHoverBackground: '{primary.300}',
                 borderRadius: '30px'
             },
             handle: {
                 background: '{surface.400}',
-                backgroundHover: '{surface.300}',
-                backgroundChecked: '{surface.900}',
-                backgroundCheckedHover: '{surface.900}',
-                backgroundInvalid: '{surface.900}'
+                hoverBackground: '{surface.300}',
+                checkedBackground: '{surface.900}',
+                checkedHoverBackground: '{surface.900}',
+                invalidBackground: '{surface.900}'
             }
         }
     }

@@ -14,7 +14,7 @@ export default {
     transition-timing-function: ease;
     line-height: 1;
     left: 0.75rem;
-    color: var(--p-float-label-text-color);
+    color: ${dt('floatlabel.color')};
     transition-duration: ${dt('transition.duration')};
 }
 
@@ -31,7 +31,7 @@ export default {
 .p-float-label:has(.p-inputwrapper-filled) label {
     top: -.75rem;
     font-size: 12px;
-    color: var(--p-float-label-text-color-focus);
+    color: ${dt('floatlabel.focus.color')};
 }
 
 .p-float-label .p-placeholder,
@@ -51,7 +51,7 @@ export default {
 }
 
 .p-float-label > .p-invalid + label {
-    color: var(--p-float-label-text-color-invalid);
+    color: ${dt('floatlabel.invalid.color')};
 }
     `
 };

@@ -1,7 +1,7 @@
 export default {
     addon: {
-        background: '{form.field.background.color}',
+        background: '{form.field.background}',
         borderColor: '{form.field.border.color}',
-        textColor: '{form.field.placeholder.color}'
+        color: '{form.field.placeholder.color}'
     }
 };

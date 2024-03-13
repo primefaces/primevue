@@ -19,7 +19,7 @@ export default {
     opacity: 0;
     z-index: 1;
     outline: 0 none;
-    border-radius: var(--p-inputswitch-border-radius);
+    border-radius: ${dt('inputswitch.border.radius')};
 }
 
 .p-inputswitch-slider {
@@ -30,9 +30,9 @@ export default {
     right: 0;
     bottom: 0;
     border: 0 none;
-    background: var(--p-inputswitch-background);
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: var(--p-inputswitch-border-radius);
+    background:  ${dt('inputswitch.background')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('inputswitch.border.radius')};
     outline-color: transparent;
 }
 
@@ -40,7 +40,7 @@ export default {
     position: absolute;
     content: "";
     top: 50%;
-    background: var(--p-inputswitch-handle-background);
+    background: ${dt('inputswitch.handle.background')};
     width: 1rem;
     height: 1rem;
     left: 0.25rem;
@@ -50,28 +50,28 @@ export default {
 }
 
 .p-inputswitch.p-highlight .p-inputswitch-slider {
-    background: var(--p-inputswitch-background-checked);
+    background: ${dt('inputswitch.checked.background')};
 }
 
 .p-inputswitch.p-highlight .p-inputswitch-slider:before {
-    background: var(--p-inputswitch-handle-background-checked);
+    background: ${dt('inputswitch.handle.checked.background')};
     left: 1.25rem;
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider {
-    background: var(--p-inputswitch-background-hover);
+    background: ${dt('inputswitch.hover.background')};
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider:before {
-    background: var(--p-inputswitch-handle-background-hover);
+    background: ${dt('inputswitch.handle.hover.background')};
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider {
-    background: var(--p-inputswitch-background-checked-hover);
+    background: ${dt('inputswitch.checked.hover.background')};
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider:before {
-    background: var(--p-inputswitch-handle-background-checked-hover);
+    background: ${dt('inputswitch.handle.checked.hover.background')};
 }
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:focus-visible) .p-inputswitch-slider {
@@ -80,11 +80,11 @@ export default {
 }
 
 .p-inputswitch.p-invalid > .p-inputswitch-slider {
-    background: var(--p-inputswitch-background-invalid);
+    background: ${dt('inputswitch.invalid.background')};
 }
 
 .p-inputswitch.p-invalid > .p-inputswitch-slider:before {
-    background: var(--p-inputswitch-handle-background-invalid);
+    background: ${dt('inputswitch.handle.invalid.background')};
 }
 `
 };

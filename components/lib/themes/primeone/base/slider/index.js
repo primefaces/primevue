@@ -2,7 +2,7 @@ export default {
     css: ({ dt }) => `
 .p-slider {
     position: relative;
-    background: var(--p-slider-track-background);
+    background: ${dt('slider.track.background')};
     border-radius: ${dt('rounded.base')};
 }
 
@@ -14,10 +14,10 @@ export default {
     align-items: center;
     height: 20px;
     width: 20px;
-    background: var(--p-slider-handle-background);
+    background: ${dt('slider.handle.background')};
     border: 0 none;
     border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -26,13 +26,13 @@ export default {
     width: 16px;
     height: 16px;
     display: block;
-    background-color: var(--p-slider-handle-content-background);
+    background-color: ${dt('slider.handle.content.background')};
     border-radius: 50%;
     box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.08), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
 }
 
 .p-slider:not(.p-disabled) .p-slider-handle:hover {
-    background: var(--p-slider-handle-background-hover);
+    background: ${dt('slider.handle.hover.background')};
     border-color: transparent;
 }
 
@@ -43,7 +43,7 @@ export default {
 
 .p-slider-range {
     display: block;
-    background: var(--p-slider-range-background);
+    background: ${dt('slider.range.background')};
     border-radius: ${dt('rounded.base')};
 }
 

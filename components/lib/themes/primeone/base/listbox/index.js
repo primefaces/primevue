@@ -1,9 +1,9 @@
 export default {
     css: ({ dt }) => `
 .p-listbox {
-    background: var(--p-listbox-background);
-    color: var(--p-listbox-text-color);
-    border: 1px solid var(--p-listbox-border-color);
+    background: ${dt('listbox.background')};
+    color: ${dt('listbox.color')};
+    border: 1px solid ${dt('listbox.border.color')};
     border-radius: ${dt('rounded.base')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
@@ -12,17 +12,17 @@ export default {
 
 .p-listbox.p-focus {
     outline: 0 none;
-    border-color: var(--p-listbox-border-color-focus);
+    border-color: ${dt('listbox.focus.border.color')};
 }
 
 .p-listbox.p-disabled {
     opacity: 1;
-    background: var(--p-listbox-background-disabled);
-    color: var(--p-listbox-text-color-disabled);
+    background: ${dt('listbox.disabled.background')};
+    color: ${dt('listbox.disabled.color')};
 }
 
 .p-listbox.p-invalid {
-    border-color: var(--p-listbox-border-color-invalid);
+    border-color: ${dt('listbox.invalid.border.color')};
 }
 
 .p-listbox .p-listbox-header {
@@ -40,7 +40,7 @@ export default {
     top: 50%;
     margin-top: -0.5rem;
     right: 0.75rem;
-    color: var(--p-listbox-filter-icon);
+    color: ${dt('listbox.filter.icon.color')};
 }
 
 .p-listbox-filter {
@@ -66,8 +66,8 @@ export default {
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    border-radius: var(--p-rounded-sm);
-    color: var(--p-listbox-item-text-color);
+    border-radius: ${dt('rounded.sm')};
+    color: ${dt('listbox.item.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
@@ -80,31 +80,31 @@ export default {
 }
 
 .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
-    background: var(--p-listbox-item-background-selected);
-    color: var(--p-listbox-item-text-color-selected);
+    background: ${dt('listbox.item.selected.background')};
+    color: ${dt('listbox.item.selected.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
-    background: var(--p-listbox-item-background-selected-focus);
-    color: var(--p-listbox-item-text-color-selected-focus);
+    background: ${dt('listbox.item.selected.focus.background')};
+    color: ${dt('listbox.item.selected.focus.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
-    background: var(--p-listbox-item-background-focus);
-    color: var(--p-listbox-item-text-color-focus);
+    background: ${dt('listbox.item.focus.background')};
+    color: ${dt('listbox.item.focus.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
-    background: var(--p-listbox-item-background-focus);
-    color: var(--p-listbox-item-text-color-focus);
+    background: ${dt('listbox.item.focus.background')};
+    color: ${dt('listbox.item.focus.color')};
 }
 
 .p-listbox-item-group {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: var(--p-listbox-item-group-text-color);
-    background: var(--p-listbox-item-group-background);
+    color: ${dt('listbox.item.group.color')};
+    background: ${dt('listbox.item.group.background')};
     font-weight: 600;
 }
 

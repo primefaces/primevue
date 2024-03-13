@@ -31,14 +31,14 @@ export default {
 }
 
 .p-colorpicker > .p-colorpicker-panel {
-    background: var(--p-colorpicker-panel-background);
-    border: 1px solid var(--p-colorpicker-panel-border-color);
+    background: ${dt('colorpicker.panel.background')};
+    border: 1px solid ${dt('colorpicker.panel.border.color')};
     border-radius: ${dt('rounded.base')};
 }
 
 .p-colorpicker-panel .p-colorpicker-color-handle,
 .p-colorpicker-panel .p-colorpicker-hue-handle {
-    border-color: var(--p-colorpicker-handle-color);
+    border-color: ${dt('colorpicker.handle.color')};
 }
 
 .p-colorpicker-overlay-panel {
