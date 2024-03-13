@@ -39,9 +39,9 @@ export default {
 .p-datepicker {
     width: auto;
     padding: 0.75rem;
-    background: var(--p-calendar-background);
-    color: var(--p-calendar-text-color);
-    border: 1px solid var(--p-calendar-border-color);
+    background: ${dt('calendar.background')};
+    color: ${dt('calendar.color')};
+    border: 1px solid ${dt('calendar.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -58,9 +58,9 @@ export default {
     justify-content: space-between;
     padding: 0 0 0.5rem 0;
     font-weight: 500;
-    background: var(--p-calendar-header-background);
-    color: var(--p-calendar-header-text-color);
-    border-bottom: 1px solid var(--p-calendar-header-border-color);
+    background: ${dt('calendar.header.background')};
+    color: ${dt('calendar.header.color')};
+    border-bottom: 1px solid ${dt('calendar.header.border.color')};
 }
 
 .p-datepicker-title {
@@ -78,7 +78,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-calendar-navigator-color);
+    color: ${dt('calendar.navigator.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -88,8 +88,8 @@ export default {
 
 .p-datepicker-prev:enabled:hover,
 .p-datepicker-next:enabled:hover {
-    color: var(--p-calendar-navigator-color-hover);
-    background: var(--p-calendar-navigator-background-hover);
+    background: ${dt('calendar.navigator.hover.background')};
+    color: ${dt('calendar.navigator.hover.color')};
 }
 
 .p-datepicker-prev:focus-visible,
@@ -107,22 +107,22 @@ export default {
 
 .p-datepicker-month {
     margin-right: 0.5rem;
-    color: var(--p-calendar-month-picker-text-color);
+    color: ${dt('calendar.month.picker.color')};
 }
 
 .p-datepicker-year {
     margin-right: 0.5rem;
-    color: var(--p-calendar-year-picker-text-color);
+    color: ${dt('calendar.year.picker.color')};
 }
 
 .p-datepicker-month:enabled:hover {
-    color: var(--p-calendar-month-picker-text-color-hover);
-    background: var(--p-calendar-month-picker-background-hover);
+    background: ${dt('calendar.month.picker.hover.background')};
+    color: ${dt('calendar.month.picker.hover.color')};
 }
 
 .p-datepicker-year:enabled:hover {
-    color: var(--p-calendar-year-picker-text-color-hover);
-    background: var(--p-calendar-year-picker-background-hover);
+    background: ${dt('calendar.year.picker.hover.background')};
+    color: ${dt('calendar.year.picker.hover.color')};
 }
 
 .p-datepicker-multiple-month .p-datepicker-group-container {
@@ -131,7 +131,7 @@ export default {
 
 .p-datepicker-multiple-month .p-datepicker-group {
     flex: 1 1 auto;
-    border-left: 1px solid var(--p-calendar-group-border-color);
+    border-left: 1px solid ${dt('calendar.group.border.color')};
     padding-right: 0.75rem;
     padding-left: 0.75rem;
     padding-top: 0;
@@ -182,12 +182,12 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border: 1px solid transparent;
     outline-color: transparent;
-    color: var(--p-calendar-date-text-color);
+    color: ${dt('calendar.date.color')};
 }
 
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-    background: var(--p-calendar-date-background-hover);
-    color: var(--p-calendar-date-text-color-hover);
+    background: ${dt('calendar.date.hover.background')};
+    color: ${dt('calendar.date.hover.color')};
 }
 
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus-visible {
@@ -196,18 +196,18 @@ export default {
 }
 
 .p-datepicker table td > span.p-highlight {
-    background: var(--p-calendar-date-background-highlight);
-    color: var(--p-calendar-date-text-color-highlight);
+    background: ${dt('calendar.date.selected.background')};
+    color: ${dt('calendar.date.selected.color')};
 }
 
 .p-datepicker table td.p-datepicker-today > span {
-    background: var(--p-calendar-today-background);
-    color: var(--p-calendar-today-text-color);
+    background: ${dt('calendar.today.background')};
+    color: ${dt('calendar.today.color')};
 }
 
 .p-datepicker table td.p-datepicker-today > span.p-highlight {
-    background: var(--p-calendar-date-background-highlight);
-    color: var(--p-calendar-date-text-color-highlight);
+    background: ${dt('calendar.date.selected.background')};
+    color: ${dt('calendar.date.selected.color')};
 }
 
 .p-monthpicker {
@@ -226,17 +226,17 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    color: var(--p-calendar-month-text-color);
+    color: ${dt('calendar.month.color')};
 }
 
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {
-    background: var(--p-calendar-month-background-hover);
-    color: var(--p-calendar-month-text-color-hover);
+    color:  ${dt('calendar.month.hover.color')};
+    background: ${dt('calendar.month.hover.background')};
 }
 
 .p-monthpicker-month.p-highlight {
-    background: var(--p-calendar-month-background-selected);
-    color: var(--p-calendar-month-text-color-selected);
+    color: ${dt('calendar.month.selected.color')};
+    background: ${dt('calendar.month.selected.background')};
 }
 
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus-visible {
@@ -261,17 +261,17 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    color: var(--p-calendar-year-text-color);
+    color: ${dt('calendar.year.color')};
 }
 
 .p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
-    background: var(--p-calendar-year-background-hover);
-    color: var(--p-calendar-year-text-color-hover);
+    color:  ${dt('calendar.year.hover.color')};
+    background: ${dt('calendar.year.hover.background')};
 }
 
 .p-yearpicker-year.p-highlight {
-    background: var(--p-calendar-year-background-selected);
-    color: var(--p-calendar-year-text-color-selected);
+    color: ${dt('calendar.year.selected.color')};
+    background: ${dt('calendar.year.selected.background')};
 }
 
 .p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus-visible {
@@ -284,7 +284,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0 0 0;
-    border-top: 1px solid var(--p-calendar-buttonbar-border-color);
+    border-top: 1px solid ${dt('calendar.buttonbar.border.color')};
 }
 
 .p-datepicker-buttonbar .p-button {
@@ -297,7 +297,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid var(--p-calendar-timepicker-border-color);
+    border-top: 1px solid ${dt('calendar.timepicker.border.color')};
     padding: 0;
 }
 
@@ -322,7 +322,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--p-calendar-timepicker-spin-color);
+    color: ${dt('calendar.timepicker.spin.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -331,8 +331,8 @@ export default {
 }
 
 .p-timepicker button:enabled:hover {
-    background: var(--p-calendar-timepicker-spin-background-hover);
-    color: var(--p-calendar-timepicker-spin-color-hover);
+    background: ${dt('calendar.timepicker.spin.hover.background')};
+    color: ${dt('calendar.timepicker.spin.hover.color')};
 }
 
 .p-timepicker button:focus-visible {

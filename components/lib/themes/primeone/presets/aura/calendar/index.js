@@ -12,47 +12,47 @@ export default {
                 color: '{surface.700}'
             },
             navigator: {
-                backgroundHover: '{surface.100}',
+                hoverBackground: '{surface.100}',
                 color: '{surface.500}',
-                colorHover: '{surface.600}'
+                hoverColor: '{surface.600}'
             },
             monthPicker: {
-                backgroundHover: '{surface.100}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}'
+                hoverBackground: '{surface.100}',
+                color: '{surface.700}',
+                hoverColor: '{surface.800}'
             },
             yearPicker: {
-                backgroundHover: '{surface.100}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}'
+                hoverBackground: '{surface.100}',
+                color: '{surface.700}',
+                hoverColor: '{surface.800}'
             },
             group: {
                 borderColor: '{surface.200}'
             },
             date: {
-                backgroundHover: '{surface.100}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.100}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.700}',
+                hoverColor: '{surface.800}',
+                selectedColor: '{highlight.text.color}'
             },
             today: {
                 background: '{surface.200}',
-                textColor: '{surface.900}'
+                color: '{surface.900}'
             },
             month: {
-                backgroundHover: '{surface.100}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.100}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.700}',
+                hoverColor: '{surface.800}',
+                selectedColor: '{highlight.text.color}'
             },
             year: {
-                backgroundHover: '{surface.100}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.700}',
-                textColorHover: '{surface.800}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.100}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.700}',
+                hoverColor: '{surface.800}',
+                selectedColor: '{highlight.text.color}'
             },
             buttonbar: {
                 borderColor: '{surface.200}'
@@ -61,9 +61,9 @@ export default {
                 borderColor: '{surface.200}'
             },
             timepickerSpin: {
-                backgroundHover: '{surface.100}',
+                hoverBackground: '{surface.100}',
                 color: '{surface.500}',
-                colorHover: '{surface.600}'
+                hoverColor: '{surface.600}'
             }
         },
         dark: {
@@ -78,47 +78,47 @@ export default {
                 color: '{surface.0}'
             },
             navigator: {
-                backgroundHover: '{surface.800}',
+                hoverBackground: '{surface.800}',
                 color: '{surface.400}',
-                colorHover: '{surface.300}'
+                hoverColor: '{surface.300}'
             },
             monthPicker: {
-                backgroundHover: '{surface.800}',
-                textColor: '{surface.0}',
-                textColorHover: '{surface.0}'
+                hoverBackground: '{surface.800}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}'
             },
             yearPicker: {
-                backgroundHover: '{surface.800}',
-                textColor: '{surface.0}',
-                textColorHover: '{surface.0}'
+                hoverBackground: '{surface.800}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}'
             },
             group: {
                 borderColor: '{surface.700}'
             },
             date: {
-                backgroundHover: '{surface.800}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.0}',
-                textColorHover: '{surface.0}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.800}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}',
+                selectedColor: '{highlight.text.color}'
             },
             today: {
                 background: '{surface.700}',
-                textColor: '{surface.0}'
+                color: '{surface.0}'
             },
             month: {
-                backgroundHover: '{surface.800}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.0}',
-                textColorHover: '{surface.0}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.800}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}',
+                selectedColor: '{highlight.text.color}'
             },
             year: {
-                backgroundHover: '{surface.800}',
-                backgroundSelected: '{highlight.background}',
-                textColor: '{surface.0}',
-                textColorHover: '{surface.0}',
-                textColorSelected: '{highlight.text.color}'
+                hoverBackground: '{surface.800}',
+                selectedBackground: '{highlight.background}',
+                color: '{surface.0}',
+                hoverColor: '{surface.0}',
+                selectedColor: '{highlight.text.color}'
             },
             buttonbar: {
                 borderColor: '{surface.700}'
@@ -127,9 +127,9 @@ export default {
                 borderColor: '{surface.700}'
             },
             timepickerSpin: {
-                backgroundHover: '{surface.800}',
+                hoverBackground: '{surface.800}',
                 color: '{surface.400}',
-                colorHover: '{surface.300}'
+                hoverColor: '{surface.300}'
             }
         }
     }

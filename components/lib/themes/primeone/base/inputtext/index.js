@@ -4,42 +4,42 @@ export default {
     font-family: inherit;
     font-feature-settings: inherit;
     font-size: 1rem;
-    color: var(--p-inputtext-text-color);
-    background: var(--p-inputtext-background);
+    color: ${dt('inputtext.color')};
+    background: ${dt('inputtext.background')};
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--p-inputtext-border-color);
+    border: 1px solid ${dt('inputtext.border.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     appearance: none;
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
-    box-shadow: var(--p-inputtext-box-shadow);
+    box-shadow: ${dt('inputtext.box.shadow')};
 }
 
 .p-inputtext:enabled:hover {
-    border-color: var(--p-inputtext-border-color-hover);
+    border-color: ${dt('inputtext.hover.border.color')};
 }
 
 .p-inputtext:enabled:focus {
-    border-color: var(--p-inputtext-border-color-focus);
+    border-color: ${dt('inputtext.focus.border.color')};
     outline: 0 none;
 }
 
 .p-inputtext.p-invalid {
-    border-color: var(--p-inputtext-border-color-invalid);
+    border-color: ${dt('inputtext.invalid.border.color')};
 }
 
 .p-inputtext.p-variant-filled {
-    background-color: var(--p-inputtext-background-filled);
+    background: ${dt('inputtext.filled.background')};
 }
 
 .p-inputtext.p-variant-filled:enabled:focus {
-    background-color: var(--p-inputtext-background-filled-focus);
+    background-color: ${dt('inputtext.filled.focus.background')};
 }
 
 .p-inputtext:disabled {
     opacity: 1;
-    background: var(--p-inputtext-background-disabled);
-    color: var(--p-inputtext-text-color-disabled);
+    background: ${dt('inputtext.disabled.background')};
+    color: ${dt('inputtext.disabled.color')};
 }
 
 .p-input-icon-right > svg:last-of-type,
@@ -53,7 +53,7 @@ export default {
 }
 
 .p-inputtext::placeholder {
-    color: var(--p-inputtext-placeholder-text-color);
+    color: ${dt('inputtext.placeholder.color')};
 }
 
 .p-fluid .p-inputtext {

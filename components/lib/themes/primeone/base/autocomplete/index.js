@@ -40,9 +40,9 @@ export default {
     overflow: auto;
     top: 0;
     left: 0;
-    background: var(--p-autocomplete-overlay-background);
-    color: var(--p-autocomplete-overlay-text-color);
-    border: 1px solid var(--p-autocomplete-overlay-border-color);
+    background: ${dt('autocomplete.overlay.background')};
+    color: ${dt('autocomplete.overlay.color')};
+    border: 1px solid ${dt('autocomplete.overlay.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -62,10 +62,10 @@ export default {
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    color: var(--p-autocomplete-item-text-color);
+    color: ${dt('autocomplete.item.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
-    border-radius: var(--p-rounded-sm);
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-autocomplete-item:first-child {
@@ -77,25 +77,25 @@ export default {
 }
 
 .p-autocomplete-item:not(.p-highlight):not(.p-disabled).p-focus {
-    background: var(--p-autocomplete-item-background-focus);
-    color: var(--p-autocomplete-item-text-color-focus);
+    background: ${dt('autocomplete.item.focus.background')};
+    color: ${dt('autocomplete.item.focus.background')};
 }
 
 .p-autocomplete-item.p-highlight {
-    color: var(--p-autocomplete-item-background-selected);
-    background: var(--p-autocomplete-item-text-color-selected);
+    color: ${dt('autocomplete.item.selected.background')};
+    background: ${dt('autocomplete.item.selected.background')};
 }
 
 .p-autocomplete-item.p-highlight.p-focus {
-    color: var(--p-autocomplete-item-background-selected-focus);
-    background: var(--p-autocomplete-item-text-color-selected-focus);
+    color: ${dt('autocomplete.item.selected.focus.background')};
+    background: ${dt('autocomplete.item.selected.focus.background')};
 }
 
 .p-autocomplete-item-group {
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: var(--p-autocomplete-item-group-text-color);
-    background: var(--p-autocomplete-item-group-background);
+    color: ${dt('autocomplete.item.group.color')};
+    background: ${dt('autocomplete.item.group.background')};
     font-weight: 600;
 }
 
@@ -110,41 +110,41 @@ export default {
     flex-wrap: wrap;
     padding: 0.25rem 0.25rem;
     gap: 0.25rem;
-    color: var(--p-autocomplete-input-multiple-text-color);
-    background: var(--p-autocomplete-input-multiple-background);
-    border: 1px solid var(--p-autocomplete-input-multiple-border-color);
+    color: ${dt('autocomplete.input.multiple.color')};
+    background: ${dt('autocomplete.input.multiple.background')};
+    border: 1px solid ${dt('autocomplete.input.multiple.border.color')});
     border-radius: ${dt('rounded.base')};
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: var(--p-autocomplete-input-multiple-box-shadow);
+    box-shadow: ${dt('autocomplete.input.multiple.box.shadow')};
 }
 
 .p-autocomplete:not(.p-disabled):hover .p-autocomplete-multiple-container {
-    border-color:  var(--p-autocomplete-input-multiple-border-color-hover);
+    border-color: ${dt('autocomplete.input.multiple.hover.border.color')};
 }
 
 .p-autocomplete:not(.p-disabled).p-focus .p-autocomplete-multiple-container {
-    border-color: var(--p-autocomplete-input-multiple-border-color-focus);
+    border-color: ${dt('autocomplete.input.multiple.focus.border.color')};
     outline: 0 none;
 }
 
 .p-autocomplete.p-invalid .p-autocomplete-multiple-container {
-    border-color: var(--p-autocomplete-input-multiple-border-color-invalid);
+    border-color: ${dt('autocomplete.input.multiple.invalid.border.color')};
 }
 
 .p-variant-filled.p-autocomplete-multiple-container {
-    background: var(--p-autocomplete-input-multiple-background-filled);
+    background: ${dt('autocomplete.input.multiple.filled.background')};
 }
 
 .p-autocomplete:not(.p-disabled).p-focus .p-variant-filled.p-autocomplete-multiple-container  {
-    background: var(--p-autocomplete-input-multiple-background-filled-focus);
+    background: ${dt('autocomplete.input.multiple.filled.focus.background')};
 }
 
 .p-autocomplete.p-disabled .p-autocomplete-multiple-container {
     opacity: 1;
-    background: var(--p-autocomplete-input-multiple-background-disabled);
-    color: var(--p-autocomplete-input-multiple-text-color-disabled);
+    background: ${dt('autocomplete.input.multiple.disabled.background')};
+    color: ${dt('autocomplete.input.multiple.disabled.color')};
 }
 
 .p-autocomplete-token {
@@ -153,14 +153,14 @@ export default {
     align-items: center;
     flex: 0 0 auto;
     padding: 0.25rem 0.75rem;
-    background: var(--p-autocomplete-chip-background);
-    color: var(--p-autocomplete-chip-text-color);
-    border-radius: var(--p-rounded-sm);
+    background: ${dt('autocomplete.chip.background')};
+    color: ${dt('autocomplete.chip.color')};
+    border-radius: ${dt('rounded.sm')};
 }
 
 .p-autocomplete-token.p-focus {
-    background: var(--p-autocomplete-chip-background-focus);
-    color: var(--p-autocomplete-chip-text-color-focus);
+    background: ${dt('autocomplete.chip.focus.background')};
+    color: ${dt('autocomplete.chip.focus.color')};
 }
 
 .p-autocomplete-input-token {
@@ -196,7 +196,7 @@ export default {
 }
 
 .p-autocomplete-input-token input::placeholder {
-    color: var(--p-chips-placeholder-text-color);
+    color: ${dt('autocomplete.input.multiple.placeholder.color')};
 }
 
 .p-fluid .p-autocomplete {
