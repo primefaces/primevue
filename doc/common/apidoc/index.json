@@ -20332,6 +20332,20 @@
                             "default": ""
                         },
                         {
+                            "name": "cellClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "cellStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "scrollable",
                             "optional": true,
                             "readonly": false,

@@ -44,6 +44,8 @@
                     :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i"
                     :rowData="rowData"
                     :column="col"
+                    :class="cellClasses(col)"
+                    :style="cellStyles(col)"
                     :rowIndex="rowIndex"
                     :index="i"
                     :selected="isSelected"
@@ -501,6 +503,28 @@ export default {
             }
 
             return [this.cx('row', { rowData: this.rowData, index: this.rowIndex, columnSelectionMode }), rowStyleClass];
+        },
+        cellStyles(column) {
+            if (this.cellStyle) {
+                const field = this.columnProp(column, 'field');
+                return this.cellStyle(this.rowData, field);
+            }
+
+            return null;
+        },
+        cellClasses(column) {
+            let cellStyleClass = [];
+
+            if (this.cellClass) {
+                const field = this.columnProp(column, 'field');
+                let cellClassValue = this.cellClass(this.rowData, field);
+
+                if (cellClassValue) {
+                    cellStyleClass.push(cellClassValue);
+                }
+            }
+
+            return [this.cx('cell', { rowData: this.rowData, index: this.rowIndex, columnSelectionMode, column }), cellStyleClass];
         },
         rowTabindex() {
             if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {

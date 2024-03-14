@@ -218,6 +218,14 @@ export default {
             type: Function,
             default: null
         },
+        cellClass: {
+            type: Function,
+            default: null
+        },
+        cellStyle: {
+            type: Function,
+            default: null
+        },
         scrollable: {
             type: Boolean,
             default: false

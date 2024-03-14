@@ -251,14 +251,14 @@ export interface DataTableRowClickEvent {
  * @see {@link DataTableEmits['row-dblclick']]}
  * @extends DataTableRowClickEvent
  */
-export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
+export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent { }
 
 /**
  * Custom row context menu event.
  * @see {@link DataTableEmits['row-contextmenu']}
  * @extends DataTableRowClickEvent
  */
-export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
+export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent { }
 
 /**
  * Custom row select event.
@@ -288,7 +288,7 @@ export interface DataTableRowSelectEvent {
  * @see {@link DataTableEmits['row-unselect']}
  * @extends DataTableRowSelectEvent
  */
-export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
+export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent { }
 
 /**
  * Custom row select all event.
@@ -408,7 +408,7 @@ export interface DataTableRowExpandEvent {
  * @see {@link DataTableEmits['row-expand']}
  * @extends DataTableRowExpandEvent
  */
-export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
+export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent { }
 
 /**
  * Custom cell edit init event.
@@ -438,7 +438,7 @@ export interface DataTableCellEditInitEvent {
  * @see {@link DataTableEmits['cell-edit-cancel']}
  * @extends DataTableCellEditInitEvent
  */
-export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent {}
+export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent { }
 
 /**
  * Custom cell edit complete event.
@@ -511,14 +511,14 @@ export interface DataTableRowEditInitEvent {
  * @see {@link DataTableEmits['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
-export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent { }
 
 /**
  *  Custom row edit cancel event.
  * @see {@link DataTableEmits['row-edit-cancel']}
  * @extends DataTableRowEditCancelEvent
  */
-export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent { }
 
 /**
  * Custom state event.
@@ -1072,6 +1072,14 @@ export interface DataTableProps {
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
     rowStyle?: (data: any) => object | undefined;
+    /**
+     * A function that takes the row data and column field as parameters and returns a string to apply a particular class for the cell.
+     */
+    cellClass?: (data: any, field: string) => object | string | undefined;
+    /**
+     * A function that takes the row data and column field as parameters and returns the inline style for the corresponding cell.
+     */
+    cellStyle?: (data: any, field: string) => object | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false

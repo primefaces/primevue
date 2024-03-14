@@ -313,6 +313,18 @@ const DataTableProps = [
         description: 'A function that takes the row data as a parameter and returns the inline style for the corresponding row.'
     },
     {
+        name: 'cellClass',
+        type: 'function',
+        default: 'null',
+        description: 'A function that takes the row data and column metadata and returns a string to apply a particular class for the cell.'
+    },
+    {
+        name: 'cellStyle',
+        type: 'object',
+        default: 'null',
+        description: 'A function that takes the row data and column metadata as parameters and returns the inline style for the corresponding cell.'
+    },
+    {
         name: 'scrollable',
         type: 'boolean',
         default: 'false',
