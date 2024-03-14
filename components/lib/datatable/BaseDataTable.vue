@@ -215,7 +215,7 @@ export default {
             default: null
         },
         rowStyle: {
-            type: Object,
+            type: Function,
             default: null
         },
         scrollable: {
