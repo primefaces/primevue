@@ -211,11 +211,11 @@ export default {
             default: null
         },
         rowClass: {
-            type: [String, Object],
+            type: Function,
             default: null
         },
         rowStyle: {
-            type: Object,
+            type: Function,
             default: null
         },
         scrollable: {
