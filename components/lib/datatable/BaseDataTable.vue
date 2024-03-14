@@ -211,7 +211,7 @@ export default {
             default: null
         },
         rowClass: {
-            type: [Function],
+            type: Function,
             default: null
         },
         rowStyle: {
