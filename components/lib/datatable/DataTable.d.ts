@@ -14,7 +14,7 @@ import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { RowPassThroughOptionType } from '../row';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
@@ -1067,7 +1067,7 @@ export interface DataTableProps {
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      */
-    rowClass?: (data: any) => object | string | undefined;
+    rowClass?: (data: any) => object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
