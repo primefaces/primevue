@@ -809,8 +809,8 @@ export interface TreeTableEmits {
  */
 declare class TreeTable extends ClassComponent<TreeTableProps, TreeTableSlots, TreeTableEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TreeTable: GlobalComponentConstructor<TreeTable>;
     }
 }

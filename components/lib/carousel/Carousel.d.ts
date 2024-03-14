@@ -373,8 +373,8 @@ export interface CarouselEmits {
  */
 declare class Carousel extends ClassComponent<CarouselProps, CarouselSlots, CarouselEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Carousel: GlobalComponentConstructor<Carousel>;
     }
 }

@@ -127,8 +127,8 @@ export interface ColumnGroupEmits {}
  */
 declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ColumnGroup: GlobalComponentConstructor<ColumnGroup>;
     }
 }

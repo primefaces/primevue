@@ -160,8 +160,8 @@ export interface ScrollPanelEmits {}
  */
 declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ScrollPanel: GlobalComponentConstructor<ScrollPanel>;
     }
 }

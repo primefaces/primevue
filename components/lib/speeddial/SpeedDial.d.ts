@@ -383,8 +383,8 @@ export interface SpeedDialEmits {
  */
 declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         SpeedDial: GlobalComponentConstructor<SpeedDial>;
     }
 }

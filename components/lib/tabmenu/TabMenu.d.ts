@@ -269,8 +269,8 @@ export interface TabMenuEmits {
  */
 declare class TabMenu extends ClassComponent<TabMenuProps, TabMenuSlots, TabMenuEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TabMenu: GlobalComponentConstructor<TabMenu>;
     }
 }

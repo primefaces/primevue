@@ -188,8 +188,8 @@ export interface StepperEmits {
  */
 declare class Stepper extends ClassComponent<StepperProps, StepperSlots, StepperEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Stepper: GlobalComponentConstructor<Stepper>;
     }
 }

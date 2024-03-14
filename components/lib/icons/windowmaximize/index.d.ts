@@ -3,8 +3,8 @@ import { GlobalComponentConstructor } from '../../ts-helpers';
 
 declare class WindowMaximizeIcon extends Icon {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         WindowMaximizeIcon: GlobalComponentConstructor<WindowMaximizeIcon>;
     }
 }

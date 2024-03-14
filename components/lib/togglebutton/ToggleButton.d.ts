@@ -260,8 +260,8 @@ export interface ToggleButtonEmits {
  */
 declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ToggleButton: GlobalComponentConstructor<ToggleButton>;
     }
 }

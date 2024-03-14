@@ -862,8 +862,8 @@ declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSl
     hide(isFocus?: boolean): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         MultiSelect: GlobalComponentConstructor<MultiSelect>;
     }
 }

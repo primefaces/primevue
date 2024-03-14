@@ -113,8 +113,8 @@ export interface InputGroupAddonEmits {}
  */
 declare class InputGroupAddon extends ClassComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputGroupAddon: GlobalComponentConstructor<InputGroupAddon>;
     }
 }

@@ -313,8 +313,8 @@ export interface SplitButtonEmits {
  */
 declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         SplitButton: GlobalComponentConstructor<SplitButton>;
     }
 }

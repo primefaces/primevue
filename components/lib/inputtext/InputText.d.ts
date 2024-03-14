@@ -147,8 +147,8 @@ export interface InputTextEmits {
  */
 declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputText: GlobalComponentConstructor<InputText>;
     }
 }

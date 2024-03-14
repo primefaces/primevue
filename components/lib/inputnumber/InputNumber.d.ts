@@ -395,8 +395,8 @@ declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSl
     getFormatter: () => Intl.NumberFormat | undefined;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputNumber: GlobalComponentConstructor<InputNumber>;
     }
 }

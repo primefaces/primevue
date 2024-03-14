@@ -624,8 +624,8 @@ export interface FileUploadEmits {
  */
 declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         FileUpload: GlobalComponentConstructor<FileUpload>;
     }
 }

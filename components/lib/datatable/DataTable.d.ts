@@ -1517,8 +1517,8 @@ declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, D
     exportCSV(options?: DataTableExportCSVOptions, data?: any[]): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         DataTable: GlobalComponentConstructor<DataTable>;
     }
 }

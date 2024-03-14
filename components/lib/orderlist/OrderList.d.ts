@@ -389,8 +389,8 @@ export interface OrderListEmits {
  */
 declare class OrderList extends ClassComponent<OrderListProps, OrderListSlots, OrderListEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         OrderList: GlobalComponentConstructor<OrderList>;
     }
 }

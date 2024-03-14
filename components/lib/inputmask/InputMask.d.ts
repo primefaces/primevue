@@ -195,8 +195,8 @@ export interface InputMaskEmits {
  */
 declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputMask: GlobalComponentConstructor<InputMask>;
     }
 }

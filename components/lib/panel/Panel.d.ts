@@ -243,8 +243,8 @@ export interface PanelEmits {
  */
 declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Panel: GlobalComponentConstructor<Panel>;
     }
 }

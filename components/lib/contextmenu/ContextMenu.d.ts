@@ -402,8 +402,8 @@ declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSl
     hide(): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ContextMenu: GlobalComponentConstructor<ContextMenu>;
     }
 }

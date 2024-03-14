@@ -327,8 +327,8 @@ declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
     error(): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Image: GlobalComponentConstructor<Image>;
     }
 }
