@@ -129,22 +129,20 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            const keyCode = event.keyCode;
-
-            switch (keyCode) {
-                case 37:
+            switch (event.code) {
+                case 'ArrowLeft':
                     this.moveToPrev(event);
                     event.preventDefault();
 
                     break;
 
-                case 38:
-                case 40:
+                case 'ArrowUp':
+                case 'ArrowDown':
                     event.preventDefault();
 
                     break;
 
-                case 8:
+                case 'Backspace':
                     if (event.target.value.length === 0) {
                         this.moveToPrev(event);
                         event.preventDefault();
@@ -152,14 +150,14 @@ export default {
 
                     break;
 
-                case 39:
+                case 'ArrowRight':
                     this.moveToNext(event);
                     event.preventDefault();
 
                     break;
 
                 default:
-                    if ((this.integerOnly && !((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105))) || (this.tokens.join('').length >= this.length && event.keyCode != 46)) {
+                    if ((this.integerOnly && !((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(event.code) >= 0 && Number(event.code) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
                         event.preventDefault();
                     }
 
