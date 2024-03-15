@@ -354,7 +354,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom node icon template.
-     * @param {Object} scope - togglericon slot's params.
+     * @param {Object} scope - nodeicon slot's params.
      */
     nodeicon(scope: {
         /**
