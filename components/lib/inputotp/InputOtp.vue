@@ -137,6 +137,7 @@ export default {
 
             if (this.integerOnly && !this.isNumericKey(key)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -157,6 +158,7 @@ export default {
                 if (key === 'Delete') {
                     target.value = '';
                 }
+
                 this.tokens[index] = '';
                 this.updateModel(event);
                 event.preventDefault();
@@ -167,7 +169,6 @@ export default {
             let paste = event.clipboardData
                 .getData('text')
                 .split('')
-                .filter((char) => this.isNumericKey(char))
                 .join('');
 
             if (paste.length) {
