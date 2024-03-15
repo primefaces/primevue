@@ -84,21 +84,17 @@ export default {
         return options;
     },
     applyColorScheme(options = {}, currentColorScheme, defaults) {
-        if (options.colorScheme) {
-            const colorSchemeOption = this.getColorSchemeOption(options.colorScheme, defaults);
-            const isClient = SharedUtils.dom.isClient();
-            const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
-            const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
-            const defaultDocument = isClient ? window.document : undefined;
+        const colorSchemeOption = this.getColorSchemeOption(options.colorScheme, defaults);
+        const isClient = SharedUtils.dom.isClient();
+        const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
+        const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
+        const defaultDocument = isClient ? window.document : undefined;
 
-            if (isDark && defaultDocument) {
-                SharedUtils.dom.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);
-            }
-
-            return isDark ? 'dark' : 'light';
+        if (isDark && defaultDocument) {
+            SharedUtils.dom.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);
         }
 
-        return currentColorScheme;
+        return isDark ? 'dark' : 'light';
     },
     toggleColorScheme(options = {}, currentColorScheme, defaults) {
         const newColorScheme = currentColorScheme === 'dark' ? 'light' : 'dark';

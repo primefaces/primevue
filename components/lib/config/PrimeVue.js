@@ -141,13 +141,7 @@ export const defaultOptions = {
         preset: Aura,
         options: {
             prefix: 'p',
-            colorScheme: {
-                dark: {
-                    class: 'p-dark',
-                    rule: `.p-dark { [CSS] }`
-                    //default: false
-                }
-            },
+            colorScheme: 'auto',
             layer: false
             /*colorScheme: {
                 // mode: 'light' | 'dark' | 'auto' | object // default: auto
