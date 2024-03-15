@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.50.0](https://github.com/primefaces/primevue/tree/3.50.0) (2024-03-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.49.1...3.50.0)
+
+**Fixed bugs:**
+
+-   InputOtp: typing defects [\#5421](https://github.com/primefaces/primevue/issues/5421)
+-   Multiselect: Wrong position of the panel with appendTo="self" [\#5411](https://github.com/primefaces/primevue/issues/5411)
+-   DataTable: tableStyle typing defect [\#5410](https://github.com/primefaces/primevue/issues/5410)
+-   Image: indicator slot is without function [\#5389](https://github.com/primefaces/primevue/issues/5389)
+-   InputOtp: wrong usage of inputmode[\#5382](https://github.com/primefaces/primevue/issues/5382)
+-   IconField: Wrong casing in Typescript module declaration file (.d.ts) [\#5376](https://github.com/primefaces/primevue/issues/5376)
+-   Terimnal: Doesn't work on mobile [\#5364](https://github.com/primefaces/primevue/issues/5364)
+-   Property 'disabled' does not exist on type 'SelectButtonContext'. [\#5354](https://github.com/primefaces/primevue/issues/5354)
+-   DataTable: rowStyle invalid Type: Got function expected object [\#5349](https://github.com/primefaces/primevue/issues/5349)
+-   DataTable: [Vue warn]: Invalid prop: type check failed for prop "rowClass". Expected String | Object, got Function [\#5341](https://github.com/primefaces/primevue/issues/5341)
+-   InputOtp: Length not working [\#5336](https://github.com/primefaces/primevue/issues/5336)
+-   inputOTP - integerOnly doesn't work with number pad [\#5329](https://github.com/primefaces/primevue/issues/5329)
+-   Table: Computed property "bodyStyle" is already defined in Props. [\#5243](https://github.com/primefaces/primevue/issues/5243)
+-   InputNumber: Bug deprecated KeyCode Usage [\#5008](https://github.com/primefaces/primevue/issues/5008)
+
+**Implemented New Features and Enhancements:**
+
+-   Tree: Slot for icon property of value [\#4833](https://github.com/primefaces/primevue/issues/4833)
+
 ## [3.49.1](https://github.com/primefaces/primevue/tree/3.49.1) (2024-02-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.49.0...3.49.1)
