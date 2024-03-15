@@ -3685,7 +3685,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -4935,7 +4935,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | string",
+                            "type": "null | HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the badge."
                         },
@@ -5418,7 +5418,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,FileUploadStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -6716,7 +6716,7 @@
                             "name": "badgeSeverity",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | string",
+                            "type": "null | HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the badge."
                         },
@@ -6748,7 +6748,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"help\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -8436,7 +8436,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -10493,7 +10493,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -12947,7 +12947,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -17922,7 +17922,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -18346,7 +18346,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Filter match mode"
                         }
@@ -18517,7 +18517,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         }
@@ -18589,7 +18589,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -18677,7 +18677,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -20343,7 +20343,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
@@ -20407,7 +20407,7 @@
                             "name": "tableStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "object",
+                            "type": "string | object",
                             "default": "",
                             "description": "Inline style of the table element."
                         },
@@ -22769,7 +22769,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached."
                         },
@@ -24406,7 +24406,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -24551,7 +24551,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -27314,7 +27314,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "AccordionStyle": {
+                "FileUploadStyle": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -29376,7 +29376,7 @@
                             "type": "string",
                             "default": "",
                             "description": "Custom indicator icon.",
-                            "deprecated": "since v3.27.0. Use 'indicator' slot."
+                            "deprecated": "since v3.27.0. Use 'indicatoricon' slot."
                         },
                         {
                             "name": "zoomInDisabled",
@@ -29427,7 +29427,7 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "indicator",
+                            "name": "indicatoricon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
@@ -29715,7 +29715,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\">",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -34043,7 +34043,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -35512,7 +35512,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -36725,7 +36725,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\">",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -38114,7 +38114,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -38130,7 +38130,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -40369,7 +40369,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -42744,7 +42744,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -46975,12 +46975,12 @@
                             "description": "Current active state of the item as a boolean."
                         },
                         {
-                            "name": "focused",
+                            "name": "disabled",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current focused state of item as a boolean."
+                            "description": "Current disabled state of the item as a boolean."
                         },
                         {
                             "name": "option",
@@ -49238,7 +49238,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -49295,7 +49295,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"help\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -50580,7 +50580,7 @@
         }
     },
     "stepperpanel": {
-        "description": "StepperPanel is a helper component for StepperPanel component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "description": "StepperPanel is a helper component for Stepper component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
         "components": {
             "default": {
                 "description": "StepperPanel is a helper component for Stepper component.",
@@ -51381,7 +51381,7 @@
                             "name": "selector",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"@next\" | \"@prev\" | \"@parent\" | \"@grandparent\">",
                             "default": "",
                             "description": "Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'."
                         },
@@ -53072,7 +53072,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the tag."
                         },
@@ -54283,7 +54283,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -57199,7 +57199,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
@@ -57308,6 +57308,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom toggler icon template."
+                        },
+                        {
+                            "name": "nodeicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Tree node instance</span>\n }",
+                                    "description": "togglericon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom node icon template."
                         },
                         {
                             "name": "checkboxicon",
@@ -57974,7 +57987,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -58476,7 +58489,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Filter match mode"
                         }
@@ -58583,7 +58596,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         }
@@ -58655,7 +58668,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -58743,7 +58756,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -59435,7 +59448,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
@@ -60417,6 +60430,9 @@
                 },
                 "DefaultPassThrough": {
                     "values": "T | (instance: VNode) => undefined | undefined"
+                },
+                "HintedString": {
+                    "values": "string & Object | T"
                 }
             }
         }

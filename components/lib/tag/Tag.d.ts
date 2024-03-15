@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((options: TagPassThroughMethodOptions) => TagPassThroughAttributes | string) | string | null | undefined;
 
@@ -82,7 +82,7 @@ export interface TagProps {
     /**
      * Severity type of the tag.
      */
-    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'contrast' | string | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'contrast'> | undefined;
     /**
      * Whether the corners of the tag are rounded.
      * @defaultValue false

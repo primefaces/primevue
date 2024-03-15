@@ -13,7 +13,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
 import { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from '../tieredmenu';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -141,7 +141,7 @@ export interface SplitButtonProps {
      * Special keywords are 'body' for document body and 'self' for the element itself.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * When present, it specifies that the element should be disabled.
      * @defaultValue false
@@ -171,7 +171,7 @@ export interface SplitButtonProps {
     /**
      * Defines the style of the button.
      */
-    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast' | string | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
     /**
      * Add a shadow to indicate elevation.
      * @defaultValue false

@@ -1,6 +1,6 @@
 /**
  *
- * StepperPanel is a helper component for StepperPanel component.
+ * StepperPanel is a helper component for Stepper component.
  *
  * [Live Demo](https://www.primevue.org/stepper/)
  *

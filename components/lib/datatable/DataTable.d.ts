@@ -14,7 +14,7 @@ import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { RowPassThroughOptionType } from '../row';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
@@ -94,7 +94,7 @@ export interface DataTableFilterMetaData {
     /**
      * Filter match mode
      */
-    matchMode: 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | string | undefined;
+    matchMode: HintedString<'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter'> | undefined;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface DataTableSortEvent {
     /**
      * Match modes per field
      */
-    filterMatchModes: 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | string | undefined;
+    filterMatchModes: HintedString<'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter'> | undefined;
 }
 
 /**
@@ -1067,7 +1067,7 @@ export interface DataTableProps {
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      */
-    rowClass?: (data: any) => object | string | undefined;
+    rowClass?: (data: any) => object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
@@ -1080,7 +1080,7 @@ export interface DataTableProps {
     /**
      * Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.
      */
-    scrollHeight?: 'flex' | string | undefined;
+    scrollHeight?: HintedString<'flex'> | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * Note: Currently only vertical orientation mode is supported.
@@ -1117,7 +1117,7 @@ export interface DataTableProps {
     /**
      * Inline style of the table element.
      */
-    tableStyle?: object | undefined;
+    tableStyle?: string | object | undefined;
     /**
      * Style class of the table element.
      */

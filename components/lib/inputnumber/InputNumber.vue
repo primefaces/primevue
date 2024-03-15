@@ -18,7 +18,6 @@
             :aria-invalid="invalid || undefined"
             @input="onUserInput"
             @keydown="onInputKeyDown"
-            @keypress="onInputKeyPress"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -334,7 +333,7 @@ export default {
             }
         },
         onUpButtonKeyDown(event) {
-            if (event.keyCode === 32 || event.keyCode === 13) {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, 1);
             }
         },
@@ -361,7 +360,7 @@ export default {
             }
         },
         onDownButtonKeyDown(event) {
-            if (event.keyCode === 32 || event.keyCode === 13) {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, -1);
             }
         },
@@ -377,22 +376,18 @@ export default {
                 return;
             }
 
-            this.lastValue = event.target.value;
-
             if (event.shiftKey || event.altKey) {
                 this.isSpecialChar = true;
 
                 return;
             }
 
+            this.lastValue = event.target.value;
+
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
             let inputValue = event.target.value;
             let newValueStr = null;
-
-            if (event.altKey) {
-                event.preventDefault();
-            }
 
             switch (event.code) {
                 case 'ArrowUp':
@@ -530,22 +525,21 @@ export default {
                     break;
 
                 default:
+                    if (this.readonly) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    let char = event.key;
+                    const isDecimalSign = this.isDecimalSign(char);
+                    const isMinusSign = this.isMinusSign(char);
+
+                    if (((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
+                        this.insert(event, char, { isDecimalSign, isMinusSign });
+                    }
+
                     break;
-            }
-        },
-        onInputKeyPress(event) {
-            if (this.readonly) {
-                return;
-            }
-
-            event.preventDefault();
-            let code = event.which || event.keyCode;
-            let char = String.fromCharCode(code);
-            const isDecimalSign = this.isDecimalSign(char);
-            const isMinusSign = this.isMinusSign(char);
-
-            if ((48 <= code && code <= 57) || isMinusSign || isDecimalSign) {
-                this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
         onPaste(event) {

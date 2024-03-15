@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString } from '../ts-helpers';
 
-type PortalAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
+type PortalAppendToType = HintedString<'body' | 'self'> | undefined | HTMLElement;
 
 export interface PortalProps {
     /**

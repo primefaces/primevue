@@ -177,23 +177,21 @@
 .landing-themes .p-float-label > .p-invalid + label {
   color: #FCA5A5;
 }
-.landing-themes .p-input-icon-left > svg:first-of-type,
-.landing-themes .p-input-icon-left > i:first-of-type {
+.landing-themes > .p-icon-field-left > .p-input-icon:first-of-type {
   left: 0.75rem;
   color: #a1a1aa;
 }
-.landing-themes .p-input-icon-left > .p-inputtext {
+.landing-themes .p-icon-field-left > .p-inputtext {
   padding-left: 2.5rem;
 }
 .landing-themes .p-input-icon-left.p-float-label > label {
   left: 2.5rem;
 }
-.landing-themes .p-input-icon-right > svg:last-of-type,
-.landing-themes .p-input-icon-right > i:last-of-type {
+.landing-themes > .p-icon-field-right > .p-input-icon:last-of-type {
   right: 0.75rem;
   color: #a1a1aa;
 }
-.landing-themes .p-input-icon-right > .p-inputtext {
+.landing-themes .p-icon-field-right > .p-inputtext {
   padding-right: 2.5rem;
 }
 .landing-themes ::-webkit-input-placeholder {

@@ -4,10 +4,10 @@
     </DocSectionText>
     <div class="card flex justify-content-center gap-3">
         <Button label="Link" link />
-        <NuxtLink to="https://vuejs.org/" target="_blank" rel="noopener">
+        <NuxtLink to="https://vuejs.org/" target="_blank" rel="noopener" tabindex="-1">
             <Button label="External" />
         </NuxtLink>
-        <router-link to="/" target="_blank" rel="noopener">
+        <router-link to="/" target="_blank" rel="noopener" tabindex="-1">
             <Button label="Router" />
         </router-link>
     </div>

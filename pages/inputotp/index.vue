@@ -6,10 +6,10 @@
 import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
+import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
 import SampleDoc from '@/doc/inputotp/SampleDoc.vue';
 import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
-import IntegerOnlyDoc from '@/doc/inputotp/integerOnlyDoc.vue';
 import PTComponent from '@/doc/inputotp/pt/index.vue';
 import ThemingDoc from '@/doc/inputotp/theming/index.vue';
 

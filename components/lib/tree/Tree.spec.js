@@ -54,4 +54,31 @@ describe('Tree.vue', () => {
 
         expect(wrapper.emitted('filter')).toBeTruthy();
     });
+
+    it('should render icon', ({ expect }) => {
+        expect(wrapper.find('span.pi-inbox').exists()).toBeTruthy();
+        expect(wrapper.find('span.pi-inbox').classes('p-treenode-icon')).toBeTruthy();
+    });
+
+    it('should render icon slot', ({ expect }) => {
+        let wrapper = mount(Tree, {
+            slots: {
+                nodeIcon: `<i data-node-icon/>`
+            },
+            props: {
+                value: [
+                    {
+                        key: '0',
+                        label: 'Documents',
+                        data: 'Documents Folder',
+                        children: []
+                    }
+                ]
+            }
+        });
+
+        const nodeIcon = wrapper.find('i[data-node-icon]');
+
+        expect(nodeIcon.exists()).toBeTruthy();
+    });
 });
