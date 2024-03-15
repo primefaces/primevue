@@ -50580,7 +50580,7 @@
         }
     },
     "stepperpanel": {
-        "description": "StepperPanel is a helper component for StepperPanel component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "description": "StepperPanel is a helper component for Stepper component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
         "components": {
             "default": {
                 "description": "StepperPanel is a helper component for Stepper component.",
