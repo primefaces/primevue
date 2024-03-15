@@ -128,49 +128,52 @@ export default {
         onBlur(event) {
             this.$emit('blur', event);
         },
+        isNumericKey(key) {
+            return !isNaN(Number(key)) || key === 'Backspace' || key === 'ArrowLeft' || key === 'ArrowRight';
+        },
         onKeyDown(event) {
-            switch (event.code) {
-                case 'ArrowLeft':
-                    this.moveToPrev(event);
-                    event.preventDefault();
+            const { key, target } = event;
+            const index = target.dataset.index;
 
-                    break;
+            if (this.integerOnly && !this.isNumericKey(key)) {
+                event.preventDefault();
+                return;
+            }
 
-                case 'ArrowUp':
-                case 'ArrowDown':
-                    event.preventDefault();
+            const movementKeys = {
+                ArrowLeft: () => this.moveToPrev(event),
+                ArrowRight: () => this.moveToNext(event)
+            };
 
-                    break;
+            const deletionConditions = {
+                Backspace: () => target.value === '' && target.selectionStart === 0,
+                Delete: () => target.value !== ''
+            };
 
-                case 'Backspace':
-                    if (event.target.value.length === 0) {
-                        this.moveToPrev(event);
-                        event.preventDefault();
-                    }
-
-                    break;
-
-                case 'ArrowRight':
-                    this.moveToNext(event);
-                    event.preventDefault();
-
-                    break;
-
-                default:
-                    if ((this.integerOnly && !((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(event.code) >= 0 && Number(event.code) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
-                        event.preventDefault();
-                    }
-
-                    break;
+            if (movementKeys[key]) {
+                movementKeys[key]();
+                event.preventDefault();
+            } else if (deletionConditions[key] && deletionConditions[key]()) {
+                if (key === 'Delete') {
+                    target.value = '';
+                }
+                this.tokens[index] = '';
+                this.updateModel(event);
+                event.preventDefault();
             }
         },
+
         onPaste(event) {
-            let paste = event.clipboardData.getData('text');
+            let paste = event.clipboardData
+                .getData('text')
+                .split('')
+                .filter((char) => this.isNumericKey(char))
+                .join('');
 
             if (paste.length) {
                 let pastedCode = paste.substring(0, this.length + 1);
 
-                if (!this.integerOnly || !isNaN(pastedCode)) {
+                if (!this.isIntegerOnly || !isNaN(pastedCode)) {
                     this.tokens = pastedCode.split('');
                     this.updateModel(event);
                 }
