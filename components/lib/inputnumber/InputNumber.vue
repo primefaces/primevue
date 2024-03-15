@@ -376,22 +376,18 @@ export default {
                 return;
             }
 
-            this.lastValue = event.target.value;
-
             if (event.shiftKey || event.altKey) {
                 this.isSpecialChar = true;
 
                 return;
             }
 
+            this.lastValue = event.target.value;
+
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
             let inputValue = event.target.value;
             let newValueStr = null;
-
-            if (event.altKey) {
-                event.preventDefault();
-            }
 
             switch (event.code) {
                 case 'ArrowUp':
@@ -540,7 +536,6 @@ export default {
                     const isMinusSign = this.isMinusSign(char);
 
                     if (((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
-                        console.log(event.code);
                         this.insert(event, char, { isDecimalSign, isMinusSign });
                     }
 
