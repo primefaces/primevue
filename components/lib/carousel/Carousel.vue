@@ -4,90 +4,94 @@
             <slot name="header"></slot>
         </div>
         <div :class="[cx('content'), contentClass]" v-bind="ptm('content')">
-            <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                <button
-                    v-if="showNavigators"
-                    v-ripple
-                    type="button"
-                    :class="cx('previousButton')"
-                    :disabled="backwardIsDisabled"
-                    :aria-label="ariaPrevButtonLabel"
-                    @click="navBackward"
-                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
-                    data-pc-group-section="navigator"
-                >
-                    <slot name="previousicon">
-                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
-                    </slot>
-                </button>
+            <template v-if="!empty">
+                <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
+                    <button
+                        v-if="showNavigators"
+                        v-ripple
+                        type="button"
+                        :class="cx('previousButton')"
+                        :disabled="backwardIsDisabled"
+                        :aria-label="ariaPrevButtonLabel"
+                        @click="navBackward"
+                        v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
+                        data-pc-group-section="navigator"
+                    >
+                        <slot name="previousicon">
+                            <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
+                        </slot>
+                    </button>
 
-                <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
-                    <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
-                        <template v-if="isCircular()">
+                    <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
+                        <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
+                            <template v-if="isCircular()">
+                                <div
+                                    v-for="(item, index) of value.slice(-1 * d_numVisible)"
+                                    :key="index + '_scloned'"
+                                    :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })"
+                                    v-bind="ptm('itemCloned')"
+                                    :data-p-carousel-item-active="totalShiftedItems * -1 === value.length + d_numVisible"
+                                    :data-p-carousel-item-start="index === 0"
+                                    :data-p-carousel-item-end="value.slice(-1 * d_numVisible).length - 1 === index"
+                                >
+                                    <slot name="item" :data="item" :index="index"></slot>
+                                </div>
+                            </template>
                             <div
-                                v-for="(item, index) of value.slice(-1 * d_numVisible)"
-                                :key="index + '_scloned'"
-                                :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })"
-                                v-bind="ptm('itemCloned')"
-                                :data-p-carousel-item-active="totalShiftedItems * -1 === value.length + d_numVisible"
-                                :data-p-carousel-item-start="index === 0"
-                                :data-p-carousel-item-end="value.slice(-1 * d_numVisible).length - 1 === index"
+                                v-for="(item, index) of value"
+                                :key="index"
+                                :class="cx('item', { index })"
+                                role="group"
+                                :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
+                                :aria-label="ariaSlideNumber(index)"
+                                :aria-roledescription="ariaSlideLabel"
+                                v-bind="ptm('item')"
+                                :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
+                                :data-p-carousel-item-start="firstIndex() === index"
+                                :data-p-carousel-item-end="lastIndex() === index"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
-                        </template>
-                        <div
-                            v-for="(item, index) of value"
-                            :key="index"
-                            :class="cx('item', { index })"
-                            role="group"
-                            :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
-                            :aria-label="ariaSlideNumber(index)"
-                            :aria-roledescription="ariaSlideLabel"
-                            v-bind="ptm('item')"
-                            :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
-                            :data-p-carousel-item-start="firstIndex() === index"
-                            :data-p-carousel-item-end="lastIndex() === index"
-                        >
-                            <slot name="item" :data="item" :index="index"></slot>
+                            <template v-if="isCircular()">
+                                <div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })" v-bind="ptm('itemCloned')">
+                                    <slot name="item" :data="item" :index="index"></slot>
+                                </div>
+                            </template>
                         </div>
-                        <template v-if="isCircular()">
-                            <div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })" v-bind="ptm('itemCloned')">
-                                <slot name="item" :data="item" :index="index"></slot>
-                            </div>
-                        </template>
                     </div>
-                </div>
 
-                <button
-                    v-if="showNavigators"
-                    v-ripple
-                    type="button"
-                    :class="cx('nextButton')"
-                    :disabled="forwardIsDisabled"
-                    :aria-label="ariaNextButtonLabel"
-                    @click="navForward"
-                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
-                    data-pc-group-section="navigator"
-                >
-                    <slot name="nexticon">
-                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
-                    </slot>
-                </button>
-            </div>
-            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
                     <button
-                        :class="cx('indicatorButton')"
+                        v-if="showNavigators"
+                        v-ripple
                         type="button"
-                        :tabindex="d_page === i ? '0' : '-1'"
-                        :aria-label="ariaPageLabel(i + 1)"
-                        :aria-current="d_page === i ? 'page' : undefined"
-                        @click="onIndicatorClick($event, i)"
-                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
-                    />
-                </li>
-            </ul>
+                        :class="cx('nextButton')"
+                        :disabled="forwardIsDisabled"
+                        :aria-label="ariaNextButtonLabel"
+                        @click="navForward"
+                        v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                        data-pc-group-section="navigator"
+                    >
+                        <slot name="nexticon">
+                            <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
+                        </slot>
+                    </button>
+                </div>
+                <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
+                    <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
+                        <button
+                            :class="cx('indicatorButton')"
+                            type="button"
+                            :tabindex="d_page === i ? '0' : '-1'"
+                            :aria-label="ariaPageLabel(i + 1)"
+                            :aria-current="d_page === i ? 'page' : undefined"
+                            @click="onIndicatorClick($event, i)"
+                            v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
+                        />
+                    </li>
+                </ul>
+            </template>
+            <div v-else>
+            </div>
         </div>
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
@@ -231,7 +235,9 @@ export default {
             this.d_oldNumVisible = this.d_numVisible;
             this.d_oldValue = this.value;
 
-            this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
+            if(!this.empty) {
+                this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
+            }
         }
 
         if (isCircular) {
@@ -604,6 +610,12 @@ export default {
         }
     },
     computed: {
+        empty() {
+            return !this.value || this.value.length === 0;
+        },
+        emptyMessageText() {
+            return this.$primevue.config?.locale?.emptyMessage || '';
+        },
         totalIndicators() {
             return this.value ? Math.max(Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1, 0) : 0;
         },
