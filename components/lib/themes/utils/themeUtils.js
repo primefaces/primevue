@@ -110,6 +110,17 @@ export default {
 
         return newColorScheme;
     },
+    getLayerOrder(name, options = {}, defaults) {
+        const { layer } = options;
+
+        if (layer) {
+            const order = SharedUtils.object.getItemValue(layer.order || defaults.layer.order);
+
+            return `@layer ${order}`;
+        }
+
+        return '';
+    },
     getCommonStyleSheet(name, theme = {}, params, props = {}) {
         const { preset, base } = theme;
         const common_css = this.getCommon(preset, base, params, theme);

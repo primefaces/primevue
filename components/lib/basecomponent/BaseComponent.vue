@@ -115,18 +115,23 @@ export default {
             ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, this.$styleOptions);
         },
         _loadThemeStyles(theme) {
+            // layer order
+            const layerOrder = this.$style?.getLayerOrderThemeCSS();
+
+            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
+
             // common
             const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(theme, this.$themeParams) || {};
 
-            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions: this.$styleOptions });
-            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions: this.$styleOptions });
+            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
+            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
             BaseComponentStyle.loadGlobalTheme(global, this.$styleOptions);
 
             // component
             const { variables, style } = this.$style?.getComponentThemeCSS?.(theme, this.$themeParams) || {};
 
-            this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, useStyleOptions: this.$styleOptions });
-            this.$style?.loadTheme(style, { useStyleOptions: this.$styleOptions });
+            this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
+            this.$style?.loadTheme(style, this.$styleOptions);
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;

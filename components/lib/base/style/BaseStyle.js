@@ -49,6 +49,9 @@ export default {
     getDirectiveThemeCSS(theme, params) {
         return Theme.getDirectiveCSS(this.name, theme, params);
     },
+    getLayerOrderThemeCSS() {
+        return Theme.getLayerOrderCSS(this.name);
+    },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
             const _css = ObjectUtils.minifyCSS(`${this.css}${extendedCSS}`);

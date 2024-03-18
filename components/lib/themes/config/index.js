@@ -20,8 +20,8 @@ export default {
             }
         },
         layer: {
-            name: 'primevue'
-            //order: 'primevue' // @todo
+            name: 'primevue',
+            order: 'primevue'
         }
     },
     _pConfig: undefined,
@@ -97,6 +97,9 @@ export default {
             style: ThemeUtils.getBaseD(options),
             variables: ThemeUtils.getPresetD(options)
         };
+    },
+    getLayerOrderCSS(name = '') {
+        return ThemeUtils.getLayerOrder(name, this.options, this.defaults);
     },
     getCommonStyleSheet(name = '', theme, params, props = {}) {
         return ThemeUtils.getCommonStyleSheet(name, theme, params, props);

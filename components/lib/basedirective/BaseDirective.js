@@ -87,18 +87,23 @@ const BaseDirective = {
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
         const [theme, themeParams] = [instance.theme(), instance.themeParams()];
 
+        // layer order
+        const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
+
+        BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
+
         // common
         const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.(theme, themeParams) || {};
 
-        BaseStyle.loadTheme(primitive, { name: 'primitive-variables', useStyleOptions });
-        BaseStyle.loadTheme(semantic, { name: 'semantic-variables', useStyleOptions });
-        BaseStyle.loadTheme(global, { name: 'global-style', useStyleOptions });
+        BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...useStyleOptions });
+        BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...useStyleOptions });
+        BaseStyle.loadTheme(global, { name: 'global-style', ...useStyleOptions });
 
         // component
         const { variables, style } = instance.$style?.getDirectiveThemeCSS?.(theme, themeParams) || {};
 
-        instance.$style?.loadTheme(variables, { name: `${instance.$name}-directive-variables`, useStyleOptions });
-        instance.$style?.loadTheme(style, { name: `${instance.$name}-directive-style`, useStyleOptions });
+        instance.$style?.loadTheme(variables, { name: `${instance.$name}-directive-variables`, ...useStyleOptions });
+        instance.$style?.loadTheme(style, { name: `${instance.$name}-directive-style`, ...useStyleOptions });
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;

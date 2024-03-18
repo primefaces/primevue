@@ -19,7 +19,7 @@ export function useStyle(css, options = {}) {
     const styleRef = ref(null);
 
     const defaultDocument = DomHandler.isClient() ? window.document : undefined;
-    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined, nonce = undefined, props = {} } = options;
+    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined, nonce = undefined, first = false, props = {} } = options;
 
     let stop = () => {};
 
@@ -41,7 +41,7 @@ export function useStyle(css, options = {}) {
                 media,
                 nonce: _nonce
             });
-            document.head.appendChild(styleRef.value);
+            first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
             DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', name);
             DomHandler.setAttributes(styleRef.value, _styleProps);
         }
