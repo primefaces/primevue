@@ -141,9 +141,10 @@ export default {
         return index;
     },
 
-    contains(value, list) {
+    contains(value, list, field) {
         if (value != null && list && list.length) {
             for (let val of list) {
+                if (field) return this.resolveFieldData(value, field) === this.resolveFieldData(val, field);
                 if (this.equals(value, val)) return true;
             }
         }
