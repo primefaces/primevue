@@ -1,14 +1,17 @@
 <template>
     <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
-        <input
+        <CInputText
             v-if="!inline"
             :ref="inputRef"
             :id="inputId"
-            type="text"
             role="combobox"
-            :class="[cx('input'), inputClass]"
+            :class="[inputClass, cx('input')]"
             :style="inputStyle"
+            :value="inputFieldValue"
             :placeholder="placeholder"
+            :invalid="invalid"
+            :variant="variant"
+            :unstyled="unstyled"
             autocomplete="off"
             aria-autocomplete="none"
             aria-haspopup="dialog"
@@ -16,7 +19,6 @@
             :aria-controls="panelId"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            :aria-invalid="invalid || undefined"
             inputmode="none"
             :disabled="disabled"
             :readonly="!manualInput || readonly"
@@ -26,27 +28,26 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            v-bind="inputProps"
+            :pt="ptm('input')"
         />
-        <CalendarButton
-            v-if="showIcon && iconDisplay === 'button'"
-            :class="cx('dropdownButton')"
-            :disabled="disabled"
-            @click="onButtonClick"
-            type="button"
-            :aria-label="$primevue.config.locale.chooseDate"
-            aria-haspopup="dialog"
-            :aria-expanded="overlayVisible"
-            :aria-controls="panelId"
-            :unstyled="unstyled"
-            :pt="ptm('dropdownButton')"
-        >
-            <template #icon>
+        <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
+            <button
+                :class="cx('dropdownButton')"
+                :disabled="disabled"
+                @click="onButtonClick"
+                type="button"
+                :aria-label="$primevue.config.locale.chooseDate"
+                aria-haspopup="dialog"
+                :aria-expanded="overlayVisible"
+                :aria-controls="panelId"
+                v-bind="ptm('dropdownButton')"
+            >
                 <slot name="dropdownicon" :class="icon">
-                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButtonIcon')" />
                 </slot>
-            </template>
-        </CalendarButton>
+            </button>
+        </slot>
         <template v-else-if="showIcon && iconDisplay === 'input'">
             <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                 <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
@@ -482,26 +483,8 @@
                         </div>
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
-                        <CalendarButton
-                            type="button"
-                            :label="todayLabel"
-                            @click="onTodayButtonClick($event)"
-                            :class="cx('todayButton')"
-                            @keydown="onContainerButtonKeydown"
-                            :unstyled="unstyled"
-                            :pt="ptm('todayButton')"
-                            data-pc-group-section="button"
-                        />
-                        <CalendarButton
-                            type="button"
-                            :label="clearLabel"
-                            @click="onClearButtonClick($event)"
-                            :class="cx('clearButton')"
-                            @keydown="onContainerButtonKeydown"
-                            :unstyled="unstyled"
-                            :pt="ptm('clearButton')"
-                            data-pc-group-section="button"
-                        />
+                        <button type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" v-bind="ptm('todayButton')" data-pc-group-section="button" />
+                        <button type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" v-bind="ptm('clearButton')" data-pc-group-section="button" />
                     </div>
                     <slot name="footer"></slot>
                 </div>
@@ -511,12 +494,12 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
 import CalendarIcon from 'primevue/icons/calendar';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import ChevronUpIcon from 'primevue/icons/chevronup';
+import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -567,7 +550,8 @@ export default {
             this.updateCurrentMetaData();
 
             if (!this.typeUpdate && !this.inline && this.input) {
-                this.input.value = this.formatValue(newValue);
+                // this.input.value = this.formatValue(newValue);
+                this.input.value = this.inputFieldValue;
             }
 
             this.typeUpdate = false;
@@ -627,7 +611,8 @@ export default {
                 }
             }
         } else {
-            this.input.value = this.formatValue(this.modelValue);
+            // this.input.value = this.formatValue(this.modelValue);
+            this.input.value = this.inputFieldValue;
         }
     },
     updated() {
@@ -2694,7 +2679,7 @@ export default {
             this.overlay = el;
         },
         inputRef(el) {
-            this.input = el;
+            this.input = el ? el.$el : undefined;
         },
         previousButtonRef(el) {
             this.previousButton = el;
@@ -3016,7 +3001,7 @@ export default {
         }
     },
     components: {
-        CalendarButton: Button,
+        CInputText: InputText,
         Portal: Portal,
         CalendarIcon: CalendarIcon,
         ChevronLeftIcon: ChevronLeftIcon,

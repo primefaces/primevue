@@ -9,9 +9,9 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
 
@@ -134,14 +134,14 @@ export interface CalendarPassThroughOptions {
      */
     root?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: CalendarPassThroughOptionType;
+    input?: InputTextPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the dropdown button's DOM element.
      */
-    dropdownButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
+    dropdownButton?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -159,10 +159,9 @@ export interface CalendarPassThroughOptions {
      */
     header?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the previous button's DOM element.
      */
-    previousButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
+    previousButton?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the title's DOM element.
      */
@@ -180,10 +179,9 @@ export interface CalendarPassThroughOptions {
      */
     decadeTitle?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the previous button's DOM element.
      */
-    nextButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
+    nextButton?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -273,7 +271,7 @@ export interface CalendarPassThroughOptions {
      */
     hour?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the separatorc ontainer's DOM element.
+     * Used to pass attributes to the separator container's DOM element.
      */
     separatorContainer?: CalendarPassThroughOptionType;
     /**
@@ -309,15 +307,13 @@ export interface CalendarPassThroughOptions {
      */
     buttonbar?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the today button's DOM element.
      */
-    todayButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
+    todayButton?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the clear button's DOM element.
      */
-    clearButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
+    clearButton?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the aria selected day's DOM element.
      */
@@ -929,6 +925,16 @@ export interface CalendarSlots {
          * Style class of the decrement icon
          */
         class: any;
+    }): VNode[];
+    /**
+     * Custom dropdown button template.
+     */
+    dropdownbutton(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
 }
 

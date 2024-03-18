@@ -9,7 +9,7 @@ const classes = {
         'p-calendar p-component p-inputwrapper',
         {
             'p-calendar-w-btn': props.showIcon && props.iconDisplay === 'button',
-            'p-icon-field p-icon-field-right': props.showIcon && props.iconDisplay === 'input',
+            'p-calendar-input-icon-field': props.showIcon && props.iconDisplay === 'input',
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-invalid': props.invalid,
@@ -18,12 +18,7 @@ const classes = {
             'p-focus': state.focused || state.overlayVisible
         }
     ],
-    input: ({ props, instance }) => [
-        'p-inputtext p-component',
-        {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
-        }
-    ],
+    input: 'p-calendar-input',
     dropdownButton: 'p-datepicker-trigger',
     inputIcon: 'p-datepicker-trigger-icon p-input-icon',
     panel: ({ instance, props, state }) => [
