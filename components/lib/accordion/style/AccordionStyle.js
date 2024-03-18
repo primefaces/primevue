@@ -19,7 +19,12 @@ const classes = {
         headerAction: 'p-accordion-header-link p-accordion-header-action',
         headerIcon: 'p-accordion-toggle-icon',
         headerTitle: 'p-accordion-header-text',
-        toggleableContent: 'p-toggleable-content',
+        toggleableContent: ({ instance, index }) => [
+            'p-toggleable-content',
+            {
+                'p-toggleable-content-expanded': instance.isTabActive(index)
+            }
+        ],
         content: 'p-accordion-content'
     }
 };
