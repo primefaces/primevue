@@ -128,51 +128,6 @@
             </div>
             <div class="col-12 lg:col-6 xl:col-4">
                 <div class="card mb-0">
-                    <a href="https://sapphire.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Sapphire" src="https://primefaces.org/cdn/primevue/images/layouts/sapphire-vue.jpg" class="w-full" />
-                    </a>
-                    <div class="flex gap-3 mt-3">
-                        <a href="https://sapphire.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Preview</span>
-                        </a>
-                        <a href="https://www.primefaces.org/layouts/sapphire-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 lg:col-6 xl:col-4">
-                <div class="card mb-0">
-                    <a href="https://serenity.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Serenity" src="https://primefaces.org/cdn/primevue/images/layouts/serenity-vue.jpg" class="w-full" />
-                    </a>
-                    <div class="flex gap-3 mt-3">
-                        <a href="https://serenity.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Preview</span>
-                        </a>
-                        <a href="https://www.primefaces.org/layouts/serenity-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 lg:col-6 xl:col-4">
-                <div class="card mb-0">
-                    <a href="https://babylon.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Babylon" src="https://primefaces.org/cdn/primevue/images/layouts/babylon-vue.jpg" class="w-full" />
-                    </a>
-                    <div class="flex gap-3 mt-3">
-                        <a href="https://babylon.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Preview</span>
-                        </a>
-                        <a href="https://www.primefaces.org/layouts/babylon-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 lg:col-6 xl:col-4">
-                <div class="card mb-0">
                     <a href="https://avalon.primevue.org" rel="noopener noreferrer" target="_blank">
                         <img alt="Avalon" src="https://primefaces.org/cdn/primevue/images/layouts/avalon-vue.jpg" class="w-full" />
                     </a>
@@ -181,36 +136,6 @@
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
                         <a href="https://www.primefaces.org/layouts/avalon-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 lg:col-6 xl:col-4">
-                <div class="card mb-0">
-                    <a href="https://roma.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Roma" src="https://primefaces.org/cdn/primevue/images/layouts/roma-vue.jpg" class="w-full" />
-                    </a>
-                    <div class="flex gap-3 mt-3">
-                        <a href="https://roma.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Preview</span>
-                        </a>
-                        <a href="https://www.primefaces.org/layouts/roma-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 lg:col-6 xl:col-4">
-                <div class="card mb-0">
-                    <a href="https://prestige.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Prestige" src="https://primefaces.org/cdn/primevue/images/layouts/prestige-vue.jpg" class="w-full" />
-                    </a>
-                    <div class="flex gap-3 mt-3">
-                        <a href="https://prestige.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Preview</span>
-                        </a>
-                        <a href="https://www.primefaces.org/layouts/prestige-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
                         </a>
                     </div>
