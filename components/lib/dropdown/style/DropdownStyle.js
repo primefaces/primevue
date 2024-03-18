@@ -15,7 +15,7 @@ const classes = {
         }
     ],
     input: ({ instance, props }) => [
-        'p-dropdown-label p-inputtext',
+        'p-dropdown-label',
         {
             'p-placeholder': !props.editable && instance.label === props.placeholder,
             'p-dropdown-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
@@ -25,7 +25,7 @@ const classes = {
     trigger: 'p-dropdown-trigger',
     loadingicon: 'p-dropdown-trigger-icon',
     dropdownIcon: 'p-dropdown-trigger-icon',
-    panel: ({ props, instance }) => [
+    panel: ({ instance }) => [
         'p-dropdown-panel p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
@@ -33,12 +33,7 @@ const classes = {
     ],
     header: 'p-dropdown-header',
     filterContainer: 'p-dropdown-filter-container',
-    filterInput: ({ props, instance }) => [
-        'p-dropdown-filter p-inputtext p-component',
-        {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
-        }
-    ],
+    filterInput: 'p-dropdown-filter',
     filterIcon: 'p-dropdown-filter-icon',
     wrapper: 'p-dropdown-items-wrapper',
     list: 'p-dropdown-items',

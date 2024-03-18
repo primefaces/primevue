@@ -9,8 +9,9 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType<T = any> = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions<T>) => DropdownPassThroughAttributes | string) | string | null | undefined;
@@ -45,6 +46,20 @@ export interface DropdownPassThroughMethodOptions<T> {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DropdownSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DropdownProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DropdownState;
 }
 
 /**
@@ -87,9 +102,10 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     root?: DropdownPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: DropdownPassThroughOptionType<T>;
+    input?: InputTextPassThroughOptions<DropdownSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the clear icon's DOM element.
      */
@@ -115,9 +131,10 @@ export interface DropdownPassThroughOptions<T = any> {
      */
     filterContainer?: DropdownPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: DropdownPassThroughOptionType<T>;
+    filterInput?: InputTextPassThroughOptions<DropdownSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
@@ -216,7 +233,7 @@ export interface DropdownState {
     focused: boolean;
     /**
      * Current focused item index as a number.
-     * @defaultvalue -1
+     * @defaultValue -1
      */
     focusedOptionIndex: number;
     /**
@@ -260,7 +277,7 @@ export interface DropdownProps {
      */
     modelValue?: any;
     /**
-     * An array of selectitems to display as the available options.
+     * An array of select items to display as the available options.
      */
     options?: any[];
     /**
