@@ -19,20 +19,24 @@ const classes = {
             'p-overlay-open': instance.overlayVisible
         }
     ],
-    input: ({ props, instance }) => [
-        'p-autocomplete-input p-inputtext p-component',
+    input: ({ props }) => [
+        'p-autocomplete-input',
         {
-            'p-autocomplete-dd-input': props.dropdown,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+            'p-autocomplete-dd-input': props.dropdown
         }
     ],
     container: ({ props, instance }) => [
-        'p-autocomplete-multiple-container p-component p-inputtext',
+        'p-autocomplete-multiple-container',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    token: ({ instance, i }) => ['p-autocomplete-token', { 'p-focus': instance.focusedMultipleOptionIndex === i }],
+    token: ({ instance, i }) => [
+        'p-autocomplete-token',
+        {
+            'p-focus': instance.focusedMultipleOptionIndex === i
+        }
+    ],
     tokenLabel: 'p-autocomplete-token-label',
     removeTokenIcon: 'p-autocomplete-token-icon',
     inputToken: 'p-autocomplete-input-token',

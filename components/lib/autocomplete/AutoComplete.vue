@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
-        <input
+        <ACInputText
             v-if="!multiple"
             ref="focusInput"
             :id="inputId"
@@ -11,6 +11,8 @@
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
             :disabled="disabled"
+            :invalid="invalid"
+            :variant="variant"
             autocomplete="off"
             role="combobox"
             :aria-label="ariaLabel"
@@ -20,13 +22,14 @@
             :aria-expanded="overlayVisible"
             :aria-controls="id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
-            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onInput"
             @change="onChange"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            :unstyled="unstyled"
+            v-bind="inputProps"
+            :pt="ptm('input')"
         />
         <ul
             v-if="multiple"
@@ -61,15 +64,18 @@
                 </slot>
             </li>
             <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
-                <input
+                <ACInputText
                     ref="focusInput"
                     :id="inputId"
-                    type="text"
                     :style="inputStyle"
                     :class="inputClass"
+                    :value="multipleInputValue"
                     :placeholder="placeholder"
                     :tabindex="!disabled ? tabindex : -1"
                     :disabled="disabled"
+                    :invalid="invalid"
+                    :variant="variant"
+                    :unstyled="unstyled"
                     autocomplete="off"
                     role="combobox"
                     :aria-label="ariaLabel"
@@ -79,13 +85,13 @@
                     :aria-expanded="overlayVisible"
                     :aria-controls="id + '_list'"
                     :aria-activedescendant="focused ? focusedOptionId : undefined"
-                    :aria-invalid="invalid || undefined"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    v-bind="{ ...inputProps, ...ptm('input') }"
+                    v-bind="inputProps"
+                    :pt="ptm('input')"
                 />
             </li>
         </ul>
@@ -93,13 +99,13 @@
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" :unstyled="unstyled" :pt="ptm('dropdownButton')">
-            <template #icon>
+        <slot name="dropdownbutton" :toggleCallback="(event) => onDropdownClick(event)">
+            <button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" v-bind="ptm('dropdownButton')">
                 <slot name="dropdownicon" :class="dropdownIcon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButtonIcon')" />
                 </slot>
-            </template>
-        </Button>
+            </button>
+        </slot>
         <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
@@ -166,10 +172,10 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesCircleIcon from 'primevue/icons/timescircle';
+import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -197,7 +203,8 @@ export default {
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
             overlayVisible: false,
-            searching: false
+            searching: false,
+            multipleInputValue: null
         };
     },
     watch: {
@@ -279,8 +286,7 @@ export default {
             this.dirty = true;
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+            isFocus && DomHandler.focus(this.$refs.focusInput.$el);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -290,7 +296,7 @@ export default {
                 this.clicked = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && DomHandler.focus(this.$refs.focusInput);
+                isFocus && DomHandler.focus(this.$refs.focusInput.$el);
             };
 
             setTimeout(() => {
@@ -400,6 +406,8 @@ export default {
 
             if (!this.multiple) {
                 this.updateModel(event, query);
+            } else {
+                this.multipleInputValue = query;
             }
 
             if (query.length === 0) {
@@ -423,7 +431,7 @@ export default {
 
                 // when forceSelection is on, prevent called twice onOptionSelect()
                 if (this.visibleOptions && !this.multiple) {
-                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.value || ''));
+                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.$el.value || ''));
 
                     if (matchedValue !== undefined) {
                         valid = true;
@@ -432,7 +440,7 @@ export default {
                 }
 
                 if (!valid) {
-                    this.$refs.focusInput.value = '';
+                    this.$refs.focusInput.$el.value = '';
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
                 }
@@ -482,7 +490,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                DomHandler.focus(this.$refs.focusInput);
+                DomHandler.focus(this.$refs.focusInput.$el);
             }
         },
         onDropdownClick(event) {
@@ -491,8 +499,8 @@ export default {
             if (this.overlayVisible) {
                 this.hide(true);
             } else {
-                DomHandler.focus(this.$refs.focusInput);
-                query = this.$refs.focusInput.value;
+                DomHandler.focus(this.$refs.focusInput.$el);
+                query = this.$refs.focusInput.$el.value;
 
                 if (this.dropdownMode === 'blank') this.search(event, '', 'dropdown');
                 else if (this.dropdownMode === 'current') this.search(event, query, 'dropdown');
@@ -504,7 +512,7 @@ export default {
             const value = this.getOptionValue(option);
 
             if (this.multiple) {
-                this.$refs.focusInput.value = '';
+                this.multipleInputValue = null;
 
                 if (!this.isSelected(option)) {
                     this.updateModel(event, [...(this.modelValue || []), value]);
@@ -641,7 +649,7 @@ export default {
         },
         onBackspaceKey(event) {
             if (this.multiple) {
-                if (ObjectUtils.isNotEmpty(this.modelValue) && !this.$refs.focusInput.value) {
+                if (ObjectUtils.isNotEmpty(this.modelValue) && !this.$refs.focusInput.$el.value) {
                     const removedValue = this.modelValue[this.modelValue.length - 1];
                     const newValue = this.modelValue.slice(0, -1);
 
@@ -660,7 +668,7 @@ export default {
 
             if (this.focusedMultipleOptionIndex > this.modelValue.length - 1) {
                 this.focusedMultipleOptionIndex = -1;
-                DomHandler.focus(this.$refs.focusInput);
+                DomHandler.focus(this.$refs.focusInput.$el);
             }
         },
         onBackspaceKeyOnMultiple(event) {
@@ -693,7 +701,7 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            let target = this.multiple ? this.$refs.multiContainer : this.$refs.focusInput;
+            let target = this.multiple ? this.$refs.multiContainer : this.$refs.focusInput.$el;
 
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, target);
@@ -757,10 +765,10 @@ export default {
         },
         isInputClicked(event) {
             if (this.multiple) return event.target === this.$refs.multiContainer || this.$refs.multiContainer.contains(event.target);
-            else return event.target === this.$refs.focusInput;
+            else return event.target === this.$refs.focusInput.$el;
         },
         isDropdownClicked(event) {
-            return this.$refs.dropdownButton ? event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.$el.contains(event.target) : false;
+            return this.$refs.dropdownButton ? event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.contains(event.target) : false;
         },
         isOptionMatched(option, value) {
             return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);
@@ -824,7 +832,7 @@ export default {
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
             this.dirty = true;
-            DomHandler.focus(this.$refs.focusInput);
+            DomHandler.focus(this.$refs.focusInput.$el);
         },
         changeFocusedOptionIndex(event, index) {
             if (this.focusedOptionIndex !== index) {
@@ -935,7 +943,7 @@ export default {
         }
     },
     components: {
-        Button: Button,
+        ACInputText: InputText,
         VirtualScroller: VirtualScroller,
         Portal: Portal,
         ChevronDownIcon: ChevronDownIcon,

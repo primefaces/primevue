@@ -9,9 +9,9 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
@@ -143,9 +143,10 @@ export interface AutoCompletePassThroughOptions {
      */
     root?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: AutoCompletePassThroughOptionType;
+    input?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -171,10 +172,9 @@ export interface AutoCompletePassThroughOptions {
      */
     loadingIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the dropdown button component.
      */
-    dropdownButton?: ButtonPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
+    dropdownButton?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -241,12 +241,12 @@ export interface AutoCompleteState {
     focused: boolean;
     /**
      * Current focused item index as a number.
-     * @defaultvalue -1
+     * @defaultValue -1
      */
     focusedOptionIndex: number;
     /**
      * Current focused item index as a number.
-     * @defaultvalue -1
+     * @defaultValue -1
      */
     focusedMultipleOptionIndex: number;
     /**
@@ -259,6 +259,11 @@ export interface AutoCompleteState {
      * @defaultValue false
      */
     searching: boolean;
+    /**
+     * Value of the token input as a string.
+     * @defaultValue null
+     */
+    multipleInputValue: Nullable<string>;
 }
 
 /**
@@ -686,6 +691,16 @@ export interface AutoCompleteSlots {
          * Style class of the loading icon.
          */
         class: string;
+    }): VNode[];
+    /**
+     * Custom dropdown button template.
+     */
+    dropdownbutton(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
 }
 
