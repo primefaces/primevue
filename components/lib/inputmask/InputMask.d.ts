@@ -8,6 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -44,14 +45,25 @@ export interface InputMaskPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface InputMaskSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: InputMaskProps;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link InputMaskProps.pt}
  */
 export interface InputMaskPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    root?: InputMaskPassThroughOptionType;
+    root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -124,6 +136,11 @@ export interface InputMaskProps {
      * @defaultValue outlined
      */
     variant?: 'outlined' | 'filled' | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     * @defaultValue false
+     */
+    disabled?: boolean | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputMaskPassThroughOptions}

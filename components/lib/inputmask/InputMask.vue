@@ -1,8 +1,24 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" :aria-invalid="invalid || undefined" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptmi('root', ptmParams)" />
+    <IMInputText
+        :value="modelValue"
+        :class="cx('root')"
+        :readonly="readonly"
+        :disabled="disabled"
+        :invalid="invalid"
+        :variant="variant"
+        :unstyled="unstyled"
+        @input="onInput"
+        @focus="onFocus"
+        @blur="onBlur"
+        @keydown="onKeyDown"
+        @keypress="onKeyPress"
+        @paste="onPaste"
+        :pt="ptmi('root', ptmParams)"
+    />
 </template>
 
 <script>
+import InputText from 'primevue/inputtext';
 import { DomHandler } from 'primevue/utils';
 import BaseInputMask from './BaseInputMask.vue';
 
@@ -503,11 +519,13 @@ export default {
         ptmParams() {
             return {
                 context: {
-                    filled: this.filled,
-                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
+                    filled: this.filled
                 }
             };
         }
+    },
+    components: {
+        IMInputText: InputText
     }
 };
 </script>
