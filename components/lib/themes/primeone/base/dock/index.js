@@ -52,21 +52,6 @@ p-dock-item.p-focus {
     height: 3rem;
 }
 
-.p-dock-item-second-prev,
-.p-dock-item-second-next {
-    transform: scale(1.2);
-}
-
-.p-dock-item-prev,
-.p-dock-item-next {
-    transform: scale(1.4);
-}
-
-.p-dock-item-current {
-    transform: scale(1.6);
-    z-index: 1;
-}
-
 .p-dock-top {
     left: 0;
     top: 0;
@@ -115,38 +100,6 @@ p-dock-item.p-focus {
     flex-direction: column;
 }
 
-.p-dock-top .p-dock-item-second-prev,
-.p-dock-top .p-dock-item-second-next,
-.p-dock-bottom .p-dock-item-second-prev,
-.p-dock-bottom .p-dock-item-second-next {
-    margin: 0 0.9rem;
-}
-.p-dock-top .p-dock-item-prev,
-.p-dock-top .p-dock-item-next,
-.p-dock-bottom .p-dock-item-prev,
-.p-dock-bottom .p-dock-item-next {
-    margin: 0 1.3rem;
-}
-.p-dock-top .p-dock-item-current,
-.p-dock-bottom .p-dock-item-current {
-    margin: 0 1.5rem;
-}
-.p-dock-left .p-dock-item-second-prev,
-.p-dock-left .p-dock-item-second-next,
-.p-dock-right .p-dock-item-second-prev,
-.p-dock-right .p-dock-item-second-next {
-    margin: 0.9rem 0;
-}
-.p-dock-left .p-dock-item-prev,
-.p-dock-left .p-dock-item-next,
-.p-dock-right .p-dock-item-prev,
-.p-dock-right .p-dock-item-next {
-    margin: 1.3rem 0;
-}
-.p-dock-left .p-dock-item-current,
-.p-dock-right .p-dock-item-current {
-    margin: 1.5rem 0;
-}
 .p-dock-mobile.p-dock-top .p-dock-list-container,
 .p-dock-mobile.p-dock-bottom .p-dock-list-container {
     overflow-x: auto;

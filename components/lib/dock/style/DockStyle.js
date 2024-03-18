@@ -10,16 +10,11 @@ const classes = {
     ],
     container: 'p-dock-list-container',
     menu: 'p-dock-list',
-    menuitem: ({ instance, processedItem, index, id }) => [
+    menuitem: ({ instance, processedItem, id }) => [
         'p-dock-item',
         {
             'p-focus': instance.isItemActive(id),
-            'p-disabled': instance.disabled(processedItem),
-            'p-dock-item-second-prev': instance.currentIndex - 2 === index,
-            'p-dock-item-prev': instance.currentIndex - 1 === index,
-            'p-dock-item-current': instance.currentIndex === index,
-            'p-dock-item-next': instance.currentIndex + 1 === index,
-            'p-dock-item-second-next': instance.currentIndex + 2 === index
+            'p-disabled': instance.disabled(processedItem)
         }
     ],
     content: 'p-menuitem-content',
