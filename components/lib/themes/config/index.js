@@ -70,7 +70,7 @@ export default {
         return [...this._layerNames];
     },
     setLayerNames(layerName) {
-        this._layerNames.add(layerName);
+        this._layerNames?.add(layerName);
     },
     applyColorScheme() {
         const newColorScheme = ThemeUtils.applyColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
@@ -87,10 +87,10 @@ export default {
         return newColorScheme;
     },
     getCommonCSS(name = '', theme, params) {
-        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
+        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     },
     getComponentCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } };
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
             style: ThemeUtils.getBaseC(options),
@@ -98,7 +98,7 @@ export default {
         };
     },
     getDirectiveCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } };
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
             style: ThemeUtils.getBaseD(options),
@@ -109,9 +109,9 @@ export default {
         return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() });
     },
     getCommonStyleSheet(name = '', theme, params, props = {}) {
-        return ThemeUtils.getCommonStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
+        return ThemeUtils.getCommonStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     },
     getStyleSheet(name, theme = {}, params, props = {}) {
-        return ThemeUtils.getStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
+        return ThemeUtils.getStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     }
 };
