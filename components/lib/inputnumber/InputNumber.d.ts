@@ -9,7 +9,6 @@
  */
 import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
@@ -107,15 +106,13 @@ export interface InputNumberPassThroughOptions<T = any> {
      */
     buttonGroup?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the increment button's DOM element.
      */
-    incrementButton?: ButtonPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
+    incrementButton?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the decrement button's DOM element.
      */
-    decrementButton?: ButtonPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
+    decrementButton?: InputNumberPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -240,7 +237,7 @@ export interface InputNumberProps {
      */
     roundingMode?: RoundingMode;
     /**
-     * Mininum boundary value.
+     * Minimum boundary value.
      */
     min?: number | undefined;
     /**
@@ -339,6 +336,66 @@ export interface InputNumberProps {
  * Defines valid slots in InputNumber component.
  */
 export interface InputNumberSlots {
+    /**
+     * Custom increment button template.
+     */
+    incrementbutton(scope: {
+        /**
+         * Mouse down event of increment button.
+         * @param {Event} event - Browser event
+         */
+        onMousedown: (event: Event) => void;
+        /**
+         * Mouse up event of increment button.
+         * @param {Event} event - Browser event
+         */
+        onMouseup: (event: Event) => void;
+        /**
+         * Mouse leave event of increment button.
+         * @param {Event} event - Browser event
+         */
+        onMouseleave: (event: Event) => void;
+        /**
+         * Key down event of increment button.
+         * @param {Event} event - Browser event
+         */
+        onKeydown: (event: Event) => void;
+        /**
+         * Key up event of increment button.
+         * @param {Event} event - Browser event
+         */
+        onKeyup: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom decrement button template.
+     */
+    decrementbutton(scope: {
+        /**
+         * Mouse down event of decrement button.
+         * @param {Event} event - Browser event
+         */
+        onMousedown: (event: Event) => void;
+        /**
+         * Mouse up event of decrement button.
+         * @param {Event} event - Browser event
+         */
+        onMouseup: (event: Event) => void;
+        /**
+         * Mouse leave event of decrement button.
+         * @param {Event} event - Browser event
+         */
+        onMouseleave: (event: Event) => void;
+        /**
+         * Key down event of decrement button.
+         * @param {Event} event - Browser event
+         */
+        onKeydown: (event: Event) => void;
+        /**
+         * Key up event of decrement button.
+         * @param {Event} event - Browser event
+         */
+        onKeyup: (event: Event) => void;
+    }): VNode[];
     /**
      * Custom increment button icon template.
      */

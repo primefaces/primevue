@@ -15,7 +15,8 @@
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            :aria-invalid="invalid || undefined"
+            :invalid="invalid"
+            :variant="variant"
             @input="onUserInput"
             @keydown="onInputKeyDown"
             @paste="onPaste"
@@ -27,60 +28,55 @@
             :unstyled="unstyled"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
-            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" :pt="ptm('incrementButton')" :unstyled="unstyled">
-                <template #icon>
+            <slot name="incrementbutton" v-on="upButtonListeners">
+                <button :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...ptm('incrementButton'), ...incrementButtonProps }">
                     <slot name="incrementbuttonicon">
-                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
+                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButtonIcon')" data-pc-section="incrementbuttonicon" />
                     </slot>
-                </template>
-            </INButton>
-            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" :pt="ptm('decrementButton')" :unstyled="unstyled">
-                <template #icon>
+                </button>
+            </slot>
+            <slot name="decrementbutton" v-on="downButtonListeners">
+                <button :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...ptm('decrementButton'), ...decrementButtonProps }">
                     <slot name="decrementbuttonicon">
-                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
+                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButtonIcon')" data-pc-section="decrementbuttonicon" />
                     </slot>
-                </template>
-            </INButton>
+                </button>
+            </slot>
         </span>
-        <INButton
-            v-if="showButtons && buttonLayout !== 'stacked'"
-            :class="[cx('incrementButton'), incrementButtonClass]"
-            v-on="upButtonListeners"
-            :disabled="disabled"
-            :tabindex="-1"
-            aria-hidden="true"
-            v-bind="incrementButtonProps"
-            :pt="ptm('incrementButton')"
-            :unstyled="unstyled"
-        >
-            <template #icon>
+        <slot name="incrementbutton" v-on="upButtonListeners">
+            <button
+                v-if="showButtons && buttonLayout !== 'stacked'"
+                :class="[cx('incrementButton'), incrementButtonClass]"
+                v-on="upButtonListeners"
+                :disabled="disabled"
+                :tabindex="-1"
+                aria-hidden="true"
+                v-bind="{ ...ptm('incrementButton'), ...incrementButtonProps }"
+            >
                 <slot name="incrementbuttonicon">
-                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
+                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButtonIcon')" data-pc-section="incrementbuttonicon" />
                 </slot>
-            </template>
-        </INButton>
-        <INButton
-            v-if="showButtons && buttonLayout !== 'stacked'"
-            :class="[cx('decrementButton'), decrementButtonClass]"
-            v-on="downButtonListeners"
-            :disabled="disabled"
-            :tabindex="-1"
-            aria-hidden="true"
-            v-bind="decrementButtonProps"
-            :pt="ptm('decrementButton')"
-            :unstyled="unstyled"
-        >
-            <template #icon>
+            </button>
+        </slot>
+        <slot name="decrementbutton" v-on="downButtonListeners">
+            <button
+                v-if="showButtons && buttonLayout !== 'stacked'"
+                :class="[cx('decrementButton'), decrementButtonClass]"
+                v-on="downButtonListeners"
+                :disabled="disabled"
+                :tabindex="-1"
+                aria-hidden="true"
+                v-bind="{ ...ptm('decrementButton'), ...decrementButtonProps }"
+            >
                 <slot name="decrementbuttonicon">
-                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
+                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButtonIcon')" data-pc-section="decrementbuttonicon" />
                 </slot>
-            </template>
-        </INButton>
+            </button>
+        </slot>
     </span>
 </template>
 
 <script>
-import Button from 'primevue/button';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
@@ -988,7 +984,6 @@ export default {
     },
     components: {
         INInputText: InputText,
-        INButton: Button,
         AngleUpIcon: AngleUpIcon,
         AngleDownIcon: AngleDownIcon
     }
