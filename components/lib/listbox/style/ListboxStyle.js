@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ instance, props }) => [
+    root: ({ props }) => [
         'p-listbox p-component',
         {
             'p-disabled': props.disabled,
@@ -10,7 +10,7 @@ const classes = {
     ],
     header: 'p-listbox-header',
     filterContainer: 'p-listbox-filter-container',
-    filterInput: 'p-listbox-filter p-inputtext p-component',
+    filterInput: 'p-listbox-filter',
     filterIcon: 'p-listbox-filter-icon',
     wrapper: 'p-listbox-list-wrapper',
     list: 'p-listbox-list',

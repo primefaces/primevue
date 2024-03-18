@@ -9,8 +9,9 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
@@ -47,6 +48,20 @@ export interface ListboxPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ListboxSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ListboxProps;
+    /**
+     * Defines current inline state.
+     */
+    state: ListboxState;
 }
 
 /**
@@ -97,9 +112,10 @@ export interface ListboxPassThroughOptions {
      */
     filterContainer?: ListboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: ListboxPassThroughOptionType;
+    filterInput?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

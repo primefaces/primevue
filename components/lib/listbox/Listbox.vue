@@ -14,21 +14,24 @@
         <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
             <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                <input
-                    ref="filterInput"
+                <LInputText
                     v-model="filterValue"
                     type="text"
                     :class="cx('filterInput')"
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
+                    :invalid="invalid"
+                    :disabled="disabled"
+                    :unstyled="unstyled"
                     :aria-owns="id + '_list'"
                     :aria-activedescendant="focusedOptionId"
                     :tabindex="!disabled && !focused ? tabindex : -1"
                     @input="onFilterChange"
                     @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
-                    v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
+                    v-bind="filterInputProps"
+                    :pt="ptm('filterInput')"
                 />
 
                 <slot name="filtericon" :class="cx('filterIcon')">
@@ -124,6 +127,7 @@
 <script>
 import { FilterService } from 'primevue/api';
 import SearchIcon from 'primevue/icons/search';
+import InputText from 'primevue/inputtext';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
@@ -733,6 +737,7 @@ export default {
         ripple: Ripple
     },
     components: {
+        LInputText: InputText,
         VirtualScroller: VirtualScroller,
         SearchIcon: SearchIcon
     }
