@@ -32,7 +32,7 @@ const classes = {
     trigger: 'p-multiselect-trigger',
     loadingIcon: 'p-multiselect-trigger-icon',
     dropdownIcon: 'p-multiselect-trigger-icon',
-    panel: ({ props, instance }) => [
+    panel: ({ instance }) => [
         'p-multiselect-panel p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
@@ -40,15 +40,8 @@ const classes = {
     ],
     header: 'p-multiselect-header',
     filterContainer: 'p-multiselect-filter-container',
-    filterInput: ({ props, instance }) => [
-        'p-multiselect-filter p-inputtext p-component',
-        {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
-        }
-    ],
+    filterInput: 'p-multiselect-filter',
     filterIcon: 'p-multiselect-filter-icon',
-    closeButton: 'p-multiselect-close p-link',
-    closeIcon: 'p-multiselect-close-icon',
     wrapper: 'p-multiselect-items-wrapper',
     list: 'p-multiselect-items p-component',
     itemGroup: 'p-multiselect-item-group',

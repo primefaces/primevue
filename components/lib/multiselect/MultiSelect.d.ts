@@ -9,8 +9,9 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
@@ -49,6 +50,20 @@ export interface MultiSelectPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface MultiSelectSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: MultiSelectProps;
+    /**
+     * Defines current inline state.
+     */
+    state: MultiSelectState;
 }
 
 /**
@@ -154,21 +169,14 @@ export interface MultiSelectPassThroughOptions {
      */
     filterContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: MultiSelectPassThroughOptionType;
+    filterInput?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close button's DOM element.
-     */
-    closeButton?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close icon's DOM element.
-     */
-    closeIcon?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
@@ -255,7 +263,7 @@ export interface MultiSelectState {
     focused: boolean;
     /**
      * Current focused item index as a number.
-     * @defaultvalue -1
+     * @defaultValue -1
      */
     focusedOptionIndex: number;
     /**
@@ -299,7 +307,7 @@ export interface MultiSelectProps {
      */
     modelValue?: any;
     /**
-     * An array of selectitems to display as the available options.
+     * An array of select items to display as the available options.
      */
     options?: any[] | undefined;
     /**

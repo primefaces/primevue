@@ -20,7 +20,7 @@
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
-                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
+                v-bind="ptm('hiddenInput')"
             />
         </div>
         <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
@@ -86,14 +86,17 @@
                             </template>
                         </Checkbox>
                         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                            <input
+                            <MSInputText
                                 ref="filterInput"
-                                type="text"
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
+                                :invalid="invalid"
+                                :disabled="disabled"
+                                :variant="variant"
+                                :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
                                 :aria-owns="id + '_list'"
@@ -101,7 +104,8 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
+                                v-bind="filterInputProps"
+                                :pt="ptm('filterInput')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -110,11 +114,6 @@
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                             {{ filterResultMessageText }}
                         </span>
-                        <button v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
-                            <slot name="closeicon" :class="cx('closeIcon')">
-                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')" />
-                            </slot>
-                        </button>
                     </div>
                     <div :class="cx('wrapper')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
@@ -205,6 +204,7 @@ import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
+import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -451,9 +451,6 @@ export default {
 
             DomHandler.focus(focusableEl);
         },
-        onCloseClick() {
-            this.hide(true);
-        },
         onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
@@ -697,7 +694,7 @@ export default {
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput);
+            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput.$el);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -1085,9 +1082,6 @@ export default {
         toggleAllAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria[this.allSelected ? 'selectAll' : 'unselectAll'] : undefined;
         },
-        closeAriaLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
         }
@@ -1096,6 +1090,7 @@ export default {
         ripple: Ripple
     },
     components: {
+        MSInputText: InputText,
         Checkbox,
         VirtualScroller,
         Portal,
