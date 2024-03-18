@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card p-3">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" mask :style="{ right: '1rem', bottom: '1rem' }" />
+            <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -53,13 +53,13 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" direction="up" mask :style="{ right: '1rem', bottom: '1rem' }" />
+<SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
 `,
                 options: `
 <template>
     <div class="card p-3">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" mask :style="{ right: '1rem', bottom: '1rem' }" />
+            <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>
     </div>
 </template>
@@ -114,7 +114,7 @@ data() {
 <template>
     <div class="card p-3">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" mask :style="{ right: '1rem', bottom: '1rem' }" />
+            <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>
     </div>
 </template>

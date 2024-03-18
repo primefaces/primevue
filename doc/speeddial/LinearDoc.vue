@@ -4,10 +4,10 @@
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />
-            <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }" />
-            <SpeedDial :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
-            <SpeedDial :model="items" direction="right" :style="{ top: 'calc(50% - 2rem)', left: 0 }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
+            <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
+            <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
+            <SpeedDial :model="items" direction="right" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', left: 0 }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -56,19 +56,19 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />
-<SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }" />
-<SpeedDial :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
-<SpeedDial :model="items" direction="right" :style="{ top: 'calc(50% - 2rem)', left: 0 }" />
+<SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
+<SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
+<SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
+<SpeedDial :model="items" direction="right" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', left: 0 }" />
 `,
                 options: `
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />
-            <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }" />
-            <SpeedDial :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
-            <SpeedDial :model="items" direction="right" :style="{ top: 'calc(50% - 2rem)', left: 0 }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
+            <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
+            <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
+            <SpeedDial :model="items" direction="right" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', left: 0 }" />
             <Toast />
         </div>
     </div>
@@ -124,10 +124,10 @@ export default {
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />
-            <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }" />
-            <SpeedDial :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
-            <SpeedDial :model="items" direction="right" :style="{ top: 'calc(50% - 2rem)', left: 0 }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
+            <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
+            <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
+            <SpeedDial :model="items" direction="right" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', left: 0 }" />
             <Toast />
         </div>
     </div>

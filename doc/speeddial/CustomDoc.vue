@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card">
         <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" :style="{ position: 'absolute' }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -53,62 +53,61 @@ export default {
             ],
             code: {
                 basic: `
-<Toast />
-<SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+<SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" :style="{ position: 'absolute' }" />
 `,
                 options: `
 <template>
     <div class="card">
         <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '350px' }">
             <Toast />
-            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" :style="{ position: 'absolute' }" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          items: [
-              {
-                  label: 'Add',
-                  icon: 'pi pi-pencil',
-                  command: () => {
-                      this.$toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-                  }
-              },
-              {
-                  label: 'Update',
-                  icon: 'pi pi-refresh',
-                  command: () => {
-                      this.$toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-                  }
-              },
-              {
-                  label: 'Delete',
-                  icon: 'pi pi-trash',
-                  command: () => {
-                      this.$toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-                  }
-              },
-              {
-                  label: 'Upload',
-                  icon: 'pi pi-upload',
-                  command: () => {
-                      this.$router.push('/fileupload');
-                  }
-              },
-              {
-                  label: 'Vue Website',
-                  icon: 'pi pi-external-link',
-                  command: () => {
-                      window.location.href = 'https://vuejs.org/';
-                  }
-              }
-          ]
-      }
-  }
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Add',
+                    icon: 'pi pi-pencil',
+                    command: () => {
+                        this.$toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+                    }
+                },
+                {
+                    label: 'Update',
+                    icon: 'pi pi-refresh',
+                    command: () => {
+                        this.$toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
+                    }
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-trash',
+                    command: () => {
+                        this.$toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+                    }
+                },
+                {
+                    label: 'Upload',
+                    icon: 'pi pi-upload',
+                    command: () => {
+                        this.$router.push('/fileupload');
+                    }
+                },
+                {
+                    label: 'Vue Website',
+                    icon: 'pi pi-external-link',
+                    command: () => {
+                        window.location.href = 'https://vuejs.org/';
+                    }
+                }
+            ]
+        }
+    }
 };
 <\/script>
 `,
@@ -117,7 +116,7 @@ export default {
     <div class="card">
         <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '350px' }">
             <Toast />
-            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+            <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" :style="{ position: 'absolute' }" />
         </div>
     </div>
 </template>
@@ -131,41 +130,41 @@ const toast = useToast();
 const router = useRouter();
 
 const items = ref([
-  {
-      label: 'Add',
-      icon: 'pi pi-pencil',
-      command: () => {
-          toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-      }
-  },
-  {
-      label: 'Update',
-      icon: 'pi pi-refresh',
-      command: () => {
-          toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-      }
-  },
-  {
-      label: 'Delete',
-      icon: 'pi pi-trash',
-      command: () => {
-          toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-      }
-  },
-  {
-      label: 'Upload',
-      icon: 'pi pi-upload',
-      command: () => {
-          router.push('/fileupload');
-      }
-  },
-  {
-      label: 'Vue Website',
-      icon: 'pi pi-external-link',
-      command: () => {
-          window.location.href = 'https://vuejs.org/'
-      }
-  }
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
 ])
 <\/script>
 `

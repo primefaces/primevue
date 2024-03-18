@@ -3,8 +3,8 @@
         <p>Items can be displayed around the button when <i>type</i> is set to <i>circle</i>. Additional <i>radius</i> property defines the radius of the circle.</p>
     </DocSectionText>
     <div class="card">
-        <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+        <div :style="{ position: 'relative', height: '500px' }" class="flex align-items-center justify-content-center">
+            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" :style="{ position: 'absolute' }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -53,13 +53,13 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" :style="{ position: 'absolute' }" />
 `,
                 options: `
 <template>
     <div class="card">
-        <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+        <div :style="{ position: 'relative', height: '500px' }" class="flex align-items-center justify-content-center">
+            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" :style="{ position: 'absolute' }" />
             <Toast />
         </div>
     </div>
@@ -114,8 +114,8 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+        <div :style="{ position: 'relative', height: '500px' }" class="flex align-items-center justify-content-center">
+            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" :style="{ position: 'absolute' }" />
             <Toast />
         </div>
     </div>

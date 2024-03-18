@@ -4,10 +4,10 @@
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ right: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ left: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ right: 0, top: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ left: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -56,19 +56,19 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ right: 0, bottom: 0 }" />
-<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ left: 0, bottom: 0 }" />
-<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ right: 0, top: 0 }" />
-<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ left: 0, top: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
 `,
                 options: `
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ right: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ left: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ right: 0, top: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ left: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
             <Toast />
         </div>
     </div>
@@ -124,10 +124,10 @@ data() {
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ right: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ left: 0, bottom: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ right: 0, top: 0 }" />
-            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ left: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
             <Toast />
         </div>
     </div>

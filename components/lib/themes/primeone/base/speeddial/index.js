@@ -1,7 +1,7 @@
 export default {
     css: ({ dt }) => `
 .p-speeddial {
-    position: absolute;
+    position: static;
     display: flex;
     gap: 0.25rem;
 }
