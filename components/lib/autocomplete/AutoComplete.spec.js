@@ -85,7 +85,7 @@ describe('AutoComplete.vue', () => {
         });
     });
 
-    it('multiple', () => {
+    describe('multiple', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
                 multiple: true,
@@ -98,6 +98,38 @@ describe('AutoComplete.vue', () => {
             wrapper.findAll('.p-autocomplete-token-icon').forEach((tokenIcon) => {
                 expect(tokenIcon.classes()).toContain('pi-discord');
             });
+        });
+        it('should have correct selected items', async () => {
+            const event = { target: { value: 'b' } };
+
+            wrapper.vm.search(event, event.target.value, 'input');
+            await wrapper.vm.$nextTick();
+
+            await wrapper.setProps({
+                multiple: true,
+                modelValue: [
+                    { name: 'Bahrain', code: 'BH' },
+                    { name: 'Chile', code: 'CL' }
+                ],
+                suggestions: [
+                    { name: 'Afghanistan', code: 'AF' },
+                    { name: 'Bahrain', code: 'BH' },
+                    { name: 'Chile', code: 'CL' },
+                    { name: 'Denmark', code: 'DK' }
+                ]
+            });
+
+            const items = await wrapper.findAll('.p-autocomplete-item');
+
+            const selectedItems = items.filter((i) => i.attributes()['aria-selected'] === 'true');
+            const unselectedItems = items.filter((i) => i.attributes()['aria-selected'] === 'false');
+
+            const selectedLabels = selectedItems.map((i) => i.attributes()['aria-label']);
+            const unselectedLabels = unselectedItems.map((i) => i.attributes()['aria-label']);
+
+            expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
+            expect(selectedLabels).toStrictEqual(['Bahrain', 'Chile']);
+            expect(unselectedLabels).toStrictEqual(['Afghanistan', 'Denmark']);
         });
     });
 });
