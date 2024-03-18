@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -59,14 +59,6 @@ export interface OverlayPanelPassThroughOptions {
      * Used to pass attributes to the content's DOM element.
      */
     content?: OverlayPanelPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close button's DOM element.
-     */
-    closeButton?: OverlayPanelPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close icon's DOM element.
-     */
-    closeIcon?: OverlayPanelPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -128,11 +120,6 @@ export interface OverlayPanelProps {
      */
     dismissable?: boolean;
     /**
-     * When enabled, displays a close icon at top right corner.
-     * @defaultValue false
-     */
-    showCloseIcon?: boolean;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
@@ -151,11 +138,6 @@ export interface OverlayPanelProps {
      * Object literal to define widths per screen size.
      */
     breakpoints?: OverlayPanelBreakpoints;
-    /**
-     * Icon to display in the overlaypanel close button.
-     * @deprecated since v3.27.0. Use 'closeicon' slot.
-     */
-    closeIcon?: string | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {OverlayPanelPassThroughOptions}
@@ -186,10 +168,6 @@ export interface OverlayPanelSlots {
      * Custom content template.
      */
     default(): VNode[];
-    /**
-     * Custom close icon template.
-     */
-    closeicon(): VNode[];
     /**
      * Custom container slot.
      * @param {Object} scope - container slot's params.

@@ -107,7 +107,7 @@ export default {
             });
         },
         onNodeClick(event) {
-            if (DomHandler.getAttribute(event.target, 'nodeToggler') || DomHandler.getAttribute(event.target, 'nodeTogglerIcon')) {
+            if (DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetoggler') || DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglericon')) {
                 return;
             }
 

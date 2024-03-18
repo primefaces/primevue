@@ -217,32 +217,6 @@
                 </tbody>
             </table>
         </div>
-
-        <h3>Close Button Keyboard Support</h3>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i>enter</i></td>
-                        <td>Closes the popup and moves focus to the multiselect element.</td>
-                    </tr>
-                    <tr>
-                        <td><i>space</i></td>
-                        <td>Closes the popup and moves focus to the multiselect element.</td>
-                    </tr>
-                    <tr>
-                        <td><i>escape</i></td>
-                        <td>Closes the popup and moves focus to the multiselect element.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </DocSectionText>
 </template>
 
