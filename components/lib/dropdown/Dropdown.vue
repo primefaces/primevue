@@ -305,7 +305,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
 
-            isFocus && DomHandler.focus(this.$refs.focusInput.$el ? this.$refs.focusInput.$el : this.$refs.focusInput);
+            isFocus && DomHandler.focus(this.editable ? this.$refs.focusInput.$el : this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -316,7 +316,7 @@ export default {
                 this.searchValue = '';
 
                 this.resetFilterOnHide && (this.filterValue = null);
-                isFocus && DomHandler.focus(this.$refs.focusInput.$el ? this.$refs.focusInput.$el : this.$refs.focusInput);
+                isFocus && DomHandler.focus(this.editable ? this.$refs.focusInput.$el : this.$refs.focusInput);
             };
 
             setTimeout(() => {
