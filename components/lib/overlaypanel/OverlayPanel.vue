@@ -7,11 +7,6 @@
                     <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
                         <slot></slot>
                     </div>
-                    <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
-                        <slot name="closeicon">
-                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
-                        </slot>
-                    </button>
                 </template>
             </div>
         </transition>
@@ -20,7 +15,6 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
-import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -306,9 +300,6 @@ export default {
     computed: {
         attributeSelector() {
             return UniqueComponentId();
-        },
-        closeAriaLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {
@@ -316,8 +307,7 @@ export default {
         ripple: Ripple
     },
     components: {
-        Portal: Portal,
-        TimesIcon
+        Portal
     }
 };
 </script>

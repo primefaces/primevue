@@ -10,10 +10,6 @@ export default {
             type: Boolean,
             default: true
         },
-        showCloseIcon: {
-            type: Boolean,
-            default: false
-        },
         appendTo: {
             type: [String, Object],
             default: 'body'
@@ -29,10 +25,6 @@ export default {
         breakpoints: {
             type: Object,
             default: null
-        },
-        closeIcon: {
-            type: String,
-            default: undefined
         },
         closeOnEscape: {
             type: Boolean,
