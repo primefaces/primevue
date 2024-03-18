@@ -10,12 +10,12 @@ export default {
         colorScheme: {
             light: {
                 class: '',
-                rule: `:root{[CSS]}`,
+                rule: ':root{[CSS]}',
                 default: false
             },
             dark: {
                 class: 'p-dark',
-                rule: `.p-dark{[CSS]}`,
+                rule: '.p-dark{[CSS]}',
                 default: false
             }
         },
@@ -28,6 +28,7 @@ export default {
     _theme: undefined,
     _initialized: false,
     _currentColorScheme: 'light',
+    _layerNames: new Set(),
     init() {
         if (!this._initialized) {
             this.applyColorScheme();
@@ -65,6 +66,12 @@ export default {
     setCurrentColorScheme(newValue) {
         this._currentColorScheme = newValue;
     },
+    getLayerNames() {
+        return [...this._layerNames];
+    },
+    setLayerNames(layerName) {
+        this._layerNames.add(layerName);
+    },
     applyColorScheme() {
         const newColorScheme = ThemeUtils.applyColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
 
@@ -80,10 +87,10 @@ export default {
         return newColorScheme;
     },
     getCommonCSS(name = '', theme, params) {
-        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults });
+        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
     },
     getComponentCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults };
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } };
 
         return {
             style: ThemeUtils.getBaseC(options),
@@ -91,7 +98,7 @@ export default {
         };
     },
     getDirectiveCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults };
+        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames } };
 
         return {
             style: ThemeUtils.getBaseD(options),
@@ -99,12 +106,12 @@ export default {
         };
     },
     getLayerOrderCSS(name = '') {
-        return ThemeUtils.getLayerOrder(name, this.options, this.defaults);
+        return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() });
     },
     getCommonStyleSheet(name = '', theme, params, props = {}) {
-        return ThemeUtils.getCommonStyleSheet(name, theme, params, props);
+        return ThemeUtils.getCommonStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
     },
     getStyleSheet(name, theme = {}, params, props = {}) {
-        return ThemeUtils.getStyleSheet(name, theme, params, props);
+        return ThemeUtils.getStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames } });
     }
 };

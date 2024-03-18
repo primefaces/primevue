@@ -115,11 +115,6 @@ export default {
             ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, this.$styleOptions);
         },
         _loadThemeStyles(theme) {
-            // layer order
-            const layerOrder = this.$style?.getLayerOrderThemeCSS();
-
-            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
-
             // common
             const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(theme, this.$themeParams) || {};
 
@@ -132,6 +127,11 @@ export default {
 
             this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
             this.$style?.loadTheme(style, this.$styleOptions);
+
+            // layer order
+            const layerOrder = this.$style?.getLayerOrderThemeCSS();
+
+            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;

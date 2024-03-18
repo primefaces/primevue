@@ -1,7 +1,7 @@
 import { SharedUtils, dt, toVariables } from 'primevue/themes';
 
 export default {
-    getCommon({ name = '', theme = {}, params, defaults }) {
+    getCommon({ name = '', theme = {}, params, set, defaults }) {
         const { base, preset } = theme;
         let primitive_css, semantic_css, global_css;
 
@@ -18,8 +18,16 @@ export default {
             const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ light: { ...csRest, ...csRestExt } }, options).declarations : '';
             const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark: { ...dark, ...darkExt } }, options).declarations : '';
 
-            primitive_css = this._transformCSS(name, prim_css, 'light', 'variable', options, defaults);
-            semantic_css = `${this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, defaults)}${this._transformCSS(name, `${dark_css}color-scheme:dark`, 'dark', 'variable', options, defaults)}`;
+            primitive_css = this._transformCSS(name, prim_css, 'light', 'variable', options, set, defaults);
+            semantic_css = `${this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, set, defaults)}${this._transformCSS(
+                name,
+                `${dark_css}color-scheme:dark`,
+                'dark',
+                'variable',
+                options,
+                set,
+                defaults
+            )}`;
         }
 
         global_css = SharedUtils.object.getItemValue(base?.components?.global?.css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
@@ -30,7 +38,7 @@ export default {
             global: global_css
         };
     },
-    getPresetC({ name = '', theme = {}, params, defaults }) {
+    getPresetC({ name = '', theme = {}, params, set, defaults }) {
         const { preset, options, extend } = theme;
         const { colorScheme, ...vRest } = preset?.components?.[name] || {};
         const { dark, ...csRest } = colorScheme || {};
@@ -40,16 +48,16 @@ export default {
         const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: { ...csRest, ...csRestExt } }, options).declarations : '';
         const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: { ...dark, ...darkExt } }, options).declarations : '';
 
-        return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, defaults)}`;
+        return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults)}`;
     },
-    getBaseC({ name = '', theme = {}, params, defaults }) {
+    getBaseC({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.components?.[name] || {};
         const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
 
-        return this._transformCSS(name, computed_css, undefined, 'style', options, defaults);
+        return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
-    getPresetD({ name = '', theme = {}, params, defaults }) {
+    getPresetD({ name = '', theme = {}, params, set, defaults }) {
         const { preset, options, extend } = theme;
         const { colorScheme, ...vRest } = preset?.directives?.[name] || {};
         const { dark, ...csRest } = colorScheme || {};
@@ -59,14 +67,14 @@ export default {
         const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: { ...csRest, ...csRestExt } }, options).declarations : '';
         const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: { ...dark, ...darkExt } }, options).declarations : '';
 
-        return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, defaults)}`;
+        return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults)}`;
     },
-    getBaseD({ name = '', theme = {}, params, defaults }) {
+    getBaseD({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.directives?.[name] || {};
         const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
 
-        return this._transformCSS(name, computed_css, undefined, 'style', options, defaults);
+        return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
     getColorSchemeOption(colorScheme, defaults) {
         let options = { ...defaults.colorScheme };
@@ -110,20 +118,19 @@ export default {
 
         return newColorScheme;
     },
-    getLayerOrder(name, options = {}, defaults) {
+    getLayerOrder(name, options = {}, params, defaults) {
         const { layer } = options;
 
         if (layer) {
-            const order = SharedUtils.object.getItemValue(layer.order || defaults.layer.order);
+            const order = SharedUtils.object.getItemValue(layer.order || defaults.layer.order, params);
 
             return `@layer ${order}`;
         }
 
         return '';
     },
-    getCommonStyleSheet(name, theme = {}, params, props = {}) {
-        const { preset, base } = theme;
-        const common_css = this.getCommon(preset, base, params, theme);
+    getCommonStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
+        const common_css = this.getCommon({ name, theme, params, set, defaults });
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
@@ -140,12 +147,9 @@ export default {
             }, [])
             .join('');
     },
-    getStyleSheet(name, theme = {}, params, props = {}) {
-        const { preset, base } = theme;
-        const presetCTheme = preset?.components?.[name];
-        const baseCTheme = base?.components?.[name];
-        const presetC_css = this.getPresetC(name, presetCTheme, theme);
-        const baseC_css = this.getBaseC(name, baseCTheme, params, theme);
+    getStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
+        const presetC_css = this.getPresetC({ name, theme, params, set, defaults });
+        const baseC_css = this.getBaseC({ name, theme, params, set, defaults });
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
@@ -160,7 +164,7 @@ export default {
     _toVariables(theme, options) {
         return toVariables(theme, { prefix: options?.prefix });
     },
-    _transformCSS(name, css, mode, type, options = {}, defaults) {
+    _transformCSS(name, css, mode, type, options = {}, set, defaults) {
         if (SharedUtils.object.isNotEmpty(css)) {
             const { layer, colorScheme } = options;
 
@@ -175,7 +179,11 @@ export default {
                 let layerOptions = { ...defaults.layer };
 
                 SharedUtils.object.isObject(layer) && (layerOptions.name = SharedUtils.object.getItemValue(layer.name, { name, type }));
-                css = SharedUtils.object.isNotEmpty(layerOptions.name) ? SharedUtils.object.getRule(`@layer ${layerOptions.name}`, css) : css;
+
+                if (SharedUtils.object.isNotEmpty(layerOptions.name)) {
+                    css = SharedUtils.object.getRule(`@layer ${layerOptions.name}`, css);
+                    set?.layerNames(layerOptions.name);
+                }
             }
 
             return css;

@@ -87,11 +87,6 @@ const BaseDirective = {
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
         const [theme, themeParams] = [instance.theme(), instance.themeParams()];
 
-        // layer order
-        const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
-
-        BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
-
         // common
         const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.(theme, themeParams) || {};
 
@@ -104,6 +99,11 @@ const BaseDirective = {
 
         instance.$style?.loadTheme(variables, { name: `${instance.$name}-directive-variables`, ...useStyleOptions });
         instance.$style?.loadTheme(style, { name: `${instance.$name}-directive-style`, ...useStyleOptions });
+
+        // layer order
+        const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
+
+        BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;

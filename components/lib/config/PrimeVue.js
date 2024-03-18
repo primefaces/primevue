@@ -158,8 +158,8 @@ export const defaultOptions = {
             },
             layer: {
                 // layer: true | false | undefined | object // default: undefined
-                name: '', // (component_name, type=variable|style) => layer_names // default: primevue
-                order: '' // (layer_names) => layer_order // default: @layer primevue
+                name: '', // ({component_name, type=variable|style}) => layer_name // default: primevue
+                order: '' // ({layer_names}) => layer_order // default: @layer primevue
             }*/
         },
         extend: {}
