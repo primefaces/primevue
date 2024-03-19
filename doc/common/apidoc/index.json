@@ -20104,9 +20104,9 @@
                             "name": "globalFilterFields",
                             "optional": true,
                             "readonly": false,
-                            "type": "string[]",
+                            "type": "(string | Function)[]",
                             "default": "",
-                            "description": "Fields for global filter"
+                            "description": "An array of fields as string or function to use in global filtering."
                         },
                         {
                             "name": "filterLocale",
