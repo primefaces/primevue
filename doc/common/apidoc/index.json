@@ -57316,7 +57316,7 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Tree node instance</span>\n }",
-                                    "description": "togglericon slot's params."
+                                    "description": "nodeicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
