@@ -26,7 +26,8 @@ export default {
     data() {
         return {
             commandText: null,
-            commands: []
+            commands: [],
+            currentCommandIdx: -1
         };
     },
     mounted() {
@@ -48,6 +49,10 @@ export default {
                 this.commands.push({ text: this.commandText });
                 TerminalService.emit('command', this.commandText);
                 this.commandText = '';
+                this.currentCommandIdx = this.commands.length - 1;
+            } else if (event.key === 'ArrowUp' && this.currentCommandIdx > -1) {
+                this.commandText = this.commands[this.currentCommandIdx].text;
+                this.currentCommandIdx--;
             }
         },
         responseListener(response) {
