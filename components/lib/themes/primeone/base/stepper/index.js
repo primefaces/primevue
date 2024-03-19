@@ -60,6 +60,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     color: ${dt('stepper.marker.color')};
     border: 1px solid ${dt('stepper.marker.border.color')};
     border-width: 2px;
@@ -69,8 +70,16 @@ export default {
     line-height: 2rem;
     font-size: 1.143rem;
     border-radius: 50%;
-    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+}
+
+.p-stepper-number::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 
 .p-stepper-header.p-highlight .p-stepper-action {
@@ -156,6 +165,6 @@ export default {
 
 .p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
     padding-left: 3rem;
-}    
+}
 `
 };
