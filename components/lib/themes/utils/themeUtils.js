@@ -30,7 +30,7 @@ export default {
             )}`;
         }
 
-        global_css = SharedUtils.object.getItemValue(base?.components?.global?.css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
+        global_css = SharedUtils.object.getItemValue(base?.components?.global?.css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
 
         return {
             primitive: primitive_css,
@@ -53,7 +53,7 @@ export default {
     getBaseC({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.components?.[name] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
@@ -72,7 +72,7 @@ export default {
     getBaseD({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.directives?.[name] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath) => dt(theme, tokenPath) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
@@ -190,5 +190,62 @@ export default {
         }
 
         return '';
+    },
+    createTokens(obj = {}, currentColorScheme, defaults, parentKey = '', parentPath = '', tokens = {}) {
+        Object.entries(obj).forEach(([key, value]) => {
+            const currentKey = SharedUtils.object.test(defaults.variable.excludedKeyRegex, key) ? parentKey : parentKey ? `${parentKey}.${SharedUtils.object.toTokenKey(key)}` : SharedUtils.object.toTokenKey(key);
+            const currentPath = parentPath ? `${parentPath}.${key}` : key;
+
+            if (SharedUtils.object.isObject(value)) {
+                this.createTokens(value, currentColorScheme, defaults, currentKey, currentPath, tokens);
+            } else {
+                tokens[currentKey] ||= {
+                    paths: [],
+                    computed(colorScheme) {
+                        const scheme = colorScheme || currentColorScheme;
+
+                        return this.paths.find((p) => p.scheme === scheme || p.scheme === 'none')?.computed();
+                    }
+                };
+                tokens[currentKey].paths.push({
+                    path: currentPath,
+                    value,
+                    scheme: currentPath.includes('colorScheme.light') ? 'light' : currentPath.includes('colorScheme.dark') ? 'dark' : 'none',
+                    computed(colorScheme) {
+                        const regex = /{([^}]*)}/g;
+
+                        if (SharedUtils.object.test(regex, value)) {
+                            const val = value.trim();
+                            const _val = val.replaceAll(regex, (v) => {
+                                const path = v.replace(/{|}/g, '');
+
+                                return tokens[path]?.computed(colorScheme);
+                            });
+
+                            const calculationRegex = /(\d+\w*\s+[\+\-\*\/]\s+\d+\w*)/g;
+                            const cleanedVarRegex = /var\([^)]+\)/g;
+
+                            return SharedUtils.object.test(calculationRegex, _val.replace(cleanedVarRegex, '0')) ? `calc(${_val})` : _val;
+                        }
+
+                        return value;
+                    }
+                });
+            }
+        });
+
+        return tokens;
+    },
+    getTokenValue(tokens, path, defaults) {
+        const normalizePath = (str) => {
+            const strArr = str.split('.');
+
+            return strArr.filter((s) => !SharedUtils.object.test(defaults.variable.excludedKeyRegex, s.toLowerCase())).join('.');
+        };
+
+        const token = normalizePath(path);
+        const colorScheme = path.includes('colorScheme.light') ? 'light' : path.includes('colorScheme.dark') ? 'dark' : undefined;
+
+        return tokens[token]?.computed(colorScheme);
     }
 };

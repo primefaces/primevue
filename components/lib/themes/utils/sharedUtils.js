@@ -34,6 +34,9 @@ export default {
                       .toLowerCase()
                 : str;
         },
+        toTokenKey(str) {
+            return this.isString(str) ? str.replace(/[A-Z]/g, (c, i) => (i === 0 ? c : '.' + c.toLowerCase())).toLowerCase() : str;
+        },
         merge(value1, value2) {
             if (this.isArray(value1)) {
                 value1.push(...(value2 || []));

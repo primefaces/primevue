@@ -5,7 +5,7 @@ export default {
         variable: {
             prefix: '',
             selector: ':root',
-            excludedKeyRegex: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states)$/gi
+            excludedKeyRegex: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states|components|directives)$/gi
         },
         colorScheme: {
             light: {
@@ -29,11 +29,13 @@ export default {
     _initialized: false,
     _currentColorScheme: 'light',
     _layerNames: new Set(),
+    _tokens: {},
     init() {
         if (!this._initialized) {
             this.applyColorScheme();
         }
 
+        this._tokens = ThemeUtils.createTokens(this.preset, this.getCurrentColorScheme(), this.defaults);
         this._initialized = true;
     },
     get theme() {
@@ -51,14 +53,21 @@ export default {
     get extend() {
         return this.theme?.extend || {};
     },
+    get tokens() {
+        return this._tokens;
+    },
     getPConfig() {
         return this._pConfig;
     },
     setPConfig(newValue) {
         this._pConfig = newValue;
     },
+    getTokenValue(tokenPath) {
+        return ThemeUtils.getTokenValue(this.tokens, tokenPath, this.defaults);
+    },
     setTheme(newValue) {
         this._theme = newValue;
+        this._tokens = ThemeUtils.createTokens(newValue, this.defaults);
     },
     getCurrentColorScheme() {
         return this._currentColorScheme;
