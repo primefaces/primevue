@@ -771,8 +771,13 @@ export default {
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
         },
+        isEquals(value1, value2) {
+            return ObjectUtils.equals(value1, value2, this.equalityKey);
+        },
         isSelected(option) {
-            return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            const optionValue = this.getOptionValue(option);
+
+            return (this.modelValue || []).some((value) => this.isEquals(value, optionValue));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
