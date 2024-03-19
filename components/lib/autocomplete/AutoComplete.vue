@@ -777,7 +777,7 @@ export default {
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
 
-            return (this.modelValue || []).some((value) => this.isEquals(value, optionValue));
+            return this.multiple ? (this.modelValue || []).some((value) => this.isEquals(value, optionValue)) : this.isEquals(this.modelValue, this.getOptionValue(option));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
