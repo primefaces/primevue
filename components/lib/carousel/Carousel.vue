@@ -613,9 +613,6 @@ export default {
         empty() {
             return !this.value || this.value.length === 0;
         },
-        emptyMessageText() {
-            return this.$primevue.config?.locale?.emptyMessage || '';
-        },
         totalIndicators() {
             return this.value ? Math.max(Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1, 0) : 0;
         },
