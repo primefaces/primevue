@@ -29,6 +29,7 @@
                         :filterDisplay="filterDisplay"
                         :filtersStore="filtersStore"
                         :filterInputProps="filterInputProps"
+                        :first="first"
                         @filter-change="$emit('filter-change', $event)"
                         @filter-apply="$emit('filter-apply')"
                         @operator-change="$emit('operator-change', $event)"
@@ -222,6 +223,10 @@ export default {
         reorderableColumns: {
             type: Boolean,
             default: false
+        },
+        first: {
+            type: Number,
+            default: 0
         },
         filterInputProps: {
             type: null,
