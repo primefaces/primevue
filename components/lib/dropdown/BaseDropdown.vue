@@ -62,28 +62,12 @@ export default {
             type: Object,
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
         panelClass: {
             type: [String, Object],
             default: null
         },
         panelStyle: {
             type: Object,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        filterInputProps: {
-            type: null,
-            default: null
-        },
-        clearIconProps: {
-            type: null,
             default: null
         },
         appendTo: {

@@ -7,7 +7,7 @@
  * @module listbox
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
@@ -303,10 +303,6 @@ export interface ListboxProps {
      * Fields used when filtering the options, defaults to optionLabel.
      */
     filterFields?: string[] | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the filter input inside the component.
-     */
-    filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @type {VirtualScrollerProps}

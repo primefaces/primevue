@@ -42,7 +42,6 @@ export default {
             type: Array,
             default: null
         },
-        filterInputProps: null,
         virtualScrollerOptions: {
             type: Object,
             default: null

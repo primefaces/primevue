@@ -137,18 +137,6 @@ export default {
             type: Object,
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        incrementButtonProps: {
-            type: null,
-            default: null
-        },
-        decrementButtonProps: {
-            type: null,
-            default: null
-        },
         ariaLabelledby: {
             type: String,
             default: null

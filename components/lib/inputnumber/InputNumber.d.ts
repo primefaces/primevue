@@ -7,7 +7,7 @@
  * @module inputnumber
  *
  */
-import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
@@ -140,6 +140,37 @@ export interface InputNumberState {
      * @defaultValue false
      */
     focused: boolean;
+}
+
+/**
+ * Defines valid listeners in InputNumber component.
+ */
+export interface InputNumberButtonListeners {
+    /**
+     * Mouse down event of increment button.
+     * @param {Event} event - Browser event
+     */
+    onMousedown: (event: Event) => void;
+    /**
+     * Mouse up event of increment button.
+     * @param {Event} event - Browser event
+     */
+    onMouseup: (event: Event) => void;
+    /**
+     * Mouse leave event of increment button.
+     * @param {Event} event - Browser event
+     */
+    onMouseleave: (event: Event) => void;
+    /**
+     * Key down event of increment button.
+     * @param {Event} event - Browser event
+     */
+    onKeydown: (event: Event) => void;
+    /**
+     * Key up event of increment button.
+     * @param {Event} event - Browser event
+     */
+    onKeyup: (event: Event) => void;
 }
 
 /**
@@ -296,18 +327,6 @@ export interface InputNumberProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to increment button inside the component.
-     */
-    incrementButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to decrement button inside the component.
-     */
-    decrementButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
@@ -341,60 +360,18 @@ export interface InputNumberSlots {
      */
     incrementbutton(scope: {
         /**
-         * Mouse down event of increment button.
-         * @param {Event} event - Browser event
+         * InputNumber listeners
          */
-        onMousedown: (event: Event) => void;
-        /**
-         * Mouse up event of increment button.
-         * @param {Event} event - Browser event
-         */
-        onMouseup: (event: Event) => void;
-        /**
-         * Mouse leave event of increment button.
-         * @param {Event} event - Browser event
-         */
-        onMouseleave: (event: Event) => void;
-        /**
-         * Key down event of increment button.
-         * @param {Event} event - Browser event
-         */
-        onKeydown: (event: Event) => void;
-        /**
-         * Key up event of increment button.
-         * @param {Event} event - Browser event
-         */
-        onKeyup: (event: Event) => void;
+        listeners: InputNumberButtonListeners;
     }): VNode[];
     /**
      * Custom decrement button template.
      */
     decrementbutton(scope: {
         /**
-         * Mouse down event of decrement button.
-         * @param {Event} event - Browser event
+         * InputNumber listeners
          */
-        onMousedown: (event: Event) => void;
-        /**
-         * Mouse up event of decrement button.
-         * @param {Event} event - Browser event
-         */
-        onMouseup: (event: Event) => void;
-        /**
-         * Mouse leave event of decrement button.
-         * @param {Event} event - Browser event
-         */
-        onMouseleave: (event: Event) => void;
-        /**
-         * Key down event of decrement button.
-         * @param {Event} event - Browser event
-         */
-        onKeydown: (event: Event) => void;
-        /**
-         * Key up event of decrement button.
-         * @param {Event} event - Browser event
-         */
-        onKeyup: (event: Event) => void;
+        listeners: InputNumberButtonListeners;
     }): VNode[];
     /**
      * Custom increment button icon template.

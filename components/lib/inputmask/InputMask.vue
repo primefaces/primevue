@@ -1,5 +1,5 @@
 <template>
-    <IMInputText
+    <InputText
         :value="modelValue"
         :class="cx('root')"
         :readonly="readonly"
@@ -525,7 +525,7 @@ export default {
         }
     },
     components: {
-        IMInputText: InputText
+        InputText
     }
 };
 </script>

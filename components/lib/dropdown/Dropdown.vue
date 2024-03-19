@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
-        <DInputText
+        <InputText
             v-if="editable"
             ref="focusInput"
             :id="inputId"
@@ -26,7 +26,6 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onEditableInput"
-            v-bind="inputProps"
             :pt="ptm('input')"
         />
         <span
@@ -47,12 +46,12 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            v-bind="{ ...inputProps, ...ptm('input') }"
+            v-bind="ptm('input')"
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
         <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :onClick="onClearClick" :clearCallback="onClearClick">
-            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="{ ...clearIconProps, ...ptm('clearIcon') }" data-pc-section="clearicon" />
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
         </slot>
         <div :class="cx('trigger')" v-bind="ptm('trigger')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
@@ -65,7 +64,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('panel')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -80,7 +79,7 @@
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
                         <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                            <DInputText
+                            <InputText
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
@@ -98,7 +97,6 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                v-bind="filterInputProps"
                                 :pt="ptm('filterInput')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
@@ -984,7 +982,7 @@ export default {
         ripple: Ripple
     },
     components: {
-        DInputText: InputText,
+        InputText,
         VirtualScroller,
         Portal,
         TimesIcon,

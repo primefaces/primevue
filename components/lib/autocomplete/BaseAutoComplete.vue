@@ -97,20 +97,12 @@ export default {
             type: [String, Object],
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
         panelStyle: {
             type: Object,
             default: null
         },
         panelClass: {
             type: [String, Object],
-            default: null
-        },
-        panelProps: {
-            type: null,
             default: null
         },
         dropdownIcon: {

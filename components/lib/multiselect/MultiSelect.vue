@@ -55,7 +55,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="[cx('panel'), panelClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="[cx('panel'), panelClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('panel')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -86,7 +86,7 @@
                             </template>
                         </Checkbox>
                         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                            <MSInputText
+                            <InputText
                                 ref="filterInput"
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
@@ -104,7 +104,6 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                v-bind="filterInputProps"
                                 :pt="ptm('filterInput')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
@@ -1090,7 +1089,7 @@ export default {
         ripple: Ripple
     },
     components: {
-        MSInputText: InputText,
+        InputText,
         Checkbox,
         VirtualScroller,
         Portal,

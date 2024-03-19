@@ -7,7 +7,7 @@
  * @module dropdown
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
@@ -373,10 +373,6 @@ export interface DropdownProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | HTMLAttributes | undefined;
-    /**
      * Inline style of the overlay panel.
      */
     panelStyle?: object | undefined;
@@ -384,19 +380,6 @@ export interface DropdownProps {
      * Style class of the overlay panel.
      */
     panelClass?: string | object | undefined;
-    /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
-     */
-    panelProps?: HTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the filter input inside the component.
-     */
-    filterInputProps?: InputHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLElement to the clear icon inside the component.
-     * @deprecated since v3.26.0. Use 'pt' peroperty.
-     */
-    clearIconProps?: HTMLAttributes | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body

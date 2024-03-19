@@ -7,7 +7,7 @@
  * @module calendar
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
@@ -753,10 +753,6 @@ export interface CalendarProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
-    /**
      * Inline style of the overlay panel.
      */
     panelStyle?: object | undefined;
@@ -764,10 +760,6 @@ export interface CalendarProps {
      * Style class of the overlay panel.
      */
     panelClass?: string | object | undefined;
-    /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
-     */
-    panelProps?: HTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

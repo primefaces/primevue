@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
-        <CInputText
+        <InputText
             v-if="!inline"
             :ref="inputRef"
             :id="inputId"
@@ -28,7 +28,6 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            v-bind="inputProps"
             :pt="ptm('input')"
         />
         <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
@@ -67,7 +66,7 @@
                     @click="onOverlayClick"
                     @keydown="onOverlayKeyDown"
                     @mouseup="onOverlayMouseUp"
-                    v-bind="{ ...panelProps, ...ptm('panel') }"
+                    v-bind="ptm('panel')"
                 >
                     <template v-if="!timeOnly">
                         <div :class="cx('groupContainer')" v-bind="ptm('groupContainer')">
@@ -3001,13 +3000,13 @@ export default {
         }
     },
     components: {
-        CInputText: InputText,
-        Portal: Portal,
-        CalendarIcon: CalendarIcon,
-        ChevronLeftIcon: ChevronLeftIcon,
-        ChevronRightIcon: ChevronRightIcon,
-        ChevronUpIcon: ChevronUpIcon,
-        ChevronDownIcon: ChevronDownIcon
+        InputText,
+        Portal,
+        CalendarIcon,
+        ChevronLeftIcon,
+        ChevronRightIcon,
+        ChevronUpIcon,
+        ChevronDownIcon
     },
     directives: {
         ripple: Ripple

@@ -31,27 +31,11 @@ export default {
             type: String,
             default: null
         },
-        inputProps: {
-            type: null,
-            default: null
-        },
         panelClass: {
             type: String,
             default: null
         },
         panelStyle: {
-            type: null,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        filterInputProps: {
-            type: null,
-            default: null
-        },
-        closeButtonProps: {
             type: null,
             default: null
         },

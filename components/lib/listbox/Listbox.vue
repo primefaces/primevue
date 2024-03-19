@@ -14,7 +14,7 @@
         <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
             <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                <LInputText
+                <InputText
                     v-model="filterValue"
                     type="text"
                     :class="cx('filterInput')"
@@ -30,7 +30,6 @@
                     @input="onFilterChange"
                     @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
-                    v-bind="filterInputProps"
                     :pt="ptm('filterInput')"
                 />
 
@@ -737,9 +736,9 @@ export default {
         ripple: Ripple
     },
     components: {
-        LInputText: InputText,
-        VirtualScroller: VirtualScroller,
-        SearchIcon: SearchIcon
+        InputText,
+        VirtualScroller,
+        SearchIcon
     }
 };
 </script>

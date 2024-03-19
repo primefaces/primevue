@@ -7,7 +7,7 @@
  * @module multiselect
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
@@ -359,10 +359,6 @@ export interface MultiSelectProps {
      */
     inputId?: string | undefined;
     /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
-    /**
      * Inline style of the overlay panel.
      */
     panelStyle?: any;
@@ -370,18 +366,6 @@ export interface MultiSelectProps {
      * Style class of the overlay panel.
      */
     panelClass?: any;
-    /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel.
-     */
-    panelProps?: HTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.
-     */
-    filterInputProps?: InputHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the clear button inside the overlay panel.
-     */
-    closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * A property to uniquely identify an option.
      */

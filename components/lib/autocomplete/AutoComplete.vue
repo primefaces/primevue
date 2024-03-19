@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
-        <ACInputText
+        <InputText
             v-if="!multiple"
             ref="focusInput"
             :id="inputId"
@@ -28,7 +28,6 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
-            v-bind="inputProps"
             :pt="ptm('input')"
         />
         <ul
@@ -64,7 +63,7 @@
                 </slot>
             </li>
             <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
-                <ACInputText
+                <InputText
                     ref="focusInput"
                     :id="inputId"
                     :style="inputStyle"
@@ -90,7 +89,6 @@
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    v-bind="inputProps"
                     :pt="ptm('input')"
                 />
             </li>
@@ -118,7 +116,7 @@
                     :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
                     @click="onOverlayClick"
                     @keydown="onOverlayKeyDown"
-                    v-bind="{ ...panelProps, ...ptm('panel') }"
+                    v-bind="ptm('panel')"
                 >
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
                     <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
@@ -943,12 +941,12 @@ export default {
         }
     },
     components: {
-        ACInputText: InputText,
-        VirtualScroller: VirtualScroller,
-        Portal: Portal,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        TimesCircleIcon: TimesCircleIcon
+        InputText,
+        VirtualScroller,
+        Portal,
+        ChevronDownIcon,
+        SpinnerIcon,
+        TimesCircleIcon
     },
     directives: {
         ripple: Ripple
