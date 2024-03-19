@@ -25,6 +25,12 @@
                         </td>
                         <td>Executes the command when focus in on the input element.</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <i>up</i>
+                        </td>
+                        <td>Recall previously entered commands to the terminal.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
