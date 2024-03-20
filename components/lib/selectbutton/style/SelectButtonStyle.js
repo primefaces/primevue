@@ -2,20 +2,20 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ props }) => [
-        'p-selectbutton p-button-group p-component',
+        'p-selectbutton p-component',
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid
         }
     ],
     button: ({ instance, option }) => [
-        'p-button p-component',
+        'p-selectbutton-button',
         {
             'p-highlight': instance.isSelected(option),
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    label: 'p-button-label'
+    label: 'p-selectbutton-label'
 };
 
 export default BaseStyle.extend({
