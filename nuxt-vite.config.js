@@ -296,6 +296,7 @@ export default {
             'primevue/message': path.resolve(__dirname, './components/lib/message/Message.vue'),
             'primevue/tree': path.resolve(__dirname, './components/lib/tree/Tree.vue'),
             'primevue/badge': path.resolve(__dirname, './components/lib/badge/Badge.vue'),
+            'primevue/selectbutton': path.resolve(__dirname, './components/lib/selectbutton/SelectButton.vue'),
             'primevue/confirmationeventbus': path.resolve(__dirname, './components/lib/confirmationeventbus/ConfirmationEventBus.js'),
             'primevue/toasteventbus': path.resolve(__dirname, './components/lib/toasteventbus/ToastEventBus.js'),
             'primevue/overlayeventbus': path.resolve(__dirname, './components/lib/overlayeventbus/OverlayEventBus.js'),

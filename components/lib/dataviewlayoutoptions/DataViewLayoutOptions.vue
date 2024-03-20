@@ -1,21 +1,20 @@
 <template>
-    <div :class="cx('root')" role="group" v-bind="ptmi('root')">
-        <button :aria-label="listViewAriaLabel" :class="cx('listButton')" @click="changeLayout('list')" type="button" :aria-pressed="isListButtonPressed" v-bind="ptm('listButton')">
-            <slot name="listicon">
+    <SelectButton :class="cx('root')" :modelValue="modelValue" :options="options" :allowEmpty="false" :unstyled="unstyled" @update:modelValue="changeLayout">
+        <template #option="{ option }">
+            <slot v-if="option === 'list'" name="listicon">
                 <BarsIcon v-bind="ptm('listIcon')" />
             </slot>
-        </button>
-        <button :aria-label="gridViewAriaLabel" :class="cx('gridButton')" @click="changeLayout('grid')" type="button" :aria-pressed="isGridButtonPressed" v-bind="ptm('gridButton')">
-            <slot name="gridicon">
+            <slot v-else-if="option === 'grid'" name="gridicon">
                 <ThLargeIcon v-bind="ptm('gridIcon')" />
             </slot>
-        </button>
-    </div>
+        </template>
+    </SelectButton>
 </template>
 
 <script>
 import BarsIcon from 'primevue/icons/bars';
 import ThLargeIcon from 'primevue/icons/thlarge';
+import SelectButton from 'primevue/selectbutton';
 import BaseDataViewLayoutOptions from './BaseDataViewLayoutOptions.vue';
 
 export default {
@@ -25,21 +24,12 @@ export default {
     emits: ['update:modelValue'],
     data() {
         return {
-            isListButtonPressed: false,
-            isGridButtonPressed: false
+            options: ['list', 'grid']
         };
     },
     methods: {
         changeLayout(layout) {
             this.$emit('update:modelValue', layout);
-
-            if (layout === 'list') {
-                this.isListButtonPressed = true;
-                this.isGridButtonPressed = false;
-            } else if (layout === 'grid') {
-                this.isGridButtonPressed = true;
-                this.isListButtonPressed = false;
-            }
         }
     },
     computed: {
@@ -51,8 +41,9 @@ export default {
         }
     },
     components: {
-        BarsIcon: BarsIcon,
-        ThLargeIcon: ThLargeIcon
+        SelectButton,
+        BarsIcon,
+        ThLargeIcon
     }
 };
 </script>

@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
+export declare type SelectButtonPassThroughOptionType<T = any> = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions<T>) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface SelectButtonPassThroughMethodOptions {
+export interface SelectButtonPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -41,7 +41,7 @@ export interface SelectButtonPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -52,19 +52,19 @@ export interface SelectButtonPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link SelectButtonProps.pt}
  */
-export interface SelectButtonPassThroughOptions {
+export interface SelectButtonPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: SelectButtonPassThroughOptionType;
+    root?: SelectButtonPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button's DOM element.
      */
-    button?: SelectButtonPassThroughOptionType;
+    button?: SelectButtonPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: SelectButtonPassThroughOptionType;
+    label?: SelectButtonPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

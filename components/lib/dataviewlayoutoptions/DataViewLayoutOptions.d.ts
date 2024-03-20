@@ -10,6 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
+import { SelectButtonPassThroughOptions } from '../selectbutton';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DataViewLayoutOptionsPassThroughOptionType =
@@ -56,24 +57,9 @@ export interface DataViewLayoutOptionsPassThroughMethodOptions {
 export interface DataViewLayoutOptionsPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
+     * @see {@link SelectButtonPassThroughOptions}
      */
-    root?: DataViewLayoutOptionsPassThroughOptionType;
-    /**
-     * Used to pass attributes to the list button's DOM element.
-     */
-    listButton?: DataViewLayoutOptionsPassThroughOptionType;
-    /**
-     * Used to pass attributes to the list icon's DOM element.
-     */
-    listIcon?: DataViewLayoutOptionsPassThroughOptionType;
-    /**
-     * Used to pass attributes to the grid button's DOM element.
-     */
-    gridButton?: DataViewLayoutOptionsPassThroughOptionType;
-    /**
-     * Used to pass attributes to the grid icon's DOM element.
-     */
-    gridIcon?: DataViewLayoutOptionsPassThroughOptionType;
+    root?: SelectButtonPassThroughOptions<DataViewLayoutOptionsSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -93,15 +79,24 @@ export interface DataViewLayoutOptionsPassThroughAttributes {
  */
 export interface DataViewLayoutOptionsState {
     /**
-     * Current list button pressed state as a boolean.
-     * @defaultValue false
+     * Default options of the component.
+     * @defaultValue ['list', 'grid']
      */
-    isListButtonPressed: boolean;
+    options: string[];
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DataViewLayoutOptionsSharedPassThroughMethodOptions {
     /**
-     * Current grid button pressed state as a boolean.
-     * @defaultValue false
+     * Defines valid properties.
      */
-    isGridButtonPressed: boolean;
+    props: DataViewLayoutOptionsProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DataViewLayoutOptionsState;
 }
 
 /**

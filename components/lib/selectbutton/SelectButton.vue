@@ -5,7 +5,7 @@
             :key="getOptionRenderKey(option)"
             v-ripple
             :tabindex="findTabindex(option, i)"
-            :aria-label="getOptionLabel(option)"
+            :aria-label="getOptionLabel(option, i)"
             :role="multiple ? 'checkbox' : 'radio'"
             :aria-checked="isSelected(option)"
             :aria-disabled="isOptionDisabled(option)"
@@ -54,7 +54,11 @@ export default {
                 }
             }
         },
-        getOptionLabel(option) {
+        getOptionLabel(option, index) {
+            if (this.$parent.$name === 'DataViewLayoutOptions') {
+                return index === 0 ? this.$parent.listViewAriaLabel : this.$parent.gridViewAriaLabel;
+            }
+
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
