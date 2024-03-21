@@ -2,183 +2,160 @@
     <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="showSourceControls" :class="cx('sourceControls')" v-bind="ptm('sourceControls')" data-pc-group-section="controls">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="moveUpButtonProps" :pt="ptm('sourceMoveUpButton')" :unstyled="unstyled">
+            <Button :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" :severity="severity" @click="moveUp($event, 0)" :pt="ptm('sourceMoveUpButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('sourceMoveUpButton')['icon']" data-pc-section="moveupicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="moveTopButtonProps" :pt="ptm('sourceMoveTopButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" :severity="severity" @click="moveTop($event, 0)" :pt="ptm('sourceMoveTopButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('sourceMoveTopButton')['icon']" data-pc-section="movetopicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="moveDownButtonProps" :pt="ptm('sourceMoveDownButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" :severity="severity" @click="moveDown($event, 0)" :pt="ptm('sourceMoveDownButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('sourceMoveDownButton')['icon']" data-pc-section="movedownicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="moveBottomButtonProps" :pt="ptm('sourceMoveBottomButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" :severity="severity" @click="moveBottom($event, 0)" :pt="ptm('sourceMoveBottomButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('sourceMoveBottomButton')['icon']" data-pc-section="movebottomicon" />
                     </slot>
                 </template>
-            </PLButton>
+            </Button>
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')" data-pc-group-section="listwrapper">
-            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')" data-pc-group-section="header">
-                <slot name="sourceheader"></slot>
-            </div>
-            <transition-group
+            <Listbox
                 ref="sourceList"
                 :id="idSource + '_list'"
-                name="p-picklist-flip"
-                tag="ul"
-                :class="cx('sourceList')"
-                :style="listStyle"
-                role="listbox"
-                aria-multiselectable="true"
-                :aria-activedescendant="focused['sourceList'] ? focusedOptionId : undefined"
+                :modelValue="d_selection[0]"
+                :options="sourceList"
+                multiple
+                :metaKeySelection="metaKeySelection"
+                :listStyle="listStyle"
                 :tabindex="sourceList && sourceList.length > 0 ? tabindex : -1"
+                :dataKey="dataKey"
+                :autoOptionFocus="autoOptionFocus"
+                :focusOnHover="focusOnHover"
+                :pt="ptm('list')"
+                :unstyled="unstyled"
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
-                @keydown="onItemKeyDown($event, 'sourceList')"
-                v-bind="{ ...sourceListProps, ...ptm('sourceList'), ...ptm('transition') }"
+                @change="onChangeSelection($event, 0)"
+                @item-dblclick="onItemDblClick($event, 0)"
                 data-pc-group-section="list"
             >
-                <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
-                    <li
-                        :id="idSource + '_' + i"
-                        v-ripple
-                        :class="cx('item', { item, id: `${idSource}_${i}`, listIndex: 0 })"
-                        @click="onItemClick($event, item, i, 0)"
-                        @dblclick="onItemDblClick($event, item, 0)"
-                        @touchend="onItemTouchEnd"
-                        @mousedown="onOptionMouseDown($event, i, 'sourceList')"
-                        @mousemove="onOptionMouseMove(i, 'sourceList')"
-                        role="option"
-                        :aria-selected="isSelected(item, 0)"
-                        v-bind="getPTOptions(item, 'item', `${idSource}_${i}`, 0)"
-                        :data-p-highlight="isSelected(item, 0)"
-                        :data-p-focused="`${idSource}_${i}` === focusedOptionId"
-                    >
-                        <slot name="item" :item="item" :index="i"> </slot>
-                    </li>
+                <template v-if="$slots.sourceheader" #header>
+                    <div :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')" data-pc-group-section="header">
+                        <slot name="sourceheader"></slot>
+                    </div>
                 </template>
-            </transition-group>
+                <template #option="{ option, index }">
+                    <slot name="item" :item="option" :index="index" />
+                </template>
+            </Listbox>
         </div>
         <div :class="cx('buttons')" v-bind="ptm('buttons')" data-pc-group-section="controls">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps" :pt="ptm('moveToTargetButton')" :unstyled="unstyled">
+            <Button :aria-label="moveToTargetAriaLabel" :severity="severity" @click="moveToTarget" :disabled="moveDisabled(0)" :pt="ptm('moveToTargetButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetotargeticon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" v-bind="ptm('moveToTargetButton')['icon']" data-pc-section="movetotargeticon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps" :pt="ptm('moveAllToTargetButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveAllToTargetAriaLabel" :severity="severity" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" :pt="ptm('moveAllToTargetButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltotargeticon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" v-bind="ptm('moveAllToTargetButton')['icon']" data-pc-section="movealltotargeticon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps" :pt="ptm('moveToSourceButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveToSourceAriaLabel" :severity="severity" @click="moveToSource" :disabled="moveDisabled(1)" :pt="ptm('moveToSourceButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetosourceicon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" v-bind="ptm('moveToSourceButton')['icon']" data-pc-section="movetosourceicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveAllDisabled('targetList')" v-bind="moveAllToSourceProps" :pt="ptm('moveAllToSourceButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveAllToSourceAriaLabel" :severity="severity" @click="moveAllToSource" :disabled="moveAllDisabled('targetList')" :pt="ptm('moveAllToSourceButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltosourceicon" :viewChanged="viewChanged">
                         <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('moveAllToSourceButton')['icon']" data-pc-section="movealltosourceicon" />
                     </slot>
                 </template>
-            </PLButton>
+            </Button>
             <slot name="movecontrolsend"></slot>
         </div>
         <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')" data-pc-group-section="listwrapper">
-            <div v-if="$slots.targetheader" :class="cx('targetHeader')" v-bind="ptm('targetHeader')" data-pc-group-section="header">
-                <slot name="targetheader"></slot>
-            </div>
-            <transition-group
+            <Listbox
                 ref="targetList"
                 :id="idTarget + '_list'"
-                name="p-picklist-flip"
-                tag="ul"
-                :class="cx('targetList')"
-                :style="listStyle"
-                role="listbox"
-                aria-multiselectable="true"
-                :aria-activedescendant="focused['targetList'] ? focusedOptionId : undefined"
+                :modelValue="d_selection[1]"
+                :options="targetList"
+                multiple
+                :metaKeySelection="metaKeySelection"
+                :listStyle="listStyle"
                 :tabindex="targetList && targetList.length > 0 ? tabindex : -1"
+                :dataKey="dataKey"
+                :autoOptionFocus="autoOptionFocus"
+                :focusOnHover="focusOnHover"
+                :pt="ptm('list')"
+                :unstyled="unstyled"
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
-                @keydown="onItemKeyDown($event, 'targetList')"
-                v-bind="{ ...targetListProps, ...ptm('targetList'), ...ptm('transition') }"
+                @change="onChangeSelection($event, 1)"
+                @item-dblclick="onItemDblClick($event, 1)"
                 data-pc-group-section="list"
             >
-                <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
-                    <li
-                        :id="idTarget + '_' + i"
-                        v-ripple
-                        :class="cx('item', { item, id: `${idTarget}_${i}`, listIndex: 1 })"
-                        @click="onItemClick($event, item, i, 1)"
-                        @dblclick="onItemDblClick($event, item, 1)"
-                        @keydown="onItemKeyDown($event, 'targetList')"
-                        @mousedown="onOptionMouseDown($event, i, 'targetList')"
-                        @mousemove="onOptionMouseMove(i, 'targetList')"
-                        @touchend="onItemTouchEnd"
-                        role="option"
-                        :aria-selected="isSelected(item, 1)"
-                        v-bind="getPTOptions(item, 'item', `${idTarget}_${i}`, 1)"
-                        :data-p-highlight="isSelected(item, 1)"
-                        :data-p-focused="`${idTarget}_${i}` === focusedOptionId"
-                    >
-                        <slot name="item" :item="item" :index="i"> </slot>
-                    </li>
+                <template v-if="$slots.targetheader" #header>
+                    <div :class="cx('targetheader')" v-bind="ptm('targetheader')" data-pc-group-section="header">
+                        <slot name="targetheader"></slot>
+                    </div>
                 </template>
-            </transition-group>
+                <template #option="{ option, index }">
+                    <slot name="item" :item="option" :index="index" />
+                </template>
+            </Listbox>
         </div>
         <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')" data-pc-group-section="controls">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="moveUpButtonProps" :pt="ptm('targetMoveUpButton')" :unstyled="unstyled">
+            <Button :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" :severity="severity" @click="moveUp($event, 1)" :pt="ptm('targetMoveUpButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('targetMoveUpButton')['icon']" data-pc-section="moveupicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="moveTopButtonProps" :pt="ptm('targetMoveTopButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" :severity="severity" @click="moveTop($event, 1)" :pt="ptm('targetMoveTopButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('targetMoveTopButton')['icon']" data-pc-section="movetopicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="moveDownButtonProps" :pt="ptm('targetMoveDownButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" :severity="severity" @click="moveDown($event, 1)" :pt="ptm('targetMoveDownButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('targetMoveDownButton')['icon']" data-pc-section="movedownicon" />
                     </slot>
                 </template>
-            </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="moveBottomButtonProps" :pt="ptm('targetMoveBottomButton')" :unstyled="unstyled">
+            </Button>
+            <Button :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" :severity="severity" @click="moveBottom($event, 1)" :pt="ptm('targetMoveBottomButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('targetMoveBottomButton')['icon']" data-pc-section="movebottomicon" />
                     </slot>
                 </template>
-            </PLButton>
+            </Button>
             <slot name="targetcontrolsend"></slot>
         </div>
     </div>
@@ -194,6 +171,7 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleLeftIcon from 'primevue/icons/angleleft';
 import AngleRightIcon from 'primevue/icons/angleright';
 import AngleUpIcon from 'primevue/icons/angleup';
+import Listbox from 'primevue/listbox';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BasePickList from './BasePickList.vue';
@@ -212,11 +190,6 @@ export default {
         return {
             id: this.$attrs.id,
             d_selection: this.selection,
-            focused: {
-                sourceList: false,
-                targetList: false
-            },
-            focusedOptionIndex: -1,
             viewChanged: false
         };
     },
@@ -252,39 +225,35 @@ export default {
         }
     },
     methods: {
-        getItemKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
-        },
-        getPTOptions(item, key, id, listIndex) {
-            return this.ptm(key, {
-                context: {
-                    active: this.isSelected(item, listIndex),
-                    focused: id === this.focusedOptionId
-                }
+        updateSelection(event) {
+            this.$emit('update:selection', this.d_selection);
+            this.$emit('selection-change', {
+                originalEvent: event,
+                value: this.d_selection
             });
         },
-        isSelected(item, listIndex) {
-            return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
+        onChangeSelection(params, listIndex) {
+            this.d_selection[listIndex] = params.value;
+            this.updateSelection(params.event);
         },
         onListFocus(event, listType) {
-            this.focused[listType] = true;
-            this.findCurrentFocusedIndex(listType);
-            this.scrollInView(this.focusedOptionIndex, listType);
-            this.$emit('focus', event);
+            this.$emit('focus', event, listType);
         },
         onListBlur(event, listType) {
-            this.focused[listType] = false;
-            this.focusedOptionIndex = -1;
-            this.$emit('blur', event);
+            this.$emit('blur', event, listType);
         },
-        onOptionMouseDown(event, index, listType) {
-            this.focused[listType] = true;
-            this.focusedOptionIndex = index;
+        onReorderUpdate(event, value, listIndex) {
+            this.$emit('update:modelValue', value);
+            this.$emit('reorder', {
+                originalEvent: event,
+                value: value,
+                direction: this.reorderDirection,
+                listIndex
+            });
         },
-        onOptionMouseMove(index, listType) {
-            if (this.focusOnHover && this.focused[listType]) {
-                this.changeFocusedOptionIndex(index, listType);
-            }
+        onItemDblClick(event, listIndex) {
+            if (listIndex === 0) this.moveToTarget({ event: event.originalEvent });
+            else if (listIndex === 1) this.moveToSource({ event: event.originalEvent });
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {
@@ -311,13 +280,7 @@ export default {
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'up';
-                this.$emit('update:modelValue', value);
-                this.$emit('reorder', {
-                    originalEvent: event,
-                    value: value,
-                    direction: this.reorderDirection,
-                    listIndex: listIndex
-                });
+                this.onReorderUpdate(event, value, listIndex);
             }
         },
         moveTop(event, listIndex) {
@@ -343,13 +306,7 @@ export default {
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'top';
-                this.$emit('update:modelValue', value);
-                this.$emit('reorder', {
-                    originalEvent: event,
-                    value: value,
-                    direction: this.reorderDirection,
-                    listIndex: listIndex
-                });
+                this.onReorderUpdate(event, value, listIndex);
             }
         },
         moveDown(event, listIndex) {
@@ -377,13 +334,7 @@ export default {
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'down';
-                this.$emit('update:modelValue', value);
-                this.$emit('reorder', {
-                    originalEvent: event,
-                    value: value,
-                    direction: this.reorderDirection,
-                    listIndex: listIndex
-                });
+                this.onReorderUpdate(event, value, listIndex);
             }
         },
         moveBottom(event, listIndex) {
@@ -409,13 +360,7 @@ export default {
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'bottom';
-                this.$emit('update:modelValue', value);
-                this.$emit('reorder', {
-                    originalEvent: event,
-                    value: value,
-                    direction: this.reorderDirection,
-                    listIndex: listIndex
-                });
+                this.onReorderUpdate(event, value, listIndex);
             }
         },
         moveToTarget(event) {
@@ -444,11 +389,7 @@ export default {
                 });
 
                 this.d_selection[0] = [];
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
+                this.updateSelection(event);
             }
         },
         moveAllToTarget(event) {
@@ -470,12 +411,8 @@ export default {
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
 
-                this.d_selection[0] = [];
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
+                this.d_selection = [[], []];
+                this.updateSelection(event);
             }
         },
         moveToSource(event) {
@@ -504,11 +441,7 @@ export default {
                 });
 
                 this.d_selection[1] = [];
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
+                this.updateSelection(event);
             }
         },
         moveAllToSource(event) {
@@ -530,12 +463,8 @@ export default {
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
 
-                this.d_selection[1] = [];
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
+                this.d_selection = [[], []];
+                this.updateSelection(event);
             }
         },
         onItemClick(event, item, index, listIndex) {
@@ -574,209 +503,7 @@ export default {
             newSelection[listIndex] = _selection;
             this.d_selection = newSelection;
 
-            this.$emit('update:selection', this.d_selection);
-            this.$emit('selection-change', {
-                originalEvent: event,
-                value: this.d_selection
-            });
-        },
-        onItemDblClick(event, item, listIndex) {
-            if (listIndex === 0) this.moveToTarget(event);
-            else if (listIndex === 1) this.moveToSource(event);
-        },
-        onItemTouchEnd() {
-            this.itemTouched = true;
-        },
-        onItemKeyDown(event, listType) {
-            switch (event.code) {
-                case 'ArrowDown':
-                    this.onArrowDownKey(event, listType);
-                    break;
-
-                case 'ArrowUp':
-                    this.onArrowUpKey(event, listType);
-                    break;
-
-                case 'Home':
-                    this.onHomeKey(event, listType);
-                    break;
-
-                case 'End':
-                    this.onEndKey(event, listType);
-                    break;
-
-                case 'Enter':
-                case 'NumpadEnter':
-                    this.onEnterKey(event, listType);
-                    break;
-
-                case 'Space':
-                    this.onSpaceKey(event, listType);
-                    break;
-
-                case 'KeyA':
-                    if (event.ctrlKey) {
-                        this.d_selection = [...this.modelValue];
-                        this.$emit('update:selection', this.d_selection);
-
-                        event.preventDefault();
-                    }
-
-                default:
-                    break;
-            }
-        },
-        onArrowDownKey(event, listType) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(listType) : this.findFirstSelectedOptionIndex(listType);
-
-            this.changeFocusedOptionIndex(optionIndex, listType);
-
-            if (event.shiftKey) {
-                this.onEnterKey(event, listType);
-            }
-
-            event.preventDefault();
-        },
-        onArrowUpKey(event, listType) {
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(listType) : this.findLastSelectedOptionIndex(listType);
-
-            this.changeFocusedOptionIndex(optionIndex, listType);
-
-            if (event.shiftKey) {
-                this.onEnterKey(event, listType);
-            }
-
-            event.preventDefault();
-        },
-        onEnterKey(event, listType) {
-            const listId = listType === 'sourceList' ? 0 : 1;
-            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-            this.onItemClick(event, this.modelValue[listId][matchedOptionIndex], matchedOptionIndex, listId);
-
-            event.preventDefault();
-        },
-        onSpaceKey(event, listType) {
-            event.preventDefault();
-
-            if (event.shiftKey && this.d_selection && this.d_selection.length > 0) {
-                const listId = listType === 'sourceList' ? 0 : 1;
-                const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[listId][0], [...this.modelValue[listId]]);
-                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-                this.d_selection[listId] = [...this.modelValue[listId]].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
-            } else {
-                this.onEnterKey(event, listType);
-            }
-        },
-        onHomeKey(event, listType) {
-            if (event.ctrlKey && event.shiftKey) {
-                const listId = listType === 'sourceList' ? 0 : 1;
-                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-                this.d_selection[listId] = [...this.modelValue[listId]].slice(0, matchedOptionIndex + 1);
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
-            } else {
-                this.changeFocusedOptionIndex(0, listType);
-            }
-
-            event.preventDefault();
-        },
-        onEndKey(event, listType) {
-            const items = this.findAllItems(listType);
-
-            if (event.ctrlKey && event.shiftKey) {
-                const listId = listType === 'sourceList' ? 0 : 1;
-                const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-                this.d_selection[listId] = [...this.modelValue[listId]].slice(matchedOptionIndex, items.length);
-                this.$emit('update:selection', this.d_selection);
-                this.$emit('selection-change', {
-                    originalEvent: event,
-                    value: this.d_selection
-                });
-            } else {
-                this.changeFocusedOptionIndex(items.length - 1, listType);
-            }
-
-            event.preventDefault();
-        },
-        findAllItems(listType) {
-            return DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
-        },
-        findFocusedItem(listType) {
-            return DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id=${this.focusedOptionIndex}]`);
-        },
-        findCurrentFocusedIndex(listType) {
-            if (this.focusedOptionIndex === -1) {
-                this.focusedOptionIndex = this.findFirstSelectedOptionIndex(listType);
-
-                if (this.autoOptionFocus && this.focusedOptionIndex === -1) {
-                    this.focusedOptionIndex = this.findFirstFocusedOptionIndex(listType);
-                }
-            }
-        },
-        findFirstFocusedOptionIndex(listType) {
-            const firstFocusableItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-pc-section="item"]');
-
-            return DomHandler.getAttribute(firstFocusableItem, 'id');
-        },
-        findFirstSelectedOptionIndex(listType) {
-            if (this.hasSelectedOption(listType)) {
-                const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, '[data-p-highlight="true"]');
-
-                return DomHandler.getAttribute(selectedFirstItem, 'id');
-            }
-
-            return -1;
-        },
-        findLastSelectedOptionIndex(listType) {
-            if (this.hasSelectedOption(listType)) {
-                const selectedItems = DomHandler.find(this.$refs[listType].$el, '[data-p-highlight="true"]');
-
-                return ObjectUtils.findIndexInList(selectedItems[selectedItems.length - 1], this.list.children);
-            }
-
-            return -1;
-        },
-        findMatchedOptionIndex(listType, id = this.focusedOptionIndex) {
-            const items = this.findAllItems(listType);
-
-            return [...items].findIndex((link) => link.id === id);
-        },
-        findNextOptionIndex(listType) {
-            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-            return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
-        },
-        findPrevOptionIndex(listType) {
-            const matchedOptionIndex = this.findMatchedOptionIndex(listType);
-
-            return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
-        },
-        changeFocusedOptionIndex(index, listType) {
-            const items = this.findAllItems(listType);
-
-            let order = index >= items.length ? items.length - 1 : index < 0 ? 0 : index;
-
-            this.focusedOptionIndex = items[order].getAttribute('id');
-            this.scrollInView(items[order].getAttribute('id'), listType);
-        },
-        scrollInView(id, listType) {
-            const element = DomHandler.findSingle(this.$refs[listType].$el, `[data-pc-section="item"][id="${id}"]`);
-
-            if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start', behavior: 'smooth' });
-            }
+            this.updateSelection(event);
         },
         updateListScroll(listElement) {
             const listItems = DomHandler.find(listElement, '[data-pc-section="item"][data-p-highlight="true"]');
@@ -867,15 +594,12 @@ export default {
             }
         },
         moveDisabled(index) {
-            if (!this.d_selection[index] || !this.d_selection[index].length) {
+            if (this.d_selection && (!this.d_selection[index] || !this.d_selection[index].length)) {
                 return true;
             }
         },
         moveAllDisabled(list) {
             return ObjectUtils.isEmpty(this[list]);
-        },
-        hasSelectedOption(listType) {
-            return listType === 'sourceList' ? ObjectUtils.isNotEmpty(this.d_selection[0]) : ObjectUtils.isNotEmpty(this.d_selection[1]);
         }
     },
     computed: {
@@ -884,9 +608,6 @@ export default {
         },
         idTarget() {
             return `${this.id}_target`;
-        },
-        focusedOptionId() {
-            return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
         },
         sourceList() {
             return this.modelValue && this.modelValue[0] ? this.modelValue[0] : null;
@@ -923,15 +644,15 @@ export default {
         }
     },
     components: {
-        PLButton: Button,
-        AngleRightIcon: AngleRightIcon,
-        AngleLeftIcon: AngleLeftIcon,
-        AngleDownIcon: AngleDownIcon,
-        AngleUpIcon: AngleUpIcon,
-        AngleDoubleRightIcon: AngleDoubleRightIcon,
-        AngleDoubleLeftIcon: AngleDoubleLeftIcon,
-        AngleDoubleDownIcon: AngleDoubleDownIcon,
-        AngleDoubleUpIcon: AngleDoubleUpIcon
+        Listbox,
+        AngleRightIcon,
+        AngleLeftIcon,
+        AngleDownIcon,
+        AngleUpIcon,
+        AngleDoubleRightIcon,
+        AngleDoubleLeftIcon,
+        AngleDoubleDownIcon,
+        AngleDoubleUpIcon
     },
     directives: {
         ripple: Ripple

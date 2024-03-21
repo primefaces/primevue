@@ -15,13 +15,7 @@ const classes = {
     targetWrapper: 'p-picklist-list-wrapper p-picklist-target-wrapper',
     targetHeader: 'p-picklist-header',
     targetList: 'p-picklist-list p-picklist-target',
-    item: ({ instance, item, id, listIndex }) => [
-        'p-picklist-item',
-        {
-            'p-highlight': instance.isSelected(item, listIndex),
-            'p-focus': id === instance.focusedOptionId
-        }
-    ],
+    item: 'p-picklist-item',
     targetControls: 'p-picklist-buttons p-picklist-target-controls'
 };
 

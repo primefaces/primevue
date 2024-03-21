@@ -54,44 +54,8 @@ export default {
             type: Boolean,
             default: true
         },
-        targetListProps: {
-            type: null,
-            default: null
-        },
-        sourceListProps: {
-            type: null,
-            default: null
-        },
-        moveUpButtonProps: {
-            type: null,
-            default: null
-        },
-        moveTopButtonProps: {
-            type: null,
-            default: null
-        },
-        moveDownButtonProps: {
-            type: null,
-            default: null
-        },
-        moveBottomButtonProps: {
-            type: null,
-            default: null
-        },
-        moveToTargetProps: {
-            type: null,
-            default: null
-        },
-        moveAllToTargetProps: {
-            type: null,
-            default: null
-        },
-        moveToSourceProps: {
-            type: null,
-            default: null
-        },
-        moveAllToSourceProps: {
-            type: null,
+        severity: {
+            type: String,
             default: null
         },
         tabindex: {
