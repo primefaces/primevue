@@ -61,6 +61,14 @@ export interface DataViewLayoutOptionsPassThroughOptions {
      */
     root?: SelectButtonPassThroughOptions<DataViewLayoutOptionsSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the list icon's DOM element.
+     */
+    listIcon?: DataViewLayoutOptionsPassThroughOptionType;
+    /**
+     * Used to pass attributes to the grid icon's DOM element.
+     */
+    gridIcon?: DataViewLayoutOptionsPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */

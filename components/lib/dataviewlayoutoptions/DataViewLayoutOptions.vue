@@ -1,5 +1,5 @@
 <template>
-    <SelectButton :class="cx('root')" :modelValue="modelValue" :options="options" :allowEmpty="false" :unstyled="unstyled" @update:modelValue="changeLayout">
+    <SelectButton :class="cx('root')" :modelValue="modelValue" :options="options" :allowEmpty="false" :unstyled="unstyled" :pt="ptm('selectbutton')" @update:modelValue="changeLayout">
         <template #option="{ option }">
             <slot v-if="option === 'list'" name="listicon">
                 <BarsIcon v-bind="ptm('listIcon')" />
