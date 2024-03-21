@@ -169,7 +169,7 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : typeof option === 'string' ? option : null;
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
