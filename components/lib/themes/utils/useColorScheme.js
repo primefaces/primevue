@@ -1,12 +1,17 @@
 import Theme from 'primevue/themes';
 
-export default () => {
+export default (initial = 'light') => {
+    // @todo
+    //Theme.setCurrentColorScheme(initial);
+
     return {
         colorScheme: Theme.getCurrentColorScheme(),
         toggleColorScheme() {
-            this.colorScheme = Theme.toggleColorScheme();
+            const newColorScheme = Theme.toggleColorScheme();
 
-            return this.colorScheme;
+            Theme.setCurrentColorScheme(newColorScheme);
+
+            return newColorScheme;
         }
     };
 };

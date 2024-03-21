@@ -1,6 +1,46 @@
 import { SharedUtils, dt, toVariables } from 'primevue/themes';
 
 export default {
+    regex: {
+        rules: {
+            class: {
+                pattern: /^\.([a-zA-Z][\w-]*)$/,
+                resolve(value) {
+                    return { type: 'class', selector: value, value: value.trim().match(this.pattern)?.[1] };
+                }
+            },
+            attr: {
+                pattern: /^\[(.*)\]$/,
+                resolve(value) {
+                    return { type: 'attr', selector: `:root${value}`, value: value.trim().match(this.pattern)?.[1]?.split('=') };
+                }
+            },
+            media: {
+                pattern: /^@media (.*)$/,
+                resolve(value) {
+                    return { type: 'media', selector: `${value}{:root{[CSS]}}`, value: value.trim().match(this.pattern)?.[1] };
+                }
+            },
+            system: {
+                pattern: /^system$/,
+                resolve(value) {
+                    return { type: 'system', selector: '@media (prefers-color-scheme: dark){:root{[CSS]}}', value: this.pattern.test(value) ? 'system' : undefined };
+                }
+            },
+            custom: {
+                resolve(value) {
+                    return { type: 'custom', selector: value, value: undefined };
+                }
+            }
+        },
+        resolve(value) {
+            const rules = Object.keys(this.rules)
+                .filter((k) => k !== 'custom')
+                .map((r) => this.rules[r]);
+
+            return [value].flat().map((v) => rules.map((r) => r.resolve(v)).find((rr) => !!rr.value) ?? this.rules.custom.resolve(v));
+        }
+    },
     getCommon({ name = '', theme = {}, params, set, defaults }) {
         const { base, preset } = theme;
         let primitive_css, semantic_css, global_css;
@@ -76,53 +116,40 @@ export default {
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
-    getColorSchemeOption(colorScheme, defaults) {
-        let options = { ...defaults.colorScheme };
-
-        if (colorScheme) {
-            if (SharedUtils.object.isObject(colorScheme)) {
-                options.light = { ...options.light, ...colorScheme.light };
-                options.dark = { ...options.dark, ...colorScheme.dark };
-            } else {
-                options.light = { ...options.light, default: colorScheme !== 'auto' && colorScheme !== 'dark' };
-                options.dark = { ...options.dark, default: colorScheme === 'dark' };
-            }
-        }
-
-        return options;
-    },
-    applyColorScheme(options = {}, currentColorScheme, defaults) {
-        const colorSchemeOption = this.getColorSchemeOption(options.colorScheme, defaults);
-        const isClient = SharedUtils.dom.isClient();
-        const isAuto = !colorSchemeOption.light?.default && !colorSchemeOption.dark?.default;
-        const isDark = isAuto && isClient ? window.matchMedia('(prefers-color-scheme: dark)').matches : colorSchemeOption.dark?.default;
-        const defaultDocument = isClient ? window.document : undefined;
-
-        if (isDark && defaultDocument) {
-            SharedUtils.dom.addClass(defaultDocument.documentElement, colorSchemeOption.dark?.class);
-        }
-
-        return isDark ? 'dark' : 'light';
+    getColorSchemeOption(options, defaults) {
+        return this.regex.resolve(options.darkModeSelector ?? defaults.darkModeSelector);
     },
     toggleColorScheme(options = {}, currentColorScheme, defaults) {
         const newColorScheme = currentColorScheme === 'dark' ? 'light' : 'dark';
-        const defaultDocument = SharedUtils.dom.isClient() ? window.document : undefined;
+        const defaultDocumentEl = SharedUtils.dom.isClient() ? window.document?.documentElement : undefined;
 
-        if (defaultDocument) {
-            const colorSchemeOption = this.getColorSchemeOption(options.colorScheme, defaults);
-            const [lightClass, darkClass] = [colorSchemeOption.light.class, colorSchemeOption.dark.class];
+        if (defaultDocumentEl) {
+            const colorSchemeOption = this.getColorSchemeOption(options, defaults);
 
-            SharedUtils.dom.removeMultipleClasses(defaultDocument.documentElement, [lightClass, darkClass]);
-            SharedUtils.dom.addClass(defaultDocument.documentElement, newColorScheme === 'dark' ? darkClass : lightClass);
+            colorSchemeOption.forEach(({ type, value }) => {
+                switch (type) {
+                    case 'class':
+                        SharedUtils.dom[newColorScheme === 'dark' ? 'addClass' : 'removeClass'](defaultDocumentEl, value);
+                        break;
+
+                    case 'attr':
+                        newColorScheme === 'dark' ? defaultDocumentEl.setAttribute(value[0], value[1].replace(/['"]/g, '')) : defaultDocumentEl.removeAttribute(value[0]);
+                        break;
+
+                    default:
+                        console.warn(`The 'toggleColorScheme' method cannot be used with the specified 'darkModeSelector' options.`);
+                        break;
+                }
+            });
         }
 
         return newColorScheme;
     },
     getLayerOrder(name, options = {}, params, defaults) {
-        const { layer } = options;
+        const { cssLayer } = options;
 
-        if (layer) {
-            const order = SharedUtils.object.getItemValue(layer.order || defaults.layer.order, params);
+        if (cssLayer) {
+            const order = SharedUtils.object.getItemValue(cssLayer.order || defaults.cssLayer.order, params);
 
             return `@layer ${order}`;
         }
@@ -160,36 +187,6 @@ export default {
         baseC_css && css.push(`<style type="text/css" data-primevue-style-id="${name}-style" ${_props}>${SharedUtils.object.minifyCSS(baseC_css)}</style>`);
 
         return css.join('');
-    },
-    _toVariables(theme, options) {
-        return toVariables(theme, { prefix: options?.prefix });
-    },
-    _transformCSS(name, css, mode, type, options = {}, set, defaults) {
-        if (SharedUtils.object.isNotEmpty(css)) {
-            const { layer, colorScheme } = options;
-
-            if (type !== 'style') {
-                const colorSchemeOption = this.getColorSchemeOption(colorScheme, defaults);
-
-                mode = mode === 'dark' ? 'dark' : 'light';
-                css = colorSchemeOption[mode]?.rule?.replace('[CSS]', css);
-            }
-
-            if (layer) {
-                let layerOptions = { ...defaults.layer };
-
-                SharedUtils.object.isObject(layer) && (layerOptions.name = SharedUtils.object.getItemValue(layer.name, { name, type }));
-
-                if (SharedUtils.object.isNotEmpty(layerOptions.name)) {
-                    css = SharedUtils.object.getRule(`@layer ${layerOptions.name}`, css);
-                    set?.layerNames(layerOptions.name);
-                }
-            }
-
-            return css;
-        }
-
-        return '';
     },
     createTokens(obj = {}, currentColorScheme, defaults, parentKey = '', parentPath = '', tokens = {}) {
         Object.entries(obj).forEach(([key, value]) => {
@@ -247,5 +244,43 @@ export default {
         const colorScheme = path.includes('colorScheme.light') ? 'light' : path.includes('colorScheme.dark') ? 'dark' : undefined;
 
         return tokens[token]?.computed(colorScheme);
+    },
+    _toVariables(theme, options) {
+        return toVariables(theme, { prefix: options?.prefix });
+    },
+    _transformCSS(name, css, mode, type, options = {}, set, defaults) {
+        if (SharedUtils.object.isNotEmpty(css)) {
+            const { cssLayer } = options;
+
+            if (type !== 'style') {
+                const colorSchemeOption = this.getColorSchemeOption(options, defaults);
+
+                css =
+                    mode === 'dark'
+                        ? colorSchemeOption.reduce((acc, { selector }) => {
+                              if (SharedUtils.object.isNotEmpty(selector)) {
+                                  acc += selector.includes('[CSS]') ? selector.replace('[CSS]', css) : SharedUtils.object.getRule(selector, css);
+                              }
+
+                              return acc;
+                          }, '')
+                        : SharedUtils.object.getRule(':root', css);
+            }
+
+            if (cssLayer) {
+                let layerOptions = { ...defaults.cssLayer };
+
+                SharedUtils.object.isObject(cssLayer) && (layerOptions.name = SharedUtils.object.getItemValue(cssLayer.name, { name, type }));
+
+                if (SharedUtils.object.isNotEmpty(layerOptions.name)) {
+                    css = SharedUtils.object.getRule(`@layer ${layerOptions.name}`, css);
+                    set?.layerNames(layerOptions.name);
+                }
+            }
+
+            return css;
+        }
+
+        return '';
     }
 };
