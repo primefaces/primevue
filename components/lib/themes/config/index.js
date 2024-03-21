@@ -7,19 +7,8 @@ export default {
             selector: ':root',
             excludedKeyRegex: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states|components|directives)$/gi
         },
-        colorScheme: {
-            light: {
-                class: '',
-                rule: ':root{[CSS]}',
-                default: false
-            },
-            dark: {
-                class: 'p-dark',
-                rule: '.p-dark{[CSS]}',
-                default: false
-            }
-        },
-        layer: {
+        darkModeSelector: '.p-dark',
+        cssLayer: {
             name: 'primevue',
             order: 'primevue'
         }
@@ -32,10 +21,9 @@ export default {
     _tokens: {},
     init() {
         if (!this._initialized) {
-            this.applyColorScheme();
+            this._tokens = ThemeUtils.createTokens(this.preset, this.getCurrentColorScheme(), this.defaults);
         }
 
-        this._tokens = ThemeUtils.createTokens(this.preset, this.getCurrentColorScheme(), this.defaults);
         this._initialized = true;
     },
     get theme() {
@@ -49,9 +37,6 @@ export default {
     },
     get options() {
         return this.theme?.options || {};
-    },
-    get extend() {
-        return this.theme?.extend || {};
     },
     get tokens() {
         return this._tokens;
@@ -81,13 +66,6 @@ export default {
     setLayerNames(layerName) {
         this._layerNames?.add(layerName);
     },
-    applyColorScheme() {
-        const newColorScheme = ThemeUtils.applyColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
-
-        this.setCurrentColorScheme(newColorScheme);
-
-        return newColorScheme;
-    },
     toggleColorScheme() {
         const newColorScheme = ThemeUtils.toggleColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
 
@@ -115,7 +93,7 @@ export default {
         };
     },
     getLayerOrderCSS(name = '') {
-        return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() });
+        return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() }, this.defaults);
     },
     getCommonStyleSheet(name = '', theme, params, props = {}) {
         return ThemeUtils.getCommonStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
