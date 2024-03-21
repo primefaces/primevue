@@ -14,12 +14,12 @@ import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
+export declare type ListboxPassThroughOptionType<T = any> = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions<T>) => ListboxPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ListboxPassThroughMethodOptions {
+export interface ListboxPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -43,7 +43,7 @@ export interface ListboxPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -80,6 +80,21 @@ export interface ListboxChangeEvent {
 }
 
 /**
+ * Custom double click event.
+ * @see {@link ListboxEmits.['item-dblclick']}
+ */
+export interface ListboxItemDblClickEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Selected option value
+     */
+    value: any;
+}
+
+/**
  * Custom filter event.
  * @see {@link ListboxEmits.filter}
  */
@@ -98,7 +113,7 @@ export interface ListboxFilterEvent {
  * Custom passthrough(pt) options.
  * @see {@link ListboxProps.pt}
  */
-export interface ListboxPassThroughOptions {
+export interface ListboxPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
@@ -132,7 +147,7 @@ export interface ListboxPassThroughOptions {
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    list?: ListboxPassThroughOptionType;
+    list?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the item group's DOM element.
      */
@@ -526,6 +541,11 @@ export interface ListboxEmits {
      * @param {ListboxFilterEvent} event - Custom filter event.
      */
     filter(event: ListboxFilterEvent): void;
+    /**
+     * Callback to invoke on item double click.
+     * @param {ListboxItemDblClickEvent} event - Custom item double click event.
+     */
+    'item-dblclick'(event: ListboxItemDblClickEvent): void;
 }
 
 /**

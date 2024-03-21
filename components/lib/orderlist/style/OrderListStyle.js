@@ -11,13 +11,7 @@ const classes = {
     container: 'p-orderlist-list-container',
     header: 'p-orderlist-header',
     list: 'p-orderlist-list',
-    item: ({ instance, item, id }) => [
-        'p-orderlist-item',
-        {
-            'p-highlight': instance.isSelected(item),
-            'p-focus': id === instance.focusedOptionId
-        }
-    ]
+    item: 'p-orderlist-item'
 };
 
 export default BaseStyle.extend({

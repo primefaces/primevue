@@ -81,6 +81,7 @@
                                 @mousedown="onOptionMouseDown($event, getOptionIndex(i, getItemOptions))"
                                 @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                 @touchend="onOptionTouchEnd()"
+                                @dblclick="onOptionDblClick($event, option)"
                                 v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                 :data-p-highlight="isSelected(option)"
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
@@ -136,7 +137,7 @@ export default {
     name: 'Listbox',
     extends: BaseListbox,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter', 'item-dblclick'],
     list: null,
     virtualScroller: null,
     optionTouched: false,
@@ -324,6 +325,12 @@ export default {
 
             this.optionTouched = true;
         },
+        onOptionDblClick(event, item) {
+            this.$emit('item-dblclick', {
+                originalEvent: event,
+                value: item
+            });
+        },
         onOptionSelectSingle(event, option) {
             let selected = this.isSelected(option);
             let valueChanged = false;
@@ -505,6 +512,7 @@ export default {
             }
         },
         onSpaceKey(event) {
+            event.preventDefault();
             this.onEnterKey(event);
         },
         onShiftKey() {

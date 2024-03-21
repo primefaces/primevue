@@ -46,29 +46,13 @@ export default {
             type: Boolean,
             default: false
         },
+        severity: {
+            type: String,
+            default: null
+        },
         tabindex: {
             type: Number,
             default: 0
-        },
-        listProps: {
-            type: null,
-            default: null
-        },
-        moveUpButtonProps: {
-            type: null,
-            default: null
-        },
-        moveTopButtonProps: {
-            type: null,
-            default: null
-        },
-        moveDownButtonProps: {
-            type: null,
-            default: null
-        },
-        moveBottomButtonProps: {
-            type: null,
-            default: null
         },
         ariaLabelledby: {
             type: String,

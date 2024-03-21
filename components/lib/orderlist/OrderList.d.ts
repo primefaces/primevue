@@ -7,11 +7,12 @@
  * @module orderlist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
+import { ListboxPassThroughOptions } from '../listbox';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
 
@@ -33,10 +34,6 @@ export interface OrderListPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: OrderListState;
-    /**
-     * Defines current options.
-     */
-    context: OrderListContext;
     /**
      * Defines valid attributes.
      */
@@ -114,18 +111,22 @@ export interface OrderListPassThroughOptions {
     controls?: OrderListPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
     moveUpButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
     moveTopButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
     moveDownButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
     moveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
@@ -137,13 +138,10 @@ export interface OrderListPassThroughOptions {
      */
     header?: OrderListPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the Listbox component.
+     * @see {@link ListboxPassThroughOptions}
      */
-    list?: OrderListPassThroughOptionType;
-    /**
-     * Used to pass attributes to the item's DOM element.
-     */
-    item?: OrderListPassThroughOptionType;
+    list?: ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -174,32 +172,6 @@ export interface OrderListState {
      * Current id state as a string.
      */
     d_selection: any[];
-    /**
-     * Current focused state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
-     * Current focused item index as a number.
-     * @defaultvalue -1
-     */
-    focusedOptionIndex: number;
-}
-
-/**
- * Defines current options in OrderList component.
- */
-export interface OrderListContext {
-    /**
-     * Current active state of the item as a boolean.
-     * @defaultValue false
-     */
-    active: boolean;
-    /**
-     * Current focus state of the item as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
 }
 
 /**
@@ -219,7 +191,7 @@ export interface OrderListProps {
      */
     selection?: any[];
     /**
-     * Defines whether metaKey is requred or not for the selection.
+     * Defines whether metaKey is required or not for the selection.
      * When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
      * @defaultValue false
@@ -258,25 +230,9 @@ export interface OrderListProps {
      */
     tabindex?: number | string | undefined;
     /**
-     *  Used to pass all properties of the HTMLAttributes to the list element.
+     * Defines the style of the button.
      */
-    listProps?: HTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move up button inside the component.
-     */
-    moveUpButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move top button inside the component.
-     */
-    moveTopButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move down button inside the component.
-     */
-    moveDownButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
-     */
-    moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
     /**
      * Defines a string value that labels an interactive list element.
      */
