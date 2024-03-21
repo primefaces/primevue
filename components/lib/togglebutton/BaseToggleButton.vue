@@ -37,18 +37,6 @@ export default {
             type: Number,
             default: null
         },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
         ariaLabelledby: {
             type: String,
             default: null

@@ -9,21 +9,15 @@ const classes = {
             'p-invalid': props.invalid
         }
     ],
-    input: 'p-togglebutton-input',
-    box: ({ instance }) => [
-        'p-button p-component',
-        {
-            'p-button-icon-only': instance.hasIcon && !instance.hasLabel
-        }
-    ],
+    button: 'p-togglebutton-button',
     icon: ({ instance, props }) => [
-        'p-button-icon',
+        'p-togglebutton-icon',
         {
-            'p-button-icon-left': props.iconPos === 'left' && instance.label,
-            'p-button-icon-right': props.iconPos === 'right' && instance.label
+            'p-togglebutton-icon-left': props.iconPos === 'left' && instance.label,
+            'p-togglebutton-icon-right': props.iconPos === 'right' && instance.label
         }
     ],
-    label: 'p-button-label'
+    label: 'p-togglebutton-label'
 };
 
 export default BaseStyle.extend({

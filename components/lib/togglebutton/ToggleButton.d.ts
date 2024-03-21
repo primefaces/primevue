@@ -27,10 +27,6 @@ export interface ToggleButtonPassThroughMethodOptions {
      */
     props: ToggleButtonProps;
     /**
-     * Defines current inline state.
-     */
-    state: ToggleButtonState;
-    /**
      * Defines current options.
      */
     context: ToggleButtonContext;
@@ -58,13 +54,9 @@ export interface ToggleButtonPassThroughOptions {
      */
     root?: ToggleButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
-    input?: ToggleButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the box's DOM element.
-     */
-    box?: ToggleButtonPassThroughOptionType;
+    button?: ToggleButtonPassThroughOptionType;
     /**
      * Used to pass attributes to the icon's DOM element.
      */
@@ -84,13 +76,6 @@ export interface ToggleButtonPassThroughOptions {
  * Custom passthrough attributes for each DOM elements
  */
 export interface ToggleButtonPassThroughAttributes {
-    [key: string]: any;
-}
-
-/**
- * Defines current inline state in ToggleButton component.
- */
-export interface ToggleButtonState {
     [key: string]: any;
 }
 
@@ -163,18 +148,6 @@ export interface ToggleButtonProps {
      * Index of the element in tabbing order.
      */
     tabindex?: string | undefined;
-    /**
-     * 	Identifier of the focus input to match a label defined for the chips.
-     */
-    inputId?: string | undefined;
-    /**
-     * Style class of the input field.
-     */
-    inputClass?: string | object | undefined;
-    /**
-     * Inline style of the input field.
-     */
-    inputStyle?: object | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
