@@ -82,6 +82,10 @@ export default {
             type: String,
             default: undefined
         },
+        stripedRows: {
+            type: Boolean,
+            default: false
+        },
         tabindex: {
             type: Number,
             default: 0

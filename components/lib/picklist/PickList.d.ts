@@ -7,7 +7,7 @@
  * @module picklist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
@@ -280,16 +280,6 @@ export interface PickListState {
      */
     d_selection: any[];
     /**
-     * Current focused state as a boolean.
-     * @defaultValue [false, false]
-     */
-    focused: boolean;
-    /**
-     * Current focused item index as a number.
-     * @defaultvalue -1
-     */
-    focusedOptionIndex: number;
-    /**
      * Current view change state as a boolean.
      * @defaultValue false
      */
@@ -378,46 +368,6 @@ export interface PickListProps {
      * Index of the list element in tabbing order.
      */
     tabindex?: number | string | undefined;
-    /**
-     *  Used to pass all properties of the HTMLAttributes to the target list element.
-     */
-    targetListProps?: HTMLAttributes | undefined;
-    /**
-     *  Used to pass all properties of the HTMLAttributes to the source list element.
-     */
-    sourceListProps?: HTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move up button inside the component.
-     */
-    moveUpButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move top button inside the component.
-     */
-    moveTopButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move down button inside the component.
-     */
-    moveDownButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
-     */
-    moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move to target button inside the component.
-     */
-    moveToTargetProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move all to target button inside the component.
-     */
-    moveAllToTargetProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move to source button inside the component.
-     */
-    moveToSourceProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
-     */
-    moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {PickListPassThroughOptions}

@@ -45,6 +45,7 @@
                 :dataKey="dataKey"
                 :autoOptionFocus="autoOptionFocus"
                 :focusOnHover="focusOnHover"
+                :disabled="disabled"
                 :pt="ptm('list')"
                 :unstyled="unstyled"
                 @focus="onListFocus($event, 'sourceList')"
@@ -108,6 +109,7 @@
                 :dataKey="dataKey"
                 :autoOptionFocus="autoOptionFocus"
                 :focusOnHover="focusOnHover"
+                :disabled="disabled"
                 :pt="ptm('list')"
                 :unstyled="unstyled"
                 @focus="onListFocus($event, 'targetList')"
@@ -594,12 +596,10 @@ export default {
             }
         },
         moveDisabled(index) {
-            if (this.d_selection && (!this.d_selection[index] || !this.d_selection[index].length)) {
-                return true;
-            }
+            return this.disabled ? true : this.d_selection && (!this.d_selection[index] || !this.d_selection[index].length) ? true : false;
         },
         moveAllDisabled(list) {
-            return ObjectUtils.isEmpty(this[list]);
+            return this.disabled ? true : ObjectUtils.isEmpty(this[list]);
         }
     },
     computed: {

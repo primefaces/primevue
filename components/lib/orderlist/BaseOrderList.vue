@@ -54,6 +54,10 @@ export default {
             type: Number,
             default: 0
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
         ariaLabelledby: {
             type: String,
             default: null

@@ -44,6 +44,7 @@
             :dataKey="dataKey"
             :autoOptionFocus="autoOptionFocus"
             :focusOnHover="focusOnHover"
+            :disabled="disabled"
             :ariaLabel="ariaLabel"
             :ariaLabelledby="ariaLabelledby"
             :pt="ptm('list')"
@@ -293,9 +294,7 @@ export default {
             }
         },
         moveDisabled() {
-            if (!this.d_selection || !this.d_selection.length) {
-                return true;
-            }
+            return this.disabled ? true : !this.d_selection || !this.d_selection.length ? true : false;
         }
     },
     computed: {

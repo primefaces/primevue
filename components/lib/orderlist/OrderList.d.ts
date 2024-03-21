@@ -223,6 +223,7 @@ export interface OrderListProps {
     breakpoint?: string | undefined;
     /**
      * Whether to displays rows with alternating colors.
+     * @defaultValue false
      */
     stripedRows?: boolean | undefined;
     /**

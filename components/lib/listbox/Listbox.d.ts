@@ -364,6 +364,11 @@ export interface ListboxProps {
      */
     emptyMessage?: string | undefined;
     /**
+     * Whether to displays rows with alternating colors.
+     * @defaultValue false
+     */
+    stripedRows?: boolean | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;

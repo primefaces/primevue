@@ -61,6 +61,10 @@ export default {
         tabindex: {
             type: Number,
             default: 0
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     style: PickListStyle,
