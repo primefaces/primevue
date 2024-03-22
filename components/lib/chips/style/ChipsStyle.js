@@ -12,7 +12,7 @@ const classes = {
         }
     ],
     container: ({ props, instance }) => [
-        'p-inputtext p-chips-multiple-container',
+        'p-chips-multiple-container',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }

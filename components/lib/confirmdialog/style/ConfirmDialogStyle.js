@@ -4,7 +4,7 @@ const classes = {
     root: 'p-confirm-dialog',
     icon: 'p-confirm-dialog-icon',
     message: 'p-confirm-dialog-message',
-    rejectButton: ({ instance }) => ['p-confirm-dialog-reject', instance.confirmation && !instance.confirmation.rejectClass ? 'p-button-text' : null],
+    rejectButton: 'p-confirm-dialog-reject',
     acceptButton: 'p-confirm-dialog-accept'
 };
 

@@ -22,7 +22,7 @@ const classes = {
         }
     ],
     button: ({ props }) => [
-        'p-speeddial-button p-button-rounded',
+        'p-speeddial-button',
         {
             'p-speeddial-rotate': props.rotateAnimation && !props.hideIcon
         }

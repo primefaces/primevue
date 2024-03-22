@@ -28,7 +28,7 @@
             <component v-else :is="$slots.message" :message="confirmation"></component>
         </template>
         <template v-if="!$slots.container" #footer>
-            <CDButton :label="rejectLabel" :class="[cx('rejectButton'), confirmation.rejectClass]" @click="reject()" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')">
+            <CDButton :label="rejectLabel" :class="[cx('rejectButton'), confirmation.rejectClass]" @click="reject()" :text="!confirmation.rejectClass" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')">
                 <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                     <slot name="rejecticon">
                         <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-section="rejectbuttonicon" />

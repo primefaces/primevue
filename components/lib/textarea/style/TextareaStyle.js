@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ instance, props }) => [
-        'p-inputtextarea p-inputtext p-component',
+        'p-inputtextarea p-component',
         {
             'p-filled': instance.filled,
             'p-inputtextarea-resizable ': props.autoResize,

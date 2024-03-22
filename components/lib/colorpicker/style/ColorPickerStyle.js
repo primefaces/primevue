@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ props }) => ['p-colorpicker p-component', { 'p-colorpicker-overlay': !props.inline }],
-    input: ({ props }) => ['p-colorpicker-preview p-inputtext', { 'p-disabled': props.disabled }],
+    input: ({ props }) => ['p-colorpicker-preview', { 'p-disabled': props.disabled }],
     panel: ({ instance, props }) => [
         'p-colorpicker-panel',
         {

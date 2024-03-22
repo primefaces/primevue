@@ -4,19 +4,19 @@ const classes = {
     root: ({ props }) => [`p-fileupload p-fileupload-${props.mode} p-component`],
     buttonbar: 'p-fileupload-buttonbar',
     chooseButton: ({ instance, props }) => [
-        'p-button p-component p-fileupload-choose',
+        'p-component p-fileupload-choose',
         {
             'p-fileupload-choose-selected': props.mode === 'basic' && instance.hasFiles,
             'p-disabled': props.disabled,
             'p-focus': instance.focused
         }
     ],
-    chooseIcon: 'p-button-icon p-button-icon-left',
-    chooseButtonLabel: 'p-button-label',
+    chooseIcon: 'p-fileupload-choose-icon',
+    chooseButtonLabel: 'p-fileupload-choosebutton-label',
     content: 'p-fileupload-content',
     empty: 'p-fileupload-empty',
-    uploadIcon: 'p-button-icon p-button-icon-left',
-    label: 'p-button-label',
+    uploadIcon: 'p-fileupload-upload-icon',
+    label: 'p-fileupload-button-label',
     file: 'p-fileupload-file',
     thumbnail: 'p-fileupload-file-thumbnail',
     details: 'p-fileupload-file-details',

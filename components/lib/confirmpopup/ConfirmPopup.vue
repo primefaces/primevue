@@ -15,14 +15,33 @@
                     </template>
                     <component v-else :is="$slots.message" :message="confirmation"></component>
                     <div :class="cx('footer')" v-bind="ptm('footer')">
-                        <CPButton :label="rejectLabel" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :class="[cx('rejectButton'), confirmation.rejectClass]" :unstyled="unstyled" :pt="ptm('rejectButton')">
+                        <CPButton
+                            :label="rejectLabel"
+                            @click="reject()"
+                            @keydown="onRejectKeydown"
+                            :autofocus="autoFocusReject"
+                            :class="[cx('rejectButton'), confirmation.rejectClass]"
+                            :size="{ small: !confirmation.rejectClass }"
+                            :text="!confirmation.rejectClass"
+                            :unstyled="unstyled"
+                            :pt="ptm('rejectButton')"
+                        >
                             <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                                 <slot name="rejecticon">
                                     <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-section="rejectbuttonicon" />
                                 </slot>
                             </template>
                         </CPButton>
-                        <CPButton :label="acceptLabel" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :class="[cx('acceptButton'), confirmation.acceptClass]" :unstyled="unstyled" :pt="ptm('acceptButton')">
+                        <CPButton
+                            :label="acceptLabel"
+                            @click="accept()"
+                            @keydown="onAcceptKeydown"
+                            :autofocus="autoFocusAccept"
+                            :class="[cx('acceptButton'), confirmation.acceptClass]"
+                            :size="{ small: !confirmation.acceptClass }"
+                            :unstyled="unstyled"
+                            :pt="ptm('acceptButton')"
+                        >
                             <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                                 <slot name="accepticon">
                                     <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" data-pc-section="acceptbuttonicon" />

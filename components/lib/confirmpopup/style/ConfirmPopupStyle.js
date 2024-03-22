@@ -11,8 +11,8 @@ const classes = {
     icon: 'p-confirm-popup-icon',
     message: 'p-confirm-popup-message',
     footer: 'p-confirm-popup-footer',
-    rejectButton: ({ instance }) => ['p-confirm-popup-reject', instance.confirmation && !instance.confirmation.rejectClass ? 'p-button-sm p-button-text' : null],
-    acceptButton: ({ instance }) => ['p-confirm-popup-accept', instance.confirmation && !instance.confirmation.acceptClass ? 'p-button-sm' : null]
+    rejectButton: 'p-confirm-popup-reject',
+    acceptButton: 'p-confirm-popup-accept'
 };
 
 export default BaseStyle.extend({

@@ -66,8 +66,8 @@ const classes = {
     secondPicker: 'p-second-picker',
     ampmPicker: 'p-ampm-picker',
     buttonbar: 'p-datepicker-buttonbar',
-    todayButton: 'p-button-text',
-    clearButton: 'p-button-text'
+    todayButton: 'p-buttonbar-button',
+    clearButton: 'p-buttonbar-button'
 };
 
 export default BaseStyle.extend({

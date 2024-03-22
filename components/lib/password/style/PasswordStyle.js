@@ -10,7 +10,7 @@ const classes = {
         {
             'p-inputwrapper-filled': instance.filled,
             'p-inputwrapper-focus': instance.focused,
-            'p-icon-field p-icon-field-right': props.toggleMask
+            'p-password-icon-field': props.toggleMask
         }
     ],
     input: ({ props }) => [
