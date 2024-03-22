@@ -1,27 +1,30 @@
-import { ThemeUtils } from 'primevue/themes';
+import { ThemeService, ThemeUtils } from 'primevue/themes';
 
 export default {
     defaults: {
         variable: {
-            prefix: '',
+            prefix: 'p',
             selector: ':root',
-            excludedKeyRegex: /^(primitive|semantic|variables|colorscheme|light|dark|common|colors|root|states|components|directives)$/gi
+            excludedKeyRegex: /^(primitive|semantic|components|directives|variables|colorscheme|light|dark|common|root|states)$/gi
         },
-        darkModeSelector: '.p-dark',
-        cssLayer: {
-            name: 'primevue',
-            order: 'primevue'
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: {
+                name: 'primevue',
+                order: 'primevue'
+            }
         }
     },
     _pConfig: undefined,
     _theme: undefined,
     _initialized: false,
-    _currentColorScheme: 'light',
     _layerNames: new Set(),
     _tokens: {},
     init() {
         if (!this._initialized) {
-            this._tokens = ThemeUtils.createTokens(this.preset, this.getCurrentColorScheme(), this.defaults);
+            this._tokens = ThemeUtils.createTokens(this.preset, this.defaults);
+            ThemeService.emit('theme:init', this.theme);
         }
 
         this._initialized = true;
@@ -50,28 +53,35 @@ export default {
     getTokenValue(tokenPath) {
         return ThemeUtils.getTokenValue(this.tokens, tokenPath, this.defaults);
     },
+    getTheme() {
+        return this.theme;
+    },
     setTheme(newValue) {
-        this._theme = newValue;
+        this._theme = {
+            ...newValue,
+            options: {
+                ...this.defaults.options,
+                ...newValue.options
+            }
+        };
+        this._tokens = ThemeUtils.createTokens(newValue?.preset, this.defaults);
+
+        ThemeService.emit('theme:change', newValue);
+    },
+    getPreset() {
+        return this.preset;
+    },
+    setPreset(newValue) {
+        this._theme = { ...this.theme, preset: newValue };
         this._tokens = ThemeUtils.createTokens(newValue, this.defaults);
-    },
-    getCurrentColorScheme() {
-        return this._currentColorScheme;
-    },
-    setCurrentColorScheme(newValue) {
-        this._currentColorScheme = newValue;
+
+        ThemeService.emit('preset:change', newValue);
     },
     getLayerNames() {
         return [...this._layerNames];
     },
     setLayerNames(layerName) {
         this._layerNames?.add(layerName);
-    },
-    toggleColorScheme() {
-        const newColorScheme = ThemeUtils.toggleColorScheme(this.options, this.getCurrentColorScheme(), this.defaults);
-
-        this.setCurrentColorScheme(newColorScheme);
-
-        return newColorScheme;
     },
     getCommonCSS(name = '', theme, params) {
         return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });

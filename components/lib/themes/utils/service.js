@@ -9,6 +9,8 @@ function createService() {
             else handlers.push(handler);
 
             allHandlers.set(type, handlers);
+
+            return this;
         },
 
         off(type, handler) {
@@ -17,6 +19,8 @@ function createService() {
             if (handlers) {
                 handlers.splice(handlers.indexOf(handler) >>> 0, 1);
             }
+
+            return this;
         },
 
         emit(type, evt) {

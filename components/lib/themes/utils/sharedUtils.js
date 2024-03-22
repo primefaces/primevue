@@ -44,6 +44,23 @@ export default {
                 Object.assign(value1, value2);
             }
         },
+        mergeKeysByRegex(target = {}, source = {}, regex) {
+            const mergedObj = { ...target };
+
+            Object.keys(source).forEach((key) => {
+                if (this.test(regex, key)) {
+                    if (this.isObject(source[key]) && key in target && this.isObject(target[key])) {
+                        mergedObj[key] = this.mergeKeysByRegex(target[key], source[key], regex);
+                    } else {
+                        mergedObj[key] = source[key];
+                    }
+                } else {
+                    mergedObj[key] = source[key];
+                }
+            });
+
+            return mergedObj;
+        },
         getItemValue(obj, ...params) {
             return this.isFunction(obj) ? obj(...params) : obj;
         },

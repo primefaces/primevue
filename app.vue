@@ -6,7 +6,6 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import { useColorScheme } from 'primevue/themes';
 
 export default {
     beforeMount() {
@@ -14,7 +13,8 @@ export default {
 
         if (isDark) document.documentElement.classList.add('p-dark');
         else document.documentElement.classList.remove('p-dark');
-        //@todo - set initial colorScheme
+
+        this.$appState.darkTheme = isDark;
     },
     mounted() {
         EventBus.on('theme-change', this.themeChangeListener);
@@ -33,15 +33,13 @@ export default {
             document.startViewTransition(() => this.applyTheme(event));
         },
         applyTheme(event) {
-            const { toggleColorScheme } = useColorScheme();
-            const newColorScheme = toggleColorScheme();
+            const isDark = event.dark;
 
-            localStorage['primevue-theme'] = newColorScheme;
+            if (isDark) document.documentElement.classList.add('p-dark');
+            else document.documentElement.classList.remove('p-dark');
 
-            /*this.$appState.darkTheme = event.dark;
-
-            if (event.dark) document.documentElement.classList.add('p-dark');
-            else document.documentElement.classList.remove('p-dark');*/
+            localStorage['primevue-theme'] = isDark ? 'dark' : 'light';
+            this.$appState.darkTheme = isDark;
         }
     }
 };

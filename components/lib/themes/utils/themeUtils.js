@@ -6,30 +6,30 @@ export default {
             class: {
                 pattern: /^\.([a-zA-Z][\w-]*)$/,
                 resolve(value) {
-                    return { type: 'class', selector: value, value: value.trim().match(this.pattern)?.[1] };
+                    return { type: 'class', selector: value, matched: this.pattern.test(value.trim()) };
                 }
             },
             attr: {
                 pattern: /^\[(.*)\]$/,
                 resolve(value) {
-                    return { type: 'attr', selector: `:root${value}`, value: value.trim().match(this.pattern)?.[1]?.split('=') };
+                    return { type: 'attr', selector: `:root${value}`, matched: this.pattern.test(value.trim()) };
                 }
             },
             media: {
                 pattern: /^@media (.*)$/,
                 resolve(value) {
-                    return { type: 'media', selector: `${value}{:root{[CSS]}}`, value: value.trim().match(this.pattern)?.[1] };
+                    return { type: 'media', selector: `${value}{:root{[CSS]}}`, matched: this.pattern.test(value.trim()) };
                 }
             },
             system: {
                 pattern: /^system$/,
                 resolve(value) {
-                    return { type: 'system', selector: '@media (prefers-color-scheme: dark){:root{[CSS]}}', value: this.pattern.test(value) ? 'system' : undefined };
+                    return { type: 'system', selector: '@media (prefers-color-scheme: dark){:root{[CSS]}}', matched: this.pattern.test(value.trim()) };
                 }
             },
             custom: {
                 resolve(value) {
-                    return { type: 'custom', selector: value, value: undefined };
+                    return { type: 'custom', selector: value, matched: true };
                 }
             }
         },
@@ -38,7 +38,7 @@ export default {
                 .filter((k) => k !== 'custom')
                 .map((r) => this.rules[r]);
 
-            return [value].flat().map((v) => rules.map((r) => r.resolve(v)).find((rr) => !!rr.value) ?? this.rules.custom.resolve(v));
+            return [value].flat().map((v) => rules.map((r) => r.resolve(v)).find((rr) => rr.matched) ?? this.rules.custom.resolve(v));
         }
     },
     getCommon({ name = '', theme = {}, params, set, defaults }) {
@@ -46,17 +46,14 @@ export default {
         let primitive_css, semantic_css, global_css;
 
         if (SharedUtils.object.isNotEmpty(preset)) {
-            const { options, extend } = theme;
+            const { options } = theme;
             const { primitive, semantic } = preset;
             const { colorScheme, ...sRest } = semantic || {};
             const { dark, ...csRest } = colorScheme || {};
-            const { primitive: primitiveExt, semantic: semanticExt } = extend || {};
-            const { colorScheme: colorSchemeExt, ...sRestExt } = semanticExt || {};
-            const { dark: darkExt, ...csRestExt } = colorSchemeExt || {};
-            const prim_css = SharedUtils.object.isNotEmpty(primitive) ? this._toVariables({ primitive: { ...primitive, ...primitiveExt } }, options).declarations : '';
-            const sRest_css = SharedUtils.object.isNotEmpty(sRest) ? this._toVariables({ semantic: { ...sRest, ...sRestExt } }, options).declarations : '';
-            const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ light: { ...csRest, ...csRestExt } }, options).declarations : '';
-            const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark: { ...dark, ...darkExt } }, options).declarations : '';
+            const prim_css = SharedUtils.object.isNotEmpty(primitive) ? this._toVariables({ primitive }, options).declarations : '';
+            const sRest_css = SharedUtils.object.isNotEmpty(sRest) ? this._toVariables({ semantic: sRest }, options).declarations : '';
+            const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ light: csRest }, options).declarations : '';
+            const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark }, options).declarations : '';
 
             primitive_css = this._transformCSS(name, prim_css, 'light', 'variable', options, set, defaults);
             semantic_css = `${this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, set, defaults)}${this._transformCSS(
@@ -79,14 +76,12 @@ export default {
         };
     },
     getPresetC({ name = '', theme = {}, params, set, defaults }) {
-        const { preset, options, extend } = theme;
+        const { preset, options } = theme;
         const { colorScheme, ...vRest } = preset?.components?.[name] || {};
         const { dark, ...csRest } = colorScheme || {};
-        const { colorScheme: colorSchemeExt, ...vRestExt } = extend?.components?.[name] || {};
-        const { dark: darkExt, ...csRestExt } = colorSchemeExt || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: { ...vRest, ...vRestExt } }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: { ...csRest, ...csRestExt } }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: { ...dark, ...darkExt } }, options).declarations : '';
+        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
+        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
+        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
 
         return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults)}`;
     },
@@ -98,14 +93,12 @@ export default {
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
     getPresetD({ name = '', theme = {}, params, set, defaults }) {
-        const { preset, options, extend } = theme;
+        const { preset, options } = theme;
         const { colorScheme, ...vRest } = preset?.directives?.[name] || {};
         const { dark, ...csRest } = colorScheme || {};
-        const { colorScheme: colorSchemeExt, ...vRestExt } = extend?.directives?.[name] || {};
-        const { dark: darkExt, ...csRestExt } = colorSchemeExt || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: { ...vRest, ...vRestExt } }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: { ...csRest, ...csRestExt } }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: { ...dark, ...darkExt } }, options).declarations : '';
+        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
+        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
+        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
 
         return `${this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults)}${this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults)}`;
     },
@@ -117,39 +110,13 @@ export default {
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
     getColorSchemeOption(options, defaults) {
-        return this.regex.resolve(options.darkModeSelector ?? defaults.darkModeSelector);
-    },
-    toggleColorScheme(options = {}, currentColorScheme, defaults) {
-        const newColorScheme = currentColorScheme === 'dark' ? 'light' : 'dark';
-        const defaultDocumentEl = SharedUtils.dom.isClient() ? window.document?.documentElement : undefined;
-
-        if (defaultDocumentEl) {
-            const colorSchemeOption = this.getColorSchemeOption(options, defaults);
-
-            colorSchemeOption.forEach(({ type, value }) => {
-                switch (type) {
-                    case 'class':
-                        SharedUtils.dom[newColorScheme === 'dark' ? 'addClass' : 'removeClass'](defaultDocumentEl, value);
-                        break;
-
-                    case 'attr':
-                        newColorScheme === 'dark' ? defaultDocumentEl.setAttribute(value[0], value[1].replace(/['"]/g, '')) : defaultDocumentEl.removeAttribute(value[0]);
-                        break;
-
-                    default:
-                        console.warn(`The 'toggleColorScheme' method cannot be used with the specified 'darkModeSelector' options.`);
-                        break;
-                }
-            });
-        }
-
-        return newColorScheme;
+        return this.regex.resolve(options.darkModeSelector ?? defaults.options.darkModeSelector);
     },
     getLayerOrder(name, options = {}, params, defaults) {
         const { cssLayer } = options;
 
         if (cssLayer) {
-            const order = SharedUtils.object.getItemValue(cssLayer.order || defaults.cssLayer.order, params);
+            const order = SharedUtils.object.getItemValue(cssLayer.order || defaults.options.cssLayer.order, params);
 
             return `@layer ${order}`;
         }
@@ -188,18 +155,19 @@ export default {
 
         return css.join('');
     },
-    createTokens(obj = {}, currentColorScheme, defaults, parentKey = '', parentPath = '', tokens = {}) {
+    createTokens(obj = {}, defaults, parentKey = '', parentPath = '', tokens = {}) {
         Object.entries(obj).forEach(([key, value]) => {
             const currentKey = SharedUtils.object.test(defaults.variable.excludedKeyRegex, key) ? parentKey : parentKey ? `${parentKey}.${SharedUtils.object.toTokenKey(key)}` : SharedUtils.object.toTokenKey(key);
             const currentPath = parentPath ? `${parentPath}.${key}` : key;
 
             if (SharedUtils.object.isObject(value)) {
-                this.createTokens(value, currentColorScheme, defaults, currentKey, currentPath, tokens);
+                this.createTokens(value, defaults, currentKey, currentPath, tokens);
             } else {
                 tokens[currentKey] ||= {
                     paths: [],
                     computed(colorScheme) {
-                        const scheme = colorScheme || currentColorScheme;
+                        // @todo
+                        const scheme = colorScheme;
 
                         return this.paths.find((p) => p.scheme === scheme || p.scheme === 'none')?.computed();
                     }
@@ -268,7 +236,7 @@ export default {
             }
 
             if (cssLayer) {
-                let layerOptions = { ...defaults.cssLayer };
+                let layerOptions = { ...defaults.options.cssLayer };
 
                 SharedUtils.object.isObject(cssLayer) && (layerOptions.name = SharedUtils.object.getItemValue(cssLayer.name, { name, type }));
 

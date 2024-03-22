@@ -1,5 +1,5 @@
 import { FilterMatchMode } from 'primevue/api';
-import Theme from 'primevue/themes';
+import Theme, { ThemeService } from 'primevue/themes';
 import PrimeOne from 'primevue/themes/primeone';
 import Aura from 'primevue/themes/primeone/aura';
 import { inject, reactive, watch } from 'vue';
@@ -144,7 +144,7 @@ export const defaultOptions = {
             darkModeSelector: '.p-dark',
             cssLayer: false
             /*
-            darkModeSelector: '.p-dark | [data-p-dark="true"] | system',
+            darkModeSelector: '.p-dark | [data-p-dark="true"] | system(default)',
             cssLayer: {
                 // cssLayer: true | false | undefined | object // default: undefined
                 name: '', // ({component_name, type=variable|style}) => layer_name // default: primevue
@@ -216,5 +216,11 @@ export default {
 
         app.config.globalProperties.$primevue = PrimeVue;
         app.provide(PrimeVueSymbol, PrimeVue);
+
+        ThemeService.on('theme:change', (newTheme) => {
+            app.config.globalProperties.$primevue.config.theme = newTheme;
+        }).on('preset:change', (newPreset) => {
+            app.config.globalProperties.$primevue.config.theme.preset = newPreset;
+        });
     }
 };

@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { palette, $dt, updatePreset, updateTheme } from 'primevue/themes';
+
 export default {
     data() {
         return {
@@ -99,9 +101,22 @@ export default {
             document.startViewTransition(() => this.applyTheme(type, color));
         },
         applyTheme(type, color) {
-            for (const shade in color.palette) {
+            updatePreset({
+                semantic:
+                    type === 'surface'
+                        ? {
+                              colorScheme: {
+                                  dark: {
+                                      surface: color.palette
+                                  }
+                              }
+                          }
+                        : { [type]: color.palette }
+            });
+
+            /*for (const shade in color.palette) {
                 document.documentElement.style.setProperty(`--p-${type}-${shade}`, `${color.palette[shade]}`);
-            }
+            }*/
         },
         onRippleChange(value) {
             this.$appState.ripple = value;
