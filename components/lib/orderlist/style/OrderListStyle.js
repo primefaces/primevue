@@ -1,12 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ props }) => [
-        'p-orderlist p-component',
-        {
-            'p-orderlist-striped': props.stripedRows
-        }
-    ],
+    root: 'p-orderlist p-component',
     controls: 'p-orderlist-controls',
     container: 'p-orderlist-list-container',
     header: 'p-orderlist-header',

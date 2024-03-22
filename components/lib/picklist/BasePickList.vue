@@ -56,7 +56,7 @@ export default {
         },
         severity: {
             type: String,
-            default: null
+            default: 'secondary'
         },
         tabindex: {
             type: Number,

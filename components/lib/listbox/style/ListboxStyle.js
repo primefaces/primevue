@@ -4,6 +4,7 @@ const classes = {
     root: ({ props }) => [
         'p-listbox p-component',
         {
+            'p-listbox-striped': props.stripedRows,
             'p-disabled': props.disabled,
             'p-invalid': props.invalid
         }

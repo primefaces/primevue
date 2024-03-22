@@ -1,12 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ props }) => [
-        'p-picklist p-component',
-        {
-            'p-picklist-striped': props.stripedRows
-        }
-    ],
+    root: 'p-picklist p-component',
     sourceControls: 'p-picklist-buttons p-picklist-source-controls',
     sourceWrapper: 'p-picklist-list-wrapper p-picklist-source-wrapper',
     sourceHeader: 'p-picklist-header',

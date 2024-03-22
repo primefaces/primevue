@@ -232,6 +232,7 @@ export interface OrderListProps {
     tabindex?: number | string | undefined;
     /**
      * Defines the style of the button.
+     * @defaultValue secondary
      */
     severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
     /**
