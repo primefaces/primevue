@@ -9,7 +9,7 @@
             </div>
         </template>
         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-            <input v-model="filterValue" type="text" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
             <slot name="searchicon" :class="cx('searchIcon')">
                 <SearchIcon :class="cx('searchIcon')" v-bind="ptm('searchIcon')" />
             </slot>
@@ -41,6 +41,7 @@
 <script>
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
+import InputText from 'primevue/inputtext';
 import { ObjectUtils } from 'primevue/utils';
 import BaseTree from './BaseTree.vue';
 import TreeNode from './TreeNode.vue';
@@ -240,9 +241,10 @@ export default {
         }
     },
     components: {
-        TreeNode: TreeNode,
-        SearchIcon: SearchIcon,
-        SpinnerIcon: SpinnerIcon
+        TreeNode,
+        InputText,
+        SearchIcon,
+        SpinnerIcon
     }
 };
 </script>

@@ -9,6 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
 import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
@@ -43,6 +44,20 @@ export interface TreePassThroughMethodOptions<T = any> {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface TreeSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: TreeProps;
+    /**
+     * Defines current inline state.
+     */
+    state: TreeState;
 }
 
 /**
@@ -95,8 +110,9 @@ export interface TreePassThroughOptions<T = any> {
     filterContainer?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the input's DOM element.
+     * @see {@link InputTextPassThroughOptions}
      */
-    input?: TreePassThroughOptionType<T>;
+    input?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the search icon's DOM element.
      */

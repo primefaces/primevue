@@ -12,7 +12,7 @@ const classes = {
     loadingOverlay: 'p-tree-loading-overlay p-component-overlay',
     loadingIcon: 'p-tree-loading-icon',
     filterContainer: 'p-tree-filter-container',
-    input: 'p-tree-filter p-component',
+    input: 'p-tree-filter',
     searchIcon: 'p-tree-filter-icon',
     wrapper: 'p-tree-wrapper',
     container: 'p-tree-container',
