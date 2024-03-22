@@ -361,6 +361,10 @@ export interface TreeSlots {
          * Tree node instance
          */
         node: TreeNode;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom checkbox icon
