@@ -8,8 +8,10 @@ const classes = {
     root: ({ props, state }) => [
         'p-calendar p-component p-inputwrapper',
         {
-            'p-calendar-w-btn': props.showIcon && props.iconDisplay === 'button',
-            'p-icon-field p-icon-field-right': props.showIcon && props.iconDisplay === 'input',
+            'p-calendar-w-btn p-calendar-w-btn-right': props.showIcon && props.iconDisplay === 'button' && props.iconPosition === 'right',
+            'p-calendar-w-btn p-calendar-w-btn-left': props.showIcon && props.iconDisplay === 'button' && props.iconPosition === 'left',
+            'p-icon-field p-icon-field-right': props.showIcon && props.iconDisplay === 'input' && props.iconPosition === 'right',
+            'p-icon-field p-icon-field-left': props.showIcon && props.iconDisplay === 'input' && props.iconPosition === 'left',
             'p-calendar-timeonly': props.timeOnly,
             'p-calendar-disabled': props.disabled,
             'p-invalid': props.invalid,

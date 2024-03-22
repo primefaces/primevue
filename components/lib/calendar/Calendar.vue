@@ -1,5 +1,29 @@
 <template>
     <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
+        <CalendarButton
+            v-if="showIcon && iconDisplay === 'button' && iconPosition === 'left'"
+            :class="cx('dropdownButton')"
+            :disabled="disabled"
+            @click="onButtonClick"
+            type="button"
+            :aria-label="$primevue.config.locale.chooseDate"
+            aria-haspopup="dialog"
+            :aria-expanded="overlayVisible"
+            :aria-controls="panelId"
+            :unstyled="unstyled"
+            :pt="ptm('dropdownButton')"
+        >
+            <template #icon>
+                <slot name="dropdownicon" :class="icon">
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
+                </slot>
+            </template>
+        </CalendarButton>
+        <template v-else-if="showIcon && iconDisplay === 'input' && iconPosition === 'left'">
+            <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
+                <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
+            </slot>
+        </template>
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -29,7 +53,7 @@
             v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <CalendarButton
-            v-if="showIcon && iconDisplay === 'button'"
+            v-if="showIcon && iconDisplay === 'button' && iconPosition === 'right'"
             :class="cx('dropdownButton')"
             :disabled="disabled"
             @click="onButtonClick"
@@ -47,7 +71,7 @@
                 </slot>
             </template>
         </CalendarButton>
-        <template v-else-if="showIcon && iconDisplay === 'input'">
+        <template v-else-if="showIcon && iconDisplay === 'input' && iconPosition === 'right'">
             <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                 <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
             </slot>

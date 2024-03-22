@@ -517,6 +517,11 @@ export interface CalendarProps {
      */
     inline?: boolean | undefined;
     /**
+     * Position of the icon
+     * @defaultValue right
+     */
+    iconPosition?: 'left' | 'right' | undefined;
+    /**
      * Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option.
      * @defaultValue true
      */

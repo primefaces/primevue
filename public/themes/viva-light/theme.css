@@ -696,14 +696,24 @@
     width: 1%;
   }
 
-  .p-calendar-w-btn .p-inputtext {
+  .p-calendar-w-btn.p-calendar-w-btn-right .p-inputtext {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .p-calendar-w-btn .p-datepicker-trigger {
+  .p-calendar-w-btn.p-calendar-w-btn-left .p-inputtext {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+
+  .p-calendar-w-btn.p-calendar-w-btn-right .p-datepicker-trigger {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .p-calendar-w-btn.p-calendar-w-btn-left .p-datepicker-trigger {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .p-calendar .p-datepicker-trigger-icon {

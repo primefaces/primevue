@@ -19,6 +19,10 @@ export default {
             type: Boolean,
             default: false
         },
+        iconPosition: {
+          type: String,
+          default: 'right'
+        },
         showOtherMonths: {
             type: Boolean,
             default: true
