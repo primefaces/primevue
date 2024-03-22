@@ -1,9 +1,10 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
         <slot name="button" :onClick="onClick" :toggleCallback="onClick">
-            <SDButton
+            <Button
                 type="button"
                 :class="[cx('button'), buttonClass]"
+                rounded
                 @click="onClick($event)"
                 :disabled="disabled"
                 @keydown="onTogglerKeydown"
@@ -21,7 +22,7 @@
                         <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
-            </SDButton>
+            </Button>
         </slot>
         <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" :style="sx('menu')" role="menu" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
@@ -455,8 +456,8 @@ export default {
         }
     },
     components: {
-        SDButton: Button,
-        PlusIcon: PlusIcon
+        Button,
+        PlusIcon
     },
     directives: {
         ripple: Ripple,
