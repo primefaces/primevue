@@ -42,7 +42,7 @@ const classes = {
     inputToken: 'p-autocomplete-input-token',
     loadingIcon: 'p-autocomplete-loader',
     dropdownButton: 'p-autocomplete-dropdown',
-    panel: ({ props, instance }) => [
+    panel: ({ instance }) => [
         'p-autocomplete-panel p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false

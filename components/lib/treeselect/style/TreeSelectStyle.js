@@ -29,7 +29,7 @@ const classes = {
     tokenLabel: 'p-treeselect-token-label',
     trigger: 'p-treeselect-trigger',
     triggerIcon: 'p-treeselect-trigger-icon',
-    panel: ({ props, instance }) => [
+    panel: ({ instance }) => [
         'p-treeselect-panel p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
