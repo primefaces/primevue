@@ -53,4 +53,22 @@ describe('Calendar.vue', () => {
 
         expect(wrapper.vm.viewDate).toEqual(dateTwo);
     });
+
+    it('should apply default icon style when showIcon is enabled', async () => {
+        await wrapper.setProps({ showIcon: true });
+
+        expect(wrapper.find('.p-calendar-w-btn.p-calendar-w-btn-right').exists()).toBe(true);
+    });
+
+    it('should apply correct style when showIcon is enabled and display is input', async () => {
+        await wrapper.setProps({ showIcon: true, iconDisplay: 'input' });
+
+        expect(wrapper.find('.p-icon-field.p-icon-field-right').exists()).toBe(true);
+    });
+
+    it('should change the icon position when style when showIcon and iconPosition is set', async () => {
+        await wrapper.setProps({ showIcon: true, iconPosition: 'left' });
+
+        expect(wrapper.find('.p-calendar-w-btn.p-calendar-w-btn-left').exists()).toBe(true);
+    });
 });
