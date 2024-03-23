@@ -517,11 +517,6 @@ export interface CalendarProps {
      */
     inline?: boolean | undefined;
     /**
-     * Position of the icon
-     * @defaultValue right
-     */
-    iconPosition?: 'left' | 'right' | undefined;
-    /**
      * Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option.
      * @defaultValue true
      */
@@ -537,10 +532,15 @@ export interface CalendarProps {
      */
     showIcon?: boolean | undefined;
     /**
-     * Icon position of the component. This only applies if the showIcon option is set to true.
+     * Visual style for the icon. This only applies if the showIcon option is set to true.
      * @defaultValue 'button'
      */
     iconDisplay?: 'button' | 'input' | undefined;
+    /**
+     * Icon position in the component. This only applies if the showIcon option is set to true.
+     * @defaultValue right
+     */
+    iconPosition?: 'left' | 'right' | undefined;
     /**
      * Icon of the calendar button.
      * @deprecated since v3.27.0. Use 'dropdownicon' slot.

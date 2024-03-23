@@ -8102,7 +8102,15 @@
                             "readonly": false,
                             "type": "\"input\" | \"button\"",
                             "default": "'button'",
-                            "description": "Icon position of the component. This only applies if the showIcon option is set to true."
+                            "description": "Visual style for the icon. This only applies if the showIcon option is set to true."
+                        },
+                        {
+                            "name": "iconPosition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"left\" | \"right\"",
+                            "default": "'right'",
+                            "description": "Icon position in the component. This only applies if the showIcon option is set to true."
                         },
                         {
                             "name": "icon",

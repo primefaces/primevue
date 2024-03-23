@@ -42,6 +42,18 @@ const CalendarProps = [
         description: 'When enabled, displays a button with icon next to input.'
     },
     {
+        name: 'iconDisplay',
+        type: 'string',
+        default: 'button',
+        description: 'Visual style for the icon. This only applies if the showIcon option is set to true.'
+    },
+    {
+        name: 'iconPosition',
+        type: 'string',
+        default: 'right',
+        description: 'Icon position in the component. This only applies if the showIcon option is set to true.'
+    },
+    {
         name: 'icon',
         type: 'string',
         default: 'null',

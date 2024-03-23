@@ -1,6 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>An additional icon is displayed next to the input field when <i>showIcon</i> is present.</p>
+        <p>
+          An additional icon is displayed next to the input field when <i>showIcon</i> is present. The icon's position can be changed using <i>iconPosition</i> property that defaults to <i>right</i>, but also <i>left</i> option is available.
+        </p>
     </DocSectionText>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
@@ -13,7 +15,7 @@
         </div>
         <div class="flex-auto">
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
-            <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
+            <Calendar v-model="templatedisplay" showIcon iconDisplay="input" iconPosition="left" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
                     <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
@@ -34,7 +36,7 @@ export default {
                 basic: `
 <Calendar v-model="buttondisplay" showIcon :showOnFocus="false" />
 <Calendar v-model="icondisplay" showIcon iconDisplay="input" />
-<Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly>
+<Calendar v-model="templatedisplay" showIcon iconDisplay="input" iconPosition="left" timeOnly>
     <template #inputicon="{ clickCallback }">
         <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
     </template>
