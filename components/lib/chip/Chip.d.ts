@@ -204,8 +204,8 @@ export interface ChipEmits {
  */
 declare class Chip extends ClassComponent<ChipProps, ChipSlots, ChipEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Chip: GlobalComponentConstructor<Chip>;
     }
 }

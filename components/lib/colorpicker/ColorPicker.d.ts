@@ -239,8 +239,8 @@ export interface ColorPickerEmits {
  */
 declare class ColorPicker extends ClassComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ColorPicker: GlobalComponentConstructor<ColorPicker>;
     }
 }

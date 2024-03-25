@@ -108,8 +108,8 @@ export interface InputIconEmits {}
  */
 declare class InputIcon extends ClassComponent<InputIconProps, InputIconSlots, InputIconEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputIcon: GlobalComponentConstructor<InputIcon>;
     }
 }

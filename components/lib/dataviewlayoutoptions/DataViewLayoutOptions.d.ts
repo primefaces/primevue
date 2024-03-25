@@ -176,8 +176,8 @@ export interface DataViewLayoutOptionsEmits {
  */
 declare class DataViewLayoutOptions extends ClassComponent<DataViewLayoutOptionsProps, DataViewLayoutOptionsSlots, DataViewLayoutOptionsEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         DataViewLayoutOptions: GlobalComponentConstructor<DataViewLayoutOptions>;
     }
 }

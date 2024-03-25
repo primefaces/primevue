@@ -232,8 +232,8 @@ export interface BreadcrumbEmits {}
  */
 declare class Breadcrumb extends ClassComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Breadcrumb: GlobalComponentConstructor<Breadcrumb>;
     }
 }

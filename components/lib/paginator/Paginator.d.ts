@@ -376,8 +376,8 @@ export interface PaginatorEmits {
  */
 declare class Paginator extends ClassComponent<PaginatorProps, PaginatorSlots, PaginatorEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Paginator: GlobalComponentConstructor<Paginator>;
     }
 }

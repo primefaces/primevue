@@ -192,8 +192,8 @@ export interface TabPanelEmits {}
  */
 declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TabPanel: GlobalComponentConstructor<TabPanel>;
     }
 }

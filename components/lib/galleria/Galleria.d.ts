@@ -526,8 +526,8 @@ export interface GalleriaEmits {
  */
 declare class Galleria extends ClassComponent<GalleriaProps, GalleriaSlots, GalleriaEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Galleria: GlobalComponentConstructor<Galleria>;
     }
 }

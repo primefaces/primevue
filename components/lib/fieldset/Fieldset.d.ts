@@ -211,8 +211,8 @@ export interface FieldsetEmits {
  */
 declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Fieldset: GlobalComponentConstructor<Fieldset>;
     }
 }

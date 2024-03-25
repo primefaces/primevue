@@ -3,8 +3,8 @@ import { GlobalComponentConstructor } from '../../ts-helpers';
 
 declare class CheckIcon extends Icon {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         CheckIcon: GlobalComponentConstructor<CheckIcon>;
     }
 }

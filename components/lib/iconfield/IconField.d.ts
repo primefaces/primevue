@@ -118,8 +118,8 @@ export interface IconFieldEmits {}
  */
 declare class IconField extends ClassComponent<IconFieldProps, IconFieldSlots, IconFieldEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         IconField: GlobalComponentConstructor<IconField>;
     }
 }

@@ -104,8 +104,8 @@ export interface ButtonGroupEmits {}
  */
 declare class ButtonGroup extends ClassComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ButtonGroup: GlobalComponentConstructor<ButtonGroup>;
     }
 }

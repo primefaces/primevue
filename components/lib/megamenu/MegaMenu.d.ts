@@ -405,8 +405,8 @@ export interface MegaMenuEmits {
  */
 declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         MegaMenu: GlobalComponentConstructor<MegaMenu>;
     }
 }

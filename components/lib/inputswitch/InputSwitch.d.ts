@@ -207,8 +207,8 @@ export interface InputSwitchEmits {
  */
 declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputSwitch: GlobalComponentConstructor<InputSwitch>;
     }
 }

@@ -983,8 +983,8 @@ declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmit
 
 export type ColumnNode = Column & { props: Column['$props'] };
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Column: GlobalComponentConstructor<Column>;
     }
 }

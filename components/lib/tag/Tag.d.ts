@@ -142,8 +142,8 @@ export interface TagEmits {}
  */
 declare class Tag extends ClassComponent<TagProps, TagSlots, TagEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Tag: GlobalComponentConstructor<Tag>;
     }
 }
