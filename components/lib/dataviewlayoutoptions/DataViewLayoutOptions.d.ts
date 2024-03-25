@@ -61,6 +61,11 @@ export interface DataViewLayoutOptionsPassThroughOptions {
      */
     root?: SelectButtonPassThroughOptions<DataViewLayoutOptionsSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the root's DOM element.
+     * @see {@link SelectButtonPassThroughOptions}
+     */
+    selectbutton?: SelectButtonPassThroughOptions<DataViewLayoutOptionsSharedPassThroughMethodOptions>;
+    /**
      * Used to pass attributes to the list icon's DOM element.
      */
     listIcon?: DataViewLayoutOptionsPassThroughOptionType;
