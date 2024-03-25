@@ -30,7 +30,7 @@ export default {
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-colorpicker > .p-colorpicker-panel {
+.p-colorpicker-panel {
     background: ${dt('colorpicker.panel.background')};
     border: 1px solid ${dt('colorpicker.panel.border.color')};
     border-radius: ${dt('rounded.base')};
