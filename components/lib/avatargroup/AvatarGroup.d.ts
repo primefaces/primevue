@@ -112,8 +112,8 @@ export interface AvatarGroupEmits {}
  */
 declare class AvatarGroup extends ClassComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         AvatarGroup: GlobalComponentConstructor<AvatarGroup>;
     }
 }

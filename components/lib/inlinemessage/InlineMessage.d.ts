@@ -146,8 +146,8 @@ export interface InlineMessageEmits {}
  */
 declare class InlineMessage extends ClassComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InlineMessage: GlobalComponentConstructor<InlineMessage>;
     }
 }

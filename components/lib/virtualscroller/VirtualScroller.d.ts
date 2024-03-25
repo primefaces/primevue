@@ -519,8 +519,8 @@ declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, Virtu
     getRenderedRange(): VirtualScrollerRangeMethod;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         VirtualScroller: GlobalComponentConstructor<VirtualScroller>;
     }
 }

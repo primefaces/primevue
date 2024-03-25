@@ -3,8 +3,8 @@ import { Icon } from '../index';
 
 declare class AngleDoubleDownIcon extends Icon {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         AngleDoubleDownIcon: GlobalComponentConstructor<AngleDoubleDownIcon>;
     }
 }

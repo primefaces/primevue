@@ -130,8 +130,8 @@ export interface ProgressBarEmits {}
  */
 declare class ProgressBar extends ClassComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ProgressBar: GlobalComponentConstructor<ProgressBar>;
     }
 }

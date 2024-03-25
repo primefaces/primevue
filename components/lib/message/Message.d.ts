@@ -238,8 +238,8 @@ export interface MessageEmits {
  */
 declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Message: GlobalComponentConstructor<Message>;
     }
 }

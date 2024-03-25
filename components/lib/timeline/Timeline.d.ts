@@ -218,8 +218,8 @@ export interface TimelineEmits {}
  */
 declare class Timeline extends ClassComponent<TimelineProps, TimelineSlots, TimelineEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Timeline: GlobalComponentConstructor<Timeline>;
     }
 }

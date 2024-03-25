@@ -272,8 +272,8 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
     hide(): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         OverlayPanel: GlobalComponentConstructor<OverlayPanel>;
     }
 }

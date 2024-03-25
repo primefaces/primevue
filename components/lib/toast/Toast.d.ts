@@ -353,8 +353,8 @@ export interface ToastEmits {
  */
 declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Toast: GlobalComponentConstructor<Toast>;
     }
 }

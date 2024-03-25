@@ -1008,8 +1008,8 @@ export interface CalendarEmits {
  */
 declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Calendar: GlobalComponentConstructor<Calendar>;
     }
 }

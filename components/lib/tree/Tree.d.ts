@@ -441,8 +441,8 @@ export interface TreeEmits {
  */
 declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Tree: GlobalComponentConstructor<Tree>;
     }
 }

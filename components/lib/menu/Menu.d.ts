@@ -359,8 +359,8 @@ declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
     hide(): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Menu: GlobalComponentConstructor<Menu>;
     }
 }

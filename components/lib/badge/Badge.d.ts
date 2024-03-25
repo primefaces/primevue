@@ -120,8 +120,8 @@ export interface BadgeEmits {}
  */
 declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Badge: GlobalComponentConstructor<Badge>;
     }
 }

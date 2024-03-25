@@ -278,8 +278,8 @@ export interface TabViewEmits {
  */
 declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TabView: GlobalComponentConstructor<TabView>;
     }
 }

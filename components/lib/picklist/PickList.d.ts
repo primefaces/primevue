@@ -606,8 +606,8 @@ export interface PickListEmits {
  */
 declare class PickList extends ClassComponent<PickListProps, PickListSlots, PickListEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         PickList: GlobalComponentConstructor<PickList>;
     }
 }

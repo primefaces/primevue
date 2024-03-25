@@ -415,8 +415,8 @@ export interface DialogEmits {
  */
 declare class Dialog extends ClassComponent<DialogProps, DialogSlots, DialogEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Dialog: GlobalComponentConstructor<Dialog>;
     }
 }

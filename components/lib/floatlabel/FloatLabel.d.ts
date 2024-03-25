@@ -115,8 +115,8 @@ export interface FloatLabelEmits {}
  */
 declare class FloatLabel extends ClassComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         FloatLabel: GlobalComponentConstructor<FloatLabel>;
     }
 }

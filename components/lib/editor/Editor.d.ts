@@ -305,8 +305,8 @@ export interface EditorEmits {
  */
 declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Editor: GlobalComponentConstructor<Editor>;
     }
 }

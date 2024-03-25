@@ -128,8 +128,8 @@ export interface ProgressSpinnerEmits {}
  */
 declare class ProgressSpinner extends ClassComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ProgressSpinner: GlobalComponentConstructor<ProgressSpinner>;
     }
 }

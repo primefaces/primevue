@@ -266,8 +266,8 @@ export interface InputOtpEmits {
  */
 declare class InputOtp extends ClassComponent<InputOtpProps, InputOtpSlots, InputOtpEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputOtp: GlobalComponentConstructor<InputOtp>;
     }
 }

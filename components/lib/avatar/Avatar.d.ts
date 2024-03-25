@@ -163,8 +163,8 @@ export interface AvatarEmits {
  */
 declare class Avatar extends ClassComponent<AvatarProps, AvatarSlots, AvatarEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Avatar: GlobalComponentConstructor<Avatar>;
     }
 }
