@@ -78,30 +78,5 @@ export default {
     color: ${dt('highlight.focus.color')};
     background: ${dt('highlight.focus.background')};
 }
-
-.p-orderlist-controls .p-button {
-    background: ${dt('orderlist.control.background')};
-    border: 1px solid ${dt('orderlist.control.border.color')};
-    color: ${dt('orderlist.control.color')};
-    outline-color: transparent;
-    transition: opacity ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
-}
-
-.p-orderlist-controls .p-button:not(:disabled):hover {
-    background: ${dt('orderlist.control.hover.background')};
-    border: 1px solid ${dt('orderlist.control.hover.border.color')};
-    color: ${dt('orderlist.control.hover.color')};
-}
-
-.p-orderlist-controls .p-button:not(:disabled):active {
-    background: ${dt('orderlist.control.active.background')};
-    border: 1px solid ${dt('orderlist.control.active.border.color')};
-    color: ${dt('orderlist.control.hover.active')};
-}
-
-.p-orderlist-controls .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
 `
 };

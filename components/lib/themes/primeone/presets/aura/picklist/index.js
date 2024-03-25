@@ -13,17 +13,6 @@ export default {
                 focusBackground: '{surface.100}',
                 color: '{surface.700}',
                 focusColor: '{surface.800}'
-            },
-            control: {
-                background: '{surface.100}',
-                hoverBackground: '{surface.200}',
-                backgroundActive: '{surface.300}',
-                borderColor: '{surface.100}',
-                hoverBorderColor: '{surface.200}',
-                activeBorderColor: '{surface.300}',
-                color: '{surface.600}',
-                hoverColor: '{surface.700}',
-                activeColor: '{surface.800}'
             }
         },
         dark: {
@@ -39,17 +28,6 @@ export default {
                 focusBackground: '{surface.800}',
                 color: '{surface.0}',
                 focusColor: '{surface.0}'
-            },
-            control: {
-                background: '{surface.800}',
-                hoverBackground: '{surface.700}',
-                backgroundActive: '{surface.600}',
-                borderColor: '{surface.800}',
-                hoverBorderColor: '{surface.700}',
-                activeBorderColor: '{surface.600}',
-                color: '{surface.300}',
-                hoverColor: '{surface.200}',
-                activeColor: '{surface.100}'
             }
         }
     }

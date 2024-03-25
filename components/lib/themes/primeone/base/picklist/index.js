@@ -78,30 +78,5 @@ export default {
     color: ${dt('highlight.focus.color')};
     background: ${dt('highlight.focus.background')};
 }
-
-.p-picklist-buttons .p-button {
-    background: ${dt('picklist.control.background')};
-    border: 1px solid ${dt('picklist.control.border.color')};
-    color: ${dt('picklist.control.color')};
-    outline-color: transparent;
-    transition: opacity ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
-}
-
-.p-picklist-buttons .p-button:not(:disabled):hover {
-    background: ${dt('picklist.control.hover.background')};
-    border: 1px solid ${dt('picklist.control.hover.border.color')};
-    color: ${dt('picklist.control.hover.color')};
-}
-
-.p-picklist-buttons .p-button:not(:disabled):active {
-    background: ${dt('picklist.control.active.background')};
-    border: 1px solid ${dt('picklist.control.active.border.color')};
-    color: ${dt('picklist.control.active.color')};
-}
-
-.p-picklist-buttons .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
 `
 };
