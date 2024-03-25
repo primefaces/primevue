@@ -355,7 +355,7 @@ export default {
                 return;
             }
 
-            if (event.shiftKey || event.altKey) {
+            if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
 
                 return;

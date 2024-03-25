@@ -63,7 +63,7 @@ describe('Tree.vue', () => {
     it('should render icon slot', ({ expect }) => {
         let wrapper = mount(Tree, {
             slots: {
-                nodeIcon: `<i data-node-icon/>`
+                nodeicon: `<i data-node-icon/>`
             },
             props: {
                 value: [

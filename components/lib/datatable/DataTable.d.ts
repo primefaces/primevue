@@ -943,9 +943,9 @@ export interface DataTableProps {
      */
     filterDisplay?: 'menu' | 'row' | undefined;
     /**
-     * Fields for global filter
+     * 	An array of fields as string or function to use in global filtering.
      */
-    globalFilterFields?: string[] | undefined;
+    globalFilterFields?: (string | ((data: any) => string))[] | undefined;
     /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */

@@ -20104,9 +20104,9 @@
                             "name": "globalFilterFields",
                             "optional": true,
                             "readonly": false,
-                            "type": "string[]",
+                            "type": "(string | Function)[]",
                             "default": "",
-                            "description": "Fields for global filter"
+                            "description": "An array of fields as string or function to use in global filtering."
                         },
                         {
                             "name": "filterLocale",
@@ -57315,8 +57315,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Tree node instance</span>\n }",
-                                    "description": "togglericon slot's params."
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Tree node instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "description": "nodeicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",

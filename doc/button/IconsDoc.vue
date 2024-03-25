@@ -38,7 +38,7 @@ export default {
         <Button icon="pi pi-check" aria-label="Submit" />
         <Button label="Submit" icon="pi pi-check" />
         <Button label="Submit" icon="pi pi-check" iconPos="right" />
-    </div>s
+    </div>
 </template>
 
 <script setup>
