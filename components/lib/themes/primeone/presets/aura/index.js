@@ -160,9 +160,9 @@ export default {
                 },
                 highlight: {
                     background: '{primary.50}',
-                    backgroundFocus: '{primary.100}',
-                    textColor: '{primary.700}',
-                    textColorFocus: '{primary.800}'
+                    focusBackground: '{primary.100}',
+                    color: '{primary.700}',
+                    focusColor: '{primary.800}'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)',
                 formField: {
@@ -206,26 +206,26 @@ export default {
                 },
                 highlight: {
                     background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
-                    backgroundFocus: 'color-mix(in srgb, {primary.400}, transparent 76%)',
-                    textColor: 'rgba(255,255,255,.87)',
-                    textColorFocus: 'rgba(255,255,255,.87)'
+                    focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                    color: 'rgba(255,255,255,.87)',
+                    focusColor: 'rgba(255,255,255,.87)'
                 },
                 maskBackground: 'rgba(0,0,0,0.4)',
                 formField: {
                     background: '{surface.950}',
-                    backgroundDisabled: '{surface.700}',
-                    backgroundFilled: '{surface.800}',
-                    backgroundFilledFocus: '{surface.950}',
+                    disabledBackground: '{surface.700}',
+                    filledBackground: '{surface.800}',
+                    filledFocusBackground: '{surface.950}',
                     borderColor: '{surface.700}',
-                    borderColorHover: '{surface.600}',
-                    borderColorFocus: '{primary.color}',
-                    borderColorInvalid: '{red.300}',
-                    textColor: '{surface.0}',
-                    textColorDisabled: '{surface.400}',
-                    placeholderTextColor: '{surface.400}',
-                    floatLabelTextColor: '{surface.400}',
-                    floatLabelTextColorInvalid: '{red.300}',
-                    floatLabelTextColorFocus: '{surface.400}',
+                    hoverBorderColor: '{surface.600}',
+                    focusBorderColor: '{primary.color}',
+                    invalidBorderColor: '{red.300}',
+                    color: '{surface.0}',
+                    disabledColor: '{surface.400}',
+                    placeholderColor: '{surface.400}',
+                    floatLabelColor: '{surface.400}',
+                    floatLabelFocusColor: '{surface.400}',
+                    floatLabelInvalidColor: '{red.300}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 }
             }
