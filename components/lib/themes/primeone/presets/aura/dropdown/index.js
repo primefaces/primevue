@@ -33,7 +33,7 @@ export default {
             item: {
                 focusBackground: '{surface.100}',
                 selectedBackground: '{highlight.background}',
-                selectedBackgroundFocus: '{highlight.focus.background}',
+                selectedFocusBackground: '{highlight.focus.background}',
                 color: '{surface.700}',
                 focusColor: '{surface.800}',
                 selectedColor: '{highlight.color}',
@@ -62,7 +62,7 @@ export default {
             item: {
                 focusBackground: '{surface.800}',
                 selectedBackground: '{highlight.background}',
-                selectedBackgroundFocus: '{highlight.focus.background}',
+                selectedFocusBackground: '{highlight.focus.background}',
                 color: '{surface.0}',
                 focusColor: '{surface.0}',
                 selectedColor: '{highlight.color}',

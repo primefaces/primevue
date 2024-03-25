@@ -17,11 +17,47 @@ export default {
         light: {
             toggle: {
                 color: '{surface.400}'
+            },
+            overlay: {
+                background: '{surface.0}',
+                borderColor: '{surface.200}',
+                color: '{surface.700}'
+            },
+            item: {
+                focusBackground: '{surface.100}',
+                selectedBackground: '{highlight.background}',
+                selectedFocusBackground: '{highlight.focus.background}',
+                color: '{surface.700}',
+                focusColor: '{surface.800}',
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}',
+                icon: {
+                    color: '{surface.400}',
+                    focusColor: '{surface.500}'
+                }
             }
         },
         dark: {
             toggle: {
                 color: '{surface.400}'
+            },
+            overlay: {
+                background: '{surface.900}',
+                borderColor: '{surface.700}',
+                color: '{surface.0}'
+            },
+            item: {
+                focusBackground: '{surface.800}',
+                selectedBackground: '{highlight.background}',
+                selectedFocusBackground: '{highlight.focus.background}',
+                color: '{surface.0}',
+                focusColor: '{surface.0}',
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}',
+                icon: {
+                    color: '{surface.500}',
+                    focusColor: '{surface.400}'
+                }
             }
         }
     }
