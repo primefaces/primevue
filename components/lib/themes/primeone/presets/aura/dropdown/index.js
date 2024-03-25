@@ -33,11 +33,11 @@ export default {
             item: {
                 focusBackground: '{surface.100}',
                 selectedBackground: '{highlight.background}',
-                selectedBackgroundFocus: '{highlight.background.focus}',
+                selectedBackgroundFocus: '{highlight.focus.background}',
                 color: '{surface.700}',
                 focusColor: '{surface.800}',
-                selectedColor: '{highlight.text.color}',
-                selectedFocusColor: '{highlight.text.color.focus}'
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}'
             },
             checkmark: {
                 color: '{surface.400}'
@@ -62,11 +62,11 @@ export default {
             item: {
                 focusBackground: '{surface.800}',
                 selectedBackground: '{highlight.background}',
-                selectedBackgroundFocus: '{highlight.background.focus}',
+                selectedBackgroundFocus: '{highlight.focus.background}',
                 color: '{surface.0}',
                 focusColor: '{surface.0}',
-                selectedColor: '{highlight.text.color}',
-                selectedFocusColor: '{highlight.text.color.focus}'
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}'
             },
             checkmark: {
                 color: '{surface.400}'

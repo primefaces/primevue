@@ -29,15 +29,27 @@ export default {
             item: {
                 focusBackground: '{surface.100}',
                 selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.background.focus}',
+                selectedFocusBackground: '{highlight.focus.background}',
                 color: '{surface.700}',
                 focusColor: '{surface.800}',
-                selectedColor: '{highlight.text.color}',
-                selectedFocusColor: '{highlight.text.color.focus}'
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}'
             },
             itemGroup: {
                 background: '{surface.0}',
                 color: '{surface.500}'
+            },
+            dropdown: {
+                width: '2.5rem',
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}',
+                borderColor: '{form.field.border.color}',
+                hoverBorderColor: '{form.field.border.color}',
+                activeBorderColor: '{form.field.border.color}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}',
+                activeColor: '{surface.800}'
             }
         },
         dark: {
@@ -55,15 +67,26 @@ export default {
             item: {
                 focusBackground: '{surface.800}',
                 selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.background.focus}',
+                selectedFocusBackground: '{highlight.focus.background}',
                 color: '{surface.0}',
                 focusColor: '{surface.0}',
-                selectedColor: '{highlight.text.color}',
-                selectedFocusColor: '{highlight.text.color.focus}'
+                selectedColor: '{highlight.color}',
+                selectedFocusColor: '{highlight.focus.color}'
             },
             itemGroup: {
-                background: '{surface.0}',
+                background: '{surface.900}',
                 color: '{surface.400}'
+            },
+            dropdown: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}',
+                borderColor: '{form.field.border.color}',
+                hoverBorderColor: '{form.field.border.color}',
+                activeBorderColor: '{form.field.border.color}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}',
+                activeColor: '{surface.100}'
             }
         }
     }

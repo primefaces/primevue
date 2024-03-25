@@ -34,7 +34,7 @@ export default {
                 selectedBackground: '{highlight.background}',
                 color: '{surface.700}',
                 hoverColor: '{surface.800}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             today: {
                 background: '{surface.200}',
@@ -45,14 +45,14 @@ export default {
                 selectedBackground: '{highlight.background}',
                 color: '{surface.700}',
                 hoverColor: '{surface.800}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             year: {
                 hoverBackground: '{surface.100}',
                 selectedBackground: '{highlight.background}',
                 color: '{surface.700}',
                 hoverColor: '{surface.800}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             buttonbar: {
                 borderColor: '{surface.200}'
@@ -100,7 +100,7 @@ export default {
                 selectedBackground: '{highlight.background}',
                 color: '{surface.0}',
                 hoverColor: '{surface.0}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             today: {
                 background: '{surface.700}',
@@ -111,14 +111,14 @@ export default {
                 selectedBackground: '{highlight.background}',
                 color: '{surface.0}',
                 hoverColor: '{surface.0}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             year: {
                 hoverBackground: '{surface.800}',
                 selectedBackground: '{highlight.background}',
                 color: '{surface.0}',
                 hoverColor: '{surface.0}',
-                selectedColor: '{highlight.text.color}'
+                selectedColor: '{highlight.color}'
             },
             buttonbar: {
                 borderColor: '{surface.700}'
