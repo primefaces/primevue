@@ -159,6 +159,8 @@ export default {
 
 .p-cascadeselect-item-active {
     overflow: visible;
+    background: ${dt('cascadeselect.item.focus.background')};
+    color: ${dt('cascadeselect.item.focus.color')};
 }
 
 .p-cascadeselect-item-active > .p-cascadeselect-sublist {

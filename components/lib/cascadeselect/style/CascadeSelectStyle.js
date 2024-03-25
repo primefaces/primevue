@@ -34,12 +34,13 @@ const classes = {
         }
     ],
     wrapper: 'p-cascadeselect-items-wrapper',
-    list: 'p-cascadeselect-panel p-cascadeselect-items',
+    rootList: 'p-cascadeselect-items',
     item: ({ instance, processedOption }) => [
         'p-cascadeselect-item',
         {
             'p-cascadeselect-item-group': instance.isOptionGroup(processedOption),
-            'p-cascadeselect-item-active p-highlight': instance.isOptionActive(processedOption),
+            'p-cascadeselect-item-active': instance.isOptionActive(processedOption),
+            'p-highlight': instance.isOptionSelected(processedOption),
             'p-focus': instance.isOptionFocused(processedOption),
             'p-disabled': instance.isOptionDisabled(processedOption)
         }
@@ -47,7 +48,7 @@ const classes = {
     content: 'p-cascadeselect-item-content',
     text: 'p-cascadeselect-item-text',
     groupIcon: 'p-cascadeselect-group-icon',
-    sublist: 'p-cascadeselect-sublist'
+    sublist: 'p-cascadeselect-panel p-cascadeselect-sublist'
 };
 
 export default BaseStyle.extend({

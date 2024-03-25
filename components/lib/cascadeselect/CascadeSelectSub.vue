@@ -1,5 +1,5 @@
 <template>
-    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
+    <ul :ref="containerRef" :class="cx('rootList')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
