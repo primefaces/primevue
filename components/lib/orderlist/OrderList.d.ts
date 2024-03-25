@@ -9,10 +9,10 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
+import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { ListboxPassThroughOptions } from '../listbox';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
 
@@ -231,10 +231,27 @@ export interface OrderListProps {
      */
     tabindex?: number | string | undefined;
     /**
-     * Defines the style of the button.
-     * @defaultValue secondary
+     * Used to pass all properties of the ButtonProps to the move up button inside the component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary' }
      */
-    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
+    buttonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move up button inside the component.
+     */
+    moveUpButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move top button inside the component.
+     */
+    moveTopButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move down button inside the component.
+     */
+    moveDownButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move bottom button inside the component.
+     */
+    moveBottomButtonProps?: object | undefined;
     /**
      * Defines a string value that labels an interactive list element.
      */

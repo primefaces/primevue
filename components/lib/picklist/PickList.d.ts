@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
 
@@ -365,10 +365,43 @@ export interface PickListProps {
      */
     showTargetControls?: boolean | undefined;
     /**
-     * Defines the style of the button.
-     * @defaultValue secondary
+     * Used to pass all properties of the ButtonProps to the move up button inside the component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary' }
      */
-    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
+    buttonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move up button inside the component.
+     */
+    moveUpButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move top button inside the component.
+     */
+    moveTopButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move down button inside the component.
+     */
+    moveDownButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move bottom button inside the component.
+     */
+    moveBottomButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move to target button inside the component.
+     */
+    moveToTargetProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move all to target button inside the component.
+     */
+    moveAllToTargetProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move to source button inside the component.
+     */
+    moveToSourceProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the move all to source button inside the component.
+     */
+    moveAllToSourceProps?: object | undefined;
     /**
      * Index of the list element in tabbing order.
      */
