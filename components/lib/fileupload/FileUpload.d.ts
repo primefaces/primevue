@@ -208,16 +208,9 @@ export interface FileUploadPassThroughOptions {
     buttonbar?: FileUploadPassThroughOptionType;
     /**
      * Used to pass attributes to the choose button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    chooseButton?: FileUploadPassThroughOptionType;
-    /**
-     * Used to pass attributes to the choose icon's DOM element.
-     */
-    chooseIcon?: FileUploadPassThroughOptionType;
-    /**
-     * Used to pass attributes to the choose button label's DOM element.
-     */
-    chooseButtonLabel?: FileUploadPassThroughOptionType;
+    chooseButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the upload button's DOM element.
      * @see {@link ButtonPassThroughOptions}
@@ -280,13 +273,10 @@ export interface FileUploadPassThroughOptions {
      */
     empty?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the basic mode's button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    label?: FileUploadPassThroughOptionType;
-    /**
-     * Used to pass attributes to the upload icon's DOM element.
-     */
-    uploadIcon?: FileUploadPassThroughOptionType;
+    button?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

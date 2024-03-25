@@ -5,7 +5,7 @@ export default {
     overflow: hidden;
 }
 
-.p-fileupload-choose input[type="file"] {
+.p-fileupload input[type="file"] {
     display: none;
 }
 
