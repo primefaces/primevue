@@ -1,12 +1,10 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-highlight="active" :data-p-disabled="disabled">
-        <button v-ripple type="button" :class="cx('button')" :tabindex="tabindex" :aria-pressed="modelValue" :aria-disabled="disabled" @click="onChange" v-bind="getPTOptions('button')">
-            <slot name="icon" :value="modelValue" :class="cx('icon')">
-                <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
-            </slot>
-            <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
-        </button>
-    </div>
+    <button v-ripple type="button" :class="cx('root')" :tabindex="tabindex" :disabled="disabled" :aria-pressed="modelValue" @click="onChange" v-bind="getPTOptions('root')" :data-p-highlight="active" :data-p-disabled="disabled">
+        <slot name="icon" :value="modelValue" :class="cx('icon')">
+            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
+        </slot>
+        <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
+    </button>
 </template>
 
 <script>
