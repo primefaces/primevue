@@ -835,7 +835,7 @@ interface CalendarPropsMultiple extends BaseCalendarProps {
     selectionMode?: 'multiple';
 }
 
-export type CalendarProps = CalendarPropsSingle | CalendarPropsRange | CalendarPropsMultiple
+export type CalendarProps = CalendarPropsSingle | CalendarPropsRange | CalendarPropsMultiple;
 
 /**
  * Defines valid options of the date slot in Calendar component.
