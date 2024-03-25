@@ -90,8 +90,8 @@
                     </li>
                 </ul>
             </template>
-            <div v-else>
-            </div>
+            <slot name="empty" v-else>
+            </slot>
         </div>
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
