@@ -220,6 +220,18 @@ export default {
             type: Object,
             default: null
         },
+        todayButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
+            }
+        },
+        clearButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
+            }
+        },
         ariaLabelledby: {
             type: String,
             default: null

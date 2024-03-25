@@ -9,6 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
@@ -308,12 +309,14 @@ export interface CalendarPassThroughOptions {
     buttonbar?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the today button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    todayButton?: CalendarPassThroughOptionType;
+    todayButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the clear button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    clearButton?: CalendarPassThroughOptionType;
+    clearButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the aria selected day's DOM element.
      */
@@ -750,6 +753,18 @@ interface BaseCalendarProps {
      * Style class of the overlay panel.
      */
     panelClass?: string | object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the today button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', text: true }
+     */
+    todayButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the clear button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', text: true }
+     */
+    clearButtonProps?: object | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

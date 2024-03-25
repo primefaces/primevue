@@ -482,12 +482,8 @@
                         </div>
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
-                        <button type="button" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" v-bind="ptm('todayButton')" data-pc-group-section="button">
-                            {{ todayLabel }}
-                        </button>
-                        <button type="button" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" v-bind="ptm('clearButton')" data-pc-group-section="button">
-                            {{ clearLabel }}
-                        </button>
+                        <Button :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" v-bind="todayButtonProps" :pt="ptm('todayButton')" data-pc-group-section="button" />
+                        <Button :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" v-bind="clearButtonProps" :pt="ptm('clearButton')" data-pc-group-section="button" />
                     </div>
                     <slot name="footer"></slot>
                 </div>
