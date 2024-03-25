@@ -3,8 +3,8 @@ import { GlobalComponentConstructor } from '../../ts-helpers';
 
 declare class StarFillIcon extends Icon {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         StarFillIcon: GlobalComponentConstructor<StarFillIcon>;
     }
 }

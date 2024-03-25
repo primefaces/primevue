@@ -132,8 +132,8 @@ export interface DeferredContentEmits {
  */
 declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         DeferredContent: GlobalComponentConstructor<DeferredContent>;
     }
 }

@@ -138,8 +138,8 @@ export interface ToolbarEmits {}
  */
 declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Toolbar: GlobalComponentConstructor<Toolbar>;
     }
 }

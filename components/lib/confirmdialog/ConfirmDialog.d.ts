@@ -290,8 +290,8 @@ export interface ConfirmDialogEmits {}
  */
 declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ConfirmDialog: GlobalComponentConstructor<ConfirmDialog>;
     }
 }

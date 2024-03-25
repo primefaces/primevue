@@ -242,8 +242,8 @@ export interface KnobEmits {
  */
 declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Knob: GlobalComponentConstructor<Knob>;
     }
 }

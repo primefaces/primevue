@@ -441,8 +441,8 @@ declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots
     hide: () => void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TreeSelect: GlobalComponentConstructor<TreeSelect>;
     }
 }

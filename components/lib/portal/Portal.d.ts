@@ -28,8 +28,8 @@ export declare type PortalEmits = {};
 
 declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Portal: GlobalComponentConstructor<Portal>;
     }
 }

@@ -113,8 +113,8 @@ export interface InputGroupEmits {}
  */
 declare class InputGroup extends ClassComponent<InputGroupProps, InputGroupSlots, InputGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputGroup: GlobalComponentConstructor<InputGroup>;
     }
 }

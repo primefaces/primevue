@@ -160,8 +160,8 @@ export interface BlockUIEmits {
  */
 declare class BlockUI extends ClassComponent<BlockUIProps, BlockUISlots, BlockUIEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         BlockUI: GlobalComponentConstructor<BlockUI>;
     }
 }

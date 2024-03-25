@@ -257,8 +257,8 @@ export interface SelectButtonEmits {
  */
 declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         SelectButton: GlobalComponentConstructor<SelectButton>;
     }
 }

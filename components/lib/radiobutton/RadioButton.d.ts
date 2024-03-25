@@ -229,8 +229,8 @@ export interface RadioButtonEmits {
  */
 declare class RadioButton extends ClassComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         RadioButton: GlobalComponentConstructor<RadioButton>;
     }
 }

@@ -200,8 +200,8 @@ export interface SliderEmits {
  */
 declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Slider: GlobalComponentConstructor<Slider>;
     }
 }

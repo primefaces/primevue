@@ -132,8 +132,8 @@ export interface SplitterPanelEmits {}
  */
 declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         SplitterPanel: GlobalComponentConstructor<SplitterPanel>;
     }
 }

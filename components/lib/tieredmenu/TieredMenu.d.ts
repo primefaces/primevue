@@ -408,8 +408,8 @@ declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots
     hide(): void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TieredMenu: GlobalComponentConstructor<TieredMenu>;
     }
 }

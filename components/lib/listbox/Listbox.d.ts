@@ -567,8 +567,8 @@ export interface ListboxEmits {
  */
 declare class Listbox extends ClassComponent<ListboxProps, ListboxSlots, ListboxEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Listbox: GlobalComponentConstructor<Listbox>;
     }
 }

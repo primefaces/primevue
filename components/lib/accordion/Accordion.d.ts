@@ -232,8 +232,8 @@ export interface AccordionEmits {
  */
 declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Accordion: GlobalComponentConstructor<Accordion>;
     }
 }

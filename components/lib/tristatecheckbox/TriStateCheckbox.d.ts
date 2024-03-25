@@ -264,8 +264,8 @@ export interface TriStateCheckboxEmits {
  */
 declare class TriStateCheckbox extends ClassComponent<TriStateCheckboxProps, TriStateCheckboxSlots, TriStateCheckboxEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         TriStateCheckbox: GlobalComponentConstructor<TriStateCheckbox>;
     }
 }

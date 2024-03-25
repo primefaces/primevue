@@ -390,8 +390,8 @@ export interface MenubarEmits {}
  */
 declare class Menubar extends ClassComponent<MenubarProps, MenubarSlots, MenubarEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Menubar: GlobalComponentConstructor<Menubar>;
     }
 }

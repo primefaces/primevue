@@ -165,35 +165,49 @@ export default {
             } else {
                 tokens[currentKey] ||= {
                     paths: [],
-                    computed(colorScheme) {
-                        // @todo
-                        const scheme = colorScheme;
+                    computed(colorScheme, tokenPathMap = {}) {
+                        if (colorScheme) {
+                            const path = this.paths.find((p) => p.scheme === colorScheme) || this.paths.find((p) => p.scheme === 'none');
 
-                        return this.paths.find((p) => p.scheme === scheme || p.scheme === 'none')?.computed();
+                            return path?.computed(colorScheme, tokenPathMap['paths']);
+                        }
+
+                        return this.paths.map((p) => p.computed(p.scheme, tokenPathMap));
                     }
                 };
                 tokens[currentKey].paths.push({
                     path: currentPath,
                     value,
                     scheme: currentPath.includes('colorScheme.light') ? 'light' : currentPath.includes('colorScheme.dark') ? 'dark' : 'none',
-                    computed(colorScheme) {
+                    computed(colorScheme, tokenPathMap = {}) {
                         const regex = /{([^}]*)}/g;
+                        let computedValue = value;
+
+                        tokenPathMap['path'] = this.path;
+                        tokenPathMap['paths'] ||= {};
 
                         if (SharedUtils.object.test(regex, value)) {
                             const val = value.trim();
                             const _val = val.replaceAll(regex, (v) => {
                                 const path = v.replace(/{|}/g, '');
 
-                                return tokens[path]?.computed(colorScheme);
+                                return tokens[path]?.computed(colorScheme, tokenPathMap)?.value;
                             });
 
                             const calculationRegex = /(\d+\w*\s+[\+\-\*\/]\s+\d+\w*)/g;
                             const cleanedVarRegex = /var\([^)]+\)/g;
 
-                            return SharedUtils.object.test(calculationRegex, _val.replace(cleanedVarRegex, '0')) ? `calc(${_val})` : _val;
+                            computedValue = SharedUtils.object.test(calculationRegex, _val.replace(cleanedVarRegex, '0')) ? `calc(${_val})` : _val;
                         }
 
-                        return value;
+                        SharedUtils.object.isEmpty(tokenPathMap['paths']) && delete tokenPathMap['paths'];
+
+                        return {
+                            colorScheme,
+                            tokenPath: this.path,
+                            tokenPathMap,
+                            value: computedValue.includes('undefined') ? undefined : computedValue
+                        };
                     }
                 });
             }
@@ -211,7 +225,7 @@ export default {
         const token = normalizePath(path);
         const colorScheme = path.includes('colorScheme.light') ? 'light' : path.includes('colorScheme.dark') ? 'dark' : undefined;
 
-        return tokens[token]?.computed(colorScheme);
+        return [tokens[token]?.computed(colorScheme)].flat();
     },
     _toVariables(theme, options) {
         return toVariables(theme, { prefix: options?.prefix });

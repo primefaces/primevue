@@ -152,8 +152,8 @@ export interface CardEmits {}
  */
 declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Card: GlobalComponentConstructor<Card>;
     }
 }

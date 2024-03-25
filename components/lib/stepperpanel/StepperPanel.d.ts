@@ -277,8 +277,8 @@ export interface StepperPanelEmits {}
  */
 declare class StepperPanel extends ClassComponent<StepperPanelProps, StepperPanelSlots, StepperPanelEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         StepperPanel: GlobalComponentConstructor<StepperPanel>;
     }
 }

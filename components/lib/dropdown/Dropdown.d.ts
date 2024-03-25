@@ -758,8 +758,8 @@ declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, Drop
     hide: (isFocus?: boolean) => void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Dropdown: GlobalComponentConstructor<Dropdown>;
     }
 }

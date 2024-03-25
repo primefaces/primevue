@@ -54,9 +54,43 @@ export default {
             type: Boolean,
             default: true
         },
-        severity: {
-            type: String,
-            default: 'secondary'
+        buttonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary' };
+            }
+        },
+        moveUpButtonProps: {
+            type: null,
+            default: null
+        },
+        moveTopButtonProps: {
+            type: null,
+            default: null
+        },
+        moveDownButtonProps: {
+            type: null,
+            default: null
+        },
+        moveBottomButtonProps: {
+            type: null,
+            default: null
+        },
+        moveToTargetProps: {
+            type: null,
+            default: null
+        },
+        moveAllToTargetProps: {
+            type: null,
+            default: null
+        },
+        moveToSourceProps: {
+            type: null,
+            default: null
+        },
+        moveAllToSourceProps: {
+            type: null,
+            default: null
         },
         tabindex: {
             type: Number,
