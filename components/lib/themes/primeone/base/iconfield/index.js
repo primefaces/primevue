@@ -4,10 +4,11 @@ export default {
     position: relative;
 }
 
-.p-icon-field .p-input-icon {
+.p-input-icon {
     position: absolute;
     top: 50%;
     margin-top: -.5rem;
+    color: ${dt('iconfield.color')};
 }
 
 .p-icon-field-left .p-input-icon {
