@@ -64,6 +64,18 @@ export default {
                 hoverBackground: '{surface.100}',
                 color: '{surface.500}',
                 hoverColor: '{surface.600}'
+            },
+            dropdown: {
+                width: '2.5rem',
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}',
+                borderColor: '{form.field.border.color}',
+                hoverBorderColor: '{form.field.border.color}',
+                activeBorderColor: '{form.field.border.color}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}',
+                activeColor: '{surface.800}'
             }
         },
         dark: {
@@ -130,6 +142,17 @@ export default {
                 hoverBackground: '{surface.800}',
                 color: '{surface.400}',
                 hoverColor: '{surface.300}'
+            },
+            dropdown: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}',
+                borderColor: '{form.field.border.color}',
+                hoverBorderColor: '{form.field.border.color}',
+                activeBorderColor: '{form.field.border.color}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}',
+                activeColor: '{surface.100}'
             }
         }
     }

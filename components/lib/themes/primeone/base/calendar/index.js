@@ -15,13 +15,57 @@ export default {
     border-bottom-right-radius: 0;
 }
 
-.p-calendar-w-btn .p-datepicker-trigger {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+.p-datepicker-trigger {
+    cursor: pointer;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: ${dt('calendar.dropdown.width')};
+    border-top-right-radius: ${dt('rounded.base')};
+    border-bottom-right-radius: ${dt('rounded.base')};
+    background: ${dt('calendar.dropdown.background')};
+    border: 1px solid ${dt('calendar.dropdown.border.color')};
+    border-left: 0 none;
+    background: ${dt('calendar.dropdown.background')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    outline-color: transparent;
 }
 
-.p-calendar .p-datepicker-trigger-icon {
+.p-datepicker-trigger:not(:disabled):hover {
+    background: ${dt('calendar.dropdown.hover.background')};
+    border-color: ${dt('calendar.dropdown.hover.border.color')};
+    background: ${dt('calendar.dropdown.hover.background')};
+}
+
+.p-datepicker-trigger:not(:disabled):active {
+    background: ${dt('calendar.dropdown.active.background')};
+    border-color: ${dt('calendar.dropdown.active.border.color')};
+    background: ${dt('calendar.dropdown.active.background')};
+}
+
+.p-datepicker-trigger:focus-visible {
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('button.primary.background')};
+    outline-offset: ${dt('focus.ring.offset')};
+}
+
+.p-calendar:has(.p-input-icon) {
+    position: relative;
+}
+
+.p-calendar:has(.p-input-icon) .p-calendar-input {
+    padding-right: 2.5rem;
+}
+
+.p-calendar .p-input-icon {
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: .75rem;
+    margin-top: -.5rem;
 }
 
 .p-fluid .p-calendar {
