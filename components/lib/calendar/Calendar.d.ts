@@ -126,7 +126,7 @@ export interface CalendarBlurEvent {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link CalendarProps.pt}
+ * @see {@link BaseCalendarProps.pt}
  */
 export interface CalendarPassThroughOptions {
     /**
@@ -494,19 +494,9 @@ export interface CalendarYearOptions {
 }
 
 /**
- * Defines valid properties in Calendar component.
+ * Defines valid base properties in Calendar component.
  */
-export interface CalendarProps {
-    /**
-     * Value of the component.
-     * @defaultValue null
-     */
-    modelValue?: string | Date | string[] | Date[] | undefined | null;
-    /**
-     * Defines the quantity of the selection.
-     * @defaultValue single
-     */
-    selectionMode?: 'single' | 'multiple' | 'range' | undefined;
+interface BaseCalendarProps {
     /**
      * Format of the date. Defaults to PrimeVue Locale configuration.
      */
@@ -796,6 +786,57 @@ export interface CalendarProps {
      */
     unstyled?: boolean;
 }
+
+/**
+ * Defines valid single selection properties in Calendar component.
+ */
+interface CalendarPropsSingle extends BaseCalendarProps {
+    /**
+     * Value of the component.
+     * @defaultValue null
+     */
+    modelValue?: Date | undefined | null;
+    /**
+     * Defines the quantity of the selection.
+     * @defaultValue single
+     */
+    selectionMode?: 'single' | undefined;
+}
+
+/**
+ * Defines valid range selection properties in Calendar component.
+ */
+interface CalendarPropsRange extends BaseCalendarProps {
+    /**
+     * Value of the component.
+     * @defaultValue null
+     */
+    modelValue?: Array<Date | null> | undefined | null;
+    /**
+     * Defines the quantity of the selection.
+     * @defaultValue single
+     */
+    selectionMode?: 'range';
+}
+
+/**
+ * Defines valid multiple selection properties in Calendar component.
+ */
+interface CalendarPropsMultiple extends BaseCalendarProps {
+    /**
+     * Value of the component.
+     * @defaultValue null
+     */
+    modelValue?: Array<Date> | undefined | null;
+    /**
+     * Defines the quantity of the selection.
+     * @defaultValue single
+     */
+    selectionMode?: 'multiple';
+}
+
+export type CalendarProps = CalendarPropsSingle | CalendarPropsRange | CalendarPropsMultiple
+
 /**
  * Defines valid options of the date slot in Calendar component.
  */
@@ -938,9 +979,9 @@ export interface CalendarSlots {
 export interface CalendarEmits {
     /**
      * Emitted when the value changes.
-     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     * @param {Date | Array<Date | null> | null} value - New value.
      */
-    'update:modelValue'(value: string | Date | string[] | Date[] | undefined): void;
+    'update:modelValue'(value: Date | Array<Date | null> | null): void;
     /**
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event
