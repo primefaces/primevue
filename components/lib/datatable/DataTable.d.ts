@@ -9,6 +9,7 @@
  */
 import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonProps } from '../button';
 import { ColumnPassThroughOptionType } from '../column';
 import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
@@ -157,6 +158,28 @@ export interface DataTableExportCSVOptions {
      * Whether to export only selection data.
      */
     selectionOnly: boolean;
+}
+
+/**
+ * Custom datatable filter button props options.
+ */
+export interface DataTableFilterButtonPropsOptions {
+    /**
+     * Add rule button props
+     */
+    addRule: ButtonProps | undefined;
+    /**
+     * Remove rule button props
+     */
+    removeRule: ButtonProps | undefined;
+    /**
+     * Apply button props
+     */
+    apply: ButtonProps | undefined;
+    /**
+     * Apply button props
+     */
+    clear: ButtonProps | undefined;
 }
 
 /**
@@ -1130,6 +1153,16 @@ export interface DataTableProps {
      * Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
+    /**
+     * Used to pass all filter button property object
+     * @defaultValue {
+            addRule: { severity: 'info', text: true, size: 'small' },
+            removeRule: { severity: 'danger', text: true, size: 'small' },
+            apply: { size: 'small' },
+            clear: { outlined: true, size: 'small' }
+        }
+     */
+    filterButtonProps?: DataTableFilterButtonPropsOptions | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataTablePassThroughOptions}

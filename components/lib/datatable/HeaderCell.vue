@@ -58,6 +58,7 @@
                 :filters="filters"
                 :filtersStore="filtersStore"
                 :filterInputProps="filterInputProps"
+                :filterButtonProps="filterButtonProps"
                 @filter-change="$emit('filter-change', $event)"
                 @filter-apply="$emit('filter-apply')"
                 :filterMenuStyle="columnProp('filterMenuStyle')"
@@ -180,6 +181,10 @@ export default {
             default: false
         },
         filterInputProps: {
+            type: null,
+            default: null
+        },
+        filterButtonProps: {
             type: null,
             default: null
         }

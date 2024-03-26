@@ -86,6 +86,7 @@
                             :filters="d_filters"
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
+                            :filterButtonProps="headerFilterButtonProps"
                             :filterInputProps="filterInputProps"
                             :first="d_first"
                             @column-click="onColumnHeaderClick($event)"
@@ -2068,6 +2069,17 @@ export default {
         },
         groupRowSortField() {
             return this.sortMode === 'single' ? this.sortField : this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null;
+        },
+        headerFilterButtonProps() {
+            return {
+                ...{
+                    addRule: { severity: 'info', text: true, size: 'small' },
+                    removeRule: { severity: 'danger', text: true, size: 'small' },
+                    apply: { size: 'small' },
+                    clear: { outlined: true, size: 'small' }
+                },
+                ...this.filterButtonProps
+            };
         },
         virtualScrollerDisabled() {
             return ObjectUtils.isEmpty(this.virtualScrollerOptions) || !this.scrollable;
