@@ -1,12 +1,7 @@
 <template>
     <section class="landing-themes py-8">
-        <div class="section-header">Themes</div>
-        <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as Material, Bootstrap, Tailwind, PrimeOne or develop your own.</p>
-        <div class="flex flex-wrap justify-content-center px-5">
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('aura') }]" @click="changeTheme('aura', 'green')">PrimeOne</button>
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
-        </div>
+        <div class="section-header">Components</div>
+        <p class="section-detail">The most complete UI component library for Vue.js based on a design-agnostic infrastructure.</p>
         <div class="themes-main flex mt-7 justify-content-center px-5 lg:px-8">
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
@@ -92,10 +87,6 @@ import { CustomerService } from '@/service/CustomerService';
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
 
 export default {
-    emits: ['table-theme-change'],
-    props: {
-        theme: null
-    },
     data() {
         return {
             customers: null,
@@ -122,11 +113,6 @@ export default {
         });
     },
     methods: {
-        changeTheme(name, color) {
-            let newTheme = name + '-' + (this.$appState.darkTheme ? 'dark' : 'light') + '-' + color;
-
-            this.$emit('table-theme-change', newTheme);
-        },
         formatDate(value) {
             return value.toLocaleDateString('en-US', {
                 day: '2-digit',

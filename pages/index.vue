@@ -5,7 +5,7 @@
         <HeroSection />
         <FeaturesSection />
         <UsersSection />
-        <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
+        <ThemeSection />
         <BlockSection />
         <TemplateSection />
         <FooterSection />
@@ -20,7 +20,6 @@ import HeroSection from '@/components/landing/HeroSection.vue';
 import TemplateSection from '@/components/landing/TemplateSection.vue';
 import ThemeSection from '@/components/landing/ThemeSection.vue';
 import UsersSection from '@/components/landing/UsersSection.vue';
-import EventBus from '@/layouts/AppEventBus';
 import AppNews from '@/layouts/AppNews';
 import AppTopBar from '@/layouts/AppTopBar.vue';
 
@@ -36,12 +35,6 @@ export default {
             default: null
         }
     },
-    data() {
-        return {
-            tableTheme: 'aura-light-green'
-        };
-    },
-    themeChangeListener: null,
     mounted() {
         let afId = this.$route.query['af_id'];
 
@@ -51,40 +44,6 @@ export default {
 
             expire.setTime(today.getTime() + 3600000 * 24 * 7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
-        }
-    },
-    methods: {
-        onDarkModeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'aura-light-green' : 'aura-dark-green';
-            const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
-
-            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
-            this.replaceTableTheme(newTableTheme);
-        },
-        onTableThemeChange(value) {
-            this.replaceTableTheme(value);
-        },
-        replaceTableTheme(newTheme) {
-            const elementId = 'home-table-link';
-            const linkElement = document.getElementById(elementId);
-            const tableThemeTokens = linkElement?.getAttribute('href').split('/') || null;
-            const currentTableTheme = tableThemeTokens ? tableThemeTokens[tableThemeTokens.length - 2] : null;
-
-            if (currentTableTheme !== newTheme && tableThemeTokens) {
-                const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
-
-                const cloneLinkElement = linkElement.cloneNode(true);
-
-                cloneLinkElement.setAttribute('id', elementId + '-clone');
-                cloneLinkElement.setAttribute('href', newThemeUrl);
-                cloneLinkElement.addEventListener('load', () => {
-                    linkElement.remove();
-                    cloneLinkElement.setAttribute('id', elementId);
-                });
-                linkElement.parentNode?.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
-                this.tableTheme = newTheme;
-            }
         }
     },
     computed: {
