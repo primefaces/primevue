@@ -106,8 +106,13 @@ export default {
             this.isFocusVisibleItem = true;
         },
         onOptionSelect(event, value) {
-            this.focusedOptionIndex = value;
-            this.updateModel(event, value || null);
+            if (this.focusedOptionIndex === value || this.modelValue === value) {
+                this.focusedOptionIndex = -1;
+                this.updateModel(event, null);
+            } else {
+                this.focusedOptionIndex = value;
+                this.updateModel(event, value || null);
+            }
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);

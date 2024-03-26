@@ -181,7 +181,8 @@ export interface RatingProps {
     stars?: number | undefined;
     /**
      * When specified a cancel icon is displayed to allow clearing the value.
-     * @defaultValue true
+     * @deprecated since v4.0.0-beta.1
+     * @defaultValue false
      */
     cancel?: boolean | undefined;
     /**

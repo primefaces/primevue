@@ -24,7 +24,7 @@ export default {
         },
         cancel: {
             type: Boolean,
-            default: true
+            default: false
         },
         onIcon: {
             type: String,
