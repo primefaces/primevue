@@ -49,20 +49,20 @@ export default {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        borderColor: documentStyle.getPropertyValue('--gray-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--gray-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--gray-400'),
+                        borderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--p-gray-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                         data: [65, 59, 90, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        borderColor: documentStyle.getPropertyValue('--cyan-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--cyan-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        borderColor: documentStyle.getPropertyValue('--p-cyan-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--p-cyan-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--p-cyan-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--p-cyan-400'),
                         data: [28, 48, 40, 19, 96, 27, 100]
                     }
                 ]
@@ -71,7 +71,7 @@ export default {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
             
             return {
                 plugins: {
@@ -121,20 +121,20 @@ const setChartData = () => {
         datasets: [
             {
                 label: 'My First dataset',
-                borderColor: documentStyle.getPropertyValue('--bluegray-400'),
-                pointBackgroundColor: documentStyle.getPropertyValue('--bluegray-400'),
-                pointBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                borderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
+                pointBackgroundColor: documentStyle.getPropertyValue('--p-bluegray-400'),
+                pointBorderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
                 pointHoverBackgroundColor: textColor,
-                pointHoverBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                pointHoverBorderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
                 data: [65, 59, 90, 81, 56, 55, 40]
             },
             {
                 label: 'My Second dataset',
-                borderColor: documentStyle.getPropertyValue('--pink-400'),
-                pointBackgroundColor: documentStyle.getPropertyValue('--pink-400'),
-                pointBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                borderColor: documentStyle.getPropertyValue('--p-pink-400'),
+                pointBackgroundColor: documentStyle.getPropertyValue('--p-pink-400'),
+                pointBorderColor: documentStyle.getPropertyValue('--p-pink-400'),
                 pointHoverBackgroundColor: textColor,
-                pointHoverBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                pointHoverBorderColor: documentStyle.getPropertyValue('--p-pink-400'),
                 data: [28, 48, 40, 19, 96, 27, 100]
             }
         ]
@@ -143,7 +143,7 @@ const setChartData = () => {
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
 
     return {
         plugins: {
@@ -187,20 +187,20 @@ const setChartOptions = () => {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        borderColor: documentStyle.getPropertyValue('--gray-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--gray-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--gray-400'),
+                        borderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--p-gray-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                         data: [65, 59, 90, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        borderColor: documentStyle.getPropertyValue('--cyan-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--cyan-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        borderColor: documentStyle.getPropertyValue('--p-cyan-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--p-cyan-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--p-cyan-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--p-cyan-400'),
                         data: [28, 48, 40, 19, 96, 27, 100]
                     }
                 ]
@@ -209,7 +209,7 @@ const setChartOptions = () => {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
 
             return {
                 plugins: {

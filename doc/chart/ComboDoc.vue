@@ -49,7 +49,7 @@ export default {
                     {
                         type: 'line',
                         label: 'Dataset 1',
-                        borderColor: documentStyle.getPropertyValue('--orange-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-orange-500'),
                         borderWidth: 2,
                         fill: false,
                         tension: 0.4,
@@ -58,7 +58,7 @@ export default {
                     {
                         type: 'bar',
                         label: 'Dataset 2',
-                        backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
                         data: [21, 84, 24, 75, 37, 65, 34],
                         borderColor: 'white',
                         borderWidth: 2
@@ -66,7 +66,7 @@ export default {
                     {
                         type: 'bar',
                         label: 'Dataset 3',
-                        backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
                         data: [41, 52, 24, 74, 23, 21, 32]
                     }
                 ]
@@ -75,8 +75,8 @@ export default {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 maintainAspectRatio: false,
@@ -139,7 +139,7 @@ const setChartData = () => {
             {
                 type: 'line',
                 label: 'Dataset 1',
-                borderColor: documentStyle.getPropertyValue('--orange-500'),
+                borderColor: documentStyle.getPropertyValue('--p-orange-500'),
                 borderWidth: 2,
                 fill: false,
                 tension: 0.4,
@@ -148,7 +148,7 @@ const setChartData = () => {
             {
                 type: 'bar',
                 label: 'Dataset 2',
-                backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
                 data: [21, 84, 24, 75, 37, 65, 34],
                 borderColor: 'white',
                 borderWidth: 2
@@ -156,7 +156,7 @@ const setChartData = () => {
             {
                 type: 'bar',
                 label: 'Dataset 3',
-                backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
                 data: [41, 52, 24, 74, 23, 21, 32]
             }
         ]
@@ -165,8 +165,8 @@ const setChartData = () => {
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
     return {
         maintainAspectRatio: false,
@@ -223,7 +223,7 @@ const setChartOptions = () => {
                     {
                         type: 'line',
                         label: 'Dataset 1',
-                        borderColor: documentStyle.getPropertyValue('--orange-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-orange-500'),
                         borderWidth: 2,
                         fill: false,
                         tension: 0.4,
@@ -232,7 +232,7 @@ const setChartOptions = () => {
                     {
                         type: 'bar',
                         label: 'Dataset 2',
-                        backgroundColor: documentStyle.getPropertyValue('--gray-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
                         data: [21, 84, 24, 75, 37, 65, 34],
                         borderColor: 'white',
                         borderWidth: 2
@@ -240,7 +240,7 @@ const setChartOptions = () => {
                     {
                         type: 'bar',
                         label: 'Dataset 3',
-                        backgroundColor: documentStyle.getPropertyValue('--cyan-500'),
+                        backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
                         data: [41, 52, 24, 74, 23, 21, 32]
                     }
                 ]
@@ -249,8 +249,8 @@ const setChartOptions = () => {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 maintainAspectRatio: false,

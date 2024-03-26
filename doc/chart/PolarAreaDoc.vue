@@ -48,11 +48,11 @@ export default {
                     {
                         data: [11, 16, 7, 3, 14],
                         backgroundColor: [
-                            documentStyle.getPropertyValue('--pink-500'),
-                            documentStyle.getPropertyValue('--gray-500'),
-                            documentStyle.getPropertyValue('--orange-500'),
-                            documentStyle.getPropertyValue('--purple-500'),
-                            documentStyle.getPropertyValue('--cyan-500')
+                            documentStyle.getPropertyValue('--p-pink-500'),
+                            documentStyle.getPropertyValue('--p-gray-500'),
+                            documentStyle.getPropertyValue('--p-orange-500'),
+                            documentStyle.getPropertyValue('--p-purple-500'),
+                            documentStyle.getPropertyValue('--p-cyan-500')
                         ],
                         label: 'My dataset'
                     }
@@ -63,7 +63,7 @@ export default {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 plugins: {
@@ -112,11 +112,11 @@ const setChartData = () => {
             {
                 data: [11, 16, 7, 3, 14],
                 backgroundColor: [
-                    documentStyle.getPropertyValue('--pink-500'),
-                    documentStyle.getPropertyValue('--gray-500'),
-                    documentStyle.getPropertyValue('--orange-500'),
-                    documentStyle.getPropertyValue('--purple-500'),
-                    documentStyle.getPropertyValue('--cyan-500')
+                    documentStyle.getPropertyValue('--p-pink-500'),
+                    documentStyle.getPropertyValue('--p-gray-500'),
+                    documentStyle.getPropertyValue('--p-orange-500'),
+                    documentStyle.getPropertyValue('--p-purple-500'),
+                    documentStyle.getPropertyValue('--p-cyan-500')
                 ],
                 label: 'My dataset'
             }
@@ -127,7 +127,7 @@ const setChartData = () => {
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
     return {
         plugins: {
@@ -170,11 +170,11 @@ const setChartOptions = () => {
                     {
                         data: [11, 16, 7, 3, 14],
                         backgroundColor: [
-                            documentStyle.getPropertyValue('--pink-500'),
-                            documentStyle.getPropertyValue('--gray-500'),
-                            documentStyle.getPropertyValue('--orange-500'),
-                            documentStyle.getPropertyValue('--purple-500'),
-                            documentStyle.getPropertyValue('--cyan-500')
+                            documentStyle.getPropertyValue('--p-pink-500'),
+                            documentStyle.getPropertyValue('--p-gray-500'),
+                            documentStyle.getPropertyValue('--p-orange-500'),
+                            documentStyle.getPropertyValue('--p-purple-500'),
+                            documentStyle.getPropertyValue('--p-cyan-500')
                         ],
                         label: 'My dataset'
                     }
@@ -185,7 +185,7 @@ const setChartOptions = () => {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 plugins: {

@@ -61,8 +61,8 @@ export default {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 plugins: {
@@ -132,8 +132,8 @@ const setChartData = () => {
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
     return {
         plugins: {
@@ -200,8 +200,8 @@ const setChartOptions = () => {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 plugins: {

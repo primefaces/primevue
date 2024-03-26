@@ -49,7 +49,7 @@ export default {
                     {
                         label: 'Dataset 1',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
                         yAxisID: 'y',
                         tension: 0.4,
                         data: [65, 59, 80, 81, 56, 55, 10]
@@ -57,7 +57,7 @@ export default {
                     {
                         label: 'Dataset 2',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--gray-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-gray-500'),
                         yAxisID: 'y1',
                         tension: 0.4,
                         data: [28, 48, 40, 19, 86, 27, 90]
@@ -68,8 +68,8 @@ export default {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 stacked: false,
@@ -148,7 +148,7 @@ const setChartData = () => {
             {
                 label: 'Dataset 1',
                 fill: false,
-                borderColor: documentStyle.getPropertyValue('--cyan-500'),
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
                 yAxisID: 'y',
                 tension: 0.4,
                 data: [65, 59, 80, 81, 56, 55, 10]
@@ -156,7 +156,7 @@ const setChartData = () => {
             {
                 label: 'Dataset 2',
                 fill: false,
-                borderColor: documentStyle.getPropertyValue('--gray-500'),
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
                 yAxisID: 'y1',
                 tension: 0.4,
                 data: [28, 48, 40, 19, 86, 27, 90]
@@ -167,8 +167,8 @@ const setChartData = () => {
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
     return {
         stacked: false,
@@ -241,7 +241,7 @@ const setChartOptions = () => {
                     {
                         label: 'Dataset 1',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--cyan-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
                         yAxisID: 'y',
                         tension: 0.4,
                         data: [65, 59, 80, 81, 56, 55, 10]
@@ -249,7 +249,7 @@ const setChartOptions = () => {
                     {
                         label: 'Dataset 2',
                         fill: false,
-                        borderColor: documentStyle.getPropertyValue('--gray-500'),
+                        borderColor: documentStyle.getPropertyValue('--p-gray-500'),
                         yAxisID: 'y1',
                         tension: 0.4,
                         data: [28, 48, 40, 19, 86, 27, 90]
@@ -260,8 +260,8 @@ const setChartOptions = () => {
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 stacked: false,
