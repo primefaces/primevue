@@ -41,6 +41,7 @@
                 multiple
                 :metaKeySelection="metaKeySelection"
                 :listStyle="listStyle"
+                :scrollHeight="scrollHeight"
                 :tabindex="sourceList && sourceList.length > 0 ? tabindex : -1"
                 :dataKey="dataKey"
                 :autoOptionFocus="autoOptionFocus"
@@ -104,6 +105,7 @@
                 multiple
                 :metaKeySelection="metaKeySelection"
                 :listStyle="listStyle"
+                :scrollHeight="scrollHeight"
                 :tabindex="targetList && targetList.length > 0 ? tabindex : -1"
                 :dataKey="dataKey"
                 :autoOptionFocus="autoOptionFocus"

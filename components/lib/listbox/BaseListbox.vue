@@ -14,6 +14,10 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         listStyle: null,
+        scrollHeight: {
+            type: String,
+            default: '14rem'
+        },
         invalid: {
             type: Boolean,
             default: false

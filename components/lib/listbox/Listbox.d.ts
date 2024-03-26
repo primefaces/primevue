@@ -272,6 +272,11 @@ export interface ListboxProps {
      */
     listStyle?: string | undefined;
     /**
+     * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
+     * @defaultValue 14rem
+     */
+    scrollHeight?: string | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */

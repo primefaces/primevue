@@ -302,7 +302,7 @@ export interface DropdownProps {
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue 200px
+     * @defaultValue 14rem
      */
     scrollHeight?: string | undefined;
     /**

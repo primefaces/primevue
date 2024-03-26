@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -172,7 +172,7 @@ export interface TreeSelectProps {
     options?: TreeNode[] | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue 200px
+     * @defaultValue 14rem
      */
     scrollHeight?: string | undefined;
     /**

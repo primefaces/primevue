@@ -22,7 +22,7 @@ export default {
         optionGroupChildren: null,
         scrollHeight: {
             type: String,
-            default: '200px'
+            default: '14rem'
         },
         dropdown: {
             type: Boolean,

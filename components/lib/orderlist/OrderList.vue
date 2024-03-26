@@ -40,6 +40,7 @@
             multiple
             :metaKeySelection="metaKeySelection"
             :listStyle="listStyle"
+            :scrollHeight="scrollHeight"
             :tabindex="tabindex"
             :dataKey="dataKey"
             :autoOptionFocus="autoOptionFocus"

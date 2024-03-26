@@ -342,6 +342,11 @@ export interface PickListProps {
      */
     breakpoint?: string | undefined;
     /**
+     * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
+     * @defaultValue 14rem
+     */
+    scrollHeight?: string | undefined;
+    /**
      * Whether to displays rows with alternating colors.
      * @defaultValue false
      */
