@@ -251,7 +251,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: ${dt('datatable.fiter.menu.button.color')};
+    color: ${dt('datatable.filter.menu.button.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -260,20 +260,20 @@ export default {
 }
 
 .p-column-filter-menu-button:hover {
-    background: ${dt('datatable.fiter.menu.button.hover.background')};
-    color: ${dt('datatable.fiter.menu.button.hover.color')};
+    background: ${dt('datatable.filter.menu.button.hover.background')};
+    color: ${dt('datatable.filter.menu.button.hover.color')};
 }
 
 .p-column-filter-menu-button.p-column-filter-menu-button-open,
 .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
-    background: ${dt('datatable.fiter.menu.button.open.background')};
-    color: ${dt('datatable.fiter.menu.button.open.color')};
+    background: ${dt('datatable.filter.menu.button.open.background')};
+    color: ${dt('datatable.filter.menu.button.open.color')};
 }
 
 .p-column-filter-menu-button.p-column-filter-menu-button-active,
 .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
-    background: ${dt('datatable.fiter.menu.button.active.background')};
-    color: ${dt('datatable.fiter.menu.button.active.color')};
+    background: ${dt('datatable.filter.menu.button.active.background')};
+    color: ${dt('datatable.filter.menu.button.active.color')};
 }
 
 .p-column-filter-menu-button:focus-visible {
@@ -291,7 +291,7 @@ export default {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: ${dt('datatable.fiter.clear.button.color')};
+    color: ${dt('datatable.filter.clear.button.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -300,13 +300,68 @@ export default {
 }
 
 .p-column-filter-clear-button:hover {
-    background: ${dt('datatable.fiter.clear.button.hover.background')};
-    color: ${dt('datatable.fiter.clear.button.hover.color')};
+    background: ${dt('datatable.filter.clear.button.hover.background')};
+    color: ${dt('datatable.filter.clear.button.hover.color')};
 }
 
 .p-column-filter-clear-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
+}
+
+.p-column-filter-overlay {
+    background: ${dt('datatable.filter.overlay.background')};
+    color: ${dt('datatable.filter.overlay.color')};
+    border: 1px solid ${dt('datatable.filter.overlay.border.color')};
+    border-radius: ${dt('rounded.base')};
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    min-width: 12.5rem;
+}
+
+.p-column-filter-row-items {
+    margin: 0;
+    list-style: none;
+    padding: 0.25rem 0.25rem;
+}
+
+.p-column-filter-row-item {
+    margin: 2px 0;
+    padding: 0.5rem 0.75rem;
+    border: 0 none;
+    color: ${dt('datatable.filter.matchmode.item.color')};
+    background: transparent;
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')},;
+    border-radius: ${dt('rounded.sm')};
+    cursor: pointer;
+}
+
+.p-column-filter-row-item:first-child {
+    margin-top: 0;
+}
+
+.p-column-filter-row-item:last-child {
+    margin-bottom: 0;
+}
+
+.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item.p-highlight {
+    background: ${dt('datatable.filter.matchmode.item.selected.background')};
+    color: ${dt('datatable.filter.matchmode.item.selected.color')};
+}
+
+.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:not(.p-highlight):not(.p-disabled):hover {
+    background: ${dt('datatable.filter.matchmode.item.focus.background')};
+    color: ${dt('datatable.filter.matchmode.item.focus.color')};
+}
+
+.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus-visible {
+    outline: 1px solid var(--p-focus-ring-color);
+    outline-offset: 2px;
+    box-shadow: 0 none;
+}
+
+.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-separator {
+    border-top: 1px solid ${dt('datatable.filter.matchmode.item.separator.border.color')};
+    margin: 2px 0;
 }
 
 .p-column-filter-menu {
@@ -326,7 +381,7 @@ export default {
 
 .p-column-filter-constraint {
     padding: 0;
-    border-bottom: 1px solid ${dt('datatable.fiter.contstraint.border.color')};
+    border-bottom: 1px solid ${dt('datatable.filter.constraint.border.color')};
 }
 
 .p-column-filter-constraint:last-child {
@@ -346,9 +401,9 @@ export default {
 }
 
 .p-column-filter-overlay-menu {
-    background: ${dt('datatable.fiter.overlay.background')};
-    color: ${dt('datatable.fiter.overlay.color')};
-    border: 1px solid ${dt('datatable.fiter.overlay.border.color')};
+    background: ${dt('datatable.filter.overlay.background')};
+    color: ${dt('datatable.filter.overlay.color')};
+    border: 1px solid ${dt('datatable.filter.overlay.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;

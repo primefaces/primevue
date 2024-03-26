@@ -54,7 +54,7 @@ export default {
                     color: '{surface.500}',
                     openColor: '{surface.500}',
                     hoverColor: '{surface.600}',
-                    colorActive: '{highlight.color}'
+                    activeColor: '{highlight.color}'
                 },
                 clearButton: {
                     hoverBackground: '{surface.100}',
@@ -68,6 +68,16 @@ export default {
                 },
                 constraint: {
                     borderColor: '{surface.200}'
+                },
+                matchmodeItem: {
+                    focusBackground: '{surface.100}',
+                    selectedBackground: '{highlight.background}',
+                    color: '{surface.700}',
+                    focusColor: '{surface.800}',
+                    selectedColor: '{highlight.color}',
+                    separator: {
+                        borderColor: '{surface.200}'
+                    }
                 }
             }
         },
@@ -125,7 +135,7 @@ export default {
                     color: '{surface.400}',
                     openColor: '{surface.300}',
                     hoverColor: '{surface.300}',
-                    colorActive: '{highlight.color}'
+                    activeColor: '{highlight.color}'
                 },
                 clearButton: {
                     hoverBackground: '{surface.800}',
@@ -139,6 +149,16 @@ export default {
                 },
                 constraint: {
                     borderColor: '{surface.700}'
+                },
+                matchmodeItem: {
+                    focusBackground: '{surface.800}',
+                    selectedBackground: '{highlight.background}',
+                    color: '{surface.0}',
+                    focusColor: '{surface.0}',
+                    selectedColor: '{highlight.color}',
+                    separator: {
+                        borderColor: '{surface.700}'
+                    }
                 }
             }
         }
