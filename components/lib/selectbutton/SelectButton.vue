@@ -1,7 +1,16 @@
 <template>
     <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
-            <ToggleButton :modelValue="isSelected(option)" :onLabel="getOptionLabel(option)" :offLabel="getOptionLabel(option)" :disabled="disabled" :invalid="invalid" @change="onOptionSelect($event, option, index)" :pt="ptm('button')">
+            <ToggleButton
+                :modelValue="isSelected(option)"
+                :onLabel="getOptionLabel(option)"
+                :offLabel="getOptionLabel(option)"
+                :disabled="disabled"
+                :invalid="invalid"
+                :unstyled="unstyled"
+                @change="onOptionSelect($event, option, index)"
+                :pt="ptm('button')"
+            >
                 <template v-if="$slots.option" #default>
                     <slot name="option" :option="option" :index="index">
                         <span v-bind="ptm('button')['label']">{{ getOptionLabel(option) }}</span>
