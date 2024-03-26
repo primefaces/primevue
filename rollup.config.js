@@ -213,6 +213,8 @@ const CORE_DEPENDENCIES = {
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/badge': 'primevue.badge',
+    'primevue/listbox': 'primevue.listbox',
+    'primevue/togglebutton': 'primevue.togglebutton',
     ...CORE_PASSTHROUGH_DEPENDENCIES
 };
 
