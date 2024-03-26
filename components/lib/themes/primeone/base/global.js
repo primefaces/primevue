@@ -129,8 +129,8 @@ export default {
 }
 
 .p-component {
-    font-family: var(--p-font-family);
-    font-feature-settings: var(--p-font-feature-settings, normal);
+    font-family: ${dt('font.family')};
+    font-feature-settings: ${dt('font.feature.settings')};
     font-size: 1rem;
     font-weight: normal;
 }
@@ -163,8 +163,8 @@ export default {
 }
 
 .p-link {
-    font-family: var(--p-font-family);
-    font-feature-settings: var(--p-font-feature-settings, normal);
+    font-family: ${dt('font.family')};
+    font-feature-settings: ${dt('font.feature.settings')};
     font-size: 1rem;
     border-radius: 6px;
     outline-color: transparent;
@@ -188,12 +188,12 @@ export default {
         background-color: transparent;
     }
     to {
-        background-color: var(--p-mask-background);
+        background-color: ${dt('mask.background')};
     }
 }
 @keyframes p-component-overlay-leave-animation {
     from {
-        background-color: var(--p-mask-background);
+        background-color: ${dt('mask.background')};
     }
     to {
         background-color: transparent;
