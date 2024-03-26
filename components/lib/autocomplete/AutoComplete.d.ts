@@ -322,7 +322,7 @@ export interface AutoCompleteProps {
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Maximum height of the suggestions panel.
-     * @defaultValue 200px
+     * @defaultValue 14rem
      */
     scrollHeight?: string | undefined;
     /**

@@ -15,7 +15,7 @@ export default {
         optionGroupChildren: [String, Function],
         scrollHeight: {
             type: String,
-            default: '200px'
+            default: '14rem'
         },
         filter: Boolean,
         filterPlaceholder: String,

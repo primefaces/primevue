@@ -46,6 +46,10 @@ export default {
             type: Boolean,
             default: false
         },
+        scrollHeight: {
+            type: String,
+            default: '14rem'
+        },
         buttonProps: {
             type: Object,
             default() {

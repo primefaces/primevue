@@ -227,6 +227,11 @@ export interface OrderListProps {
      */
     tabindex?: number | string | undefined;
     /**
+     * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
+     * @defaultValue 14rem
+     */
+    scrollHeight?: string | undefined;
+    /**
      * Used to pass all properties of the ButtonProps to the move up button inside the component.
      * @type {ButtonProps}
      * @defaultValue { severity: 'secondary' }

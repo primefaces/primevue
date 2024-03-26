@@ -43,8 +43,8 @@
                 {{ filterResultMessageText }}
             </span>
         </div>
-        <div ref="listWrapper" :class="cx('wrapper')" :style="listStyle" v-bind="ptm('wrapper')">
-            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
+        <div :class="cx('wrapper')" :style="[{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }, listStyle]" v-bind="ptm('wrapper')">
+            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="[{ height: scrollHeight }, listStyle]" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                     <ul
                         :ref="(el) => listRef(el, contentRef)"
