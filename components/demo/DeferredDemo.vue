@@ -64,7 +64,7 @@ export default {
     transform: translateX(-100%);
     z-index: 1;
     border-radius: 10px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--surface-100), rgba(255, 255, 255, 0));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--hover-background), rgba(255, 255, 255, 0));
 }
 
 @keyframes deferred-demo-loading {

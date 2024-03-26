@@ -354,7 +354,7 @@ export default {
 }
 
 .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus-visible {
-    outline: 1px solid var(--p-focus-ring-color);
+    outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: 2px;
     box-shadow: 0 none;
 }
