@@ -134,10 +134,6 @@ export interface OrderListPassThroughOptions {
      */
     container?: OrderListPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
-     */
-    header?: OrderListPassThroughOptionType;
-    /**
      * Used to pass attributes to the Listbox component.
      * @see {@link ListboxPassThroughOptions}
      */

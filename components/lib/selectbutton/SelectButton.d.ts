@@ -10,14 +10,15 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
+// import { ToggleButtonPassThroughOptions } from '../togglebutton';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type SelectButtonPassThroughOptionType<T = any> = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions<T>) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
+export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface SelectButtonPassThroughMethodOptions<T = any> {
+export interface SelectButtonPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -41,7 +42,7 @@ export interface SelectButtonPassThroughMethodOptions<T = any> {
     /**
      * Defines parent options.
      */
-    parent: T;
+    parent: any;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -52,19 +53,19 @@ export interface SelectButtonPassThroughMethodOptions<T = any> {
  * Custom passthrough(pt) options.
  * @see {@link SelectButtonProps.pt}
  */
-export interface SelectButtonPassThroughOptions<T = any> {
+export interface SelectButtonPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: SelectButtonPassThroughOptionType<T>;
+    root?: SelectButtonPassThroughOptionType;
     /**
      * Used to pass attributes to the button's DOM element.
      */
-    button?: SelectButtonPassThroughOptionType<T>;
+    button?: SelectButtonPassThroughOptionType;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: SelectButtonPassThroughOptionType<T>;
+    label?: SelectButtonPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

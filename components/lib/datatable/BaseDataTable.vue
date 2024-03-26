@@ -273,6 +273,17 @@ export default {
         filterInputProps: {
             type: null,
             default: null
+        },
+        filterButtonProps: {
+            type: Object,
+            default() {
+                return {
+                    addRule: { severity: 'info', text: true, size: 'small' },
+                    removeRule: { severity: 'danger', text: true, size: 'small' },
+                    apply: { size: 'small' },
+                    clear: { outlined: true, size: 'small' }
+                };
+            }
         }
     },
     style: DataTableStyle,

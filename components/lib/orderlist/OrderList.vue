@@ -55,9 +55,7 @@
             @change="onChangeSelection"
         >
             <template v-if="$slots.header" #header>
-                <div :class="cx('header')" v-bind="ptm('header')">
-                    <slot name="header"></slot>
-                </div>
+                <slot name="header"></slot>
             </template>
             <template #option="{ option, index }">
                 <slot name="item" :item="option" :index="index" />

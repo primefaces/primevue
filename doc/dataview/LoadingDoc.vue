@@ -6,7 +6,11 @@
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -68,12 +72,17 @@ export default {
         return {
             products: null,
             layout: 'grid',
+            options: ['list', 'grid'],
             code: {
                 basic: `
 <DataView :value="products" :layout="layout">
     <template #header>
         <div class="flex justify-content-end">
-            <DataViewLayoutOptions v-model="layout" />
+            <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                <template #option="{ option }">
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                </template>
+            </SelectButton>
         </div>
     </template>
 
@@ -130,7 +139,11 @@ export default {
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -190,7 +203,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid'
+            layout: 'grid',
+            options: ['list', 'grid'],
         }
     },
     mounted() {
@@ -222,7 +236,11 @@ export default {
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -285,6 +303,7 @@ onMounted(() => {
 
 const products = ref();
 const layout = ref('grid');
+const options = ref(['list', 'grid']);
 
 const getSeverity = (product) => {
     switch (product.inventoryStatus) {

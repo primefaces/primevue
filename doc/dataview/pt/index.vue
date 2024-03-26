@@ -27,12 +27,6 @@ export default {
                     label: 'DataView PT Options',
                     component: DocApiTable,
                     data: getPTOption('DataView')
-                },
-                {
-                    id: 'pt.doc.dataviewlayoutoptions',
-                    label: 'DataViewLayoutOptions PT Options',
-                    component: DocApiTable,
-                    data: getPTOption('DataViewLayoutOptions')
                 }
             ]
         };

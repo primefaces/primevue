@@ -56,9 +56,7 @@
                 data-pc-group-section="list"
             >
                 <template v-if="$slots.sourceheader" #header>
-                    <div :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')" data-pc-group-section="header">
-                        <slot name="sourceheader"></slot>
-                    </div>
+                    <slot name="sourceheader"></slot>
                 </template>
                 <template #option="{ option, index }">
                     <slot name="item" :item="option" :index="index" />
@@ -121,9 +119,7 @@
                 data-pc-group-section="list"
             >
                 <template v-if="$slots.targetheader" #header>
-                    <div :class="cx('targetheader')" v-bind="ptm('targetheader')" data-pc-group-section="header">
-                        <slot name="targetheader"></slot>
-                    </div>
+                    <slot name="targetheader"></slot>
                 </template>
                 <template #option="{ option, index }">
                     <slot name="item" :item="option" :index="index" />

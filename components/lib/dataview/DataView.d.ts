@@ -328,7 +328,7 @@ export interface DataViewEmits {
 }
 
 /**
- * **PrimeVue - DataViewLayoutOptions**
+ * **PrimeVue - DataView**
  *
  * _DataView displays data in grid or list layout with pagination and sorting features._
  *

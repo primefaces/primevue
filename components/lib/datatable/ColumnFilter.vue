@@ -94,9 +94,7 @@
                                         @click="removeConstraint(i)"
                                         :label="removeRuleButtonLabel"
                                         :unstyled="unstyled"
-                                        text
-                                        severity="danger"
-                                        size="small"
+                                        v-bind="filterButtonProps.removeRule"
                                         :pt="getColumnPT('filterRemoveButton')"
                                     >
                                         <template #icon="iconProps">
@@ -114,9 +112,7 @@
                                 :class="cx('filterAddRuleButton')"
                                 @click="addConstraint()"
                                 :unstyled="unstyled"
-                                text
-                                severity="info"
-                                size="small"
+                                v-bind="filterButtonProps.addRule"
                                 :pt="getColumnPT('filterAddRuleButton')"
                             >
                                 <template #icon="iconProps">
@@ -132,13 +128,21 @@
                                 :label="clearButtonLabel"
                                 @click="clearFilter"
                                 :unstyled="unstyled"
-                                size="small"
-                                outlined
+                                v-bind="filterButtonProps.clear"
                                 :pt="getColumnPT('filterClearButton')"
                             ></CFButton>
                             <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                             <template v-if="showApplyButton">
-                                <CFButton v-if="!filterApplyTemplate" type="button" :class="cx('filterApplyButton')" :label="applyButtonLabel" @click="applyFilter()" :unstyled="unstyled" size="small" :pt="getColumnPT('filterApplyButton')"></CFButton>
+                                <CFButton
+                                    v-if="!filterApplyTemplate"
+                                    type="button"
+                                    :class="cx('filterApplyButton')"
+                                    :label="applyButtonLabel"
+                                    @click="applyFilter()"
+                                    :unstyled="unstyled"
+                                    v-bind="filterButtonProps.apply"
+                                    :pt="getColumnPT('filterApplyButton')"
+                                ></CFButton>
                                 <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="applyFilter" />
                             </template>
                         </div>
@@ -272,6 +276,10 @@ export default {
             default: null
         },
         filterInputProps: {
+            type: null,
+            default: null
+        },
+        filterButtonProps: {
             type: null,
             default: null
         },

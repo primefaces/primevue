@@ -99,7 +99,6 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/contextmenu/style': 'primevue.contextmenu.style',
     'primevue/datatable/style': 'primevue.datatable.style',
     'primevue/dataview/style': 'primevue.dataview.style',
-    'primevue/dataviewlayoutoptions/style': 'primevue.dataviewlayoutoptions.style',
     'primevue/deferredcontent/style': 'primevue.deferredcontent.style',
     'primevue/dialog/style': 'primevue.dialog.style',
     'primevue/divider/style': 'primevue.divider.style',
@@ -213,6 +212,8 @@ const CORE_DEPENDENCIES = {
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/badge': 'primevue.badge',
+    'primevue/listbox': 'primevue.listbox',
+    'primevue/togglebutton': 'primevue.togglebutton',
     ...CORE_PASSTHROUGH_DEPENDENCIES
 };
 

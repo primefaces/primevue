@@ -173,7 +173,6 @@ import ConfirmationService from 'primevue/confirmationservice';
 import ContextMenu from 'primevue/contextmenu';
 import DataTable from 'primevue/datatable';
 import DataView from 'primevue/dataview';
-import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import DeferredContent from 'primevue/deferredcontent';
 import Dialog from 'primevue/dialog';
 import DialogService from 'primevue/dialogservice'
@@ -294,7 +293,6 @@ app.component('ConfirmPopup', ConfirmPopup);
 app.component('ContextMenu', ContextMenu);
 app.component('DataTable', DataTable);
 app.component('DataView', DataView);
-app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.component('DeferredContent', DeferredContent);
 app.component('Dialog', Dialog);
 app.component('Divider', Divider);
