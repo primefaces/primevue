@@ -10,7 +10,6 @@ export default {
             code: {
                 basic: `
 import DataView from 'primevue/dataview';
-import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'   // optional
 `
             }
         };

@@ -1,15 +1,16 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            DataView supports <i>list</i> and <i>grid</i> display modes defined with the <i>layout</i> property. The helper <i>DataViewLayoutOptions</i> component can be used to switch between the modes however this component is optional and you may
-            use your own UI to switch modes as well.
-        </p>
+        <p>DataView supports <i>list</i> and <i>grid</i> display modes defined with the <i>layout</i> property.</p>
     </DocSectionText>
     <div class="card">
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -95,12 +96,17 @@ export default {
         return {
             products: null,
             layout: 'grid',
+            options: ['list', 'grid'],
             code: {
                 basic: `
 <DataView :value="products" :layout="layout">
     <template #header>
         <div class="flex justify-content-end">
-            <DataViewLayoutOptions v-model="layout" />
+            <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                <template #option="{ option }">
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                </template>
+            </SelectButton>
         </div>
     </template>
 
@@ -181,7 +187,11 @@ export default {
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -265,7 +275,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid'
+            layout: 'grid',
+            options: ['list', 'grid'],
         }
     },
     mounted() {
@@ -297,7 +308,11 @@ export default {
         <DataView :value="products" :layout="layout">
             <template #header>
                 <div class="flex justify-content-end">
-                    <DataViewLayoutOptions v-model="layout" />
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                        </template>
+                    </SelectButton>
                 </div>
             </template>
 
@@ -384,6 +399,7 @@ onMounted(() => {
 
 const products = ref();
 const layout = ref('grid');
+const options = ref(['list', 'grid']);
 
 const getSeverity = (product) => {
     switch (product.inventoryStatus) {

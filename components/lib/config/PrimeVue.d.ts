@@ -26,7 +26,6 @@ import { ConfirmPopupPassThroughOptions } from '../confirmpopup';
 import { ContextMenuPassThroughOptions } from '../contextmenu';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DataViewPassThroughOptions } from '../dataview';
-import { DataViewLayoutOptionsPassThroughOptions } from '../dataviewlayoutoptions';
 import { DeferredContentPassThroughOptions } from '../deferredcontent';
 import { DialogPassThroughOptions } from '../dialog';
 import { DividerPassThroughOptions } from '../divider';
@@ -148,7 +147,6 @@ export interface PrimeVuePTOptions {
     contextmenu?: DefaultPassThrough<ContextMenuPassThroughOptions>;
     datatable?: DefaultPassThrough<DataTablePassThroughOptions>;
     dataview?: DefaultPassThrough<DataViewPassThroughOptions>;
-    dataviewlayoutoptions?: DefaultPassThrough<DataViewLayoutOptionsPassThroughOptions>;
     deferredcontent?: DefaultPassThrough<DeferredContentPassThroughOptions>;
     divider?: DefaultPassThrough<DividerPassThroughOptions>;
     dialog?: DefaultPassThrough<DialogPassThroughOptions>;

@@ -4,7 +4,7 @@
         header="DataView"
         description="DataView displays data in grid or list layout with pagination and sorting features."
         :componentDocs="docs"
-        :apiDocs="['DataView', 'DataViewLayoutOptions']"
+        :apiDocs="['DataView']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />

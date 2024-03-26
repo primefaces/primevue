@@ -34,7 +34,6 @@ const STYLE_ALIAS = {
     'primevue/contextmenu/style': path.resolve(__dirname, './components/lib/contextmenu/style/ContextMenuStyle.js'),
     'primevue/datatable/style': path.resolve(__dirname, './components/lib/datatable/style/DataTableStyle.js'),
     'primevue/dataview/style': path.resolve(__dirname, './components/lib/dataview/style/DataViewStyle.js'),
-    'primevue/dataviewlayoutoptions/style': path.resolve(__dirname, './components/lib/dataviewlayoutoptions/style/DataViewLayoutOptionsStyle.js'),
     'primevue/deferredcontent/style': path.resolve(__dirname, './components/lib/deferredcontent/style/DeferredContentStyle.js'),
     'primevue/dialog/style': path.resolve(__dirname, './components/lib/dialog/style/DialogStyle.js'),
     'primevue/divider/style': path.resolve(__dirname, './components/lib/divider/style/DividerStyle.js'),

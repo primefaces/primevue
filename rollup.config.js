@@ -99,7 +99,6 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/contextmenu/style': 'primevue.contextmenu.style',
     'primevue/datatable/style': 'primevue.datatable.style',
     'primevue/dataview/style': 'primevue.dataview.style',
-    'primevue/dataviewlayoutoptions/style': 'primevue.dataviewlayoutoptions.style',
     'primevue/deferredcontent/style': 'primevue.deferredcontent.style',
     'primevue/dialog/style': 'primevue.dialog.style',
     'primevue/divider/style': 'primevue.divider.style',
