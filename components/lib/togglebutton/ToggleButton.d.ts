@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
+export declare type ToggleButtonPassThroughOptionType<T = any> = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions<T = any>) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ToggleButtonPassThroughMethodOptions {
+export interface ToggleButtonPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -37,7 +37,7 @@ export interface ToggleButtonPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -48,19 +48,19 @@ export interface ToggleButtonPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link ToggleButtonProps.pt}
  */
-export interface ToggleButtonPassThroughOptions {
+export interface ToggleButtonPassThroughOptions<T = any>  {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ToggleButtonPassThroughOptionType;
+    root?: ToggleButtonPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the icon's DOM element.
      */
-    icon?: ToggleButtonPassThroughOptionType;
+    icon?: ToggleButtonPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label's DOM element.
      */
-    label?: ToggleButtonPassThroughOptionType;
+    label?: ToggleButtonPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -173,6 +173,10 @@ export interface ToggleButtonProps {
  * Defines valid slots in ToggleButton component.
  */
 export interface ToggleButtonSlots {
+    /**
+     * Custom content such as icons, images and text can be placed inside the button via the default slot.
+     */
+    default(): VNode[];
     /**
      * Custom icon template.
      * @param {Object} scope - icon slot's params.

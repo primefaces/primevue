@@ -1,26 +1,20 @@
 <template>
     <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
-        <button
-            v-for="(option, i) of options"
-            :key="getOptionRenderKey(option)"
-            v-ripple
-            :aria-pressed="isSelected(option)"
-            :aria-disabled="isOptionDisabled(option)"
-            :class="cx('button', { option })"
-            @click="onOptionSelect($event, option, i)"
-            v-bind="getPTOptions(option, 'button')"
-            :data-p-highlight="isSelected(option)"
-            :data-p-disabled="isOptionDisabled(option)"
-        >
-            <slot name="option" :option="option" :index="i" :class="cx('label')">
-                <span :class="cx('label')" v-bind="getPTOptions(option, 'label')">{{ getOptionLabel(option) }}</span>
-            </slot>
-        </button>
+        <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
+            <ToggleButton :modelValue="isSelected(option)" :onLabel="getOptionLabel(option)" :offLabel="getOptionLabel(option)" :disabled="disabled" :invalid="invalid" @change="onOptionSelect($event, option, index)" :pt="ptm('button')">
+                <template v-if="$slots.option" #default>
+                    <slot name="option" :option="option" :index="index">
+                        <span v-bind="ptm('button')['label']">{{ getOptionLabel(option) }}</span>
+                    </slot>
+                </template>
+            </ToggleButton>
+        </template>
     </div>
 </template>
 
 <script>
 import Ripple from 'primevue/ripple';
+import ToggleButton from 'primevue/togglebutton';
 import { ObjectUtils } from 'primevue/utils';
 import BaseSelectButton from './BaseSelectButton.vue';
 
@@ -103,6 +97,9 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        ToggleButton
     }
 };
 </script>
