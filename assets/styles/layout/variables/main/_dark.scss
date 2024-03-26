@@ -24,3 +24,18 @@
     --code-button-text-color: var(--p-surface-300);
     --docsearch-mask-background: var(--p-mask-background);
 }
+
+/* PrimeFlex Compat */
+:root[class="p-dark"] {
+    --surface-0: var(--p-surface-900);
+    --surface-50: var(--p-surface-800);
+    --surface-100: var(--p-surface-700);
+    --surface-200: var(--p-surface-600);
+    --surface-300: var(--p-surface-500);
+    --surface-400: var(--p-surface-400);
+    --surface-500: var(--p-surface-300);
+    --surface-600: var(--p-surface-200);
+    --surface-700: var(--p-surface-100);
+    --surface-800: var(--p-surface-50);
+    --surface-900: var(--p-surface-0);
+}
