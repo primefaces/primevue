@@ -173,10 +173,6 @@ export interface PickListPassThroughOptions {
      */
     sourceWrapper?: PickListPassThroughOptionType;
     /**
-     * Used to pass attributes to the source header's DOM element.
-     */
-    sourceHeader?: PickListPassThroughOptionType;
-    /**
      * Used to pass attributes to the source list's DOM element.
      */
     sourceList?: PickListPassThroughOptionType;
@@ -204,10 +200,6 @@ export interface PickListPassThroughOptions {
      * Used to pass attributes to the target wrapper's DOM element.
      */
     targetWrapper?: PickListPassThroughOptionType;
-    /**
-     * Used to pass attributes to the target header's DOM element.
-     */
-    targetHeader?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the target list's DOM element.
      */

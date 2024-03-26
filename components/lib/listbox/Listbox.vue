@@ -11,7 +11,9 @@
             :data-p-hidden-accessible="true"
             :data-p-hidden-focusable="true"
         ></span>
-        <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+        <div :class="cx('header')">
+            <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+        </div>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
             <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
                 <InputText
