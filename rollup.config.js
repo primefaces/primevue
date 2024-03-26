@@ -63,8 +63,7 @@ const CORE_ICON_DEPENDENCIES = {
 };
 
 const CORE_PASSTHROUGH_DEPENDENCIES = {
-    'primevue/passthrough': 'primevue.passthrough',
-    'primevue/passthrough/tailwind': 'primevue.passthrough.tailwind'
+    'primevue/passthrough': 'primevue.passthrough'
 };
 
 const CORE_STYLE_DEPENDENCIES = {
