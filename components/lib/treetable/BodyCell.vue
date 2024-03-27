@@ -18,15 +18,13 @@
             :class="cx('rowCheckbox')"
             @change="toggleCheckbox"
             :tabindex="-1"
+            :indeterminate="partialChecked"
             :unstyled="unstyled"
             :pt="getColumnCheckboxPT('rowCheckbox')"
-            :data-p-highlight="checked"
-            :data-p-checked="checked"
             :data-p-partialchecked="partialChecked"
         >
             <template #icon="slotProps">
                 <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
-                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getColumnCheckboxPT('rowCheckbox.icon')" />
             </template>
         </Checkbox>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />

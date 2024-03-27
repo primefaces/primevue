@@ -18,6 +18,7 @@ import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
 import FilledDoc from '@/doc/checkbox/FilledDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
 import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
+import IndeterminateDoc from '@/doc/checkbox/IndeterminateDoc.vue';
 import InvalidDoc from '@/doc/checkbox/InvalidDoc.vue';
 import PTComponent from '@/doc/checkbox/pt/index.vue';
 import ThemingDoc from '@/doc/checkbox/theming/index.vue';
@@ -35,6 +36,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'indeterminate',
+                    label: 'Indeterminate',
+                    component: IndeterminateDoc
                 },
                 {
                     id: 'group',

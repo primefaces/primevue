@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-highlight="checked" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-highlight="checked" :data-p-checked="checked" :data-p-indeterminate="d_indeterminate || undefined" :data-p-disabled="disabled">
         <input
             :id="inputId"
             type="checkbox"
@@ -15,6 +15,7 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-invalid="invalid || undefined"
+            :aria-checked="d_indeterminate ? 'mixed' : undefined"
             @focus="onFocus"
             @blur="onBlur"
             @change="onChange"
@@ -23,6 +24,7 @@
         <div :class="cx('box')" v-bind="getPTOptions('box')">
             <slot name="icon" :checked="checked" :class="cx('icon')">
                 <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
+                <MinusIcon v-else-if="d_indeterminate" :class="cx('icon')" v-bind="getPTOptions('icon')" />
             </slot>
         </div>
     </div>
@@ -30,6 +32,7 @@
 
 <script>
 import CheckIcon from 'primevue/icons/check';
+import MinusIcon from 'primevue/icons/minus';
 import { ObjectUtils } from 'primevue/utils';
 import BaseCheckbox from './BaseCheckbox.vue';
 
@@ -37,7 +40,17 @@ export default {
     name: 'Checkbox',
     extends: BaseCheckbox,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'update:indeterminate'],
+    data() {
+        return {
+            d_indeterminate: this.indeterminate
+        };
+    },
+    watch: {
+        indeterminate(newValue) {
+            this.d_indeterminate = newValue;
+        }
+    },
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -54,10 +67,15 @@ export default {
                 let newModelValue;
 
                 if (this.binary) {
-                    newModelValue = this.checked ? this.falseValue : this.trueValue;
+                    newModelValue = this.d_indeterminate ? this.trueValue : this.checked ? this.falseValue : this.trueValue;
                 } else {
-                    if (this.checked) newModelValue = this.modelValue.filter((val) => !ObjectUtils.equals(val, this.value));
+                    if (this.checked || this.d_indeterminate) newModelValue = this.modelValue.filter((val) => !ObjectUtils.equals(val, this.value));
                     else newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value];
+                }
+
+                if (this.d_indeterminate) {
+                    this.d_indeterminate = false;
+                    this.$emit('update:indeterminate', this.d_indeterminate);
                 }
 
                 this.$emit('update:modelValue', newModelValue);
@@ -73,11 +91,12 @@ export default {
     },
     computed: {
         checked() {
-            return this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
+            return this.d_indeterminate ? false : this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
         }
     },
     components: {
-        CheckIcon
+        CheckIcon,
+        MinusIcon
     }
 };
 </script>

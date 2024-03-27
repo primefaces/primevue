@@ -13,6 +13,10 @@ export default {
             type: String,
             default: null
         },
+        indeterminate: {
+            type: Boolean,
+            default: false
+        },
         trueValue: {
             type: null,
             default: true
