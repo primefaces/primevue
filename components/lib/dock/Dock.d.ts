@@ -106,7 +106,7 @@ export interface DockState {
     id: string;
     /**
      * Current index as a number.
-     * @defaultvalue -3
+     * @defaultValue -3
      */
     currentIndex: number;
     /**
@@ -116,7 +116,7 @@ export interface DockState {
     focused: boolean;
     /**
      * Current focused item index as a number.
-     * @defaultvalue -1
+     * @defaultValue -1
      */
     focusedOptionIndex: number;
 }
