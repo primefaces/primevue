@@ -20,7 +20,7 @@
             aria-haspopup="listbox"
             aria-autocomplete="list"
             :aria-expanded="overlayVisible"
-            :aria-controls="id + '_list'"
+            :aria-controls="panelId"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
             @focus="onFocus"
             @blur="onBlur"
@@ -98,7 +98,18 @@
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
         <slot name="dropdownbutton" :toggleCallback="(event) => onDropdownClick(event)">
-            <button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" v-bind="ptm('dropdownButton')">
+            <button
+                v-if="dropdown"
+                ref="dropdownButton"
+                type="button"
+                :class="[cx('dropdownButton'), dropdownClass]"
+                :disabled="disabled"
+                aria-haspopup="listbox"
+                :aria-expanded="overlayVisible"
+                :aria-controls="panelId"
+                @click="onDropdownClick"
+                v-bind="ptm('dropdownButton')"
+            >
                 <slot name="dropdownicon" :class="dropdownIcon">
                     <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButtonIcon')" />
                 </slot>
@@ -112,6 +123,7 @@
                 <div
                     v-if="overlayVisible"
                     :ref="overlayRef"
+                    :id="panelId"
                     :class="[cx('panel'), panelClass]"
                     :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
                     @click="onOverlayClick"
@@ -943,6 +955,9 @@ export default {
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        panelId() {
+            return this.id + '_panel';
         }
     },
     components: {
