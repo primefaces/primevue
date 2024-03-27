@@ -61,6 +61,7 @@ export default {
 .p-megamenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
 .p-megamenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
     color: ${dt('megamenu.item.icon.focus.color')};
+}
 
 .p-megamenu .p-menuitem-active > .p-menuitem-content {
     color: ${dt('megamenu.item.focus.color')};

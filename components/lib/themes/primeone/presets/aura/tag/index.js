@@ -32,7 +32,7 @@ export default {
         },
         dark: {
             primary: {
-                background: 'color-mix(in srgb, var(--p-primary-500), transparent 84%)',
+                background: 'color-mix(in srgb, {primary.500}, transparent 84%)',
                 color: '{primary.300}'
             },
             secondary: {
@@ -40,19 +40,19 @@ export default {
                 color: '{surface.300}'
             },
             success: {
-                background: 'color-mix(in srgb, var(--p-green-500), transparent 84%)',
+                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
                 color: '{green.300}'
             },
             info: {
-                background: 'color-mix(in srgb, var(--p-sky-500), transparent 84%)',
+                background: 'color-mix(in srgb, {sky.500}, transparent 84%)',
                 color: '{sky.300}'
             },
             warn: {
-                background: 'color-mix(in srgb, var(--p-orange-500), transparent 84%)',
+                background: 'color-mix(in srgb, {orange.500}, transparent 84%)',
                 color: '{orange.300}'
             },
             danger: {
-                background: 'color-mix(in srgb, var(--p-red-500), transparent 84%)',
+                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
                 color: '{red.300}'
             },
             contrast: {
