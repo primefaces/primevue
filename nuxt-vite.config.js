@@ -215,6 +215,9 @@ const THEME_ALIAS = {
 
 export default {
     resolve: {
+        optimizeDeps: {
+            disabled: true
+        },
         alias: {
             'primevue/utils': path.resolve(__dirname, './components/lib/utils/Utils.js'),
             'primevue/api': path.resolve(__dirname, './components/lib/api/Api.js'),
