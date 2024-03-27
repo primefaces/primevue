@@ -129,7 +129,7 @@ export default {
             this.$style?.loadTheme(style, this.$styleOptions);
 
             // layer order
-            const layerOrder = this.$style?.getLayerOrderThemeCSS();
+            const layerOrder = this.$style?.getLayerOrderThemeCSS?.();
 
             BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
         },
