@@ -75,13 +75,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${dt('tabview.navigatior.icon.background')};
-    color: ${dt('tabview.navigatior.icon.color')};
+    background: ${dt('tabview.navigator.icon.background')};
+    color: ${dt('tabview.navigator.icon.color')};
     width: 2.5rem;
     border-radius: 0;
     outline-color: transparent;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    box-shadow: ${dt('tabview.navigatior.icon.box.shadow')};
+    box-shadow: ${dt('tabview.navigator.icon.box.shadow')};
 }
 
 .p-tabview-nav-btn:focus-visible {
@@ -90,7 +90,7 @@ export default {
 }
 
 .p-tabview-nav-btn:hover {
-    color: ${dt('tabview.navigatior.icon.hover.color')};
+    color: ${dt('tabview.navigator.icon.hover.color')};
 }
 
 .p-tabview-nav-prev {
@@ -106,8 +106,8 @@ export default {
 }
 
 .p-tabview-panels {
-    background: ${dt('tabview.navigatior.content.background')};
-    color: ${dt('tabview.navigatior.content.color')};
+    background: ${dt('tabview.navigator.content.background')};
+    color: ${dt('tabview.navigator.content.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 

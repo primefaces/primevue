@@ -571,12 +571,10 @@ export default {
     }
 
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons {
-        padding: var(--content-padding);
         flex-direction: row;
     }
 
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button {
-        margin-right: var(--inline-spacing);
         margin-bottom: 0;
     }
 

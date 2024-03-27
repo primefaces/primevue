@@ -269,12 +269,10 @@ export default {
     }
 
     .p-orderlist[${this.attributeSelector}] .p-orderlist-controls {
-        padding: var(--content-padding);
         flex-direction: row;
     }
 
     .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button {
-        margin-right: var(--inline-spacing);
         margin-bottom: 0;
     }
 

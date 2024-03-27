@@ -21,8 +21,7 @@ export default {
             content: {
                 background: '{surface.0}',
                 color: '{surface.700}'
-            },
-            
+            }
         },
         dark: {
             nav: {
@@ -40,7 +39,7 @@ export default {
                 background: '{surface.900}',
                 color: '{surface.400}',
                 hoverColor: '{surface.0}',
-                boxShadow: '0px 0px 10px 50px color-mix(in srgb, var(--p-surface-900), transparent 50%)'
+                boxShadow: '0px 0px 10px 50px color-mix(in srgb, {surface.900}, transparent 50%)'
             },
             content: {
                 background: '{surface.900}',
