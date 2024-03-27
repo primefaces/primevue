@@ -121,7 +121,6 @@ export default {
 
 <style scoped>
 .box {
-    background: var(--surface-card);
     padding: 2rem;
     border-radius: 10px;
     width: 110px;
@@ -170,7 +169,6 @@ export default {
 
 <style scoped>
 .box {
-    background: var(--surface-card);
     padding: 2rem;
     border-radius: 10px;
     width: 110px;
@@ -186,7 +184,6 @@ export default {
 
 <style scoped>
 .box {
-    background: var(--surface-card);
     padding: 2rem;
     border-radius: 10px;
     width: 110px;

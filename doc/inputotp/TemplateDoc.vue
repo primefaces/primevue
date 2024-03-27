@@ -55,12 +55,12 @@ export default {
     text-align: center;
     transition: all 0.2s;
     background: transparent;
-    border-bottom: 2px solid var(--surface-500);
+    border-bottom: 2px solid var(--p-inputtext-border-color);
 }
 
 .custom-otp-input:focus {
     outline: 0 none;
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--p-primary-color);
 }
 <\/style>
 `,
@@ -90,12 +90,12 @@ const value = ref(null);
     text-align: center;
     transition: all 0.2s;
     background: transparent;
-    border-bottom: 2px solid var(--surface-500);
+    border-bottom: 2px solid var(--p-inputtext-border-color);
 }
 
 .custom-otp-input:focus {
     outline: 0 none;
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--p-primary-color);
 }
 <\/style>
 `
@@ -114,11 +114,11 @@ const value = ref(null);
     text-align: center;
     transition: all 0.2s;
     background: transparent;
-    border-bottom: 2px solid var(--surface-500);
+    border-bottom: 2px solid var(--p-inputtext-border-color);
 }
 
 .custom-otp-input:focus {
     outline: 0 none;
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--p-primary-color);
 }
 </style>

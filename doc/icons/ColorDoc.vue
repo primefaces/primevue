@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center align-items-center gap-3">
         <i class="pi pi-check" style="color: slateblue"></i>
         <i class="pi pi-times" style="color: green"></i>
-        <i class="pi pi-search" style="color: 'var(--primary-color)'"></i>
+        <i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
         <i class="pi pi-user" style="color: #708090"></i>
     </div>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
@@ -19,7 +19,7 @@ export default {
                 basic: `
 <i class="pi pi-check" style="color: slateblue"></i>
 <i class="pi pi-times" style="color: green"></i>
-<i class="pi pi-search" style="color: 'var(--primary-color)'"></i>
+<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
 <i class="pi pi-user" style="color: #708090"></i>
 `
             }

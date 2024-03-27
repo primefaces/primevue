@@ -88,17 +88,17 @@ export default {
     text-align: center;
     transition: all 0.2s;
     border-radius: 0;
-    border: 1px solid var(--surface-400);
+    border: 1px solid var(--p-inputtext-border-color);
     background: transparent;
     outline-offset: -2px;
     outline-color: transparent;
     border-right: 0 none;
     transition: outline-color 0.3s;
-    color: var(--text-color);
+    color: var(--p-inputtext-color);
 }
 
 .custom-otp-input:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--p-focus-ring-color);
 }
 
 .custom-otp-input:first-child,
@@ -113,7 +113,7 @@ export default {
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
-    border-color: var(--surface-400);
+    border-color: var(--p-inputtext-border-color);
 }
 <\/style>
 `,
@@ -154,17 +154,17 @@ const value = ref(null);
     text-align: center;
     transition: all 0.2s;
     border-radius: 0;
-    border: 1px solid var(--surface-400);
+    border: 1px solid var(--p-inputtext-border-color);
     background: transparent;
     outline-offset: -2px;
     outline-color: transparent;
     border-right: 0 none;
     transition: outline-color 0.3s;
-    color: var(--text-color);
+    color: var(--p-inputtext-color);
 }
 
 .custom-otp-input:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--p-focus-ring-color);
 }
 
 .custom-otp-input:first-child,
@@ -179,7 +179,7 @@ const value = ref(null);
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
-    border-color: var(--surface-400);
+    border-color: var(--p-inputtext-border-color);
 }
 <\/style>
 `
@@ -198,17 +198,17 @@ const value = ref(null);
     text-align: center;
     transition: all 0.2s;
     border-radius: 0;
-    border: 1px solid var(--surface-400);
+    border: 1px solid var(--p-inputtext-border-color);
     background: transparent;
     outline-offset: -2px;
     outline-color: transparent;
     border-right: 0 none;
     transition: outline-color 0.3s;
-    color: var(--text-color);
+    color: var(--p-inputtext-color);
 }
 
 .custom-otp-input:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--p-focus-ring-color);
 }
 
 .custom-otp-input:first-child,
@@ -223,6 +223,6 @@ const value = ref(null);
     border-bottom-right-radius: 12px;
     border-right-width: 1px;
     border-right-style: solid;
-    border-color: var(--surface-400);
+    border-color: var(--p-inputtext-border-color);
 }
 </style>

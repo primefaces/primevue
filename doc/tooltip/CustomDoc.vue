@@ -9,7 +9,7 @@
                 pt: {
                     arrow: {
                         style: {
-                            borderBottomColor: 'var(--primary-color)'
+                            borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
                     text: 'bg-primary font-medium'
@@ -34,7 +34,7 @@ export default {
         pt: {
             arrow: {
                 style: {
-                    borderBottomColor: 'var(--primary-color)'
+                    borderBottomColor: 'var(--p-primary-color)'
                 }
             },
             text: 'bg-primary font-medium'
@@ -52,7 +52,7 @@ export default {
                 pt: {
                     arrow: {
                         style: {
-                            borderBottomColor: 'var(--primary-color)'
+                            borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
                     text: 'bg-primary font-medium'
@@ -73,7 +73,7 @@ export default {
                 pt: {
                     arrow: {
                         style: {
-                            borderBottomColor: 'var(--primary-color)'
+                            borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
                     text: 'bg-primary font-medium'

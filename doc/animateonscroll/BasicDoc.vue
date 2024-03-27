@@ -143,9 +143,9 @@ export default {
 }
 
 .box {
-    background-image: radial-gradient(var(--primary-300), var(--primary-600));
-    border-radius: 50% !important;
-    color: var(--primary-color-text);
+    background: var(--p-primary-color);
+    border-radius: 12px !important;
+    color: var(--p-primary-inverse-color);
 }
 </style>
 `,
@@ -211,9 +211,9 @@ export default {
 }
 
 .box {
-    background-image: radial-gradient(var(--primary-300), var(--primary-600));
-    border-radius: 50% !important;
-    color: var(--primary-color-text);
+    background: var(--p-primary-color);
+    border-radius: 12px !important;
+    color: var(--p-primary-inverse-color);
 }
 </style>
 `
@@ -245,8 +245,8 @@ export default {
 }
 
 .box {
-    background-image: radial-gradient(var(--primary-300), var(--primary-600));
-    border-radius: 50% !important;
-    color: var(--primary-color-text);
+    background: var(--p-primary-color);
+    border-radius: 12px !important;
+    color: var(--p-primary-inverse-color);
 }
 </style>

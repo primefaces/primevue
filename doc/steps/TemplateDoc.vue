@@ -71,6 +71,15 @@ export default {
     }
 }
 <\/script>
+
+<style lang="scss" scoped>
+::v-deep(.custom-steps) {
+    .p-steps-item:before {
+        margin-top: 0;
+        border-color: var(--p-primary-color);
+    }
+}
+<\/style>
 `,
                 composition: `
 <template>
@@ -101,18 +110,28 @@ const items = ref([
 ]);
 
 <\/script>
+
+<style lang="scss" scoped>
+::v-deep(.custom-steps) {
+    .p-steps-item:before {
+        margin-top: 0;
+        border-color: var(--p-primary-color);
+    }
+}
+<\/style>
 `
             }
         };
     }
 };
+
 </script>
 
 <style lang="scss" scoped>
 ::v-deep(.custom-steps) {
     .p-steps-item:before {
         margin-top: 0;
-        border-color: var(--primary-color);
+        border-color: var(--p-primary-color);
     }
 }
 </style>

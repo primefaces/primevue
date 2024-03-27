@@ -22,13 +22,13 @@ export default {
                 basic: `
 <style scoped>
 :deep(.p-panel .p-panel-header) {
-    background-color: var(--teal-500);
-    border-color: var(--teal-500);
+    background-color: var(--p-teal-500);
+    border-color: var(--p-teal-500);
     color: #ffffff;
 }
 
 :deep(.p-panel .p-panel-content) {
-    border-color: var(--teal-500);
+    border-color: var(--p-teal-500);
 }
 </style>
 `
@@ -52,12 +52,12 @@ export default {
 
 <style scoped>
 :deep(.p-panel .p-panel-header) {
-    background-color: var(--teal-500);
-    border-color: var(--teal-500);
+    background-color: var(--p-teal-500);
+    border-color: var(--p-teal-500);
     color: #ffffff;
 }
 
 :deep(.p-panel .p-panel-content) {
-    border-color: var(--teal-500);
+    border-color: var(--p-teal-500);
 }
 </style>
