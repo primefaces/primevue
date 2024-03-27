@@ -6,6 +6,7 @@
     width: 100%;
     height: 2rem;
     padding: 0 2rem;
+    background-color: var(--primary-color);
 
     .layout-news-container {
         display: flex;
@@ -30,6 +31,8 @@
         text-overflow: ellipsis;
         overflow: hidden;
         min-width: 0%;
+        font-weight: 500;
+        color: var(--primary-inverse-color);
     }
 
     .layout-news-link {
@@ -41,7 +44,7 @@
     .layout-news-link,
     .layout-news-link:visited,
     .layout-news-link:active {
-        color:var(--primary-color-inverse);
+        color:var(--primary-inverse-color);
         font-weight:700;
     }
     .layout-news-link:hover {
