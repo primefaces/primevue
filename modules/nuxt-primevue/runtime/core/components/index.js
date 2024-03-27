@@ -27,8 +27,7 @@ const form = [
     'Slider',
     'Textarea',
     'ToggleButton',
-    'TreeSelect',
-    'TriStateCheckbox'
+    'TreeSelect'
 ];
 
 const button = ['Button', 'ButtonGroup', 'SpeedDial', 'SplitButton'];

@@ -1,6 +1,0 @@
-{
-    "main": "./tristatecheckboxstyle.cjs.js",
-    "module": "./tristatecheckboxstyle.esm.js",
-    "unpkg": "./tristatecheckboxstyle.min.js",
-    "types": "./TriStateCheckboxStyle.d.ts"
-}

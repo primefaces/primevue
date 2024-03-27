@@ -92,7 +92,6 @@ import { TooltipDirectivePassThroughOptions } from '../tooltip';
 import { TreePassThroughOptions } from '../tree';
 import { TreeSelectPassThroughOptions } from '../treeselect';
 import { TreeTablePassThroughOptions } from '../treetable';
-import { TriStateCheckboxPassThroughOptions } from '../tristatecheckbox';
 import { DefaultPassThrough, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
@@ -208,7 +207,6 @@ export interface PrimeVuePTOptions {
     toolbar?: DefaultPassThrough<ToolbarPassThroughOptions>;
     tree?: DefaultPassThrough<TreePassThroughOptions>;
     treeselect?: DefaultPassThrough<TreeSelectPassThroughOptions>;
-    tristatecheckbox?: DefaultPassThrough<TriStateCheckboxPassThroughOptions>;
     treetable?: DefaultPassThrough<TreeTablePassThroughOptions>;
     virtualscroller?: DefaultPassThrough<VirtualScrollerPassThroughOptions>;
     directives?: {

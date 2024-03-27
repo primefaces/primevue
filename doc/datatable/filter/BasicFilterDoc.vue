@@ -75,7 +75,7 @@
                         <i class="pi" :class="{ 'pi-check-circle text-green-500': data.verified, 'pi-times-circle text-red-400': !data.verified }"></i>
                     </template>
                     <template #filter="{ filterModel, filterCallback }">
-                        <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
+                        <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary @change="filterCallback()" />
                     </template>
                 </Column>
             </DataTable>
@@ -184,7 +184,7 @@ export default {
             <i class="pi" :class="{ 'pi-check-circle text-green-500': data.verified, 'pi-times-circle text-red-400': !data.verified }"></i>
         </template>
         <template #filter="{ filterModel, filterCallback }">
-            <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
+            <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary @change="filterCallback()" />
         </template>
     </Column>
 </DataTable>
@@ -260,7 +260,7 @@ export default {
                     <i class="pi" :class="{ 'pi-check-circle text-green-500': data.verified, 'pi-times-circle text-red-400': !data.verified }"></i>
                 </template>
                 <template #filter="{ filterModel, filterCallback }">
-                    <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
+                    <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary @change="filterCallback()" />
                 </template>
             </Column>
         </DataTable>
@@ -416,7 +416,7 @@ export default {
                     <i class="pi" :class="{ 'pi-check-circle text-green-500': data.verified, 'pi-times-circle text-red-400': !data.verified }"></i>
                 </template>
                 <template #filter="{ filterModel, filterCallback }">
-                    <TriStateCheckbox v-model="filterModel.value" @change="filterCallback()" />
+                    <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary @change="filterCallback()" />
                 </template>
             </Column>
         </DataTable>

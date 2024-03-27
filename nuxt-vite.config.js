@@ -109,7 +109,6 @@ const STYLE_ALIAS = {
     'primevue/tree/style': path.resolve(__dirname, './components/lib/tree/style/TreeStyle.js'),
     'primevue/treeselect/style': path.resolve(__dirname, './components/lib/treeselect/style/TreeSelectStyle.js'),
     'primevue/treetable/style': path.resolve(__dirname, './components/lib/treetable/style/TreeTableStyle.js'),
-    'primevue/tristatecheckbox/style': path.resolve(__dirname, './components/lib/tristatecheckbox/style/TriStateCheckboxStyle.js'),
     'primevue/virtualscroller/style': path.resolve(__dirname, './components/lib/virtualscroller/style/VirtualScrollerStyle.js')
 };
 

@@ -170,7 +170,6 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/tree/style': 'primevue.tree.style',
     'primevue/treeselect/style': 'primevue.treeselect.style',
     'primevue/treetable/style': 'primevue.treetable.style',
-    'primevue/tristatecheckbox/style': 'primevue.tristatecheckbox.style',
     'primevue/virtualscroller/style': 'primevue.virtualscroller.style'
 };
 

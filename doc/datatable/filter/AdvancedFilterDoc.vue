@@ -110,7 +110,7 @@
                     </template>
                     <template #filter="{ filterModel }">
                         <label for="verified-filter" class="font-bold"> Verified </label>
-                        <TriStateCheckbox v-model="filterModel.value" inputId="verified-filter" />
+                        <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary inputId="verified-filter" />
                     </template>
                 </Column>
             </DataTable>
@@ -251,7 +251,7 @@ export default {
         </template>
         <template #filter="{ filterModel }">
             <label for="verified-filter" class="font-bold"> Verified </label>
-            <TriStateCheckbox v-model="filterModel.value" inputId="verified-filter" />
+            <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary inputId="verified-filter" />
         </template>
     </Column>
 </DataTable>
@@ -366,7 +366,7 @@ export default {
                 </template>
                 <template #filter="{ filterModel }">
                     <label for="verified-filter" class="font-bold"> Verified </label>
-                    <TriStateCheckbox v-model="filterModel.value" inputId="verified-filter" />
+                    <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary inputId="verified-filter" />
                 </template>
             </Column>
         </DataTable>
@@ -573,7 +573,7 @@ export default {
                 </template>
                 <template #filter="{ filterModel }">
                     <label for="verified-filter" class="font-bold"> Verified </label>
-                    <TriStateCheckbox v-model="filterModel.value" inputId="verified-filter" />
+                    <Checkbox v-model="filterModel.value" :indeterminate="filterModel.value === null" binary inputId="verified-filter" />
                 </template>
             </Column>
         </DataTable>
