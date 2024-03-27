@@ -88,7 +88,7 @@
             @include focus-visible();
     
             &:hover {
-                border-color: var(--p-primary-color);
+                border-color: var(--primary-color);
             }
     
             i, span {
@@ -97,10 +97,10 @@
         }
 
         .config-item {
-            background-color: var(--p-primary-color);
+            background-color: var(--primary-color);
             
             i {
-                color: var(--p-primary-inverse-color);
+                color: var(--primary-inverse-color);
             }
         }
 
@@ -148,7 +148,7 @@
                         outline-offset: 1px;
     
                         &.active-color {
-                            outline-color: var(--p-primary-color);
+                            outline-color: var(--primary-color);
                         }
                     }
                 }
