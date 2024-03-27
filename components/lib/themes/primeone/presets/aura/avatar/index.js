@@ -2,7 +2,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.200}',
+                background: '{surface.200}'
             },
             grouped: {
                 borderColor: '{surface.0}'
@@ -10,7 +10,7 @@ export default {
         },
         dark: {
             root: {
-                background: '{surface.700}',
+                background: '{surface.700}'
             },
             grouped: {
                 borderColor: '{surface.900}'

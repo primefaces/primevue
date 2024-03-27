@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ToggleButtonPassThroughOptionType<T = any> = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions<T = any>) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
+export declare type ToggleButtonPassThroughOptionType<T = any> = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions<T>) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -48,7 +48,7 @@ export interface ToggleButtonPassThroughMethodOptions<T = any> {
  * Custom passthrough(pt) options.
  * @see {@link ToggleButtonProps.pt}
  */
-export interface ToggleButtonPassThroughOptions<T = any>  {
+export interface ToggleButtonPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */

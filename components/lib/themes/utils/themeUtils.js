@@ -56,18 +56,14 @@ export default {
             const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark }, options).declarations : '';
 
             primitive_css = this._transformCSS(name, prim_css, 'light', 'variable', options, set, defaults);
-            semantic_css = `${this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, set, defaults)}${this._transformCSS(
-                name,
-                `${dark_css}color-scheme:dark`,
-                'dark',
-                'variable',
-                options,
-                set,
-                defaults
-            )}`;
+
+            const semantic_light_css = this._transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, set, defaults);
+            const semantic_dark_css = this._transformCSS(name, `${dark_css}color-scheme:dark`, 'dark', 'variable', options, set, defaults);
+
+            semantic_css = `${semantic_light_css}${semantic_dark_css}`;
         }
 
-        global_css = SharedUtils.object.getItemValue(base?.components?.global?.css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
+        global_css = SharedUtils.object.getItemValue(base?.global?.css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
 
         return {
             primitive: primitive_css,
