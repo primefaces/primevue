@@ -112,6 +112,11 @@ export interface CheckboxProps {
      */
     binary?: boolean;
     /**
+     * When present, it specifies input state as indeterminate.
+     * @default false
+     */
+    indeterminate?: boolean | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
