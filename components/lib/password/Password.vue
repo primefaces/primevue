@@ -81,8 +81,8 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
-        },
+            }
+        }
     },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,

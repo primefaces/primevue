@@ -564,7 +564,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.d_id = newValue || UniqueComponentId();
-            },
+            }
         },
         modelValue(newValue) {
             this.updateCurrentMetaData();

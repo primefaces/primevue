@@ -82,7 +82,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         visible(newValue) {
             this.d_visible = newValue;

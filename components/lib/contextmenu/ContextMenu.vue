@@ -68,7 +68,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         activeItemPath(newPath) {
             if (ObjectUtils.isNotEmpty(newPath)) {

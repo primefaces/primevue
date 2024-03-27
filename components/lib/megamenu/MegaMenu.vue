@@ -90,7 +90,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         activeItem(newItem) {
             if (ObjectUtils.isNotEmpty(newItem)) {

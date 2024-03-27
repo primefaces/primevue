@@ -110,8 +110,8 @@ export default {
             immediate: true,
             handler(newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
-        },
+            }
+        }
     },
     methods: {
         getItemId(index) {

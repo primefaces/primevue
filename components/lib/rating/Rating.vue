@@ -72,8 +72,8 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.name = newValue || UniqueComponentId();
-            },
-        },
+            }
+        }
     },
     methods: {
         getPTOptions(key, value) {

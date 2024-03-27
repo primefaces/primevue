@@ -160,7 +160,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         activeStep(newValue) {
             this.d_activeStep = newValue;

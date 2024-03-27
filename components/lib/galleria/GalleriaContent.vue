@@ -87,7 +87,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         '$attrs.value': function (newVal) {
             if (newVal && newVal.length < this.numVisible) {

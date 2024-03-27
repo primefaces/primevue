@@ -225,7 +225,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         selection(newValue) {
             this.d_selection = newValue;

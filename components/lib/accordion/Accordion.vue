@@ -77,7 +77,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         activeIndex(newValue) {
             this.d_activeIndex = newValue;

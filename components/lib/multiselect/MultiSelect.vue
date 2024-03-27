@@ -242,7 +242,7 @@ export default {
             immediate: true,
             handler: function (newValue) {
                 this.id = newValue || UniqueComponentId();
-            },
+            }
         },
         options() {
             this.autoUpdateModel();
