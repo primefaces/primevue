@@ -79,8 +79,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            },
         },
         activeItemPath(newPath) {
             if (ObjectUtils.isNotEmpty(newPath)) {
@@ -96,7 +99,6 @@ export default {
     container: null,
     menubar: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
     },
     beforeUnmount() {
