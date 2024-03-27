@@ -77,9 +77,15 @@ export default {
                 icon: 'pi pi-info-circle',
                 position: position,
                 rejectClass: 'p-button-secondary p-button-text',
-                acceptClass: 'p-button-text',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    text: true
+                },
+                acceptProps: {
+                    label: 'Save',
+                    text: true
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },
@@ -128,10 +134,15 @@ const confirmPosition = (position) => {
         header: 'Confirmation',
         icon: 'pi pi-info-circle',
         position: position,
-        rejectClass: 'p-button-secondary p-button-text',
-        acceptClass: 'p-button-text',
-        rejectLabel: 'Cancel',
-        acceptLabel: 'Save',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            text: true
+        },
+        acceptProps: {
+            label: 'Save',
+            text: true
+        },
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
         },
@@ -153,10 +164,15 @@ const confirmPosition = (position) => {
                 header: 'Confirmation',
                 icon: 'pi pi-info-circle',
                 position: position,
-                rejectClass: 'p-button-secondary p-button-text',
-                acceptClass: 'p-button-text',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    text: true
+                },
+                acceptProps: {
+                    label: 'Save',
+                    text: true
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
                 },

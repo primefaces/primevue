@@ -57,12 +57,15 @@ export default {
                 group: 'templating',
                 message: 'Please confirm to proceed moving forward.',
                 icon: 'pi pi-exclamation-circle',
-                acceptIcon: 'pi pi-check',
-                rejectIcon: 'pi pi-times',
-                acceptLabel: 'Confirm',
-                rejectLabel: 'Cancel',
-                rejectClass: 'p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
+                rejectProps: {
+                    icon: 'pi pi-times',
+                    label: 'Cancel',
+                    outlined: true
+                },
+                acceptProps: {
+                    icon: 'pi pi-check',
+                    label: 'Confirm'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -104,12 +107,15 @@ const showTemplate = (event) => {
         group: 'templating',
         message: 'Please confirm to proceed moving forward.',
         icon: 'pi pi-exclamation-circle',
-        acceptIcon: 'pi pi-check',
-        rejectIcon: 'pi pi-times',
-        acceptLabel: 'Confirm',
-        rejectLabel: 'Cancel',
-        rejectClass: 'p-button-outlined p-button-sm',
-        acceptClass: 'p-button-sm',
+        rejectProps: {
+            icon: 'pi pi-times',
+            label: 'Cancel',
+            outlined: true
+        },
+        acceptProps: {
+            icon: 'pi pi-check',
+            label: 'Confirm'
+        },
         accept: () => {
             toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
         },
@@ -130,12 +136,15 @@ const showTemplate = (event) => {
                 group: 'templating',
                 message: 'Please confirm to proceed moving forward.',
                 icon: 'pi pi-exclamation-circle',
-                acceptIcon: 'pi pi-check',
-                rejectIcon: 'pi pi-times',
-                acceptLabel: 'Confirm',
-                rejectLabel: 'Cancel',
-                rejectClass: 'p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
+                rejectProps: {
+                    icon: 'pi pi-times',
+                    label: 'Cancel',
+                    outlined: true
+                },
+                acceptProps: {
+                    icon: 'pi pi-check',
+                    label: 'Confirm'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },

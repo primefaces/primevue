@@ -124,7 +124,6 @@ const items = ref([
         };
     }
 };
-
 </script>
 
 <style lang="scss" scoped>

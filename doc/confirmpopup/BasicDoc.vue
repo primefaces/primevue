@@ -38,10 +38,14 @@ export default {
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
-                rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    outlined: true
+                },
+                acceptProps: {
+                    label: 'Save'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -55,10 +59,15 @@ export default {
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
-                rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-                acceptClass: 'p-button-danger p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Delete',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    outlined: true
+                },
+                acceptProps: {
+                    label: 'Delete',
+                    severity: 'danger'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },
@@ -93,10 +102,14 @@ const confirm1 = (event) => {
         target: event.currentTarget,
         message: 'Are you sure you want to proceed?',
         icon: 'pi pi-exclamation-triangle',
-        rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-        acceptClass: 'p-button-sm',
-        rejectLabel: 'Cancel',
-        acceptLabel: 'Save',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Save'
+        },
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
         },
@@ -111,10 +124,15 @@ const confirm2 = (event) => {
         target: event.currentTarget,
         message: 'Do you want to delete this record?',
         icon: 'pi pi-info-circle',
-        rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-        acceptClass: 'p-button-danger p-button-sm',
-        rejectLabel: 'Cancel',
-        acceptLabel: 'Delete',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Delete',
+            severity: 'danger'
+        },
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
         },
@@ -134,10 +152,14 @@ const confirm2 = (event) => {
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
-                rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    outlined: true
+                },
+                acceptProps: {
+                    label: 'Save'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -151,10 +173,15 @@ const confirm2 = (event) => {
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
-                rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
-                acceptClass: 'p-button-danger p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Delete',
+                rejectProps: {
+                    label: 'Cancel',
+                    severity: 'secondary',
+                    outlined: true
+                },
+                acceptProps: {
+                    label: 'Delete',
+                    severity: 'danger'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },

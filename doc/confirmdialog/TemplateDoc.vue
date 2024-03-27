@@ -57,12 +57,17 @@ export default {
                 header: 'Confirmation',
                 message: 'Please confirm to proceed moving forward.',
                 icon: 'pi pi-exclamation-circle',
-                acceptIcon: 'pi pi-check',
-                rejectIcon: 'pi pi-times',
-                rejectClass: 'p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    icon: 'pi pi-times',
+                    outlined: true,
+                    size: 'small'
+                },
+                acceptProps: {
+                    label: 'Save',
+                    icon: 'pi pi-check',
+                    size: 'small'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
@@ -104,12 +109,17 @@ const showTemplate = () => {
         header: 'Confirmation',
         message: 'Please confirm to proceed moving forward.',
         icon: 'pi pi-exclamation-circle',
-        acceptIcon: 'pi pi-check',
-        rejectIcon: 'pi pi-times',
-        rejectClass: 'p-button-outlined p-button-sm',
-        acceptClass: 'p-button-sm',
-        rejectLabel: 'Cancel',
-        acceptLabel: 'Save',
+        rejectProps: {
+            label: 'Cancel',
+            icon: 'pi pi-times',
+            outlined: true,
+            size: 'small'
+        },
+        acceptProps: {
+            label: 'Save',
+            icon: 'pi pi-check',
+            size: 'small'
+        },
         accept: () => {
             toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
         },
@@ -130,12 +140,17 @@ const showTemplate = () => {
                 header: 'Confirmation',
                 message: 'Please confirm to proceed moving forward.',
                 icon: 'pi pi-exclamation-circle',
-                acceptIcon: 'pi pi-check',
-                rejectIcon: 'pi pi-times',
-                rejectClass: 'p-button-outlined p-button-sm',
-                acceptClass: 'p-button-sm',
-                rejectLabel: 'Cancel',
-                acceptLabel: 'Save',
+                rejectProps: {
+                    label: 'Cancel',
+                    icon: 'pi pi-times',
+                    outlined: true,
+                    size: 'small'
+                },
+                acceptProps: {
+                    label: 'Save',
+                    icon: 'pi pi-check',
+                    size: 'small'
+                },
                 accept: () => {
                     this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
