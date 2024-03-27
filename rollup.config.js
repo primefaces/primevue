@@ -173,6 +173,57 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/virtualscroller/style': 'primevue.virtualscroller.style'
 };
 
+// prettier-ignore
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','calendar','card','carousel','cascadeselect','checkbox','chip','chips','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','dialog','divider','dock','dropdown','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputgroup','inputnumber','inputotp','inputswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','selectbutton','sidebar','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toolbar','tooltip','tree','treeselect','treetable'];
+
+const createThemeDependencies = (design, presets) => {
+    const baseDeps = THEME_COMPONENTS.reduce((acc, name) => {
+        acc[`primevue/themes/${design}/base/${name}`] = `primevue.themes.${design}.base.${name}`;
+
+        return acc;
+    }, {});
+
+    const presetDeps = presets?.reduce((p_acc, p_name) => {
+        const p_alias = THEME_COMPONENTS.reduce((acc, name) => {
+            acc[`primevue/themes/${design}/presets/${p_name}/${name}`] = `primevue.themes.${design}.presets.${p_name}.${name}`;
+
+            return acc;
+        }, {});
+
+        p_acc = { ...p_acc, ...p_alias };
+
+        return p_acc;
+    }, {});
+
+    const otherDeps = presets?.reduce((p_acc, p_name) => {
+        p_acc = {
+            ...p_acc,
+            [`primevue/themes/${design}/presets/${p_name}`]: `primevue.themes.${design}.presets.${p_name}`,
+            [`primevue/themes/${design}/${p_name}`]: `primevue.themes.${design}.${p_name}`
+        };
+
+        return p_acc;
+    }, {});
+
+    const coreDeps = {
+        [`primevue/themes/${design}/base/global`]: `primevue.themes.${design}.base.global`,
+        [`primevue/themes/${design}/base`]: `primevue.themes.${design}.base`,
+        [`primevue/themes/${design}`]: `primevue.themes.${design}`
+    };
+
+    return { ...baseDeps, ...presetDeps, ...otherDeps, ...coreDeps };
+};
+
+const CORE_THEME_DEPENDENCIES = {
+    ...createThemeDependencies('primeone', ['aura']),
+    'primevue/themes/actions': 'primevue.themes.actions',
+    'primevue/themes/config': 'primevue.themes.config',
+    'primevue/themes/helpers': 'primevue.themes.helpers',
+    'primevue/themes/service': 'primevue.themes.service',
+    'primevue/themes/utils': 'primevue.themes.utils',
+    'primevue/themes': 'primevue.themes'
+};
+
 const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
@@ -212,7 +263,8 @@ const CORE_DEPENDENCIES = {
     'primevue/badge': 'primevue.badge',
     'primevue/listbox': 'primevue.listbox',
     'primevue/togglebutton': 'primevue.togglebutton',
-    ...CORE_PASSTHROUGH_DEPENDENCIES
+    ...CORE_PASSTHROUGH_DEPENDENCIES,
+    ...CORE_THEME_DEPENDENCIES
 };
 
 // dependencies
@@ -405,6 +457,36 @@ function addStyle() {
         });
 }
 
+function traverseDir(dir, condition, callback) {
+    try {
+        const files = fs.readdirSync(dir);
+
+        files.forEach((file) => {
+            const filePath = path.join(dir, file);
+            const fileStat = fs.statSync(filePath);
+
+            if (fileStat.isDirectory()) {
+                traverseDir(filePath, condition, callback);
+            } else if (condition?.(file) && fileStat.isFile()) {
+                callback?.(file, filePath, dir);
+            }
+        });
+    } catch {}
+}
+
+function addThemes() {
+    traverseDir(
+        path.resolve(__dirname, './components/lib/themes'),
+        (file) => file === 'index.js',
+        (file, filePath, folderPath) => {
+            const searchFolder = '/components/lib/';
+            const fpath = folderPath.substring(folderPath.indexOf(searchFolder) + searchFolder.length);
+
+            addEntry(fpath, file, 'index');
+        }
+    );
+}
+
 function addDirectives() {
     addEntry('basedirective', 'BaseDirective.js', 'basedirective');
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
@@ -421,7 +503,6 @@ function addConfig() {
 
 function addPassThrough() {
     addEntry('passthrough', 'index.js', 'index');
-    addEntry('passthrough/tailwind', 'index.js', 'index');
 }
 
 function addUtils() {
@@ -499,6 +580,7 @@ function addPackageJson() {
 
 addUtils();
 addStyle();
+addThemes();
 addBase();
 addApi();
 addConfig();

@@ -2,30 +2,33 @@ const fs = require('fs-extra');
 const path = require('path');
 
 function copyDependencies(inFolder, outFolder, subFolder) {
-    fs.readdirSync(path.resolve(__dirname, inFolder), { withFileTypes: true })
-        .filter((dir) => dir.isDirectory())
-        .forEach(({ name: folderName }) => {
-            fs.readdirSync(path.resolve(__dirname, inFolder + folderName)).forEach((file) => {
-                if (file === 'package.json' || file.endsWith('d.ts') || file.endsWith('vue')) {
-                    fs.copySync(path.resolve(__dirname, inFolder + folderName) + '/' + file, outFolder + folderName + '/' + file);
-                }
-            });
+    fs.readdirSync(inFolder, { withFileTypes: true }).forEach((entry) => {
+        const fileName = entry.name;
+        const sourcePath = path.join(inFolder, fileName);
+        const destPath = path.join(outFolder, fileName);
 
-            if (subFolder) {
-                try {
-                    fs.readdirSync(path.resolve(__dirname, inFolder + folderName + subFolder)).forEach((subFile) => {
-                        if (subFile === 'package.json' || subFile.endsWith('d.ts') || subFile.endsWith('vue')) {
-                            fs.copySync(path.resolve(__dirname, inFolder + folderName + subFolder) + '/' + subFile, outFolder + folderName + subFolder + '/' + subFile);
-                        }
-                    });
-                } catch {}
+        if (entry.isDirectory()) {
+            copyDependencies(sourcePath, destPath, subFolder);
+        } else {
+            if (fileName === 'package.json' || fileName.endsWith('d.ts') || fileName.endsWith('.vue')) {
+                if (subFolder && sourcePath.includes(subFolder)) {
+                    const subDestPath = path.join(outFolder, fileName.replace(subFolder, ''));
+
+                    fs.ensureDirSync(path.dirname(subDestPath));
+                    fs.copyFileSync(sourcePath, subDestPath);
+                } else {
+                    fs.ensureDirSync(path.dirname(destPath));
+                    fs.copyFileSync(sourcePath, destPath);
+                }
             }
-        });
+        }
+    });
 }
 
 copyDependencies('./components/lib/', 'dist/', '/style');
 copyDependencies('./components/lib/icons/', 'dist/icons/');
 copyDependencies('./components/lib/passthrough/', 'dist/passthrough/');
+copyDependencies('./components/lib/themes/', 'dist/themes/');
 
 fs.copySync(path.resolve(__dirname, './components/lib/ts-helpers.d.ts'), 'dist/ts-helpers.d.ts');
 fs.copySync(path.resolve(__dirname, './README.md'), 'dist/README.md');

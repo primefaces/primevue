@@ -162,102 +162,54 @@ const ICON_ALIAS = {
     'primevue/icons/windowminimize': path.resolve(__dirname, './components/lib/icons/windowminimize/index.vue')
 };
 
-const THEME_COMPONENTS = [
-    'accordion',
-    'autocomplete',
-    'avatar',
-    'badge',
-    'blockui',
-    'breadcrumb',
-    'button',
-    'calendar',
-    'card',
-    'carousel',
-    'cascadeselect',
-    'checkbox',
-    'chip',
-    'chips',
-    'colorpicker',
-    'confirmdialog',
-    'confirmpopup',
-    'contextmenu',
-    'datatable',
-    'dataview',
-    'dialog',
-    'divider',
-    'dock',
-    'dropdown',
-    'editor',
-    'fieldset',
-    'fileupload',
-    'floatlabel',
-    'galleria',
-    'iconfield',
-    'image',
-    'inlinemessage',
-    'inplace',
-    'inputgroup',
-    'inputnumber',
-    'inputotp',
-    'inputswitch',
-    'inputtext',
-    'knob',
-    'listbox',
-    'megamenu',
-    'menu',
-    'menubar',
-    'message',
-    'metergroup',
-    'multiselect',
-    'orderlist',
-    'organizationchart',
-    'overlaypanel',
-    'paginator',
-    'panel',
-    'panelmenu',
-    'password',
-    'picklist',
-    'progressbar',
-    'progressspinner',
-    'radiobutton',
-    'rating',
-    'scrollpanel',
-    'scrolltop',
-    'selectbutton',
-    'sidebar',
-    'skeleton',
-    'slider',
-    'speeddial',
-    'splitbutton',
-    'splitter',
-    'steps',
-    'stepper',
-    'tabmenu',
-    'tabview',
-    'tag',
-    'terminal',
-    'textarea',
-    'tieredmenu',
-    'timeline',
-    'toast',
-    'togglebutton',
-    'toolbar',
-    'tooltip',
-    'tree',
-    'treeselect',
-    'treetable'
-];
+// prettier-ignore
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','calendar','card','carousel','cascadeselect','checkbox','chip','chips','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','dialog','divider','dock','dropdown','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputgroup','inputnumber','inputotp','inputswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','selectbutton','sidebar','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toolbar','tooltip','tree','treeselect','treetable'];
+
+const createThemeAlias = (design, presets) => {
+    const baseAlias = THEME_COMPONENTS.reduce((acc, name) => {
+        acc[`primevue/themes/${design}/base/${name}`] = path.resolve(__dirname, `./components/lib/themes/${design}/base/${name}/index.js`);
+
+        return acc;
+    }, {});
+
+    const presetAlias = presets?.reduce((p_acc, p_name) => {
+        const p_alias = THEME_COMPONENTS.reduce((acc, name) => {
+            acc[`primevue/themes/${design}/presets/${p_name}/${name}`] = path.resolve(__dirname, `./components/lib/themes/${design}/presets/${p_name}/${name}/index.js`);
+
+            return acc;
+        }, {});
+
+        p_acc = { ...p_acc, ...p_alias };
+
+        return p_acc;
+    }, {});
+
+    const otherAlias = presets?.reduce((p_acc, p_name) => {
+        p_acc = {
+            ...p_acc,
+            [`primevue/themes/${design}/presets/${p_name}`]: path.resolve(__dirname, `./components/lib/themes/${design}/presets/${p_name}/index.js`),
+            [`primevue/themes/${design}/${p_name}`]: path.resolve(__dirname, `./components/lib/themes/${design}/${p_name}/index.js`)
+        };
+
+        return p_acc;
+    }, {});
+
+    const coreAlias = {
+        [`primevue/themes/${design}/base/global`]: path.resolve(__dirname, `./components/lib/themes/${design}/base/global/index.js`),
+        [`primevue/themes/${design}/base`]: path.resolve(__dirname, `./components/lib/themes/${design}/base/index.js`),
+        [`primevue/themes/${design}`]: path.resolve(__dirname, `./components/lib/themes/${design}/index.js`)
+    };
+
+    return { ...baseAlias, ...presetAlias, ...otherAlias, ...coreAlias };
+};
+
 const THEME_ALIAS = {
-    'primevue/themes/primeone/base/global': path.resolve(__dirname, './components/lib/themes/primeone/base/global.js'),
-    ...THEME_COMPONENTS.reduce((acc, name) => ((acc[`primevue/themes/primeone/presets/aura/${name}`] = path.resolve(__dirname, `./components/lib/themes/primeone/presets/aura/${name}/index.js`)), acc), {}),
-    ...THEME_COMPONENTS.reduce((acc, name) => ((acc[`primevue/themes/primeone/base/${name}`] = path.resolve(__dirname, `./components/lib/themes/primeone/base/${name}/index.js`)), acc), {}),
-    'primevue/themes/primeone/base': path.resolve(__dirname, './components/lib/themes/primeone/base/index.js'),
-    'primevue/themes/primeone/presets/aura': path.resolve(__dirname, './components/lib/themes/primeone/presets/aura/index.js'),
-    'primevue/themes/primeone/presets': path.resolve(__dirname, './components/lib/themes/primeone/presets/index.js'),
-    'primevue/themes/primeone/aura': path.resolve(__dirname, './components/lib/themes/primeone/aura/index.js'),
-    'primevue/themes/primeone': path.resolve(__dirname, './components/lib/themes/primeone/index.js'),
-    'primevue/themes/config': path.resolve(__dirname, './components/lib/themes/config/index.js'),
     'primevue/themes/utils': path.resolve(__dirname, './components/lib/themes/utils/index.js'),
+    'primevue/themes/config': path.resolve(__dirname, './components/lib/themes/config/index.js'),
+    'primevue/themes/service': path.resolve(__dirname, './components/lib/themes/service/index.js'),
+    'primevue/themes/helpers': path.resolve(__dirname, './components/lib/themes/helpers/index.js'),
+    'primevue/themes/actions': path.resolve(__dirname, './components/lib/themes/actions/index.js'),
+    ...createThemeAlias('primeone', ['aura']),
     'primevue/themes': path.resolve(__dirname, './components/lib/themes/index.js')
 };
 
