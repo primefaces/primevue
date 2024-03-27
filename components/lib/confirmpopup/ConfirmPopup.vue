@@ -15,39 +15,41 @@
                     </template>
                     <component v-else :is="$slots.message" :message="confirmation"></component>
                     <div :class="cx('footer')" v-bind="ptm('footer')">
-                        <CPButton
+                        <Button
                             :label="rejectLabel"
                             @click="reject()"
                             @keydown="onRejectKeydown"
                             :autofocus="autoFocusReject"
                             :class="[cx('rejectButton'), confirmation.rejectClass]"
-                            :size="{ small: !confirmation.rejectClass }"
-                            :text="!confirmation.rejectClass"
                             :unstyled="unstyled"
+                            v-bind="rejectButtonProps"
                             :pt="ptm('rejectButton')"
+                            :size="rejectButtonProps.size"
+                            :text="rejectButtonProps.text"
                         >
                             <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                                 <slot name="rejecticon">
                                     <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-section="rejectbuttonicon" />
                                 </slot>
                             </template>
-                        </CPButton>
-                        <CPButton
+                        </Button>
+                        <Button
                             :label="acceptLabel"
                             @click="accept()"
                             @keydown="onAcceptKeydown"
                             :autofocus="autoFocusAccept"
                             :class="[cx('acceptButton'), confirmation.acceptClass]"
-                            :size="{ small: !confirmation.acceptClass }"
                             :unstyled="unstyled"
+                            v-bind="acceptButtonProps"
                             :pt="ptm('acceptButton')"
+                            :size="acceptButtonProps.size"
                         >
                             <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                                 <slot name="accepticon">
                                     <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" data-pc-section="acceptbuttonicon" />
                                 </slot>
                             </template>
-                        </CPButton>
+                        </Button>
                     </div>
                 </template>
             </div>
@@ -298,10 +300,10 @@ export default {
             return this.confirmation ? this.confirmation.message : null;
         },
         acceptLabel() {
-            return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
+            return this.confirmation ? this.confirmation.acceptLabel || this.acceptButtonProps.label || this.$primevue.config.locale.accept : null;
         },
         rejectLabel() {
-            return this.confirmation ? this.confirmation.rejectLabel || this.$primevue.config.locale.reject : null;
+            return this.confirmation ? this.confirmation.rejectLabel || this.rejectButtonProps.label || this.$primevue.config.locale.reject : null;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : null;
@@ -311,8 +313,8 @@ export default {
         }
     },
     components: {
-        CPButton: Button,
-        Portal: Portal
+        Button,
+        Portal
     },
     directives: {
         focustrap: FocusTrap

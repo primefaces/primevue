@@ -1,5 +1,5 @@
 <template>
-    <CDialog
+    <Dialog
         v-model:visible="visible"
         role="alertdialog"
         :class="cx('root')"
@@ -28,22 +28,22 @@
             <component v-else :is="$slots.message" :message="confirmation"></component>
         </template>
         <template v-if="!$slots.container" #footer>
-            <CDButton :label="rejectLabel" :class="[cx('rejectButton'), confirmation.rejectClass]" @click="reject()" :text="!confirmation.rejectClass" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')">
+            <Button :label="rejectLabel" :class="[cx('rejectButton'), confirmation.rejectClass]" @click="reject()" :autofocus="autoFocusReject" :unstyled="unstyled" v-bind="rejectButtonProps" :pt="ptm('rejectButton')" :text="rejectButtonProps.text">
                 <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                     <slot name="rejecticon">
                         <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-section="rejectbuttonicon" />
                     </slot>
                 </template>
-            </CDButton>
-            <CDButton :label="acceptLabel" :class="[cx('acceptButton'), confirmation.acceptClass]" @click="accept()" :autofocus="autoFocusAccept" :unstyled="unstyled" :pt="ptm('acceptButton')">
+            </Button>
+            <Button :label="acceptLabel" :class="[cx('acceptButton'), confirmation.acceptClass]" @click="accept()" :autofocus="autoFocusAccept" :unstyled="unstyled" v-bind="acceptButtonProps" :pt="ptm('acceptButton')">
                 <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                     <slot name="accepticon">
                         <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" data-pc-section="acceptbuttonicon" />
                     </slot>
                 </template>
-            </CDButton>
+            </Button>
         </template>
-    </CDialog>
+    </Dialog>
 </template>
 
 <script>
@@ -132,10 +132,10 @@ export default {
             return this.confirmation ? this.confirmation.position : null;
         },
         acceptLabel() {
-            return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
+            return this.confirmation ? this.confirmation.acceptLabel || this.acceptButtonProps.label || this.$primevue.config.locale.accept : null;
         },
         rejectLabel() {
-            return this.confirmation ? this.confirmation.rejectLabel || this.$primevue.config.locale.reject : null;
+            return this.confirmation ? this.confirmation.rejectLabel || this.rejectButtonProps.label || this.$primevue.config.locale.reject : null;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : null;
@@ -154,8 +154,8 @@ export default {
         }
     },
     components: {
-        CDialog: Dialog,
-        CDButton: Button
+        Dialog,
+        Button
     }
 };
 </script>
