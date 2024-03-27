@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { palette, $dt, updatePreset, updateTheme } from 'primevue/themes';
+import { updatePrimary, updateSurface } from 'primevue/themes';
 
 export default {
     data() {
@@ -101,7 +101,10 @@ export default {
             document.startViewTransition(() => this.applyTheme(type, color));
         },
         applyTheme(type, color) {
-            updatePreset({
+            if (type === 'primary') updatePrimary(color.palette);
+            else if (type === 'surface') updateSurface(color.palette);
+
+            /*updatePreset({
                 semantic:
                     type === 'surface'
                         ? {
@@ -112,7 +115,7 @@ export default {
                               }
                           }
                         : { [type]: color.palette }
-            });
+            });*/
 
             /*for (const shade in color.palette) {
                 document.documentElement.style.setProperty(`--p-${type}-${shade}`, `${color.palette[shade]}`);
