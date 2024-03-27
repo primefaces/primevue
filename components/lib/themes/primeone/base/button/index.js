@@ -75,7 +75,7 @@ export default {
     padding: 0.625rem 1.25rem;
 }
 
-.p-button-sm .p-button-icon {
+.p-button-lg .p-button-icon {
     font-size: 1.25rem;
 }
 
