@@ -9,7 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions, ButtonProps } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -138,18 +138,6 @@ export interface ConfirmPopupProps {
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
      */
     group?: string;
-    /**
-     * Used to pass all properties of the ButtonProps to the reject button inside the component.
-     * @type {ButtonProps}
-     * @defaultValue { size: 'small', text: true }
-     */
-    rejectButtonProps?: object | undefined;
-    /**
-     * Used to pass all properties of the ButtonProps to the accept button inside the component.
-     * @type {ButtonProps}
-     * @defaultValue { size: 'small' }
-     */
-    acceptButtonProps?: object | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmPopupPassThroughOptions}

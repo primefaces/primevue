@@ -5,6 +5,7 @@
  * @module confirmationoptions
  *
  */
+import { ButtonProps } from '../button';
 
 /**
  * Confirmation Service options.
@@ -85,4 +86,14 @@ export interface ConfirmationOptions {
      * Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".
      */
     defaultFocus?: string | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the reject button inside the component.
+     * @type {ButtonProps}
+     */
+    rejectProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the accept button inside the component.
+     * @type {ButtonProps}
+     */
+    acceptProps?: object | undefined;
 }

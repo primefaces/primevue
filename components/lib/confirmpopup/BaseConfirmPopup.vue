@@ -6,24 +6,7 @@ export default {
     name: 'BaseConfirmPopup',
     extends: BaseComponent,
     props: {
-        group: String,
-        rejectButtonProps: {
-            type: Object,
-            default() {
-                return {
-                    size: 'small',
-                    text: true
-                };
-            }
-        },
-        acceptButtonProps: {
-            type: Object,
-            default() {
-                return {
-                    size: 'small'
-                };
-            }
-        }
+        group: String
     },
     style: ConfirmPopupStyle,
     provide() {

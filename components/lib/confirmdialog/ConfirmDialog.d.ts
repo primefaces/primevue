@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions, ButtonProps } from '../button';
+import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -184,18 +184,6 @@ export interface ConfirmDialogProps {
      * @defaultValue true
      */
     draggable?: boolean | undefined;
-    /**
-     * Used to pass all properties of the ButtonProps to the reject button inside the component.
-     * @type {ButtonProps}
-     * @defaultValue { text: true }
-     */
-    rejectButtonProps?: object | undefined;
-    /**
-     * Used to pass all properties of the ButtonProps to the accept button inside the component.
-     * @type {ButtonProps}
-     * @defaultValue {}
-     */
-    acceptButtonProps?: object | undefined;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmDialogPassThroughOptions}

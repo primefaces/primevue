@@ -14,20 +14,6 @@ export default {
         draggable: {
             type: Boolean,
             default: true
-        },
-        rejectButtonProps: {
-            type: Object,
-            default() {
-                return {
-                    text: true
-                };
-            }
-        },
-        acceptButtonProps: {
-            type: Object,
-            default() {
-                return {};
-            }
         }
     },
     style: ConfirmDialogStyle,

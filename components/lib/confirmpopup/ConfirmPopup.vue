@@ -16,16 +16,16 @@
                     <component v-else :is="$slots.message" :message="confirmation"></component>
                     <div :class="cx('footer')" v-bind="ptm('footer')">
                         <Button
-                            :label="rejectLabel"
+                            :class="[cx('rejectButton'), confirmation.rejectClass]"
+                            :autofocus="autoFocusReject"
+                            :unstyled="unstyled"
+                            :size="confirmation.rejectProps?.size || 'small'"
+                            :text="confirmation.rejectProps?.text || false"
                             @click="reject()"
                             @keydown="onRejectKeydown"
-                            :autofocus="autoFocusReject"
-                            :class="[cx('rejectButton'), confirmation.rejectClass]"
-                            :unstyled="unstyled"
-                            v-bind="rejectButtonProps"
+                            v-bind="confirmation.rejectProps"
+                            :label="rejectLabel"
                             :pt="ptm('rejectButton')"
-                            :size="rejectButtonProps.size"
-                            :text="rejectButtonProps.text"
                         >
                             <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                                 <slot name="rejecticon">
@@ -34,15 +34,15 @@
                             </template>
                         </Button>
                         <Button
-                            :label="acceptLabel"
+                            :class="[cx('acceptButton'), confirmation.acceptClass]"
+                            :autofocus="autoFocusAccept"
+                            :unstyled="unstyled"
+                            :size="confirmation.acceptProps?.size || 'small'"
                             @click="accept()"
                             @keydown="onAcceptKeydown"
-                            :autofocus="autoFocusAccept"
-                            :class="[cx('acceptButton'), confirmation.acceptClass]"
-                            :unstyled="unstyled"
-                            v-bind="acceptButtonProps"
+                            v-bind="confirmation.acceptProps"
+                            :label="acceptLabel"
                             :pt="ptm('acceptButton')"
-                            :size="acceptButtonProps.size"
                         >
                             <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                                 <slot name="accepticon">
@@ -300,16 +300,28 @@ export default {
             return this.confirmation ? this.confirmation.message : null;
         },
         acceptLabel() {
-            return this.confirmation ? this.confirmation.acceptLabel || this.acceptButtonProps.label || this.$primevue.config.locale.accept : null;
+            if (this.confirmation) {
+                const confirmation = this.confirmation;
+
+                return confirmation.acceptLabel ? confirmation.acceptLabel : confirmation.acceptProps ? confirmation.acceptProps.label || this.$primevue.config.locale.accept : null;
+            }
+
+            return null;
         },
         rejectLabel() {
-            return this.confirmation ? this.confirmation.rejectLabel || this.rejectButtonProps.label || this.$primevue.config.locale.reject : null;
+            if (this.confirmation) {
+                const confirmation = this.confirmation;
+
+                return confirmation.rejectLabel ? confirmation.rejectLabel : confirmation.rejectProps ? confirmation.rejectProps.label || this.$primevue.config.locale.reject : null;
+            }
+
+            return null;
         },
         acceptIcon() {
-            return this.confirmation ? this.confirmation.acceptIcon : null;
+            return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;
         },
         rejectIcon() {
-            return this.confirmation ? this.confirmation.rejectIcon : null;
+            return this.confirmation ? this.confirmation.rejectIcon : this.confirmation?.rejectProps ? this.confirmation.rejectProps.icon : null;
         }
     },
     components: {
