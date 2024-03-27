@@ -1,7 +1,5 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
-const VARIABLE = Theme.defaults.variable;
-
 export const $dt = (tokenPath, type) => {
     const config = Theme.getPConfig();
 
@@ -10,6 +8,7 @@ export const $dt = (tokenPath, type) => {
 
 export const dt = (theme = {}, tokenPath, type) => {
     if (tokenPath) {
+        const VARIABLE = Theme.defaults.variable;
         const { prefix, transform } = theme?.options || {};
         const regex = /{([^}]*)}/g;
         const token = SharedUtils.object.test(regex, tokenPath) ? tokenPath : `{${tokenPath}}`;

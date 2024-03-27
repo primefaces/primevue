@@ -84,8 +84,8 @@ import treeselect from 'primevue/themes/primeone/base/treeselect';
 import treetable from 'primevue/themes/primeone/base/treetable';
 
 export default {
+    global,
     components: {
-        global,
         accordion,
         autocomplete,
         avatar,

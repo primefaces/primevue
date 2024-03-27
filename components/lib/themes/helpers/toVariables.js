@@ -1,8 +1,7 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
-const VARIABLE = Theme.defaults.variable;
-
 export default function (theme, options = {}) {
+    const VARIABLE = Theme.defaults.variable;
     const { prefix = VARIABLE.prefix, selector = VARIABLE.selector, excludedKeyRegex = VARIABLE.excludedKeyRegex } = options;
 
     const _toVariables = (_theme, _prefix = '') => {
