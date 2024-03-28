@@ -59,7 +59,7 @@ export default {
                 this.$appState.theme = event.theme;
                 this.$appState.darkTheme = event.dark;
 
-                EventBus.emit('theme-change-complete', { theme: event.theme, dark: event.dark });
+                EventBus.emit('dark-mode-toggle', { theme: event.theme, dark: event.dark });
             });
         }
     }

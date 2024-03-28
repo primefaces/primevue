@@ -9,28 +9,30 @@ import EventBus from '@/layouts/AppEventBus';
 
 export default {
     mounted() {
-        EventBus.on('theme-change', this.themeChangeListener);
+        EventBus.on('dark-mode-toggle', this.darkModeToggleListener);
     },
     beforeUnmount() {
-        EventBus.off('theme-change', this.themeChangeListener);
+        EventBus.off('dark-mode-toggle', this.darkModeToggleListener);
     },
     methods: {
-        themeChangeListener(event) {
+        darkModeToggleListener(event) {
             if (!document.startViewTransition) {
-                this.applyTheme(event);
+                this.toggleDarkMode(event);
 
                 return;
             }
 
-            document.startViewTransition(() => this.applyTheme(event));
+            document.startViewTransition(() => this.toggleDarkMode(event));
         },
-        applyTheme(event) {
+        toggleDarkMode(event) {
             const isDark = event.dark;
 
             if (isDark) document.documentElement.classList.add('p-dark');
             else document.documentElement.classList.remove('p-dark');
 
             this.$appState.darkTheme = isDark;
+
+            EventBus.emit('dark-mode-toggle-complete');
         }
     }
 };

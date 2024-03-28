@@ -165,7 +165,7 @@ import EventBus from '@/layouts/AppEventBus';
 import { NodeService } from '@/service/NodeService';
 
 export default {
-    themeChangeListener: null,
+    darkModeToggleListener: null,
     data() {
         return {
             value1: 24,
@@ -212,17 +212,17 @@ export default {
         };
     },
     beforeUnmount() {
-        EventBus.off('theme-change-complete', this.themeChangeListener);
+        EventBus.off('dark-mode-toggle-complete', this.darkModeToggleListener);
     },
     mounted() {
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
 
-        this.themeChangeListener = () => {
+        this.darkModeToggleListener = () => {
             this.chartOptions = this.setChartOptions();
         };
 
-        EventBus.on('theme-change-complete', this.themeChangeListener);
+        EventBus.on('dark-mode-toggle-complete', this.darkModeToggleListener);
 
         NodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
@@ -247,9 +247,8 @@ export default {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
                 plugins: {

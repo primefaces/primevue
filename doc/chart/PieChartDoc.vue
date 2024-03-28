@@ -12,6 +12,7 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
+    darkModeToggleListener: null,
     data() {
         return {
             chartData: null,
@@ -126,15 +127,18 @@ const setChartOptions = () => {
             }
         };
     },
+    beforeUnmount() {
+        EventBus.off('dark-mode-toggle-complete', this.darkModeToggleListener);
+    },
     mounted() {
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
 
-        this.themeChangeListener = () => {
+        this.darkModeToggleListener = () => {
             this.chartOptions = this.setChartOptions();
         };
 
-        EventBus.on('theme-change-complete', this.themeChangeListener);
+        EventBus.on('dark-mode-toggle-complete', this.darkModeToggleListener);
     },
     methods: {
         setChartData() {
