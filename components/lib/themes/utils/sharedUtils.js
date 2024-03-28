@@ -109,7 +109,7 @@ export default {
         getVariableName(prefix = '', variable = '') {
             return `--${this.toNormalizeVariable(prefix, variable)}`;
         },
-        getVariableValue(value, variable = '', prefix = '', excludedKeyRegexes = []) {
+        getVariableValue(value, variable = '', prefix = '', excludedKeyRegexes = [], fallback) {
             if (this.isString(value)) {
                 const regex = /{([^}]*)}/g;
                 const val = value.trim();
@@ -119,7 +119,7 @@ export default {
                         const path = v.replace(/{|}/g, '');
                         const keys = path.split('.').filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)));
 
-                        return `var(${this.getVariableName(prefix, this.toKebabCase(keys.join('-')))})`;
+                        return `var(${this.getVariableName(prefix, this.toKebabCase(keys.join('-')))}${this.isNotEmpty(fallback) ? `, ${fallback}` : ''})`;
                     });
 
                     const calculationRegex = /(\d+\s+[\+\-\*\/]\s+\d+)/g;

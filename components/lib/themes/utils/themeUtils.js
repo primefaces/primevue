@@ -63,7 +63,7 @@ export default {
             semantic_css = `${semantic_light_css}${semantic_dark_css}`;
         }
 
-        global_css = SharedUtils.object.getItemValue(base?.global?.css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
+        global_css = SharedUtils.object.getItemValue(base?.global?.css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
 
         return {
             primitive: primitive_css,
@@ -84,7 +84,7 @@ export default {
     getBaseC({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.components?.[name] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
@@ -101,7 +101,7 @@ export default {
     getBaseD({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.directives?.[name] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, type) => dt(theme, tokenPath, type) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
