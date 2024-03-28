@@ -51,6 +51,10 @@
                     <td>p-overlay-open</td>
                     <td>Container element when overlay is visible.</td>
                 </tr>
+                <tr>
+                    <td>p-focus</td>
+                    <td>Container element when it is in focus.</td>
+                </tr>
             </tbody>
         </table>
     </div>
