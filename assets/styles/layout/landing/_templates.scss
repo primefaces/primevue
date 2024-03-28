@@ -1,6 +1,5 @@
 .landing-templates {
     overflow: hidden;
-    background: var(--home-templates-bg);
 
     .templates {
         transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg);
@@ -14,8 +13,8 @@
             border-radius: 6px;
             overflow: hidden;
             box-shadow: var(--home-templates-block-shadow);
-            border-left: var(--home-templates-block-border-left);
-            border-bottom: var(--home-templates-block-border-bottom);
+            border-left: 5px solid var(--border-color);
+            border-bottom: 7px solid var(--border-color);
             position: relative;
             z-index: 1;
             transition: 1.5s;
@@ -80,17 +79,17 @@
                 opacity: 0;
                 visibility: hidden;
                 transform: scale(0.4);
-                background: var(--home-templates-btn-bg);
+                background: var(--card-background);
                 border-radius: 30px;
                 padding: 8px 10px;
-                color: var(--home-templates-btn-text-color);
+                color: var(--text-color);
                 font-size: 14px;
                 text-decoration: none;
-                box-shadow: var(--home-templates-btn-shadow);
-                border-top: var(--home-templates-btn-border-top);
-                border-right: var(--home-templates-btn-border-right);
-                border-left: var(--home-templates-btn-border-left);
-                border-bottom: var(--home-templates-btn-border-bottom);
+                box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid var(--border-color);
+                border-right: 1px solid var(--border-color);
+                border-left: 3px solid var(--border-color);
+                border-bottom: 4px solid var(--border-color);
             }
 
             &.border-none {

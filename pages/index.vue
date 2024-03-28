@@ -1,5 +1,5 @@
 <template>
-    <div :class="landingClass">
+    <div :class="containerClass">
         <AppNews />
         <AppTopBar :showMenuButton="false" />
         <HeroSection />
@@ -47,8 +47,8 @@ export default {
         }
     },
     computed: {
-        landingClass() {
-            return ['landing', { 'layout-dark': this.$appState?.darkTheme, 'layout-light': !this.$appState?.darkTheme, 'layout-news-active': this.$appState?.newsActive }];
+        containerClass() {
+            return ['landing', { 'layout-news-active': this.$appState?.newsActive, 'p-ripple-disabled': this.$appState.ripple === false }];
         }
     },
     components: {

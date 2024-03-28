@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-wrapper" :class="containerClass" :data-p-theme="$appState.theme">
+    <div :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews />
         <AppTopBar @menubutton-click="onMenuButtonClick" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
@@ -71,11 +71,10 @@ export default {
     computed: {
         containerClass() {
             return [
+                'layout-wrapper',
                 {
                     'layout-news-active': this.$appState.newsActive,
-                    'p-ripple-disabled': this.$appState.ripple === false,
-                    'layout-dark': this.$appState.darkTheme,
-                    'layout-light': !this.$appState.darkTheme
+                    'p-ripple-disabled': this.$appState.ripple === false
                 }
             ];
         }

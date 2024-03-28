@@ -1,12 +1,12 @@
 .landing {
-    background-color: var(--home-bg);
     scroll-behavior: smooth;
     padding-top: 4rem;
+    background-color: var(--ground-background);
 
     .box {
-        border: 1px solid var(--home-border-color);
+        border: 1px solid var(--border-color);
         border-radius: 10px;
-        background-color: var(--home-box-bg);
+        background-color: var(--card-background);
         position: relative;
         z-index: 0;
         
@@ -59,32 +59,32 @@
         transition: background-color .2s, border-color .2s;
         display: inline-flex;
         align-items: center;
-        color: var(--home-linkbox-text-color);
+        color: var(--text-color);
         padding: 0.5rem 1rem;
-        border: var(--home-linkbox-border);
-        background-color: var(--home-linkbox-bg);
+        border: 1px solid var(--border-color);
+        background-color: var(--card-background);
         border-radius: 10px;
         cursor: pointer;
         
         @include focus-visible();
 
         &:hover {
-            background: var(--home-linkbox-hover-bg);
+            background: var(--hover-background);
         }
 
         &.active {
-            background: var(--home-highlight-color);
-            color: var(--home-highlight-fore-color);
+            background: var(--primary-color);
+            color: var(--primary-inverse-color);
 
             &:hover {
-                background: var(--home-highlight-darker-color);
+                background: var(--primary-hover-color);
             }
         }
     }
 
     .section-header {
         font-size: 2rem;
-        color: var(--home-primary-text-color);
+        color: var(--text-color);
         font-weight: 700;
         text-align: center;
         padding: 0 2rem;
@@ -92,7 +92,7 @@
 
     .section-detail {
         text-align: center;
-        color: var(--home-secondary-text-color);
+        color: var(--text-secondary-color);
         font-weight: 500;
         font-size: 1.25rem;
         margin: 1.5rem 0 0 0;
@@ -100,7 +100,7 @@
     }
 
     .section-divider {
-        border: 1px solid var(--home-border-color);
+        border: 1px solid var(--border-color);
         height: 1px;
         border-bottom: 0 none;
         overflow: hidden;
@@ -112,11 +112,11 @@
 }
 
 .text-secondary {
-    color: var(--home-secondary-text-color);
+    color: var(--text-secondary-color);
 }
 
 .hover\:surface-hover:hover {
-    background-color: var(--surface-hover);
+    background-color: var(--hover-background);
 }
 
 .landing-footer-container {
@@ -127,14 +127,13 @@
 
 .animated-text {
     position: relative;
-    color: var(--home-text-color);
     padding: 0.25rem 0.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--rounded-base);
     display: inline-block;
     width: 14.45rem;
 
     &::before {
-        border-radius: var(--border-radius);
+        border-radius: var(--rounded-base);
         animation: color-animation 2s linear infinite;
         background-size: auto auto;
         background-clip: border-box;
@@ -144,7 +143,7 @@
         height: 1.5rem;
         position: absolute;
         z-index: 0;
-        background-image: linear-gradient(-225deg, var(--blue-400) 30%, var(--cyan-400) 60%, var(--purple-400) 80%);
+        background-image: linear-gradient(-225deg, var(--p-blue-400) 30%, var(--p-cyan-400) 60%, var(--p-purple-400) 80%);
         filter: blur(24px);
         opacity: 0.6;
     }
@@ -152,13 +151,12 @@
     > span {
         position: relative;
         z-index: 3;
-        background-image: linear-gradient(-225deg, var(--blue-400) 30%, var(--cyan-400) 60%, var(--purple-400) 80%);
+        background-image: linear-gradient(-225deg, var(--p-blue-400) 30%, var(--p-cyan-400) 60%, var(--p-purple-400) 80%);
         animation: color-animation 2s linear infinite;
         background-size: auto auto;
         background-clip: border-box;
         background-size: 200% auto;
         background-clip: text;
-        text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }

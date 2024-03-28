@@ -3,8 +3,6 @@
         box-sizing: content-box;
     }
 
-    background: var(--home-blocks-bg);
-
     .prime-blocks {
         transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg);
         margin: -12rem 0;
@@ -23,10 +21,10 @@
         }
 
         .prime-block {
-            background: var(--home-blocks-block-bg);
+            background: var(--ground-surface);
             box-shadow:var(--home-blocks-block-shadow);
-            border-left: var(--home-blocks-border-left);
-            border-bottom: var(--home-blocks-border-bottom);
+            border-left: 5px solid var(--border-color);
+            border-bottom: 7px solid var(--border-color);
             border-radius: 10px;
             height: 300px;
             width: 600px;
@@ -53,7 +51,7 @@
                 right:0;
                 bottom: 0;
                 border-radius: 6px;
-                border: var(--home-blocks-border)
+                border: 1px solid var(--border-color);
             }
             
             .block-sidebar,
@@ -68,7 +66,7 @@
             
             .block-content {
                 .block-main {
-                    border: var(--home-blocks-main-border);
+                    border: 1px solid var(--border-color);
                     border-radius: 13px;
                     background: var(--home-blocks-main-bg);
                 }
@@ -118,12 +116,12 @@
             }
 
             &.block-item-active {
-                box-shadow: var(--home-blocks-active-shadow);
+                box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, .1);
                 border-radius: 6px;
-                border-top: var(--home-blocks-active-border-top);
-                border-right: var(--home-blocks-active-border-right);
-                border-bottom: var(--home-blocks-active-border-bottom);
-                border-left: var(--home-blocks-active-border-left);
+                border-top: 1px solid var(--border-color);
+                border-right: 1px solid var(--border-color);
+                border-bottom: 4px solid var(--border-color);
+                border-left: 4px solid var(--border-color);
                 position: relative;
                 z-index: 5;
                 animation: block-animation 1500ms ease-in-out alternate infinite;
@@ -159,10 +157,10 @@
             border-radius: 10px;
 
             &.bar-highlight {
-                background: var(--home-highlight-color);
+                background: var(--primary-color);
 
                 &:before {
-                    background: var(--home-highlight-fore-color) !important ;
+                    background: var(--primary-inverse-color) !important ;
                 }
             }
 
@@ -201,7 +199,7 @@
             }
 
             &.circle-highlight {
-                background: var(--home-highlight-color);
+                background: var(--primary-color);
             }
         }
     }
@@ -217,6 +215,6 @@
 @keyframes block-animation {
     to {
         transform: translateY(-10px) translateX(10px) scale(1.02);
-        box-shadow: var(--home-blocks-animation-shadow);
+        box-shadow: 0px 30px 50px 10px rgba(0, 0, 0, .2);
     }
 }

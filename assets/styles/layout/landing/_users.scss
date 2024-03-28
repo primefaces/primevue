@@ -1,10 +1,11 @@
 .landing-users {
     .fade-right {
-        background: linear-gradient(to left, var(--home-bg), transparent);
+        background: linear-gradient(to left, var(--ground-background), transparent);
     }
     .fade-left {
-        background: linear-gradient(to right, var(--home-bg), transparent);
+        background: linear-gradient(to right, var(--ground-background), transparent);
     }
+
     .section-detail {
         max-width: 1250px !important;
         margin-left: auto !important;
