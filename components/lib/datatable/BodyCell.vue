@@ -276,12 +276,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.documentEditListener);
+                document.addEventListener('mousedown', this.documentEditListener);
             }
         },
         unbindDocumentEditListener() {
             if (this.documentEditListener) {
-                document.removeEventListener('click', this.documentEditListener);
+                document.removeEventListener('mousedown', this.documentEditListener);
                 this.documentEditListener = null;
                 this.selfClick = false;
             }
