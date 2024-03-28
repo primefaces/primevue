@@ -119,7 +119,7 @@ export default {
                         const path = v.replace(/{|}/g, '');
                         const keys = path.split('.').filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)));
 
-                        return `var(${this.getVariableName(prefix, this.toKebabCase(keys.join('-')))}${fallback ? `,${fallback}` : ''})`;
+                        return `var(${this.getVariableName(prefix, this.toKebabCase(keys.join('-')))}${this.isNotEmpty(fallback) ? `, ${fallback}` : ''})`;
                     });
 
                     const calculationRegex = /(\d+\s+[\+\-\*\/]\s+\d+)/g;
