@@ -1,6 +1,7 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import KnobStyle from 'primevue/knob/style';
+import { $dt } from 'primevue/themes';
 
 export default {
     name: 'BaseKnob',
@@ -36,15 +37,15 @@ export default {
         },
         valueColor: {
             type: String,
-            default: 'var(--primary-color, Black)'
+            default: $dt('primary.color', 'Black')
         },
         rangeColor: {
             type: String,
-            default: 'var(--surface-border, LightGray)'
+            default: $dt('surface.border', 'LightGray')
         },
         textColor: {
             type: String,
-            default: 'var(--text-color-secondary, Black)'
+            default: $dt('text.color.secondary', 'Black')
         },
         strokeWidth: {
             type: Number,
