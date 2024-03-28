@@ -31,7 +31,7 @@
         > li {
             margin-bottom: .25rem;
             
-            > button, 
+            > button,
             > a {
                 display: flex;
                 width: 100%;
@@ -42,6 +42,14 @@
                 transition: outline-color 0.2s;
                 outline-color: transparent;
                 position: relative;
+                background: transparent;
+                font-size: 1rem;
+                border: 0 none;
+                margin: 0;
+                text-align: left;  
+                cursor: pointer;
+                user-select: none;
+                @include focus-visible();
 
                 .menu-icon {
                     width: 2rem;

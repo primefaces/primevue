@@ -178,9 +178,14 @@
         > .navbar-item-content {
             display: flex;
 
-            .px-link {
+            button {
+                font-size: 1rem;
+                text-align: left;
+                background: transparent;
+                margin: 0;
+                border: 0 none;
                 padding: 0.25rem 1rem 0.25rem 1rem;
-                color: var(--text-color);
+                color: var(--text-secondary-color);
                 font-weight: 400;
                 white-space: nowrap;
                 min-width: 0;
@@ -188,12 +193,14 @@
                 text-overflow: ellipsis;
                 transition: outline-color 0.2s, border-color .2s;
                 outline-color: transparent;
+                cursor: pointer;
+                user-select: none;
                 @include focus-visible();
                 --focus-ring-offset: -1px;
             }
 
             &:hover {
-                .px-link {
+                button {
                     color: var(--text-color);
                 }
             }
@@ -203,7 +210,7 @@
             > .navbar-item-content {
                 border-color: var(--primary-text-color);
 
-                .px-link {
+                button {
                     color: var(--primary-text-color);
                 }
             }

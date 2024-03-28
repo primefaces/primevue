@@ -2,14 +2,14 @@
     <ul ref="nav" class="doc-section-nav">
         <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
             <div class="navbar-item-content">
-                <button class="px-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
+                <button @click="onButtonClick(doc)">{{ doc.label }}</button>
             </div>
 
             <template v-if="doc.children">
                 <ul>
                     <li v-for="child of doc.children" :key="child.label" :class="['navbar-item', { 'active-navbar-item': activeId === child.id }]">
                         <div class="navbar-item-content">
-                            <button class="px-link" @click="onButtonClick(child)">
+                            <button @click="onButtonClick(child)">
                                 {{ child.label }}
                             </button>
                         </div>

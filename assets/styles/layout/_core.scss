@@ -75,23 +75,6 @@ p {
     top: 7rem;
 }
 
-.px-link {
-    font-size: 1rem;
-    border-radius: 6px;
-    text-align: left;
-	background-color: transparent;
-	margin: 0;
-	padding: 0;
-	border: none;
-    cursor: pointer;
-    user-select: none;
-    @include focus-visible();
-}
-
-.px-link:disabled {
-	cursor: default;
-}
-
 button {
     font-family: inherit;
     font-feature-settings: inherit;
