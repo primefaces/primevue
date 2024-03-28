@@ -66,7 +66,7 @@ export default {
 .p-overlaypanel:after,
 .p-overlaypanel:before {
     bottom: 100%;
-    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
+    left: ${dt('{overlay.arrow.left} + 1.25rem', 0)};
     content: " ";
     height: 0;
     width: 0;

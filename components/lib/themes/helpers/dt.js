@@ -1,12 +1,14 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
-export const $dt = (tokenPath, type) => {
+const types = ['value', 'variable'];
+
+export const $dt = (tokenPath, param1, param2) => {
     const config = Theme.getPConfig();
 
-    return dt(config?.theme, tokenPath, undefined, type);
+    return types.includes(param1) ? dt(config?.theme, tokenPath, undefined, param2) : dt(config?.theme, tokenPath, param1, param2);
 };
 
-export const dt = (theme = {}, tokenPath, fallback, type) => {
+export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {
     if (tokenPath) {
         const VARIABLE = Theme.defaults.variable;
         const { prefix, transform } = theme?.options || {};
@@ -18,4 +20,18 @@ export const dt = (theme = {}, tokenPath, fallback, type) => {
     }
 
     return '';
+};
+
+export const $dtp = (tokenPath) => {
+    const config = Theme.getPConfig();
+
+    const variable = dt(config?.theme, tokenPath, undefined, 'variable');
+    const name = variable.match(/--[\w-]+/g)?.[0];
+    const value = dt(config?.theme, tokenPath, undefined, 'value');
+
+    return {
+        variable,
+        name,
+        value
+    };
 };

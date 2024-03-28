@@ -57,6 +57,7 @@
 import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
+import { $dt, $dtp } from 'primevue/themes';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
@@ -97,8 +98,8 @@ export default {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
                 const hDiff = Math.abs(button.offsetHeight - firstItem.offsetHeight);
 
-                this.list.style.setProperty('--item-diff-x', `${wDiff / 2}px`);
-                this.list.style.setProperty('--item-diff-y', `${hDiff / 2}px`);
+                this.list.style.setProperty($dtp('item.diff.x').name, `${wDiff / 2}px`);
+                this.list.style.setProperty($dtp('item.diff.y').name, `${hDiff / 2}px`);
             }
         }
 
@@ -365,14 +366,14 @@ export default {
                     const step = (2 * Math.PI) / length;
 
                     return {
-                        left: `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`,
-                        top: `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`
+                        left: `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`,
+                        top: `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`
                     };
                 } else if (type === 'semi-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (length - 1);
-                    const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`;
 
                     if (direction === 'up') {
                         return { left: x, bottom: y };
@@ -386,8 +387,8 @@ export default {
                 } else if (type === 'quarter-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (2 * (length - 1));
-                    const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`;
 
                     if (direction === 'up-left') {
                         return { right: x, bottom: y };

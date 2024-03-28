@@ -18,6 +18,7 @@ import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
+import { $dtp } from 'primevue/themes';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import BaseOverlayPanel from './BaseOverlayPanel.vue';
 
@@ -154,7 +155,7 @@ export default {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
 
-            this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
+            this.container.style.setProperty($dtp('overlay.arrow.left').name, `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-overlaypanel-flipped', 'true');
