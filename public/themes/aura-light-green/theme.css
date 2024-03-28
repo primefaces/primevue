@@ -393,7 +393,7 @@
 
   /* Toggleable Content */
   .p-toggleable-content-enter-from,
-.p-toggleable-content-leave-to {
+  .p-toggleable-content-leave-to {
     max-height: 0;
   }
 
@@ -5838,6 +5838,15 @@
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
   }
+
+  .p-accordion .p-toggleable-content {
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  }
+  .p-accordion .p-toggleable-content-expanded {
+    transition: max-height 0.45s ease-in-out;
+  }
+
   .p-accordion .p-accordion-tab {
     margin-bottom: 0;
   }

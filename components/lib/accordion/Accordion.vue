@@ -33,13 +33,13 @@
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
-            <transition name="p-toggleable-content" v-bind="getTabPT(tab, 'transition', i)">
+            <Transition v-bind="transitionProperty({i, tab})">
                 <div
                     v-if="lazy ? isTabActive(i) : true"
-                    v-show="lazy ? true : isTabActive(i)"
+                    v-show="lazy || isTabActive(i)"
                     :id="getTabContentId(i)"
                     :style="getTabProp(tab, 'contentStyle')"
-                    :class="[cx('tab.toggleableContent'), getTabProp(tab, 'contentClass')]"
+                    :class="[cx('tab.toggleableContent', { tab, index: i }), getTabProp(tab, 'contentClass')]"
                     role="region"
                     :aria-labelledby="getTabHeaderActionId(i)"
                     v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'toggleablecontent', i) }"
@@ -48,7 +48,7 @@
                         <component :is="tab"></component>
                     </div>
                 </div>
-            </transition>
+            </Transition>
         </div>
     </div>
 </template>
@@ -84,6 +84,29 @@ export default {
         this.id = this.id || UniqueComponentId();
     },
     methods: {
+        transitionProperty({ i, tab }) {
+            return {
+                onEnter: this.enter,
+                onLeave: this.leave,
+                onAfterEnter: this.afterEnter,
+                ...this.getTabPT(tab, 'transition', i),
+            }
+        },
+        enter(el) {
+            el.style.maxHeight = '0';
+            requestAnimationFrame(() => {
+                el.style.maxHeight = `${el.scrollHeight}px`;
+            });
+        },
+        leave(el) {
+            el.style.maxHeight = `${el.scrollHeight}px`;
+            requestAnimationFrame(() => {
+                el.style.maxHeight = '0';
+            });
+        },
+        afterEnter(el) {
+            el.style.maxHeight = 'fit-content';
+        },
         isAccordionTab(child) {
             return child.type.name === 'AccordionTab';
         },
