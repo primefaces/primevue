@@ -221,8 +221,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         selection(newValue) {
             this.d_selection = newValue;
@@ -244,8 +247,6 @@ export default {
         this.destroyMedia();
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.responsive) {
             this.createStyle();
             this.initMedia();

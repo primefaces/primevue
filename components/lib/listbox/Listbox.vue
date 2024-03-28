@@ -149,15 +149,17 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     methods: {
