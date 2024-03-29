@@ -80,7 +80,7 @@
                     <div class="flex flex-column w-6 gap-5 pl-3">
                         <div class="box p-4 fadein animation-duration-500">
                             <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan.png" alt="Watch" class="w-10rem" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan-noir.png" alt="Watch" class="w-10rem" />
                             </div>
                             <div class="flex align-items-center mb-4">
                                 <div class="flex flex-column">
@@ -95,7 +95,7 @@
                             <ul class="list-none p-0 m-0">
                                 <li class="flex align-items-center mb-3">
                                     <span class="mr-3">
-                                        <img src="https://primefaces.org/cdn/primevue/images/landing/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
+                                        <img src="https://primefaces.org/cdn/primevue/images/landing/avatar-noir.png" alt="Avatar" class="w-3rem h-3rem" />
                                     </span>
                                     <div class="flex flex-column">
                                         <span class="font-bold mb-1">Amanda Williams</span>
