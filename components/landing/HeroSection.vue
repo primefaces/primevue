@@ -95,7 +95,7 @@
                             <ul class="list-none p-0 m-0">
                                 <li class="flex align-items-center mb-3">
                                     <span class="mr-3">
-                                        <img src="https://primefaces.org/cdn/primevue/images/landing/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
+                                        <img src="https://primefaces.org/cdn/primevue/images/landing/avatar-noir.png" alt="Avatar" class="w-3rem h-3rem" />
                                     </span>
                                     <div class="flex flex-column">
                                         <span class="font-bold mb-1">Amanda Williams</span>
