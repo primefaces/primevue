@@ -7,7 +7,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     style="border-radius: 50px"
-                    class="bg-yellow-300 border-1 border-yellow-400 text-yellow-900 py-1 px-3 xl:align-self-start font-semibold transition-colors transition-duration-300 hover:border-yellow-600 text-base sm:text-lg"
+                    class="bg-gray-900 text-white border-1 border-gray-900 py-1 px-3 xl:align-self-start font-semibold transition-colors transition-duration-300 text-base sm:text-lg"
                     >🎉 Introducing the Tailwind Presets <i class="pi pi-arrow-right text-sm"></i
                 ></a>
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
@@ -89,17 +89,17 @@
                                 </div>
                                 <span class="font-medium text-xl ml-auto">$990</span>
                             </div>
-                            <Button label="Add to Cart" icon="pi pi-shopping-cart" outlined class="w-full"></Button>
+                            <Button label="Add to Cart" icon="pi pi-shopping-cart" severity="secondary" class="w-full"></Button>
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
                             <ul class="list-none p-0 m-0">
                                 <li class="flex align-items-center mb-3">
                                     <span class="mr-3">
-                                        <img src="https://primefaces.org/cdn/primevue/images/landing/avatar-noir.png" alt="Avatar" class="w-3rem h-3rem" />
+                                        <Avatar label="AW" class="w-3rem h-3rem" />
                                     </span>
                                     <div class="flex flex-column">
                                         <span class="font-bold mb-1">Amanda Williams</span>
-                                        <span class="text-secondary">Administrator</span>
+                                        <span class="text-secondary text-sm">Administrator</span>
                                     </div>
                                 </li>
                                 <li class="flex">
@@ -107,7 +107,7 @@
                                         <i class="pi pi-home text-xl mr-3"></i>
                                         <span class="flex flex-column">
                                             <span class="font-bold mb-1">Dashboard</span>
-                                            <span class="m-0 text-secondary">Control Panel</span>
+                                            <span class="m-0 text-secondary text-sm">Control Panel</span>
                                         </span>
                                     </a>
                                 </li>
@@ -116,7 +116,7 @@
                                         <i class="pi pi-envelope text-xl mr-3"></i>
                                         <span class="flex flex-column">
                                             <span class="font-bold mb-1">Inbox</span>
-                                            <span class="m-0 text-secondary">View Messages</span>
+                                            <span class="m-0 text-secondary text-sm">View Messages</span>
                                         </span>
                                         <Badge value="3" class="ml-auto"></Badge>
                                     </a>
