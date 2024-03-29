@@ -83,19 +83,19 @@ export default {
     setLayerNames(layerName) {
         this._layerNames?.add(layerName);
     },
-    getCommonCSS(name = '', theme, params) {
-        return ThemeUtils.getCommon({ name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
+    getCommonCSS(name = '', params) {
+        return ThemeUtils.getCommon({ name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     },
-    getComponentCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
+    getComponentCSS(name = '', params) {
+        const options = { name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
             style: ThemeUtils.getBaseC(options),
             variables: ThemeUtils.getPresetC(options)
         };
     },
-    getDirectiveCSS(name = '', theme, params) {
-        const options = { name, theme: theme || this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
+    getDirectiveCSS(name = '', params) {
+        const options = { name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
             style: ThemeUtils.getBaseD(options),
@@ -105,10 +105,10 @@ export default {
     getLayerOrderCSS(name = '') {
         return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() }, this.defaults);
     },
-    getCommonStyleSheet(name = '', theme, params, props = {}) {
-        return ThemeUtils.getCommonStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
+    getCommonStyleSheet(name = '', params, props = {}) {
+        return ThemeUtils.getCommonStyleSheet({ name, theme: this.theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     },
-    getStyleSheet(name, theme = {}, params, props = {}) {
-        return ThemeUtils.getStyleSheet({ name, theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
+    getStyleSheet(name, params, props = {}) {
+        return ThemeUtils.getStyleSheet({ name, theme: this.theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
     }
 };

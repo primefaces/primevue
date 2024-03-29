@@ -5,7 +5,7 @@ const types = ['value', 'variable'];
 export const $dt = (tokenPath, param1, param2) => {
     const config = Theme.getPConfig();
 
-    return types.includes(param1) ? dt(config?.theme, tokenPath, undefined, param2) : dt(config?.theme, tokenPath, param1, param2);
+    return types.includes(param1) ? dt(config?.theme, tokenPath, undefined, param1) : dt(config?.theme, tokenPath, param1, param2);
 };
 
 export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {

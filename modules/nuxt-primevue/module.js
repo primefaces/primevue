@@ -51,7 +51,12 @@ export default defineNuxtModule({
 
         const styleContent = () => `
 ${registered.styles.map((style) => `import ${style.as} from '${style.from}';`).join('\n')}
-${importTheme ? `import ${importTheme.as} from '${importTheme.from}';\n` : ''}
+${
+    importTheme
+        ? `import Theme from 'primevue/themes';
+import ${importTheme.as} from '${importTheme.from}';\n`
+        : ''
+}
 
 const styleProps = {
     ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
@@ -61,9 +66,11 @@ const styles = [
   ${registered.styles.map((item) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
+${importTheme ? `Theme.setTheme(${importTheme.as})` : ''}
+
 const themes = [
-    ${importTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getCommonThemeStyleSheet ? ${registered.styles[0].as}.getCommonThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''` : ''},
-    ${importTheme ? registered.styles.map((item) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(${importTheme?.as}, undefined, styleProps) : ''`).join(',') : ''}
+    ${importTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getCommonThemeStyleSheet ? ${registered.styles[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''` : ''},
+    ${importTheme ? registered.styles.map((item) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',') : ''}
 ].join('');
 
 export { styles, themes };

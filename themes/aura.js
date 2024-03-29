@@ -5,6 +5,6 @@ export default {
     base: PrimeOne,
     preset: Aura,
     options: {
-        prefix: 'p'
+        darkModeSelector: '.p-dark'
     }
 };

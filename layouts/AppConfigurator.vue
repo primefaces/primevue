@@ -94,13 +94,7 @@ export default {
             if (type === 'primary') this.selectedPrimaryColor = color.name;
             else if (type === 'surface') this.selectedSurfaceColor = color.name;
 
-            if (!document.startViewTransition) {
-                this.applyTheme(type, color);
-
-                return;
-            }
-
-            document.startViewTransition(() => this.applyTheme(type, color));
+            this.applyTheme(type, color);
         },
         applyTheme(type, color) {
             if (type === 'primary') {

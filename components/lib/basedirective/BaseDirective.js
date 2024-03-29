@@ -82,20 +82,21 @@ const BaseDirective = {
 
         // apply theme settings
         Theme.init();
+        Theme.setTheme(el.$instance?.theme());
         BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
-        const [theme, themeParams] = [instance.theme(), instance.themeParams()];
+        const themeParams = instance.themeParams();
 
         // common
-        const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.(theme, themeParams) || {};
+        const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.(themeParams) || {};
 
         BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...useStyleOptions });
         BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...useStyleOptions });
         BaseStyle.loadTheme(global, { name: 'global-style', ...useStyleOptions });
 
         // component
-        const { variables, style } = instance.$style?.getDirectiveThemeCSS?.(theme, themeParams) || {};
+        const { variables, style } = instance.$style?.getDirectiveThemeCSS?.(themeParams) || {};
 
         instance.$style?.loadTheme(variables, { name: `${instance.$name}-directive-variables`, ...useStyleOptions });
         instance.$style?.loadTheme(style, { name: `${instance.$name}-directive-style`, ...useStyleOptions });

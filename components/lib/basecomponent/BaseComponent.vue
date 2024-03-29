@@ -40,7 +40,8 @@ export default {
             deep: true,
             immediate: true,
             handler(newValue) {
-                this._loadThemeStyles(newValue);
+                Theme.setTheme(newValue);
+                this._loadThemeStyles();
             }
         }
     },
@@ -114,16 +115,16 @@ export default {
 
             ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, this.$styleOptions);
         },
-        _loadThemeStyles(theme) {
+        _loadThemeStyles() {
             // common
-            const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(theme, this.$themeParams) || {};
+            const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(this.$themeParams) || {};
 
             BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
             BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
             BaseComponentStyle.loadGlobalTheme(global, this.$styleOptions);
 
             // component
-            const { variables, style } = this.$style?.getComponentThemeCSS?.(theme, this.$themeParams) || {};
+            const { variables, style } = this.$style?.getComponentThemeCSS?.(this.$themeParams) || {};
 
             this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
             this.$style?.loadTheme(style, this.$styleOptions);

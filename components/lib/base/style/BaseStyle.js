@@ -40,14 +40,14 @@ export default {
     loadTheme(theme, options = {}) {
         return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: `${this.name}-style`, ...options }) : {};
     },
-    getCommonThemeCSS(theme, params) {
-        return Theme.getCommonCSS(this.name, theme, params);
+    getCommonThemeCSS(params) {
+        return Theme.getCommonCSS(this.name, params);
     },
-    getComponentThemeCSS(theme, params) {
-        return Theme.getComponentCSS(this.name, theme, params);
+    getComponentThemeCSS(params) {
+        return Theme.getComponentCSS(this.name, params);
     },
-    getDirectiveThemeCSS(theme, params) {
-        return Theme.getDirectiveCSS(this.name, theme, params);
+    getDirectiveThemeCSS(params) {
+        return Theme.getDirectiveCSS(this.name, params);
     },
     getLayerOrderThemeCSS() {
         return Theme.getLayerOrderCSS(this.name);
@@ -64,11 +64,11 @@ export default {
 
         return '';
     },
-    getCommonThemeStyleSheet(theme = {}, params, props = {}) {
-        return Theme.getCommonStyleSheet(this.name, theme, params, props);
+    getCommonThemeStyleSheet(params, props = {}) {
+        return Theme.getCommonStyleSheet(this.name, params, props);
     },
-    getThemeStyleSheet(theme = {}, params, props = {}) {
-        return Theme.getStyleSheet(this.name, theme, params, props);
+    getThemeStyleSheet(params, props = {}) {
+        return Theme.getStyleSheet(this.name, params, props);
     },
     extend(style) {
         return { ...this, css: undefined, ...style };

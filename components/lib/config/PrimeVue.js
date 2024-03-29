@@ -141,15 +141,8 @@ export const defaultOptions = {
         preset: Aura,
         options: {
             prefix: 'p',
-            darkModeSelector: '.p-dark',
+            darkModeSelector: 'system',
             cssLayer: false
-            /*
-            darkModeSelector: '.p-dark | [data-p-dark="true"] | system(default)',
-            cssLayer: {
-                // cssLayer: true | false | undefined | object // default: undefined
-                name: '', // ({component_name, type=variable|style}) => layer_name // default: primevue
-                order: '' // ({layer_names}) => layer_order // default: @layer primevue
-            }*/
         }
     },
     pt: undefined,
