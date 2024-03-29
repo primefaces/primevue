@@ -26,6 +26,7 @@ import BasicDoc from '@/doc/icons/BasicDoc.vue';
 import ColorDoc from '@/doc/icons/ColorDoc.vue';
 import ConstantsDoc from '@/doc/icons/ConstantsDoc.vue';
 import DownloadDoc from '@/doc/icons/DownloadDoc.vue';
+import FigmaDoc from '@/doc/icons/FigmaDoc.vue';
 import ImportDoc from '@/doc/icons/ImportDoc.vue';
 import ListDoc from '@/doc/icons/ListDoc.vue';
 import SizeDoc from '@/doc/icons/SizeDoc.vue';
@@ -44,6 +45,11 @@ export default {
                     id: 'import',
                     label: 'Import',
                     component: ImportDoc
+                },
+                {
+                    id: 'figma',
+                    label: 'Figma',
+                    component: FigmaDoc
                 },
                 {
                     id: 'basic',
