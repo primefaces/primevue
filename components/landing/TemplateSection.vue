@@ -116,7 +116,7 @@ export default {
             return `url('https://primefaces.org/cdn/primevue/images/landing/templates/${template}-${isDark ? 'dark' : 'light'}.${url}')`;
         },
         templateImg() {
-            return `https://primefaces.org/cdn/primevue/images/landing/templates/templates-text-new-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
+            return `https://primefaces.org/cdn/primevue/images/landing/templates/templates-text-noir-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
         }
     }
 };
