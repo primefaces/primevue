@@ -165,7 +165,7 @@ import EventBus from '@/layouts/AppEventBus';
 import { NodeService } from '@/service/NodeService';
 
 export default {
-    darkModeToggleListener: null,
+    redrawListener: null,
     data() {
         return {
             value1: 24,
@@ -212,17 +212,20 @@ export default {
         };
     },
     beforeUnmount() {
-        EventBus.off('dark-mode-toggle-complete', this.darkModeToggleListener);
+        EventBus.off('dark-mode-toggle-complete', this.redrawListener);
+        EventBus.off('theme-palette-change', this.redrawListener);
     },
     mounted() {
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
 
-        this.darkModeToggleListener = () => {
+        this.redrawListener = () => {
+            this.chartData = this.setChartData();
             this.chartOptions = this.setChartOptions();
         };
 
-        EventBus.on('dark-mode-toggle-complete', this.darkModeToggleListener);
+        EventBus.on('dark-mode-toggle-complete', this.redrawListener);
+        EventBus.on('theme-palette-change', this.redrawListener);
 
         NodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
@@ -231,6 +234,9 @@ export default {
             this.category = category;
         },
         setChartData() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const primaryColor = documentStyle.getPropertyValue('--primary-color');
+
             return {
                 labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                 datasets: [
@@ -238,9 +244,9 @@ export default {
                         label: 'Annual Income',
                         data: [40, 59, 40, 50, 56],
                         fill: true,
-                        borderColor: '#10b981',
+                        borderColor: primaryColor,
                         tension: 0.4,
-                        backgroundColor: 'rgba(16, 185, 129, .2)'
+                        backgroundColor: `color-mix(in srgb, ${primaryColor}, transparent 80%)`
                     }
                 ]
             };

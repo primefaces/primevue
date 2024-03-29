@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
 import { updatePreset, updateSurface } from 'primevue/themes';
 
 export default {
@@ -94,7 +95,7 @@ export default {
             else if (type === 'surface') this.selectedSurfaceColor = color.name;
 
             if (!document.startViewTransition) {
-                this.applyTheme(color);
+                this.applyTheme(type, color);
 
                 return;
             }
@@ -179,6 +180,8 @@ export default {
             } else if (type === 'surface') {
                 updateSurface(color.palette);
             }
+
+            EventBus.emit('theme-palette-change');
         },
         onRippleChange(value) {
             this.$appState.ripple = value;
