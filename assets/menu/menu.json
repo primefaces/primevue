@@ -95,13 +95,11 @@
                         },
                         {
                             "name": "FloatLabel",
-                            "to": "/floatlabel",
-                            "badge": "NEW"
+                            "to": "/floatlabel"
                         },
                         {
                             "name": "IconField",
-                            "to": "/iconfield",
-                            "badge": "NEW"
+                            "to": "/iconfield"
                         },
                         {
                             "name": "InputGroup",
@@ -117,8 +115,7 @@
                         },
                         {
                             "name": "InputOtp",
-                            "to": "/inputotp",
-                            "badge": "NEW"
+                            "to": "/inputotp"
                         },
                         {
                             "name": "InputSwitch",
@@ -273,8 +270,7 @@
                         },
                         {
                             "name": "Stepper",
-                            "to": "/stepper",
-                            "badge": "NEW"
+                            "to": "/stepper"
                         },
                         {
                             "name": "TabView",
@@ -445,8 +441,7 @@
                         },
                         {
                             "name": "MeterGroup",
-                            "to": "/metergroup",
-                            "badge": "NEW"
+                            "to": "/metergroup"
                         },
                         {
                             "name": "ScrollTop",
@@ -494,41 +489,11 @@
             "children": [
                 {
                     "name": "Styled Mode",
-                    "children": [
-                        {
-                            "name": "Overview",
-                            "to": "/theming"
-                        },
-                        {
-                            "name": "Colors",
-                            "to": "/colors"
-                        },
-                        {
-                            "name": "SASS API",
-                            "href": "https://www.primefaces.org/designer/api/primevue/3.9.0"
-                        }
-                    ]
+                    "to": "/theming/styled"
                 },
                 {
                     "name": "Unstyled Mode",
-                    "children": [
-                        {
-                            "name": "Overview",
-                            "to": "/unstyled"
-                        },
-                        {
-                            "name": "Bootstrap",
-                            "to": "/bootstrap"
-                        },
-                        {
-                            "name": "Bulma",
-                            "to": "/bulma"
-                        },
-                        {
-                            "name": "UnoCSS",
-                            "to": "/unocss"
-                        }
-                    ]
+                    "to": "/theming/unstyled"
                 }
             ]
         },
@@ -538,10 +503,9 @@
             "to": "/passthrough"
         },
         {
-            "name": "Tailwind",
+            "name": "Tailwind Presets",
             "icon": "pi pi-heart",
-            "href": "https://tailwind.primevue.org/",
-            "badge": "NEW"
+            "href": "https://tailwind.primevue.org/"
         },
         {
             "name": "Figma UI Kit",
