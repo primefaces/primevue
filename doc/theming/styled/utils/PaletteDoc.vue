@@ -1,8 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lorem Ipsum.
-        </p>
+        <p>Returns shades and tints of a given color from 50 to 950 as an array.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
@@ -13,9 +11,9 @@ export default {
         return {
             code: {
                 basic: `
-html {
-    font-size: 14px;
-}
+import { palette } from 'primevue/themes'; 
+
+const values = palette('#10b981');
 `
             }
         };

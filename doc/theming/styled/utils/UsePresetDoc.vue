@@ -1,8 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lorem Ipsum.
-        </p>
+        <p>Replaces the current presets entirely, common use case is changing the preset dynamically at runtime.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
@@ -13,8 +11,10 @@ export default {
         return {
             code: {
                 basic: `
-html {
-    font-size: 14px;
+import { usePreset } from 'primevue/themes'; 
+
+const onButtonClick() {
+    usePreset(MyPreset);
 }
 `
             }

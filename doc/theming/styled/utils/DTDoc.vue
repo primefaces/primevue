@@ -1,8 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lorem Ipsum.
-        </p>
+        <p>The <i>$dt</i> function returns the information about a token like the full path and value. This would be useful if you need to access tokens programmatically.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
@@ -13,9 +11,9 @@ export default {
         return {
             code: {
                 basic: `
-html {
-    font-size: 14px;
-}
+import { $dt } from 'primevue/themes'; 
+
+const value = $dt('primary.color', 'value');
 `
             }
         };

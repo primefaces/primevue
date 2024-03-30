@@ -1,8 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lorem Ipsum.
-        </p>
+        <p>Lorem Ipsum.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>theme</i> property is used to customize the initial theme that is preconfigured to be PrimeOne base with the Aura preset by default. The following is the default configuration and only needs to be defined for customization.</p>
+        <p>The <i>definePreset</i> utility is used to customize an existing preset during the PrimeVue setup. The first parameter is the preset to customize and the second is the design tokens to override.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
@@ -12,21 +12,18 @@ export default {
             code: {
                 basic: `
 import PrimeVue from 'primevue/config';
+import { definePreset } from 'primevue/themes';
 import PrimeOne from 'primevue/themes/primeone';
 import Aura from 'primevue/themes/primeone/aura';
 
-const app = createApp(App);
+const MyPreset = definePreset(Aura, {
+    //Your customizations, see the following sections for examples
+});
 
 app.use(PrimeVue, {
-    // Default theme configuration
     theme: {
         base: PrimeOne,
-        preset: Aura,
-        options: {
-            prefix: 'p',
-            darkModeSelector: 'system',
-            cssLayer: false
-        }
+        preset: MyPreset
     }
  });
 `

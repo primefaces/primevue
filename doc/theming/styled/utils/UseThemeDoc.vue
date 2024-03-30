@@ -1,8 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lorem Ipsum.
-        </p>
+        <p>Replaces the theme including the base and the preset such as from PrimeOne to Material. Note that the built-in Material theme is under development.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
@@ -13,8 +11,13 @@ export default {
         return {
             code: {
                 basic: `
-html {
-    font-size: 14px;
+import { useTheme } from 'primevue/themes'; 
+
+const changeTheme() {
+    useTheme({
+        base: MaterialDesign,
+        preset: M3
+    });
 }
 `
             }

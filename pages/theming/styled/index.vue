@@ -20,13 +20,28 @@
 
 <script>
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
+import CSSLayerDoc from '@/doc/theming/styled/CSSLayerDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
+import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
+import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
+import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
 import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
 import ScopedCSSDoc from '@/doc/theming/styled/ScopedCSSDoc.vue';
-import CSSLayerDoc from '@/doc/theming/styled/CSSLayerDoc.vue';
-import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
 import OptionsDoc from '@/doc/theming/styled/configuration/OptionsDoc.vue';
 import ThemeDoc from '@/doc/theming/styled/configuration/ThemeDoc.vue';
+import ComponentDoc from '@/doc/theming/styled/customization/ComponentDoc.vue';
+import DefinePresetDoc from '@/doc/theming/styled/customization/DefinePresetDoc.vue';
+import FocusRingDoc from '@/doc/theming/styled/customization/FocusRingDoc.vue';
+import FontDoc from '@/doc/theming/styled/customization/FontDoc.vue';
+import FormsDoc from '@/doc/theming/styled/customization/FormsDoc.vue';
+import NoirDoc from '@/doc/theming/styled/customization/NoirDoc.vue';
+import PrimaryDoc from '@/doc/theming/styled/customization/PrimaryDoc.vue';
+import SurfaceDoc from '@/doc/theming/styled/customization/SurfaceDoc.vue';
+import DTDoc from '@/doc/theming/styled/utils/DTDoc.vue';
+import PaletteDoc from '@/doc/theming/styled/utils/PaletteDoc.vue';
+import UpdatePresetDoc from '@/doc/theming/styled/utils/UpdatePresetDoc.vue';
+import UsePresetDoc from '@/doc/theming/styled/utils/UsePresetDoc.vue';
+import UseThemeDoc from '@/doc/theming/styled/utils/UseThemeDoc.vue';
 
 export default {
     data() {
@@ -39,7 +54,7 @@ export default {
                 },
                 {
                     id: 'configuration',
-                    label: 'Configuration',
+                    label: 'Configuration API',
                     children: [
                         {
                             id: 'theme',
@@ -52,6 +67,93 @@ export default {
                             component: OptionsDoc
                         }
                     ]
+                },
+                {
+                    id: 'presets',
+                    label: 'Presets',
+                    component: PresetsDoc
+                },
+                {
+                    id: 'customization',
+                    label: 'Customization',
+                    children: [
+                        {
+                            id: 'definepreset',
+                            label: 'definePreset',
+                            component: DefinePresetDoc
+                        },
+                        {
+                            id: 'primary',
+                            label: 'Primary',
+                            component: PrimaryDoc
+                        },
+                        {
+                            id: 'noir',
+                            label: 'Noir',
+                            component: NoirDoc
+                        },
+                        {
+                            id: 'surface',
+                            label: 'Surface',
+                            component: SurfaceDoc
+                        },
+                        {
+                            id: 'font',
+                            label: 'Font',
+                            component: FontDoc
+                        },
+                        {
+                            id: 'forms',
+                            label: 'Forms',
+                            component: FormsDoc
+                        },
+                        {
+                            id: 'focusring',
+                            label: 'Focus Ring',
+                            component: FocusRingDoc
+                        },
+                        {
+                            id: 'component',
+                            label: 'Component',
+                            component: ComponentDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'utils',
+                    label: 'Utils',
+                    children: [
+                        {
+                            id: 'usepreset',
+                            label: 'usePreset',
+                            component: UsePresetDoc
+                        },
+                        {
+                            id: 'updatepreset',
+                            label: 'updatePreset',
+                            component: UpdatePresetDoc
+                        },
+                        {
+                            id: 'usetheme',
+                            label: 'useTheme',
+                            component: UseThemeDoc
+                        },
+                        {
+                            id: 'dt',
+                            label: '$dt',
+                            component: DTDoc
+                        },
+                        {
+                            id: 'Palette',
+                            label: 'palette',
+                            component: PaletteDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'colors',
+                    label: 'Colors',
+                    component: ColorsDoc
                 },
                 {
                     id: 'darkmodetoggle',
