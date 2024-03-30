@@ -129,8 +129,9 @@ export default {
             .reduce((acc, [key, value]) => {
                 if (value) {
                     const _css = SharedUtils.object.minifyCSS(value);
+                    const id = key === 'global' ? `${key}-style` : `${key}-variables`;
 
-                    acc.push(`<style type="text/css" data-primevue-style-id="${key}" ${_props}>${_css}</style>`);
+                    acc.push(`<style type="text/css" data-primevue-style-id="${id}" ${_props}>${_css}</style>`);
                 }
 
                 return acc;
