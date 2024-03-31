@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
 
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>
@@ -19,12 +19,12 @@ import { createApp } from "vue";
 import PrimeVue from "primevue/config";
 const app = createApp(App);
 
-app.use(PrimeVue, { 
+app.use(PrimeVue, {
     pt: {
         button: {
             root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
             label: 'text-white font-bold text-xl', // OR { class: 'text-white font-bold text-xl' }
-            icon: 'text-white text-2xl' 
+            icon: 'text-white text-2xl'
         },
         panel: {
             header: 'bg-primary border-primary',
@@ -32,7 +32,7 @@ app.use(PrimeVue, {
             title: 'bg-primary text-xl',
             toggler: 'bg-primary hover:bg-primary-reverse'
         }
-    } 
+    }
 });
 `
             }

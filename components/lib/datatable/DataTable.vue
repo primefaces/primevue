@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')" data-pc-name="datatable">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading" :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
             <slot v-if="$slots.loading" name="loading"></slot>
@@ -87,6 +87,7 @@
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
                             :filterInputProps="filterInputProps"
+                            :first="d_first"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
                             @filter-change="onFilterChange"
@@ -293,6 +294,7 @@ import TableHeader from './TableHeader.vue';
 export default {
     name: 'DataTable',
     extends: BaseDataTable,
+    inheritAttrs: false,
     emits: [
         'value-change',
         'update:first',
@@ -863,12 +865,13 @@ export default {
                         break;
 
                     default:
-                        if (event.code === 'KeyA' && metaKey) {
+                        if (event.code === 'KeyA' && metaKey && this.isMultipleSelectionMode()) {
                             const data = this.dataToRender(slotProps.rows);
 
                             this.$emit('update:selection', data);
-                            event.preventDefault();
                         }
+
+                        event.preventDefault();
 
                         break;
                 }
@@ -1281,7 +1284,7 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            this.$el.removeAttribute('data-p-unselectable-text');
             !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();

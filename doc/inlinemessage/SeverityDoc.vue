@@ -7,6 +7,8 @@
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warning Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
+        <InlineMessage severity="secondary">Secondary Message</InlineMessage>
+        <InlineMessage severity="contrast">Contrast Message</InlineMessage>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -21,6 +23,8 @@ export default {
 <InlineMessage severity="info">Info Message</InlineMessage>
 <InlineMessage severity="warn">Warning Message</InlineMessage>
 <InlineMessage severity="error">Error Message</InlineMessage>
+<InlineMessage severity="secondary">Secondary Message</InlineMessage>
+<InlineMessage severity="contrast">Contrast Message</InlineMessage>
 `,
                 options: `
 <template>
@@ -29,6 +33,8 @@ export default {
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warning Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
+        <InlineMessage severity="secondary">Secondary Message</InlineMessage>
+        <InlineMessage severity="contrast">Contrast Message</InlineMessage>
     </div>
 </template>
 
@@ -42,6 +48,8 @@ export default {
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warning Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
+        <InlineMessage severity="secondary">Secondary Message</InlineMessage>
+        <InlineMessage severity="contrast">Contrast Message</InlineMessage>
     </div>
 </template>
 

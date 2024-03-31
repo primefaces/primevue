@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="password">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <PInputText
             ref="input"
             :id="inputId"
@@ -15,6 +15,8 @@
             :placeholder="placeholder"
             :required="required"
             :disabled="disabled"
+            :variant="variant"
+            :invalid="invalid"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
@@ -25,10 +27,10 @@
             :unstyled="unstyled"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
+            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
         </slot>
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" v-bind="ptm('showIcon')" />
+            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
@@ -62,9 +64,11 @@ import BasePassword from './BasePassword.vue';
 export default {
     name: 'Password',
     extends: BasePassword,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     data() {
         return {
+            id: this.$attrs.id,
             overlayVisible: false,
             meter: null,
             infoText: null,
@@ -72,12 +76,18 @@ export default {
             unmasked: false
         };
     },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
     mounted() {
+        this.id = this.id || UniqueComponentId();
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
@@ -172,7 +182,12 @@ export default {
             }
         },
         setPasswordMeter() {
-            if (!this.modelValue) return;
+            if (!this.modelValue) {
+                this.meter = null;
+                this.infoText = this.promptText;
+
+                return;
+            }
 
             const { meter, label } = this.checkPasswordStrength(this.modelValue);
 
@@ -289,7 +304,7 @@ export default {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         },
         panelUniqueId() {
-            return UniqueComponentId() + '_panel';
+            return this.id + '_panel';
         }
     },
     components: {

@@ -1,25 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-rating {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .p-rating-item {
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .p-rating.p-readonly .p-rating-item {
-        cursor: default;
-    }
-}
-`;
-
 const classes = {
     root: ({ props }) => [
         'p-rating',
@@ -48,6 +28,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'rating',
-    css,
     classes
 });

@@ -1,21 +1,21 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>An additional button is displayed next to the input field when <i>showIcon</i> is present. Also adding <i>iconDisplay</i> as <i>input</i> an icon will be displayed.</p>
+        <p>An additional icon is displayed next to the input field when <i>showIcon</i> is present.</p>
     </DocSectionText>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
-            <label for="buttondisplay" class="font-bold block mb-2"> Button Display </label>
-            <Calendar v-model="buttondisplay" showIcon inputId="buttondisplay" />
+            <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
+            <Calendar v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="icondisplay" class="font-bold block mb-2"> Icon Display </label>
+            <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
             <Calendar v-model="icondisplay" showIcon iconDisplay="input" inputId="icondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="templatedisplay" class="font-bold block mb-2"> Icon Template </label>
+            <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>
@@ -32,11 +32,11 @@ export default {
             templatedisplay: null,
             code: {
                 basic: `
-<Calendar v-model="buttondisplay" showIcon />
+<Calendar v-model="buttondisplay" showIcon :showOnFocus="false" />
 <Calendar v-model="icondisplay" showIcon iconDisplay="input" />
 <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly>
     <template #inputicon="{ clickCallback }">
-        <i class="pi pi-clock" @click="clickCallback" />
+        <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
     </template>
 </Calendar>
 `,
@@ -44,18 +44,18 @@ export default {
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
-            <label for="buttondisplay" class="font-bold block mb-2"> Button Display </label>
-            <Calendar v-model="buttondisplay" showIcon inputId="buttondisplay" />
+            <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
+            <Calendar v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="icondisplay" class="font-bold block mb-2"> Icon Display </label>
+            <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
             <Calendar v-model="icondisplay" showIcon iconDisplay="input" inputId="icondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="templatedisplay" class="font-bold block mb-2"> Icon Template </label>
+            <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>
@@ -78,18 +78,18 @@ export default {
 <template>
     <div class="card flex flex-wrap gap-3 p-fluid">
         <div class="flex-auto">
-            <label for="buttondisplay" class="font-bold block mb-2"> Button Display </label>
-            <Calendar v-model="buttondisplay" showIcon inputId="buttondisplay" />
+            <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
+            <Calendar v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="icondisplay" class="font-bold block mb-2"> Icon Display </label>
+            <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
             <Calendar v-model="icondisplay" showIcon iconDisplay="input" inputId="icondisplay" />
         </div>
         <div class="flex-auto">
-            <label for="templatedisplay" class="font-bold block mb-2"> Icon Template </label>
+            <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <Calendar v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="{ clickCallback }">
-                    <i class="pi pi-clock" @click="clickCallback" />
+                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
                 </template>
             </Calendar>
         </div>

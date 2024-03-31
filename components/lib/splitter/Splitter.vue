@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptm('root', getPTOptions())" data-pc-name="splitter">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -28,6 +28,7 @@ import BaseSplitter from './BaseSplitter.vue';
 export default {
     name: 'Splitter',
     extends: BaseSplitter,
+    inheritAttrs: false,
     emits: ['resizestart', 'resizeend', 'resize'],
     dragging: false,
     mouseMoveListener: null,
@@ -79,13 +80,6 @@ export default {
         this.unbindMouseListeners();
     },
     methods: {
-        getPTOptions() {
-            return {
-                context: {
-                    nested: DomHandler.getAttribute(this.$parentInstance?.$el, 'data-pc-name') === 'splitterpanel'
-                }
-            };
-        },
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
@@ -158,14 +152,16 @@ export default {
             this.onResize(event, step, true);
         },
         setTimer(event, index, step) {
-            this.clearTimer();
-            this.timer = setTimeout(() => {
-                this.repeat(event, index, step);
-            }, 40);
+            if (!this.timer) {
+                this.timer = setInterval(() => {
+                    this.repeat(event, index, step);
+                }, 40);
+            }
         },
         clearTimer() {
             if (this.timer) {
-                clearTimeout(this.timer);
+                clearInterval(this.timer);
+                this.timer = null;
             }
         },
         onGutterKeyUp() {
@@ -376,6 +372,13 @@ export default {
         },
         horizontal() {
             return this.layout === 'horizontal';
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    nested: this.$parentInstance?.nestedState
+                }
+            };
         }
     }
 };

@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="flex justify-content-center">
+    <div class="card flex justify-content-center">
         <Tag value="New"></Tag>
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="flex justify-content-center">
+    <div class="card flex justify-content-center">
         <Tag value="New"></Tag>
     </div>
 </template>

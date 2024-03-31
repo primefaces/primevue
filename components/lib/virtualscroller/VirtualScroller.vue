@@ -1,6 +1,6 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptm('root')" data-pc-name="virtualscroller">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptmi('root')">
             <slot
                 name="content"
                 :styleClass="contentClass"
@@ -51,14 +51,17 @@ import BaseVirtualScroller from './BaseVirtualScroller.vue';
 export default {
     name: 'VirtualScroller',
     extends: BaseVirtualScroller,
+    inheritAttrs: false,
     emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
     data() {
+        const both = this.isBoth();
+
         return {
-            first: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            last: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            page: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            numItemsInViewport: this.isBoth() ? { rows: 0, cols: 0 } : 0,
-            lastScrollPos: this.isBoth() ? { top: 0, left: 0 } : 0,
+            first: both ? { rows: 0, cols: 0 } : 0,
+            last: both ? { rows: 0, cols: 0 } : 0,
+            page: both ? { rows: 0, cols: 0 } : 0,
+            numItemsInViewport: both ? { rows: 0, cols: 0 } : 0,
+            lastScrollPos: both ? { top: 0, left: 0 } : 0,
             d_numToleratedItems: this.numToleratedItems,
             d_loading: this.loading,
             loaderArr: [],
@@ -129,6 +132,7 @@ export default {
             if (DomHandler.isVisible(this.element)) {
                 this.setContentEl(this.content);
                 this.init();
+                this.calculateAutoSize();
                 this.bindResizeListener();
 
                 this.defaultWidth = DomHandler.getWidth(this.element);
@@ -155,7 +159,7 @@ export default {
             return this.orientation === 'both';
         },
         scrollTo(options) {
-            this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
+            //this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
             this.element && this.element.scrollTo(options);
         },
         scrollToIndex(index, behavior = 'auto') {
@@ -165,6 +169,7 @@ export default {
 
             if (valid) {
                 const first = this.first;
+                const { scrollTop = 0, scrollLeft = 0 } = this.element;
                 const { numToleratedItems } = this.calculateNumItems();
                 const contentPos = this.getContentPosition();
                 const itemSize = this.itemSize;
@@ -172,20 +177,23 @@ export default {
                 const calculateCoord = (_first, _size, _cpos) => _first * _size + _cpos;
                 const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
                 let newFirst = both ? { rows: 0, cols: 0 } : 0;
-                let isRangeChanged = false;
+                let isRangeChanged = false,
+                    isScrollChanged = false;
 
                 if (both) {
                     newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
                     scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPos.left), calculateCoord(newFirst.rows, itemSize[0], contentPos.top));
+                    isScrollChanged = this.lastScrollPos.top !== scrollTop || this.lastScrollPos.left !== scrollLeft;
                     isRangeChanged = newFirst.rows !== first.rows || newFirst.cols !== first.cols;
                 } else {
                     newFirst = calculateFirst(index, numToleratedItems);
-                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, itemSize, contentPos.top));
+                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), scrollTop) : scrollTo(scrollLeft, calculateCoord(newFirst, itemSize, contentPos.top));
+                    isScrollChanged = this.lastScrollPos !== (horizontal ? scrollLeft : scrollTop);
                     isRangeChanged = newFirst !== first;
                 }
 
                 this.isRangeChanged = isRangeChanged;
-                this.first = newFirst;
+                isScrollChanged && (this.first = newFirst);
             }
         },
         scrollInView(index, to, behavior = 'auto') {
@@ -304,7 +312,7 @@ export default {
                 Promise.resolve().then(() => {
                     this.lazyLoadState = {
                         first: this.step ? (both ? { rows: 0, cols: first.cols } : 0) : first,
-                        last: Math.min(this.step ? this.step : last, this.items.length)
+                        last: Math.min(this.step ? this.step : last, this.items?.length || 0)
                     };
 
                     this.$emit('lazy-load', this.lazyLoadState);
@@ -323,10 +331,10 @@ export default {
                         this.content.style.position = 'relative';
                         this.element.style.contain = 'none';
 
-                        const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
+                        /*const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
 
                         contentWidth !== this.defaultContentWidth && (this.element.style.width = '');
-                        contentHeight !== this.defaultContentHeight && (this.element.style.height = '');
+                        contentHeight !== this.defaultContentHeight && (this.element.style.height = '');*/
 
                         const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
 
@@ -341,7 +349,7 @@ export default {
             }
         },
         getLast(last = 0, isCols) {
-            return this.items ? Math.min(isCols ? (this.columns || this.items[0]).length : this.items.length, last) : 0;
+            return this.items ? Math.min(isCols ? (this.columns || this.items[0])?.length || 0 : this.items?.length || 0, last) : 0;
         },
         getContentPosition() {
             if (this.content) {
@@ -503,8 +511,8 @@ export default {
 
                 if (this.lazy && this.isPageChanged(first)) {
                     const lazyLoadState = {
-                        first: this.step ? Math.min(this.getPageByFirst(first) * this.step, this.items.length - this.step) : first,
-                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items.length)
+                        first: this.step ? Math.min(this.getPageByFirst(first) * this.step, (this.items?.length || 0) - this.step) : first,
+                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items?.length || 0)
                     };
                     const isLazyStateChanged = this.lazyLoadState.first !== lazyLoadState.first || this.lazyLoadState.last !== lazyLoadState.last;
 

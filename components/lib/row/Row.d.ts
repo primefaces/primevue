@@ -107,8 +107,8 @@ export interface RowEmits {}
  */
 declare class Row extends ClassComponent<RowProps, RowSlots, RowEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Row: GlobalComponentConstructor<Row>;
     }
 }

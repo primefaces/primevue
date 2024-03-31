@@ -19,10 +19,11 @@
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
-                <Button label="Save" outlined @click="visible = false" autofocus />
+                <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>
@@ -52,10 +53,11 @@ export default {
     </div>
     <div class="flex align-items-center gap-3 mb-2">
         <label for="email" class="font-semibold w-6rem">Email</label>
-        <InputText id="Email" class="flex-auto" autocomplete="off" />
+        <InputText id="email" class="flex-auto" autocomplete="off" />
     </div>
     <template #footer>
-        <Button label="Save" outlined @click="visible = false" autofocus />
+        <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+        <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
     </template>
 </Dialog>
 `,
@@ -77,10 +79,11 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
-                <Button label="Save" outlined @click="visible = false" autofocus />
+                <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>
@@ -114,10 +117,11 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-2">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
-                <Button label="Save" outlined @click="visible = false" autofocus />
+                <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>

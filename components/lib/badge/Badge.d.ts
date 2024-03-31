@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type BadgePassThroughOptionType<T = any> = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions<T>) => BadgePassThroughAttributes | string) | string | null | undefined;
 
@@ -70,7 +70,7 @@ export interface BadgeProps {
     /**
      * Severity type of the badge.
      */
-    severity?: 'info' | 'success' | 'warning' | 'danger' | string | null | undefined;
+    severity?: HintedString<'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'contrast'> | null | undefined;
     /**
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
@@ -120,8 +120,8 @@ export interface BadgeEmits {}
  */
 declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Badge: GlobalComponentConstructor<Badge>;
     }
 }

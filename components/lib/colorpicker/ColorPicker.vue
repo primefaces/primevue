@@ -1,10 +1,10 @@
 <template>
-    <div ref="container" :class="cx('root')" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" v-bind="ptmi('root')">
         <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
-                    <div :class="cx('panel')" v-bind="ptm('content')">
+                    <div :class="cx('content')" v-bind="ptm('content')">
                         <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
                             <div :class="cx('color')" v-bind="ptm('color')">
                                 <div :ref="colorHandleRef" :class="cx('colorHandle')" v-bind="ptm('colorHandle')"></div>
@@ -29,6 +29,7 @@ import BaseColorPicker from './BaseColorPicker.vue';
 export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
     data() {
         return {
@@ -96,8 +97,7 @@ export default {
             this.selfUpdate = true;
             this.updateColorHandle();
             this.updateInput();
-            this.updateModel();
-            this.$emit('change', { event: event, value: this.modelValue });
+            this.updateModel(event);
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
@@ -111,28 +111,32 @@ export default {
             this.selfUpdate = true;
             this.updateColorSelector();
             this.updateHue();
-            this.updateModel();
+            this.updateModel(event);
             this.updateInput();
-            this.$emit('change', { event: event, value: this.modelValue });
         },
-        updateModel() {
+        updateModel(event) {
+            let value = this.modelValue;
+
             switch (this.format) {
                 case 'hex':
-                    this.$emit('update:modelValue', this.HSBtoHEX(this.hsbValue));
+                    value = this.HSBtoHEX(this.hsbValue);
                     break;
 
                 case 'rgb':
-                    this.$emit('update:modelValue', this.HSBtoRGB(this.hsbValue));
+                    value = this.HSBtoRGB(this.hsbValue);
                     break;
 
                 case 'hsb':
-                    this.$emit('update:modelValue', this.hsbValue);
+                    value = this.hsbValue;
                     break;
 
                 default:
                     //NoOp
                     break;
             }
+
+            this.$emit('update:modelValue', value);
+            this.$emit('change', { event, value });
         },
         updateColorSelector() {
             if (this.colorSelector) {

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p><i>value</i> property accepts multiple meter group objects.</p>
+        <p>Adding more items to the array displays the meters in a group.</p>
     </DocSectionText>
     <div class="card">
         <MeterGroup :value="value" />
@@ -13,9 +13,10 @@ export default {
     data() {
         return {
             value: [
-                { color: '#239EF0', label: 'Mortgage', value: 25 },
-                { color: '#FAA419', label: 'Loan', value: 15 },
-                { color: '#EE5879', label: 'Credit Card', value: 20 }
+                { label: 'Apps', color: '#34d399', value: 16 },
+                { label: 'Messages', color: '#fbbf24', value: 8 },
+                { label: 'Media', color: '#60a5fa', value: 24 },
+                { label: 'System', color: '#c084fc', value: 10 }
             ],
             code: {
                 basic: `
@@ -33,9 +34,10 @@ export default {
     data() {
         return {
             value: [
-                { color: '#239EF0', label: 'Mortgage', value: 25 },
-                { color: '#FAA419', label: 'Loan', value: 15 },
-                { color: '#EE5879', label: 'Credit Card', value: 20 }
+                { label: 'Apps', color: '#34d399', value: 16 },
+                { label: 'Messages', color: '#fbbf24', value: 8 },
+                { label: 'Media', color: '#60a5fa', value: 24 },
+                { label: 'System', color: '#c084fc', value: 10 }
             ]
         };
     }
@@ -53,9 +55,10 @@ export default {
 import { ref } from "vue";
 
 const value = ref([
-    { color: '#239EF0', label: 'Mortgage', value: 25 },
-    { color: '#FAA419', label: 'Loan', value: 15 },
-    { color: '#EE5879', label: 'Credit Card', value: 20 }
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
 ]);
 <\/script>
 `

@@ -3,7 +3,7 @@
         <p>Buttons can also placed vertically by setting <i>buttonLayout</i> as <i>vertical</i>.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem" decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary">
+        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
             <template #incrementbuttonicon>
                 <span class="pi pi-plus" />
             </template>
@@ -22,7 +22,7 @@ export default {
             value: 50,
             code: {
                 basic: `
-<InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem" decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary">
+<InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
     <template #incrementbuttonicon>
         <span class="pi pi-plus" />
     </template>
@@ -34,7 +34,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem" decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary">
+        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
             <template #incrementbuttonicon>
                 <span class="pi pi-plus" />
             </template>
@@ -58,7 +58,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem" decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary">
+        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
             <template #incrementbuttonicon>
                 <span class="pi pi-plus" />
             </template>

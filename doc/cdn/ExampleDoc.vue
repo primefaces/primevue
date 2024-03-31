@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A complete example using a PrimeVue DatePicker. You can also view this sample live at <a href="https://stackblitz.com/edit/web-platform-xceybs?file=index.html" target="_blank" rel="noopener noreferrer">Stackblitz</a>.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

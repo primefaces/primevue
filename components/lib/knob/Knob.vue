@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="knob">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <svg
             viewBox="0 0 100 100"
             role="slider"
@@ -29,17 +29,21 @@
 <script>
 import BaseKnob from './BaseKnob.vue';
 
+// Set fix value for SSR.
+const Math_PI = 3.14159265358979;
+
 export default {
     name: 'Knob',
     extends: BaseKnob,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change'],
     data() {
         return {
             radius: 40,
             midX: 50,
             midY: 50,
-            minRadians: (4 * Math.PI) / 3,
-            maxRadians: -Math.PI / 3
+            minRadians: (4 * Math_PI) / 3,
+            maxRadians: -Math_PI / 3
         };
     },
     methods: {
@@ -47,7 +51,7 @@ export default {
             let dx = offsetX - this.size / 2;
             let dy = this.size / 2 - offsetY;
             let angle = Math.atan2(dy, dx);
-            let start = -Math.PI / 2 - Math.PI / 6;
+            let start = -Math_PI / 2 - Math_PI / 6;
 
             this.updateModel(angle, start);
         },
@@ -55,7 +59,7 @@ export default {
             let mappedValue;
 
             if (angle > this.maxRadians) mappedValue = this.mapRange(angle, this.minRadians, this.maxRadians, this.min, this.max);
-            else if (angle < start) mappedValue = this.mapRange(angle + 2 * Math.PI, this.minRadians, this.maxRadians, this.min, this.max);
+            else if (angle < start) mappedValue = this.mapRange(angle + 2 * Math_PI, this.minRadians, this.maxRadians, this.min, this.max);
             else return;
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
@@ -205,7 +209,7 @@ export default {
             return this.midY - Math.sin(this.valueRadians) * this.radius;
         },
         largeArc() {
-            return Math.abs(this.zeroRadians - this.valueRadians) < Math.PI ? 0 : 1;
+            return Math.abs(this.zeroRadians - this.valueRadians) < Math_PI ? 0 : 1;
         },
         sweep() {
             return this.valueRadians > this.zeroRadians ? 0 : 1;

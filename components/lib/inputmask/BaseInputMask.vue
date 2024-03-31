@@ -26,6 +26,14 @@ export default {
         readonly: {
             type: Boolean,
             default: false
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
+        variant: {
+            type: String,
+            default: null
         }
     },
     style: InputMaskStyle

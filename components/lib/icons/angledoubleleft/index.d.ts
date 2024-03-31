@@ -3,8 +3,8 @@ import { GlobalComponentConstructor } from '../../ts-helpers';
 
 declare class AngleDoubleLeftIcon extends Icon {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         AngleDoubleLeftIcon: GlobalComponentConstructor<AngleDoubleLeftIcon>;
     }
 }

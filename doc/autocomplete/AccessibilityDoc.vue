@@ -12,7 +12,7 @@
             element.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Closed State Keyboard Support</h3>
         <div class="doc-tablewrapper">

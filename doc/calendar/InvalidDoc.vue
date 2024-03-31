@@ -3,7 +3,7 @@
         <p>Calendar is used a controlled input component with <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Calendar v-model="date" class="p-invalid" />
+        <Calendar v-model="date" invalid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             date: null,
             code: {
                 basic: `
-<Calendar v-model="date" class="p-invalid" />
+<Calendar v-model="date" invalid />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Calendar v-model="date" class="p-invalid" />
+        <Calendar v-model="date" invalid />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Calendar v-model="date" class="p-invalid" />
+        <Calendar v-model="date" invalid />
     </div>
 </template>
 

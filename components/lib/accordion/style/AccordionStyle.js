@@ -1,26 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-accordion-header-action {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        user-select: none;
-        position: relative;
-        text-decoration: none;
-    }
-    
-    .p-accordion-header-action:focus {
-        z-index: 1;
-    }
-    
-    .p-accordion-header-text {
-        line-height: 1;
-    }
-}
-`;
-
 const classes = {
     root: 'p-accordion p-component',
     tab: {
@@ -47,6 +26,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'accordion',
-    css,
     classes
 });

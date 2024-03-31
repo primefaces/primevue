@@ -134,8 +134,8 @@ export interface SkeletonEmits {}
  */
 declare class Skeleton extends ClassComponent<SkeletonProps, SkeletonSlots, SkeletonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Skeleton: GlobalComponentConstructor<Skeleton>;
     }
 }

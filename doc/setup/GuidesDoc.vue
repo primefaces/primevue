@@ -1,39 +1,122 @@
 <template>
     <DocSectionText v-bind="$attrs"></DocSectionText>
-    <div class="flex gap-4">
-        <div class="card">
-            <NuxtLink to="/vite">
-                <span class="images">
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/vite.svg" />
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/vite-2.svg" class="original" />
-                </span>
-                <span class="title">VITE</span>
-            </NuxtLink>
+    <div class="grid">
+        <div class="col-12 sm:col-4">
+            <div class="card">
+                <NuxtLink to="/vite">
+                    <span class="images">
+                        <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="vite" clip-path="url(#clip0_3_57)">
+                                <path
+                                    id="Vector"
+                                    d="M32.0549 12.9123L32.0549 12.9123L59.3263 7.86786C60.152 7.71512 60.8175 8.61497 60.3885 9.39371C60.3885 9.39372 60.3885 9.39373 60.3885 9.39375L32.5644 59.887C32.1791 60.5862 31.1958 60.5902 30.8048 59.8945C30.8048 59.8945 30.8048 59.8945 30.8047 59.8945L2.42899 9.39495C1.99227 8.61774 2.655 7.71063 3.48355 7.86092C3.48355 7.86092 3.48355 7.86092 3.48355 7.86092L31.3374 12.9136L31.4267 12.4216L31.3374 12.9136C31.5747 12.9566 31.8176 12.9562 32.0549 12.9123Z"
+                                    stroke="var(--text-color-secondary)"
+                                />
+                                <path
+                                    id="Vector_2"
+                                    d="M24.2017 5.3266L24.2017 5.3266C24.0911 5.34859 24.0014 5.44626 23.9939 5.57298L24.2017 5.3266ZM24.2017 5.3266L44.7924 1.23202C44.9675 1.19721 45.1441 1.36539 45.0858 1.57068L41.2344 15.1203C40.9796 16.0167 41.7473 16.8966 42.6812 16.7138L42.6813 16.7138L48.5822 15.558C48.775 15.5203 48.9623 15.7301 48.8571 15.9431L48.8571 15.9432L32.0907 49.9002L31.8017 50.3534L31.8017 50.3535C31.7534 50.4293 31.7021 50.4571 31.6608 50.4683C31.6134 50.4813 31.5538 50.4788 31.4938 50.4538C31.4338 50.4288 31.3876 50.3873 31.3609 50.341C31.3371 50.2998 31.3197 50.24 31.3381 50.1499L31.3381 50.1499L34.0448 36.8548C34.2339 35.9264 33.3724 35.1027 32.4474 35.3876L32.4472 35.3877L28.9065 36.4794C28.7341 36.5325 28.5407 36.38 28.5834 36.1681L30.2866 27.7041C30.2866 27.704 30.2866 27.704 30.2866 27.704C30.4661 26.8122 29.6748 26.0058 28.7717 26.2172L28.7716 26.2172L23.0389 27.5599C23.0389 27.5599 23.0389 27.5599 23.0389 27.5599C22.8827 27.5964 22.7164 27.4709 22.7273 27.2827C22.7273 27.2827 22.7273 27.2827 22.7273 27.2827L23.9939 5.57303L24.2017 5.3266Z"
+                                    stroke="var(--text-color-secondary)"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_3_57">
+                                    <rect width="62" height="62" fill="white" transform="translate(0.392822 0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg" class="original">
+                            <g id="vite" clip-path="url(#clip0_1_67)">
+                                <path
+                                    id="Vector"
+                                    d="M60.8263 9.63502L33.0022 60.1283C32.4278 61.1707 30.9519 61.1769 30.3688 60.1395L1.99297 9.63989C1.35772 8.50935 2.3103 7.13997 3.57267 7.36895L31.4265 12.4216C31.6042 12.4538 31.7861 12.4535 31.9638 12.4207L59.2352 7.3762C60.4933 7.14348 61.4504 8.50226 60.8263 9.63502Z"
+                                    fill="url(#paint0_linear_1_67)"
+                                />
+                                <path
+                                    id="Vector_2"
+                                    d="M44.6949 0.741624L24.1042 4.8362C23.7658 4.9035 23.5152 5.19456 23.4948 5.54386L22.2282 27.2536C22.1984 27.765 22.6611 28.1618 23.1529 28.0467L28.8856 26.7041C29.422 26.5785 29.9066 27.058 29.7964 27.6054L28.0932 36.0694C27.9786 36.6391 28.5056 37.1262 29.0538 36.9572L32.5946 35.8655C33.1435 35.6964 33.671 36.1848 33.5548 36.755L30.8481 50.0501C30.6788 50.8818 31.7688 51.3353 32.2233 50.6222L32.527 50.146L49.3054 16.1645C49.5864 15.5956 49.1018 14.9468 48.4861 15.0674L42.5852 16.2231C42.0307 16.3316 41.5589 15.8076 41.7154 15.257L45.5668 1.7073C45.7234 1.15579 45.25 0.631249 44.6949 0.741624Z"
+                                    fill="url(#paint1_linear_1_67)"
+                                />
+                            </g>
+                            <defs>
+                                <linearGradient id="paint0_linear_1_67" x1="1.30015" y1="5.5644" x2="36.5943" y2="52.7953" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#41D1FF" />
+                                    <stop offset="1" stop-color="#BD34FE" />
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_1_67" x1="29.8279" y1="1.85329" x2="36.2756" y2="45.4365" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FFEA83" />
+                                    <stop offset="0.0833333" stop-color="#FFDD35" />
+                                    <stop offset="1" stop-color="#FFA800" />
+                                </linearGradient>
+                                <clipPath id="clip0_1_67">
+                                    <rect width="62" height="62" fill="white" transform="translate(0.392822 0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+                    <span class="title">VITE</span>
+                </NuxtLink>
+            </div>
         </div>
-        <div class="card">
-            <NuxtLink to="/nuxt">
-                <span class="images">
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/nuxt.svg" />
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/nuxt-2.svg" class="original" />
-                </span>
-                <span class="title">NUXT</span>
-            </NuxtLink>
+        <div class="col-12 sm:col-4">
+            <div class="card">
+                <NuxtLink to="/nuxt">
+                    <span class="images">
+                        <svg width="95" height="63" viewBox="0 0 95 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M52.9726 62.5H87.3826C88.4807 62.5001 89.5316 62.1142 90.4826 61.57C91.4335 61.0258 92.4138 60.3426 92.9626 59.4C93.5114 58.4574 93.8931 57.388 93.8926 56.2997C93.8921 55.2114 93.5122 54.1424 92.9626 53.2002L69.7126 13.21C69.1638 12.2676 68.4933 11.5841 67.5426 11.04C66.5918 10.4959 65.2305 10.11 64.1326 10.11C63.0347 10.11 61.9833 10.4959 61.0326 11.04C60.0818 11.5841 59.4114 12.2676 58.8626 13.21L52.9726 23.44L41.1926 3.59927C40.6433 2.65693 39.9736 1.66402 39.0226 1.12C38.0716 0.575977 37.0206 0.5 35.9226 0.5C34.8245 0.5 33.7736 0.575977 32.8226 1.12C31.8716 1.66402 30.8918 2.65693 30.3426 3.59927L1.51258 53.2002C0.962942 54.1424 0.893056 55.2114 0.892579 56.2997C0.892101 57.388 0.963769 58.4572 1.51258 59.3999C2.06139 60.3425 3.04164 61.0258 3.99258 61.57C4.94352 62.1142 5.99449 62.5001 7.09258 62.5H28.7926C37.3909 62.5 43.6494 58.6429 48.0126 51.34L58.5526 33.05L64.1326 23.44L81.1826 52.58H58.5526L52.9726 62.5ZM28.4826 52.58H13.2926L35.9226 13.52L47.3926 33.05L39.7949 46.2947C36.8973 51.0331 33.5938 52.58 28.4826 52.58Z"
+                                stroke="var(--text-color-secondary)"
+                            />
+                        </svg>
+                        <svg width="94" height="63" viewBox="0 0 94 63" fill="none" xmlns="http://www.w3.org/2000/svg" class="original">
+                            <g id="nuxt">
+                                <path
+                                    id="Triangles"
+                                    d="M52.9728 62.5H87.3828C88.4809 62.5001 89.5319 62.1142 90.4828 61.57C91.4338 61.0258 92.414 60.3426 92.9628 59.4C93.5116 58.4574 93.8933 57.388 93.8928 56.2997C93.8923 55.2114 93.5125 54.1424 92.9628 53.2002L69.7128 13.21C69.164 12.2676 68.4936 11.5841 67.5428 11.04C66.5921 10.4959 65.2307 10.11 64.1328 10.11C63.035 10.11 61.9836 10.4959 61.0328 11.04C60.0821 11.5841 59.4116 12.2676 58.8628 13.21L52.9728 23.44L41.1928 3.59927C40.6436 2.65693 39.9738 1.66402 39.0228 1.12C38.0718 0.575977 37.0209 0.5 35.9228 0.5C34.8248 0.5 33.7738 0.575977 32.8228 1.12C31.8718 1.66402 30.8921 2.65693 30.3428 3.59927L1.51282 53.2002C0.963186 54.1424 0.893301 55.2114 0.892823 56.2997C0.892345 57.388 0.964013 58.4572 1.51282 59.3999C2.06163 60.3425 3.04188 61.0258 3.99282 61.57C4.94376 62.1142 5.99473 62.5001 7.09282 62.5H28.7928C37.3912 62.5 43.6496 58.6429 48.0128 51.34L58.5528 33.05L64.1328 23.44L81.1828 52.58H58.5528L52.9728 62.5ZM28.4828 52.58H13.2928L35.9228 13.52L47.3928 33.05L39.7951 46.2947C36.8976 51.0331 33.594 52.58 28.4828 52.58Z"
+                                    fill="#00DC82"
+                                />
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="title">NUXT</span>
+                </NuxtLink>
+            </div>
         </div>
-        <div class="card">
-            <NuxtLink to="/cdn">
-                <span class="images">
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/html.svg" />
-                    <img src="https://primefaces.org/cdn/primevue/images/logos/installation/html-2.svg" class="original" />
-                </span>
-                <span class="title">CDN</span>
-            </NuxtLink>
+        <div class="col-12 sm:col-4">
+            <div class="card flex-1">
+                <NuxtLink to="/cdn">
+                    <span class="images">
+                        <svg width="55" height="60" viewBox="0 0 55 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M0.59082 0.0688477H54.3064L49.3794 53.166L27.1685 59.2714L5.51761 53.6348L0.59082 0.0688477ZM1.68702 1.06885L6.44909 52.844L27.1614 58.2362L48.4475 52.3851L53.2093 1.06885H1.68702ZM9.62573 10.0733H45.1308L44.3146 17.6229H18.3298L18.8344 23.5266H43.8817L41.9722 44.7773L27.4625 48.6181L12.8914 44.7772L11.9306 33.4396H19.7175L20.1987 38.7929L27.4612 40.6224L34.6048 38.795L35.2392 31.0762H11.5463L9.62573 10.0733ZM10.7213 11.0733L12.4591 30.0762H36.3248L35.5431 39.5872L27.4631 41.6541L19.2662 39.5892L18.8033 34.4396H13.0189L13.8283 43.99L27.4619 47.5838L41.0389 43.9899L42.7878 24.5266H17.9162L17.2407 16.6229H43.4169L44.0169 11.0733H10.7213Z"
+                                fill="var(--text-color-secondary)"
+                            />
+                        </svg>
+                        <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg" class="original">
+                            <g id="Frame" clip-path="url(#clip0_3_69)">
+                                <path id="Vector" d="M8.91734 54.595L3.99609 0.5H58.8661L53.8286 54.5562L31.3536 60.5625" fill="#E44D26" />
+                                <path id="Vector_2" d="M31.3926 55.9512V4.91748H53.8288L49.5663 51.0687" fill="#F16529" />
+                                <path id="Vector_3" d="M14.1489 11.5437H31.3927V18.17H21.7052L22.3252 24.9512H31.3927V31.5775H16.0089L14.1489 11.5437ZM16.3189 34.91H23.2552L23.7589 40.2187L31.4314 42.1562V49.1312L17.3264 45.3337" fill="#EBEBEB" />
+                                <path id="Vector_4" d="M48.559 11.5437H31.3928V18.17H47.9778L48.5978 11.5825L48.559 11.5437ZM47.319 24.9512H31.354V31.5775H39.8403L39.0265 40.2187L31.354 42.1562V49.0925L45.4203 45.3337" fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_3_69">
+                                    <rect width="62" height="62" fill="white" transform="translate(0.392578 0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+                    <span class="title">CDN</span>
+                </NuxtLink>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .card {
-    min-width: 15rem;
+    padding: 0;
     min-height: 15rem;
     display: flex;
     align-items: center;
@@ -46,6 +129,8 @@
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+    height: 100%;
 }
 
 .card .title {
@@ -62,26 +147,26 @@
     align-items: center;
 }
 
-.card img {
+.card svg {
     height: 62px;
     opacity: 1;
     transition: all 0.5s;
 }
 
-.card img.original {
+.card svg.original {
     opacity: 0;
     margin-top: -62px;
 }
 
-.card a:hover img {
+.card:hover svg {
     opacity: 0;
 }
 
-.card a:hover img.original {
+.card:hover svg.original {
     opacity: 1;
 }
 
-.card a:hover .title {
+.card:hover .title {
     color: var(--text-color);
 }
 </style>

@@ -10,8 +10,8 @@
             </p>
         </Panel>
     </div>
-    <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-    <DocSectionCode :code="code2" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
+    <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

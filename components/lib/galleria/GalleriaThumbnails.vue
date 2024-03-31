@@ -15,7 +15,16 @@
                 <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
             <div :class="cx('thumbnailItemsContainer')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
-                <div ref="itemsContainer" :class="cx('thumbnailItems')" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" v-bind="ptm('thumbnailItems')">
+                <div
+                    ref="itemsContainer"
+                    :class="cx('thumbnailItems')"
+                    role="tablist"
+                    @transitionend="onTransitionEnd($event)"
+                    @touchstart="onTouchStart($event)"
+                    @touchmove="onTouchMove($event)"
+                    @touchend="onTouchEnd($event)"
+                    v-bind="ptm('thumbnailItems')"
+                >
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
@@ -381,8 +390,8 @@ export default {
             indicators[nextInd].children[0].tabIndex = '0';
             indicators[nextInd].children[0].focus();
         },
-        onTransitionEnd() {
-            if (this.$refs.itemsContainer) {
+        onTransitionEnd(e) {
+            if (this.$refs.itemsContainer && e.propertyName === 'transform') {
                 document.body.setAttribute('data-p-items-hidden', 'true');
                 !this.isUnstyled && DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = '';

@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="inputnumber">
+    <span :class="cx('root')" v-bind="ptmi('root')">
         <INInputText
             ref="input"
             :id="inputId"
@@ -15,9 +15,9 @@
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             @input="onUserInput"
             @keydown="onInputKeyDown"
-            @keypress="onInputKeyPress"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -25,37 +25,16 @@
             v-bind="inputProps"
             :pt="ptm('input')"
             :unstyled="unstyled"
-            data-pc-section="input"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
-            <INButton
-                :class="[cx('incrementButton'), incrementButtonClass]"
-                v-on="upButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="incrementButtonProps"
-                :pt="ptm('incrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="incrementbutton"
-            >
+            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" :pt="ptm('incrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="incrementbuttonicon">
                         <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
-            <INButton
-                :class="[cx('decrementButton'), decrementButtonClass]"
-                v-on="downButtonListeners"
-                :disabled="disabled"
-                :tabindex="-1"
-                aria-hidden="true"
-                v-bind="decrementButtonProps"
-                :pt="ptm('decrementButton')"
-                :unstyled="unstyled"
-                data-pc-section="decrementbutton"
-            >
+            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" :pt="ptm('decrementButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="decrementbuttonicon">
                         <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
@@ -73,7 +52,6 @@
             v-bind="incrementButtonProps"
             :pt="ptm('incrementButton')"
             :unstyled="unstyled"
-            data-pc-section="incrementbutton"
         >
             <template #icon>
                 <slot name="incrementbuttonicon">
@@ -91,7 +69,6 @@
             v-bind="decrementButtonProps"
             :pt="ptm('decrementButton')"
             :unstyled="unstyled"
-            data-pc-section="decrementbutton"
         >
             <template #icon>
                 <slot name="decrementbuttonicon">
@@ -113,6 +90,7 @@ import BaseInputNumber from './BaseInputNumber.vue';
 export default {
     name: 'InputNumber',
     extends: BaseInputNumber,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
     numberFormat: null,
     _numeral: null,
@@ -355,7 +333,7 @@ export default {
             }
         },
         onUpButtonKeyDown(event) {
-            if (event.keyCode === 32 || event.keyCode === 13) {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, 1);
             }
         },
@@ -382,7 +360,7 @@ export default {
             }
         },
         onDownButtonKeyDown(event) {
-            if (event.keyCode === 32 || event.keyCode === 13) {
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, -1);
             }
         },
@@ -398,22 +376,18 @@ export default {
                 return;
             }
 
-            this.lastValue = event.target.value;
-
-            if (event.shiftKey || event.altKey) {
+            if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
 
                 return;
             }
 
+            this.lastValue = event.target.value;
+
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
             let inputValue = event.target.value;
             let newValueStr = null;
-
-            if (event.altKey) {
-                event.preventDefault();
-            }
 
             switch (event.code) {
                 case 'ArrowUp':
@@ -551,22 +525,21 @@ export default {
                     break;
 
                 default:
+                    if (this.readonly) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    let char = event.key;
+                    const isDecimalSign = this.isDecimalSign(char);
+                    const isMinusSign = this.isMinusSign(char);
+
+                    if (((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
+                        this.insert(event, char, { isDecimalSign, isMinusSign });
+                    }
+
                     break;
-            }
-        },
-        onInputKeyPress(event) {
-            if (this.readonly) {
-                return;
-            }
-
-            event.preventDefault();
-            let code = event.which || event.keyCode;
-            let char = String.fromCharCode(code);
-            const isDecimalSign = this.isDecimalSign(char);
-            const isMinusSign = this.isMinusSign(char);
-
-            if ((48 <= code && code <= 57) || isMinusSign || isDecimalSign) {
-                this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
         onPaste(event) {

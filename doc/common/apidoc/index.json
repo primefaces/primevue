@@ -3634,12 +3634,28 @@
                             "description": "Whether the autocomplete is in loading state."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "dataKey",
@@ -3669,7 +3685,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -4592,7 +4608,7 @@
         }
     },
     "avatargroup": {
-        "description": "AvatarGroup is a helper component for Avatar.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "description": "A set of Avatars can be displayed together using the AvatarGroup component.\n\n[Live Demo](https://www.primevue.org/avatar/)",
         "components": {
             "default": {
                 "description": "A set of Avatars can be displayed together using the AvatarGroup component.",
@@ -4608,6 +4624,53 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "AvatarGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AvatarGroupProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
                 "AvatarGroupPassThroughAttributes": {
                     "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
@@ -4679,7 +4742,14 @@
                     "description": "Defines valid slots in AvatarGroup component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot to detect Avatar components."
+                        }
+                    ]
                 },
                 "AvatarGroupEmits": {
                     "description": "Defines valid emits in AvatarGroup component.",
@@ -4693,7 +4763,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "AvatarGroupPassThroughOptionType": {
-                    "values": "AvatarGroupPassThroughAttributes | null | undefined"
+                    "values": "AvatarGroupPassThroughAttributes | (options: AvatarGroupPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -4865,7 +4935,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | string",
+                            "type": "null | HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the badge."
                         },
@@ -5348,7 +5418,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,FileUploadStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -6646,7 +6716,7 @@
                             "name": "badgeSeverity",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | string",
+                            "type": "null | HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the badge."
                         },
@@ -6678,7 +6748,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"help\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -6837,6 +6907,210 @@
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
                 "ButtonStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "buttongroup": {
+        "description": "A set of Buttons can be displayed together using the ButtonGroup component.\n\n[Live Demo](https://www.primevue.org/button/)",
+        "components": {
+            "default": {
+                "description": "A set of Buttons can be displayed together using the ButtonGroup component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "ButtonGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ButtonGroupProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonGroupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ButtonGroupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonGroupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonGroupProps": {
+                    "description": "Defines valid properties in ButtonGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<ButtonGroupPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonGroupSlots": {
+                    "description": "Defines valid slots in ButtonGroup component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot to detect Button components."
+                        }
+                    ]
+                },
+                "ButtonGroupEmits": {
+                    "description": "Defines valid emits in ButtonGroup component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ButtonGroupPassThroughOptionType": {
+                    "values": "ButtonGroupPassThroughAttributes | (options: ButtonGroupPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "buttongroup/style/ButtonGroupStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "ButtonGroupStyle": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -7085,7 +7359,7 @@
                 },
                 "CalendarPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "CalendarProps.pt",
+                    "relatedProp": "undefined.BaseCalendarProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -7762,501 +8036,6 @@
                     ],
                     "methods": []
                 },
-                "CalendarProps": {
-                    "description": "Defines valid properties in Calendar component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "modelValue",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "null | string | string[] | Date | Date[]",
-                            "default": "null",
-                            "description": "Value of the component."
-                        },
-                        {
-                            "name": "selectionMode",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"multiple\" | \"range\" | \"single\"",
-                            "default": "single",
-                            "description": "Defines the quantity of the selection."
-                        },
-                        {
-                            "name": "dateFormat",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Format of the date. Defaults to PrimeVue Locale configuration."
-                        },
-                        {
-                            "name": "inline",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, displays the calendar as inline instead of an overlay."
-                        },
-                        {
-                            "name": "showOtherMonths",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "true",
-                            "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option."
-                        },
-                        {
-                            "name": "selectOtherMonths",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true."
-                        },
-                        {
-                            "name": "showIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, displays a button with icon next to input."
-                        },
-                        {
-                            "name": "iconDisplay",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"input\" | \"button\"",
-                            "default": "'button'",
-                            "description": "Icon position of the component. This only applies if the showIcon option is set to true."
-                        },
-                        {
-                            "name": "icon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon of the calendar button.",
-                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
-                        },
-                        {
-                            "name": "previousIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to show in the previous button.",
-                            "deprecated": "since v3.27.0. Use 'previousicon' slot."
-                        },
-                        {
-                            "name": "nextIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to show in the next button.",
-                            "deprecated": "since v3.27.0. Use 'nexticon' slot."
-                        },
-                        {
-                            "name": "incrementIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to show in each of the increment buttons.",
-                            "deprecated": "since v3.27.0. Use 'incrementicon' slot."
-                        },
-                        {
-                            "name": "decrementIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon to show in each of the decrement buttons.",
-                            "deprecated": "since v3.27.0. Use 'decrementicon' slot."
-                        },
-                        {
-                            "name": "numberOfMonths",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "1",
-                            "description": "Number of months to display."
-                        },
-                        {
-                            "name": "responsiveOptions",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarResponsiveOptions[]",
-                            "default": "",
-                            "description": "An array of options for responsive design."
-                        },
-                        {
-                            "name": "breakpoint",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "769px",
-                            "description": "The breakpoint to define the maximum width boundary for datepicker panel."
-                        },
-                        {
-                            "name": "view",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"month\" | \"year\" | \"date\"",
-                            "default": "date",
-                            "description": "Type of view to display."
-                        },
-                        {
-                            "name": "touchUI",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, calendar overlay is displayed as optimized for touch devices."
-                        },
-                        {
-                            "name": "monthNavigator",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether the month should be rendered as a dropdown instead of text.",
-                            "deprecated": "since version 3.9.0, Navigator is always on."
-                        },
-                        {
-                            "name": "yearNavigator",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether the year should be rendered as a dropdown instead of text.",
-                            "deprecated": "since version 3.9.0, Navigator is always on."
-                        },
-                        {
-                            "name": "yearRange",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "false",
-                            "description": "The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).",
-                            "deprecated": "since version 3.9.0, Years are based on decades by default."
-                        },
-                        {
-                            "name": "minDate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Date",
-                            "default": "",
-                            "description": "The minimum selectable date."
-                        },
-                        {
-                            "name": "maxDate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Date",
-                            "default": "",
-                            "description": "The maximum selectable date."
-                        },
-                        {
-                            "name": "disabledDates",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Date[]",
-                            "default": "",
-                            "description": "Array with dates to disable."
-                        },
-                        {
-                            "name": "disabledDays",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number[]",
-                            "default": "",
-                            "description": "Array with disabled weekday numbers."
-                        },
-                        {
-                            "name": "maxDateCount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Maximum number of selectable dates in multiple mode."
-                        },
-                        {
-                            "name": "showOnFocus",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "true",
-                            "description": "When disabled, datepicker will not be visible with input focus."
-                        },
-                        {
-                            "name": "autoZIndex",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "true",
-                            "description": "Whether to automatically manage layering."
-                        },
-                        {
-                            "name": "baseZIndex",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "0",
-                            "description": "Base zIndex value to use in layering."
-                        },
-                        {
-                            "name": "showButtonBar",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to display today and clear buttons at the footer."
-                        },
-                        {
-                            "name": "shortYearCutoff",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "+10",
-                            "description": "The cutoff year for determining the century for a date."
-                        },
-                        {
-                            "name": "showTime",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to display timepicker."
-                        },
-                        {
-                            "name": "timeOnly",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to display timepicker only."
-                        },
-                        {
-                            "name": "hourFormat",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"12\" | \"24\"",
-                            "default": "24",
-                            "description": "Specifies hour format."
-                        },
-                        {
-                            "name": "stepHour",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "1",
-                            "description": "Hours to change per step."
-                        },
-                        {
-                            "name": "stepMinute",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "1",
-                            "description": "Minutes to change per step."
-                        },
-                        {
-                            "name": "stepSecond",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "1",
-                            "description": "Seconds to change per step."
-                        },
-                        {
-                            "name": "showSeconds",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to show the seconds in time picker."
-                        },
-                        {
-                            "name": "hideOnDateTimeSelect",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to hide the overlay on date selection when showTime is enabled."
-                        },
-                        {
-                            "name": "hideOnRangeSelection",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Whether to hide the overlay on date selection is completed when selectionMode is range."
-                        },
-                        {
-                            "name": "timeSeparator",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": ":",
-                            "description": "Separator of time selector."
-                        },
-                        {
-                            "name": "showWeek",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, calendar will show week numbers."
-                        },
-                        {
-                            "name": "manualInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "true",
-                            "description": "Whether to allow entering the date manually via typing."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When present, it specifies that the component should be disabled."
-                        },
-                        {
-                            "name": "readonly",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When present, it specifies that an input field is read-only."
-                        },
-                        {
-                            "name": "placeholder",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Placeholder text for the input."
-                        },
-                        {
-                            "name": "appendTo",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string | HTMLElement",
-                            "default": "body",
-                            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
-                        },
-                        {
-                            "name": "id",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Identifier of the element."
-                        },
-                        {
-                            "name": "inputId",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Identifier of the underlying input element."
-                        },
-                        {
-                            "name": "inputStyle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "object",
-                            "default": "",
-                            "description": "Inline style of the input field."
-                        },
-                        {
-                            "name": "inputClass",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string | object",
-                            "default": "",
-                            "description": "Style class of the input field."
-                        },
-                        {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
-                        },
-                        {
-                            "name": "panelStyle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "object",
-                            "default": "",
-                            "description": "Inline style of the overlay panel."
-                        },
-                        {
-                            "name": "panelClass",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string | object",
-                            "default": "",
-                            "description": "Style class of the overlay panel."
-                        },
-                        {
-                            "name": "panelProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "HTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
-                        },
-                        {
-                            "name": "ariaLabelledby",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-                        },
-                        {
-                            "name": "ariaLabel",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Establishes a string value that labels the component."
-                        },
-                        {
-                            "name": "pt",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PassThrough<CalendarPassThroughOptions>",
-                            "default": "",
-                            "description": "Used to pass attributes to DOM elements inside the component."
-                        },
-                        {
-                            "name": "ptOptions",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PassThroughOptions",
-                            "default": "",
-                            "description": "Used to configure passthrough(pt) options of the component."
-                        },
-                        {
-                            "name": "unstyled",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, it removes component related styles in the core."
-                        }
-                    ],
-                    "methods": []
-                },
                 "CalendarDateSlotOptions": {
                     "description": "Defines valid options of the date slot in Calendar component.",
                     "relatedProp": "",
@@ -8455,7 +8234,7 @@
                                 {
                                     "name": "value",
                                     "optional": false,
-                                    "type": "undefined | string | string[] | Date | Date[]",
+                                    "type": "null | Date | (null | Date)[]",
                                     "description": "New value."
                                 }
                             ],
@@ -8602,6 +8381,9 @@
                 },
                 "CalendarPassThroughTransitionType": {
                     "values": "TransitionProps | (options: CalendarPassThroughMethodOptions) => TransitionProps | undefined"
+                },
+                "CalendarProps": {
+                    "values": "CalendarPropsSingle | CalendarPropsRange | CalendarPropsMultiple"
                 }
             }
         }
@@ -8682,6 +8464,45 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "CardPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CardProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CardPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "CardProps.pt",
@@ -8854,7 +8675,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "CardPassThroughOptionType": {
-                    "values": "CardPassThroughAttributes | null | undefined"
+                    "values": "CardPassThroughAttributes | (options: CardPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -10073,12 +9894,28 @@
                             "description": "Default text to display when no option is selected."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "dataKey",
@@ -10148,7 +9985,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -11099,12 +10936,28 @@
                             "description": "Allows to select a boolean value instead of multiple values."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "",
                             "description": "When present, it specifies that the element should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -12065,12 +11918,28 @@
                             "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that the element should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "placeholder",
@@ -12349,7 +12218,7 @@
                     "relatedProp": "ColorPickerEmits.change",
                     "props": [
                         {
-                            "name": "originalEvent",
+                            "name": "event",
                             "optional": false,
                             "readonly": false,
                             "type": "Event",
@@ -12570,7 +12439,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -14526,7 +14395,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "\"filled\" | \"outlined\"",
                             "default": ""
                         },
                         {
@@ -17545,7 +17414,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -17969,7 +17838,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Filter match mode"
                         }
@@ -18140,7 +18009,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         }
@@ -18212,7 +18081,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -18300,7 +18169,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -19727,9 +19596,9 @@
                             "name": "globalFilterFields",
                             "optional": true,
                             "readonly": false,
-                            "type": "string[]",
+                            "type": "(string | Function)[]",
                             "default": "",
-                            "description": "Fields for global filter"
+                            "description": "An array of fields as string or function to use in global filtering."
                         },
                         {
                             "name": "filterLocale",
@@ -19966,7 +19835,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
@@ -20030,7 +19899,7 @@
                             "name": "tableStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Inline style of the table element."
                         },
@@ -20038,7 +19907,7 @@
                             "name": "tableClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the table element."
                         },
@@ -22392,7 +22261,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached."
                         },
@@ -23760,12 +23629,12 @@
                             "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
-                            "name": "tickIcon",
+                            "name": "checkIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the tick icon's DOM element."
+                            "description": "Used to pass attributes to the check icon's DOM element."
                         },
                         {
                             "name": "blankIcon",
@@ -23907,6 +23776,22 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "option",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current item option."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current item index."
+                        },
+                        {
                             "name": "selected",
                             "optional": false,
                             "readonly": false,
@@ -24029,7 +23914,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -24058,12 +23943,28 @@
                             "description": "Default text to display when no option is selected."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "dataKey",
@@ -24158,7 +24059,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -24271,12 +24172,12 @@
                             "description": "Whether the selected option will be add highlight class."
                         },
                         {
-                            "name": "showTick",
+                            "name": "checkmark",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the selected option will be shown with a tick."
+                            "description": "Whether the selected option will be shown with a check mark."
                         },
                         {
                             "name": "filterMessage",
@@ -26921,7 +26822,231 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "AccordionStyle": {
+                "FileUploadStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "floatlabel": {
+        "description": "FloatLabel appears on top of the input field when focused.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "components": {
+            "default": {
+                "description": "FloatLabel appears on top of the input field when focused.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "FloatLabelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "FloatLabelProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "FloatLabelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "FloatLabelProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FloatLabelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "FloatLabelPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "FloatLabelProps": {
+                    "description": "Defines valid properties in FloatLabel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<FloatLabelPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "FloatLabelSlots": {
+                    "description": "Defines valid slots in FloatLabel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "default",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "FloatLabelEmits": {
+                    "description": "Defines valid emits in FloatLabel component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "FloatLabelPassThroughOptionType": {
+                    "values": "FloatLabelPassThroughAttributes | (options: FloatLabelPassThroughMethodOptions) => undefined | string | null | undefined"
+                },
+                "FloatLabelPassThroughTransitionType": {
+                    "values": "TransitionProps | (options: FloatLabelPassThroughMethodOptions) => TransitionProps | undefined"
+                }
+            }
+        }
+    },
+    "floatlabel/style/FloatLabelStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "FloatLabelStyle": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -28100,6 +28225,234 @@
             }
         }
     },
+    "iconfield": {
+        "description": "IconField wraps an input and an icon.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "components": {
+            "default": {
+                "description": "IconField is used to select a boolean value.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "IconFieldPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "IconFieldProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "IconFieldPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "IconFieldProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "IconFieldPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "IconFieldPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "IconFieldProps": {
+                    "description": "Defines valid properties in IconField component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "iconPosition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"left\" | \"right\"",
+                            "default": "right",
+                            "description": "Position of the icon"
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<IconFieldPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "IconFieldSlots": {
+                    "description": "Defines valid slots in IconField component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot for content."
+                        }
+                    ]
+                },
+                "IconFieldEmits": {
+                    "description": "Defines valid emits in IconField component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "IconFieldPassThroughOptionType": {
+                    "values": "IconFieldPassThroughAttributes | (options: IconFieldPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "iconfield/style/IconField": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "IconFieldStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "icons/angledoubledown": {},
     "icons/angledoubleleft": {},
     "icons/angledoubleright": {},
@@ -28531,7 +28884,7 @@
                             "type": "string",
                             "default": "",
                             "description": "Custom indicator icon.",
-                            "deprecated": "since v3.27.0. Use 'indicator' slot."
+                            "deprecated": "since v3.27.0. Use 'indicatoricon' slot."
                         },
                         {
                             "name": "zoomInDisabled",
@@ -28582,7 +28935,7 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "indicator",
+                            "name": "indicatoricon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
@@ -28870,7 +29223,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\">",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -29833,6 +30186,218 @@
             }
         }
     },
+    "inputicon": {
+        "description": "InputIcon displays an icon.\n\n[Live Demo](https://www.primevue.org/inputgroup/)",
+        "components": {
+            "default": {
+                "description": "InputIcon displays text, icon, buttons and other content can be grouped next to an input.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputIconPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputIconPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputIconProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputIconPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputIconProps": {
+                    "description": "Defines valid properties in InputIcon component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputIconPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputIconSlots": {
+                    "description": "Defines valid slots in InputIcon component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom default template."
+                        }
+                    ]
+                },
+                "InputIconEmits": {
+                    "description": "Defines valid emits in InputIcon component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputIconPassThroughOptionType": {
+                    "values": "InputIconPassThroughAttributes | (options: InputIconPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputicon/style/InputIcoonStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputIconStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "inputmask": {
         "description": "InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.\n\n[Live Demo](https://www.primevue.org/inputmask/)",
         "components": {
@@ -30015,6 +30580,22 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether the items are clickable or not."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "pt",
@@ -30620,12 +31201,28 @@
                             "description": "Highlights automatically the input value."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -30885,6 +31482,460 @@
             }
         }
     },
+    "inputotp": {
+        "description": "InputOtp is used to enter one time passwords.\n\n[Live Demo](https://www.primevue.org/inputotp/)",
+        "components": {
+            "default": {
+                "description": "InputOtp  is used to enter one time passwords.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputOtpPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputOtpState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputOtpProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputOtpPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpState": {
+                    "description": "Defines current inline state in InputOtp component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "tokens",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string[] | number[]",
+                            "default": "",
+                            "description": "Array of input tokens"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpTemplateAttrsOptions": {
+                    "description": "InputOtp attr options",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Input token value"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpTemplateEvents": {
+                    "description": "InputOtp templating events",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "input",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "keydown",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "focus",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "blur",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "paste",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpProps": {
+                    "description": "Defines valid properties in InputOtp component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "modelValue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | boolean",
+                            "default": "false",
+                            "description": "Specifies whether a inputotp should be checked or not."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "readonly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that an input field is read-only."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
+                            "name": "tabindex",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the element in tabbing order."
+                        },
+                        {
+                            "name": "length",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "4",
+                            "description": "Number of characters to initiate."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Mask pattern."
+                        },
+                        {
+                            "name": "integerOnly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that an input field is integer-only."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputOtpPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputOtpSlots": {
+                    "description": "",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">events</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; InputOtpTemplateEvents</span>, <span class=\"doc-option-parameter-type\">// Events of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">attrs</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">index</span>: number) &rArr; InputOtpTemplateAttrsOptions</span>, <span class=\"doc-option-parameter-type\">// Attributes of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the input field</span>\n }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default content slot."
+                        }
+                    ]
+                },
+                "InputOtpEmits": {
+                    "description": "Defines valid emits in InputOtp component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:modelValue",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "boolean",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on value change."
+                        },
+                        {
+                            "name": "focus",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputOtpPassThroughOptionType": {
+                    "values": "InputOtpPassThroughAttributes | (options: InputOtpPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputotp/style/InputOtpStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputOtpStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "inputswitch": {
         "description": "InputSwitch is used to select a boolean value.\n\n[Live Demo](https://www.primevue.org/inputswitch/)",
         "components": {
@@ -30921,14 +31972,6 @@
                             "type": "InputSwitchProps",
                             "default": "",
                             "description": "Defines valid properties."
-                        },
-                        {
-                            "name": "state",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "InputSwitchState",
-                            "default": "",
-                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
@@ -31017,19 +32060,6 @@
                     ],
                     "methods": []
                 },
-                "InputSwitchState": {
-                    "description": "Defines current inline state in InputSwitch component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "[key: string]",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any"
-                        }
-                    ],
-                    "methods": []
-                },
                 "InputSwitchProps": {
                     "description": "Defines valid properties in InputSwitch component.",
                     "relatedProp": "",
@@ -31057,6 +32087,14 @@
                             "type": "any",
                             "default": "false",
                             "description": "Value in unchecked state."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
                         },
                         {
                             "name": "disabled",
@@ -31105,14 +32143,6 @@
                             "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
-                        },
-                        {
-                            "name": "inputProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
                             "name": "ariaLabelledby",
@@ -31456,6 +32486,22 @@
                             "type": "\"small\" | \"large\"",
                             "default": "",
                             "description": "Defines the size of the component."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "pt",
@@ -32438,6 +33484,14 @@
                             "description": "Inline style of inner list element."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
@@ -32497,7 +33551,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -33966,7 +35020,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -35179,7 +36233,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\">",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -36453,12 +37507,28 @@
                             "description": "Label to display when there are no selections."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "inputId",
@@ -36552,7 +37622,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"endsWith\" | \"startsWith\" | \"contains\">",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -36568,7 +37638,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -38807,7 +39877,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -40820,11 +41890,19 @@
                             "name": "mergeProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "boolean",
+                            "type": "PassThroughMergePropsType",
                             "default": ""
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PassThroughMergePropsType": {
+                    "values": "(args: any) => undefined | boolean | undefined"
                 }
             }
         }
@@ -41174,7 +42252,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -41205,12 +42283,28 @@
                             "deprecated": "since v3.27.0. Use 'showicon' slot."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "placeholder",
@@ -43422,12 +44516,28 @@
                             "description": "Allows to select a boolean value."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -45373,12 +46483,12 @@
                             "description": "Current active state of the item as a boolean."
                         },
                         {
-                            "name": "focused",
+                            "name": "disabled",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current focused state of item as a boolean."
+                            "description": "Current disabled state of the item as a boolean."
                         },
                         {
                             "name": "option",
@@ -45442,6 +46552,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When specified, allows selecting multiple values."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
                         },
                         {
                             "name": "disabled",
@@ -47628,7 +48746,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
@@ -47685,7 +48803,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"help\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -48615,6 +49733,760 @@
             }
         }
     },
+    "stepper": {
+        "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "components": {
+            "default": {
+                "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "StepperProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "nav",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the nav's DOM element."
+                        },
+                        {
+                            "name": "panelContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the panel container's DOM element."
+                        },
+                        {
+                            "name": "stepperpanel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the end handler's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperState": {
+                    "description": "Defines current inline state in Stepper component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_activeStep",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current active index state."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Unique id for the Stepper component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperChangeEvent": {
+                    "description": "Custom tab change event.",
+                    "relatedProp": "StepperEmits['step-change']",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the selected stepper panel"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperProps": {
+                    "description": "Defines valid properties in Stepper component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "activeStep",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Active step index of stepper."
+                        },
+                        {
+                            "name": "orientation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"horizontal\" | \"vertical\"",
+                            "default": "horizontal",
+                            "description": "Orientation of the stepper."
+                        },
+                        {
+                            "name": "linear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether the steps are clickable or not."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<StepperPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperSlots": {
+                    "description": "Defines valid slots in Stepper component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "start",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom start template."
+                        },
+                        {
+                            "name": "end",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom end template."
+                        }
+                    ]
+                },
+                "StepperEmits": {
+                    "description": "Defines valid emits in Stepper component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:activeStep",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "number",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "step-change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "StepperChangeEvent"
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when an active panel is changed."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPassThroughOptionType": {
+                    "values": "StepperPassThroughAttributes | (options: StepperPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "stepper/style/StepperStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "stepperpanel": {
+        "description": "StepperPanel is a helper component for Stepper component.\n\n[Live Demo](https://www.primevue.org/stepper/)",
+        "components": {
+            "default": {
+                "description": "StepperPanel is a helper component for Stepper component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperPanelProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepperPanelContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "StepperPanelProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "number",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the number's DOM element."
+                        },
+                        {
+                            "name": "title",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "toggleableContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the toggleable content's DOM element."
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPanelPassThroughTransitionType",
+                            "default": "",
+                            "description": "Used to control Vue Transition API."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelProps": {
+                    "description": "Defines valid properties in StepperPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Orientation of tab headers."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<StepperPanelPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelContext": {
+                    "description": "Defines current options in StepperPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the stepperpanel."
+                        },
+                        {
+                            "name": "count",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Count of stepperpanels"
+                        },
+                        {
+                            "name": "first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is first."
+                        },
+                        {
+                            "name": "last",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is last."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is active."
+                        },
+                        {
+                            "name": "highlighted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is highlighted."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the stepperpanel is disabled."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepperPanelSlots": {
+                    "description": "Defines valid slots in StepperPanel slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        },
+                        {
+                            "name": "header",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">headerClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">numberClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the number content container</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">titleClass</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the title content container</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Header click function.</span>\n}"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header template."
+                        },
+                        {
+                            "name": "content",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">clickCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">prevCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content previous panel click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">nextCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Content next panel click function.</span>\n}"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        },
+                        {
+                            "name": "separator",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current active state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">highlighted</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current highlighted state of the stepperpanel</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the stepperpanel</span>\n }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom separator template."
+                        }
+                    ]
+                },
+                "StepperPanelEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelPassThroughOptionType": {
+                    "values": "StepperPanelPassThroughAttributes | (options: StepperPanelPassThroughMethodOptions) => undefined | string | null | undefined"
+                },
+                "StepperPanelPassThroughTransitionType": {
+                    "values": "TransitionProps | (options: StepperPanelPassThroughMethodOptions) => TransitionProps | undefined"
+                }
+            }
+        }
+    },
+    "stepperpanel/style/StepperPanelStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StepperPanelStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "steps": {
         "description": "Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.\n\n[Live Demo](https://www.primevue.org/steps/)",
         "components": {
@@ -49017,7 +50889,7 @@
                             "name": "selector",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"@next\" | \"@prev\" | \"@parent\" | \"@grandparent\">",
                             "default": "",
                             "description": "Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'."
                         },
@@ -49670,7 +51542,7 @@
         "description": "TabPanel is a helper component for TabPanel component.\n\n[Live Demo](https://www.primevue.org/tabview/)",
         "components": {
             "default": {
-                "description": "TabPanel is a helper component for TabPanel component.",
+                "description": "TabPanel is a helper component for TabView component.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -50061,6 +51933,61 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TabViewPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabViewProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabViewState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabViewChangeEvent": {
                     "description": "Custom tab change event.",
                     "relatedProp": "TabViewEmits['tab-change']",
@@ -50457,7 +52384,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TabViewPassThroughOptionType": {
-                    "values": "TabViewPassThroughAttributes | (options: undefined) => undefined | string | null | undefined"
+                    "values": "TabViewPassThroughAttributes | (options: TabViewPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -50653,7 +52580,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"success\" | \"secondary\" | \"info\" | \"warning\" | \"danger\" | \"contrast\">",
                             "default": "",
                             "description": "Severity type of the tag."
                         },
@@ -51340,6 +53267,22 @@
                             "description": "When present, height of textarea changes as being typed."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
@@ -51848,7 +53791,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -52714,7 +54657,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
+                            "type": "\"error\" | \"success\" | \"secondary\" | \"info\" | \"contrast\" | \"warn\"",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -53402,6 +55345,14 @@
                             "type": "\"left\" | \"right\"",
                             "default": "left",
                             "description": "Position of the icon."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
                         },
                         {
                             "name": "disabled",
@@ -54756,7 +56707,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
@@ -54865,6 +56816,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom toggler icon template."
+                        },
+                        {
+                            "name": "nodeicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">node</span>: <span class=\"doc-option-parameter-type\">TreeNode</span>, <span class=\"doc-option-parameter-type\">// Tree node instance</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "description": "nodeicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom node icon template."
                         },
                         {
                             "name": "checkboxicon",
@@ -55480,12 +57444,28 @@
                             "description": "Label to display when there are no selections."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "tabindex",
@@ -55515,7 +57495,7 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
+                            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
@@ -56017,7 +57997,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Filter match mode"
                         }
@@ -56124,7 +58104,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         }
@@ -56196,7 +58176,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -56284,7 +58264,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "undefined | HintedString<\"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\">",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -56976,7 +58956,7 @@
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "HintedString<\"flex\">",
                             "default": "",
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
@@ -57646,12 +59626,28 @@
                             "description": "Value of the component."
                         },
                         {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
                         },
                         {
                             "name": "readonly",
@@ -57942,6 +59938,9 @@
                 },
                 "DefaultPassThrough": {
                     "values": "T | (instance: VNode) => undefined | undefined"
+                },
+                "HintedString": {
+                    "values": "string & Object | T"
                 }
             }
         }

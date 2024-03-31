@@ -7,7 +7,6 @@
  * @module inputswitch
  *
  */
-import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -26,10 +25,6 @@ export interface InputSwitchPassThroughMethodOptions {
      * Defines valid properties.
      */
     props: InputSwitchProps;
-    /**
-     * Defines current inline state.
-     */
-    state: InputSwitchState;
     /**
      * Defines current options.
      */
@@ -80,13 +75,6 @@ export interface InputSwitchPassThroughAttributes {
 }
 
 /**
- * Defines current inline state in InputSwitch component.
- */
-export interface InputSwitchState {
-    [key: string]: any;
-}
-
-/**
  * Defines valid properties in InputSwitch component.
  */
 export interface InputSwitchProps {
@@ -105,6 +93,11 @@ export interface InputSwitchProps {
      * @defaultValue false
      */
     falseValue?: any;
+    /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
@@ -131,10 +124,6 @@ export interface InputSwitchProps {
      * Inline style of the input field.
      */
     inputStyle?: object | undefined;
-    /**
-     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     */
-    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -218,8 +207,8 @@ export interface InputSwitchEmits {
  */
 declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputSwitch: GlobalComponentConstructor<InputSwitch>;
     }
 }

@@ -1,17 +1,44 @@
 /**
  *
- * AvatarGroup is a helper component for Avatar.
+ * A set of Avatars can be displayed together using the AvatarGroup component.
  *
- * [Live Demo](https://www.primevue.org/accordion/)
+ * [Live Demo](https://www.primevue.org/avatar/)
  *
  * @module avatargroup
  *
  */
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | null | undefined;
+export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | ((options: AvatarGroupPassThroughMethodOptions) => AvatarGroupPassThroughAttributes | string) | string | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface AvatarGroupPassThroughMethodOptions {
+    /**
+     * Defines instance.
+     */
+    instance: any;
+    /**
+     * Defines valid properties.
+     */
+    props: AvatarGroupProps;
+    /**
+     * Defines valid attributes.
+     */
+    attrs: any;
+    /**
+     * Defines parent options.
+     */
+    parent: any;
+    /**
+     * Defines passthrough(pt) options in global config.
+     */
+    global: object | undefined;
+}
 
 /**
  * Custom passthrough attributes for each DOM elements
@@ -60,7 +87,12 @@ export interface AvatarGroupProps {
 /**
  * Defines valid slots in AvatarGroup component.
  */
-export interface AvatarGroupSlots {}
+export interface AvatarGroupSlots {
+    /**
+     * Default slot to detect Avatar components.
+     */
+    default(): VNode[];
+}
 
 /**
  * Defines valid emits in AvatarGroup component.
@@ -72,7 +104,7 @@ export interface AvatarGroupEmits {}
  *
  * _A set of Avatars can be displayed together using the AvatarGroup component._
  *
- * [Live Demo](https://www.primevue.org/avatargroup/)
+ * [Live Demo](https://www.primevue.org/avatar/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
@@ -80,8 +112,8 @@ export interface AvatarGroupEmits {}
  */
 declare class AvatarGroup extends ClassComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         AvatarGroup: GlobalComponentConstructor<AvatarGroup>;
     }
 }

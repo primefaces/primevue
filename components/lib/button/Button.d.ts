@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type ButtonPassThroughOptionType<T = any> = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions<T>) => ButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -119,7 +119,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Severity type of the badge.
      */
-    badgeSeverity?: 'info' | 'success' | 'warning' | 'danger' | string | null | undefined;
+    badgeSeverity?: HintedString<'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'contrast'> | null | undefined;
     /**
      * Whether the button is in loading state.
      * @defaultValue false
@@ -137,7 +137,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Defines the style of the button.
      */
-    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | string | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
     /**
      * Add a shadow to indicate elevation.
      * @defaultValue false
@@ -243,8 +243,8 @@ export interface ButtonEmits {}
  */
 declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Button: GlobalComponentConstructor<Button>;
     }
 }

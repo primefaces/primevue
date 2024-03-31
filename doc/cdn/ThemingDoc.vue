@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Include the theme file with a link element, see <NuxtLink to="/theming/#themes">themes</NuxtLink> section for the complete list of available themes to choose from.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

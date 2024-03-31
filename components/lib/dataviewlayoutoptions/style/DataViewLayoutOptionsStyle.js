@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-dataview-layout-options p-selectbutton p-buttonset',
+    root: 'p-dataview-layout-options p-selectbutton p-button-group',
     listButton: ({ props }) => [
         'p-button p-button-icon-only',
         {

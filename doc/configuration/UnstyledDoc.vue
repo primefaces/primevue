@@ -5,7 +5,7 @@
             <NuxtLink to="/unstyled">Unstyled mode</NuxtLink> documentation for more information.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>
 

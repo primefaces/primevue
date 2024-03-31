@@ -2,16 +2,18 @@
     <DocSectionText v-bind="$attrs">
         <p>In addition to a regular table, alternatives with alternative sizes are available.</p>
     </DocSectionText>
-    <div class="card">
-        <div class="flex justify-content-center mb-4">
-            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="flex justify-content-center mb-4">
+                <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+            </div>
+            <TreeTable :value="nodes" :class="`p-treetable-${size.class}`">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
         </div>
-        <TreeTable :value="nodes" :class="`p-treetable-${size.class}`">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -127,8 +129,10 @@ const sizeOptions = ref([
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

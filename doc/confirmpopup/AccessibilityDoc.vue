@@ -9,8 +9,8 @@
             When <i>require</i> method of the <i>$confirm</i> instance is used and a trigger is passed as a parameter, ConfirmPopup adds <i>aria-expanded</i> state attribute and <i>aria-controls</i> to the trigger so that the relation between the
             trigger and the dialog is defined.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
-        <DocSectionCode :code="code2" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code1" hideToggleCode hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code2" hideToggleCode hideStackBlitz v-bind="$attrs" />
         <h3>Overlay Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">

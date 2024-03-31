@@ -7,6 +7,14 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: null,
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

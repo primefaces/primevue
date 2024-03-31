@@ -185,9 +185,20 @@ export interface ChipsProps {
      */
     removeTokenIcon?: string | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * Placeholder text for the input.
      */
@@ -291,8 +302,8 @@ export interface ChipsEmits {
  */
 declare class Chips extends ClassComponent<ChipsProps, ChipsSlots, ChipsEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Chips: GlobalComponentConstructor<Chips>;
     }
 }

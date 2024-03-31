@@ -131,7 +131,7 @@ export interface ToastMessageOptions {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast' | undefined;
     /**
      * Summary content of the message.
      */
@@ -353,8 +353,8 @@ export interface ToastEmits {
  */
 declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Toast: GlobalComponentConstructor<Toast>;
     }
 }

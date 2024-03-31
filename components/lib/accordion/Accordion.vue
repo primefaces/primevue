@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="cx('tab.root', { tab, index: i })" v-bind="getTabPT(tab, 'root', i)" data-pc-name="accordiontab" :data-pc-index="i" :data-p-active="isTabActive(i)">
             <div
                 :style="getTabProp(tab, 'headerStyle')"
@@ -64,6 +64,7 @@ import BaseAccordion from './BaseAccordion.vue';
 export default {
     name: 'Accordion',
     extends: BaseAccordion,
+    inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     data() {
         return {

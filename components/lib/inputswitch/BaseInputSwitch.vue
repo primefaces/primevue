@@ -18,6 +18,10 @@ export default {
             type: null,
             default: false
         },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

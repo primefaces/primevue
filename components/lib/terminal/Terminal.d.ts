@@ -164,8 +164,8 @@ export interface TerminalEmits {}
  */
 declare class Terminal extends ClassComponent<TerminalProps, TerminalSlots, TerminalEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Terminal: GlobalComponentConstructor<Terminal>;
     }
 }

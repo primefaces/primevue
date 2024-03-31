@@ -293,8 +293,8 @@ export interface MeterGroupEmits {}
  */
 declare class MeterGroup extends ClassComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         MeterGroup: GlobalComponentConstructor<MeterGroup>;
     }
 }

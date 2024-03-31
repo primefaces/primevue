@@ -145,6 +145,11 @@ export interface ToggleButtonProps {
      */
     iconPos?: 'left' | 'right' | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
      * @defaultValue false
      */
@@ -255,8 +260,8 @@ export interface ToggleButtonEmits {
  */
 declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ToggleButton: GlobalComponentConstructor<ToggleButton>;
     }
 }

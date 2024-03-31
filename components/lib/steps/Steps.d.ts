@@ -226,8 +226,8 @@ export interface StepsEmits {}
  */
 declare class Steps extends ClassComponent<StepsProps, StepsSlots, StepsEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Steps: GlobalComponentConstructor<Steps>;
     }
 }

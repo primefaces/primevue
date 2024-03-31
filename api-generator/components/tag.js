@@ -9,7 +9,7 @@ const TagProps = [
         name: 'severity',
         type: 'string',
         default: 'null',
-        description: 'Severity type of the tag. Valid severities are "success", "info", "warning" and "danger".'
+        description: 'Severity type of the tag. Valid severities are "secondary", "success", "info", "warning", "danger" and "contrast".'
     },
     {
         name: 'rounded',

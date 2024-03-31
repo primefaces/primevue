@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>MeterGroup requires <i>value</i> as the data to display.</p>
+        <p>MeterGroup requires a <i>value</i> as the data to display where each item in the collection should be a type of <i>MeterItem</i>.</p>
     </DocSectionText>
     <div class="card">
         <MeterGroup :value="value" />

@@ -31,10 +31,12 @@
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                        <IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
                     </div>
                 </template>
 
@@ -76,7 +78,7 @@
         <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block m-auto pb-3" />
         <div class="field">
             <label for="name">Name</label>
-            <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{ 'p-invalid': submitted && !product.name }" />
+            <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
             <small v-if="submitted && !product.name" class="p-error">Name is required.</small>
         </div>
         <div class="field">
@@ -206,10 +208,12 @@ export default {
     <template #header>
         <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
             <h4 class="m-0">Manage Products</h4>
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
+            <IconField iconPosition="left">
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
                 <InputText v-model="filters['global'].value" placeholder="Search..." />
-            </span>
+            </IconField>
         </div>
     </template>
     <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
@@ -267,10 +271,12 @@ export default {
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+						<IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
 					</div>
                 </template>
 
@@ -311,7 +317,7 @@ export default {
             <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-3" />
             <div class="field">
                 <label for="name">Name</label>
-                <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
+                <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
                 <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
             </div>
             <div class="field">
@@ -444,7 +450,7 @@ export default {
         saveProduct() {
             this.submitted = true;
 
-			if (this.product.name.trim()) {
+			if (this.product?.name?.trim()) {
                 if (this.product.id) {
                     this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
                     this.products[this.findIndexById(this.product.id)] = this.product;
@@ -556,10 +562,12 @@ export default {
                 <template #header>
                     <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
                         <h4 class="m-0">Manage Products</h4>
-						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+						<IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </span>
+                        </IconField>
 					</div>
                 </template>
 
@@ -600,7 +608,7 @@ export default {
             <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-3" />
             <div class="field">
                 <label for="name">Name</label>
-                <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
+                <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
                 <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
             </div>
             <div class="field">
@@ -732,7 +740,7 @@ const hideDialog = () => {
 const saveProduct = () => {
     submitted.value = true;
 
-    if (product.value.name.trim()) {
+    if (product?.value.name?.trim()) {
         if (product.value.id) {
             product.value.inventoryStatus = product.value.inventoryStatus.value ? product.value.inventoryStatus.value : product.value.inventoryStatus;
             products.value[findIndexById(product.value.id)] = product.value;
@@ -856,7 +864,7 @@ const getStatusLabel = (status) => {
         saveProduct() {
             this.submitted = true;
 
-            if (this.product.name.trim()) {
+            if (this.product?.name?.trim()) {
                 if (this.product.id) {
                     this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value : this.product.inventoryStatus;
                     this.products[this.findIndexById(this.product.id)] = this.product;

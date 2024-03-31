@@ -194,8 +194,8 @@ declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
     getChart(): any;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Chart: GlobalComponentConstructor<Chart>;
     }
 }

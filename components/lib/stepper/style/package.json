@@ -1,0 +1,6 @@
+{
+    "main": "./stepperstyle.cjs.js",
+    "module": "./stepperstyle.esm.js",
+    "unpkg": "./stepperstyle.min.js",
+    "types": "./StepperStyle.d.ts"
+}

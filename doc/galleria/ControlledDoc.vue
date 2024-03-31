@@ -2,21 +2,23 @@
     <DocSectionText v-bind="$attrs">
         <p>Galleria can be controlled programmatically using a binding to <i>activeIndex</i>.</p>
     </DocSectionText>
-    <div class="card">
-        <div class="mb-3">
-            <Button icon="pi pi-minus" @click="prev" />
-            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
-        </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="mb-3">
+                <Button icon="pi pi-minus" @click="prev" />
+                <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
+            </div>
 
-        <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
-            <template #item="slotProps">
-                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
-            </template>
-            <template #thumbnail="slotProps">
-                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
-            </template>
-        </Galleria>
-    </div>
+            <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+                <template #item="slotProps">
+                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+                </template>
+                <template #thumbnail="slotProps">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+                </template>
+            </Galleria>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['PhotoService']" />
 </template>
 
@@ -168,10 +170,10 @@ const prev = () => {
             }
         };
     },
-    mounted() {
-        PhotoService.getImages().then((data) => (this.images = data));
-    },
     methods: {
+        loadDemoData() {
+            PhotoService.getImages().then((data) => (this.images = data));
+        },
         next() {
             this.activeIndex = this.activeIndex === this.images.length - 1 ? this.images.length - 1 : this.activeIndex + 1;
         },

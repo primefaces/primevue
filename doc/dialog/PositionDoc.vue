@@ -26,7 +26,7 @@
             </div>
             <div class="flex align-items-center gap-3 mb-5">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <div class="flex justify-content-end gap-2">
                 <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
@@ -68,7 +68,7 @@ export default {
     </div>
     <div class="flex align-items-center gap-3 mb-5">
         <label for="email" class="font-semibold w-6rem">Email</label>
-        <InputText id="Email" class="flex-auto" autocomplete="off" />
+        <InputText id="email" class="flex-auto" autocomplete="off" />
     </div>
     <div class="flex justify-content-end gap-2">
         <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
@@ -102,7 +102,7 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-5">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <div class="flex justify-content-end gap-2">
                 <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
@@ -155,7 +155,7 @@ export default {
             </div>
             <div class="flex align-items-center gap-3 mb-5">
                 <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="Email" class="flex-auto" autocomplete="off" />
+                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <div class="flex justify-content-end gap-2">
                 <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>

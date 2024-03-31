@@ -176,6 +176,14 @@ export default {
             type: [String, Object],
             default: 'body'
         },
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

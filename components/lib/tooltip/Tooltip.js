@@ -244,17 +244,11 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         getTooltipElement(el) {
             return document.getElementById(el.$_ptooltipId);
         },
-        create(el, options) {
+        create(el) {
             const modifiers = el.$_ptooltipModifiers;
 
             const tooltipArrow = DomHandler.createElement('div', {
                 class: !this.isUnstyled() && this.cx('arrow'),
-                style: {
-                    top: modifiers?.bottom ? '0' : modifiers?.right || modifiers?.left || (!modifiers?.right && !modifiers?.left && !modifiers?.top && !modifiers?.bottom) ? '50%' : null,
-                    bottom: modifiers?.top ? '0' : null,
-                    left: modifiers?.right || (!modifiers?.right && !modifiers?.left && !modifiers?.top && !modifiers?.bottom) ? '0' : modifiers?.top || modifiers?.bottom ? '50%' : null,
-                    right: modifiers?.left ? '0' : null
-                },
                 'p-bind': this.ptm('arrow', {
                     context: modifiers
                 })
@@ -429,6 +423,13 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             !this.isUnstyled() && DomHandler.addClass(tooltipElement, `p-tooltip-${position}`);
             tooltipElement.$_ptooltipPosition = position;
             tooltipElement.setAttribute('data-p-position', position);
+
+            let arrowElement = DomHandler.findSingle(tooltipElement, '[data-pc-section="arrow"]');
+
+            arrowElement.style.top = position === 'bottom' ? '0' : position === 'right' || position === 'left' || (position !== 'right' && position !== 'left' && position !== 'top' && position !== 'bottom') ? '50%' : null;
+            arrowElement.style.bottom = position === 'top' ? '0' : null;
+            arrowElement.style.left = position === 'right' || (position !== 'right' && position !== 'left' && position !== 'top' && position !== 'bottom') ? '0' : position === 'top' || position === 'bottom' ? '50%' : null;
+            arrowElement.style.right = position === 'left' ? '0' : null;
         },
         isOutOfBounds(el) {
             let tooltipElement = this.getTooltipElement(el);

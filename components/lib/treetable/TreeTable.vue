@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
@@ -25,7 +25,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -135,7 +134,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -182,6 +180,7 @@ import TreeTableRow from './TreeTableRow.vue';
 export default {
     name: 'TreeTable',
     extends: BaseTreeTable,
+    inheritAttrs: false,
     emits: [
         'node-expand',
         'node-collapse',
@@ -675,7 +674,7 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            this.$el.setAttribute('data-p-unselectable-text', 'false');
+            this.$el.removeAttribute('data-p-unselectable-text');
             !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();

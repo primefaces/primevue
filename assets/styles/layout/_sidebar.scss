@@ -40,6 +40,7 @@
                 color: var(--surface-900);
                 font-weight: 600;
                 transition: all .2s;
+                position: relative;
                 border-radius: var(--border-radius);
 
                 .menu-icon {
@@ -52,6 +53,8 @@
                     align-items: center;
                     justify-content: center;
                     transition: all .2s;
+                    position: relative;
+                    background-color: transparent;
     
                     i {
                         color: var(--surface-700);
@@ -66,6 +69,8 @@
 
                 &:hover {
                     .menu-icon {
+                        background-color: var(--surface-card);
+
                         i {
                             color: var(--primary-color-default);
                         }
@@ -102,9 +107,11 @@
                             transition: all .2s;
                             font-weight: 450;
                             display: flex;
+                            align-items: center;
                             padding: .5rem .5rem .5rem 1rem;
                             color: var(--surface-700);
                             transition: all .2s;
+                            position: relative;
 
                             &:focus-visible {
                                 outline: 0 none;
@@ -136,6 +143,17 @@
                         }
                     }
                 }
+            }
+        }
+
+        .p-tag {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            
+            .p-tag-value {
+                line-height: 1;
             }
         }
 

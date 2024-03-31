@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="autocomplete">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
         <input
             v-if="!multiple"
             ref="focusInput"
@@ -20,6 +20,7 @@
             :aria-expanded="overlayVisible"
             :aria-controls="id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
+            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
@@ -78,6 +79,7 @@
                     :aria-expanded="overlayVisible"
                     :aria-controls="id + '_list'"
                     :aria-activedescendant="focused ? focusedOptionId : undefined"
+                    :aria-invalid="invalid || undefined"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -91,19 +93,7 @@
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button
-            v-if="dropdown"
-            ref="dropdownButton"
-            type="button"
-            tabindex="-1"
-            :class="[cx('dropdownButton'), dropdownClass]"
-            :disabled="disabled"
-            aria-hidden="true"
-            @click="onDropdownClick"
-            :unstyled="unstyled"
-            :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
-        >
+        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="[cx('dropdownButton'), dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" :unstyled="unstyled" :pt="ptm('dropdownButton')">
             <template #icon>
                 <slot name="dropdownicon" :class="dropdownIcon">
                     <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="dropdownicon" />
@@ -190,6 +180,7 @@ import BaseAutoComplete from './BaseAutoComplete.vue';
 export default {
     name: 'AutoComplete',
     extends: BaseAutoComplete,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
     outsideClickListener: null,
     resizeListener: null,
@@ -780,8 +771,13 @@ export default {
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
         },
+        isEquals(value1, value2) {
+            return ObjectUtils.equals(value1, value2, this.equalityKey);
+        },
         isSelected(option) {
-            return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            const optionValue = this.getOptionValue(option);
+
+            return this.multiple ? (this.modelValue || []).some((value) => this.isEquals(value, optionValue)) : this.isEquals(this.modelValue, this.getOptionValue(option));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));

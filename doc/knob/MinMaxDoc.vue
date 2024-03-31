@@ -15,7 +15,7 @@ export default {
             value: 10,
             code: {
                 basic: `
-<Knob v-model="value" :min="-50" :max="10" />
+<Knob v-model="value" :min="-50" :max="50" />
 `,
                 options: `
 <template>

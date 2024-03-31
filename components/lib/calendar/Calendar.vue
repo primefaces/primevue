@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="calendar">
+    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -16,6 +16,7 @@
             :aria-controls="panelId"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             inputmode="none"
             :disabled="disabled"
             :readonly="!manualInput || readonly"
@@ -39,7 +40,6 @@
             :aria-controls="panelId"
             :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
-            data-pc-section="dropdownbutton"
         >
             <template #icon>
                 <slot name="dropdownicon" :class="icon">
@@ -205,7 +205,9 @@
                                                             context: {
                                                                 date,
                                                                 today: date.today,
-                                                                otherMonth: date.otherMonth
+                                                                otherMonth: date.otherMonth,
+                                                                selected: isSelected(date),
+                                                                disabled: !date.selectable
                                                             }
                                                         })
                                                     "
@@ -225,6 +227,8 @@
                                                             ptm('dayLabel', {
                                                                 context: {
                                                                     date,
+                                                                    today: date.today,
+                                                                    otherMonth: date.otherMonth,
                                                                     selected: isSelected(date),
                                                                     disabled: !date.selectable
                                                                 }
@@ -486,7 +490,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('todayButton')"
-                            data-pc-section="todaybutton"
                             data-pc-group-section="button"
                         />
                         <CalendarButton
@@ -497,7 +500,6 @@
                             @keydown="onContainerButtonKeydown"
                             :unstyled="unstyled"
                             :pt="ptm('clearButton')"
-                            data-pc-section="clearbutton"
                             data-pc-group-section="button"
                         />
                     </div>
@@ -524,6 +526,7 @@ import BaseCalendar from './BaseCalendar.vue';
 export default {
     name: 'Calendar',
     extends: BaseCalendar,
+    inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     navigationState: null,
     timePickerChange: false,
@@ -542,6 +545,7 @@ export default {
     typeUpdate: false,
     data() {
         return {
+            d_id: this.id,
             currentMonth: null,
             currentYear: null,
             currentHour: null,
@@ -556,6 +560,9 @@ export default {
         };
     },
     watch: {
+        id: function (newValue) {
+            this.d_id = newValue || UniqueComponentId();
+        },
         modelValue(newValue) {
             this.updateCurrentMetaData();
 
@@ -595,12 +602,16 @@ export default {
         },
         currentView() {
             Promise.resolve(null).then(() => this.alignOverlay());
+        },
+        view(newValue) {
+            this.currentView = newValue;
         }
     },
     created() {
         this.updateCurrentMetaData();
     },
     mounted() {
+        this.d_id = this.d_id || UniqueComponentId();
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
 
@@ -610,10 +621,6 @@ export default {
             if (!this.disabled) {
                 this.preventFocus = true;
                 this.initFocusableCell();
-
-                if (this.numberOfMonths === 1) {
-                    this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
-                }
             }
         } else {
             this.input.value = this.formatValue(this.modelValue);
@@ -1691,7 +1698,6 @@ export default {
                 let styleClass = 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter';
 
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'datepickermask',
                     class: !this.isUnstyled && styleClass,
                     'p-bind': this.ptm('datepickermask')
                 });
@@ -1804,7 +1810,7 @@ export default {
             let parts = text.split(' ');
 
             if (this.timeOnly) {
-                date = new Date(this.modelValue);
+                date = new Date();
                 this.populateTime(date, parts[0], parts[1]);
             } else {
                 const dateFormat = this.datePattern;
@@ -3002,7 +3008,7 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         panelId() {
-            return UniqueComponentId() + '_panel';
+            return this.d_id + '_panel';
         }
     },
     components: {

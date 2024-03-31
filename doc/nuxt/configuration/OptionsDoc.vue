@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Main configuration settings of PrimeVue, refer to the <PrimeVueNuxtLink to="/configuration">configuration</PrimeVueNuxtLink> documentation for details. Defaults to an empty object.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" importCode hideToggleCode hideStackBlitz />
 </template>
 
 <script>

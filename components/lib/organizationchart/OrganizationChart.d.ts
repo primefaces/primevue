@@ -341,8 +341,8 @@ export interface OrganizationChartEmits {
  */
 declare class OrganizationChart extends ClassComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         OrganizationChart: GlobalComponentConstructor<OrganizationChart>;
     }
 }

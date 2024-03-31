@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/multiselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/multiselect/BasicDoc.vue';
 import ChipsDoc from '@/doc/multiselect/ChipsDoc.vue';
 import DisabledDoc from '@/doc/multiselect/DisabledDoc.vue';
+import FilledDoc from '@/doc/multiselect/FilledDoc.vue';
 import FilterDoc from '@/doc/multiselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
@@ -74,6 +75,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

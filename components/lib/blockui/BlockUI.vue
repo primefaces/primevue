@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :aria-busy="isBlocked" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" :aria-busy="isBlocked" v-bind="ptmi('root')">
         <slot></slot>
     </div>
 </template>
@@ -11,6 +11,7 @@ import BaseBlockUI from './BaseBlockUI.vue';
 export default {
     name: 'BlockUI',
     extends: BaseBlockUI,
+    inheritAttrs: false,
     emits: ['block', 'unblock'],
     mask: null,
     data() {
@@ -37,7 +38,6 @@ export default {
                 styleClass += ' p-blockui-document';
 
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'mask',
                     style: {
                         position: 'fixed',
                         top: '0',
@@ -54,7 +54,6 @@ export default {
                 document.activeElement.blur();
             } else {
                 this.mask = DomHandler.createElement('div', {
-                    'data-pc-section': 'mask',
                     style: {
                         position: 'absolute',
                         top: '0',

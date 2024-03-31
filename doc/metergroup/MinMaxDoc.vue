@@ -3,7 +3,7 @@
         <p>Boundaries are configured with the <i>min</i> and <i>max</i> values whose defaults are 0 and 100 respectively.</p>
     </DocSectionText>
     <div class="card">
-        <MeterGroup :value="value" :max="120" />
+        <MeterGroup :value="value" :max="200" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -13,19 +13,19 @@ export default {
     data() {
         return {
             value: [
-                { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
-                { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
-                { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
-                { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
+                { label: 'Apps', color: '#34d399', value: 16 },
+                { label: 'Messages', color: '#fbbf24', value: 8 },
+                { label: 'Media', color: '#60a5fa', value: 24 },
+                { label: 'System', color: '#c084fc', value: 10 }
             ],
             code: {
                 basic: `
-<MeterGroup :value="value" :max="120"  />
+<MeterGroup :value="value" :max="200"  />
 `,
                 options: `
 <template>
     <div class="card">
-        <MeterGroup :value="value" :max="120"  />
+        <MeterGroup :value="value" :max="200"  />
     </div>
 </template>
 
@@ -34,10 +34,10 @@ export default {
     data() {
         return {
             value: [
-                { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
-                { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
-                { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
-                { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
+                { label: 'Apps', color: '#34d399', value: 16 },
+                { label: 'Messages', color: '#fbbf24', value: 8 },
+                { label: 'Media', color: '#60a5fa', value: 24 },
+                { label: 'System', color: '#c084fc', value: 10 }
             ],
         };
     }
@@ -47,7 +47,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <MeterGroup :value="value" :max="120"  />
+        <MeterGroup :value="value" :max="200"  />
     </div>
 </template>
 
@@ -55,10 +55,10 @@ export default {
 import { ref } from "vue";
 
 const value = ref([
-    { label: 'Apps', value: 16, color: '#EB9A9C', icon: 'pi pi-cog' },
-    { label: 'Messages', value: 8, color: '#FFCF91', icon: 'pi pi-envelope' },
-    { label: 'Media', value: 24, color: '#93DEAC', icon: 'pi pi-image' },
-    { label: 'System Data', value: 20, color: '#91cff8', icon: 'pi pi-database' }
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
 ]);
 <\/script>
 `

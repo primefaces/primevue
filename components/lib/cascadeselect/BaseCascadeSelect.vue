@@ -14,6 +14,14 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         placeholder: String,
+        variant: {
+            type: String,
+            default: null
+        },
+        invalid: {
+            type: Boolean,
+            default: false
+        },
         disabled: Boolean,
         dataKey: null,
         inputId: {

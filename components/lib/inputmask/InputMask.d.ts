@@ -115,6 +115,16 @@ export interface InputMaskProps {
      */
     readonly?: boolean | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputMaskPassThroughOptions}
      */
@@ -185,8 +195,8 @@ export interface InputMaskEmits {
  */
 declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputMask: GlobalComponentConstructor<InputMask>;
     }
 }

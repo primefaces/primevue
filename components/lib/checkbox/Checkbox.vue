@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="checkbox" :data-p-highlight="checked" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-highlight="checked" :data-p-disabled="disabled">
         <input
             :id="inputId"
             type="checkbox"
@@ -14,6 +14,7 @@
             :required="required"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @change="onChange"
@@ -35,10 +36,13 @@ import BaseCheckbox from './BaseCheckbox.vue';
 export default {
     name: 'Checkbox',
     extends: BaseCheckbox,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
-            return this.ptm(key, {
+            const _ptm = key === 'root' ? this.ptmi : this.ptm;
+
+            return _ptm(key, {
                 context: {
                     checked: this.checked,
                     disabled: this.disabled

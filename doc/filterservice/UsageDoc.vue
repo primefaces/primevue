@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Filters are accessed with <i>FilterService.filters</i>.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

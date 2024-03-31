@@ -3,7 +3,7 @@
         <p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />
+        <SplitButton label="Save" @click="save" :model="items" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,36 +15,33 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
                     command: () => {
                         this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
                 },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                { label: 'Upload', to: '/fileupload' }
             ],
             code: {
                 basic: `
-<SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />
+<SplitButton label="Save" @click="save" :model="items" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />
+        <SplitButton label="Save" @click="save" :model="items" />
     </div>
 </template>
 
@@ -55,26 +52,23 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
                     command: () => {
                         this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
                 },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                { label: 'Upload', to: '/fileupload' }
             ]
         };
     },
@@ -90,7 +84,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" />
+        <SplitButton label="Save" @click="save" :model="items" />
     </div>
 </template>
 
@@ -101,26 +95,23 @@ const toast = useToast();
 const items = [
     {
         label: 'Update',
-        icon: 'pi pi-refresh',
         command: () => {
             toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
         }
     },
     {
         label: 'Delete',
-        icon: 'pi pi-times',
         command: () => {
             toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
         }
     },
     {
         label: 'Vue Website',
-        icon: 'pi pi-external-link',
         command: () => {
             window.location.href = 'https://vuejs.org/';
         }
     },
-    { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+    { label: 'Upload', to: '/fileupload' }
 ];
 
 const save = () => {

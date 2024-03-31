@@ -8,7 +8,7 @@
         <i class="pi pi-search" style="font-size: 2rem"></i>
         <i class="pi pi-user" style="font-size: 2.5rem"></i>
     </div>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

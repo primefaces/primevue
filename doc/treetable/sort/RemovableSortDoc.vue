@@ -2,13 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>removableSort</i> is present, the third click removes the sorting from the column.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes" sortMode="multiple" removableSort>
-            <Column field="name" header="Name" sortable expander></Column>
-            <Column field="size" header="Size" sortable></Column>
-            <Column field="type" header="Type" sortable></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes" sortMode="multiple" removableSort>
+                <Column field="name" header="Name" sortable expander></Column>
+                <Column field="size" header="Size" sortable></Column>
+                <Column field="type" header="Type" sortable></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -106,8 +108,10 @@ const nodes = ref();
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

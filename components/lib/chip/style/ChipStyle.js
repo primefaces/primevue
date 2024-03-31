@@ -1,31 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-chip {
-        display: inline-flex;
-        align-items: center;
-    }
-
-    .p-chip-text {
-        line-height: 1.5;
-    }
-
-    .p-chip-icon.pi {
-        line-height: 1.5;
-    }
-
-    .p-chip-remove-icon {
-        line-height: 1.5;
-        cursor: pointer;
-    }
-
-    .p-chip img {
-        border-radius: 50%;
-    }
-}
-`;
-
 const classes = {
     root: ({ props }) => [
         'p-chip p-component',
@@ -40,6 +14,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'chip',
-    css,
     classes
 });

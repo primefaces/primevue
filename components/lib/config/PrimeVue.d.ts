@@ -99,7 +99,7 @@ import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
 export interface PrimeVueConfiguration {
     ripple?: boolean;
-    inputStyle?: string;
+    inputStyle?: 'filled' | 'outlined' | undefined;
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
@@ -222,7 +222,7 @@ export interface PrimeVuePTOptions {
         animate?: AnimateOnScrollDirectivePassThroughOptions;
     };
     global?: {
-        css?: (options: any) => string | string | undefined;
+        css?: ((options: any) => string | undefined) | string | undefined;
     };
 }
 

@@ -8,6 +8,8 @@
             <Button label="Info" severity="info" @click="showInfo" />
             <Button label="Warn" severity="warning" @click="showWarn" />
             <Button label="Error" severity="danger" @click="showError" />
+            <Button label="Secondary" severity="secondary" @click="showSecondary" />
+            <Button label="Contrast" severity="contrast" @click="showContrast" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -24,6 +26,8 @@ export default {
 <Button label="Info" severity="info" @click="showInfo" />
 <Button label="Warn" severity="warning" @click="showWarn" />
 <Button label="Error" severity="danger" @click="showError" />
+<Button label="Secondary" severity="secondary" @click="showSecondary" />
+<Button label="Contrast" severity="contrast" @click="showContrast" />
 `,
                 options: `
 <template>
@@ -34,6 +38,8 @@ export default {
             <Button label="Info" severity="info" @click="showInfo" />
             <Button label="Warn" severity="warning" @click="showWarn" />
             <Button label="Error" severity="danger" @click="showError" />
+            <Button label="Secondary" severity="secondary" @click="showSecondary" />
+            <Button label="Contrast" severity="contrast" @click="showContrast" />
         </div>
     </div>
 </template>
@@ -52,6 +58,12 @@ export default {
         },
         showError() {
             this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
+        },
+        showSecondary() {
+            this.$toast.add({ severity: 'secondary', summary: 'Secondary Message', detail: 'Message Content', life: 3000 });
+        },
+        showContrast() {
+            this.$toast.add({ severity: 'contrast', summary: 'Contrast Message', detail: 'Message Content', life: 3000 });
         }
     }
 };
@@ -66,6 +78,8 @@ export default {
             <Button label="Info" severity="info" @click="showInfo" />
             <Button label="Warn" severity="warning" @click="showWarn" />
             <Button label="Error" severity="danger" @click="showError" />
+            <Button label="Secondary" severity="secondary" @click="showSecondary" />
+            <Button label="Contrast" severity="contrast" @click="showContrast" />
         </div>
     </div>
 </template>
@@ -89,6 +103,14 @@ const showWarn = () => {
 const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
+
+const showSecondary = () => {
+    toast.add({ severity: 'secondary', summary: 'Secondary Message', detail: 'Message Content', life: 3000 });
+};
+
+const showContrast = () => {
+    toast.add({ severity: 'contrast', summary: 'Contrast Message', detail: 'Message Content', life: 3000 });
+};
 <\/script>
 `
             }
@@ -106,6 +128,12 @@ const showError = () => {
         },
         showError() {
             this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
+        },
+        showSecondary() {
+            this.$toast.add({ severity: 'secondary', summary: 'Secondary Message', detail: 'Message Content', life: 3000 });
+        },
+        showContrast() {
+            this.$toast.add({ severity: 'contrast', summary: 'Contrast Message', detail: 'Message Content', life: 3000 });
         }
     }
 };

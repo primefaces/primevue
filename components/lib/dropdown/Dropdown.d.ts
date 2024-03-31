@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType<T = any> = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions<T>) => DropdownPassThroughAttributes | string) | string | null | undefined;
@@ -235,6 +235,14 @@ export interface DropdownState {
  */
 export interface DropdownContext {
     /**
+     * Current item option.
+     */
+    option: any;
+    /**
+     * Current item index.
+     */
+    index: number;
+    /**
      * Current selection state of the item as a boolean.
      * @defaultValue false
      */
@@ -305,7 +313,7 @@ export interface DropdownProps {
      * Defines the filtering algorithm to use when searching the options.
      * @defaultValue contains
      */
-    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | string | undefined;
+    filterMatchMode?: HintedString<'contains' | 'startsWith' | 'endsWith'> | undefined;
     /**
      * Fields used when filtering the options, defaults to optionLabel.
      */
@@ -320,10 +328,20 @@ export interface DropdownProps {
      */
     placeholder?: string | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * A property to uniquely identify an option.
      */
@@ -374,7 +392,7 @@ export interface DropdownProps {
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Whether the dropdown is in loading state.
      * @defaultValue false
@@ -748,8 +766,8 @@ declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, Drop
     hide: (isFocus?: boolean) => void;
 }
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Dropdown: GlobalComponentConstructor<Dropdown>;
     }
 }

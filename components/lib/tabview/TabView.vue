@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="tablist" v-bind="ptm('root')" data-pc-name="tabview">
+    <div :class="cx('root')" role="tablist" v-bind="ptmi('root')">
         <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
                 data-pc-group-section="navbutton"
             >
-                <slot name="previcon">
+                <slot name="previousicon">
                     <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
                 </slot>
             </button>
@@ -102,6 +102,7 @@ import BaseTabView from './BaseTabView.vue';
 export default {
     name: 'TabView',
     extends: BaseTabView,
+    inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     data() {
         return {
@@ -128,6 +129,7 @@ export default {
     },
     updated() {
         this.updateInkBar();
+        this.scrollable && this.updateButtonState();
     },
     methods: {
         isTabPanel(child) {
@@ -305,7 +307,7 @@ export default {
                 this.scrollInView({ element });
 
                 if (this.selectOnFocus) {
-                    const index = parseInt(element.parentElement.dataset.index, 10);
+                    const index = parseInt(element.parentElement.dataset.pcIndex, 10);
                     const tab = this.tabs[index];
 
                     this.changeActiveIndex(event, tab, index);

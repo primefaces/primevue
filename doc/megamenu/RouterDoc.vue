@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz hideCodeSandbox />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>
@@ -122,7 +122,7 @@ export default {
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -147,7 +147,7 @@ const items = ref([
                         {
                             label: 'Installation',
                             command: () => {
-                                $router.push('/introduction');
+                                router.push('/introduction');
                             }
                         }
                     ]

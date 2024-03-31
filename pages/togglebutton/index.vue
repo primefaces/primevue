@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
+import InvalidDoc from '@/doc/togglebutton/InvalidDoc.vue';
 import PTComponent from '@/doc/togglebutton/pt/index.vue';
 import ThemingDoc from '@/doc/togglebutton/theming/index.vue';
 
@@ -37,6 +38,11 @@ export default {
                     id: 'customized',
                     label: 'Customized',
                     component: CustomizedDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'disabled',

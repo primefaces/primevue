@@ -1,14 +1,14 @@
 <template>
-    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')" data-pc-name="selectbutton">
+    <div ref="container" :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
             v-ripple
-            :tabindex="i === focusedIndex ? '0' : '-1'"
+            :tabindex="findTabindex(option, i)"
             :aria-label="getOptionLabel(option)"
             :role="multiple ? 'checkbox' : 'radio'"
             :aria-checked="isSelected(option)"
-            :aria-disabled="optionDisabled"
+            :aria-disabled="isOptionDisabled(option)"
             :class="cx('button', { option })"
             @click="onOptionSelect($event, option, i)"
             @keydown="onKeydown($event, option, i)"
@@ -33,6 +33,7 @@ import BaseSelectButton from './BaseSelectButton.vue';
 export default {
     name: 'SelectButton',
     extends: BaseSelectButton,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'focus', 'blur', 'change'],
     data() {
         return {
@@ -129,7 +130,7 @@ export default {
                 case 'ArrowDown':
 
                 case 'ArrowRight': {
-                    this.changeTabIndexes(event, 'next');
+                    this.onArrowRightKey(event.target);
                     event.preventDefault();
                     break;
                 }
@@ -137,7 +138,7 @@ export default {
                 case 'ArrowUp':
 
                 case 'ArrowLeft': {
-                    this.changeTabIndexes(event, 'prev');
+                    this.onArrowLeftKey(event.target);
                     event.preventDefault();
                     break;
                 }
@@ -147,23 +148,46 @@ export default {
                     break;
             }
         },
-        changeTabIndexes(event, direction) {
-            let firstTabableChild, index;
+        onArrowRightKey(target) {
+            const nextEl = this.findNextElement(target);
 
-            for (let i = 0; i <= this.$refs.container.children.length - 1; i++) {
-                if (this.$refs.container.children[i].getAttribute('tabindex') === '0') firstTabableChild = { elem: this.$refs.container.children[i], index: i };
+            if (nextEl) {
+                this.focusedIndex = ObjectUtils.findIndexInList(nextEl, this.findAllElements());
+                DomHandler.focus(nextEl);
+            }
+        },
+        onArrowLeftKey(target) {
+            const prevEl = this.findPrevElement(target);
+
+            if (prevEl) {
+                this.focusedIndex = ObjectUtils.findIndexInList(prevEl, this.findAllElements());
+                DomHandler.focus(prevEl);
+            }
+        },
+        findAllElements() {
+            return DomHandler.find(this.$refs.container, '[data-pc-section="button"]');
+        },
+        findNextElement(target) {
+            if (target.nextElementSibling) {
+                if (DomHandler.getAttribute(target.nextElementSibling, 'data-p-disabled')) {
+                    return this.findNextElement(target.nextElementSibling);
+                }
+
+                return target.nextElementSibling;
             }
 
-            if (direction === 'prev') {
-                if (firstTabableChild.index === 0) index = this.$refs.container.children.length - 1;
-                else index = firstTabableChild.index - 1;
-            } else {
-                if (firstTabableChild.index === this.$refs.container.children.length - 1) index = 0;
-                else index = firstTabableChild.index + 1;
+            return null;
+        },
+        findPrevElement(target) {
+            if (target.previousElementSibling) {
+                if (DomHandler.getAttribute(target.previousElementSibling, 'data-p-disabled')) {
+                    return this.findPrevElement(target.previousElementSibling);
+                }
+
+                return target.previousElementSibling;
             }
 
-            this.focusedIndex = index;
-            this.$refs.container.children[index].focus();
+            return null;
         },
         onFocus(event) {
             this.$emit('focus', event);
@@ -174,6 +198,9 @@ export default {
             }
 
             this.$emit('blur', event, option);
+        },
+        findTabindex(option, index) {
+            return this.disabled || this.isOptionDisabled(option) || index !== this.focusedIndex ? '-1' : '0';
         }
     },
     computed: {

@@ -1,12 +1,12 @@
 <template>
-    <div :class="cx('root')" @click="onBarClick" v-bind="ptm('root')" :data-p-sliding="false" data-pc-name="slider">
+    <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false">
         <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
             :class="cx('handle')"
             :style="[sx('handle'), handleStyle]"
-            @touchstart="onDragStart($event)"
-            @touchmove="onDrag($event)"
+            @touchstart.passive="onDragStart($event)"
+            @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event)"
             @keydown="onKeyDown($event)"
@@ -24,8 +24,8 @@
             v-if="range"
             :class="cx('handle')"
             :style="[sx('handle'), rangeStartHandleStyle]"
-            @touchstart="onDragStart($event, 0)"
-            @touchmove="onDrag($event)"
+            @touchstart.passive="onDragStart($event, 0)"
+            @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 0)"
             @keydown="onKeyDown($event, 0)"
@@ -43,8 +43,8 @@
             v-if="range"
             :class="cx('handle')"
             :style="[sx('handle'), rangeEndHandleStyle]"
-            @touchstart="onDragStart($event, 1)"
-            @touchmove="onDrag($event)"
+            @touchstart.passive="onDragStart($event, 1)"
+            @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 1)"
             @keydown="onKeyDown($event, 1)"
@@ -68,6 +68,7 @@ import BaseSlider from './BaseSlider.vue';
 export default {
     name: 'Slider',
     extends: BaseSlider,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'slideend'],
     dragging: false,
     handleIndex: null,

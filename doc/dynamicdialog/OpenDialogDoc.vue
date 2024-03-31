@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>The <i>open</i> function of the <i>DialogService</i> is used to open a Dialog. First parameter is the component to load and second one is the configuration object to customize the Dialog.</p>
-        <DocSectionCode :code="code1" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
         <p>The component can also be loaded asynchronously, this approach is useful in conditional cases and to improve initial load times as well.</p>
-        <DocSectionCode :code="code2" importCode hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code2" importCode hideToggleCode hideStackBlitz />
     </DocSectionText>
 </template>
 

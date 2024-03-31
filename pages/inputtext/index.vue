@@ -6,12 +6,11 @@
 import AccessibilityDoc from '@/doc/inputtext/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
+import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
-import IconsDoc from '@/doc/inputtext/IconsDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
-import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
 import PTComponent from '@/doc/inputtext/pt/index.vue';
 import ThemingDoc from '@/doc/inputtext/theming/index.vue';
 
@@ -29,16 +28,11 @@ export default {
                     label: 'Basic',
                     component: BasicDoc
                 },
-                {
-                    id: 'icons',
-                    label: 'Icons',
-                    component: IconsDoc
-                },
-                {
+                /*{
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
-                },
+                },*/
                 {
                     id: 'helptext',
                     label: 'HelpText',
@@ -46,8 +40,13 @@ export default {
                 },
                 {
                     id: 'floatlabel',
-                    label: 'FloatLabel',
+                    label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

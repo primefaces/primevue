@@ -208,8 +208,8 @@ export interface InplaceEmits {
  */
 declare class Inplace extends ClassComponent<InplaceProps, InplaceSlots, InplaceEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Inplace: GlobalComponentConstructor<Inplace>;
     }
 }

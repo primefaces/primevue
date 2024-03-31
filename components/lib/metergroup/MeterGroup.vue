@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="meter" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="totalPercent" v-bind="ptm('root')" data-pc-name="metergroup">
+    <div :class="cx('root')" role="meter" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="totalPercent" v-bind="ptmi('root')">
         <slot v-if="labelPosition === 'start'" name="label" :value="value" :totalPercent="totalPercent" :percentages="percentages">
             <MeterGroupLabel :value="value" :labelPosition="labelPosition" :labelOrientation="labelOrientation" :unstyled="unstyled" :pt="pt" />
         </slot>
@@ -7,7 +7,7 @@
         <div :class="cx('metercontainer')" v-bind="ptm('metercontainer')">
             <template v-for="(val, index) in value" :key="index">
                 <slot name="meter" :value="val" :index="index" :class="cx('meter')" :orientation="orientation" :size="percentValue(val.value)" :totalPercent="totalPercent">
-                    <span :class="cx('meter')" :style="meterSize(val)" v-bind="getPTOptions('meter', val, index)" />
+                    <span v-if="percent(val.value)" :class="cx('meter')" :style="meterCalculatedStyles(val)" v-bind="getPTOptions('meter', val, index)" />
                 </slot>
             </template>
         </div>
@@ -25,6 +25,7 @@ import MeterGroupLabel from './MeterGroupLabel.vue';
 export default {
     name: 'MeterGroup',
     extends: BaseMeterGroup,
+    inheritAttrs: false,
     methods: {
         getPTOptions(key, value, index) {
             return this.ptm(key, {
@@ -42,7 +43,7 @@ export default {
         percentValue(meter) {
             return this.percent(meter) + '%';
         },
-        meterSize(val) {
+        meterCalculatedStyles(val) {
             return {
                 backgroundColor: val.color,
                 width: this.orientation === 'horizontal' && this.percentValue(val.value),

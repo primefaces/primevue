@@ -48,6 +48,12 @@ const ToggleButtonProps = [
         description: 'When present, it specifies that the element should be disabled.'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
         name: 'inputId',
         type: 'string',
         default: 'null',

@@ -12,6 +12,18 @@ const InputTextProps = [
         description: 'Defines the size of the component, valid values are "small" and "large".'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
+        name: 'variant',
+        type: 'string',
+        default: 'null',
+        description: 'Specifies the input variant of the component.'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',

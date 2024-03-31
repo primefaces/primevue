@@ -2,11 +2,11 @@
     <DocSectionText v-bind="$attrs">
         <p>Toast component is controlled via the <i>ToastService</i> that needs to be installed as an application plugin.</p>
     </DocSectionText>
-    <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
     <div class="doc-section-description">
         <p>The service is available with the <i>useToast</i> function for Composition API or using the <i>$toast</i> property of the application for Options API.</p>
     </div>
-    <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

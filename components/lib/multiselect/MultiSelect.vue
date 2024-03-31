@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="multiselect">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -16,6 +16,7 @@
                 :aria-expanded="overlayVisible"
                 :aria-controls="id + '_list'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
+                :aria-invalid="invalid || undefined"
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
@@ -73,6 +74,7 @@
                             :modelValue="allSelected"
                             :binary="true"
                             :disabled="disabled"
+                            :variant="variant"
                             :aria-label="toggleAllAriaLabel"
                             @change="onToggleAll"
                             :unstyled="unstyled"
@@ -89,6 +91,7 @@
                                 type="text"
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
+                                @vue:updated="onFilterUpdated"
                                 :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
                                 role="searchbox"
@@ -140,7 +143,7 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component
@@ -212,6 +215,7 @@ import BaseMultiSelect from './BaseMultiSelect.vue';
 export default {
     name: 'MultiSelect',
     extends: BaseMultiSelect,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
     outsideClickListener: null,
     scrollHandler: null,
@@ -269,8 +273,8 @@ export default {
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
         },
-        getOptionRenderKey(option) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        getOptionRenderKey(option, index) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option) + `_${index}`;
         },
         getHeaderCheckboxPTOptions(key) {
             return this.ptm(key, {

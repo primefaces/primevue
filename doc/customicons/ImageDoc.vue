@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Any type of image can be used as an icon.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

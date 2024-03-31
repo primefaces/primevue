@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -279,7 +279,7 @@ export interface TreeProps {
     /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */
-    scrollHeight?: 'flex' | string | undefined;
+    scrollHeight?: HintedString<'flex'> | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */
@@ -351,6 +351,20 @@ export interface TreeSlots {
          * Expanded state of the node
          */
         expanded: boolean;
+    }): VNode[];
+    /**
+     * Custom node icon template.
+     * @param {Object} scope - nodeicon slot's params.
+     */
+    nodeicon(scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom checkbox icon
@@ -427,8 +441,8 @@ export interface TreeEmits {
  */
 declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Tree: GlobalComponentConstructor<Tree>;
     }
 }

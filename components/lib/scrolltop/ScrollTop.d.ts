@@ -157,8 +157,8 @@ export interface ScrollTopEmits {}
  */
 declare class ScrollTop extends ClassComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ScrollTop: GlobalComponentConstructor<ScrollTop>;
     }
 }

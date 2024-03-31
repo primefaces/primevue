@@ -8,10 +8,12 @@
                 <template #header>
                     <div class="flex justify-content-between">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                        <IconField iconPosition="left">
+                            <InputIcon>
+                                <i class="pi pi-search" />
+                            </InputIcon>
                             <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                        </span>
+                        </IconField>
                     </div>
                 </template>
                 <template #empty> No customers found. </template>
@@ -147,10 +149,12 @@ export default {
     <template #header>
         <div class="flex justify-content-between">
             <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
+            <IconField iconPosition="left">
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-            </span>
+            </IconField>
         </div>
     </template>
     <template #empty> No customers found. </template>
@@ -260,10 +264,12 @@ export default {
             <template #header>
                 <div class="flex justify-content-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </span>
+                    </IconField>
                 </div>
             </template>
             <template #empty> No customers found. </template>
@@ -465,10 +471,12 @@ export default {
             <template #header>
                 <div class="flex justify-content-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </span>
+                    </IconField>
                 </div>
             </template>
             <template #empty> No customers found. </template>

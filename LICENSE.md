@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 PrimeTek
+Copyright (c) 2018-2024 PrimeTek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

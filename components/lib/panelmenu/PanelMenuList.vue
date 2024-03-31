@@ -14,6 +14,7 @@
         @blur="onBlur"
         @keydown="onKeyDown"
         @item-toggle="onItemToggle"
+        @item-mousemove="onItemMouseMove"
         :pt="pt"
         :unstyled="unstyled"
         v-bind="ptm('menu')"
@@ -224,6 +225,11 @@ export default {
 
             this.focusedItem = processedItem;
             DomHandler.focus(this.$el);
+        },
+        onItemMouseMove(event) {
+            if (this.focused) {
+                this.focusedItem = event.processedItem;
+            }
         },
         isElementInPanel(event, element) {
             const panel = event.currentTarget.closest('[data-pc-section="panel"]');

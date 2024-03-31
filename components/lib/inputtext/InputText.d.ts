@@ -92,6 +92,16 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     size?: 'small' | 'large' | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputTextPassThroughOptions}
      */
@@ -137,8 +147,8 @@ export interface InputTextEmits {
  */
 declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         InputText: GlobalComponentConstructor<InputText>;
     }
 }

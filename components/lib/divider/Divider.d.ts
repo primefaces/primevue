@@ -128,8 +128,8 @@ export interface DividerEmits {}
  */
 declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Divider: GlobalComponentConstructor<Divider>;
     }
 }

@@ -211,11 +211,11 @@ export default {
             default: null
         },
         rowClass: {
-            type: null,
+            type: Function,
             default: null
         },
         rowStyle: {
-            type: null,
+            type: Function,
             default: null
         },
         scrollable: {
@@ -263,11 +263,11 @@ export default {
             default: null
         },
         tableClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         tableProps: {
-            type: null,
+            type: Object,
             default: null
         },
         filterInputProps: {

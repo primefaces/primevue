@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/slider/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/slider/BasicDoc.vue';
+import FilterDoc from '@/doc/slider/FilterDoc.vue';
 import ImportDoc from '@/doc/slider/ImportDoc.vue';
 import InputDoc from '@/doc/slider/InputDoc.vue';
 import RangeDoc from '@/doc/slider/RangeDoc.vue';
@@ -41,6 +42,11 @@ export default {
                     id: 'range',
                     label: 'Range',
                     component: RangeDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
                 },
                 {
                     id: 'vertical',

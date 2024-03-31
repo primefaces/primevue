@@ -112,10 +112,20 @@ export interface CheckboxProps {
      */
     binary?: boolean;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
      * @default false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * When present, it specifies that an input field is read-only.
      * @default false
@@ -253,8 +263,8 @@ export interface CheckboxEmits {
  */
 declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Checkbox: GlobalComponentConstructor<Checkbox>;
     }
 }

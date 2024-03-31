@@ -235,8 +235,8 @@ export interface ConfirmPopupEmits {}
  */
 declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         ConfirmPopup: GlobalComponentConstructor<ConfirmPopup>;
     }
 }

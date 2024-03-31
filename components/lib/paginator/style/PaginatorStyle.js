@@ -1,49 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-paginator-default {
-        display: flex;
-    }
-
-    .p-paginator {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .p-paginator-left-content {
-        margin-right: auto;
-    }
-
-    .p-paginator-right-content {
-        margin-left: auto;
-    }
-
-    .p-paginator-page,
-    .p-paginator-next,
-    .p-paginator-last,
-    .p-paginator-first,
-    .p-paginator-prev,
-    .p-paginator-current {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        user-select: none;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .p-paginator-element:focus {
-        z-index: 1;
-        position: relative;
-    }
-}
-`;
-
 const classes = {
     paginator: ({ instance, key }) => [
         'p-paginator p-component',
@@ -97,6 +53,5 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'paginator',
-    css,
     classes
 });

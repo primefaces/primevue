@@ -311,8 +311,8 @@ export interface DockEmits {
  */
 declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Dock: GlobalComponentConstructor<Dock>;
     }
 }

@@ -1,0 +1,9 @@
+{
+    "main": "./stepperpanel.cjs.js",
+    "module": "./stepperpanel.esm.js",
+    "unpkg": "./stepperpanel.min.js",
+    "types": "./StepperPanel.d.ts",
+    "browser": {
+        "./sfc": "./StepperPanel.vue"
+    }
+}

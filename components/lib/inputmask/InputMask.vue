@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root', ptmParams)" data-pc-name="inputmask" />
+    <input :class="cx('root')" :readonly="readonly" :aria-invalid="invalid || undefined" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptmi('root', ptmParams)" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import BaseInputMask from './BaseInputMask.vue';
 export default {
     name: 'InputMask',
     extends: BaseInputMask,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     watch: {
         mask(newMask, oldMask) {
@@ -81,7 +82,7 @@ export default {
                 return;
             }
 
-            let k = event.which || event.keyCode,
+            let k = event.code,
                 pos,
                 begin,
                 end;
@@ -90,14 +91,14 @@ export default {
             this.oldVal = this.$el.value;
 
             //backspace, delete, and escape get special treatment
-            if (k === 8 || k === 46 || (iPhone && k === 127)) {
+            if (k === 'Backspace' || k === 'Delete' || (iPhone && k === 'Escape')) {
                 pos = this.caret();
                 begin = pos.begin;
                 end = pos.end;
 
                 if (end - begin === 0) {
-                    begin = k !== 46 ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
-                    end = k === 46 ? this.seekNext(end) : end;
+                    begin = k !== 'Delete' ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
+                    end = k === 'Delete' ? this.seekNext(end) : end;
                 }
 
                 this.clearBuffer(begin, end);
@@ -105,11 +106,11 @@ export default {
                 this.updateModel(event);
 
                 event.preventDefault();
-            } else if (k === 13) {
+            } else if (k === 'Enter') {
                 // enter
                 this.$el.blur();
                 this.updateModel(event);
-            } else if (k === 27) {
+            } else if (k === 'Escape') {
                 // escape
                 this.$el.value = this.focusText;
                 this.caret(0, this.checkVal());
@@ -124,17 +125,17 @@ export default {
                 return;
             }
 
-            var k = event.which || event.keyCode,
+            var k = event.code,
                 pos = this.caret(),
                 p,
                 c,
                 next,
                 completed;
 
-            if (event.ctrlKey || event.altKey || event.metaKey || k < 32) {
+            if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey || event.key === 'CapsLock' || event.key === 'Escape' || event.key === 'Tab') {
                 //Ignore
                 return;
-            } else if (k && k !== 13) {
+            } else if (k && k !== 'Enter') {
                 if (pos.end - pos.begin !== 0) {
                     this.clearBuffer(pos.begin, pos.end);
                     this.shiftL(pos.begin, pos.end - 1);
@@ -143,7 +144,7 @@ export default {
                 p = this.seekNext(pos.begin - 1);
 
                 if (p < this.len) {
-                    c = String.fromCharCode(k);
+                    c = event.key;
 
                     if (this.tests[p].test(c)) {
                         this.shiftR(p);

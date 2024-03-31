@@ -49,20 +49,20 @@ export default {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        borderColor: documentStyle.getPropertyValue('--bluegray-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--bluegray-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                        borderColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--gray-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--gray-400'),
                         data: [65, 59, 90, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        borderColor: documentStyle.getPropertyValue('--pink-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--pink-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--cyan-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--cyan-400'),
                         data: [28, 48, 40, 19, 96, 27, 100]
                     }
                 ]
@@ -187,20 +187,20 @@ const setChartOptions = () => {
                 datasets: [
                     {
                         label: 'My First dataset',
-                        borderColor: documentStyle.getPropertyValue('--bluegray-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--bluegray-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                        borderColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--gray-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--gray-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--bluegray-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--gray-400'),
                         data: [65, 59, 90, 81, 56, 55, 40]
                     },
                     {
                         label: 'My Second dataset',
-                        borderColor: documentStyle.getPropertyValue('--pink-400'),
-                        pointBackgroundColor: documentStyle.getPropertyValue('--pink-400'),
-                        pointBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                        borderColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointBackgroundColor: documentStyle.getPropertyValue('--cyan-400'),
+                        pointBorderColor: documentStyle.getPropertyValue('--cyan-400'),
                         pointHoverBackgroundColor: textColor,
-                        pointHoverBorderColor: documentStyle.getPropertyValue('--pink-400'),
+                        pointHoverBorderColor: documentStyle.getPropertyValue('--cyan-400'),
                         data: [28, 48, 40, 19, 96, 27, 100]
                     }
                 ]

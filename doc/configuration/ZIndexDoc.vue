@@ -6,7 +6,7 @@
             default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
 
 <script>

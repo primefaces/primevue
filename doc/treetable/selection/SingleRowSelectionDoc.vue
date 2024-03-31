@@ -6,17 +6,19 @@
             setting it to false.
         </p>
     </DocSectionText>
-    <div class="card">
-        <div class="flex justify-content-center align-items-center mb-4 gap-2">
-            <InputSwitch v-model="metaKey" inputId="input-metakey" />
-            <label for="input-metakey">MetaKey</label>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <div class="flex justify-content-center align-items-center mb-4 gap-2">
+                <InputSwitch v-model="metaKey" inputId="input-metakey" />
+                <label for="input-metakey">MetaKey</label>
+            </div>
+            <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="metaKey">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
         </div>
-        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="metaKey">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -130,8 +132,10 @@ const metaKey = ref(true);
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

@@ -54,6 +54,12 @@ const ListboxProps = [
         description: 'When specified, disables the component.'
     },
     {
+        name: 'invalid',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the component should have invalid state style.'
+    },
+    {
         name: 'dataKey',
         type: 'string',
         default: 'null',

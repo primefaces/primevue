@@ -11,7 +11,7 @@
             are used instead for readers and keyboard support. The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each
             treeitem.
         </p>
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
         <h3>Closed State Keyboard Support</h3>
         <div class="doc-tablewrapper">
@@ -39,7 +39,7 @@
             </table>
         </div>
 
-        <h6>Popup Keyboard Support</h6>
+        <h3>Popup Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

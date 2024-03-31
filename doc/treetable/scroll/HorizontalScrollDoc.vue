@@ -2,16 +2,18 @@
     <DocSectionText v-bind="$attrs">
         <p>Horizontal scrolling is enabled when the total width of columns exceeds table width.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
-            <Column field="name" header="Name" expander style="width: 250px"></Column>
-            <Column field="size" header="Size" style="width: 250px"></Column>
-            <Column field="type" header="Type 2" style="width: 250px"></Column>
-            <Column field="size" header="Size 2" style="width: 250px"></Column>
-            <Column field="type" header="Type 3" style="width: 250px"></Column>
-            <Column field="size" header="Size 3" style="width: 250px"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
+                <Column field="name" header="Name" expander style="width: 250px"></Column>
+                <Column field="size" header="Size" style="width: 250px"></Column>
+                <Column field="type" header="Type 2" style="width: 250px"></Column>
+                <Column field="size" header="Size 2" style="width: 250px"></Column>
+                <Column field="type" header="Type 3" style="width: 250px"></Column>
+                <Column field="size" header="Size 3" style="width: 250px"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -118,8 +120,10 @@ const nodes = ref();
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

@@ -425,9 +425,6 @@ export default {
                 return null;
             }
         },
-        isEditingCellValid() {
-            return DomHandler.find(this.$el, '.p-invalid').length === 0;
-        },
         onRowEditInit(event) {
             this.$emit('row-edit-init', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
         },

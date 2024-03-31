@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="chips">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <ul
             ref="container"
             :class="cx('container')"
@@ -44,6 +44,7 @@
                     :style="inputStyle"
                     :disabled="disabled || maxedOut"
                     :placeholder="placeholder"
+                    :aria-invalid="invalid || undefined"
                     @focus="onFocus($event)"
                     @blur="onBlur($event)"
                     @input="onInput"
@@ -64,14 +65,23 @@ import BaseChips from './BaseChips.vue';
 export default {
     name: 'Chips',
     extends: BaseChips,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {
-            id: UniqueComponentId(),
+            id: this.$attrs.id,
             inputValue: null,
             focused: false,
             focusedIndex: null
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         onWrapperClick() {

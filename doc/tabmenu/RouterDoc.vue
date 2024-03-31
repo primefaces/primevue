@@ -117,7 +117,7 @@ export default {
 import { ref } from "vue";
 
 const items = ref([
-    {   { label: 'Router Link', icon: 'pi pi-home', route: '/tabmenu' },
+    { label: 'Router Link', icon: 'pi pi-home', route: '/tabmenu' },
     {
         label: 'Programmatic',
         icon: 'pi pi-palette',

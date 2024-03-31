@@ -6,7 +6,7 @@
             using a section that has <i>aria-live</i> while typing.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
         <h3>Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">

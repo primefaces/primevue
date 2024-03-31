@@ -2,13 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>A horizontal scrollbar is displayed when parent of the table gets smaller than the defined <i>minWidth</i>.</p>
     </DocSectionText>
-    <div class="card">
-        <TreeTable :value="nodes" :tableProps="{ style: { minWidth: '650px' } }" style="overflow: auto">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
-        </TreeTable>
-    </div>
+    <DeferredDemo @load="loadDemoData">
+        <div class="card">
+            <TreeTable :value="nodes" :tableProps="{ style: { minWidth: '650px' } }" style="overflow: auto">
+                <Column field="name" header="Name" expander></Column>
+                <Column field="size" header="Size"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+        </div>
+    </DeferredDemo>
     <DocSectionCode :code="code" :service="['NodeService']" />
 </template>
 
@@ -106,8 +108,10 @@ const nodes = ref();
             }
         };
     },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+    methods: {
+        loadDemoData() {
+            NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
+        }
     }
 };
 </script>

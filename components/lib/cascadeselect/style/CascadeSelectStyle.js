@@ -1,99 +1,5 @@
 import BaseStyle from 'primevue/base/style';
 
-const css = `
-@layer primevue {
-    .p-cascadeselect {
-        display: inline-flex;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    .p-cascadeselect-trigger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .p-cascadeselect-label {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        flex: 1 1 auto;
-        width: 1%;
-        text-overflow: ellipsis;
-        cursor: pointer;
-    }
-
-    .p-cascadeselect-label-empty {
-        overflow: hidden;
-        visibility: hidden;
-    }
-
-    .p-cascadeselect .p-cascadeselect-panel {
-        min-width: 100%;
-    }
-
-    .p-cascadeselect-item {
-        cursor: pointer;
-        font-weight: normal;
-        white-space: nowrap;
-    }
-
-    .p-cascadeselect-item-content {
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .p-cascadeselect-group-icon {
-        margin-left: auto;
-    }
-
-    .p-cascadeselect-items {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        min-width: 100%;
-    }
-
-    .p-fluid .p-cascadeselect {
-        display: flex;
-    }
-
-    .p-fluid .p-cascadeselect .p-cascadeselect-label {
-        width: 1%;
-    }
-
-    .p-cascadeselect-sublist {
-        position: absolute;
-        min-width: 100%;
-        z-index: 1;
-        display: none;
-    }
-
-    .p-cascadeselect-item-active {
-        overflow: visible;
-    }
-
-    .p-cascadeselect-item-active > .p-cascadeselect-sublist {
-        display: block;
-        left: 100%;
-        top: 0;
-    }
-
-    .p-cascadeselect-enter-from,
-    .p-cascadeselect-leave-active {
-        opacity: 0;
-    }
-
-    .p-cascadeselect-enter-active {
-        transition: opacity 150ms;
-    }
-}
-`;
-
 const inlineStyles = {
     root: ({ props }) => ({ position: props.appendTo === 'self' ? 'relative' : undefined })
 };
@@ -103,6 +9,8 @@ const classes = {
         'p-cascadeselect p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
+            'p-invalid': props.invalid,
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
@@ -119,10 +27,9 @@ const classes = {
     dropdownButton: 'p-cascadeselect-trigger',
     loadingIcon: 'p-cascadeselect-trigger-icon',
     dropdownIcon: 'p-cascadeselect-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ props, instance }) => [
         'p-cascadeselect-panel p-component',
         {
-            'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
@@ -145,7 +52,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'cascadeselect',
-    css,
     classes,
     inlineStyles
 });

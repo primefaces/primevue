@@ -23,10 +23,12 @@
                 tableStyle="min-width: 50rem"
             >
                 <template #header>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                    <IconField iconPosition="left">
+                        <InputIcon>
+                            <i class="pi pi-search" />
+                        </InputIcon>
                         <InputText v-model="filters['global'].value" placeholder="Global Search" />
-                    </span>
+                    </IconField>
                 </template>
                 <Column field="name" header="Name" sortable style="width: 25%">
                     <template #filter="{ filterModel }">
@@ -110,10 +112,12 @@ export default {
     stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
     selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
     <template #header>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
+        <IconField iconPosition="left">
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
             <InputText v-model="filters['global'].value" placeholder="Global Search" />
-        </span>
+        </IconField>
     </template>
     <Column field="name" header="Name" sortable style="width: 25%">
         <template #filter="{ filterModel }">
@@ -171,10 +175,12 @@ export default {
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
                 selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
             <template #header>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
+                <IconField iconPosition="left">
+                    <InputIcon>
+                        <i class="pi pi-search" />
+                    </InputIcon>
                     <InputText v-model="filters['global'].value" placeholder="Global Search" />
-                </span>
+                </IconField>
             </template>
             <Column field="name" header="Name" sortable style="width: 25%">
                 <template #filter="{ filterModel }">
@@ -297,10 +303,12 @@ export default {
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
                 selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
             <template #header>
-                <span class="p-input-icon-left">
+                <IconField iconPosition="left">
+                <InputIcon>
                     <i class="pi pi-search" />
-                    <InputText v-model="filters['global'].value" placeholder="Global Search" />
-                </span>
+                </InputIcon>
+                <InputText v-model="filters['global'].value" placeholder="Global Search" />
+            </IconField>
             </template>
             <Column field="name" header="Name" sortable style="width: 25%">
                 <template #filter="{ filterModel }">

@@ -1,6 +1,6 @@
 <template>
-    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('paginatorWrapper')">
-        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')" data-pc-name="paginator">
+    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptmi('paginatorWrapper')">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')">
             <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                 <slot name="start" :state="currentState"></slot>
             </div>
@@ -70,6 +70,7 @@ import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 export default {
     name: 'Paginator',
     extends: BasePaginator,
+    inheritAttrs: false,
     emits: ['update:first', 'update:rows', 'page'],
     data() {
         return {

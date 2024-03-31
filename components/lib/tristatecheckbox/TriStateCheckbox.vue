@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" data-pc-name="tristatecheckbox" :data-p-highlight="active" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-highlight="active" :data-p-disabled="disabled">
         <input
             :id="inputId"
             type="checkbox"
@@ -12,6 +12,7 @@
             :readonly="readonly"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @change="onChange"
@@ -38,10 +39,13 @@ import BaseTriStateCheckbox from './BaseTriStateCheckbox.vue';
 export default {
     name: 'TriStateCheckbox',
     extends: BaseTriStateCheckbox,
+    inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
-            return this.ptm(key, {
+            const _ptm = key === 'root' ? this.ptmi : this.ptm;
+
+            return _ptm(key, {
                 context: {
                     active: this.active,
                     disabled: this.disabled

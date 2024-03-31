@@ -1,10 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Buttons have built-in badge support with <i>badge</i> and <i>badgeClass</i> properties.</p>
+        <p>Buttons have built-in badge support with <i>badge</i> and <i>badgeSeverity</i> properties.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,14 +15,14 @@ export default {
         return {
             code: {
                 basic: `
-<Button type="button" label="Emails" badge="8" />
-<Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />
+<Button type="button" label="Emails" badge="2" />
+<Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>
 </template>
 
@@ -32,8 +32,8 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" badge="8" badgeClass="p-badge-danger" outlined />
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>
 </template>
 

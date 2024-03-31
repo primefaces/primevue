@@ -104,12 +104,9 @@ export default {
 
             if (this.$appState.darkTheme) {
                 newTheme = currentTheme.replace('dark', 'light');
-                localStorage.setItem(this.$appState.colorSchemeKey, 'light');
             } else {
                 if (currentTheme.includes('light')) newTheme = currentTheme.replace('light', 'dark');
                 else newTheme = 'aura-dark-green'; //fallback
-
-                localStorage.setItem(this.$appState.colorSchemeKey, 'dark');
             }
 
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
@@ -120,7 +117,6 @@ export default {
             return [
                 {
                     'layout-news-active': this.$appState.newsActive,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'p-ripple-disabled': this.$appState.ripple === false,
                     'layout-dark': this.$appState.darkTheme,
                     'layout-light': !this.$appState.darkTheme

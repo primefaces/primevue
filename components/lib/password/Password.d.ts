@@ -11,7 +11,7 @@ import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough, HintedString } from '../ts-helpers';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
@@ -205,7 +205,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
-    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Whether to show an icon to display the password as plain text.
      * @defaultValue false
@@ -222,10 +222,20 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
     /**
      * Placeholder text for the input.
      */
@@ -369,8 +379,8 @@ export interface PasswordEmits {
  */
 declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         Password: GlobalComponentConstructor<Password>;
     }
 }

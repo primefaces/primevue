@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A floating label appears on top of the input field when focused.</p>
+        <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Password v-model="value" inputId="password" />
             <label for="password">Password</label>
-        </span>
+        </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,38 +18,38 @@ export default {
             value: null,
             code: {
                 basic: `
-<span class="p-float-label">
+<FloatLabel>
     <Password v-model="value" inputId="password" />
     <label for="password">Password</label>
-</span>
+</FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Password v-model="value" inputId="password" />
             <label for="password">Password</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          value: null
-      }
-  }
+    data() {
+        return {
+            value: null
+        }
+    }
 };
 <\/script>
 `,
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span class="p-float-label">
+        <FloatLabel>
             <Password v-model="value" inputId="password" />
             <label for="password">Password</label>
-        </span>
+        </FloatLabel>
     </div>
 </template>
 

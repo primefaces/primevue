@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="terminal">
+    <div :class="cx('root')" @click="onClick" v-bind="ptmi('root')">
         <div v-if="welcomeMessage" v-bind="ptm('welcomeMessage')">{{ welcomeMessage }}</div>
         <div :class="cx('content')" v-bind="ptm('content')">
             <div v-for="(command, i) of commands" :key="command.text + i.toString()" v-bind="ptm('commands')">
@@ -22,6 +22,7 @@ import BaseTerminal from './BaseTerminal.vue';
 export default {
     name: 'Terminal',
     extends: BaseTerminal,
+    inheritAttrs: false,
     data() {
         return {
             commandText: null,
@@ -43,7 +44,7 @@ export default {
             this.$refs.input.focus();
         },
         onKeydown(event) {
-            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && this.commandText) {
+            if (event.key === 'Enter' && this.commandText) {
                 this.commands.push({ text: this.commandText });
                 TerminalService.emit('command', this.commandText);
                 this.commandText = '';

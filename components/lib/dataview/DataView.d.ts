@@ -341,8 +341,8 @@ export interface DataViewEmits {
  */
 declare class DataView extends ClassComponent<DataViewProps, DataViewSlots, DataViewEmits> {}
 
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
+declare module 'vue' {
+    export interface GlobalComponents {
         DataView: GlobalComponentConstructor<DataView>;
     }
 }

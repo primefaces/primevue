@@ -94,6 +94,16 @@
                             "to": "/editor"
                         },
                         {
+                            "name": "FloatLabel",
+                            "to": "/floatlabel",
+                            "badge": "NEW"
+                        },
+                        {
+                            "name": "IconField",
+                            "to": "/iconfield",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "InputGroup",
                             "to": "/inputgroup"
                         },
@@ -104,6 +114,11 @@
                         {
                             "name": "InputNumber",
                             "to": "/inputnumber"
+                        },
+                        {
+                            "name": "InputOtp",
+                            "to": "/inputotp",
+                            "badge": "NEW"
                         },
                         {
                             "name": "InputSwitch",
@@ -259,6 +274,11 @@
                         {
                             "name": "Splitter",
                             "to": "/splitter"
+                        },
+                        {
+                            "name": "Stepper",
+                            "to": "/stepper",
+                            "badge": "NEW"
                         },
                         {
                             "name": "TabView",
@@ -538,7 +558,8 @@
             "children": [
                 {
                     "name": "Prime Icons",
-                    "to": "/icons"
+                    "to": "/icons",
+                    "badge": "UPDATED"
                 },
                 {
                     "name": "Custom Icons",

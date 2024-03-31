@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
 
-    <DocSectionCode :code="code" hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideStackBlitz />
 </template>
 
 <script>

@@ -1,0 +1,6 @@
+{
+    "main": "./buttongroupstyle.cjs.js",
+    "module": "./buttongroupstyle.esm.js",
+    "unpkg": "./buttongroupstyle.min.js",
+    "types": "./ButtonGroupStyle.d.ts"
+}

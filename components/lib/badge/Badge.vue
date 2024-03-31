@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptm('root')" data-pc-name="badge">
+    <span :class="cx('root')" v-bind="ptmi('root')">
         <slot>{{ value }}</slot>
     </span>
 </template>
@@ -9,6 +9,7 @@ import BaseBadge from './BaseBadge.vue';
 
 export default {
     name: 'Badge',
-    extends: BaseBadge
+    extends: BaseBadge,
+    inheritAttrs: false
 };
 </script>
