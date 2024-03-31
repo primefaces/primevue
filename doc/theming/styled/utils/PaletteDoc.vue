@@ -13,7 +13,11 @@ export default {
                 basic: `
 import { palette } from 'primevue/themes'; 
 
-const values = palette('#10b981');
+// custom color
+const values1 = palette('#10b981');
+
+// copy an existing token set
+const primaryColor = palette('{blue}');
 `
             }
         };
