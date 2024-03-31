@@ -28,7 +28,7 @@ export default {
                     ...theme.options
                 }
             };
-            this._tokens = ThemeUtils.createTokens(theme?.preset, this.defaults);
+            this._tokens = ThemeUtils.createTokens(this.preset, this.defaults);
             this.clearLoadedStyleNames();
         }
     },
