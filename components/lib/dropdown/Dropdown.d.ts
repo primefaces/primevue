@@ -252,6 +252,14 @@ export interface DropdownState {
  */
 export interface DropdownContext {
     /**
+     * Current item option.
+     */
+    option: any;
+    /**
+     * Current item index.
+     */
+    index: number;
+    /**
      * Current selection state of the item as a boolean.
      * @defaultValue false
      */

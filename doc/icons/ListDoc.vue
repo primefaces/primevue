@@ -43,7 +43,24 @@ export default {
     },
     computed: {
         filteredIcons() {
-            if (this.filter) return this.icons.filter((icon) => icon.properties.name.indexOf(this.filter.toLowerCase()) > -1);
+            let sanitizedInput = this.filter?.replace(/[^\w\s]/gi, '').replace(/\s/g, '');
+
+            if (this.filter)
+                return this.icons.filter((icon) => {
+                    return (
+                        icon.icon.tags.some((tag) =>
+                            tag
+                                .replace(/[^\w\s]/gi, '')
+                                .replace(/\s/g, '')
+                                .includes(sanitizedInput.toLowerCase())
+                        ) ||
+                        icon.properties.name
+                            .replace(/[^\w\s]/gi, '')
+                            .replace(/\s/g, '')
+                            .toLowerCase()
+                            .includes(sanitizedInput.toLowerCase())
+                    );
+                });
             else return this.icons;
         }
     }

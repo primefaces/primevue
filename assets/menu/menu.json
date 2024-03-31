@@ -514,7 +514,8 @@
             "children": [
                 {
                     "name": "Prime Icons",
-                    "to": "/icons"
+                    "to": "/icons",
+                    "badge": "UPDATED"
                 },
                 {
                     "name": "Custom Icons",

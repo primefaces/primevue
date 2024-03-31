@@ -23776,6 +23776,22 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "option",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current item option."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current item index."
+                        },
+                        {
                             "name": "selected",
                             "optional": false,
                             "readonly": false,

@@ -277,6 +277,8 @@ export default {
         getPTItemOptions(option, itemOptions, index, key) {
             return this.ptm(key, {
                 context: {
+                    option,
+                    index,
                     selected: this.isSelected(option),
                     focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
                     disabled: this.isOptionDisabled(option)
