@@ -4,6 +4,8 @@
             Color palette of a preset is defined by the <i>primitive</i> design token group. The default colors are derived from the Tailwind colors with some extensions to make it consistent with the Tailwind Presets projects of the unstyled mode.
         </p>
     </DocSectionText>
+    <p>Colors can be accessed at CSS as a variable and programmatically using the <i>$dt</i> utility.</p>
+    <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
     <div class="card">
         <ul class="p-0 m-0 list-none flex sm:flex-column gap-3 flex-wrap sm:flex-nowrap">
             <li v-for="(color, i) of colors" :key="i" class="flex-auto" style="min-width: 6rem">
@@ -24,7 +26,16 @@ export default {
     data() {
         return {
             shades: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950],
-            colors: ['emerald', 'green', 'lime', 'red', 'orange', 'amber', 'yellow', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone']
+            colors: ['emerald', 'green', 'lime', 'red', 'orange', 'amber', 'yellow', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone'],
+            code1: {
+                basic: `
+// With CSS
+var(--p-blue-500)
+
+// With JS
+$dt('blue.500', 'value')
+`
+            }
         };
     }
 };

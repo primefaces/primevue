@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Design tokens can be scoped to a certain component using CSS variables. In an upcoming update, a special <i>dt</i> property would be introduced to generate the CSS variables from a design token object.</p>
+        <p>Design tokens can be scoped to a certain component using CSS variables.</p>
     </DocSectionText>
     <div class="card flex justify-content-center gap-3">
         <InputSwitch v-model="checked1" class="blue-switch" />
@@ -8,6 +8,9 @@
     </div>
     <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
     <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
+    <h3>Future API Preview</h3>
+    <p>In an upcoming update, a special <i>dt</i> property would be introduced for each component to generate the CSS variables from a design token object.</p>
+    <DocSectionCode :code="code3" importCode hideToggleCode hideStackBlitz />
 </template>
 
 <script>
@@ -40,6 +43,24 @@ export default {
         --p-inputswitch-handle-checked-hover-background: var(--p-zinc-950);
     }
 </style>
+`
+            },
+            code3: {
+                basic: `
+<InputSwitch v-model="checked" :dt="blueSwitch" />
+
+/*
+ const blueSwitch = {
+    root: {
+        checkedBackground: '{blue.500}',
+        checkedHoverBackground: '{blue.500}',
+        borderRadius: '40x'
+    },
+    handle: {
+        background: '{blue.50}'
+    }
+ }
+*/
 `
             }
         };
