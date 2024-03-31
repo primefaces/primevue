@@ -10,10 +10,7 @@ export default {
         options: {
             prefix: 'p',
             darkModeSelector: 'system',
-            cssLayer: false /*{
-                name: 'primevue',
-                order: 'primevue'
-            }*/
+            cssLayer: false
         }
     },
     _theme: undefined,
