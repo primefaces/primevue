@@ -3,9 +3,9 @@ import Theme, { SharedUtils } from 'primevue/themes';
 const types = ['value', 'variable'];
 
 export const $dt = (tokenPath, param1, param2) => {
-    const config = Theme.getPConfig();
+    const theme = Theme.getTheme();
 
-    return types.includes(param1) ? dt(config?.theme, tokenPath, undefined, param1) : dt(config?.theme, tokenPath, param1, param2);
+    return types.includes(param1) ? dt(theme, tokenPath, undefined, param1) : dt(theme, tokenPath, param1, param2);
 };
 
 export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {
@@ -23,11 +23,11 @@ export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {
 };
 
 export const $dtp = (tokenPath) => {
-    const config = Theme.getPConfig();
+    const theme = Theme.getTheme();
 
-    const variable = dt(config?.theme, tokenPath, undefined, 'variable');
+    const variable = dt(theme, tokenPath, undefined, 'variable');
     const name = variable.match(/--[\w-]+/g)?.[0];
-    const value = dt(config?.theme, tokenPath, undefined, 'value');
+    const value = dt(theme, tokenPath, undefined, 'value');
 
     return {
         variable,

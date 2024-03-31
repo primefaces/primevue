@@ -1,3 +1,5 @@
+import { reactive } from 'vue';
+
 const $appState = {
     install: (Vue, options) => {
         Vue.config.globalProperties.$appState = reactive({

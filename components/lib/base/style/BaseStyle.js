@@ -38,7 +38,7 @@ export default {
         return this.css ? useStyle(ObjectUtils.minifyCSS(this.css), { name: this.name, ...options }) : {};
     },
     loadTheme(theme, options = {}) {
-        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: `${this.name}-style`, ...options }) : {};
+        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options }) : {};
     },
     getCommonThemeCSS(params) {
         return Theme.getCommonCSS(this.name, params);

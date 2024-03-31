@@ -5,6 +5,6 @@ const classes = {
 };
 
 export default BaseStyle.extend({
-    name: 'badge',
+    name: 'badge-directive',
     classes
 });

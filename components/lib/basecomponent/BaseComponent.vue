@@ -1,6 +1,6 @@
 <script>
 import BaseStyle from 'primevue/base/style';
-import Theme from 'primevue/themes';
+import Theme, { ThemeService } from 'primevue/themes';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
@@ -34,14 +34,6 @@ export default {
                     BaseComponentStyle.loadStyle(this.$styleOptions);
                     this.$options.style && this.$style.loadStyle(this.$styleOptions);
                 }
-            }
-        },
-        $theme: {
-            deep: true,
-            immediate: true,
-            handler(newValue) {
-                Theme.setTheme(newValue);
-                this._loadThemeStyles();
             }
         }
     },
@@ -96,9 +88,9 @@ export default {
         _loadStyles() {
             BaseStyle.loadStyle(this.$styleOptions);
             this._loadGlobalStyles();
+            this._loadThemeStyles();
 
-            // apply theme settings
-            Theme.init();
+            ThemeService.on('theme:change', this._loadThemeStyles);
         },
         _loadGlobalStyles() {
             /*
@@ -113,26 +105,38 @@ export default {
 
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
-            ObjectUtils.isNotEmpty(globalCSS) && BaseComponentStyle.loadGlobalStyle(globalCSS, this.$styleOptions);
+            ObjectUtils.isNotEmpty(globalCSS) && BaseStyle.loadStyle(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
             // common
-            const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.(this.$themeParams) || {};
+            if (!Theme.isStyleNameLoaded('common')) {
+                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.() || {};
 
-            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
-            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
-            BaseComponentStyle.loadGlobalTheme(global, this.$styleOptions);
+                BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
+                BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
+                BaseStyle.loadTheme(global, { name: 'global-style', ...this.$styleOptions });
+
+                Theme.setLoadedStyleName('common');
+            }
 
             // component
-            const { variables, style } = this.$style?.getComponentThemeCSS?.(this.$themeParams) || {};
+            if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
+                const { variables, style } = this.$style?.getComponentThemeCSS?.() || {};
 
-            this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-            this.$style?.loadTheme(style, this.$styleOptions);
+                this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
+                this.$style?.loadTheme(style, { name: `${this.$style.name}-style`, ...this.$styleOptions });
+
+                Theme.setLoadedStyleName(this.$style.name);
+            }
 
             // layer order
-            const layerOrder = this.$style?.getLayerOrderThemeCSS?.();
+            if (!Theme.isStyleNameLoaded('layer-order')) {
+                const layerOrder = this.$style?.getLayerOrderThemeCSS?.();
 
-            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
+                BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
+
+                Theme.setLoadedStyleName('layer-order');
+            }
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -229,7 +233,7 @@ export default {
         },
         ptmi(key = '', params = {}) {
             // inheritAttrs:true without `pt:*`
-            return mergeProps(this.$_attrsNoPT, this.ptm(key, params));
+            return mergeProps(this.$_attrsWithoutPT, this.ptm(key, params));
         },
         ptmo(obj = {}, key = '', params = {}) {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
@@ -286,15 +290,7 @@ export default {
                     props: parentInstance?.$props,
                     state: parentInstance?.$data,
                     attrs: parentInstance?.$attrs
-                },
-                /* @deprecated since v3.43.0. Use the `parent.instance` instead of the `parentInstance`.*/
-                parentInstance
-            };
-        },
-        $themeParams() {
-            return {
-                ...this.$params,
-                theme: this.$theme
+                }
             };
         },
         $_attrsPT() {
@@ -312,7 +308,7 @@ export default {
                     return result;
                 }, {});
         },
-        $_attrsNoPT() {
+        $_attrsWithoutPT() {
             // $attrs without `pt:*`
             return Object.entries(this.$attrs || {})
                 .filter(([key]) => !key?.startsWith('pt:'))

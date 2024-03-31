@@ -155,6 +155,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/stepper/style': 'primevue.stepper.style',
     'primevue/stepperpanel/style': 'primevue.stepperpanel.style',
     'primevue/steps/style': 'primevue.steps.style',
+    'primevue/styleclass/style': 'primevue.styleclass.style',
     'primevue/tabmenu/style': 'primevue.tabmenu.style',
     'primevue/tabpanel/style': 'primevue.tabpanel.style',
     'primevue/tabview/style': 'primevue.tabview.style',

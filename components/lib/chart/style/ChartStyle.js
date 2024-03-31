@@ -10,6 +10,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'chart',
-    inlineStyles,
-    classes
+    classes,
+    inlineStyles
 });

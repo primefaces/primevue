@@ -2,7 +2,7 @@ import { FilterMatchMode } from 'primevue/api';
 import Theme, { ThemeService } from 'primevue/themes';
 import PrimeOne from 'primevue/themes/primeone';
 import Aura from 'primevue/themes/primeone/aura';
-import { inject, reactive, watch } from 'vue';
+import { inject, reactive, ref, watch } from 'vue';
 
 export const defaultOptions = {
     ripple: false,
@@ -168,52 +168,37 @@ export function usePrimeVue() {
     return PrimeVue;
 }
 
-function switchTheme(currentTheme, newTheme, linkElementId, callback) {
-    if (currentTheme !== newTheme) {
-        const linkElement = document.getElementById(linkElementId);
+function setupTheme(app, PrimeVue) {
+    const isChanged = ref(false);
 
-        if (linkElement) {
-            const cloneLinkElement = linkElement.cloneNode(true);
-            const newThemeUrl = linkElement.getAttribute('href').replace(currentTheme, newTheme);
+    watch(
+        PrimeVue.config.theme,
+        (newValue) => {
+            if (!isChanged.value) {
+                Theme.setTheme(newValue);
+            }
 
-            cloneLinkElement.setAttribute('id', linkElementId + '-clone');
-            cloneLinkElement.setAttribute('href', newThemeUrl);
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', linkElementId);
+            isChanged.value = false;
+        },
+        { immediate: true, deep: true }
+    );
 
-                if (callback) {
-                    callback();
-                }
-            });
-            linkElement.parentNode && linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-        }
-    }
+    ThemeService.on('theme:change', function (newTheme) {
+        isChanged.value = true;
+        app.config.globalProperties.$primevue.config.theme = newTheme;
+    });
 }
 
 export default {
     install: (app, options) => {
-        let configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
+        const configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
         const PrimeVue = {
-            config: reactive(configOptions),
-            changeTheme: switchTheme
+            config: reactive(configOptions)
         };
-
-        watch(
-            PrimeVue.config,
-            (newValue) => {
-                Theme.setPConfig(newValue);
-            },
-            { immediate: true }
-        );
 
         app.config.globalProperties.$primevue = PrimeVue;
         app.provide(PrimeVueSymbol, PrimeVue);
 
-        ThemeService.on('theme:change', (newTheme) => {
-            app.config.globalProperties.$primevue.config.theme = newTheme;
-        }).on('preset:change', (newPreset) => {
-            app.config.globalProperties.$primevue.config.theme.preset = newPreset;
-        });
+        setupTheme(app, PrimeVue);
     }
 };

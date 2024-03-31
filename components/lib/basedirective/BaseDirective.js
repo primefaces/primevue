@@ -1,5 +1,5 @@
 import BaseStyle from 'primevue/base/style';
-import Theme from 'primevue/themes';
+import Theme, { ThemeService } from 'primevue/themes';
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -80,31 +80,39 @@ const BaseDirective = {
         BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
         !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
 
-        // apply theme settings
-        Theme.init();
-        Theme.setTheme(el.$instance?.theme());
         BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
+        ThemeService.on('theme:change', () => BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce }));
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
-        const themeParams = instance.themeParams();
-
         // common
-        const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.(themeParams) || {};
+        if (!Theme.isStyleNameLoaded('common')) {
+            const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.() || {};
 
-        BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...useStyleOptions });
-        BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...useStyleOptions });
-        BaseStyle.loadTheme(global, { name: 'global-style', ...useStyleOptions });
+            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...useStyleOptions });
+            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...useStyleOptions });
+            BaseStyle.loadTheme(global, { name: 'global-style', ...useStyleOptions });
 
-        // component
-        const { variables, style } = instance.$style?.getDirectiveThemeCSS?.(themeParams) || {};
+            Theme.setLoadedStyleName('common');
+        }
 
-        instance.$style?.loadTheme(variables, { name: `${instance.$name}-directive-variables`, ...useStyleOptions });
-        instance.$style?.loadTheme(style, { name: `${instance.$name}-directive-style`, ...useStyleOptions });
+        // directive
+        if (!Theme.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
+            const { variables, style } = instance.$style?.getDirectiveThemeCSS?.() || {};
+
+            instance.$style?.loadTheme(variables, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
+            instance.$style?.loadTheme(style, { name: `${instance.$style.name}-style`, ...useStyleOptions });
+
+            Theme.setLoadedStyleName(instance.$style.name);
+        }
 
         // layer order
-        const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
+        if (!Theme.isStyleNameLoaded('layer-order')) {
+            const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
 
-        BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
+            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
+
+            Theme.setLoadedStyleName('layer-order');
+        }
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
@@ -142,8 +150,7 @@ const BaseDirective = {
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
-                theme: () => config?.theme,
-                themeParams: () => ({ theme: el.$instance?.theme }),
+                theme: () => el.$instance?.$config?.theme,
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),

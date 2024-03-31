@@ -5,6 +5,6 @@ const classes = {
 };
 
 export default BaseStyle.extend({
-    name: 'ripple',
+    name: 'ripple-directive',
     classes
 });

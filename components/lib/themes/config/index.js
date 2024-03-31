@@ -16,21 +16,27 @@ export default {
             }*/
         }
     },
-    _pConfig: undefined,
     _theme: undefined,
-    _initialized: false,
     _layerNames: new Set(),
+    _loadedStyleNames: new Set(),
     _tokens: {},
-    init() {
-        if (!this._initialized) {
-            this._tokens = ThemeUtils.createTokens(this.preset, this.defaults);
-            ThemeService.emit('theme:init', this.theme);
-        }
+    update(newValues = {}) {
+        const { theme } = newValues;
 
-        this._initialized = true;
+        if (theme) {
+            this._theme = {
+                ...theme,
+                options: {
+                    ...this.defaults.options,
+                    ...theme.options
+                }
+            };
+            this._tokens = ThemeUtils.createTokens(theme?.preset, this.defaults);
+            this.clearLoadedStyleNames();
+        }
     },
     get theme() {
-        return this._theme || this._pConfig?.theme;
+        return this._theme;
     },
     get base() {
         return this.theme?.base || {};
@@ -44,28 +50,11 @@ export default {
     get tokens() {
         return this._tokens;
     },
-    getPConfig() {
-        return this._pConfig;
-    },
-    setPConfig(newValue) {
-        this._pConfig = newValue;
-    },
-    getTokenValue(tokenPath) {
-        return ThemeUtils.getTokenValue(this.tokens, tokenPath, this.defaults);
-    },
     getTheme() {
         return this.theme;
     },
     setTheme(newValue) {
-        this._theme = {
-            ...newValue,
-            options: {
-                ...this.defaults.options,
-                ...newValue.options
-            }
-        };
-        this._tokens = ThemeUtils.createTokens(newValue?.preset, this.defaults);
-
+        this.update({ theme: newValue });
         ThemeService.emit('theme:change', newValue);
     },
     getPreset() {
@@ -75,13 +64,33 @@ export default {
         this._theme = { ...this.theme, preset: newValue };
         this._tokens = ThemeUtils.createTokens(newValue, this.defaults);
 
+        this.clearLoadedStyleNames();
         ThemeService.emit('preset:change', newValue);
+        ThemeService.emit('theme:change', this.theme);
     },
     getLayerNames() {
         return [...this._layerNames];
     },
     setLayerNames(layerName) {
-        this._layerNames?.add(layerName);
+        this._layerNames.add(layerName);
+    },
+    getLoadedStyleNames() {
+        return this._loadedStyleNames;
+    },
+    isStyleNameLoaded(name) {
+        return this._loadedStyleNames.has(name);
+    },
+    setLoadedStyleName(name) {
+        this._loadedStyleNames.add(name);
+    },
+    deleteLoadedStyleName(name) {
+        this._loadedStyleNames.delete(name);
+    },
+    clearLoadedStyleNames() {
+        this._loadedStyleNames.clear();
+    },
+    getTokenValue(tokenPath) {
+        return ThemeUtils.getTokenValue(this.tokens, tokenPath, this.defaults);
     },
     getCommonCSS(name = '', params) {
         return ThemeUtils.getCommon({ name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
