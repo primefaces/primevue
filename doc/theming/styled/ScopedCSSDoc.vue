@@ -1,16 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Scoped CSS allows overriding the styles of a particular PrimeVue component using <i>scoped</i> SFC style and <i>:deep</i>.</p>
+        <p>Design tokens can be scoped to a certain component using CSS variables. In an upcoming update, a special <i>dt</i> property would be introduced to generate the CSS variables from a design token object.</p>
     </DocSectionText>
-    <div class="card">
-        <Panel header="Scoped Panel">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Panel>
+    <div class="card flex justify-content-center gap-3">
+        <InputSwitch v-model="checked1" class="blue-switch" />
+        <InputSwitch v-model="checked2" class="amber-switch" />
     </div>
-    <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
+    <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
     <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
 </template>
 
@@ -18,31 +14,32 @@
 export default {
     data() {
         return {
+            checked1: true,
+            checked2: true,
             code1: {
                 basic: `
-<style scoped>
-:deep(.p-panel .p-panel-header) {
-    background-color: var(--p-teal-500);
-    border-color: var(--p-teal-500);
-    color: #ffffff;
-}
-
-:deep(.p-panel .p-panel-content) {
-    border-color: var(--p-teal-500);
-}
-</style>
+<InputSwitch v-model="checked1" class="blue-switch" />
+<InputSwitch v-model="checked2" class="amber-switch" />
 `
             },
             code2: {
                 basic: `
-<template>
-    <Panel header="Scoped Panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </Panel>
-</template>
+<style scoped>
+    .blue-switch {
+        --p-inputswitch-checked-background: var(--p-blue-500);
+        --p-inputswitch-checked-hover-background: var(--p-blue-500);
+        --p-inputswitch-border-radius: 4px;
+    }
+
+    .amber-switch {
+        --p-inputswitch-checked-background: var(--p-amber-500);
+        --p-inputswitch-checked-hover-background: var(--p-amber-500);
+        --p-inputswitch-handle-background: var(--p-zinc-950);
+        --p-inputswitch-handle-hover-background: var(--p-zinc-950);
+        --p-inputswitch-handle-checked-background: var(--p-zinc-950);
+        --p-inputswitch-handle-checked-hover-background: var(--p-zinc-950);
+    }
+</style>
 `
             }
         };
@@ -51,13 +48,18 @@ export default {
 </script>
 
 <style scoped>
-:deep(.p-panel .p-panel-header) {
-    background-color: var(--p-teal-500);
-    border-color: var(--p-teal-500);
-    color: #ffffff;
+.blue-switch {
+    --p-inputswitch-checked-background: var(--p-blue-500);
+    --p-inputswitch-checked-hover-background: var(--p-blue-500);
+    --p-inputswitch-border-radius: 4px;
 }
 
-:deep(.p-panel .p-panel-content) {
-    border-color: var(--p-teal-500);
+.amber-switch {
+    --p-inputswitch-checked-background: var(--p-amber-500);
+    --p-inputswitch-checked-hover-background: var(--p-amber-500);
+    --p-inputswitch-handle-background: var(--p-zinc-950);
+    --p-inputswitch-handle-hover-background: var(--p-zinc-950);
+    --p-inputswitch-handle-checked-background: var(--p-zinc-950);
+    --p-inputswitch-handle-checked-hover-background: var(--p-zinc-950);
 }
 </style>
