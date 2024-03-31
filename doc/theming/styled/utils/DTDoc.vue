@@ -13,7 +13,42 @@ export default {
                 basic: `
 import { $dt } from 'primevue/themes'; 
 
-const value = $dt('primary.color', 'value');
+const duration = $dt('transition.duration');
+/* 
+  duration: {
+    name: '--transition-duration',
+    variable: 'var(--p-transition-duration)',
+    value: '0.2s'  
+  } 
+*/
+
+const primaryColor = $dt('primary.color');
+/*
+  primaryColor: {
+    name: '--primary-color',
+    variable: 'var(--p-primary-color)',
+    value: {
+      light: {
+        value: '#10b981',
+        path: {
+            name: 'semantic.primary.color',
+            binding: {
+                name: 'primitive.emerald.500'
+            }
+        }
+      },
+      dark: {
+        value: '#34d399',
+        path: {
+            name: 'semantic.primary.color',
+            binding: {
+                name: 'primitive.emerald.400'
+            }
+        }
+      }
+    }
+  } 
+*/
 `
             }
         };
