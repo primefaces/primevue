@@ -92,24 +92,26 @@ export default {
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
     getPresetD({ name = '', theme = {}, params, set, defaults }) {
+        const dName = name.replace('-directive', '');
         const { preset, options } = theme;
-        const { colorScheme, ...vRest } = preset?.directives?.[name] || {};
+        const { colorScheme, ...vRest } = preset?.directives?.[dName] || {};
         const { dark, ...csRest } = colorScheme || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
+        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [dName]: vRest }, options).declarations : '';
+        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [dName]: csRest }, options).declarations : '';
+        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [dName]: dark }, options).declarations : '';
 
-        const light_variable_css = this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults);
-        const dark_variable_css = this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults);
+        const light_variable_css = this._transformCSS(dName, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults);
+        const dark_variable_css = this._transformCSS(dName, dark_css, 'dark', 'variable', options, set, defaults);
 
         return `${light_variable_css}${dark_variable_css}`;
     },
     getBaseD({ name = '', theme = {}, params, set, defaults }) {
+        const dName = name.replace('-directive', '');
         const { base, options } = theme;
-        const { css } = base?.directives?.[name] || {};
+        const { css } = base?.directives?.[dName] || {};
         const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
 
-        return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
+        return this._transformCSS(dName, computed_css, undefined, 'style', options, set, defaults);
     },
     getColorSchemeOption(options, defaults) {
         return this.regex.resolve(options.darkModeSelector ?? defaults.options.darkModeSelector);
