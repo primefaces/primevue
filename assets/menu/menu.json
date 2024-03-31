@@ -47,10 +47,6 @@
                 {
                     "name": "Auto Import",
                     "to": "/autoimport"
-                },
-                {
-                    "name": "CSS Layer",
-                    "to": "/csslayer"
                 }
             ]
         },

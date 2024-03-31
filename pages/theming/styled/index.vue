@@ -20,7 +20,6 @@
 
 <script>
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
-import CSSLayerDoc from '@/doc/theming/styled/CSSLayerDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
 import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
@@ -29,6 +28,9 @@ import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
 import ScopedCSSDoc from '@/doc/theming/styled/ScopedCSSDoc.vue';
 import OptionsDoc from '@/doc/theming/styled/configuration/OptionsDoc.vue';
 import ThemeDoc from '@/doc/theming/styled/configuration/ThemeDoc.vue';
+import LibrariesDoc from '@/doc/theming/styled/csslayer/LibrariesDoc.vue';
+import ResetDoc from '@/doc/theming/styled/csslayer/ResetDoc.vue';
+import SpecificityDoc from '@/doc/theming/styled/csslayer/SpecificityDoc.vue';
 import ComponentDoc from '@/doc/theming/styled/customization/ComponentDoc.vue';
 import DefinePresetDoc from '@/doc/theming/styled/customization/DefinePresetDoc.vue';
 import FocusRingDoc from '@/doc/theming/styled/customization/FocusRingDoc.vue';
@@ -163,7 +165,24 @@ export default {
                 {
                     id: 'csslayer',
                     label: 'CSS Layer',
-                    component: CSSLayerDoc
+                    description: 'The PrimeVue CSS layer only applies to styled mode when layering is enabled explicitly at theme configuration, in unstyled mode the built-in CSS classes are not included and as a result no layer is necessary.',
+                    children: [
+                        {
+                            id: 'specificity',
+                            label: 'Specificity',
+                            component: SpecificityDoc
+                        },
+                        {
+                            id: 'reset',
+                            label: 'Reset',
+                            component: ResetDoc
+                        },
+                        {
+                            id: 'libraries',
+                            label: 'Libraries',
+                            component: LibrariesDoc
+                        }
+                    ]
                 },
                 {
                     id: 'scopedcss',

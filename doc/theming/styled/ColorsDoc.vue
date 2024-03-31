@@ -6,8 +6,8 @@
     </DocSectionText>
     <div class="card">
         <ul class="p-0 m-0 list-none flex sm:flex-column gap-3 flex-wrap sm:flex-nowrap">
-            <li v-for="(color, i) of colors" :key="i" class="flex-auto">
-                <span class="font-medium capitalize w-6rem block mb-2 text-center sm:text-left">{{ color }}</span>
+            <li v-for="(color, i) of colors" :key="i" class="flex-auto" style="min-width: 6rem">
+                <span class="font-medium capitalize block mb-2 text-center sm:text-left">{{ color }}</span>
                 <div class="flex gap-3 flex-auto flex-column sm:flex-row">
                     <div v-for="(shade, j) of shades" :key="shade" class="flex flex-column align-items-center gap-1 flex-1">
                         <div v-tooltip.click.top="'Copied'" class="border-round h-2rem w-full" :style="`background-color: var(--p-${color}-${shades[j]})`" @click="copyColor(`var(--p-${color}-${shades[j]})`)"></div>
