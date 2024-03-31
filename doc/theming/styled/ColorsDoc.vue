@@ -10,7 +10,7 @@
                 <span class="font-medium capitalize block mb-2 text-center sm:text-left">{{ color }}</span>
                 <div class="flex gap-3 flex-auto flex-column sm:flex-row">
                     <div v-for="(shade, j) of shades" :key="shade" class="flex flex-column align-items-center gap-1 flex-1">
-                        <div v-tooltip.click.top="'Copied'" class="border-round h-2rem w-full" :style="`background-color: var(--p-${color}-${shades[j]})`" @click="copyColor(`var(--p-${color}-${shades[j]})`)"></div>
+                        <div class="border-round h-2rem w-full" :style="`background-color: var(--p-${color}-${shades[j]})`"></div>
                         <span class="text-sm text-secondary font-medium">{{ shades[j] }}</span>
                     </div>
                 </div>
@@ -26,11 +26,6 @@ export default {
             shades: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950],
             colors: ['emerald', 'green', 'lime', 'red', 'orange', 'amber', 'yellow', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone']
         };
-    },
-    methods: {
-        copyColor(value) {
-            navigator.clipboard.writeText(value);
-        }
     }
 };
 </script>
