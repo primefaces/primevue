@@ -26,7 +26,7 @@
         </p>
 
         <h3>Best Practices</h3>
-        <p>
+        <p class="mb-0">
             Use primitive tokens when defining the core color palette and semantic tokens to specify the common design elements such as focus ring, primary colors and surfaces. Components tokens should only be used when customizing a specific
             component. By defining your own design tokens as a custom preset, you'll be able to define your own style without touching CSS. Overriding the PrimeVue components using style classes is not a best practice and should be the last resort,
             design tokens are the suggested approach.

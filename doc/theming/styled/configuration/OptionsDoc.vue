@@ -9,7 +9,7 @@
             class selector such as <i>.app-dark</i> and toggle this class at the document root. See the dark mode toggle section for an example.
         </p>
         <h4>cssLayer</h4>
-        <p>
+        <p class="mb-0">
             Defines whether the styles should be defined inside a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer" target="_blank" rel="noopener noreferrer">CSS layer</a> named <i>primevue</i> or not. A CSS layer would be handy to
             declare a custom cascade layer for easier customization. The default is <i>false</i>. View the CSS layer section for an example usage.
         </p>
