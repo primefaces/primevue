@@ -37,15 +37,15 @@ export default {
         },
         valueColor: {
             type: String,
-            default: $dt('primary.color', 'Black')
+            default: $dt('knob.value.background')
         },
         rangeColor: {
             type: String,
-            default: $dt('surface.border', 'LightGray')
+            default: $dt('knob.range.background')
         },
         textColor: {
             type: String,
-            default: $dt('text.color.secondary', 'Black')
+            default: $dt('knob.text.color')
         },
         strokeWidth: {
             type: Number,
