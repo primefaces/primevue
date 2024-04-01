@@ -2,7 +2,6 @@
     <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
-
             <div
                 v-if="i !== panels.length - 1"
                 ref="gutter"
@@ -52,10 +51,29 @@ export default {
         };
     },
     mounted() {
-        this.initializePanels();
-    },
-    updated() {
-        this.initializePanels();
+        if (this.panels && this.panels.length) {
+            let initialized = false;
+
+            if (this.isStateful()) {
+                initialized = this.restoreState();
+            }
+
+            if (!initialized) {
+                let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
+                let _panelSizes = [];
+
+                this.panels.map((panel, i) => {
+                    let panelInitialSize = panel.props && panel.props.size ? panel.props.size : null;
+                    let panelSize = panelInitialSize || 100 / this.panels.length;
+
+                    _panelSizes[i] = panelSize;
+                    children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
+                });
+
+                this.panelSizes = _panelSizes;
+                this.prevSize = parseFloat(_panelSizes[0]).toFixed(4);
+            }
+        }
     },
     beforeUnmount() {
         this.clear();
@@ -64,31 +82,6 @@ export default {
     methods: {
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
-        },
-        initializePanels() {
-            if (this.panels && this.panels.length) {
-                let initialized = false;
-
-                if (this.isStateful()) {
-                    initialized = this.restoreState();
-                }
-
-                if (!initialized) {
-                    let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
-                    let _panelSizes = [];
-
-                    this.panels.map((panel, i) => {
-                        let panelInitialSize = panel.props && panel.props.size ? panel.props.size : null;
-                        let panelSize = panelInitialSize || 100 / this.panels.length;
-
-                        _panelSizes[i] = panelSize;
-                        children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
-                    });
-
-                    this.panelSizes = _panelSizes;
-                    this.prevSize = parseFloat(_panelSizes[0]).toFixed(4);
-                }
-            }
         },
         onResizeStart(event, index, isKeyDown) {
             this.gutterElement = event.currentTarget || event.target.parentElement;
