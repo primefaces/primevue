@@ -20,8 +20,8 @@
     --hover-border-color: var(--p-surface-500);
     --mark-background: var(--p-surface-700);
     --mark-text-color: var(--p-surface-200);
-    --selection-background: color-mix(in srgb, var(--primary-color), transparent 84%);
-    --selection-text-color: rgba(255,255,255,.87);
+    --selection-background: var(--p-surface-700);
+    --selection-text-color: var(--p-surface-0);
     --code-button-text-color: var(--p-surface-300);
     --docsearch-mask-background: var(--p-mask-background);
 }
