@@ -23,6 +23,8 @@ import ArchitectureDoc from '@/doc/theming/unstyled/ArchitectureDoc.vue';
 import ExampleDoc from '@/doc/theming/unstyled/ExampleDoc.vue';
 import SetupDoc from '@/doc/theming/unstyled/SetupDoc.vue';
 import ThemeDoc from '@/doc/theming/unstyled/ThemeDoc.vue';
+import TailwindDoc from '@/doc/theming/unstyled/libraries/TailwindDoc.vue';
+import UnoCSSDoc from '@/doc/theming/unstyled/libraries/UnoCSSDoc.vue';
 
 export default {
     data() {
@@ -47,6 +49,22 @@ export default {
                     id: 'theme',
                     label: 'Theme',
                     component: ThemeDoc
+                },
+                {
+                    id: 'libraries',
+                    label: 'Libraries',
+                    children: [
+                        {
+                            id: 'tailwind',
+                            label: 'Tailwind',
+                            component: TailwindDoc
+                        },
+                        {
+                            id: 'unocss',
+                            label: 'UnoCSS',
+                            component: UnoCSSDoc
+                        }
+                    ]
                 }
             ]
         };
