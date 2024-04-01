@@ -13,6 +13,8 @@ export default {
     border: 1px solid ${dt('button.primary.border.color')};
     padding: 0.5rem 1rem;
     font-size: 1rem;
+    font-family: inherit;
+    font-feature-settings: inherit;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;

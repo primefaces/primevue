@@ -129,8 +129,6 @@ export default {
 }
 
 .p-component {
-    font-family: ${dt('font.family')};
-    font-feature-settings: ${dt('font.feature.settings')};
     font-size: 1rem;
     font-weight: normal;
 }
@@ -163,8 +161,8 @@ export default {
 }
 
 .p-link {
-    font-family: ${dt('font.family')};
-    font-feature-settings: ${dt('font.feature.settings')};
+    font-family: inherit;
+    font-feature-settings: inherit;
     font-size: 1rem;
     border-radius: 6px;
     outline-color: transparent;
