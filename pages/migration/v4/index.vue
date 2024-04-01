@@ -41,7 +41,7 @@ export default {
                     label: 'Breaking Changes',
                     children: [
                         {
-                            id: 'pluging',
+                            id: 'plugin',
                             label: 'Plugin',
                             component: PluginDoc
                         },

@@ -43,6 +43,8 @@ import SurfaceDoc from '@/doc/theming/styled/customization/SurfaceDoc.vue';
 import DTDoc from '@/doc/theming/styled/utils/DTDoc.vue';
 import PaletteDoc from '@/doc/theming/styled/utils/PaletteDoc.vue';
 import UpdatePresetDoc from '@/doc/theming/styled/utils/UpdatePresetDoc.vue';
+import UpdatePrimaryPaletteDoc from '@/doc/theming/styled/utils/UpdatePrimaryPaletteDoc.vue';
+import UpdateSurfacePaletteDoc from '@/doc/theming/styled/utils/UpdateSurfacePaletteDoc.vue';
 import UsePresetDoc from '@/doc/theming/styled/utils/UsePresetDoc.vue';
 import UseThemeDoc from '@/doc/theming/styled/utils/UseThemeDoc.vue';
 
@@ -140,6 +142,16 @@ export default {
                             id: 'updatepreset',
                             label: 'updatePreset',
                             component: UpdatePresetDoc
+                        },
+                        {
+                            id: 'updateprimarypalette',
+                            label: 'updatePrimaryPalette',
+                            component: UpdatePrimaryPaletteDoc
+                        },
+                        {
+                            id: 'updatesurfacepalette',
+                            label: 'updateSurfacePalette',
+                            component: UpdateSurfacePaletteDoc
                         },
                         {
                             id: 'usetheme',
