@@ -71,18 +71,23 @@ export default {
             global: global_css
         };
     },
-    getPresetC({ name = '', theme = {}, params, set, defaults }) {
-        const { preset, options } = theme;
-        const { colorScheme, ...vRest } = preset?.components?.[name] || {};
+    getPreset({ name = '', preset = {}, options, params, set, defaults, selector }) {
+        const { colorScheme, ...vRest } = preset;
         const { dark, ...csRest } = colorScheme || {};
         const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
         const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
         const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
 
-        const light_variable_css = this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults);
-        const dark_variable_css = this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults);
+        const light_variable_css = this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults, selector);
+        const dark_variable_css = this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults, selector);
 
         return `${light_variable_css}${dark_variable_css}`;
+    },
+    getPresetC({ name = '', theme = {}, params, set, defaults }) {
+        const { preset, options } = theme;
+        const cPreset = preset?.components?.[name];
+
+        return this.getPreset({ name, preset: cPreset, options, params, set, defaults });
     },
     getBaseC({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
@@ -94,16 +99,9 @@ export default {
     getPresetD({ name = '', theme = {}, params, set, defaults }) {
         const dName = name.replace('-directive', '');
         const { preset, options } = theme;
-        const { colorScheme, ...vRest } = preset?.directives?.[dName] || {};
-        const { dark, ...csRest } = colorScheme || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [dName]: vRest }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [dName]: csRest }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [dName]: dark }, options).declarations : '';
+        const dPreset = preset?.directives?.[dName];
 
-        const light_variable_css = this._transformCSS(dName, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults);
-        const dark_variable_css = this._transformCSS(dName, dark_css, 'dark', 'variable', options, set, defaults);
-
-        return `${light_variable_css}${dark_variable_css}`;
+        return this.getPreset({ name: dName, preset: dPreset, options, params, set, defaults });
     },
     getBaseD({ name = '', theme = {}, params, set, defaults }) {
         const dName = name.replace('-directive', '');
@@ -235,23 +233,24 @@ export default {
     _toVariables(theme, options) {
         return toVariables(theme, { prefix: options?.prefix });
     },
-    _transformCSS(name, css, mode, type, options = {}, set, defaults) {
+    _transformCSS(name, css, mode, type, options = {}, set, defaults, selector) {
         if (SharedUtils.object.isNotEmpty(css)) {
             const { cssLayer } = options;
 
             if (type !== 'style') {
                 const colorSchemeOption = this.getColorSchemeOption(options, defaults);
+                const _css = selector ? SharedUtils.object.getRule(selector, css) : css;
 
                 css =
                     mode === 'dark'
-                        ? colorSchemeOption.reduce((acc, { selector }) => {
-                              if (SharedUtils.object.isNotEmpty(selector)) {
-                                  acc += selector.includes('[CSS]') ? selector.replace('[CSS]', css) : SharedUtils.object.getRule(selector, css);
+                        ? colorSchemeOption.reduce((acc, { selector: _selector }) => {
+                              if (SharedUtils.object.isNotEmpty(_selector)) {
+                                  acc += _selector.includes('[CSS]') ? _selector.replace('[CSS]', _css) : SharedUtils.object.getRule(_selector, _css);
                               }
 
                               return acc;
                           }, '')
-                        : SharedUtils.object.getRule(':root', css);
+                        : SharedUtils.object.getRule(selector ?? ':root', css);
             }
 
             if (cssLayer) {

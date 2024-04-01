@@ -108,6 +108,11 @@ export default {
             variables: ThemeUtils.getPresetD(options)
         };
     },
+    getPresetCSS(name = '', preset, selector, params) {
+        const options = { name, preset, options: this.options, selector, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
+
+        return ThemeUtils.getPreset(options);
+    },
     getLayerOrderCSS(name = '') {
         return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() }, this.defaults);
     },
