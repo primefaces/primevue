@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component.</p>
+        <p>
+            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. You may also use
+            <NuxtLink to="/autoimport">auto imports</NuxtLink> via the unplugin-vue-components plugin.
+        </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Button label="Check" icon="pi pi-check" />
