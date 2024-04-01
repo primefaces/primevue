@@ -19,6 +19,7 @@
 import NewFeaturesDoc from '@/doc/migration/v4/NewFeaturesDoc.vue';
 import OverviewDoc from '@/doc/migration/v4/OverviewDoc.vue';
 import ComponentsDoc from '@/doc/migration/v4/breakingchanges/ComponentsDoc.vue';
+import PluginDoc from '@/doc/migration/v4/breakingchanges/PluginDoc.vue';
 import StyledModeDoc from '@/doc/migration/v4/breakingchanges/StyledModeDoc.vue';
 
 export default {
@@ -39,6 +40,11 @@ export default {
                     id: 'breakingchanges',
                     label: 'Breaking Changes',
                     children: [
+                        {
+                            id: 'pluging',
+                            label: 'Plugin',
+                            component: PluginDoc
+                        },
                         {
                             id: 'styledmode',
                             label: 'Styled Mode',
