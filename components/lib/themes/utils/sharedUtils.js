@@ -86,7 +86,8 @@ export default {
             return false;
         },
         toValue(value) {
-            return this.isObject(value) && value.hasOwnProperty('value') ? value.value : value;
+            // Check for Figma (value-type)
+            return this.isObject(value) && value.hasOwnProperty('value') && value.hasOwnProperty('type') ? value.value : value;
         },
         toUnit(value, variable = '') {
             const excludedProperties = ['opacity', 'z-index', 'line-height', 'font-weight', 'flex', 'flex-grow', 'flex-shrink', 'order'];
