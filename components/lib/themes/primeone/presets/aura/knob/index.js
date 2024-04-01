@@ -1,7 +1,4 @@
 export default {
-    root: {
-        cagatay: '{surface.200}'
-    },
     colorScheme: {
         light: {
             value: {
