@@ -279,6 +279,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                         pointerEvents: !this.isUnstyled() && el.$_ptooltipAutoHide && 'none'
                     },
                     class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
+                    [this.$attrSelector]: '',
                     'p-bind': this.ptm('root', {
                         context: modifiers
                     })

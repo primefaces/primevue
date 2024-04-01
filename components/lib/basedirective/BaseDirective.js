@@ -1,6 +1,6 @@
 import BaseStyle from 'primevue/base/style';
 import Theme, { ThemeService } from 'primevue/themes';
-import { ObjectUtils } from 'primevue/utils';
+import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
 const BaseDirective = {
@@ -82,6 +82,8 @@ const BaseDirective = {
 
         BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
         ThemeService.on('theme:change', () => BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce }));
+
+        BaseDirective._loadScopedThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
         if (instance?.isUnstyled()) return;
@@ -114,6 +116,16 @@ const BaseDirective = {
             BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
 
             Theme.setLoadedStyleName('layer-order');
+        }
+    },
+    _loadScopedThemeStyles(instance = {}, useStyleOptions) {
+        const preset = instance.preset();
+
+        if (preset && instance.$attrSelector) {
+            const variables = instance.$style?.getPresetThemeCSS?.(preset, `[${instance.$attrSelector}]`) || {};
+            const scopedStyle = instance.$style?.loadTheme(variables, { name: `${instance.$attrSelector}-${instance.$style.name}`, ...useStyleOptions });
+
+            instance.scopedStyleEl = scopedStyle.el;
         }
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
@@ -149,10 +161,12 @@ const BaseDirective = {
                 $el: $prevInstance['$el'] || el || undefined,
                 $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadTheme: () => {}, ...options?.style },
                 $config: config,
+                $attrSelector: el.$attrSelector,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
                 theme: () => el.$instance?.$config?.theme,
+                preset: () => el.$instance?.$binding?.value?.dt,
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),
@@ -172,6 +186,7 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
+                el.$attrSelector = UniqueComponentId('pd');
                 BaseDirective._loadStyles(el, binding, vnode);
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
@@ -190,6 +205,7 @@ const BaseDirective = {
                 handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },
             unmounted: (el, binding, vnode, prevVnode) => {
+                el.$instance?.scopedStyleEl?.value?.remove();
                 handleHook('unmounted', el, binding, vnode, prevVnode);
             }
         };

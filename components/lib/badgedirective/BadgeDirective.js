@@ -8,6 +8,7 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
         const badge = DomHandler.createElement('span', {
             id,
             class: !this.isUnstyled() && this.cx('root'),
+            [this.$attrSelector]: '',
             'p-bind': this.ptm('root', {
                 context: {
                     ...binding.modifiers,

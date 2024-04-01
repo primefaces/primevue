@@ -72,14 +72,15 @@ export default {
         };
     },
     getPreset({ name = '', preset = {}, options, params, set, defaults, selector }) {
+        const _name = name.replace('-directive', '');
         const { colorScheme, ...vRest } = preset;
         const { dark, ...csRest } = colorScheme || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [name]: vRest }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [name]: csRest }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [name]: dark }, options).declarations : '';
+        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [_name]: vRest }, options).declarations : '';
+        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [_name]: csRest }, options).declarations : '';
+        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [_name]: dark }, options).declarations : '';
 
-        const light_variable_css = this._transformCSS(name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults, selector);
-        const dark_variable_css = this._transformCSS(name, dark_css, 'dark', 'variable', options, set, defaults, selector);
+        const light_variable_css = this._transformCSS(_name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults, selector);
+        const dark_variable_css = this._transformCSS(_name, dark_css, 'dark', 'variable', options, set, defaults, selector);
 
         return `${light_variable_css}${dark_variable_css}`;
     },
