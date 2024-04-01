@@ -1,11 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Unstyled mode is disabled by default for all components. Using the PrimeVue plugin during installation, set <i>unstyled</i> as true to enable it globally. Visit the <NuxtLink to="/unstyled">Unstyled mode</NuxtLink> documentation for more
-            information and examples.
-        </p>
+        <p>In unstyled mode, the components do not include any CSS so you'd need to style the components on your end. Visit the <NuxtLink to="/unstyled">Unstyled mode</NuxtLink> documentation for more information and examples.</p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
-        <p>In unstyled mode, you'd need to style the components on your end. If you are using Tailwind CSS, see the <a href="https://tailwind.primevue.org/vite/">Tailwind CSS Presets</a> project to get you started.</p>
+        <p>If you are using Tailwind CSS, see the <a href="https://tailwind.primevue.org/vite/">Tailwind CSS Presets</a> project to get you started with styling the components with Tailwind utility classes.</p>
         <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>
@@ -17,23 +14,20 @@ export default {
             code1: {
                 basic: `
 import { createApp } from "vue";
-import PrimeVue from "primevue/config";
+import PrimeVueUnstyled from "primevue/config";
 const app = createApp(App);
 
-app.use(PrimeVue, {
-    unstyled: true
-});
+app.use(PrimeVueUnstyled);
 `
             },
             code2: {
                 basic: `
 import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
+import PrimeVueUnstyled from 'primevue/config';
 import Lara from '@/presets/lara';      //import preset
 
 const app = createApp(App);
-app.use(PrimeVue, {
-    unstyled: true,
+app.use(PrimeVueUnstyled, {
     pt: Lara                            //apply preset
 });
 `

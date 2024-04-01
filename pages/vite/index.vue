@@ -22,7 +22,6 @@ import PluginDoc from '@/doc/vite/PluginDoc.vue';
 import StyledModeDoc from '@/doc/vite/StyledModeDoc.vue';
 import UnstyledModeDoc from '@/doc/vite/UnstyledModeDoc.vue';
 import UsageDoc from '@/doc/vite/UsageDoc.vue';
-import CreateVueDoc from '@/doc/vite/videos/CreateVueDoc.vue';
 
 export default {
     data() {
@@ -36,12 +35,9 @@ export default {
                 {
                     id: 'plugin',
                     label: 'Plugin',
-                    component: PluginDoc
-                },
-                {
-                    id: 'theming',
-                    label: 'Theming',
-                    description: 'PrimeVue has two theming modes; styled or unstyled.',
+                    component: PluginDoc,
+                    description: `PrimeVue plugin is required to be installed as an application plugin to set up the default configuration. The plugin is lightweight, only sets up the configuration object without affecting your application. PrimeVue has two plugins; Styled and Unstyled. If you are
+                        just getting started, we suggest to using the styled mode.`,
                     children: [
                         {
                             id: 'styled',
@@ -64,11 +60,6 @@ export default {
                     id: 'examples',
                     label: 'Examples',
                     component: ExamplesDoc
-                },
-                {
-                    id: 'videos',
-                    label: 'Video Tutorial',
-                    component: CreateVueDoc
                 }
             ]
         };
