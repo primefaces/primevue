@@ -49,6 +49,9 @@ export default {
     getDirectiveThemeCSS(params) {
         return Theme.getDirectiveCSS(this.name, params);
     },
+    getPresetThemeCSS(preset, selector, params) {
+        return Theme.getPresetCSS(this.name, preset, selector, params);
+    },
     getLayerOrderThemeCSS() {
         return Theme.getLayerOrderCSS(this.name);
     },

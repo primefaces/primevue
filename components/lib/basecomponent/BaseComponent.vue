@@ -1,7 +1,7 @@
 <script>
 import BaseStyle from 'primevue/base/style';
 import Theme, { ThemeService } from 'primevue/themes';
-import { ObjectUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -18,6 +18,10 @@ export default {
         },
         unstyled: {
             type: Boolean,
+            default: undefined
+        },
+        dt: {
+            type: Object,
             default: undefined
         }
     },
@@ -38,8 +42,17 @@ export default {
                     this._loadThemeStyles();
                 }
             }
+        },
+        dt: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    this._loadScopedThemeStyles(newValue);
+                }
+            }
         }
     },
+    scopedStyleEl: undefined,
     beforeCreate() {
         const _usept = this.pt?.['_usept'];
         const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
@@ -61,6 +74,9 @@ export default {
         this._hook('onBeforeMount');
     },
     mounted() {
+        const rootElement = DomHandler.findSingle(this.$el, `[data-pc-name="${ObjectUtils.toFlatCase(this.$.type.name)}"]`);
+
+        rootElement?.setAttribute(this.$attrSelector, '');
         this._hook('onMounted');
     },
     beforeUpdate() {
@@ -73,6 +89,7 @@ export default {
         this._hook('onBeforeUnmount');
     },
     unmounted() {
+        this.scopedStyleEl?.value?.remove();
         this._hook('onUnmounted');
     },
     methods: {
@@ -142,6 +159,12 @@ export default {
 
                 Theme.setLoadedStyleName('layer-order');
             }
+        },
+        _loadScopedThemeStyles(preset) {
+            const variables = this.$style?.getPresetThemeCSS?.(preset, `[${this.$attrSelector}]`) || {};
+            const scopedStyle = this.$style?.loadTheme(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
+
+            this.scopedStyleEl = scopedStyle.el;
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -322,6 +345,9 @@ export default {
 
                     return acc;
                 }, {});
+        },
+        $attrSelector() {
+            return UniqueComponentId('pc');
         }
     }
 };

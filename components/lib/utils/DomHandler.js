@@ -180,7 +180,7 @@ export default {
     },
 
     findSingle(element, selector) {
-        return this.isElement(element) ? element.querySelector(selector) : null;
+        return this.isElement(element) ? (element.matches(selector) ? element : element.querySelector(selector)) : null;
     },
 
     createElement(type, attributes = {}, ...children) {

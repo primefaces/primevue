@@ -1,7 +1,11 @@
-var lastId = 0;
+const lastIds = {};
 
 export default function (prefix = 'pv_id_') {
-    lastId++;
+    if (!lastIds.hasOwnProperty(prefix)) {
+        lastIds[prefix] = 0;
+    }
 
-    return `${prefix}${lastId}`;
+    lastIds[prefix]++;
+
+    return `${prefix}${lastIds[prefix]}`;
 }
