@@ -45,7 +45,7 @@ export default {
     height: 1rem;
     left: 0.25rem;
     margin-top: -0.5rem;
-    border-radius: 50%;
+    border-radius: ${dt('inputswitch.handle.border.radius')};
     transition: all ${dt('transition.duration')};
 }
 

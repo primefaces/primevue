@@ -1,4 +1,7 @@
 export default {
+    handle: {
+        borderRadius: '50%'
+    },
     colorScheme: {
         light: {
             root: {

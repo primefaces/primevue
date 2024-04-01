@@ -22,12 +22,12 @@
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import CaseStyleDoc from '@/doc/theming/styled/CaseStyleDoc.vue';
-import ReservedKeysDoc from '@/doc/theming/styled/ReservedKeysDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
 import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
 import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
+import ReservedKeysDoc from '@/doc/theming/styled/ReservedKeysDoc.vue';
 import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
-import ScopedCSSDoc from '@/doc/theming/styled/ScopedCSSDoc.vue';
+import ScopedTokensDoc from '@/doc/theming/styled/ScopedTokensDoc.vue';
 import OptionsDoc from '@/doc/theming/styled/configuration/OptionsDoc.vue';
 import ThemeDoc from '@/doc/theming/styled/configuration/ThemeDoc.vue';
 import LibrariesDoc from '@/doc/theming/styled/csslayer/LibrariesDoc.vue';
@@ -136,6 +136,11 @@ export default {
                     ]
                 },
                 {
+                    id: 'scopedtokens',
+                    label: 'Scoped Tokens',
+                    component: ScopedTokensDoc
+                },
+                {
                     id: 'utils',
                     label: 'Utils',
                     children: [
@@ -207,11 +212,6 @@ export default {
                             component: LibrariesDoc
                         }
                     ]
-                },
-                {
-                    id: 'scopedcss',
-                    label: 'Scoped CSS',
-                    component: ScopedCSSDoc
                 },
                 {
                     id: 'cssmodules',
