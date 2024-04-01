@@ -229,6 +229,8 @@ const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    'primevue/styled': 'primevue.styled',
+    'primevue/unstyled': 'primevue.unstyled',
     'primevue/base': 'primevue.base',
     'primevue/usestyle': 'primevue.usestyle',
     ...CORE_STYLE_DEPENDENCIES,
@@ -309,7 +311,7 @@ const TERSER_PLUGIN_OPTIONS = {
 const PLUGINS = [vue(), postcss(POSTCSS_PLUGIN_OPTIONS), babel(BABEL_PLUGIN_OPTIONS)];
 
 function addEntry(folder, inFile, outFile) {
-    const exports = inFile === 'PrimeVue.js' || folder === 'passthrough/tailwind' ? 'named' : 'auto';
+    const exports = inFile.startsWith('PrimeVue') || folder === 'passthrough/tailwind' ? 'named' : 'auto';
     const useCorePlugin = Object.keys(GLOBAL_COMPONENT_DEPENDENCIES).some((d) => d.replace('primevue/', '') === folder);
     const plugins = PLUGINS;
     const external = EXTERNAL_COMPONENT;
@@ -500,6 +502,8 @@ function addDirectives() {
 
 function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
+    addEntry('styled', 'PrimeVueStyled.js', 'primevuestyled');
+    addEntry('unstyled', 'PrimeVueUnstyled.js', 'primevueunstyled');
 }
 
 function addPassThrough() {

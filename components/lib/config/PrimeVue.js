@@ -1,8 +1,5 @@
 import { FilterMatchMode } from 'primevue/api';
-import Theme, { ThemeService } from 'primevue/themes';
-import PrimeOne from 'primevue/themes/primeone';
-import Aura from 'primevue/themes/primeone/aura';
-import { inject, reactive, ref, watch } from 'vue';
+import { inject, reactive } from 'vue';
 
 export const defaultOptions = {
     ripple: false,
@@ -136,21 +133,11 @@ export const defaultOptions = {
         menu: 1000,
         tooltip: 1100
     },
-    theme: {
-        base: PrimeOne,
-        preset: Aura,
-        options: {
-            prefix: 'p',
-            darkModeSelector: 'system',
-            cssLayer: false
-        }
-    },
     pt: undefined,
     ptOptions: {
         mergeSections: true,
         mergeProps: false
     },
-    unstyled: false,
     csp: {
         nonce: undefined
     }
@@ -168,37 +155,19 @@ export function usePrimeVue() {
     return PrimeVue;
 }
 
-function setupTheme(app, PrimeVue) {
-    const isChanged = ref(false);
+export function setup(app, options) {
+    const PrimeVue = {
+        config: reactive(options)
+    };
 
-    watch(
-        PrimeVue.config.theme,
-        (newValue) => {
-            if (!isChanged.value) {
-                Theme.setTheme(newValue);
-            }
+    app.config.globalProperties.$primevue = PrimeVue;
+    app.provide(PrimeVueSymbol, PrimeVue);
 
-            isChanged.value = false;
-        },
-        { immediate: true, deep: true }
-    );
-
-    ThemeService.on('theme:change', function (newTheme) {
-        isChanged.value = true;
-        app.config.globalProperties.$primevue.config.theme = newTheme;
-    });
+    return PrimeVue;
 }
 
 export default {
-    install: (app, options) => {
-        const configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
-        const PrimeVue = {
-            config: reactive(configOptions)
-        };
-
-        app.config.globalProperties.$primevue = PrimeVue;
-        app.provide(PrimeVueSymbol, PrimeVue);
-
-        setupTheme(app, PrimeVue);
+    install: () => {
+        console.error("This plugin has been removed in v4 version. Use 'PrimeVueStyled' plugin for styled mode, and 'PrimeVueUnstyled' plugin for unstyled mode.");
     }
 };

@@ -1,0 +1,6 @@
+{
+    "main": "./primevuestyled.cjs.js",
+    "module": "./primevuestyled.esm.js",
+    "unpkg": "./primevuestyled.min.js",
+    "types": "./PrimeVueStyled.d.ts"
+}

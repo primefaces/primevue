@@ -103,7 +103,6 @@ export interface PrimeVueConfiguration {
     zIndex?: PrimeVueZIndexOptions;
     pt?: PassThrough<PrimeVuePTOptions>;
     ptOptions?: PassThroughOptions;
-    unstyled?: boolean;
     csp?: PrimeVueCSPOptions;
 }
 
