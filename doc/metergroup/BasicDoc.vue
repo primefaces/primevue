@@ -12,7 +12,7 @@
 export default {
     data() {
         return {
-            value: [{ label: 'Space used', value: 15 }],
+            value: [{ label: 'Space used', value: 15, color: 'var(--p-primary-color)' }],
             code: {
                 basic: `
 <MeterGroup :value="value" />
@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            value: [{ label: 'Space used', value: 15 }],
+            value: [{ label: 'Space used', value: 15, color: 'var(--p-primary-color)' }],
         };
     }
 };
@@ -44,7 +44,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const value = ref([{ label: 'Space used', value: 15 }]);
+const value = ref([{ label: 'Space used', value: 15, color: 'var(--p-primary-color)' }]);
 <\/script>
 `
             }

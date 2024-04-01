@@ -7,7 +7,7 @@ export default {
 
 .p-metergroup-meters {
     display: flex;
-    background: ${dt('metergroup.meters.background.color')};
+    background: ${dt('metergroup.meters.background')};
     border-radius: ${dt('rounded.base')};
 }
 
