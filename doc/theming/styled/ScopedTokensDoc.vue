@@ -49,7 +49,7 @@ export default {
 <template>
     <div>
         <InputSwitch v-model="checked1" />
-        <InputSwitch v-model="checked2" :dt"amberSwitch" />
+        <InputSwitch v-model="checked2" :dt="amberSwitch" />
     </div>
 </template>
 
