@@ -17,13 +17,19 @@ function registerItems(items = [], options = {}, params) {
     });
 }
 
-function registerConfig(resolvePath) {
+function registerConfig(resolvePath, unstyled = false) {
     return [
-        {
-            name: 'PrimeVue',
-            as: 'PrimeVue',
-            from: resolvePath({ name: 'PrimeVue', as: 'PrimeVue', from: `primevue/config`, type: 'config' })
-        }
+        unstyled
+            ? {
+                  name: 'PrimeVueUnstyled',
+                  as: 'PrimeVueUnstyled',
+                  from: resolvePath({ name: 'PrimeVueUnstyled', as: 'PrimeVueUnstyled', from: `primevue/unstyled`, type: 'config' })
+              }
+            : {
+                  name: 'PrimeVueStyled',
+                  as: 'PrimeVueStyled',
+                  from: resolvePath({ name: 'PrimeVueStyled', as: 'PrimeVueStyled', from: `primevue/styled`, type: 'config' })
+              }
     ];
 }
 
@@ -94,7 +100,7 @@ function registerServices(resolvePath, registered) {
     }));
 }
 
-function registerStyles(resolvePath, registered, options) {
+function registerStyles(resolvePath, registered, moduleOptions) {
     const styles = [
         {
             name: 'BaseStyle',
@@ -103,7 +109,7 @@ function registerStyles(resolvePath, registered, options) {
         }
     ];
 
-    if (!options?.unstyled) {
+    if (!moduleOptions.unstyled) {
         if (Utils.object.isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',
@@ -127,14 +133,14 @@ function registerStyles(resolvePath, registered, options) {
     return styles;
 }
 
-function registerInjectStylesAsString(options) {
-    return [Utils.object.createStyleAsString(options.layerOrder ? `@layer ${options.layerOrder}` : undefined, { name: 'layer-order' })];
+function registerInjectStylesAsString(moduleOptions) {
+    return [Utils.object.createStyleAsString(moduleOptions.layerOrder ? `@layer ${moduleOptions.layerOrder}` : undefined, { name: 'layer-order' })];
 }
 
 export function register(moduleOptions) {
     const resolvePath = (resolveOptions) => Utils.object.getPath(moduleOptions.resolvePath, resolveOptions);
 
-    const config = registerConfig(resolvePath);
+    const config = registerConfig(resolvePath, moduleOptions.unstyled);
     const components = registerComponents(resolvePath, moduleOptions.components);
     const directives = registerDirectives(resolvePath, moduleOptions.directives);
     const composables = registerComposables(resolvePath, moduleOptions.composables);
@@ -144,7 +150,7 @@ export function register(moduleOptions) {
         composables
     };
     const services = registerServices(resolvePath, registered);
-    const styles = registerStyles(resolvePath, registered, moduleOptions.options);
+    const styles = registerStyles(resolvePath, registered, moduleOptions);
     const injectStylesAsString = registerInjectStylesAsString(moduleOptions);
 
     return {
