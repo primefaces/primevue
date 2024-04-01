@@ -25,6 +25,7 @@ export default defineNuxtConfig({
         options: {
             ripple: true
         },
+        unstyled: false,
         layerOrder: 'primevue',
         importTheme: { from: '@/themes/aura.js' },
         resolvePath: function ({ as, from, type }) {

@@ -133,6 +133,8 @@ export const defaultOptions = {
         menu: 1000,
         tooltip: 1100
     },
+    theme: undefined,
+    unstyled: false,
     pt: undefined,
     ptOptions: {
         mergeSections: true,
@@ -167,7 +169,9 @@ export function setup(app, options) {
 }
 
 export default {
-    install: () => {
-        console.error("This plugin has been removed in v4 version. Use 'PrimeVueStyled' plugin for styled mode, and 'PrimeVueUnstyled' plugin for unstyled mode.");
+    install: (app, options) => {
+        const configOptions = { ...defaultOptions, ...options };
+
+        setup(app, configOptions);
     }
 };

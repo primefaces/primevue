@@ -101,6 +101,8 @@ export interface PrimeVueConfiguration {
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
+    theme?: any;
+    unstyled?: boolean;
     pt?: PassThrough<PrimeVuePTOptions>;
     ptOptions?: PassThroughOptions;
     csp?: PrimeVueCSPOptions;

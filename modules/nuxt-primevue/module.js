@@ -15,7 +15,7 @@ export default defineNuxtModule({
         layerOrder: 'tailwind-base, primevue, tailwind-utilities',
         importPT: undefined,
         importTheme: undefined,
-        unstyled: false,
+        unstyled: undefined,
         options: {},
         components: {
             prefix: '',
@@ -41,7 +41,7 @@ export default defineNuxtModule({
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
         const { importPT, importTheme, options, unstyled } = moduleOptions;
-        const hasTheme = importTheme && !unstyled;
+        const hasTheme = importTheme && unstyled !== true && !options.unstyled;
 
         nuxt.options.runtimeConfig.public.primevue = {
             ...moduleOptions,
@@ -103,7 +103,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
   const pt = ${importPT ? `{ pt: ${importPT.as} }` : `{}`};
   const theme = ${hasTheme ? `{ theme: ${importTheme.as} }` : `{}`};
 
-  usePrimeVue && vueApp.use(${unstyled ? 'PrimeVueUnstyled' : 'PrimeVueStyled'}, { ...options, ...pt, ...theme });
+  usePrimeVue && vueApp.use(${unstyled === true ? 'PrimeVueUnstyled' : unstyled === false ? 'PrimeVueStyled' : 'PrimeVue'}, { ...options, ...pt, ...theme });
   ${registered.services.map((service) => `vueApp.use(${service.as});`).join('\n')}
   ${registered.directives.map((directive) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
 });

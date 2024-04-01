@@ -17,20 +17,26 @@ function registerItems(items = [], options = {}, params) {
     });
 }
 
-function registerConfig(resolvePath, unstyled = false) {
-    return [
-        unstyled
-            ? {
-                  name: 'PrimeVueUnstyled',
-                  as: 'PrimeVueUnstyled',
-                  from: resolvePath({ name: 'PrimeVueUnstyled', as: 'PrimeVueUnstyled', from: `primevue/unstyled`, type: 'config' })
-              }
-            : {
-                  name: 'PrimeVueStyled',
-                  as: 'PrimeVueStyled',
-                  from: resolvePath({ name: 'PrimeVueStyled', as: 'PrimeVueStyled', from: `primevue/styled`, type: 'config' })
-              }
-    ];
+function registerConfig(resolvePath, moduleOptions) {
+    const configs = [];
+
+    if (moduleOptions.unstyled === true) {
+        configs.push({
+            name: 'PrimeVueUnstyled',
+            as: 'PrimeVueUnstyled',
+            from: resolvePath({ name: 'PrimeVueUnstyled', as: 'PrimeVueUnstyled', from: `primevue/unstyled`, type: 'config' })
+        });
+    } else if (moduleOptions.unstyled === false) {
+        configs.push({
+            name: 'PrimeVueStyled',
+            as: 'PrimeVueStyled',
+            from: resolvePath({ name: 'PrimeVueStyled', as: 'PrimeVueStyled', from: `primevue/styled`, type: 'config' })
+        });
+    } else {
+        configs.push({ name: 'PrimeVue', as: 'PrimeVue', from: resolvePath({ name: 'PrimeVue', as: 'PrimeVue', from: `primevue/config`, type: 'config' }) });
+    }
+
+    return configs;
 }
 
 function registerComponents(resolvePath, options = {}) {
@@ -140,7 +146,7 @@ function registerInjectStylesAsString(moduleOptions) {
 export function register(moduleOptions) {
     const resolvePath = (resolveOptions) => Utils.object.getPath(moduleOptions.resolvePath, resolveOptions);
 
-    const config = registerConfig(resolvePath, moduleOptions.unstyled);
+    const config = registerConfig(resolvePath, moduleOptions);
     const components = registerComponents(resolvePath, moduleOptions.components);
     const directives = registerDirectives(resolvePath, moduleOptions.directives);
     const composables = registerComposables(resolvePath, moduleOptions.composables);
