@@ -122,11 +122,11 @@ const setChartData = () => {
         datasets: [
             {
                 label: 'My First dataset',
-                borderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
-                pointBackgroundColor: documentStyle.getPropertyValue('--p-bluegray-400'),
-                pointBorderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
+                borderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                pointBackgroundColor: documentStyle.getPropertyValue('--p-gray-400'),
+                pointBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                 pointHoverBackgroundColor: textColor,
-                pointHoverBorderColor: documentStyle.getPropertyValue('--p-bluegray-400'),
+                pointHoverBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
                 data: [65, 59, 90, 81, 56, 55, 40]
             },
             {

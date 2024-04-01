@@ -17,10 +17,10 @@
             <div style="min-width: 1200px">
                 <div class="flex gap-3 mb-3">
                     <div class="flex-shrink-0 w-14rem"></div>
-                    <div class="flex-1 bg-bluegray-500 text-white font-bold text-center p-3 text-xl border-round">Q1</div>
-                    <div class="flex-1 bg-bluegray-500 text-white font-bold text-center p-3 text-xl border-round">Q2</div>
-                    <div class="flex-1 bg-bluegray-500 text-white font-bold text-center p-3 text-xl border-round">Q3</div>
-                    <div class="flex-1 bg-bluegray-500 text-white font-bold text-center p-3 text-xl border-round">Q4</div>
+                    <div class="flex-1 bg-gray-500 text-white font-bold text-center p-3 text-xl border-round">Q1</div>
+                    <div class="flex-1 bg-gray-500 text-white font-bold text-center p-3 text-xl border-round">Q2</div>
+                    <div class="flex-1 bg-gray-500 text-white font-bold text-center p-3 text-xl border-round">Q3</div>
+                    <div class="flex-1 bg-gray-500 text-white font-bold text-center p-3 text-xl border-round">Q4</div>
                 </div>
                 <div class="flex flex-column gap-3">
                     <div class="flex gap-3 border-bottom-1 surface-border pb-3">
