@@ -22,6 +22,7 @@
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import CaseStyleDoc from '@/doc/theming/styled/CaseStyleDoc.vue';
+import ReservedKeysDoc from '@/doc/theming/styled/ReservedKeysDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
 import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
 import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
@@ -82,6 +83,11 @@ export default {
                     id: 'casestyle',
                     label: 'Case Style',
                     component: CaseStyleDoc
+                },
+                {
+                    id: 'reserved',
+                    label: 'Reserved Keys',
+                    component: ReservedKeysDoc
                 },
                 {
                     id: 'customization',
