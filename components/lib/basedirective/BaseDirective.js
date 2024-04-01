@@ -84,6 +84,8 @@ const BaseDirective = {
         ThemeService.on('theme:change', () => BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce }));
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
+        if (instance?.isUnstyled()) return;
+
         // common
         if (!Theme.isStyleNameLoaded('common')) {
             const { primitive, semantic, global } = instance.$style?.getCommonThemeCSS?.() || {};
@@ -181,6 +183,7 @@ const BaseDirective = {
                 handleHook('beforeUpdate', el, binding, vnode, prevVnode);
             },
             updated: (el, binding, vnode, prevVnode) => {
+                BaseDirective._loadStyles(el, binding, vnode);
                 handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {

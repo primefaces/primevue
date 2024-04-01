@@ -33,6 +33,9 @@ export default {
                 if (!newValue) {
                     BaseComponentStyle.loadStyle(this.$styleOptions);
                     this.$options.style && this.$style.loadStyle(this.$styleOptions);
+                } else {
+                    // load theme
+                    this._loadThemeStyles();
                 }
             }
         }
@@ -108,6 +111,8 @@ export default {
             ObjectUtils.isNotEmpty(globalCSS) && BaseStyle.loadStyle(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
+            if (this.isUnstyled) return;
+
             // common
             if (!Theme.isStyleNameLoaded('common')) {
                 const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.() || {};
