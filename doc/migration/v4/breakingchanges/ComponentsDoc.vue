@@ -6,8 +6,8 @@
         <li><i>DataViewLayoutOptions</i> is removed, use SelectButton instead as in the demo.</li>
         <li><i>TriStateCheckbox</i> is removed, use Checkbox with the new <i>indeterminate</i> state as a replacement.</li>
         <li>
-            Enhancements to internal structure of some components, see the tickets <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">#5426</a> and
-            <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">#5437</a> for more information.
+            Enhancements to internal structure of some components, see the tickets <a href="https://github.com/primefaces/primevue/issues/5426" target="_blank" rel="noopener noreferrer" class="doc-link">#5426</a> and
+            <a href="https://github.com/primefaces/primevue/issues/5437" target="_blank" rel="noopener noreferrer" class="doc-link">#5437</a> for more information.
         </li>
     </ul>
 </template>
