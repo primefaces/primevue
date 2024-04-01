@@ -27,8 +27,8 @@ export default {
                             borderRadius: '4px'
                         },
                         handle: {
-                            checkedBackground: '{amber.900}',
-                            checkedHoverBackground: '{amber.950}'
+                            checkedBackground: '{amber.50}',
+                            checkedHoverBackground: '{amber.100}'
                         }
                     },
                     dark: {
@@ -38,8 +38,8 @@ export default {
                             borderRadius: '4px'
                         },
                         handle: {
-                            checkedBackground: '{amber.50}',
-                            checkedHoverBackground: '{amber.100}'
+                            checkedBackground: '{amber.900}',
+                            checkedHoverBackground: '{amber.800}'
                         }
                     }
                 }
@@ -70,8 +70,8 @@ const amberSwitch = ref({
                 borderRadius: '4px'
             },
             handle: {
-                checkedBackground: '{amber.900}',
-                checkedHoverBackground: '{amber.950}'
+                checkedBackground: '{amber.50}',
+                checkedHoverBackground: '{amber.100}'
             }
         },
         dark: {
@@ -81,8 +81,8 @@ const amberSwitch = ref({
                 borderRadius: '4px'
             },
             handle: {
-                checkedBackground: '{amber.50}',
-                checkedHoverBackground: '{amber.100}'
+                checkedBackground: '{amber.900}',
+                checkedHoverBackground: '{amber.800}'
             }
         }
     }
