@@ -2,14 +2,6 @@
     <section class="landing-hero py-8 px-5 lg:px-8">
         <div class="flex flex-wrap">
             <div class="w-full xl:w-6 flex flex-column justify-content-center lg:pr-8 align-items-center xl:align-items-stretch">
-                <a
-                    href="https://tailwind.primevue.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="border-radius: 50px"
-                    class="bg-gray-900 text-white border-1 border-gray-900 py-1 px-3 xl:align-self-start font-semibold transition-colors transition-duration-300 text-base sm:text-lg"
-                    >🎉 Introducing the Tailwind Presets <i class="pi pi-arrow-right text-sm"></i
-                ></a>
                 <h1 class="text-6xl font-bold text-center xl:text-left">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
