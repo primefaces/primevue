@@ -2,12 +2,14 @@
     <DocSectionText v-bind="$attrs">
         <p>Currently Aura is the only available preset and more will follow in the upcoming updates.</p>
     </DocSectionText>
-    <TabView>
-        <TabPanel header="Aura"><DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz /></TabPanel>
-        <TabPanel header="Lara">Under development.</TabPanel>
-        <TabPanel header="Nora">Under development.</TabPanel>
-        <TabPanel header="Material">Under development.</TabPanel>
-    </TabView>
+    <div class="card">
+        <TabView>
+            <TabPanel header="Aura"><DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz /></TabPanel>
+            <TabPanel header="Lara">Under development.</TabPanel>
+            <TabPanel header="Nora">Under development.</TabPanel>
+            <TabPanel header="Material">Under development.</TabPanel>
+        </TabView>
+    </div>
 </template>
 
 <script>

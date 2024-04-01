@@ -21,6 +21,7 @@
 <script>
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
+import CaseStyleDoc from '@/doc/theming/styled/CaseStyleDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
 import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
 import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
@@ -74,6 +75,11 @@ export default {
                     id: 'presets',
                     label: 'Presets',
                     component: PresetsDoc
+                },
+                {
+                    id: 'casestyle',
+                    label: 'Case Style',
+                    component: CaseStyleDoc
                 },
                 {
                     id: 'customization',

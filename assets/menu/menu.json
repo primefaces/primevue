@@ -19,6 +19,11 @@
             ]
         },
         {
+            "name": "Migration to V4",
+            "icon": "pi pi-sync",
+            "to": "/migration/v4"
+        },
+        {
             "name": "Installation",
             "icon": "pi pi-cloud-download",
             "children": [
