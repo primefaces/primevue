@@ -5,7 +5,7 @@
             <i>base</i> and <i>preset</i>. The base is the style rules with CSS variables as placeholders whereas the preset is a set of design tokens to feed a base by mapping the tokens to CSS variables. A base may be configured with different
             presets, currently Aura is the only preset and in upcoming version more presets will be available. Similarly, PrimeOne is the default base and a new base inspired by Material Design is coming up with a near future update.
         </p>
-        <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/architecture.jpg" class="w-full mb-3" />
+        <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/primevue-v4-styled-architecture.png" class="w-full mb-3" />
         <p>The core of the styled mode architecture is based on a concept named <i>design token</i>, a preset defines the token configuration in 3 tiers; <i>primitive</i>, <i>semantic</i> and <i>component</i>.</p>
         <h3>Primitive Tokens</h3>
         <p>
