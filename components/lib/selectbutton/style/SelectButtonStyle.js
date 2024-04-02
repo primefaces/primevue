@@ -6,15 +6,7 @@ const classes = {
         {
             'p-invalid': props.invalid
         }
-    ],
-    button: ({ instance, option }) => [
-        'p-selectbutton-button',
-        {
-            'p-highlight': instance.isSelected(option),
-            'p-disabled': instance.isOptionDisabled(option)
-        }
-    ],
-    label: 'p-selectbutton-label'
+    ]
 };
 
 export default BaseStyle.extend({

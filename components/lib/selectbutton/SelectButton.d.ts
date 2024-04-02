@@ -59,14 +59,6 @@ export interface SelectButtonPassThroughOptions {
      */
     root?: SelectButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the button's DOM element.
-     */
-    button?: SelectButtonPassThroughOptionType;
-    /**
-     * Used to pass attributes to the label's DOM element.
-     */
-    label?: SelectButtonPassThroughOptionType;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
