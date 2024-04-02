@@ -62,7 +62,9 @@ export default {
 
 .p-togglebutton:disabled {
     opacity: 1;
+    cursor: default;
     background: ${dt('togglebutton.disabled.background')};
+    border-color: ${dt('togglebutton.disabled.border.color')};
     color: ${dt('togglebutton.disabled.color')};
 }
 

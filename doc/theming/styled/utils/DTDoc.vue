@@ -1,5 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
+        <div class="notification mb-3">This feature is not yet available in beta.1 and scheduled for beta.2.</div>
         <p>The <i>$dt</i> function returns the information about a token like the full path and value. This would be useful if you need to access tokens programmatically.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />

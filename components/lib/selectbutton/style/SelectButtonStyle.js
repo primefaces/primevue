@@ -4,7 +4,6 @@ const classes = {
     root: ({ props }) => [
         'p-selectbutton p-component',
         {
-            'p-disabled': props.disabled,
             'p-invalid': props.invalid
         }
     ],
