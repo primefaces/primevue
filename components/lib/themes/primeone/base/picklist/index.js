@@ -15,5 +15,9 @@ export default {
 .p-picklist-list-wrapper {
     flex: 1 1 50%;
 }
+
+.p-picklist .p-listbox {
+    height: 100%;
+}
 `
 };

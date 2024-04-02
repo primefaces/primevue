@@ -3,7 +3,7 @@
         <p>PickList requires a multidimensional array as its value bound with the <i>v-model </i>directive and a template for its content that gets the <i>item</i> instance and the index via slotProps.</p>
     </DocSectionText>
     <div class="card">
-        <PickList v-model="products" dataKey="id" listStyle="height:342px" breakpoint="1400px">
+        <PickList v-model="products" dataKey="id" breakpoint="1400px">
             <template #item="{ item }">
                 {{ item.name }}
             </template>
@@ -21,7 +21,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<PickList v-model="products" dataKey="id" listStyle="height:342px" breakpoint="1400px">
+<PickList v-model="products" dataKey="id" breakpoint="1400px">
     <template #item="{ item }">
         {{ item.name }}
     </template>
@@ -30,7 +30,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <PickList v-model="products" dataKey="id" listStyle="height:342px" breakpoint="1400px">
+        <PickList v-model="products" dataKey="id" breakpoint="1400px">
             <template #item="{ item }">
                 {{ item.name }}
             </template>
@@ -55,7 +55,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <PickList v-model="products" dataKey="id" listStyle="height:342px" breakpoint="1400px">
+        <PickList v-model="products" dataKey="id" breakpoint="1400px">
             <template #item="{ item }">
                 {{ item.name }}
             </template>
