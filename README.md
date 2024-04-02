@@ -77,63 +77,7 @@ Component prop names are described as camel case throughout the documentation ho
 
 ## Nuxt Integration
 
-The [nuxt-primevue](https://www.npmjs.com/package/nuxt-primevue) package is the official module by PrimeTek.
-
-```
-# Using npm
-npm install --save-dev nuxt-primevue
-
-# Using yarn
-yarn add --dev nuxt-primevue
-
-# Using pnpm
-pnpm add -D nuxt-primevue
-```
-
-The module is enabled by adding `nuxt-primevue` to the modules option. Configuration values are defined with the `primevue` property.
-
-```javascript
-export default defineNuxtConfig({
-    modules: ['nuxt-primevue'],
-    primevue: {
-        /* Options */
-    }
-});
-```
-
-Whether to install the PrimeVue plugin, defaults to true. Disable this option if you prefer to configure PrimeVue manually e.g. with a Nuxt plugin.
-
-```javascript
-primevue: {
-    usePrimeVue: true;
-}
-```
-
-The names of the components, directives and composables to import and register are provided using the include property. When the value is ignored or set using the \* alias, all of the components, directives and composables are registered respectively.
-
-```javascript
-primevue: {
-    components: {
-        include: ['Button', 'DataTable']
-    },
-    directives: {
-        include: ['Ripple', 'Tooltip']
-    },
-    composables: {
-        include: ['useStyle']
-    }
-}
-```
-
-In styled mode, the theme can be defined at Nuxt configuration with the css property. Note that this only applies to styled mode, in unstyled mode a theme file is not required as styling is done externally.
-
-```javascript
-export default defineNuxtConfig({
-    css: ['primevue/resources/themes/aura-dark-green/theme.css']
-});
-```
-
-For detailed [information](https://primevue.org/nuxt)
+The [nuxt-primevue](https://www.npmjs.com/package/nuxt-primevue) package is the official module by PrimeTek. See the nuxt documentation for details. [information](https://primevue.org/nuxt)
 
 ## Example
 
