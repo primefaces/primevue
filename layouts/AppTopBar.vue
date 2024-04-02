@@ -145,13 +145,18 @@ export default {
         return {
             versions: [
                 {
-                    name: 'v3',
+                    name: 'v4',
                     version: pkg.version,
+                    url: 'https://v4.primevue.org'
+                },
+                {
+                    name: 'v3',
+                    version: '@latest',
                     url: 'https://www.primevue.org'
                 },
                 {
                     name: 'v2',
-                    version: '2.10.4',
+                    version: '@latest',
                     url: 'https://www.primefaces.org/primevue-v2'
                 }
             ]
