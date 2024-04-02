@@ -3,96 +3,95 @@
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div :class="[cx('content'), contentClass]" v-bind="ptm('content')">
-            <template v-if="!empty">
-                <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                    <button
-                        v-if="showNavigators"
-                        v-ripple
-                        type="button"
-                        :class="cx('previousButton')"
-                        :disabled="backwardIsDisabled"
-                        :aria-label="ariaPrevButtonLabel"
-                        @click="navBackward"
-                        v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
-                        data-pc-group-section="navigator"
-                    >
-                        <slot name="previousicon">
-                            <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
-                        </slot>
-                    </button>
+        <div v-if="!empty" :class="[cx('content'), contentClass]" v-bind="ptm('content')">
+            <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('previousButton')"
+                    :disabled="backwardIsDisabled"
+                    :aria-label="ariaPrevButtonLabel"
+                    @click="navBackward"
+                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
+                    data-pc-group-section="navigator"
+                >
+                    <slot name="previousicon">
+                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
+                    </slot>
+                </button>
 
-                    <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
-                        <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
-                            <template v-if="isCircular()">
-                                <div
-                                    v-for="(item, index) of value.slice(-1 * d_numVisible)"
-                                    :key="index + '_scloned'"
-                                    :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })"
-                                    v-bind="ptm('itemCloned')"
-                                    :data-p-carousel-item-active="totalShiftedItems * -1 === value.length + d_numVisible"
-                                    :data-p-carousel-item-start="index === 0"
-                                    :data-p-carousel-item-end="value.slice(-1 * d_numVisible).length - 1 === index"
-                                >
-                                    <slot name="item" :data="item" :index="index"></slot>
-                                </div>
-                            </template>
+                <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
+                    <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
+                        <template v-if="isCircular()">
                             <div
-                                v-for="(item, index) of value"
-                                :key="index"
-                                :class="cx('item', { index })"
-                                role="group"
-                                :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
-                                :aria-label="ariaSlideNumber(index)"
-                                :aria-roledescription="ariaSlideLabel"
-                                v-bind="ptm('item')"
-                                :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
-                                :data-p-carousel-item-start="firstIndex() === index"
-                                :data-p-carousel-item-end="lastIndex() === index"
+                                v-for="(item, index) of value.slice(-1 * d_numVisible)"
+                                :key="index + '_scloned'"
+                                :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })"
+                                v-bind="ptm('itemCloned')"
+                                :data-p-carousel-item-active="totalShiftedItems * -1 === value.length + d_numVisible"
+                                :data-p-carousel-item-start="index === 0"
+                                :data-p-carousel-item-end="value.slice(-1 * d_numVisible).length - 1 === index"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
-                            <template v-if="isCircular()">
-                                <div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })" v-bind="ptm('itemCloned')">
-                                    <slot name="item" :data="item" :index="index"></slot>
-                                </div>
-                            </template>
+                        </template>
+                        <div
+                            v-for="(item, index) of value"
+                            :key="index"
+                            :class="cx('item', { index })"
+                            role="group"
+                            :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
+                            :aria-label="ariaSlideNumber(index)"
+                            :aria-roledescription="ariaSlideLabel"
+                            v-bind="ptm('item')"
+                            :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
+                            :data-p-carousel-item-start="firstIndex() === index"
+                            :data-p-carousel-item-end="lastIndex() === index"
+                        >
+                            <slot name="item" :data="item" :index="index"></slot>
                         </div>
+                        <template v-if="isCircular()">
+                            <div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })" v-bind="ptm('itemCloned')">
+                                <slot name="item" :data="item" :index="index"></slot>
+                            </div>
+                        </template>
                     </div>
-
-                    <button
-                        v-if="showNavigators"
-                        v-ripple
-                        type="button"
-                        :class="cx('nextButton')"
-                        :disabled="forwardIsDisabled"
-                        :aria-label="ariaNextButtonLabel"
-                        @click="navForward"
-                        v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
-                        data-pc-group-section="navigator"
-                    >
-                        <slot name="nexticon">
-                            <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
-                        </slot>
-                    </button>
                 </div>
-                <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                    <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
-                        <button
-                            :class="cx('indicatorButton')"
-                            type="button"
-                            :tabindex="d_page === i ? '0' : '-1'"
-                            :aria-label="ariaPageLabel(i + 1)"
-                            :aria-current="d_page === i ? 'page' : undefined"
-                            @click="onIndicatorClick($event, i)"
-                            v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
-                        />
-                    </li>
-                </ul>
-            </template>
-            <slot name="empty" v-else>
-            </slot>
+
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('nextButton')"
+                    :disabled="forwardIsDisabled"
+                    :aria-label="ariaNextButtonLabel"
+                    @click="navForward"
+                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                    data-pc-group-section="navigator"
+                >
+                    <slot name="nexticon">
+                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
+                    </slot>
+                </button>
+            </div>
+            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
+                    <button
+                        :class="cx('indicatorButton')"
+                        type="button"
+                        :tabindex="d_page === i ? '0' : '-1'"
+                        :aria-label="ariaPageLabel(i + 1)"
+                        :aria-current="d_page === i ? 'page' : undefined"
+                        @click="onIndicatorClick($event, i)"
+                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
+                    />
+                </li>
+            </ul>
         </div>
+        <slot v-else name="empty">
+            {{ emptyMessageText }}
+        </slot>
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
@@ -190,76 +189,72 @@ export default {
         }
     },
     updated() {
-        const isCircular = this.isCircular();
-        let stateChanged = false;
-        let totalShiftedItems = this.totalShiftedItems;
+        if (!this.empty) {
+            const isCircular = this.isCircular();
+            let stateChanged = false;
+            let totalShiftedItems = this.totalShiftedItems;
 
-        if (this.autoplayInterval) {
-            this.stopAutoplay();
-        }
-
-        if (this.d_oldNumScroll !== this.d_numScroll || this.d_oldNumVisible !== this.d_numVisible || this.d_oldValue.length !== this.value.length) {
-            this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
-
-            let page = this.d_page;
-
-            if (this.totalIndicators !== 0 && page >= this.totalIndicators) {
-                page = this.totalIndicators - 1;
-
-                this.$emit('update:page', page);
-                this.d_page = page;
-
-                stateChanged = true;
+            if (this.autoplayInterval) {
+                this.stopAutoplay();
             }
 
-            totalShiftedItems = page * this.d_numScroll * -1;
+            if (this.d_oldNumScroll !== this.d_numScroll || this.d_oldNumVisible !== this.d_numVisible || this.d_oldValue.length !== this.value.length) {
+                this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
 
-            if (isCircular) {
-                totalShiftedItems -= this.d_numVisible;
-            }
+                let page = this.d_page;
 
-            if (page === this.totalIndicators - 1 && this.remainingItems > 0) {
-                totalShiftedItems += -1 * this.remainingItems + this.d_numScroll;
-                this.isRemainingItemsAdded = true;
-            } else {
-                this.isRemainingItemsAdded = false;
-            }
+                if (this.totalIndicators !== 0 && page >= this.totalIndicators) {
+                    page = this.totalIndicators - 1;
+                    this.$emit('update:page', page);
+                    this.d_page = page;
+                    stateChanged = true;
+                }
 
-            if (totalShiftedItems !== this.totalShiftedItems) {
-                this.totalShiftedItems = totalShiftedItems;
+                totalShiftedItems = page * this.d_numScroll * -1;
 
-                stateChanged = true;
-            }
+                if (isCircular) {
+                    totalShiftedItems -= this.d_numVisible;
+                }
 
-            this.d_oldNumScroll = this.d_numScroll;
-            this.d_oldNumVisible = this.d_numVisible;
-            this.d_oldValue = this.value;
+                if (page === this.totalIndicators - 1 && this.remainingItems > 0) {
+                    totalShiftedItems += -1 * this.remainingItems + this.d_numScroll;
+                    this.isRemainingItemsAdded = true;
+                } else {
+                    this.isRemainingItemsAdded = false;
+                }
 
-            if(!this.empty) {
+                if (totalShiftedItems !== this.totalShiftedItems) {
+                    this.totalShiftedItems = totalShiftedItems;
+                    stateChanged = true;
+                }
+
+                this.d_oldNumScroll = this.d_numScroll;
+                this.d_oldNumVisible = this.d_numVisible;
+                this.d_oldValue = this.value;
                 this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
             }
-        }
 
-        if (isCircular) {
-            if (this.d_page === 0) {
-                totalShiftedItems = -1 * this.d_numVisible;
-            } else if (totalShiftedItems === 0) {
-                totalShiftedItems = -1 * this.value.length;
+            if (isCircular) {
+                if (this.d_page === 0) {
+                    totalShiftedItems = -1 * this.d_numVisible;
+                } else if (totalShiftedItems === 0) {
+                    totalShiftedItems = -1 * this.value.length;
 
-                if (this.remainingItems > 0) {
-                    this.isRemainingItemsAdded = true;
+                    if (this.remainingItems > 0) {
+                        this.isRemainingItemsAdded = true;
+                    }
+                }
+
+                if (totalShiftedItems !== this.totalShiftedItems) {
+                    this.totalShiftedItems = totalShiftedItems;
+
+                    stateChanged = true;
                 }
             }
 
-            if (totalShiftedItems !== this.totalShiftedItems) {
-                this.totalShiftedItems = totalShiftedItems;
-
-                stateChanged = true;
+            if (!stateChanged && this.isAutoplay()) {
+                this.startAutoplay();
             }
-        }
-
-        if (!stateChanged && this.isAutoplay()) {
-            this.startAutoplay();
         }
     },
     beforeUnmount() {
@@ -610,9 +605,6 @@ export default {
         }
     },
     computed: {
-        empty() {
-            return !this.value || this.value.length === 0;
-        },
         totalIndicators() {
             return this.value ? Math.max(Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1, 0) : 0;
         },
@@ -633,6 +625,12 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
+        },
+        empty() {
+            return !this.value || this.value.length === 0;
+        },
+        emptyMessageText() {
+            return this.$primevue.config?.locale?.emptyMessage || '';
         }
     },
     components: {
