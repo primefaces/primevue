@@ -54,7 +54,7 @@ if (project) {
             description
         };
 
-        const module_component_group = module.groups.find((g) => g.title === 'Component');
+        const module_component_group = module.groups?.find((g) => g.title === 'Component');
         let methods = {
             description: staticMessages['methods'],
             values: []
@@ -121,9 +121,9 @@ if (project) {
                                     optional: prop.flags.isOptional,
                                     readonly: prop.flags.isReadonly,
                                     type: prop.type.toString(),
-                                    default: prop.comment && prop.comment.getTag('@defaultValue') ? parseText(prop.comment.getTag('@defaultValue').content[0].text) : '', // TODO: Check
+                                    default: prop.comment && prop.comment.getTag('@defaultValue') ? parseText(prop.comment.getTag('@defaultValue').content[0]?.text || '') : '', // TODO: Check
                                     description: prop.comment && prop.comment.summary.map((s) => parseText(s.text || '')).join(' '),
-                                    deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0].text) : undefined
+                                    deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0]?.text) : undefined
                                 });
                             }
                         });
@@ -156,7 +156,7 @@ if (project) {
                 };
             });
 
-        const module_model_group = module.groups.find((g) => g.title === 'Model');
+        const module_model_group = module.groups?.find((g) => g.title === 'Model');
 
         module_model_group &&
             module_model_group.children.forEach((model) => {
@@ -182,7 +182,7 @@ if (project) {
                             optional: prop.flags.isOptional,
                             readonly: prop.flags.isReadonly,
                             type: prop.type.toString(),
-                            default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                            default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0]?.text || '' : '', // TODO: Check
                             description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ')
                         });
                     });
@@ -229,7 +229,7 @@ if (project) {
                             }),
                             returnType: signature.type.toString(),
                             description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' '),
-                            deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0].text) : undefined
+                            deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0]?.text) : undefined
                         });
                     });
 
@@ -240,7 +240,7 @@ if (project) {
                 };
             });
 
-        const module_functions_group = module.groups.find((g) => g.title === 'Functions');
+        const module_functions_group = module.groups?.find((g) => g.title === 'Functions');
 
         module_functions_group &&
             module_functions_group.children.forEach((method) => {
@@ -270,12 +270,12 @@ if (project) {
                 }
             });
 
-        const module_events_group = module.groups.find((g) => g.title === 'Events');
+        const module_events_group = module.groups?.find((g) => g.title === 'Events');
 
         module_events_group &&
             module_events_group.children.forEach((event) => {
                 const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
-                const component_prop = event.comment && event.comment.getTag('@see') ? event.comment.getTag('@see').content[0].text : ''; // TODO: Check
+                const component_prop = event.comment && event.comment.getTag('@see') ? event.comment.getTag('@see').content[0]?.text || '' : ''; // TODO: Check
                 const event_extendedBy = event.extendedBy && event.extendedBy.toString();
 
                 !doc[name]['events'] &&
@@ -307,7 +307,7 @@ if (project) {
                 };
             });
 
-        const module_interfaces_group = module.groups.find((g) => g.title === 'Interfaces');
+        const module_interfaces_group = module.groups?.find((g) => g.title === 'Interfaces');
 
         module_interfaces_group &&
             module_interfaces_group.children.forEach((event) => {
@@ -351,7 +351,7 @@ if (project) {
                                 optional: prop.flags.isOptional,
                                 readonly: prop.flags.isReadonly,
                                 type: prop.type.toString(),
-                                default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                                default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0]?.text || '' : '', // TODO: Check
                                 description:
                                     prop.comment &&
                                     prop.comment.summary
@@ -363,7 +363,7 @@ if (project) {
                                             return s.text || '';
                                         })
                                         .join(' '),
-                                deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0].text) : undefined
+                                deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0]?.text) : undefined
                             });
                         });
 
@@ -424,7 +424,7 @@ if (project) {
                                 }),
                                 returnType: signature.type.toString(),
                                 description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' '),
-                                deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0].text) : undefined
+                                deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0]?.text) : undefined
                             });
                         });
                 }
@@ -454,7 +454,7 @@ if (project) {
                 };
             });
 
-        const module_types_group = module.groups.find((g) => g.title === 'Type Aliases');
+        const module_types_group = module.groups?.find((g) => g.title === 'Type Aliases');
 
         module_types_group &&
             module_types_group.children.forEach((event) => {
