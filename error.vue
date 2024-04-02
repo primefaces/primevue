@@ -55,12 +55,13 @@ export default {
             document.startViewTransition(() => this.applyTheme(event));
         },
         applyTheme(event) {
-            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
+            // @todo
+            /*this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
                 this.$appState.theme = event.theme;
                 this.$appState.darkTheme = event.dark;
 
                 EventBus.emit('dark-mode-toggle', { theme: event.theme, dark: event.dark });
-            });
+            });*/
         }
     }
 };
