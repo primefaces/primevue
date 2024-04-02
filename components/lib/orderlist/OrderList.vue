@@ -271,14 +271,6 @@ export default {
     .p-orderlist[${this.attributeSelector}] .p-orderlist-controls {
         flex-direction: row;
     }
-
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button {
-        margin-bottom: 0;
-    }
-
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button:last-child {
-        margin-right: 0;
-    }
 }
 `;
 

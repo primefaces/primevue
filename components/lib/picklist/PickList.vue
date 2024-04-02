@@ -573,14 +573,6 @@ export default {
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons {
         flex-direction: row;
     }
-
-    .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button {
-        margin-bottom: 0;
-    }
-
-    .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button:last-child {
-        margin-right: 0;
-    }
 }
 `;
 
