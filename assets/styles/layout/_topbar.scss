@@ -189,7 +189,6 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transform-origin: top;
-            width: 8rem;
 
             ul {
                 padding: 0;
@@ -210,23 +209,11 @@
                     border-radius: 6px;
                     width: 100%;
                     overflow: hidden;
+                    color: var(--text-color);
+                    white-space: nowrap;
 
                     &:hover {
                         background-color: var(--hover-background);
-                    }
-
-                    span:first-child {
-                        font-weight: bold;
-                        color: var(--high-contrast-text-color);
-                    }
-
-                    span:last-child {
-                        margin-left: 0.5rem;
-                        color: var(--text-color);
-                        white-space: nowrap;
-                        display: block;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
                     }
                 }
             }

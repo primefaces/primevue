@@ -61,7 +61,7 @@
             </div>
 
             <ul class="topbar-items">
-                <li>
+                <li v-if="false">
                     <div id="docsearch"></div>
                 </li>
                 <li>
@@ -101,7 +101,7 @@
                         style="max-width: 8rem"
                         class="topbar-item version-item"
                     >
-                        <span class="version-text">{{ versions[0].version }}</span>
+                        <span class="version-text">{{ versions[0].name }}</span>
                         <span class="version-icon pi pi-angle-down"></span>
                     </button>
 
@@ -109,8 +109,7 @@
                         <ul>
                             <li v-for="version in versions" :key="version.version" role="none">
                                 <a :href="version.url">
-                                    <span>{{ version.name }}</span>
-                                    <span>{{ version.version }}</span>
+                                    <span>PrimeVue {{ version.name }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -129,8 +128,7 @@
 <script>
 import AppConfigurator from '@/layouts/AppConfigurator';
 import EventBus from '@/layouts/AppEventBus';
-import pkg from '@/package.json';
-import docsearch from '@docsearch/js';
+//import docsearch from '@docsearch/js';
 
 export default {
     emits: ['menubutton-click'],
@@ -146,17 +144,14 @@ export default {
             versions: [
                 {
                     name: 'v4',
-                    version: pkg.version,
                     url: 'https://v4.primevue.org'
                 },
                 {
                     name: 'v3',
-                    version: '@latest',
                     url: 'https://www.primevue.org'
                 },
                 {
                     name: 'v2',
-                    version: '@latest',
                     url: 'https://www.primefaces.org/primevue-v2'
                 }
             ]
@@ -167,7 +162,7 @@ export default {
     mounted() {
         this.bindScrollListener();
 
-        docsearch({
+        /*docsearch({
             container: '#docsearch',
             appId: '01CMUF4W4R',
             indexName: 'primevue',
@@ -188,7 +183,7 @@ export default {
                     return item;
                 });
             }
-        });
+        });*/
     },
     beforeUnmount() {
         if (this.scrollListener) {
