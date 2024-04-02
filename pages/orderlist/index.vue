@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/orderlist/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/orderlist/BasicDoc.vue';
 import ImportDoc from '@/doc/orderlist/ImportDoc.vue';
+import TemplateDoc from '@/doc/orderlist/TemplateDoc.vue';
 import PTComponent from '@/doc/orderlist/pt/index.vue';
 import ThemingDoc from '@/doc/orderlist/theming/index.vue';
 
@@ -22,6 +23,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'accessibility',
