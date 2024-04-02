@@ -125,7 +125,7 @@ const CarouselSlots = [
     {
         name: 'empty',
         description: 'Custom content when there is no data to display.'
-    },
+    }
 ];
 
 module.exports = {
