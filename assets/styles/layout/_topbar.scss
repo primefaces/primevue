@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(100% - var(--scrollbar-width, 0px));
+    width: calc(100% - var(--p-scrollbar-width, 0px));
     z-index: 1100;
     transition: background-color .5s, border-color .5s;
     border-bottom: 1px solid transparent;

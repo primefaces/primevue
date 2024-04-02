@@ -12,7 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: calc(100% - var(--scrollbar-width, 0px));
+        width: calc(100% - var(--p-scrollbar-width, 0px));
         height: 100%;
     }
 
