@@ -47193,22 +47193,6 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "button",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SelectButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the button's DOM element."
-                        },
-                        {
-                            "name": "label",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SelectButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
-                        },
-                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
