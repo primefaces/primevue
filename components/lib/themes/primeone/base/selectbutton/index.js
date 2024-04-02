@@ -61,7 +61,6 @@ export default {
 .p-selectbutton .p-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
-    --p-focus-ring-offset: 0;
 }
 
 .p-selectbutton.p-invalid {
