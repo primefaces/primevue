@@ -121,7 +121,11 @@ const CarouselSlots = [
     {
         name: 'nexticon',
         description: 'Custom next icon template.'
-    }
+    },
+    {
+        name: 'empty',
+        description: 'Custom content when there is no data to display.'
+    },
 ];
 
 module.exports = {
