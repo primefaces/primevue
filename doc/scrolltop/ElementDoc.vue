@@ -18,7 +18,7 @@
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary',
                     icon: {
-                        class: 'text-base'
+                        class: 'text-base w-1rem h-1rem'
                     }
                 }"
             />
@@ -48,7 +48,7 @@ export default {
         :pt="{
             root: 'w-2rem h-2rem border-round-sm bg-primary',
             icon: {
-                class: 'text-base'
+                class: 'text-base w-1rem h-1rem'
             }
         }"
     />
@@ -72,7 +72,7 @@ export default {
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary',
                     icon: {
-                        class: 'text-base'
+                        class: 'text-base w-1rem h-1rem'
                     }
                 }"
             />
@@ -98,7 +98,7 @@ export default {
                 :pt="{
                     root: 'w-2rem h-2rem border-round-sm bg-primary',
                     icon: {
-                        class: 'text-base'
+                        class: 'text-base w-1rem h-1rem'
                     }
                 }"
             />
