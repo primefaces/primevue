@@ -85,7 +85,7 @@ export default {
         },
         hideStackBlitz: {
             type: Boolean,
-            default: true
+            default: false
         },
         dependencies: {
             type: null,

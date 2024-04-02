@@ -2,7 +2,7 @@ import pkg from '../../../package.json';
 import { services } from './services';
 
 const PrimeVue = {
-    version: '^3.50.0',
+    version: '^4.0.0-beta.1',
     description:
         'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
 };
@@ -21,7 +21,7 @@ const core_dependencies = {
 // create-vue -> https://github.com/vuejs/create-vue
 const getVueApp = (props = {}, sourceType) => {
     const path = 'src/';
-    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles, embedded } = props;
+    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles } = props;
     const dependencies = { ...core_dependencies, ...deps };
 
     const fileExtension = '.vue';
@@ -29,9 +29,6 @@ const getVueApp = (props = {}, sourceType) => {
     const sourceFileName = `${path}${mainFileName}${fileExtension}`;
     let element = '',
         imports = '',
-        unstyled = '',
-        pvTheme = '',
-        themeSwitchCode = '',
         routeFiles = {};
 
     sources.routeFiles &&
@@ -41,48 +38,11 @@ const getVueApp = (props = {}, sourceType) => {
             };
         });
 
-    let extFilesSource = extFiles
-        ? embedded
-            ? extFiles['composition']
-            : extFiles[sourceType.language]
-            ? { ...extFiles[sourceType.language] }
-            : Object.keys(extFiles)
-                  .filter((k) => !sourceTypes.includes(k))
-                  .reduce((result, current) => (result[current] = extFiles[current]) && result, {})
-        : {};
-
     if (deps !== null && component !== null) {
         imports += `import ${component} from 'primevue/${component.toLowerCase()}';
 `;
         element += `app.component('${component}', ${component});
 `;
-    }
-
-    if (embedded) {
-        // main.js
-        unstyled += `, unstyled: true, pt: Tailwind`;
-        imports += `import Tailwind from 'primevue/passthrough/tailwind';
-import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
-        element += `app.component('ThemeSwitcher', ThemeSwitcher);`;
-
-        // package.json
-        dependencies['tailwindcss'] = '^3.3.2';
-        dependencies['postcss'] = '^8.4.27';
-        dependencies['autoprefixer'] = '^10.4.14';
-
-        // App.vue
-        themeSwitchCode = ''.concat(
-            `<template>
-    <ThemeSwitcher />`,
-            sources.split('<template>')[1]
-        );
-    } else {
-        // main.js
-        pvTheme += `import "primeflex/primeflex.css";
-import "primevue/resources/themes/aura-light-green/theme.css";`;
-
-        // package.json
-        dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';
     }
 
     const files = {
@@ -135,16 +95,14 @@ export default defineConfig({
 </html>`
         },
         [`${path}main.js`]: {
-            content: `${pvTheme}
-import "primevue/resources/primevue.min.css"; /* Deprecated */
-import "primeicons/primeicons.css";
+            content: `import "primeicons/primeicons.css";
 import "./style.css";
 import "./flags.css";
 
 import { createApp } from "vue";
 import App from "./App.vue";
 import { router } from "./router";
-import PrimeVue from "primevue/config";
+import PrimeVueStyled from "primevue/styled";
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
@@ -254,7 +212,7 @@ ${imports}
 
 const app = createApp(App);
 
-app.use(PrimeVue, { ripple: true ${unstyled} });
+app.use(PrimeVueStyled);
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);
@@ -369,7 +327,7 @@ app.mount("#app");
 `
         },
         [`${path}style.css`]: {
-            content: embedded ? tailwindConfig : staticStyles.global
+            content: staticStyles.global
         },
         [`${path}flags.css`]: {
             content: staticStyles.flags
@@ -384,7 +342,7 @@ export const router = createRouter({
 });`
         },
         [`${sourceFileName}`]: {
-            content: embedded ? themeSwitchCode : sources
+            content: sources
         },
         'public/logo.svg': {
             content: `
@@ -415,7 +373,7 @@ export const router = createRouter({
 </svg>`
         },
         ...routeFiles,
-        ...extFilesSource
+        ...extFiles
     };
 
     if (extPages && extPages.length >= 1) {
@@ -450,67 +408,40 @@ export const router = createRouter({
         });
     }
 
-    if (embedded) {
-        files['tailwind.config.js'] = {
-            content: `/** @type {import('tailwindcss').Config} */
-export default {
-    darkMode: 'class',
-    content: [
-        "./index.html",
-        "./src/**/*.{vue,js,ts,jsx,tsx}",
-        "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
-    ],
-    theme: {
-        extend: {}
-    },
-    plugins: []
-}`
-        };
-
-        files['postcss.config.js'] = {
-            content: `module.exports = {
-    plugins: {
-        tailwindcss: {},
-        autoprefixer: {}
-    }
-}`
-        };
-
-        files[`${path}components/ThemeSwitcher.vue`] = {
-            content: `<template>
-    <div class="card flex justify-end p-2 mb-4">
-        <button type="button" class="flex border-1 w-2rem h-2rem p-0 align-center justify-center" @click="onThemeToggler">
-            <i :class="\`dark:text-white pi \${iconClass}\`" />
-        </button>
-    </div>
-</template>
-
-<script setup>
-import {ref} from 'vue';
-const iconClass = ref('pi-moon');
-
-const onThemeToggler = () => {
-    const root = document.getElementsByTagName('html')[0];
-
-    root.classList.toggle('dark');
-    iconClass.value = iconClass.value === 'pi-moon' ? 'pi-sun': 'pi-moon';
-};
-</script>`
-        };
-    }
-
     return { files, dependencies, sourceFileName };
 };
 
 const staticStyles = {
-    global: `html {
+    global: `:root {
+    --primary-text-color: var(--p-primary-600);
+    --primary-color: var(--p-primary-color);
+    --primary-inverse-color: var(--p-primary-inverse-color);
+    --primary-hover-color: var(--p-primary-hover-color);
+    --text-color: var(--p-surface-700);
+    --text-secondary-color: var(--p-surface-500);
+    --ground-background: var(--p-surface-50);
+    --card-background: #ffffff;
+}
+
+:root[class='p-dark'] {
+    --primary-text-color: var(--p-primary-400);
+    --primary-color: var(--p-primary-color);
+    --primary-inverse-color: var(--p-primary-inverse-color);
+    --primary-hover-color: var(--p-primary-hover-color);
+    --text-color: var(--p-surface-0);
+    --text-secondary-color: var(--p-surface-400);
+    --ground-background: var(--p-surface-950);
+    --card-background: var(--p-surface-900);
+}
+
+html {
     font-size: 14px;
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 body {
-    font-family: var(--font-family);
     font-weight: normal;
-    background: var(--surface-ground);
+    background: var(--ground-background);
     color: var(--text-color);
     padding: 1rem;
     -webkit-font-smoothing: antialiased;
@@ -518,7 +449,7 @@ body {
 }
 
 .card {
-    background: var(--surface-card);
+    background: var(---card-background);
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 1rem;
