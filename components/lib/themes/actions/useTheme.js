@@ -1,7 +1,6 @@
 import Theme from 'primevue/themes';
 
 export default (theme) => {
-    // @todo
     const [{ options: o1 }, { options: o2 }] = [Theme.getTheme(), theme];
     const newTheme = {
         ...theme,

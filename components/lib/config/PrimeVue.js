@@ -1,5 +1,6 @@
 import { FilterMatchMode } from 'primevue/api';
-import { inject, reactive } from 'vue';
+import Theme, { ThemeService } from 'primevue/themes';
+import { inject, reactive, ref, watch } from 'vue';
 
 export const defaultOptions = {
     ripple: false,
@@ -165,7 +166,30 @@ export function setup(app, options) {
     app.config.globalProperties.$primevue = PrimeVue;
     app.provide(PrimeVueSymbol, PrimeVue);
 
+    setupTheme(app, PrimeVue);
+
     return PrimeVue;
+}
+
+export function setupTheme(app, PrimeVue) {
+    const isChanged = ref(false);
+
+    watch(
+        PrimeVue.config.theme,
+        (newValue) => {
+            if (!isChanged.value) {
+                Theme.setTheme(newValue);
+            }
+
+            isChanged.value = false;
+        },
+        { immediate: true, deep: true }
+    );
+
+    ThemeService.on('theme:change', function (newTheme) {
+        isChanged.value = true;
+        app.config.globalProperties.$primevue.config.theme = newTheme;
+    });
 }
 
 export default {

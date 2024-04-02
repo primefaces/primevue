@@ -1,7 +1,10 @@
-import Theme, { $dt } from 'primevue/themes';
+import Theme from 'primevue/themes';
 import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
+/**
+ * @todo padding-right: ${$dt('scrollbar.width')};
+ */
 const css = `
 .p-hidden-accessible {
     border: 0;
@@ -21,7 +24,7 @@ const css = `
 
 .p-overflow-hidden {
     overflow: hidden;
-    padding-right: ${$dt('scrollbar.width')};
+    padding-right: var(--p-scrollbar-width);
 }
 `;
 
