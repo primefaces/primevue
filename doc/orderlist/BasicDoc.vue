@@ -2,21 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>OrderList requires an array as its value bound with the <i>v-model</i> directive and <i>item</i> template for its content.</p>
     </DocSectionText>
-    <div class="card xl:flex xl:justify-content-center">
-        <OrderList v-model="products" listStyle="height:auto" dataKey="id">
-            <template #header> List of Products </template>
-            <template #item="slotProps">
-                <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
-                    <div class="flex-1 flex flex-column gap-2">
-                        <span class="font-bold">{{ slotProps.item.name }}</span>
-                        <div class="flex align-items-center gap-2">
-                            <i class="pi pi-tag text-sm"></i>
-                            <span>{{ slotProps.item.category }}</span>
-                        </div>
-                    </div>
-                    <span class="font-bold">${{ slotProps.item.price }}</span>
-                </div>
+    <div class="card flex justify-content-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="1400px">
+            <template #item="{ item }">
+                {{ item.name }}
             </template>
         </OrderList>
     </div>
@@ -25,46 +14,25 @@
 
 <script>
 import { ProductService } from '@/service/ProductService';
+
 export default {
     data() {
         return {
             products: null,
             code: {
                 basic: `
-<OrderList v-model="products" listStyle="height:auto" dataKey="id">
-    <template #header> List of Products </template>
-    <template #item="slotProps">
-        <div class="flex flex-wrap p-2 align-items-center gap-3">
-            <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
-            <div class="flex-1 flex flex-column gap-2">
-                <span class="font-bold">{{ slotProps.item.name }}</span>
-                <div class="flex align-items-center gap-2">
-                    <i class="pi pi-tag text-sm"></i>
-                    <span>{{ slotProps.item.category }}</span>
-                </div>
-            </div>
-            <span class="font-bold">$ {{ slotProps.item.price }}</span>
-        </div>
+<OrderList v-model="products" dataKey="id" breakpoint="1400px">
+    <template #item="{ item }">
+        {{ item.name }}
     </template>
 </OrderList>
 `,
                 options: `
 <template>
-    <div class="card xl:flex xl:justify-content-center">
-        <OrderList v-model="products" listStyle="height:auto" dataKey="id">
-            <template #header> List of Products </template>
-            <template #item="slotProps">
-                <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
-                    <div class="flex-1 flex flex-column gap-2">
-                        <span class="font-bold">{{ slotProps.item.name }}</span>
-                        <div class="flex align-items-center gap-2">
-                            <i class="pi pi-tag text-sm"></i>
-                            <span>{{ slotProps.item.category }}</span>
-                        </div>
-                    </div>
-                    <span class="font-bold">$ {{ slotProps.item.price }}</span>
-                </div>
+    <div class="card lg:flex lg:justify-content-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="1400px">
+            <template #item="{ item }">
+                {{ item.name }}
             </template>
         </OrderList>
     </div>
@@ -86,21 +54,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card xl:flex xl:justify-content-center">
-        <OrderList v-model="products" listStyle="height:auto" dataKey="id">
-            <template #header> List of Products </template>
-            <template #item="slotProps">
-                <div class="flex flex-wrap p-2 align-items-center gap-3">
-                    <img class="w-4rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
-                    <div class="flex-1 flex flex-column gap-2">
-                        <span class="font-bold">{{ slotProps.item.name }}</span>
-                        <div class="flex align-items-center gap-2">
-                            <i class="pi pi-tag text-sm"></i>
-                            <span>{{ slotProps.item.category }}</span>
-                        </div>
-                    </div>
-                    <span class="font-bold">$ {{ slotProps.item.price }}</span>
-                </div>
+    <div class="card lg:flex lg:justify-content-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="1400px">
+            <template #item="{ item }">
+                {{ item.name }}
             </template>
         </OrderList>
     </div>
@@ -118,7 +75,7 @@ onMounted(() => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',

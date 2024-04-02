@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType<T = any> = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions<T>) => DropdownPassThroughAttributes | string) | string | null | undefined;
@@ -499,6 +499,10 @@ export interface DropdownProps {
      * Identifier of the underlying input element.
      */
     ariaLabelledby?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {DropdownPassThroughOptions}

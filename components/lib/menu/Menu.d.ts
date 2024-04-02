@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -234,6 +234,10 @@ export interface MenuProps {
      * Identifier of the underlying input element.
      */
     ariaLabelledby?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {MenuPassThroughOptions}

@@ -9,7 +9,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PassThrough, HintedString } from '../ts-helpers';
+import { DesignToken, HintedString, PassThrough } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.
@@ -62,6 +62,10 @@ export interface StyleClassOptions {
      * Adds or removes a class when no enter-leave animation is required.
      */
     toggleClass?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {StyleClassDirectivePassThroughOptions}

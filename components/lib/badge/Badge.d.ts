@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type BadgePassThroughOptionType<T = any> = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions<T>) => BadgePassThroughAttributes | string) | string | null | undefined;
 
@@ -75,6 +75,10 @@ export interface BadgeProps {
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
     size?: 'large' | 'xlarge' | null | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {BadgePassThroughOptions}

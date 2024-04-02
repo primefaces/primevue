@@ -13,7 +13,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
 import { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from '../tieredmenu';
-import { ClassComponent, GlobalComponentConstructor, PassThrough, HintedString } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -201,6 +201,10 @@ export interface SplitButtonProps {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {SplitButtonPassThroughOptions}

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | string) | string | null | undefined;
 
@@ -158,6 +158,10 @@ export interface StepsProps {
      * @defaultValue 0
      */
     activeStep?: number | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {StepsPassThroughOptions}

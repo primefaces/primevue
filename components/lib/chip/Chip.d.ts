@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | string) | string | null | undefined;
 
@@ -121,6 +121,10 @@ export interface ChipProps {
      * @deprecated since v3.27.0. Use 'removeicon' slot.
      */
     removeIcon?: string;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ChipPassThroughOptions}

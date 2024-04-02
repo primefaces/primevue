@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
 
@@ -783,6 +783,10 @@ export interface CalendarProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {CalendarPassThroughOptions}

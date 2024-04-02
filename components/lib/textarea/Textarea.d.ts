@@ -10,7 +10,7 @@
 import { TextareaHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
 
@@ -107,6 +107,10 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * @defaultValue outlined
      */
     variant?: 'outlined' | 'filled' | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TextareaPassThroughOptions}

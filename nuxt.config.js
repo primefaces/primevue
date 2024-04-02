@@ -27,7 +27,7 @@ export default defineNuxtConfig({
         },
         unstyled: false,
         layerOrder: 'primevue',
-        importTheme: { from: '@/themes/aura.js' },
+        importTheme: { from: '@/themes/app-theme.js' },
         resolvePath: function ({ as, from, type }) {
             const resolvedPath = from.replace('primevue', '@/components/lib');
 

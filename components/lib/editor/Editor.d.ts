@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | string) | string | null | undefined;
 
@@ -238,6 +238,10 @@ export interface EditorProps {
      * Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options.
      */
     modules?: any;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {EditorPassThroughOptions}

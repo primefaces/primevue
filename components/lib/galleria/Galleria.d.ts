@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | string) | string | null | undefined;
 
@@ -406,6 +406,10 @@ export interface GalleriaProps {
      * Defines a string value that description for the role of the component.
      */
     ariaRoledescription?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {GalleriaPassThroughOptions}

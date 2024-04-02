@@ -9,7 +9,7 @@
  */
 import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | string) | string | null | undefined;
 
@@ -135,6 +135,10 @@ export interface AccordionTabProps {
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionTabPassThroughOptions}

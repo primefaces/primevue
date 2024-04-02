@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: TabViewPassThroughMethodOptions) => TabViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -208,6 +208,10 @@ export interface TabViewProps {
      * @deprecated since v3.27.0. Use 'next' slot.
      */
     nextIcon?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TabViewPassThroughOptions}

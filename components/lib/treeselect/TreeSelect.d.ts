@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
 import { TreeNode } from '../treenode';
-import { ClassComponent, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -251,6 +251,10 @@ export interface TreeSelectProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}

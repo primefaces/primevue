@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type RoundingMode = 'ceil' | 'floor' | 'expand' | 'trunc' | 'halfCeil' | 'halfFloor' | 'halfExpand' | 'halfTrunc' | 'halfEven';
 
@@ -334,6 +334,10 @@ export interface InputNumberProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputNumberPassThroughOptions}

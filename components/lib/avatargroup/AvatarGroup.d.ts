@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | ((options: AvatarGroupPassThroughMethodOptions) => AvatarGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -67,6 +67,10 @@ export interface AvatarGroupPassThroughOptions {
  * Defines valid properties in AvatarGroup component.
  */
 export interface AvatarGroupProps {
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarGroupPassThroughOptions}
