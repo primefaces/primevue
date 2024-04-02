@@ -26,39 +26,30 @@ pnpm add primevue
 
 ## Plugin
 
-PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/configuration).
-
-```javascript
-import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue);
-```
-
-## Theming
-
-PrimeVue has two theming has modes; styled or unstyled.
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration. The plugin is lightweight, only sets up the configuration object without affecting your application. PrimeVue has two styling modes; Styled and Unstyled. If you are just getting started, we suggest to using the styled mode.
 
 **Styled Mode**
 
-Styled mode is based on pre-skinned components with opinionated themes like Material, Bootstrap or PrimeOne themes. Theme is the required css file to be imported, visit the [Themes](https://primevue.org/theming) section for the complete list of available themes to choose from.
+Styled mode provides pre-skinned components, default theme is Aura with emerald as the primary color.
 
 ```javascript
-// theme
-import 'primevue/resources/themes/aura-light-green/theme.css';
+import { createApp } from 'vue';
+import PrimeVueStyled from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVueStyled);
 ```
 
 **Unstyled Mode**
 
-Unstyled mode is disabled by default for all components. Using the PrimeVue plugin during installation, set `unstyled` as true to enable it globally. Visit the [Unstyled mode](https://primevue.org/unstyled) documentation for more information and examples.
+In unstyled mode, the components do not include any CSS so you'd need to style the components on your end. If you are using Tailwind CSS, visit the [Tailwind Presets](https://tailwind.primevue.org) project to get you started with styling the components with Tailwind utility classes.
 
 ```javascript
 import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
+import PrimeVueUnstyled from 'primevue/config';
 const app = createApp(App);
 
-app.use(PrimeVue, { unstyled: true });
+app.use(PrimeVueUnstyled);
 ```
 
 ## Usage
