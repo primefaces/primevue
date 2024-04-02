@@ -15,7 +15,7 @@ import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { RowPassThroughOptionType } from '../row';
-import { ClassComponent, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
@@ -1163,6 +1163,10 @@ export interface DataTableProps {
         }
      */
     filterButtonProps?: DataTableFilterButtonPropsOptions | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataTablePassThroughOptions}

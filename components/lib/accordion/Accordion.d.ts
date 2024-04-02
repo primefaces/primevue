@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
 
@@ -157,6 +157,10 @@ export interface AccordionProps {
      * @defaultValue false
      */
     selectOnFocus?: boolean | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionPassThroughOptions}

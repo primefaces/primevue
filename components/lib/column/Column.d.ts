@@ -17,7 +17,7 @@ import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { PassThroughOptions } from '../passthrough';
 import { RadioButtonPassThroughOptionType } from '../radiobutton';
-import { ClassComponent, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
@@ -564,6 +564,10 @@ export interface ColumnProps {
      * @defaultValue false
      */
     hidden?: boolean | undefined;
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {ColumnPassThroughOptions}

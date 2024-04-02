@@ -9,7 +9,7 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 import { PassThroughOptions } from '../passthrough';
-import { PassThrough } from '../ts-helpers';
+import { DesignToken, PassThrough } from '../ts-helpers';
 
 export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
 
@@ -36,6 +36,10 @@ export interface BadgePassThroughMethodOptions {
  * Defines options of Badge.
  */
 export interface BadgeDirectiveOptions {
+    /**
+     * It generates scoped CSS variables using design tokens for the component.
+     */
+    dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
      * @type {BadgeDirectivePassThroughOptions}
