@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>In unstyled mode, the components do not include any CSS so you'd need to style the components on your end. Visit the <NuxtLink to="/unstyled">Unstyled mode</NuxtLink> documentation for more information and examples.</p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
-        <p>If you are using Tailwind CSS, see the <a href="https://tailwind.primevue.org/vite/">Tailwind CSS Presets</a> project to get you started with styling the components with Tailwind utility classes.</p>
+        <p>If you are using Tailwind CSS, visit the <a href="https://tailwind.primevue.org/vite/">Tailwind CSS Presets</a> project to get you started with styling the components with Tailwind utility classes.</p>
         <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>

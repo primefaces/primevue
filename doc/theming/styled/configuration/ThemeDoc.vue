@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>theme</i> property is used to customize the initial theme that is preconfigured to be PrimeOne base with the Aura preset by default. The following is the default configuration and only needs to be defined for customization.</p>
+        <p>The <i>theme</i> property is used to customize the initial theme, prefer the <i>PrimeVue</i> plugin for custom configuration instead of the preconfigured <i>PrimeVueStyled</i>.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>
