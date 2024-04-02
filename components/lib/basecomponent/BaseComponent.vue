@@ -74,6 +74,7 @@ export default {
         this._hook('onBeforeMount');
     },
     mounted() {
+        // @todo - improve performance
         const rootElement = DomHandler.findSingle(this.$el, `[data-pc-name="${ObjectUtils.toFlatCase(this.$.type.name)}"]`);
 
         rootElement?.setAttribute(this.$attrSelector, '');
