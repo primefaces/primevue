@@ -36,7 +36,7 @@ export default {
                     id: 'plugin',
                     label: 'Plugin',
                     component: PluginDoc,
-                    description: `PrimeVue plugin is required to be installed as an application plugin to set up the default configuration. The plugin is lightweight, only sets up the configuration object without affecting your application. PrimeVue has two plugins; Styled and Unstyled. If you are
+                    description: `PrimeVue plugin is required to be installed as an application plugin to set up the default configuration. The plugin is lightweight, only sets up the configuration object without affecting your application. PrimeVue has two styling modes; Styled and Unstyled. If you are
                         just getting started, we suggest to using the styled mode.`,
                     children: [
                         {

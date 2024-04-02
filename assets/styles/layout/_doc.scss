@@ -37,7 +37,7 @@
             border-top-right-radius: 6px;
             border-top-left-radius: 6px;
             white-space: nowrap;
-            --focus-ring-offset: -1px;
+            --p-focus-ring-offset: -1px;
 
             &:hover {
                 border-bottom-color: var(--hover-border-color);
@@ -196,7 +196,7 @@
                 cursor: pointer;
                 user-select: none;
                 @include focus-visible();
-                --focus-ring-offset: -1px;
+                --p-focus-ring-offset: -1px;
             }
 
             &:hover {

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Styled mode is based on pre-skinned components with opinionated themes, default theme Aura with emerald as the primary color. See the <NuxtLink to="/theming/styled">styled mode</NuxtLink> documentation to for customization.</p>
+        <p>Styled mode provides pre-skinned components, default theme is Aura with emerald as the primary color. See the <NuxtLink to="/theming/styled">styled mode</NuxtLink> documentation to for customization.</p>
         <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>

@@ -1,7 +1,7 @@
 @mixin focus-visible() {
     &:focus-visible {
         outline: 1px solid var(--primary-color);
-        outline-offset: var(--focus-ring-offset, 2px);
+        outline-offset: var(--p-focus-ring-offset);
     }
 }
 

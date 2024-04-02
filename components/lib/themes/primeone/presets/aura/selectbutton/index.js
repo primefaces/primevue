@@ -4,7 +4,7 @@ export default {
             root: {
                 background: '{surface.100}',
                 disabledBackground: '{form.field.background.disabled}',
-                invalidBorderColor: '{form.field.border.color.invalid}'
+                invalidBorderColor: '{form.field.invalid.border.color}'
             },
             item: {
                 checkedBackground: '{surface.0}',
@@ -18,7 +18,7 @@ export default {
             root: {
                 background: '{surface.950}',
                 disabledBackground: '{form.field.background.disabled}',
-                invalidBorderColor: '{form.field.border.color.invalid}'
+                invalidBorderColor: '{form.field.invalid.border.color}'
             },
             item: {
                 checkedBackground: '{surface.800}',

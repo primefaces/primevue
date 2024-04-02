@@ -100,7 +100,7 @@
                 }
 
                 @include focus-visible();
-                --focus-ring-offset: -1px;
+                --p-focus-ring-offset: -1px;
             }
             
             > div {
@@ -123,7 +123,7 @@
                             position: relative;
 
                             @include focus-visible();
-                            --focus-ring-offset: -1px;
+                            --p-focus-ring-offset: -1px;
             
                             &:hover {
                                 border-left-color: var(--hover-border-color);
