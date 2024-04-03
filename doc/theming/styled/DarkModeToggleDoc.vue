@@ -32,7 +32,7 @@ app.use(PrimeVue, {
         base: PrimeOne,
         preset: Aura,
         options: {
-            darkModeSelector: 'my-app-dark',
+            darkModeSelector: '.my-app-dark',
         }
     }
  });
