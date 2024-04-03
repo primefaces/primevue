@@ -72,8 +72,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         }
     },
     target: null,
@@ -83,8 +86,6 @@ export default {
     container: null,
     list: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (!this.popup) {
             this.bindResizeListener();
             this.bindOutsideClickListener();

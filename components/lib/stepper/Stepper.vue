@@ -154,15 +154,15 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         activeStep(newValue) {
             this.d_activeStep = newValue;
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         isStep(child) {

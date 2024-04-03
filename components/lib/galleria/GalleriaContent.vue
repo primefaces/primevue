@@ -76,15 +76,18 @@ export default {
     emits: ['activeitem-change', 'mask-hide'],
     data() {
         return {
-            id: this.$attrs.id || UniqueComponentId(),
+            id: this.$attrs.id,
             activeIndex: this.$attrs.activeIndex,
             numVisible: this.$attrs.numVisible,
             slideShowActive: false
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         '$attrs.value': function (newVal) {
             if (newVal && newVal.length < this.numVisible) {
@@ -100,9 +103,6 @@ export default {
         '$attrs.autoPlay': function (newVal) {
             newVal ? this.startSlideShow() : this.stopSlideShow();
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     updated() {
         this.$emit('activeitem-change', this.activeIndex);
