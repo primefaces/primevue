@@ -98,7 +98,9 @@ describe('DataTable.vue', () => {
                 expandedRows: [],
                 paginatorTemplate: 'CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown',
                 rowsPerPageOptions: [5, 6, 7],
-                currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}'
+                currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}',
+                caption: 'Caption',
+                captionClass: 'caption-class',
             },
             slots: {
                 default: `
@@ -146,6 +148,11 @@ describe('DataTable.vue', () => {
         expect(wrapper.find('.p-datatable-footer').text()).toBe('Footer Templating');
     });
 
+    it('should have a caption', () => {
+        expect(wrapper.find('table > caption').exists()).toBe(true);
+        expect(wrapper.find('table > caption').text()).toBe('Caption');
+    });
+
     it('should have expansion template', async () => {
         await wrapper.setProps({ expandedRows: [smallData[0]] });
 
@@ -187,6 +194,12 @@ describe('DataTable.vue', () => {
             },
             template: `
                 <DataTable :value="sales" responsiveLayout="scroll">
+                    <template #caption>
+                        <caption class="caption-class-from-slot">
+                            Caption with some <em>elements</em>
+                        </caption>
+                    </template>
+
                     <ColumnGroup type="header">
                         <Row>
                             <Column header="Product" :rowspan="3" />
@@ -251,6 +264,9 @@ describe('DataTable.vue', () => {
             }
         });
 
+        expect(wrapper.find('table > caption').exists()).toBe(true);
+        expect(wrapper.find('table > caption').classes()).toContain('caption-class-from-slot');
+        expect(wrapper.find('table > caption').text()).toContain('Caption with some elements');
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-grouped-header');
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-grouped-footer');
 

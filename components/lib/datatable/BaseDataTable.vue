@@ -284,7 +284,15 @@ export default {
                     clear: { outlined: true, size: 'small' }
                 };
             }
-        }
+        },
+        caption: {
+            type: String,
+            default: null
+        },
+        captionClass: {
+            type: [Object, Array, String],
+            default: null
+        },
     },
     style: DataTableStyle,
     provide() {
