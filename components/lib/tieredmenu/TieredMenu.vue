@@ -380,8 +380,12 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            this.hide(event, true);
-            !this.popup && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+            if (this.focusedItemInfo.level !== 0) {
+                const _focusedItemInfo = this.focusedItemInfo;
+
+                this.hide(event, false);
+                !this.popup && (this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey.split('_')[0]), level: 0, parentKey: '' });
+            }
 
             event.preventDefault();
         },
