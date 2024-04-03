@@ -409,7 +409,12 @@ export default {
             };
         },
         onTouchMove(e) {
-            if (e.cancelable) {
+            const touchobj = e.changedTouches[0];
+            const diff = this.isVertical()
+                ? touchobj.pageY - this.startPos.y
+                : touchobj.pageX - this.startPos.x;
+
+            if (Math.abs(diff) > this.swipeThreshold && e.cancelable) {
                 e.preventDefault();
             }
         },
