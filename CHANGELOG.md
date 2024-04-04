@@ -6,33 +6,33 @@
 
 **Fixed bugs:**
 
--   Menu components: Hidden Menu-Item can still be activated (focused) on Keyboard-Navigation [\#5318](https://github.com/primefaces/primevue/issues/5318)
--   Carousel: Unable to scroll vertically on mobile [\#5320](https://github.com/primefaces/primevue/issues/5320)
 -   tree: loadingMode [\#5509](https://github.com/primefaces/primevue/issues/5509)
--   Dropdown: throws error when grouped item is selected [\#5445](https://github.com/primefaces/primevue/issues/5445)
--   Slider: Focus on slider on mouse click not working [\#5446](https://github.com/primefaces/primevue/issues/4833)
 -   Upload File doen'st show invalidFileSizeMessage [\#5497](https://github.com/primefaces/primevue/issues/5497)
 -   Stepper: changing step is making the StepperPanel a render [\#5495](https://github.com/primefaces/primevue/issues/5495)
 -   Multiselect - Filter - Duplicate keys on search. [\#5455](https://github.com/primefaces/primevue/issues/5455)
--   Calendar: Invalid typings for modelValue. [\#3609](https://github.com/primefaces/primevue/issues/3609)
--   [\#3928InputNumber: Cut or Paste via keyboard shortcuts in Safari doesn't work](https://github.com/primefaces/primevue/issues/3928InputNumber: Cut or Paste via keyboard shortcuts in Safari doesn't work)
--   InputOtp: Unable to input integers in integerOnly [\#5422](https://github.com/primefaces/primevue/issues/5422)
--   DataTable: resizableColumns and paginator bug [\#5210](https://github.com/primefaces/primevue/issues/5210)
--   DataTable: improve globalFilterFields type [\#5212](https://github.com/primefaces/primevue/issues/5212)
--   Slider: [Violation] Non-passive event [\#5213](https://github.com/primefaces/primevue/issues/5213)
--   Autocomplete: isSelected(option) doesn't work correctly when 'multiple' is true [\#5435](https://github.com/primefaces/primevue/issues/5435)
+-   Slider: Focus on slider on mouse click not working [\#5446](https://github.com/primefaces/primevue/issues/4833)
+-   Dropdown: throws error when grouped item is selected [\#5445](https://github.com/primefaces/primevue/issues/5445)
 -   Stepper: number element box-shadow defect [\#5442](https://github.com/primefaces/primevue/issues/5442)
+-   Autocomplete: isSelected(option) doesn't work correctly when 'multiple' is true [\#5435](https://github.com/primefaces/primevue/issues/5435)
+-   Carousel: Unable to scroll vertically on mobile [\#5320](https://github.com/primefaces/primevue/issues/5320)
+-   InputOtp: Unable to input integers in integerOnly [\#5422](https://github.com/primefaces/primevue/issues/5422)
+-   Menu components: Hidden Menu-Item can still be activated (focused) on Keyboard-Navigation [\#5318](https://github.com/primefaces/primevue/issues/5318)
+-   Slider: [Violation] Non-passive event [\#5213](https://github.com/primefaces/primevue/issues/5213)
+-   DataTable: improve globalFilterFields type [\#5212](https://github.com/primefaces/primevue/issues/5212)
+-   DataTable: resizableColumns and paginator bug [\#5210](https://github.com/primefaces/primevue/issues/5210)
 -   Calendar: no enter transition when used in inline mode inside HeadlessUI dialog [\#5294](https://github.com/primefaces/primevue/issues/5294)
+-   InputNumber: Cut or Paste via keyboard shortcuts in Safari doesn't work [\#3928](https://github.com/primefaces/primevue/issues/3928)
+-   Calendar: Invalid typings for modelValue. [\#3609](https://github.com/primefaces/primevue/issues/3609)
 
 **Implemented New Features and Enhancements:**
 
 -   PrimeIcons: version 7 [\#5524](https://github.com/primefaces/primevue/issues/5524)
--   Twice render if $attrs.id not defined [\#5412](https://github.com/primefaces/primevue/issues/5412)
--   TieredMenu: Pressing Escape-Key in submenu moves focus to first menuitem [\#5327](https://github.com/primefaces/primevue/issues/5327)
 -   Carousel Enhancement - Empty Slot [\#5474](https://github.com/primefaces/primevue/issues/5474)
 -   Dropdown Pass Through: item [\#5470](https://github.com/primefaces/primevue/issues/5470)
 -   Tree: Style Classes not passed to nodeicon slot [\#5452](https://github.com/primefaces/primevue/issues/5452)
 -   fix(types): augment GlobalComponent interface in vue module [\#5419](https://github.com/primefaces/primevue/pull/5419)
+-   Twice render if $attrs.id not defined [\#5412](https://github.com/primefaces/primevue/issues/5412)
+-   TieredMenu: Pressing Escape-Key in submenu moves focus to first menuitem [\#5327](https://github.com/primefaces/primevue/issues/5327)
 
 ## [3.50.0](https://github.com/primefaces/primevue/tree/3.50.0) (2024-03-15)
 
