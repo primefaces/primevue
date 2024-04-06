@@ -69,8 +69,8 @@
                     v-bind="ptm('panel')"
                 >
                     <template v-if="!timeOnly">
-                        <div :class="cx('groupContainer')" v-bind="ptm('groupContainer')">
-                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('group')" v-bind="ptm('group')">
+                        <div :class="cx('group')" v-bind="ptm('group')">
+                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('calendar')" v-bind="ptm('calendar')">
                                 <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <button
@@ -169,39 +169,61 @@
                                         </slot>
                                     </button>
                                 </div>
-                                <div v-if="currentView === 'date'" :class="cx('container')" v-bind="ptm('container')">
-                                    <table :class="cx('table')" role="grid" v-bind="ptm('table')">
-                                        <thead v-bind="ptm('tableHeader')">
-                                            <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
-                                                    <slot name="weekheaderlabel">
-                                                        <span v-bind="ptm('weekHeaderLabel', { context: { disabled: showWeek } })" data-pc-group-section="tableheadercelllabel">
-                                                            {{ weekHeaderLabel }}
-                                                        </span>
-                                                    </slot>
-                                                </th>
-                                                <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell">
-                                                    <span v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel">{{ weekDay }}</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody v-bind="ptm('tableBody')">
-                                            <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
-                                                <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
-                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tablebodycelllabel">
-                                                        <slot name="weeklabel" :weekNumber="month.weekNumbers[i]">
-                                                            <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
-                                                            {{ month.weekNumbers[i] }}
-                                                        </slot>
+                                <table v-if="currentView === 'date'" :class="cx('grid')" role="grid" v-bind="ptm('grid')">
+                                    <thead v-bind="ptm('tableHeader')">
+                                        <tr v-bind="ptm('tableHeaderRow')">
+                                            <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
+                                                <slot name="weekheaderlabel">
+                                                    <span v-bind="ptm('weekHeaderLabel', { context: { disabled: showWeek } })" data-pc-group-section="tableheadercelllabel">
+                                                        {{ weekHeaderLabel }}
                                                     </span>
-                                                </td>
-                                                <td
-                                                    v-for="date of week"
-                                                    :key="date.day + '' + date.month"
-                                                    :aria-label="date.day"
-                                                    :class="cx('day', { date })"
+                                                </slot>
+                                            </th>
+                                            <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell" :class="cx('weekDay')">
+                                                <span v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel" :class="cx('weekDay')">{{ weekDay }}</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody v-bind="ptm('tableBody')">
+                                        <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
+                                            <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
+                                                <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tablebodycelllabel">
+                                                    <slot name="weeklabel" :weekNumber="month.weekNumbers[i]">
+                                                        <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
+                                                        {{ month.weekNumbers[i] }}
+                                                    </slot>
+                                                </span>
+                                            </td>
+                                            <td
+                                                v-for="date of week"
+                                                :key="date.day + '' + date.month"
+                                                :aria-label="date.day"
+                                                :class="cx('day', { date })"
+                                                v-bind="
+                                                    ptm('day', {
+                                                        context: {
+                                                            date,
+                                                            today: date.today,
+                                                            otherMonth: date.otherMonth,
+                                                            selected: isSelected(date),
+                                                            disabled: !date.selectable
+                                                        }
+                                                    })
+                                                "
+                                                :data-p-today="date.today"
+                                                :data-p-other-month="date.otherMonth"
+                                                data-pc-group-section="tablebodycell"
+                                            >
+                                                <span
+                                                    v-ripple
+                                                    :class="cx('dayLabel', { date })"
+                                                    @click="onDateSelect($event, date)"
+                                                    draggable="false"
+                                                    @keydown="onDateCellKeydown($event, date, groupIndex)"
+                                                    :aria-selected="isSelected(date)"
+                                                    :aria-disabled="!date.selectable"
                                                     v-bind="
-                                                        ptm('day', {
+                                                        ptm('dayLabel', {
                                                             context: {
                                                                 date,
                                                                 today: date.today,
@@ -211,43 +233,19 @@
                                                             }
                                                         })
                                                     "
-                                                    :data-p-today="date.today"
-                                                    :data-p-other-month="date.otherMonth"
-                                                    data-pc-group-section="tablebodycell"
+                                                    :data-p-disabled="!date.selectable"
+                                                    :data-p-highlight="isSelected(date)"
+                                                    data-pc-group-section="tablebodycelllabel"
                                                 >
-                                                    <span
-                                                        v-ripple
-                                                        :class="cx('dayLabel', { date })"
-                                                        @click="onDateSelect($event, date)"
-                                                        draggable="false"
-                                                        @keydown="onDateCellKeydown($event, date, groupIndex)"
-                                                        :aria-selected="isSelected(date)"
-                                                        :aria-disabled="!date.selectable"
-                                                        v-bind="
-                                                            ptm('dayLabel', {
-                                                                context: {
-                                                                    date,
-                                                                    today: date.today,
-                                                                    otherMonth: date.otherMonth,
-                                                                    selected: isSelected(date),
-                                                                    disabled: !date.selectable
-                                                                }
-                                                            })
-                                                        "
-                                                        :data-p-disabled="!date.selectable"
-                                                        :data-p-highlight="isSelected(date)"
-                                                        data-pc-group-section="tablebodycelllabel"
-                                                    >
-                                                        <slot name="date" :date="date">{{ date.day }}</slot>
-                                                    </span>
-                                                    <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
-                                                        {{ date.day }}
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                    <slot name="date" :date="date">{{ date.day }}</slot>
+                                                </span>
+                                                <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
+                                                    {{ date.day }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div v-if="currentView === 'month'" :class="cx('monthPicker')" v-bind="ptm('monthPicker')">
