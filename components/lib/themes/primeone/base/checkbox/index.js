@@ -52,21 +52,21 @@ export default {
     border-color: ${dt('checkbox.hover.border.color')};
 }
 
-.p-checkbox.p-highlight .p-checkbox-box {
+.p-checkbox-checked .p-checkbox-box {
     border-color: ${dt('checkbox.checked.border.color')};
     background: ${dt('checkbox.checked.background')};
 }
 
-.p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon {
+.p-checkbox-checked .p-checkbox-icon {
     color: ${dt('checkbox.icon.checked.color')};
 }
 
-.p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
     background: ${dt('checkbox.checked.hover.background')};
     border-color: ${dt('checkbox.checked.hover.border.color')};
 }
 
-.p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box .p-checkbox-icon {
+.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-icon {
     color: ${dt('checkbox.icon.checked.hover.color')};
 }
 
@@ -80,14 +80,14 @@ export default {
 }
 
 .p-checkbox.p-variant-filled .p-checkbox-box {
-    background: ${dt('checkbox.checked.filled.background')};
+    background: ${dt('checkbox.filled.background')};
 }
 
-.p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
+.p-checkbox-checked.p-variant-filled .p-checkbox-box {
     background: ${dt('checkbox.checked.background')};
 }
 
-.p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+.p-checkbox-checked.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
     background: ${dt('checkbox.checked.hover.background')};
 }
 

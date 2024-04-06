@@ -9,7 +9,7 @@ export default {
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
         borderColor: '{form.field.border.color}',
-        hoverBordercolor: '{form.field.hover.border.color}',
+        hoverBorderColor: '{form.field.hover.border.color}',
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.hover.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',

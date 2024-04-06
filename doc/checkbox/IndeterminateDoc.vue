@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>indeterminate</i> is present, the checkbox state specified as indeterminate.</p>
+        <p>When <i>indeterminate</i> is present, the checkbox masks the actual value visually.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Checkbox v-model="checked" indeterminate binary />
