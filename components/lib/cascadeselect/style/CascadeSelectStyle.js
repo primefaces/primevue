@@ -14,7 +14,7 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-overlay-open': instance.overlayVisible
+            'p-cascadeselect-open': instance.overlayVisible
         }
     ],
     label: ({ instance, props }) => [
@@ -24,23 +24,22 @@ const classes = {
             'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
         }
     ],
-    dropdownButton: 'p-cascadeselect-trigger',
-    loadingIcon: 'p-cascadeselect-trigger-icon',
-    dropdownIcon: 'p-cascadeselect-trigger-icon',
-    panel: ({ props, instance }) => [
-        'p-cascadeselect-panel p-component',
+    dropdownButton: 'p-cascadeselect-dropdown',
+    loadingIcon: 'p-cascadeselect-loading-icon',
+    dropdownIcon: 'p-cascadeselect-dropdown-icon',
+    panel: ({ instance }) => [
+        'p-cascadeselect-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    wrapper: 'p-cascadeselect-items-wrapper',
-    rootList: 'p-cascadeselect-items',
+    wrapper: 'p-cascadeselect-list-container',
+    rootList: 'p-cascadeselect-list',
     item: ({ instance, processedOption }) => [
         'p-cascadeselect-item',
         {
-            'p-cascadeselect-item-group': instance.isOptionGroup(processedOption),
             'p-cascadeselect-item-active': instance.isOptionActive(processedOption),
-            'p-highlight': instance.isOptionSelected(processedOption),
+            'p-cascadeselect-item-selected': instance.isOptionSelected(processedOption),
             'p-focus': instance.isOptionFocused(processedOption),
             'p-disabled': instance.isOptionDisabled(processedOption)
         }
@@ -48,7 +47,7 @@ const classes = {
     content: 'p-cascadeselect-item-content',
     text: 'p-cascadeselect-item-text',
     groupIcon: 'p-cascadeselect-group-icon',
-    sublist: 'p-cascadeselect-panel p-cascadeselect-sublist'
+    sublist: 'p-cascadeselect-overlay p-cascadeselect-item-list'
 };
 
 export default BaseStyle.extend({

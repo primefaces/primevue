@@ -39,7 +39,7 @@ export default {
     background: ${dt('cascadeselect.disabled.background')};
 }
 
-.p-cascadeselect-trigger {
+.p-cascadeselect-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +91,7 @@ export default {
     width: 1%;
 }
 
-.p-cascadeselect-panel {
+.p-cascadeselect-overlay {
     background: ${dt('cascadeselect.overlay.background')};
     color: ${dt('cascadeselect.overlay.color')};
     border: 1px solid ${dt('cascadeselect.overlay.border.color')};
@@ -99,18 +99,18 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.p-cascadeselect .p-cascadeselect-panel {
+.p-cascadeselect .p-cascadeselect-overlay {
     min-width: 100%;
 }
 
-.p-cascadeselect-sublist {
+.p-cascadeselect-item-list {
     position: absolute;
     min-width: 100%;
     z-index: 1;
     display: none;
 }
 
-.p-cascadeselect-items {
+.p-cascadeselect-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -138,21 +138,21 @@ export default {
     margin-bottom: 0;
 }
 
-.p-cascadeselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+.p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus {
     background: ${dt('cascadeselect.item.focus.background')};
     color: ${dt('cascadeselect.item.focus.color')};
 }
 
-.p-cascadeselect-item:not(.p-highlight):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
+.p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
     color: ${dt('cascadeselect.item.icon.focus.color')};
 }
 
-.p-cascadeselect-item.p-highlight {
+.p-cascadeselect-item-selected {
     background: ${dt('cascadeselect.item.selected.background')};
     color: ${dt('cascadeselect.item.selected.color')};
 }
 
-.p-cascadeselect-item.p-highlight.p-focus {
+.p-cascadeselect-item-selected.p-focus {
     background: ${dt('cascadeselect.item.selected.focus.background')};
     color: ${dt('cascadeselect.item.selected.focus.color')};
 }
@@ -163,7 +163,7 @@ export default {
     color: ${dt('cascadeselect.item.focus.color')};
 }
 
-.p-cascadeselect-item-active > .p-cascadeselect-sublist {
+.p-cascadeselect-item-active > .p-cascadeselect-item-list {
     display: block;
     left: 100%;
     top: 0;
@@ -181,15 +181,6 @@ export default {
     margin-left: auto;
     font-size: 0.875rem;
     color: ${dt('cascadeselect.item.icon.color')};
-}
-
-.p-cascadeselect-enter-from,
-.p-cascadeselect-leave-active {
-    opacity: 0;
-}
-
-.p-cascadeselect-enter-active {
-    transition: opacity 150ms;
 }
 `
 };
