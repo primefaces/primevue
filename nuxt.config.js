@@ -22,12 +22,13 @@ export default defineNuxtConfig({
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
     primevue: {
+        usePrimeVue: false,
         options: {
             ripple: true
         },
         unstyled: false,
         layerOrder: 'primevue',
-        importTheme: { from: '@/themes/app-theme.js' },
+        //importTheme: { from: '@/themes/app-theme.js' },
         resolvePath: function ({ as, from, type }) {
             const resolvedPath = from.replace('primevue', '@/components/lib');
 
