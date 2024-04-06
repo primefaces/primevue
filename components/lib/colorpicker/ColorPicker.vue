@@ -3,7 +3,7 @@
         <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
+                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @mousedown="onOverlayMouseDown" @click="onOverlayClick" v-bind="ptm('panel')">
                     <div :class="cx('content')" v-bind="ptm('content')">
                         <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
                             <div :class="cx('color')" v-bind="ptm('color')">
@@ -36,6 +36,7 @@ export default {
             overlayVisible: false
         };
     },
+    isOverlayMouseDown: false,
     hsbValue: null,
     outsideClickListener: null,
     documentMouseMoveListener: null,
@@ -448,9 +449,6 @@ export default {
             this.pickHue(event);
             !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
         },
-        isInputClicked(event) {
-            return this.$refs.input && this.$refs.input.isSameNode(event.target);
-        },
         bindDragListeners() {
             this.bindDocumentMouseMoveListener();
             this.bindDocumentMouseUpListener();
@@ -462,18 +460,25 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.picker && !this.picker.contains(event.target) && !this.isInputClicked(event)) {
+                    const isOverlayMouseUp = this.picker && this.picker.contains(event.target);
+                    const isInputMouseUp = this.$refs.input && this.$refs.input.contains(event.target);
+                    const isOutsideClicked = !this.isOverlayMouseDown && !isOverlayMouseUp && !isInputMouseUp;
+
+                    if (this.overlayVisible && isOutsideClicked) {
                         this.overlayVisible = false;
                     }
+
+                    this.isOverlayMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isOverlayMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -554,6 +559,9 @@ export default {
             this.colorHandle = null;
             this.hueView = null;
             this.hueHandle = null;
+        },
+        onOverlayMouseDown() {
+            this.isOverlayMouseDown = true;
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {

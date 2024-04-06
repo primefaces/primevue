@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
+            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @mousedown="onContainerMouseDown" @click="onOverlayClick" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
@@ -51,6 +51,7 @@ export default {
     extends: BaseTieredMenu,
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
+    isContainerMouseDown: true,
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -259,6 +260,13 @@ export default {
             grouped && (this.dirty = true);
             isFocus && DomHandler.focus(this.menubar);
         },
+        onContainerMouseDown() {
+            const isOverlayShown = this.popup || ObjectUtils.isNotEmpty(this.activeItemPath);
+
+            if (isOverlayShown) {
+                this.isContainerMouseDown = true;
+            }
+        },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
@@ -444,21 +452,25 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.container && !this.container.contains(event.target);
-                    const isOutsideTarget = this.popup ? !(this.target && (this.target === event.target || this.target.contains(event.target))) : true;
+                    const isContainerMouseUp = this.container && this.container.contains(event.target);
+                    const isTargetMouseUp = this.target && this.target.contains(event.target);
+                    const isOutsideClicked = !this.isContainerMouseDown && !isContainerMouseUp && !isTargetMouseUp;
 
-                    if (isOutsideContainer && isOutsideTarget) {
+                    if (isOutsideClicked) {
                         this.hide();
                     }
+
+                    this.isContainerMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isContainerMouseDown = false;
             }
         },
         bindScrollListener() {

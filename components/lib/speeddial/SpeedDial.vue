@@ -1,5 +1,5 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
+    <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')" @mousedown="onContainerMouseDown">
         <slot name="button" :onClick="onClick" :toggleCallback="onClick">
             <SDButton
                 type="button"
@@ -65,7 +65,8 @@ export default {
     extends: BaseSpeedDial,
     inheritAttrs: false,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
-    documentClickListener: null,
+    isContainerMouseDown: false,
+    outsideClickListener: null,
     container: null,
     list: null,
     data() {
@@ -103,11 +104,11 @@ export default {
         }
 
         if (this.hideOnClickOutside) {
-            this.bindDocumentClickListener();
+            this.bindOutsideClickListener();
         }
     },
     beforeUnmount() {
-        this.unbindDocumentClickListener();
+        this.unbindOutsideClickListener();
     },
     methods: {
         getPTOptions(id, key) {
@@ -117,6 +118,9 @@ export default {
                     hidden: !this.d_visible
                 }
             });
+        },
+        onContainerMouseDown() {
+            this.isContainerMouseDown = false;
         },
         onFocus(event) {
             this.focused = true;
@@ -412,27 +416,28 @@ export default {
                 ...pointStyle
             };
         },
-        bindDocumentClickListener() {
-            if (!this.documentClickListener) {
-                this.documentClickListener = (event) => {
-                    if (this.d_visible && this.isOutsideClicked(event)) {
+        bindOutsideClickListener() {
+            if (!this.outsideClickListener) {
+                this.outsideClickListener = (event) => {
+                    const isContainerMouseUp = this.container && this.container.contains(event.target);
+                    const isOutsideClicked = !this.isContainerMouseDown && !isContainerMouseUp;
+
+                    if (this.d_visible && isOutsideClicked) {
                         this.hide();
                     }
 
-                    this.isItemClicked = false;
+                    this.isContainerMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.documentClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
-        unbindDocumentClickListener() {
-            if (this.documentClickListener) {
-                document.removeEventListener('mousedown', this.documentClickListener);
-                this.documentClickListener = null;
+        unbindOutsideClickListener() {
+            if (this.outsideClickListener) {
+                document.removeEventListener('mouseup', this.outsideClickListener);
+                this.outsideClickListener = null;
+                this.isContainerMouseDown = false;
             }
-        },
-        isOutsideClicked(event) {
-            return this.container && !(this.container.isSameNode(event.target) || this.container.contains(event.target) || this.isItemClicked);
         },
         isItemVisible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;

@@ -44,7 +44,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="[cx('panel'), panelClass]" @keydown="onOverlayKeydown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                <div v-if="overlayVisible" :ref="overlayRef" @mousedown="onOverlayMouseDown" @click="onOverlayClick" :class="[cx('panel'), panelClass]" @keydown="onOverlayKeydown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -153,7 +153,7 @@ export default {
     scrollHandler: null,
     overlay: null,
     selfChange: false,
-    selfClick: false,
+    isOverlayMouseDown: false,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -336,20 +336,24 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event)) {
+                    const isSelfMouseUp = this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target));
+                    const isOutsideClicked = !this.isOverlayMouseDown && !isSelfMouseUp;
+
+                    if (this.overlayVisible && isOutsideClicked) {
                         this.hide();
                     }
 
-                    this.selfClick = false;
+                    this.isOverlayMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isOverlayMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -385,19 +389,17 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
-        },
         overlayRef(el) {
             this.overlay = el;
+        },
+        onOverlayMouseDown() {
+            this.isOverlayMouseDown = true;
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
                 target: this.$el
             });
-
-            this.selfClick = true;
         },
         onOverlayKeydown(event) {
             if (event.code === 'Escape') this.hide();

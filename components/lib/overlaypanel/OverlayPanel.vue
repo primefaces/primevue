@@ -1,10 +1,10 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="ptmi('root')">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" @mousedown="onContainerMouseDown" :class="cx('root')" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :onClose="hide" :onKeydown="(event) => onButtonKeydown(event)" :closeCallback="hide" :keydownCallback="(event) => onButtonKeydown(event)"></slot>
                 <template v-else>
-                    <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
+                    <div :class="cx('content')" @keydown="onContentKeydown" v-bind="ptm('content')">
                         <slot></slot>
                     </div>
                     <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
@@ -49,7 +49,7 @@ export default {
             }
         }
     },
-    selfClick: false,
+    isContainerMouseDown: false,
     target: null,
     eventTarget: null,
     outsideClickListener: null,
@@ -57,7 +57,6 @@ export default {
     resizeListener: null,
     container: null,
     styleElement: null,
-    overlayEventListener: null,
     documentKeydownListener: null,
     beforeUnmount() {
         if (this.dismissable) {
@@ -75,11 +74,6 @@ export default {
 
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
-        }
-
-        if (this.overlayEventListener) {
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
         }
 
         this.container = null;
@@ -102,9 +96,6 @@ export default {
         hide() {
             this.visible = false;
         },
-        onContentClick() {
-            this.selfClick = true;
-        },
         onEnter(el) {
             this.container.setAttribute(this.attributeSelector, '');
             DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
@@ -121,14 +112,7 @@ export default {
                 ZIndexUtils.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
             }
 
-            this.overlayEventListener = (e) => {
-                if (this.container.contains(e.target)) {
-                    this.selfClick = true;
-                }
-            };
-
             this.focus();
-            OverlayEventBus.on('overlay-click', this.overlayEventListener);
             this.$emit('show');
 
             if (this.closeOnEscape) {
@@ -140,8 +124,6 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.unbindDocumentKeyDownListener();
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
             this.$emit('hide');
         },
         onAfterLeave(el) {
@@ -212,21 +194,25 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener && DomHandler.isClient()) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && !this.selfClick && !this.isTargetClicked(event)) {
+                    const isContainerMouseUp = this.container && this.container.contains(event.target);
+                    const isTargetMouseUp = this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target));
+                    const isOutsideClicked = !this.isContainerMouseDown && !isContainerMouseUp && !isTargetMouseUp;
+
+                    if (this.visible && isOutsideClicked) {
                         this.visible = false;
                     }
 
-                    this.selfClick = false;
+                    this.isContainerMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
-                this.selfClick = false;
+                this.isContainerMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -261,9 +247,6 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
             }
-        },
-        isTargetClicked(event) {
-            return this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target));
         },
         containerRef(el) {
             this.container = el;
@@ -301,6 +284,9 @@ export default {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        onContainerMouseDown() {
+            this.isContainerMouseDown = true;
         }
     },
     computed: {

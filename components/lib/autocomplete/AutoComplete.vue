@@ -111,6 +111,7 @@
                     :class="[cx('panel'), panelClass]"
                     :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
                     @click="onOverlayClick"
+                    @mousedown="onOverlayMouseDown"
                     @keydown="onOverlayKeyDown"
                     v-bind="{ ...panelProps, ...ptm('panel') }"
                 >
@@ -182,6 +183,7 @@ export default {
     extends: BaseAutoComplete,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
+    isOverlayMouseDown: false,
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
@@ -530,6 +532,9 @@ export default {
                 target: this.$el
             });
         },
+        onOverlayMouseDown() {
+          this.isOverlayMouseDown = true;
+        },
         onOverlayKeyDown(event) {
             switch (event.code) {
                 case 'Escape':
@@ -707,18 +712,24 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
+                    const isOverlayMouseUp = this.overlay && this.overlay.contains(event.target);
+                    const isOutsideClicked = !this.isOverlayMouseDown && !isOverlayMouseUp;
+
+                    if (this.overlayVisible && isOutsideClicked) {
                         this.hide();
                     }
+
+                    this.isOverlayMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isOverlayMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -753,9 +764,6 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
             }
-        },
-        isOutsideClicked(event) {
-            return !this.overlay.contains(event.target) && !this.isInputClicked(event) && !this.isDropdownClicked(event);
         },
         isInputClicked(event) {
             if (this.multiple) return event.target === this.$refs.multiContainer || this.$refs.multiContainer.contains(event.target);

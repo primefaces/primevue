@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="ptmi('root')">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @mousedown="onOverlayMouseDown" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :message="confirmation" :onAccept="accept" :onReject="reject" :acceptCallback="accept" :rejectCallback="reject"></slot>
                 <template v-else>
                     <template v-if="!$slots.message">
@@ -151,6 +151,7 @@ export default {
             this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
             this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
 
+            this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -192,24 +193,29 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    const isOverlayMouseUp = this.container && this.container.contains(event.target);
+                    const isTargetMouseUp = this.target && this.target.contains(event.target);
+                    const isOutsideClicked = !this.isOverlayMouseDown && !isOverlayMouseUp && !isTargetMouseUp;
+
+                    if (this.visible && isOutsideClicked) {
                         if (this.confirmation.onHide) {
                             this.confirmation.onHide();
                         }
 
                         this.visible = false;
-                    } else {
-                        this.alignOverlay();
                     }
+
+                    this.isOverlayMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isOverlayMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -252,11 +258,11 @@ export default {
                 focusTarget.focus({ preventScroll: true }); // Firefox requires preventScroll
             }
         },
-        isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
         containerRef(el) {
             this.container = el;
+        },
+        onOverlayMouseDown() {
+            this.isOverlayMouseDown = true;
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {

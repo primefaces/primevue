@@ -294,14 +294,8 @@ export default {
         }
     },
     overlay: null,
-    selfClick: false,
-    overlayEventListener: null,
+    isSelfMouseDown: false,
     beforeUnmount() {
-        if (this.overlayEventListener) {
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
-        }
-
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.onOverlayHide();
@@ -514,15 +508,13 @@ export default {
             DomHandler.focus(this.$refs.icon);
         },
         onContentClick(event) {
-            this.selfClick = true;
-
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
                 target: this.overlay
             });
         },
         onContentMouseDown() {
-            this.selfClick = true;
+            this.isSelfMouseDown = true;
         },
         onOverlayEnter(el) {
             if (this.filterMenuStyle) {
@@ -535,14 +527,6 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
-
-            this.overlayEventListener = (e) => {
-                if (!this.isOutsideClicked(e.target)) {
-                    this.selfClick = true;
-                }
-            };
-
-            OverlayEventBus.on('overlay-click', this.overlayEventListener);
         },
         onOverlayAfterEnter() {
             this.overlay?.$focustrap?.autoFocus();
@@ -558,36 +542,32 @@ export default {
             this.unbindResizeListener();
             this.unbindScrollListener();
             this.overlay = null;
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
         },
         overlayRef(el) {
             this.overlay = el;
         },
-        isOutsideClicked(target) {
-            return !this.isTargetClicked(target) && this.overlay && !(this.overlay.isSameNode(target) || this.overlay.contains(target));
-        },
-        isTargetClicked(target) {
-            return this.$refs.icon && (this.$refs.icon.isSameNode(target) || this.$refs.icon.contains(target));
-        },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event.target)) {
+                    const isSelfMouseUp = this.overlay && this.overlay.contains(event.target);
+                    const isTargetMouseUp = this.$refs.icon && this.$refs.icon.contains(event.target);
+                    const isOutsideClicked = !this.isSelfMouseDown && !isSelfMouseUp && !isTargetMouseUp;
+
+                    if (this.overlayVisible && isOutsideClicked) {
                         this.overlayVisible = false;
                     }
 
-                    this.selfClick = false;
+                    this.isSelfMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
-                this.selfClick = false;
+                this.isSelfMouseDown = false;
             }
         },
         bindScrollListener() {

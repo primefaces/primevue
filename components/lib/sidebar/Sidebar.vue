@@ -1,8 +1,8 @@
 <template>
     <Portal>
-        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
             <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')" @mousedown="onContainerMouseDown">
                     <slot v-if="$slots.container" name="container" :onClose="hide" :closeCallback="hide"></slot>
                     <template v-else>
                         <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
@@ -48,6 +48,7 @@ export default {
     content: null,
     headerContainer: null,
     closeButton: null,
+    isContainerMouseDown: false,
     outsideClickListener: null,
     documentKeydownListener: null,
     updated() {
@@ -57,6 +58,7 @@ export default {
     },
     beforeUnmount() {
         this.disableDocumentSettings();
+        this.bindOutsideClickListener();
 
         if (this.mask && this.autoZIndex) {
             ZIndexUtils.clear(this.mask);
@@ -80,6 +82,7 @@ export default {
         },
         onAfterEnter() {
             this.enableDocumentSettings();
+            this.bindOutsideClickListener();
         },
         onBeforeLeave() {
             if (this.modal) {
@@ -99,10 +102,8 @@ export default {
             this.disableDocumentSettings();
             this.$emit('after-hide');
         },
-        onMaskClick(event) {
-            if (this.dismissable && this.modal && this.mask === event.target) {
-                this.hide();
-            }
+        onContainerMouseDown() {
+            this.isContainerMouseDown = true;
         },
         focus() {
             const findFocusableElement = (container) => {
@@ -122,17 +123,11 @@ export default {
             focusTarget && DomHandler.focus(focusTarget);
         },
         enableDocumentSettings() {
-            if (this.dismissable && !this.modal) {
-                this.bindOutsideClickListener();
-            }
-
             if (this.blockScroll) {
                 DomHandler.blockBodyScroll();
             }
         },
         disableDocumentSettings() {
-            this.unbindOutsideClickListener();
-
             if (this.blockScroll) {
                 DomHandler.unblockBodyScroll();
             }
@@ -172,18 +167,24 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.isOutsideClicked(event)) {
+                    const isContainerMouseUp = this.container && this.container.contains(event.target);
+                    const isOutsideClicked = !this.isContainerMouseDown && !isContainerMouseUp;
+
+                    if (this.dismissable && isOutsideClicked) {
                         this.hide();
                     }
+
+                    this.isContainerMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isContainerMouseDown = false;
             }
         },
         isOutsideClicked(event) {

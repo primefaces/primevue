@@ -8,7 +8,7 @@
         :class="containerClass"
         :colspan="columnProp('colspan')"
         :rowspan="columnProp('rowspan')"
-        @click="onClick"
+        @mousedown="onMouseDown"
         @keydown="onKeyDown"
         role="cell"
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }"
@@ -183,9 +183,8 @@ export default {
             default: null
         }
     },
-    documentEditListener: null,
-    selfClick: false,
-    overlayEventListener: null,
+    documentMouseUpListener: null,
+    isSelfMouseDown: false,
     data() {
         return {
             d_editing: this.editing,
@@ -201,6 +200,8 @@ export default {
         }
     },
     mounted() {
+        this.bindDocumentMouseUpListener();
+
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
         }
@@ -219,10 +220,7 @@ export default {
         }
     },
     beforeUnmount() {
-        if (this.overlayEventListener) {
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
-        }
+        this.unbindDocumentMouseUpListener();
     },
     methods: {
         columnProp(prop) {
@@ -266,50 +264,40 @@ export default {
         isEditable() {
             return this.column.children && this.column.children.editor != null;
         },
-        bindDocumentEditListener() {
-            if (!this.documentEditListener) {
-                this.documentEditListener = (event) => {
-                    if (!this.selfClick) {
+        bindDocumentMouseUpListener() {
+            if (!this.documentMouseUpListener) {
+                this.documentMouseUpListener = (event) => {
+                    const isSelfMouseUp = this.$el.contains(event.target);
+
+                    if (this.isSelfMouseDown && isSelfMouseUp) {
+                        if (!this.d_editing && this.editMode === 'cell' && this.isEditable()) {
+                            this.d_editing = true;
+                            this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
+                        }
+                    }
+
+                    if (!this.isSelfMouseDown && !isSelfMouseUp) {
                         this.completeEdit(event, 'outside');
                     }
 
-                    this.selfClick = false;
+                    this.isSelfMouseDown = false;
                 };
 
-                document.addEventListener('mousedown', this.documentEditListener);
+                document.addEventListener('mouseup', this.documentMouseUpListener);
             }
         },
-        unbindDocumentEditListener() {
-            if (this.documentEditListener) {
-                document.removeEventListener('mousedown', this.documentEditListener);
-                this.documentEditListener = null;
-                this.selfClick = false;
+        unbindDocumentMouseUpListener() {
+            if (this.documentMouseUpListener) {
+                document.removeEventListener('mouseup', this.documentMouseUpListener);
+                this.documentMouseUpListener = null;
+                this.isSelfMouseDown = false;
             }
         },
         switchCellToViewMode() {
             this.d_editing = false;
-            this.unbindDocumentEditListener();
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
         },
-        onClick(event) {
-            if (this.editMode === 'cell' && this.isEditable()) {
-                this.selfClick = true;
-
-                if (!this.d_editing) {
-                    this.d_editing = true;
-                    this.bindDocumentEditListener();
-                    this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
-
-                    this.overlayEventListener = (e) => {
-                        if (this.$el && this.$el.contains(e.target)) {
-                            this.selfClick = true;
-                        }
-                    };
-
-                    OverlayEventBus.on('overlay-click', this.overlayEventListener);
-                }
-            }
+        onMouseDown() {
+            this.isSelfMouseDown = true;
         },
         completeEdit(event, type) {
             const completeEvent = {

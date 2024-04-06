@@ -9,7 +9,7 @@
             </slot>
         </button>
         <Portal>
-            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="cx('mask')" :aria-modal="maskVisible" @mousedown="onMaskClick" @keydown="onMaskKeydown" v-bind="ptm('mask')">
+            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="cx('mask')" :aria-modal="maskVisible" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" @keydown="onMaskKeydown" v-bind="ptm('mask')">
                 <div :class="cx('toolbar')" v-bind="ptm('toolbar')">
                     <button :class="cx('rotateRightButton')" @click="rotateRight" type="button" :aria-label="rightAriaLabel" v-bind="ptm('rotateRightButton')" data-pc-group-section="action">
                         <slot name="refresh">
@@ -42,9 +42,9 @@
                     </button>
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-                    <div v-if="previewVisible" v-bind="ptm('previewContainer')">
-                        <slot name="preview" :class="cx('preview')" :style="imagePreviewStyle" :onClick="onPreviewImageClick" :previewCallback="onPreviewImageClick">
-                            <img :src="$attrs.src" :class="cx('preview')" :style="imagePreviewStyle" @click="onPreviewImageClick" v-bind="ptm('preview')" />
+                    <div v-if="previewVisible" :ref="previewContainerRef" v-bind="ptm('previewContainer')">
+                        <slot name="preview" :class="cx('preview')" :style="imagePreviewStyle">
+                            <img :src="$attrs.src" :class="cx('preview')" :style="imagePreviewStyle" v-bind="ptm('preview')" />
                         </slot>
                     </div>
                 </transition>
@@ -71,6 +71,8 @@ export default {
     inheritAttrs: false,
     emits: ['show', 'hide', 'error'],
     mask: null,
+    isMaskMouseDown: false,
+    previewContainer: null,
     data() {
         return {
             maskVisible: false,
@@ -91,6 +93,9 @@ export default {
         toolbarRef(el) {
             this.toolbarRef = el;
         },
+        previewContainerRef(el) {
+            this.previewContainer = el;
+        },
         onImageClick() {
             if (this.preview) {
                 DomHandler.blockBodyScroll();
@@ -100,19 +105,28 @@ export default {
                 }, 25);
             }
         },
-        onPreviewImageClick() {
-            this.previewClick = true;
+        onMaskMouseDown(event) {
+            if (!this.isPreviewEventTarget(event) && !this.isBarActionsEventTarget(event)) {
+                this.isMaskMouseDown = true;
+            }
         },
-        onMaskClick(event) {
-            const isBarActionsClicked = DomHandler.isAttributeEquals(event.target, 'data-pc-section-group', 'action') || event.target.closest('[data-pc-section-group="action"]');
+        onMaskMouseUp(event) {
+            const isMaskMouseUp = !this.isPreviewEventTarget(event) && !this.isBarActionsEventTarget(event);
+            const isMaskClicked = this.isMaskMouseDown && isMaskMouseUp;
 
-            if (!this.previewClick && !isBarActionsClicked) {
+            if (isMaskClicked) {
                 this.previewVisible = false;
                 this.rotate = 0;
                 this.scale = 1;
             }
 
-            this.previewClick = false;
+            this.isMaskMouseDown = false;
+        },
+        isPreviewEventTarget(event) {
+            return this.previewContainer && this.previewContainer.contains(event.target);
+        },
+        isBarActionsEventTarget(event) {
+            return DomHandler.isAttributeEquals(event.target, 'data-pc-group-section', 'action') || event.target.closest('[data-pc-group-section="action"]');
         },
         onMaskKeydown(event) {
             switch (event.code) {
@@ -134,19 +148,15 @@ export default {
         },
         rotateRight() {
             this.rotate += 90;
-            this.previewClick = true;
         },
         rotateLeft() {
             this.rotate -= 90;
-            this.previewClick = true;
         },
         zoomIn() {
             this.scale = this.scale + 0.1;
-            this.previewClick = true;
         },
         zoomOut() {
             this.scale = this.scale - 0.1;
-            this.previewClick = true;
         },
         onBeforeEnter() {
             ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
