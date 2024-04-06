@@ -115,7 +115,7 @@
                         style="max-width: 8rem"
                         class="px-link flex align-items-center surface-card h-2rem px-2 border-1 border-solid surface-border transition-all transition-duration-300 hover:border-primary"
                     >
-                        <span class="text-900 block white-space-nowrap overflow-hidden"> {{ versions[0].version }}</span>
+                        <span class="text-900 block white-space-nowrap overflow-hidden"> {{ versions[1].version }}</span>
                         <span class="ml-2 pi pi-angle-down text-600"></span>
                     </button>
 
@@ -167,9 +167,14 @@ export default {
         return {
             versions: [
                 {
+                    name: 'v4',
+                    version: 'v4-beta.1',
+                    url: 'https://v4.primevue.org'
+                },
+                {
                     name: 'v3',
                     version: pkg.version,
-                    url: 'https://www.primevue.org'
+                    url: 'https://primevue.org'
                 },
                 {
                     name: 'v2',

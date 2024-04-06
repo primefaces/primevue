@@ -79,7 +79,7 @@ export default {
     data() {
         return {
             products: null,
-            expandedRows: [],
+            expandedRows: {},
             code: {
                 basic: `
 <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
@@ -211,7 +211,7 @@ export default {
     data() {
         return {
             products: null,
-            expandedRows: []
+            expandedRows: {}
         };
     },
     mounted() {
@@ -340,7 +340,7 @@ import { useToast } from 'primevue/usetoast';
 import { ProductService } from '@/service/ProductService';
 
 const products = ref();
-const expandedRows = ref([]);
+const expandedRows = ref({});
 const toast = useToast();
 
 onMounted(() => {

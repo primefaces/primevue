@@ -18,7 +18,7 @@ const classes = {
         'p-dropdown-label p-inputtext',
         {
             'p-placeholder': !props.editable && instance.label === props.placeholder,
-            'p-dropdown-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
+            'p-dropdown-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label?.length === 0)
         }
     ],
     clearIcon: 'p-dropdown-clear-icon',

@@ -77,8 +77,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         }
     },
     mediumCheckRegExp: null,
@@ -87,7 +90,6 @@ export default {
     scrollHandler: null,
     overlay: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);

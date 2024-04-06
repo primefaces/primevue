@@ -64,8 +64,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         activeItemPath(newPath) {
             if (ObjectUtils.isNotEmpty(newPath)) {
@@ -78,8 +81,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.global) {
             this.bindDocumentContextMenuListener();
         }
@@ -105,6 +106,9 @@ export default {
         },
         isItemDisabled(item) {
             return this.getItemProp(item, 'disabled');
+        },
+        isItemVisible(item) {
+            return this.getItemProp(item, 'visible') !== false;
         },
         isItemGroup(item) {
             return ObjectUtils.isNotEmpty(this.getItemProp(item, 'items'));
@@ -459,7 +463,7 @@ export default {
             return this.isValidItem(processedItem) && this.getProccessedItemLabel(processedItem)?.toLocaleLowerCase().startsWith(this.searchValue.toLocaleLowerCase());
         },
         isValidItem(processedItem) {
-            return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item);
+            return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item) && this.isItemVisible(processedItem.item);
         },
         isValidSelectedItem(processedItem) {
             return this.isValidItem(processedItem) && this.isSelected(processedItem);

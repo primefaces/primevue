@@ -35,7 +35,6 @@
                     </slot>
                     <slot v-if="index !== stepperpanels.length - 1" name="separator">
                         <StepperSeparator
-                            v-if="index !== stepperpanels.length - 1"
                             :template="step.children?.separator"
                             :separatorClass="cx('stepper.separator')"
                             :stepperpanel="step"
@@ -50,7 +49,7 @@
             <div :class="cx('panelContainer')" v-bind="ptm('panelContainer')">
                 <template v-for="(step, index) of stepperpanels" :key="getStepKey(step, index)">
                     <StepperContent
-                        v-if="isStepActive(index)"
+                        v-show="isStepActive(index)"
                         :id="getStepContentId(index)"
                         :template="step?.children?.content"
                         :stepperpanel="step"
@@ -103,7 +102,6 @@
                     <div v-show="isStepActive(index)" :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
                         <slot v-if="index !== stepperpanels.length - 1" name="separator">
                             <StepperSeparator
-                                v-if="index !== stepperpanels.length - 1"
                                 :template="step.children?.separator"
                                 :separatorClass="cx('stepper.separator')"
                                 :stepperpanel="step"
@@ -156,15 +154,15 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         activeStep(newValue) {
             this.d_activeStep = newValue;
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         isStep(child) {

@@ -71,8 +71,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
+        '$attrs.id': {
+            immediate: true,
+            handler: function (newValue) {
+                this.id = newValue || UniqueComponentId();
+            }
         },
         activeItemPath(newPath) {
             if (!this.popup) {
@@ -85,9 +88,6 @@ export default {
                 }
             }
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
@@ -114,6 +114,9 @@ export default {
         },
         isItemDisabled(item) {
             return this.getItemProp(item, 'disabled');
+        },
+        isItemVisible(item) {
+            return this.getItemProp(item, 'visible') !== false;
         },
         isItemGroup(item) {
             return ObjectUtils.isNotEmpty(this.getItemProp(item, 'items'));
@@ -380,8 +383,12 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            this.hide(event, true);
-            !this.popup && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+            if (this.focusedItemInfo.level !== 0) {
+                const _focusedItemInfo = this.focusedItemInfo;
+
+                this.hide(event, false);
+                !this.popup && (this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey.split('_')[0]), level: 0, parentKey: '' });
+            }
 
             event.preventDefault();
         },
@@ -489,7 +496,7 @@ export default {
             return this.isValidItem(processedItem) && this.getProccessedItemLabel(processedItem)?.toLocaleLowerCase().startsWith(this.searchValue.toLocaleLowerCase());
         },
         isValidItem(processedItem) {
-            return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item);
+            return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item) && this.isItemVisible(processedItem.item);
         },
         isValidSelectedItem(processedItem) {
             return this.isValidItem(processedItem) && this.isSelected(processedItem);
