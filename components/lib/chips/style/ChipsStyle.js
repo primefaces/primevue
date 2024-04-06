@@ -12,15 +12,15 @@ const classes = {
         }
     ],
     container: ({ props, instance }) => [
-        'p-chips-multiple-container',
+        'p-chips-list',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    token: ({ state, index }) => ['p-chips-token', { 'p-focus': state.focusedIndex === index }],
-    label: 'p-chips-token-label',
-    removeTokenIcon: 'p-chips-token-icon',
-    inputToken: 'p-chips-input-token'
+    token: ({ state, index }) => ['p-chips-item', { 'p-focus': state.focusedIndex === index }],
+    label: 'p-chips-item-label',
+    removeTokenIcon: 'p-chips-item-icon',
+    inputToken: 'p-chips-input-item'
 };
 
 export default BaseStyle.extend({

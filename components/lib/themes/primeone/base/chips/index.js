@@ -4,7 +4,7 @@ export default {
     display: inline-flex;
 }
 
-.p-chips-multiple-container {
+.p-chips-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -25,34 +25,34 @@ export default {
     box-shadow: ${dt('chips.box.shadow')};
 }
 
-.p-chips:not(.p-disabled):hover .p-chips-multiple-container {
+.p-chips:not(.p-disabled):hover .p-chips-list {
     border-color: ${dt('chips.hover.border.color')};
 }
 
-.p-chips:not(.p-disabled).p-focus .p-chips-multiple-container {
+.p-chips:not(.p-disabled).p-focus .p-chips-list {
     border-color: ${dt('chips.focus.border.color')};
     outline: 0 none;
 }
 
-.p-chips.p-invalid .p-chips-multiple-container {
+.p-chips.p-invalid .p-chips-list {
     border-color: ${dt('chips.invalid.border.color')};
 }
 
-.p-variant-filled.p-chips-multiple-container {
+.p-variant-filled.p-chips-list {
     background: ${dt('chips.filled.background')};
 }
 
-.p-chips:not(.p-disabled).p-focus .p-variant-filled.p-chips-multiple-container  {
+.p-chips:not(.p-disabled).p-focus .p-variant-filled.p-chips-list  {
     background: ${dt('chips.filled.focus.background')};
 }
 
-.p-chips.p-disabled .p-chips-multiple-container {
+.p-chips.p-disabled .p-chips-list {
     opacity: 1;
     background: ${dt('chips.disabled.background')};
     color: ${dt('chips.disabled.color')};
 }
 
-.p-chips-token {
+.p-chips-item {
     cursor: default;
     display: inline-flex;
     align-items: center;
@@ -63,27 +63,24 @@ export default {
     border-radius: ${dt('rounded.sm')};
 }
 
-.p-chips-token.p-focus {
+.p-chips-item.p-focus {
     background: ${dt('chips.chip.focus.background')};
     color: ${dt('chips.chip.focus.color')};
 }
 
-.p-chips-input-token {
-    flex: 1 1 auto;
-    display: inline-flex;
-}
-
-.p-chips-token-icon {
+.p-chips-item-icon {
     cursor: pointer;
     margin-left: 0.375rem;
 }
 
-.p-chips-input-token {
+.p-chips-input-item {
     padding: 0.25rem 0;
     margin-left: 0.5rem;
+    flex: 1 1 auto;
+    display: inline-flex;
 }
 
-.p-chips-input-token input {
+.p-chips-input-item input {
     border: 0 none;
     outline: 0 none;
     background-color: transparent;
@@ -100,7 +97,7 @@ export default {
     margin: 0;
 }
 
-.p-chips-input-token input::placeholder {
+.p-chips-input-item input::placeholder {
     color: ${dt('chips.placeholder.color')};
 }
 
