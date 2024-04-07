@@ -11,7 +11,7 @@ const classes = {
             'p-badge-xl': props.size === 'xlarge',
             'p-badge-info': props.severity === 'info',
             'p-badge-success': props.severity === 'success',
-            'p-badge-warning': props.severity === 'warning',
+            'p-badge-warn': props.severity === 'warn',
             'p-badge-danger': props.severity === 'danger',
             'p-badge-secondary': props.severity === 'secondary',
             'p-badge-contrast': props.severity === 'contrast'

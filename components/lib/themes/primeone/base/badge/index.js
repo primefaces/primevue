@@ -55,7 +55,7 @@ export default {
     color: ${dt('badge.info.color')};
 }
 
-.p-badge-warning {
+.p-badge-warn {
     background: ${dt('badge.warn.background')};
     color: ${dt('badge.warn.color')};
 }
