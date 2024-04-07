@@ -10,7 +10,7 @@ const classes = {
             'p-avatar-xl': props.size === 'xlarge'
         }
     ],
-    label: 'p-avatar-text',
+    label: 'p-avatar-label',
     icon: 'p-avatar-icon'
 };
 
