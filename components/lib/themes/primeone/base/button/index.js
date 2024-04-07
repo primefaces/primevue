@@ -586,40 +586,5 @@ export default {
     border-color: transparent;
     color: ${dt('button.link.active.color')};
 }
-
-.p-buttonset .p-button {
-    margin: 0;
-}
-.p-buttonset .p-button:not(:last-child),
-.p-buttonset .p-button:not(:last-child):hover {
-    border-right: 0 none;
-}
-
-.p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
-    border-radius: 0;
-}
-
-.p-buttonset .p-button:first-of-type:not(:only-of-type) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-buttonset .p-button:last-of-type:not(:only-of-type) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.p-buttonset .p-button:focus-visible {
-    position: relative;
-    z-index: 1;
-}
-
-.p-fluid .p-buttonset {
-    display: flex;
-}
-
-.p-fluid .p-buttonset .p-button {
-    flex: 1;
-}
 `
 };
