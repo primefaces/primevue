@@ -42,13 +42,15 @@
 <script>
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
 import BaseTieredMenu from './BaseTieredMenu.vue';
 import TieredMenuSub from './TieredMenuSub.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'TieredMenu',
     extends: BaseTieredMenu,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,
@@ -61,7 +63,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
@@ -71,12 +72,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         activeItemPath(newPath) {
             if (!this.popup) {
                 if (ObjectUtils.isNotEmpty(newPath)) {

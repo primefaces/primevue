@@ -39,27 +39,21 @@
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
-import { UniqueComponentId } from 'primevue/utils';
 import BaseFieldset from './BaseFieldset.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Fieldset',
     extends: BaseFieldset,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {
-            id: this.$attrs.id,
             d_collapsed: this.collapsed
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         collapsed(newValue) {
             this.d_collapsed = newValue;
         }

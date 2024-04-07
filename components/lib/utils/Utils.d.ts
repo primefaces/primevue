@@ -1,3 +1,5 @@
+import type { ComponentPublicInstance, ComponentOptionsMixin } from 'vue';
+
 export declare class ConnectedOverlayScrollHandler {
     constructor(element: any, listener?: () => void);
     bindScrollListener(): void;
@@ -119,6 +121,7 @@ export declare namespace ZIndexUtils {
 }
 
 export declare function UniqueComponentId(prefix?: string): string;
+export declare function UniqueIdMixin(propName?: string, sourcePropertyGetter?: (vm: ComponentPublicInstance) => any): ComponentOptionsMixin;
 
 export declare function EventBus(): {
     on(type: string, fn: any): void;

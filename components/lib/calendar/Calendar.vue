@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -520,12 +520,14 @@ import ChevronUpIcon from 'primevue/icons/chevronup';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import BaseCalendar from './BaseCalendar.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Calendar',
     extends: BaseCalendar,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     navigationState: null,
@@ -545,7 +547,6 @@ export default {
     typeUpdate: false,
     data() {
         return {
-            d_id: this.id,
             currentMonth: null,
             currentYear: null,
             currentHour: null,
@@ -560,12 +561,6 @@ export default {
         };
     },
     watch: {
-        id: {
-            immediate: true,
-            handler: function (newValue) {
-                this.d_id = newValue || UniqueComponentId();
-            }
-        },
         modelValue(newValue) {
             this.updateCurrentMetaData();
 
@@ -3010,7 +3005,7 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         panelId() {
-            return this.d_id + '_panel';
+            return this.id + '_panel';
         }
     },
     components: {

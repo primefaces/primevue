@@ -53,31 +53,24 @@
 <script>
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import BaseMenu from './BaseMenu.vue';
 import Menuitem from './Menuitem.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Menu',
     extends: BaseMenu,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['show', 'hide', 'focus', 'blur'],
     data() {
         return {
-            id: this.$attrs.id,
             overlayVisible: false,
             focused: false,
             focusedOptionIndex: -1,
             selectedOptionIndex: -1
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     target: null,
     outsideClickListener: null,

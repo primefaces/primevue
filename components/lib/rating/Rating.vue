@@ -52,28 +52,21 @@
 import BanIcon from 'primevue/icons/ban';
 import StarIcon from 'primevue/icons/star';
 import StarFillIcon from 'primevue/icons/starfill';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 import BaseRating from './BaseRating.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Rating',
     extends: BaseRating,
+    mixins: [UniqueIdMixin('name', (vm) => vm.$attrs.name)],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     data() {
         return {
-            name: this.$attrs.name,
             focusedOptionIndex: -1,
             isFocusVisibleItem: true
         };
-    },
-    watch: {
-        '$attrs.name': {
-            immediate: true,
-            handler: function (newValue) {
-                this.name = newValue || UniqueComponentId();
-            }
-        }
     },
     methods: {
         getPTOptions(key, value) {

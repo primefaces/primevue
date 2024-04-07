@@ -135,31 +135,25 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseStepper from './BaseStepper.vue';
 import StepperContent from './StepperContent.vue';
 import StepperHeader from './StepperHeader.vue';
 import StepperSeparator from './StepperSeparator.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Stepper',
     extends: BaseStepper,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['update:activeStep', 'step-change'],
     data() {
         return {
-            id: this.$attrs.id,
             d_activeStep: this.activeStep
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         activeStep(newValue) {
             this.d_activeStep = newValue;
         }

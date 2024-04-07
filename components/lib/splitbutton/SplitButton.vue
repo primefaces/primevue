@@ -63,27 +63,19 @@
 import Button from 'primevue/button';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
-import { UniqueComponentId } from 'primevue/utils';
 import BaseSplitButton from './BaseSplitButton.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
     extends: BaseSplitButton,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['click'],
     data() {
         return {
-            id: this.$attrs.id,
             isExpanded: false
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     mounted() {
         this.$watch('$refs.menu.visible', (newValue) => {

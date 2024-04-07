@@ -64,13 +64,15 @@ import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
 import WindowMinimizeIcon from 'primevue/icons/windowminimize';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import { computed } from 'vue';
 import BaseDialog from './BaseDialog.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Dialog',
     extends: BaseDialog,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
     provide() {
@@ -80,20 +82,11 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             containerVisible: this.visible,
             maximized: false,
             focusableMax: null,
             focusableClose: null
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     documentKeydownListener: null,
     container: null,

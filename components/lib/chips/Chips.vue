@@ -59,29 +59,21 @@
 
 <script>
 import TimesCircleIcon from 'primevue/icons/timescircle';
-import { UniqueComponentId } from 'primevue/utils';
 import BaseChips from './BaseChips.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Chips',
     extends: BaseChips,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {
-            id: this.$attrs.id,
             inputValue: null,
             focused: false,
             focusedIndex: null
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     methods: {
         onWrapperClick() {

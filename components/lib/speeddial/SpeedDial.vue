@@ -57,12 +57,14 @@ import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
     extends: BaseSpeedDial,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
     documentClickListener: null,
@@ -70,7 +72,6 @@ export default {
     list: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_visible: this.visible,
             isItemClicked: false,
             focused: false,
@@ -78,12 +79,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         visible(newValue) {
             this.d_visible = newValue;
         }

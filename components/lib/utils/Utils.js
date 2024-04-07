@@ -4,6 +4,7 @@ import EventBus from './EventBus';
 import HelperSet from './HelperSet';
 import ObjectUtils from './ObjectUtils';
 import UniqueComponentId from './UniqueComponentId';
+import UniqueIdMixin from './UniqueIdMixin';
 import ZIndexUtils from './ZIndexUtils';
 
-export { ConnectedOverlayScrollHandler, DomHandler, EventBus, HelperSet, ObjectUtils, UniqueComponentId, ZIndexUtils };
+export { ConnectedOverlayScrollHandler, DomHandler, EventBus, HelperSet, ObjectUtils, UniqueComponentId, ZIndexUtils, UniqueIdMixin };

@@ -208,13 +208,15 @@ import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseMultiSelect from './BaseMultiSelect.vue';
+import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'MultiSelect',
     extends: BaseMultiSelect,
+    mixins: [UniqueIdMixin()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
     outsideClickListener: null,
@@ -229,7 +231,6 @@ export default {
     selectOnFocus: false,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionIndex: -1,
@@ -238,12 +239,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         options() {
             this.autoUpdateModel();
         }
