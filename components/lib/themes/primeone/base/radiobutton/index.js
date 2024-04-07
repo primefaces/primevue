@@ -55,23 +55,23 @@ export default {
     border-color: ${dt('radiobutton.hover.border.color')};
 }
 
-.p-radiobutton.p-highlight .p-radiobutton-box {
+.p-radiobutton.p-radiobutton-checked .p-radiobutton-box {
     border-color: ${dt('radiobutton.checked.border.color')};
     background: ${dt('radiobutton.checked.background')};
 }
 
-.p-radiobutton.p-highlight .p-radiobutton-box .p-radiobutton-icon {
+.p-radiobutton.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
     background: ${dt('radiobutton.icon.checked.color')};
     transform: translateZ(0) scale(1, 1);
     visibility: visible;
 }
 
-.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box {
     border-color: ${dt('radiobutton.checked.hover.border.color')};
     background: ${dt('radiobutton.checked.hover.background')};
 }
 
-.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box .p-radiobutton-icon {
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
     background: ${dt('radiobutton.icon.checked.hover.color')};
 }
 
@@ -88,11 +88,11 @@ export default {
     background: ${dt('radiobutton.filled.background')};
 }
 
-.p-radiobutton.p-variant-filled.p-highlight .p-radiobutton-box {
+.p-radiobutton.p-variant-filled.p-radiobutton-checked .p-radiobutton-box {
     background: ${dt('radiobutton.checked.background')};
 }
 
-.p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+.p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box {
     background: ${dt('radiobutton.checked.hover.background')};
 }
 
