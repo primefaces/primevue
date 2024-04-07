@@ -135,7 +135,7 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
+import { UniqueComponentId, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseStepper from './BaseStepper.vue';
 import StepperContent from './StepperContent.vue';
@@ -172,7 +172,7 @@ export default {
             return this.d_activeStep === index;
         },
         getStepProp(step, name) {
-            return step.props ? step.props[name] : undefined;
+            return ObjectUtils.getVNodeProp(step, name);
         },
         getStepKey(step, index) {
             return this.getStepProp(step, 'header') || index;

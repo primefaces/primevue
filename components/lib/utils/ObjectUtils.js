@@ -202,15 +202,35 @@ export default {
         return str;
     },
 
-    getVNodeProp(vnode, prop) {
+    /**
+     * VNode already "prepared" unit and props don't resolves to camelCase
+     * Try to find camelCase and after try with kebab-case
+     */
+    getVNodeProp(vnode, camelCaseProp) {
         if (vnode) {
             let props = vnode.props;
 
             if (props) {
-                let kebabProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-                let propName = Object.prototype.hasOwnProperty.call(props, kebabProp) ? kebabProp : prop;
+                let foundPropName;
 
-                return vnode.type.extends.props[prop].type === Boolean && props[propName] === '' ? true : props[propName];
+                if (Object.prototype.hasOwnProperty.call(props, camelCaseProp)) {
+                    foundPropName = camelCaseProp;
+                } else {
+                    let kebabProp = this.toKebabCase(camelCaseProp);
+
+                    if (Object.prototype.hasOwnProperty.call(props, kebabProp)) {
+                        foundPropName = kebabProp;
+                    }
+                }
+
+                if (foundPropName) {
+                    // vnode.type.extends is a component and it always have camelCase props (due to Vue compile)
+                    if (props[foundPropName] === '' && vnode.type.extends.props[camelCaseProp]?.type === Boolean) {
+                        return true;
+                    }
+
+                    return props[foundPropName];
+                }
             }
         }
 
