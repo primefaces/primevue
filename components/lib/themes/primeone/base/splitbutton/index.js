@@ -6,18 +6,18 @@ export default {
     border-radius: ${dt('rounded.base')};
 }
 
-.p-splitbutton-defaultbutton {
+.p-splitbutton-button {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
 }
 
-.p-splitbutton-defaultbutton:not(:disabled):hover,
-.p-splitbutton-defaultbutton:not(:disabled):active {
+.p-splitbutton-button:not(:disabled):hover,
+.p-splitbutton-button:not(:disabled):active {
     border-right: 0 none;
 }
 
-.p-splitbutton-menubutton {
+.p-splitbutton-dropdown {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -30,12 +30,12 @@ export default {
     display: flex;
 }
 
-.p-splitbutton.p-button-rounded .p-splitbutton-defaultbutton {
+.p-splitbutton.p-button-rounded .p-splitbutton-button {
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;;
 }
 
-.p-splitbutton.p-button-rounded .p-splitbutton-menubutton {
+.p-splitbutton.p-button-rounded .p-splitbutton-dropdown {
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;;
 }
@@ -45,19 +45,19 @@ export default {
 }
 
 /*
-.p-splitbutton .p-splitbutton-defaultbutton,
-.p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button-outlined.p-button:hover {
+.p-splitbutton .p-splitbutton-button,
+.p-splitbutton.p-button-rounded > .p-splitbutton-button.p-button,
+.p-splitbutton.p-button-outlined > .p-splitbutton-button.p-button,
+.p-splitbutton.p-button-outlined > .p-splitbutton-button.p-button-outlined.p-button:hover {
     flex: 1 1 auto;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
 }
 
-.p-splitbutton-menubutton,
-.p-splitbutton.p-button-rounded > .p-splitbutton-menubutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button {
+.p-splitbutton-dropdown,
+.p-splitbutton.p-button-rounded > .p-splitbutton-dropdown.p-button,
+.p-splitbutton.p-button-outlined > .p-splitbutton-dropdown.p-button {
     display: flex;
     align-items: center;
     justify-content: center;
