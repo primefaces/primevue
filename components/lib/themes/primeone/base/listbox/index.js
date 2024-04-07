@@ -48,7 +48,7 @@ export default {
     padding-right: 1.75rem;
 }
 
-.p-listbox-list-wrapper {
+.p-listbox-list-container {
     overflow: auto;
 }
 
@@ -59,7 +59,7 @@ export default {
     outline: 0 none;
 }
 
-.p-listbox-item {
+.p-listbox-option {
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -71,35 +71,35 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-listbox-item:first-child {
+.p-listbox-option:first-child {
     margin-top: 0;
 }
 
-.p-listbox-item:last-child {
+.p-listbox-option:last-child {
     margin-bottom: 0;
 }
 
-.p-listbox .p-listbox-list .p-listbox-item.p-highlight {
+.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
     background: ${dt('listbox.item.selected.background')};
     color: ${dt('listbox.item.selected.color')};
 }
 
-.p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
+.p-listbox:not(.p-disabled) .p-listbox-option.p-listbox-option-selected.p-focus {
     background: ${dt('listbox.item.selected.focus.background')};
     color: ${dt('listbox.item.selected.focus.color')};
 }
 
-.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
+.p-listbox:not(.p-disabled) .p-listbox-option:not(.p-listbox-option-selected):not(.p-disabled).p-focus {
     background: ${dt('listbox.item.focus.background')};
     color: ${dt('listbox.item.focus.color')};
 }
 
-.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
+.p-listbox:not(.p-disabled) .p-listbox-option:not(.p-listbox-option-selected):not(.p-disabled):hover {
     background: ${dt('listbox.item.focus.background')};
     color: ${dt('listbox.item.focus.color')};
 }
 
-.p-listbox-item-group {
+.p-listbox-option-group {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;

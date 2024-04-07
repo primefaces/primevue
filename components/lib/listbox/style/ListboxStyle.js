@@ -13,13 +13,13 @@ const classes = {
     filterContainer: 'p-listbox-filter-container',
     filterInput: 'p-listbox-filter',
     filterIcon: 'p-listbox-filter-icon',
-    wrapper: 'p-listbox-list-wrapper',
+    wrapper: 'p-listbox-list-container',
     list: 'p-listbox-list',
-    itemGroup: 'p-listbox-item-group',
+    itemGroup: 'p-listbox-option-group',
     item: ({ instance, option, index, getItemOptions }) => [
-        'p-listbox-item',
+        'p-listbox-option',
         {
-            'p-highlight': instance.isSelected(option),
+            'p-listbox-option-selected': instance.isSelected(option),
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(index, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }
