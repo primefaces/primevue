@@ -6,9 +6,9 @@ const classes = {
         {
             'p-inputwrapper-filled': instance.filled || props.allowEmpty === false,
             'p-inputwrapper-focus': instance.focused,
-            'p-inputnumber-buttons-stacked': props.showButtons && props.buttonLayout === 'stacked',
-            'p-inputnumber-buttons-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
-            'p-inputnumber-buttons-vertical': props.showButtons && props.buttonLayout === 'vertical'
+            'p-inputnumber-stacked': props.showButtons && props.buttonLayout === 'stacked',
+            'p-inputnumber-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
+            'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical'
         }
     ],
     input: 'p-inputnumber-input',

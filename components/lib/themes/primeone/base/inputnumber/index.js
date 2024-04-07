@@ -26,16 +26,16 @@ export default {
     color: ${dt('inputnumber.button.active.color')};
 }
 
-.p-inputnumber-buttons-stacked {
+.p-inputnumber-stacked {
     overflow: hidden;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button {
+.p-inputnumber-stacked .p-inputnumber-button {
     position: relative;
     border: 0 none;
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-group {
+.p-inputnumber-stacked .p-inputnumber-button-group {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -44,70 +44,70 @@ export default {
     height: calc(100% - 2px);
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-up {
+.p-inputnumber-stacked .p-inputnumber-button-up {
     padding: 0;
     border-top-right-radius: calc(${dt('rounded.base')} - 1px);
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button-down {
+.p-inputnumber-stacked .p-inputnumber-button-down {
     padding: 0;
     border-bottom-right-radius: calc(${dt('rounded.base')} - 1px);
 }
 
-.p-inputnumber-buttons-stacked .p-inputnumber-button {
+.p-inputnumber-stacked .p-inputnumber-button {
     flex: 1 1 auto;
     border: 0 none;
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button {
+.p-inputnumber-horizontal .p-inputnumber-button {
     border: 1px solid ${dt('inputnumber.button.border.color')};
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button:hover {
+.p-inputnumber-horizontal .p-inputnumber-button:hover {
     border-color: ${dt('inputnumber.button.hover.border.color')};
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button:active {
+.p-inputnumber-horizontal .p-inputnumber-button:active {
     border-color: ${dt('inputnumber.button.active.border.color')};
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button-up {
+.p-inputnumber-horizontal .p-inputnumber-button-up {
     order: 3;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
     border-left: 0 none;
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-input {
+.p-inputnumber-horizontal .p-inputnumber-input {
     order: 2;
     border-radius: 0;
 }
 
-.p-inputnumber-buttons-horizontal .p-inputnumber-button-down {
+.p-inputnumber-horizontal .p-inputnumber-button-down {
     order: 1;
     border-top-left-radius: ${dt('rounded.base')};
     border-bottom-left-radius: ${dt('rounded.base')};
     border-right: 0 none;
 }
 
-.p-inputnumber-buttons-vertical {
+.p-inputnumber-vertical {
     flex-direction: column;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button {
+.p-inputnumber-vertical .p-inputnumber-button {
     border: 1px solid ${dt('inputnumber.button.border.color')};
     padding: 0.5rem 0;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button:hover {
+.p-inputnumber-vertical .p-inputnumber-button:hover {
     border-color: ${dt('inputnumber.button.hover.border.color')};
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button:active {
+.p-inputnumber-vertical .p-inputnumber-button:active {
     border-color: ${dt('inputnumber.button.active.border.color')};
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-up {
+.p-inputnumber-vertical .p-inputnumber-button-up {
     order: 1;
     border-top-left-radius: ${dt('rounded.base')};
     border-top-right-radius: ${dt('rounded.base')};
@@ -115,13 +115,13 @@ export default {
     border-bottom: 0 none;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-input {
+.p-inputnumber-vertical .p-inputnumber-input {
     order: 2;
     border-radius: 0;
     text-align: center;
 }
 
-.p-inputnumber-buttons-vertical .p-inputnumber-button-down {
+.p-inputnumber-vertical .p-inputnumber-button-down {
     order: 3;
     border-bottom-left-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -141,7 +141,7 @@ export default {
     width: 1%;
 }
 
-.p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-input {
+.p-fluid .p-inputnumber-vertical .p-inputnumber-input {
     width: 100%;
 }
 `
