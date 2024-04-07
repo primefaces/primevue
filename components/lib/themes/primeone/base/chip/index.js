@@ -9,17 +9,25 @@ export default {
     padding: 0.25rem 0.75rem;
 }
 
-.p-chip:has(.p-chip-remove-icon) {
-    padding-right: 0.5rem;
-  }
-
-.p-chip-text {
+.p-chip-label {
     line-height: 1.5;
 }
 
 .p-chip-icon {
     line-height: 1.5;
     margin-right: 0.5rem;
+}
+
+.p-chip-image {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+}
+
+.p-chip:has(.p-chip-remove-icon) {
+    padding-right: 0.5rem;
 }
 
 .p-chip-remove-icon {
@@ -29,14 +37,6 @@ export default {
     border-radius: 6px;
     transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;
-}
-
-.p-chip img {
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    margin-left: -0.5rem;
-    margin-right: 0.5rem;
 }
 
 .p-chip-remove-icon:focus-visible {

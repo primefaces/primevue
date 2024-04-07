@@ -1,7 +1,7 @@
 <template>
     <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptmi('root')">
         <slot>
-            <img v-if="image" :src="image" v-bind="ptm('image')" />
+            <img v-if="image" :src="image" v-bind="ptm('image')" :class="cx('image')" />
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
             <span v-else-if="icon" :class="[cx('icon'), icon]" v-bind="ptm('icon')" />
             <div v-if="label" :class="cx('label')" v-bind="ptm('label')">{{ label }}</div>

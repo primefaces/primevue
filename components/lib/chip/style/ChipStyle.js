@@ -1,14 +1,10 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ props }) => [
-        'p-chip p-component',
-        {
-            'p-chip-image': props.image != null
-        }
-    ],
+    root: 'p-chip p-component',
+    image: 'p-chip-image',
     icon: 'p-chip-icon',
-    label: 'p-chip-text',
+    label: 'p-chip-label',
     removeIcon: 'p-chip-remove-icon'
 };
 
