@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ instance, props }) => [
-        'p-chips p-component p-inputwrapper',
+        'p-inputchips p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
@@ -12,15 +12,15 @@ const classes = {
         }
     ],
     container: ({ props, instance }) => [
-        'p-chips-group',
+        'p-inputchips-group',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    token: ({ state, index }) => ['p-chips-chip', { 'p-focus': state.focusedIndex === index }],
-    label: 'p-chips-chip-label',
-    removeTokenIcon: 'p-chips-chip-icon',
-    inputToken: 'p-chips-input-chip'
+    token: ({ state, index }) => ['p-inputchips-chip', { 'p-focus': state.focusedIndex === index }],
+    label: 'p-inputchips-chip-label',
+    removeTokenIcon: 'p-inputchips-chip-icon',
+    inputToken: 'p-inputchips-input-item'
 };
 
 export default BaseStyle.extend({
