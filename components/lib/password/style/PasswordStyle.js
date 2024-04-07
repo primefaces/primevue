@@ -9,27 +9,21 @@ const classes = {
         'p-password p-component p-inputwrapper',
         {
             'p-inputwrapper-filled': instance.filled,
-            'p-inputwrapper-focus': instance.focused,
-            'p-password-icon-field': props.toggleMask
+            'p-inputwrapper-focus': instance.focused
         }
     ],
-    input: ({ props }) => [
-        'p-password-input',
-        {
-            'p-disabled': props.disabled
-        }
-    ],
-    hideIcon: 'p-input-icon',
-    showIcon: 'p-input-icon',
+    input: 'p-password-input',
+    hideIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
+    showIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
     panel: ({ instance }) => [
-        'p-password-panel p-component',
+        'p-password-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
     meter: 'p-password-meter',
-    meterLabel: ({ instance }) => `p-password-strength ${instance.meter ? instance.meter.strength : ''}`,
-    info: 'p-password-info'
+    meterLabel: ({ instance }) => `p-password-meter-value ${instance.meter ? 'p-password-meter-' + instance.meter.strength : ''}`,
+    info: 'p-password-meter-text'
 };
 
 export default BaseStyle.extend({

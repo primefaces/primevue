@@ -5,7 +5,7 @@ export default {
     position: relative;
 }
 
-.p-password .p-password-panel {
+.p-password .p-password-overlay {
     min-width: 100%;
 }
 
@@ -16,23 +16,23 @@ export default {
     border-radius: ${dt('rounded.base')};
 }
 
-.p-password-strength {
+.p-password-meter-value {
     height: 100%;
     width: 0;
     transition: width 1s ease-in-out;
     border-radius: ${dt('rounded.base')};
 }
 
-.p-password-strength.weak {
-    background: ${dt('password.weak.background')};
+.p-password-meter-weak {
+    background: ${dt('password.strength.weak.background')};
 }
 
-.p-password-strength.medium {
-    background: ${dt('password.medium.background')};
+.p-password-meter-medium {
+    background: ${dt('password.strength.medium.background')};
 }
 
-.p-password-strength.strong {
-    background: ${dt('password.strong.background')};
+.p-password-meter-strong {
+    background: ${dt('password.strength.strong.background')};
 }
 
 .p-fluid .p-password {
@@ -44,7 +44,7 @@ export default {
     display: none;
 }
 
-.p-password-panel {
+.p-password-overlay {
     padding: 0.75rem;
     background: ${dt('password.overlay.background')};
     color: ${dt('password.overlay.color')};
@@ -53,8 +53,7 @@ export default {
     border-radius: ${dt('rounded.base')};
 }
 
-.p-password > svg:last-of-type,
-.p-password > i:last-of-type {
+.p-password-toggle-mask-icon {
     right: 0.75rem;
     color: ${dt('password.icon.color')};
     position: absolute;
@@ -64,7 +63,7 @@ export default {
     height: 1rem;
 }
 
-.p-password:has(svg,i) .p-password-input {
+.p-password:has(.p-password-toggle-mask-icon) .p-password-input {
     padding-right: 2.5rem;
 }
 `
