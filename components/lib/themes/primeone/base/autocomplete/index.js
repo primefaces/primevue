@@ -86,7 +86,7 @@ export default {
     padding: 0.25rem 0.25rem;
 }
 
-.p-autocomplete-item {
+.p-autocomplete-option {
     cursor: pointer;
     white-space: nowrap;
     position: relative;
@@ -100,30 +100,30 @@ export default {
     border-radius: ${dt('rounded.sm')};
 }
 
-.p-autocomplete-item:first-child {
+.p-autocomplete-option:first-child {
     margin-top: 0;
 }
 
-.p-autocomplete-item:last-child {
+.p-autocomplete-option:last-child {
     margin-bottom: 0;
 }
 
-.p-autocomplete-item:not(.p-autocomplete-item-selected):not(.p-disabled).p-focus {
+.p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
     background: ${dt('autocomplete.item.focus.background')};
     color: ${dt('autocomplete.item.focus.color')};
 }
 
-.p-autocomplete-item-selected {
+.p-autocomplete-option-selected {
     background: ${dt('autocomplete.item.selected.background')};
     color: ${dt('autocomplete.item.selected.color')};
 }
 
-.p-autocomplete-item-selected.p-focus {
+.p-autocomplete-option-selected.p-focus {
     background: ${dt('autocomplete.item.selected.focus.background')};
     color: ${dt('autocomplete.item.selected.focus.color')};
 }
 
-.p-autocomplete-item-group {
+.p-autocomplete-option-group {
     margin: 0;
     padding: 0.5rem 0.75rem;
     color: ${dt('autocomplete.item.group.color')};

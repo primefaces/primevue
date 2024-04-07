@@ -42,11 +42,11 @@ const classes = {
         }
     ],
     list: 'p-autocomplete-list',
-    itemGroup: 'p-autocomplete-item-group',
+    itemGroup: 'p-autocomplete-option-group',
     item: ({ instance, option, i, getItemOptions }) => [
-        'p-autocomplete-item',
+        'p-autocomplete-option',
         {
-            'p-autocomplete-item-selected': instance.isSelected(option),
+            'p-autocomplete-option-selected': instance.isSelected(option),
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(i, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }
