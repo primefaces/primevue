@@ -5,6 +5,7 @@ import badge from 'primevue/themes/primeone/presets/aura/badge';
 import blockui from 'primevue/themes/primeone/presets/aura/blockui';
 import breadcrumb from 'primevue/themes/primeone/presets/aura/breadcrumb';
 import button from 'primevue/themes/primeone/presets/aura/button';
+import buttongroup from 'primevue/themes/primeone/presets/aura/buttongroup';
 import calendar from 'primevue/themes/primeone/presets/aura/calendar';
 import card from 'primevue/themes/primeone/presets/aura/card';
 import carousel from 'primevue/themes/primeone/presets/aura/carousel';
@@ -238,6 +239,7 @@ export default {
         blockui,
         breadcrumb,
         button,
+        buttongroup,
         calendar,
         card,
         carousel,

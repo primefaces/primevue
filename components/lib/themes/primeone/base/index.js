@@ -5,6 +5,7 @@ import badge from 'primevue/themes/primeone/base/badge';
 import blockui from 'primevue/themes/primeone/base/blockui';
 import breadcrumb from 'primevue/themes/primeone/base/breadcrumb';
 import button from 'primevue/themes/primeone/base/button';
+import buttongroup from 'primevue/themes/primeone/base/buttongroup';
 import calendar from 'primevue/themes/primeone/base/calendar';
 import card from 'primevue/themes/primeone/base/card';
 import carousel from 'primevue/themes/primeone/base/carousel';
@@ -93,6 +94,7 @@ export default {
         blockui,
         breadcrumb,
         button,
+        buttongroup,
         calendar,
         card,
         carousel,
