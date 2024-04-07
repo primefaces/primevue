@@ -17,7 +17,7 @@ const classes = {
         `p-speeddial p-component p-speeddial-${props.type}`,
         {
             [`p-speeddial-direction-${props.direction}`]: props.type !== 'circle',
-            'p-speeddial-opened': instance.d_visible,
+            'p-speeddial-open': instance.d_visible,
             'p-disabled': props.disabled
         }
     ],

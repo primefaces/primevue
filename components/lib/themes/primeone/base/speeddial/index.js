@@ -89,16 +89,16 @@ export default {
     transition: opacity 150ms;
 }
 
-.p-speeddial-opened .p-speeddial-list {
+.p-speeddial-open .p-speeddial-list {
     pointer-events: auto;
 }
 
-.p-speeddial-opened .p-speeddial-item {
+.p-speeddial-open .p-speeddial-item {
     transform: scale(1);
     opacity: 1;
 }
 
-.p-speeddial-opened .p-speeddial-rotate {
+.p-speeddial-open .p-speeddial-rotate {
     transform: rotate(45deg);
 }
 `
