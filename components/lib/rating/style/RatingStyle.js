@@ -16,14 +16,14 @@ const classes = {
     ],
     cancelIcon: 'p-rating-icon p-rating-cancel',
     item: ({ instance, props, value }) => [
-        'p-rating-item',
+        'p-rating-option',
         {
-            'p-rating-item-active': value <= props.modelValue,
+            'p-rating-option-active': value <= props.modelValue,
             'p-focus-visible': value === instance.focusedOptionIndex && instance.isFocusVisibleItem
         }
     ],
-    onIcon: 'p-rating-icon',
-    offIcon: 'p-rating-icon'
+    onIcon: 'p-rating-icon p-rating-on-icon',
+    offIcon: 'p-rating-icon p-rating-off-icon'
 };
 
 export default BaseStyle.extend({

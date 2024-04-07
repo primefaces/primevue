@@ -7,7 +7,7 @@ export default {
     gap: 0.25rem;
 }
 
-.p-rating-item {
+.p-rating-option {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
@@ -16,7 +16,7 @@ export default {
     cursor: pointer;
 }
 
-.p-rating-item.p-focus-visible {
+.p-rating-option.p-focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
@@ -29,11 +29,11 @@ export default {
     height: 1rem;
 }
 
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-option:hover .p-rating-icon {
     color: ${dt('rating.icon.hover.color')};
 }
 
-.p-rating-item-active .p-rating-icon {
+.p-rating-option-active .p-rating-icon {
     color: ${dt('rating.icon.active.color')};
 }
 `
