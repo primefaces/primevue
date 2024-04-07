@@ -8,14 +8,14 @@ const classes = {
     root: ({ instance, props }) => [
         'p-multiselect p-component p-inputwrapper',
         {
-            'p-multiselect-chip': props.display === 'chip',
+            'p-multiselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-overlay-open': instance.overlayVisible
+            'p-multiselect-open': instance.overlayVisible
         }
     ],
     labelContainer: 'p-multiselect-label-container',
@@ -26,14 +26,14 @@ const classes = {
             'p-multiselect-label-empty': !props.placeholder && (!props.modelValue || props.modelValue.length === 0)
         }
     ],
-    token: 'p-multiselect-token',
-    tokenLabel: 'p-multiselect-token-label',
-    removeTokenIcon: 'p-multiselect-token-icon',
-    trigger: 'p-multiselect-trigger',
-    loadingIcon: 'p-multiselect-trigger-icon',
-    dropdownIcon: 'p-multiselect-trigger-icon',
+    token: 'p-multiselect-chip',
+    tokenLabel: 'p-multiselect-chip-label',
+    removeTokenIcon: 'p-multiselect-chip-icon',
+    trigger: 'p-multiselect-dropdown',
+    loadingIcon: 'p-multiselect-loading-icon',
+    dropdownIcon: 'p-multiselect-dropdown-icon',
     panel: ({ instance }) => [
-        'p-multiselect-panel p-component',
+        'p-multiselect-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
@@ -42,13 +42,13 @@ const classes = {
     filterContainer: 'p-multiselect-filter-container',
     filterInput: 'p-multiselect-filter',
     filterIcon: 'p-multiselect-filter-icon',
-    wrapper: 'p-multiselect-items-wrapper',
-    list: 'p-multiselect-items p-component',
-    itemGroup: 'p-multiselect-item-group',
+    wrapper: 'p-multiselect-list-container',
+    list: 'p-multiselect-list',
+    itemGroup: 'p-multiselect-option-group',
     item: ({ instance, option, index, getItemOptions, props }) => [
-        'p-multiselect-item',
+        'p-multiselect-option',
         {
-            'p-highlight': instance.isSelected(option) && props.highlightOnSelect,
+            'p-multiselect-option-selected': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(index, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }

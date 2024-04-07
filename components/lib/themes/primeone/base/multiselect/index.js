@@ -39,7 +39,7 @@ export default {
     background: ${dt('multiselect.disabled.background')};
 }
 
-.p-multiselect-trigger {
+.p-multiselect-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@ export default {
     color: ${dt('multiselect.disabled.color')};
 }
 
-.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {
+.p-inputwrapper-filled.p-multiselect.p-multiselect-display-chip .p-multiselect-label {
     padding: 0.25rem 0.25rem;
 }
 
@@ -84,7 +84,7 @@ export default {
     visibility: hidden;
 }
 
-.p-multiselect-token {
+.p-multiselect-chip {
     cursor: default;
     display: inline-flex;
     align-items: center;
@@ -96,16 +96,16 @@ export default {
     margin-right: 0.25rem;
 }
 
-.p-multiselect-token-icon {
+.p-multiselect-chip-icon {
     cursor: pointer;
     margin-left: 0.375rem;
 }
 
-.p-multiselect .p-multiselect-panel {
+.p-multiselect .p-multiselect-overlay {
     min-width: 100%;
 }
 
-.p-multiselect-panel {
+.p-multiselect-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -145,18 +145,18 @@ export default {
     padding-right: 1.75rem;
 }
 
-.p-multiselect-items-wrapper {
+.p-multiselect-list-container {
     overflow: auto;
 }
 
-.p-multiselect-items {
+.p-multiselect-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
     padding: 0.25rem 0.25rem;
 }
 
-.p-multiselect-item {
+.p-multiselect-option {
     cursor: pointer;
     font-weight: normal;
     white-space: nowrap;
@@ -173,34 +173,34 @@ export default {
     border-radius: ${dt('rounded.sm')};
 }
 
-.p-multiselect-item:first-child {
+.p-multiselect-option:first-child {
     margin-top: 0;
 }
 
-.p-multiselect-item:last-child {
+.p-multiselect-option:last-child {
     margin-bottom: 0;
 }
 
-.p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+.p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus {
     background: ${dt('multiselect.item.focus.background')};
     color: ${dt('multiselect.item.focus.color')};
 }
 
-.p-multiselect-item.p-highlight {
+.p-multiselect-option.p-multiselect-option-selected {
     background: ${dt('multiselect.item.selected.background')};
     color: ${dt('multiselect.item.selected.color')};
 }
 
-.p-multiselect-item.p-highlight.p-focus {
+.p-multiselect-option.p-multiselect-option-selected.p-focus {
     background: ${dt('multiselect.item.selected.focus.background')};
     color: ${dt('multiselect.item.selected.focus.color')};
 }
 
-.p-multiselect-item .p-checkbox {
+.p-multiselect-option .p-checkbox {
     margin-right: 0.5rem;
 }
 
-.p-multiselect-item-group {
+.p-multiselect-option-group {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
