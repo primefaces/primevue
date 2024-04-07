@@ -8,13 +8,14 @@ const classes = {
     root: ({ instance, props }) => [
         'p-treeselect p-component p-inputwrapper',
         {
-            'p-treeselect-chip': props.display === 'chip',
+            'p-treeselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-focus': instance.focused,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-inputwrapper-filled': !instance.emptyValue,
-            'p-inputwrapper-focus': instance.focused || instance.overlayVisible
+            'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
+            'p-treeselect-open': instance.overlayVisible
         }
     ],
     labelContainer: 'p-treeselect-label-container',
@@ -25,17 +26,17 @@ const classes = {
             'p-treeselect-label-empty': !props.placeholder && instance.emptyValue
         }
     ],
-    token: 'p-treeselect-token',
-    tokenLabel: 'p-treeselect-token-label',
-    trigger: 'p-treeselect-trigger',
-    triggerIcon: 'p-treeselect-trigger-icon',
+    token: 'p-treeselect-chip',
+    tokenLabel: 'p-treeselect-chip-label',
+    trigger: 'p-treeselect-dropdown',
+    triggerIcon: 'p-treeselect-dropdown-icon',
     panel: ({ instance }) => [
-        'p-treeselect-panel p-component',
+        'p-treeselect-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    wrapper: 'p-treeselect-items-wrapper',
+    wrapper: 'p-treeselect-tree-container',
     emptyMessage: 'p-treeselect-empty-message'
 };
 

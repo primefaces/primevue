@@ -39,7 +39,7 @@ export default {
     background: ${dt('treeselect.disabled.background')};
 }
 
-.p-treeselect-trigger {
+.p-treeselect-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@ export default {
     color: ${dt('treeselect.disabled.color')};
 }
 
-.p-inputwrapper-filled.p-treeselect.p-treeselect-chip .p-treeselect-label {
+.p-inputwrapper-filled.p-treeselect.p-treeselect-display-chip .p-treeselect-label {
     padding: 0.25rem 0.25rem;
 }
 
@@ -84,7 +84,7 @@ export default {
     visibility: hidden;
 }
 
-.p-treeselect-token {
+.p-treeselect-chip {
     cursor: default;
     display: inline-flex;
     align-items: center;
@@ -96,16 +96,16 @@ export default {
     margin-right: 0.25rem;
 }
 
-.p-treeselect-token-icon {
+.p-treeselect-chip-icon {
     cursor: pointer;
     margin-left: 0.375rem;
 }
 
-.p-treeselect .p-treeselect-panel {
+.p-treeselect .p-treeselect-overlay {
     min-width: 100%;
 }
 
-.p-treeselect-panel {
+.p-treeselect-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -125,7 +125,7 @@ export default {
     display: flex;
 }
 
-.p-treeselect-panel .p-tree {
+.p-treeselect-overlay .p-tree {
     padding: 0.25rem 0.25rem;
 }
 `
