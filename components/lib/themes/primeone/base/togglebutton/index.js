@@ -38,16 +38,16 @@ export default {
     border-radius: ${dt('rounded.sm')};
 }
 
-.p-togglebutton.p-highlight::before {
+.p-togglebutton.p-togglebutton-checked::before {
     background: ${dt('togglebutton.checked.background')};
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
 }
 
-.p-togglebutton:not(:disabled):not(.p-highlight):hover {
+.p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover {
     color: ${dt('togglebutton.hover.color')};
 }
 
-.p-togglebutton.p-highlight {
+.p-togglebutton.p-togglebutton-checked {
     color: ${dt('togglebutton.checked.color')};
 }
 
@@ -72,11 +72,11 @@ export default {
     color: ${dt('togglebutton.icon.color')};
 }
 
-.p-togglebutton:not(:disabled):not(.p-highlight):hover .p-togglebutton-icon {
+.p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover .p-togglebutton-icon {
     color: ${dt('togglebutton.icon.hover.color')};
 }
 
-.p-togglebutton.p-highlight .p-togglebutton-icon {
+.p-togglebutton.p-togglebutton-checked .p-togglebutton-icon {
     color: ${dt('togglebutton.icon.checked.color')};
 }
 

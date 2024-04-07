@@ -4,17 +4,11 @@ const classes = {
     root: ({ instance, props }) => [
         'p-togglebutton p-component',
         {
-            'p-highlight': instance.active,
+            'p-togglebutton-checked': instance.active,
             'p-invalid': props.invalid
         }
     ],
-    icon: ({ instance, props }) => [
-        'p-togglebutton-icon',
-        {
-            'p-togglebutton-icon-left': props.iconPos === 'left' && instance.label,
-            'p-togglebutton-icon-right': props.iconPos === 'right' && instance.label
-        }
-    ],
+    icon: 'p-togglebutton-icon',
     label: 'p-togglebutton-label'
 };
 
