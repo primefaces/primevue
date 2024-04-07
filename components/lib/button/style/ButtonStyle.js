@@ -6,9 +6,7 @@ const classes = {
         {
             'p-button-icon-only': instance.hasIcon && !props.label && !props.badge,
             'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
-            'p-disabled': instance.$attrs.disabled || instance.$attrs.disabled === '' || props.loading,
             'p-button-loading': props.loading,
-            'p-button-loading-label-only': props.loading && !instance.hasIcon && props.label,
             'p-button-link': props.link,
             [`p-button-${props.severity}`]: props.severity,
             'p-button-raised': props.raised,
@@ -20,14 +18,11 @@ const classes = {
             'p-button-plain': props.plain
         }
     ],
-    loadingIcon: 'p-button-loading-icon pi-spin',
+    loadingIcon: 'p-button-loading-icon',
     icon: ({ props }) => [
         'p-button-icon',
         {
-            'p-button-icon-left': props.iconPos === 'left' && props.label,
-            'p-button-icon-right': props.iconPos === 'right' && props.label,
-            'p-button-icon-top': props.iconPos === 'top' && props.label,
-            'p-button-icon-bottom': props.iconPos === 'bottom' && props.label
+            [`p-button-icon-${props.iconPos}`]: props.label
         }
     ],
     label: 'p-button-label'

@@ -18,44 +18,25 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.base')};
     outline-color: transparent;
+    gap: 0.5rem;
 }
 
 .p-button:disabled {
     cursor: default;
 }
 
-.p-button-icon-left {
-    margin-right: 0.5rem;
-}
-
 .p-button-icon-right {
     order: 1;
-    margin-left: 0.5rem;
-}
-
-.p-button-icon-top {
-    margin-bottom: 0.5rem;
 }
 
 .p-button-icon-bottom {
     order: 2;
-    margin-top: 0.5rem;
 }
 
 .p-button-icon-only {
     justify-content: center;
     width: 2.5rem;
     padding: 0.5rem 0;
-}
-
-.p-button-icon-only .p-button-label {
-    visibility: hidden;
-    width: 0;
-}
-
-.p-button.p-button-icon-only .p-button-icon-left,
-.p-button.p-button-icon-only .p-button-icon-right {
-    margin: 0;
 }
 
 .p-button-icon-only.p-button-rounded {
@@ -79,14 +60,6 @@ export default {
 
 .p-button-lg .p-button-icon {
     font-size: 1.25rem;
-}
-
-.p-button-loading-label-only .p-button-label {
-    margin-left: 0.5rem;
-}
-
-.p-button-loading-label-only .p-button-loading-icon {
-    margin-right: 0;
 }
 
 .p-button-vertical {
