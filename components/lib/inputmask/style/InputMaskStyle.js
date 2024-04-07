@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-inputmask p-inputmask-text p-component'
+    root: 'p-inputmask'
 };
 
 export default BaseStyle.extend({
