@@ -6,15 +6,15 @@ const inlineStyles = {
 
 const classes = {
     root: ({ instance, props }) => [
-        'p-inputswitch p-component',
+        'p-toggleswitch p-component',
         {
-            'p-highlight': instance.checked,
+            'p-toggleswitch-checked': instance.checked,
             'p-disabled': props.disabled,
             'p-invalid': props.invalid
         }
     ],
-    input: 'p-inputswitch-input',
-    slider: 'p-inputswitch-slider'
+    input: 'p-toggleswitch-input',
+    slider: 'p-toggleswitch-slider'
 };
 
 export default BaseStyle.extend({

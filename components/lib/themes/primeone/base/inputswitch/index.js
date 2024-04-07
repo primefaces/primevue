@@ -1,12 +1,12 @@
 export default {
     css: ({ dt }) => `
-.p-inputswitch {
+.p-toggleswitch {
     display: inline-block;
     width: 2.5rem;
     height: 1.5rem;
 }
 
-.p-inputswitch-input {
+.p-toggleswitch-input {
     cursor: pointer;
     appearance: none;
     position: absolute;
@@ -22,7 +22,7 @@ export default {
     border-radius: ${dt('inputswitch.border.radius')};
 }
 
-.p-inputswitch-slider {
+.p-toggleswitch-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -30,13 +30,13 @@ export default {
     right: 0;
     bottom: 0;
     border: 0 none;
-    background:  ${dt('inputswitch.background')};
+    background: ${dt('inputswitch.background')};
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('inputswitch.border.radius')};
     outline-color: transparent;
 }
 
-.p-inputswitch-slider:before {
+.p-toggleswitch-slider:before {
     position: absolute;
     content: "";
     top: 50%;
@@ -49,41 +49,41 @@ export default {
     transition: all ${dt('transition.duration')};
 }
 
-.p-inputswitch.p-highlight .p-inputswitch-slider {
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
     background: ${dt('inputswitch.checked.background')};
 }
 
-.p-inputswitch.p-highlight .p-inputswitch-slider:before {
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider:before {
     background: ${dt('inputswitch.handle.checked.background')};
     left: 1.25rem;
 }
 
-.p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {
     background: ${dt('inputswitch.hover.background')};
 }
 
-.p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider:before {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider:before {
     background: ${dt('inputswitch.handle.hover.background')};
 }
 
-.p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider {
     background: ${dt('inputswitch.checked.hover.background')};
 }
 
-.p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider:before {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider:before {
     background: ${dt('inputswitch.handle.checked.hover.background')};
 }
 
-.p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:focus-visible) .p-inputswitch-slider {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-inputswitch.p-invalid > .p-inputswitch-slider {
+.p-toggleswitch.p-invalid > .p-toggleswitch-slider {
     background: ${dt('inputswitch.invalid.background')};
 }
 
-.p-inputswitch.p-invalid > .p-inputswitch-slider:before {
+.p-toggleswitch.p-invalid > .p-toggleswitch-slider:before {
     background: ${dt('inputswitch.handle.invalid.background')};
 }
 `
