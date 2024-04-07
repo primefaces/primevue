@@ -6,14 +6,14 @@
         </p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <IconField iconPosition="left">
+        <IconField>
             <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>
 
         <IconField>
-            <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
             <InputText v-model="value2" />
+            <InputIcon class="pi pi-spin pi-spinner"> </InputIcon>
         </IconField>
     </div>
     <DocSectionCode :code="code" />
@@ -27,7 +27,7 @@ export default {
             value2: null,
             code: {
                 basic: `
-<IconField iconPosition="left">
+<IconField>
     <InputIcon class="pi pi-search"> </InputIcon>
     <InputText v-model="value1" placeholder="Search" />
 </IconField>
@@ -40,8 +40,8 @@ export default {
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <IconField iconPosition="left">
-            <IconField iconPosition="left">
+        <IconField>
+            <IconField>
             <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>
@@ -67,7 +67,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-3">
-        <IconField iconPosition="left">
+        <IconField>
             <InputIcon class="pi pi-search"> </InputIcon>
             <InputText v-model="value1" placeholder="Search" />
         </IconField>

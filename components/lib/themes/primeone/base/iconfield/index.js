@@ -11,19 +11,19 @@ export default {
     color: ${dt('iconfield.color')};
 }
 
-.p-icon-field-left .p-input-icon {
+.p-icon-field .p-input-icon:first-child {
     left: 0.75rem;
 }
 
-.p-icon-field-right .p-input-icon {
+.p-icon-field .p-input-icon:last-child {
     right: 0.75rem;
 }
 
-.p-icon-field-left .p-inputtext {
+.p-icon-field .p-inputtext:last-child {
     padding-left: 2.5rem;
 }
 
-.p-icon-field-right .p-inputtext {
+.p-icon-field .p-inputtext:first-child {
     padding-right: 2.5rem;
 }
 `
