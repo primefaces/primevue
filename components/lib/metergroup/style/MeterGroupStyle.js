@@ -11,10 +11,10 @@ const classes = {
     metercontainer: 'p-metergroup-meters',
     meter: 'p-metergroup-meter',
     labellist: ({ props }) => [
-        'p-metergroup-labels',
+        'p-metergroup-label-list',
         {
-            'p-metergroup-labels-vertical': props.labelOrientation === 'vertical',
-            'p-metergroup-labels-horizontal': props.labelOrientation === 'horizontal'
+            'p-metergroup-label-list-vertical': props.labelOrientation === 'vertical',
+            'p-metergroup-label-list-horizontal': props.labelOrientation === 'horizontal'
         }
     ],
     labellistitem: 'p-metergroup-label',

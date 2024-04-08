@@ -15,7 +15,7 @@ export default {
     border: 0 none;
 }
 
-.p-metergroup-labels {
+.p-metergroup-label-list {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -45,7 +45,7 @@ export default {
     flex-direction: column;
 }
 
-.p-metergroup-labels-horizontal {
+.p-metergroup-label-list-horizontal {
     gap: 1rem;
 }
 
@@ -66,7 +66,7 @@ export default {
     flex-direction: row;
 }
 
-.p-metergroup-labels-vertical {
+.p-metergroup-label-list-vertical {
     flex-direction: column;
     gap: 0.5rem;
 }
@@ -77,7 +77,7 @@ export default {
     height: 100%;
 }
 
-.p-metergroup-vertical .p-metergroup-labels {
+.p-metergroup-vertical .p-metergroup-label-list {
     align-items: start;
 }
 
