@@ -2,12 +2,14 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: 'p-terminal p-component',
-    content: 'p-terminal-commands-container',
+    welcomeMessage: 'p-terminal-welcome-message',
+    commandList: 'p-terminal-command-list',
+    command: 'p-terminal-command',
+    commandValue: 'p-terminal-command-value',
+    commandResponse: 'p-terminal-command-response',
     prompt: 'p-terminal-prompt',
-    command: 'p-terminal-command-value',
-    response: 'p-terminal-command-response',
-    container: 'p-terminal-prompt-container',
-    commandText: 'p-terminal-input'
+    promptLabel: 'p-terminal-prompt-label',
+    promptValue: 'p-terminal-prompt-value'
 };
 
 export default BaseStyle.extend({

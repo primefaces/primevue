@@ -10,12 +10,12 @@ export default {
     border-radius: ${dt('rounded.base')};
 }
 
-.p-terminal-prompt-container {
+.p-terminal-prompt {
     display: flex;
     align-items: center;
 }
 
-.p-terminal-input {
+.p-terminal-prompt-value {
     flex: 1 1 auto;
     border: 0 none;
     background-color: transparent;
@@ -27,7 +27,7 @@ export default {
     font-size: 1rem;
 }
 
-.p-terminal-prompt {
+.p-terminal-prompt-label {
     margin-right: 0.25rem;
 }
 
