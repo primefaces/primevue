@@ -64,18 +64,15 @@
                 </slot>
             </li>
             <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
-                <InputText
+                <input
                     ref="focusInput"
                     :id="inputId"
+                    type="text"
                     :style="inputStyle"
                     :class="inputClass"
-                    :value="multipleInputValue"
                     :placeholder="placeholder"
                     :tabindex="!disabled ? tabindex : -1"
                     :disabled="disabled"
-                    :invalid="invalid"
-                    :variant="variant"
-                    :unstyled="unstyled"
                     autocomplete="off"
                     role="combobox"
                     :aria-label="ariaLabel"
@@ -85,12 +82,13 @@
                     :aria-expanded="overlayVisible"
                     :aria-controls="id + '_list'"
                     :aria-activedescendant="focused ? focusedOptionId : undefined"
+                    :aria-invalid="invalid || undefined"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    :pt="ptm('input')"
+                    v-bind="ptm('input')"
                 />
             </li>
         </ul>
@@ -214,8 +212,7 @@ export default {
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
             overlayVisible: false,
-            searching: false,
-            multipleInputValue: null
+            searching: false
         };
     },
     watch: {
@@ -299,7 +296,7 @@ export default {
             this.dirty = true;
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-            isFocus && DomHandler.focus(this.$refs.focusInput.$el);
+            isFocus && DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -309,7 +306,7 @@ export default {
                 this.clicked = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && DomHandler.focus(this.$refs.focusInput.$el);
+                isFocus && DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
             };
 
             setTimeout(() => {
@@ -419,8 +416,6 @@ export default {
 
             if (!this.multiple) {
                 this.updateModel(event, query);
-            } else {
-                this.multipleInputValue = query;
             }
 
             if (query.length === 0) {
@@ -444,7 +439,8 @@ export default {
 
                 // when forceSelection is on, prevent called twice onOptionSelect()
                 if (this.visibleOptions && !this.multiple) {
-                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.$el.value || ''));
+                    let value = this.multiple ? this.$refs.focusInput.value : this.$refs.focusInput.$el.value;
+                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, value || ''));
 
                     if (matchedValue !== undefined) {
                         valid = true;
@@ -453,7 +449,8 @@ export default {
                 }
 
                 if (!valid) {
-                    this.$refs.focusInput.$el.value = '';
+                    if (this.multiple) this.$refs.focusInput.value = '';
+                    else this.$refs.focusInput.$el.value = '';
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
                 }
@@ -503,7 +500,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                DomHandler.focus(this.$refs.focusInput.$el);
+                DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
             }
         },
         onDropdownClick(event) {
@@ -512,7 +509,7 @@ export default {
             if (this.overlayVisible) {
                 this.hide(true);
             } else {
-                DomHandler.focus(this.$refs.focusInput.$el);
+                DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
                 query = this.$refs.focusInput.$el.value;
 
                 if (this.dropdownMode === 'blank') this.search(event, '', 'dropdown');
@@ -525,7 +522,7 @@ export default {
             const value = this.getOptionValue(option);
 
             if (this.multiple) {
-                this.multipleInputValue = null;
+                this.$refs.focusInput.value = '';
 
                 if (!this.isSelected(option)) {
                     this.updateModel(event, [...(this.modelValue || []), value]);
@@ -662,7 +659,7 @@ export default {
         },
         onBackspaceKey(event) {
             if (this.multiple) {
-                if (ObjectUtils.isNotEmpty(this.modelValue) && !this.$refs.focusInput.$el.value) {
+                if (ObjectUtils.isNotEmpty(this.modelValue) && !this.$refs.focusInput.value) {
                     const removedValue = this.modelValue[this.modelValue.length - 1];
                     const newValue = this.modelValue.slice(0, -1);
 
@@ -681,7 +678,7 @@ export default {
 
             if (this.focusedMultipleOptionIndex > this.modelValue.length - 1) {
                 this.focusedMultipleOptionIndex = -1;
-                DomHandler.focus(this.$refs.focusInput.$el);
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onBackspaceKeyOnMultiple(event) {
@@ -850,7 +847,7 @@ export default {
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
             this.dirty = true;
-            DomHandler.focus(this.$refs.focusInput.$el);
+            DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
         },
         changeFocusedOptionIndex(event, index) {
             if (this.focusedOptionIndex !== index) {
