@@ -28,11 +28,12 @@
                 v-bind="ptm('token')"
                 :data-p-focused="focusedIndex === i"
             >
-                <slot name="chip" :class="cx('label')" :value="val">
-                    <span :class="cx('label')" v-bind="ptm('label')">{{ val }}</span>
-                </slot>
-                <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :onClick="(event) => removeItem(event, i)" :removeCallback="(event) => removeItem(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
+                <slot name="chip" :class="cx('label')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
+                    <Chip :class="cx('label')" :label="val" :removeIcon="removeTokenIcon" removable @remove="removeItem($event, i)" :pt="ptm('label')">
+                        <template #removeicon>
+                            <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
+                        </template>
+                    </Chip>
                 </slot>
             </li>
             <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
@@ -58,7 +59,7 @@
 </template>
 
 <script>
-import TimesCircleIcon from 'primevue/icons/timescircle';
+import Chip from 'primevue/chip';
 import { UniqueComponentId } from 'primevue/utils';
 import BaseChips from './BaseChips.vue';
 
@@ -262,7 +263,7 @@ export default {
         }
     },
     components: {
-        TimesCircleIcon: TimesCircleIcon
+        Chip
     }
 };
 </script>

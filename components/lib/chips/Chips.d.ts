@@ -9,6 +9,7 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ChipPassThroughOptions } from '../chip';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -42,6 +43,20 @@ export interface ChipsPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ChipsSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ChipsProps;
+    /**
+     * Defines current inline state.
+     */
+    state: ChipsState;
 }
 
 /**
@@ -84,9 +99,10 @@ export interface ChipsPassThroughOptions {
      */
     token?: ChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the Chip component.
+     * @see {@link ChipPassThroughOptions}
      */
-    label?: ChipsPassThroughOptionType;
+    label?: ChipPassThroughOptions<ChipsSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the remove token icon's DOM element.
      */
