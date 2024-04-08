@@ -30,7 +30,7 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="node of selectedNodes" :key="node.key" :class="cx('token')" v-bind="ptm('token')">
-                            <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ node.label }}</span>
+                            <Chip :class="cx('tokenLabel')" :label="node.label" :pt="ptm('tokenLabel')" />
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import Chip from 'primevue/chip';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -500,6 +501,7 @@ export default {
     },
     components: {
         TSTree: Tree,
+        Chip,
         Portal: Portal,
         ChevronDownIcon: ChevronDownIcon
     },
