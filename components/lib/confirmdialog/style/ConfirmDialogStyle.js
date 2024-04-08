@@ -1,11 +1,11 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-confirm-dialog',
-    icon: 'p-confirm-dialog-icon',
-    message: 'p-confirm-dialog-message',
-    rejectButton: 'p-confirm-dialog-reject',
-    acceptButton: 'p-confirm-dialog-accept'
+    root: 'p-confirmdialog',
+    icon: 'p-confirmdialog-icon',
+    message: 'p-confirmdialog-message',
+    rejectButton: 'p-confirmdialog-reject-button',
+    acceptButton: 'p-confirmdialog-accept-button'
 };
 
 export default BaseStyle.extend({

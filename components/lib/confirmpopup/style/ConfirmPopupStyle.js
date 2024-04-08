@@ -2,17 +2,17 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ instance }) => [
-        'p-confirm-popup p-component',
+        'p-confirmpopup p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    content: 'p-confirm-popup-content',
-    icon: 'p-confirm-popup-icon',
-    message: 'p-confirm-popup-message',
-    footer: 'p-confirm-popup-footer',
-    rejectButton: 'p-confirm-popup-reject',
-    acceptButton: 'p-confirm-popup-accept'
+    content: 'p-confirmpopup-content',
+    icon: 'p-confirmpopup-icon',
+    message: 'p-confirmpopup-message',
+    footer: 'p-confirmpopup-footer',
+    rejectButton: 'p-confirmpopup-reject-button',
+    acceptButton: 'p-confirmpopup-accept-button'
 };
 
 export default BaseStyle.extend({

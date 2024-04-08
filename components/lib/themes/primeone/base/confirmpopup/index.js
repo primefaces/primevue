@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-confirm-popup {
+.p-confirmpopup {
     position: absolute;
     margin-top: 10px;
     top: 0;
@@ -12,61 +12,61 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.p-confirm-popup-content {
+.p-confirmpopup-content {
     display: flex;
     align-items: center;
     padding: 1rem;
 }
 
-.p-confirm-popup-icon {
+.p-confirmpopup-icon {
     font-size: 1.5rem;
     width: 1.5rem;
     height: 1.5rem;
 }
 
-.p-confirm-popup-message {
+.p-confirmpopup-message {
     margin-left: 1rem;
 }
 
-.p-confirm-popup-footer {
+.p-confirmpopup-footer {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
     padding: 0 1rem 1rem 1rem;
 }
 
-.p-confirm-popup-footer button {
+.p-confirmpopup-footer button {
     width: auto;
 }
 
-.p-confirm-popup-footer button:last-child {
+.p-confirmpopup-footer button:last-child {
     margin: 0;
 }
 
-.p-confirm-popup-flipped {
+.p-confirmpopup-flipped {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.p-confirm-popup-enter-from {
+.p-confirmpopup-enter-from {
     opacity: 0;
     transform: scaleY(0.8);
 }
 
-.p-confirm-popup-leave-to {
+.p-confirmpopup-leave-to {
     opacity: 0;
 }
 
-.p-confirm-popup-enter-active {
+.p-confirmpopup-enter-active {
     transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.p-confirm-popup-leave-active {
+.p-confirmpopup-leave-active {
     transition: opacity 0.1s linear;
 }
 
-.p-confirm-popup:after,
-.p-confirm-popup:before {
+.p-confirmpopup:after,
+.p-confirmpopup:before {
     bottom: 100%;
     left: ${dt('{overlay.arrow.left} + 1.25rem', 0)};
     content: " ";
@@ -76,7 +76,7 @@ export default {
     pointer-events: none;
 }
 
-.p-confirm-popup:after {
+.p-confirmpopup:after {
     border-width: 8px;
     margin-left: -8px;
     border-style: solid;
@@ -84,7 +84,7 @@ export default {
     border-bottom-color: ${dt('confirmpopup.background')};
 }
 
-.p-confirm-popup:before {
+.p-confirmpopup:before {
     border-width: 10px;
     margin-left: -10px;
     border-style: solid;
@@ -92,18 +92,18 @@ export default {
     border-bottom-color: ${dt('confirmpopup.border.color')};
 }
 
-.p-confirm-popup-flipped:after,
-.p-confirm-popup-flipped:before {
+.p-confirmpopup-flipped:after,
+.p-confirmpopup-flipped:before {
     bottom: auto;
     top: 100%;
 }
 
-.p-confirm-popup-flipped:after {
+.p-confirmpopup-flipped:after {
     border-bottom-color: transparent;
     border-top-color: ${dt('confirmpopup.background')};
 }
 
-.p-confirm-popup-flipped:before {
+.p-confirmpopup-flipped:before {
     border-bottom-color: transparent;
     border-top-color: ${dt('confirmpopup.border.color')};
 }

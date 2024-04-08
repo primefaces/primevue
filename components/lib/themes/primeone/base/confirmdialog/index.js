@@ -1,12 +1,12 @@
 export default {
     css: ({ dt }) => `
-.p-confirm-dialog .p-dialog-content {
+.p-confirmdialog .p-dialog-content {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.p-confirm-dialog-icon {
+.p-confirmdialog-icon {
     font-size: 2rem;
 }
 `
