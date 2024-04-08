@@ -45,6 +45,7 @@
                 :node="childNode"
                 :templates="templates"
                 :level="level + 1"
+                :loadingMode="loadingMode"
                 :expandedKeys="expandedKeys"
                 @node-toggle="onChildNodeToggle"
                 @node-click="onChildNodeClick"

@@ -9951,6 +9951,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom next icon template."
+                        },
+                        {
+                            "name": "empty",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom empty template."
                         }
                     ]
                 },

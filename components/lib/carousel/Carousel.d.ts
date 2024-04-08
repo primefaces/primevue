@@ -350,6 +350,10 @@ export interface CarouselSlots {
      * Custom next icon template.
      */
     nexticon(): VNode[];
+    /**
+     * Custom empty template.
+     */
+    empty(): VNode[];
 }
 
 /**

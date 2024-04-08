@@ -540,8 +540,11 @@ export default {
         };
     },
     watch: {
-        id: function (newValue) {
-            this.d_id = newValue || UniqueComponentId();
+        id: {
+            immediate: true,
+            handler: function (newValue) {
+                this.d_id = newValue || UniqueComponentId();
+            }
         },
         modelValue(newValue) {
             this.updateCurrentMetaData();
@@ -592,7 +595,6 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        this.d_id = this.d_id || UniqueComponentId();
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
 

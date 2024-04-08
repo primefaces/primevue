@@ -1,0 +1,48 @@
+.verona {
+    .template {
+        &-hero {
+
+            &-pattern {
+                width: 110rem;
+                height: auto;
+                position: absolute;
+                bottom: -2rem;
+                left: -1rem;
+                z-index: 6;
+            }
+
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .verona {
+        .template {
+            &-hero {
+                &-pattern {
+                    width: 120rem;
+                    left: -7.5rem;
+                    bottom: -10rem;
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .verona {
+        .template {
+            &-hero {
+
+                &-pattern {
+                    width: 124rem;
+                    left: -8.5rem;
+                    bottom: 0;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,39 @@
+.ultima {
+    .template {
+        &-hero {
+
+            &-pattern {
+                width: 80rem;
+                height: auto;
+                position: absolute;
+                bottom: -26rem;
+                left: -22.5rem;
+                z-index: 6;
+                mix-blend-mode: overlay;
+            }
+
+            &-dashboard1,
+            &-dashboard2{
+                border-radius: 0.42857rem;
+            }
+
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .ultima {
+        .template {
+            &-hero {
+
+                &-pattern {
+                    width: 90rem;
+                    left: -25rem;
+                    bottom: -10rem;
+                }
+            }
+        }
+
+    }
+}
