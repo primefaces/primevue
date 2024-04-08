@@ -2,9 +2,9 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: 'p-toolbar p-component',
-    start: 'p-toolbar-group-start p-toolbar-group-left',
-    center: 'p-toolbar-group-center',
-    end: 'p-toolbar-group-end p-toolbar-group-right'
+    start: 'p-toolbar-start',
+    center: 'p-toolbar-center',
+    end: 'p-toolbar-end'
 };
 
 export default BaseStyle.extend({

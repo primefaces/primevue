@@ -13,15 +13,11 @@ export default {
     gap: 0.5rem;
 }
 
-.p-toolbar-group-start,
-.p-toolbar-group-center,
-.p-toolbar-group-end {
+.p-toolbar-start,
+.p-toolbar-center,
+.p-toolbar-end {
     display: flex;
     align-items: center;
-}
-
-.p-toolbar-separator {
-    margin: 0 0.5rem;
 }
 `
 };
