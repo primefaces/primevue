@@ -3313,9 +3313,9 @@
                             "name": "tokenLabel",
                             "optional": true,
                             "readonly": false,
-                            "type": "AutoCompletePassThroughOptionType",
+                            "type": "ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the token label's DOM element."
+                            "description": "Used to pass attributes to the Chip."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -11969,7 +11969,7 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T",
                             "default": "",
                             "description": "Defines parent options."
                         },
@@ -11992,7 +11992,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptionType",
+                            "type": "ChipPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -12000,7 +12000,7 @@
                             "name": "image",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptionType",
+                            "type": "ChipPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the image's DOM element."
                         },
@@ -12008,7 +12008,7 @@
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptionType",
+                            "type": "ChipPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the icon's DOM element."
                         },
@@ -12016,7 +12016,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptionType",
+                            "type": "ChipPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the label' DOM element."
                         },
@@ -12024,7 +12024,7 @@
                             "name": "removeIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptionType",
+                            "type": "ChipPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the removeIcon's DOM element."
                         },
@@ -12125,7 +12125,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<ChipPassThroughOptions>",
+                            "type": "PassThrough<ChipPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -12342,6 +12342,29 @@
                     ],
                     "methods": []
                 },
+                "ChipsSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipsProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipsState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ChipsAddEvent": {
                     "description": "Custom add event.",
                     "relatedProp": "ChipsEmits.add",
@@ -12422,9 +12445,9 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipsPassThroughOptionType",
+                            "type": "ChipPassThroughOptions<ChipsSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the Chip component."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -15330,7 +15353,7 @@
                             "name": "chip",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<ChipPassThroughOptions>",
+                            "type": "DefaultPassThrough<ChipPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -37960,9 +37983,9 @@
                             "name": "tokenLabel",
                             "optional": true,
                             "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
+                            "type": "ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the token label's DOM element."
+                            "description": "Used to pass attributes to the Chip."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -58228,9 +58251,9 @@
                             "name": "tokenLabel",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreeSelectPassThroughOptionType",
+                            "type": "ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the token label's DOM element."
+                            "description": "Used to pass attributes to the Chip."
                         },
                         {
                             "name": "trigger",

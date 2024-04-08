@@ -45,7 +45,7 @@
         >
             <li
                 v-for="(option, i) of modelValue"
-                :key="i"
+                :key="`${i}_${getOptionLabel(option)}`"
                 :id="id + '_multiple_option_' + i"
                 :class="cx('token', { i })"
                 role="option"
@@ -55,11 +55,12 @@
                 :aria-posinset="i + 1"
                 v-bind="ptm('token')"
             >
-                <slot name="chip" :value="option">
-                    <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
-                </slot>
-                <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :onClick="(event) => removeOption(event, i)" :removeCallback="(event) => removeOption(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
+                <slot name="chip" :value="option" :index="i" :removeCallback="(event) => removeOption(event, i)">
+                    <Chip :class="cx('tokenLabel')" :label="getOptionLabel(option)" :removeIcon="removeTokenIcon" removable @remove="removeOption($event, i)" :pt="ptm('tokenLabel')">
+                        <template #removeicon>
+                            <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
+                        </template>
+                    </Chip>
                 </slot>
             </li>
             <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
@@ -182,9 +183,9 @@
 </template>
 
 <script>
+import Chip from 'primevue/chip';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
-import TimesCircleIcon from 'primevue/icons/timescircle';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -968,7 +969,7 @@ export default {
         Portal,
         ChevronDownIcon,
         SpinnerIcon,
-        TimesCircleIcon
+        Chip
     },
     directives: {
         ripple: Ripple

@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | string) | string | null | undefined;
+export declare type ChipPassThroughOptionType<T = any> = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions<T>) => ChipPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ChipPassThroughMethodOptions {
+export interface ChipPassThroughMethodOptions<T> {
     /**
      * Defines instance.
      */
@@ -37,7 +37,7 @@ export interface ChipPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -48,27 +48,27 @@ export interface ChipPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link ChipProps.pt}
  */
-export interface ChipPassThroughOptions {
+export interface ChipPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ChipPassThroughOptionType;
+    root?: ChipPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the image's DOM element.
      */
-    image?: ChipPassThroughOptionType;
+    image?: ChipPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the icon's DOM element.
      */
-    icon?: ChipPassThroughOptionType;
+    icon?: ChipPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the label' DOM element.
      */
-    label?: ChipPassThroughOptionType;
+    label?: ChipPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the removeIcon's DOM element.
      */
-    removeIcon?: ChipPassThroughOptionType;
+    removeIcon?: ChipPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
