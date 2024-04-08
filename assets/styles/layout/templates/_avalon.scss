@@ -1,0 +1,60 @@
+.avalon {
+    .template {
+        &-hero {
+            &-pattern {
+                width: 56rem;
+                height: auto;
+                position: absolute;
+                bottom: 0px;
+                left: -3.06;
+                z-index: 6;
+
+
+            }
+            &-rectangle{
+                opacity: 0.5;
+            }
+            &-light{
+                opacity: 0.75;
+            }
+        }
+        &-separator {
+            &-icon {
+                width: 7rem;
+                height: 3.5rem;
+                border-radius: 99px;
+            }
+        }
+    }
+
+}
+@media only screen and (max-width: 1200px) {
+    .avalon {
+        .template{
+            &-hero {
+                &-pattern {
+                    width: 68rem;
+                    height: auto;
+                    bottom: -8rem;
+                    left: -12rem;
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 768px) {
+    .avalon {
+        .template{
+            &-hero {
+                &-pattern {
+                    width: 88rem;
+                    height: auto;
+                    bottom: 0rem;
+                    left: -16rem;
+                }
+            }
+        }
+
+    }
+}

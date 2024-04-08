@@ -17,3 +17,9 @@
         text-decoration: underline;
     }
 }
+
+@mixin mobile {
+    @media (max-width: 900px) {
+        @content;
+    }
+}

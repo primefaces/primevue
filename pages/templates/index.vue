@@ -15,9 +15,9 @@
                         <a href="https://apollo.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/apollo-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/apollo" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -30,9 +30,9 @@
                         <a href="https://sakai.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://github.com/primefaces/sakai-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
-                            <span class="p-button-label white-space-nowrap">Download</span>
-                        </a>
+                        <PrimeVueNuxtLink to="/templates/sakai" class="flex-1 p-button p-component p-button-outlined">
+                            <span class="p-button-label white-space-nowrap">Learn More</span>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -45,9 +45,9 @@
                         <a href="https://atlantis.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/atlantis-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/atlantis" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                         <a href="https://ultima.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/ultima-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/ultima" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -75,9 +75,9 @@
                         <a href="https://freya.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/freya-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/freya" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -90,9 +90,9 @@
                         <a href="https://diamond.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/diamond-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/diamond" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -105,9 +105,9 @@
                         <a href="https://verona.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/verona-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/verona" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -120,9 +120,9 @@
                         <a href="https://poseidon.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/poseidon-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/poseidon" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>
@@ -135,9 +135,9 @@
                         <a href="https://avalon.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/avalon-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+                        <PrimeVueNuxtLink to="/templates/avalon" class="flex-1 p-button p-component p-button-outlined">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </PrimeVueNuxtLink>
                     </div>
                 </div>
             </div>

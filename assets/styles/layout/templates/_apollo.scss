@@ -1,0 +1,31 @@
+.apollo {
+    .template {
+        &-hero {
+            &-pattern {
+                width: 96rem;
+                height: auto;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 6;
+                mix-blend-mode: overlay;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .apollo {
+        .template {
+            &-hero {
+                &-pattern {
+                    width: 90rem;
+                    bottom: 20rem;
+                }
+
+            }
+        }
+
+    }
+}

@@ -1,0 +1,45 @@
+.diamond {
+    .template {
+        &-hero {
+            &-pattern {
+                width: 62.3125rem;
+                height: 44.8125rem;
+                position: absolute;
+                top: -3.62;
+                left: -3.06;
+                z-index: 6;
+            }
+        }
+    }
+
+}
+@media only screen and (max-width: 1200px) {
+    .diamond {
+        .template{
+            &-hero {
+                &-pattern {
+                    width: 60rem;
+                    height: auto;
+                    bottom: -8rem;
+                    left: -8rem;
+                }
+            }
+        }
+
+    }
+}
+@media only screen and (max-width: 768px) {
+    .diamond {
+        .template{
+            &-hero {
+                &-pattern {
+                    width: 64rem;
+                    height: auto;
+                    bottom: 2rem;
+                    left: -8rem;
+                }
+            }
+        }
+
+    }
+}
