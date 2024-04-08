@@ -16,11 +16,11 @@
             </div>
             <div class="template-hero-card-links">
                 <a :href="templateHeroData.supportHref ?? 'https://github.com/orgs/primefaces/discussions/categories/primevue-templates'" target="_blank">
-                    <i class="pi pi-github" :style="{ fontsize: '1rem' }" />
+                    <i class="pi pi-github" />
                     <span>{{ templateHeroData.free ? 'Open Issues' : 'Get Support' }}</span>
                 </a>
                 <a :href="templateHeroData.docHref" target="_blank">
-                    <i class="pi pi-book" :style="{ fontSize: '1rem' }" />
+                    <i class="pi pi-book" />
                     <span>Read Doc</span>
                 </a>
             </div>

@@ -20,7 +20,7 @@
             <p class="template-license-description">{{ license.description }}</p>
             <p class="template-license-visit">
                 Visit the
-                <a href="{license.documentLink}" target="_blank"> official documentation </a> for more information.
+                <a :href="license.documentLink" target="_blank"> official documentation </a> for more information.
             </p>
         </div>
     </div>
