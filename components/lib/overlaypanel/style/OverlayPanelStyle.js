@@ -2,14 +2,12 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ instance }) => [
-        'p-overlaypanel p-component',
+        'p-popover p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    content: 'p-overlaypanel-content',
-    closeButton: 'p-overlaypanel-close p-link',
-    closeIcon: 'p-overlaypanel-close-icon'
+    content: 'p-popover-content'
 };
 
 export default BaseStyle.extend({
