@@ -302,7 +302,7 @@ export default {
     width: auto;
 }
 
-.p-timepicker {
+.p-datepicker-time-picker {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -315,22 +315,22 @@ export default {
     padding-top: 0.5rem;
 }
 
-.p-timepicker > div {
+.p-datepicker-time-picker > div {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 0 0.5rem;
 }
 
-.p-timepicker button:last-child {
+.p-datepicker-time-picker button:last-child {
     margin-top: 0.2em;
 }
 
-.p-timepicker span {
+.p-datepicker-time-picker span {
     font-size: 1rem;
 }
 
-.p-datepicker-timeonly .p-timepicker {
+.p-datepicker-timeonly .p-datepicker-time-picker {
     border-top: 0 none;
 }
 `
