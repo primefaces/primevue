@@ -48,12 +48,12 @@ export default {
     background: ${dt('fieldset.legend.hover.background')};
 }
 
-.p-fieldset-toggler {
+.p-fieldset-toggle-icon {
     color: ${dt('fieldset.toggle.icon.color')};
     transition: color ${dt('transition.duration')};
 }
 
-.p-fieldset-toggleable > .p-fieldset-legend > a:hover > .p-fieldset-toggler {
+.p-fieldset-toggleable > .p-fieldset-legend > a:hover > .p-fieldset-toggle-icon {
     color: ${dt('fieldset.toggle.icon.hover.color')};
 }
 

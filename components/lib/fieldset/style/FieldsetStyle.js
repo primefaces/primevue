@@ -8,9 +8,9 @@ const classes = {
         }
     ],
     legend: 'p-fieldset-legend',
-    legendtitle: 'p-fieldset-legend-text',
-    togglericon: 'p-fieldset-toggler',
-    toggleablecontent: 'p-toggleable-content',
+    legendtitle: 'p-fieldset-legend-label',
+    togglericon: 'p-fieldset-toggle-icon',
+    toggleablecontent: 'p-fieldset-content-container',
     content: 'p-fieldset-content'
 };
 
