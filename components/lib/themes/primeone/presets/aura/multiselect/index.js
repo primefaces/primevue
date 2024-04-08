@@ -38,10 +38,6 @@ export default {
                 focusColor: '{surface.800}',
                 selectedColor: '{highlight.color}',
                 selectedFocusColor: '{highlight.focus.color}'
-            },
-            chip: {
-                background: '{surface.100}',
-                color: '{surface.800}'
             }
         },
         dark: {
@@ -68,10 +64,6 @@ export default {
                 focusColor: '{surface.0}',
                 selectedColor: '{highlight.color}',
                 selectedFocusColor: '{highlight.focus.color}'
-            },
-            chip: {
-                background: '{surface.700}',
-                color: '{surface.0}'
             }
         }
     }

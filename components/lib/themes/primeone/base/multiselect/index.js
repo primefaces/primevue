@@ -84,23 +84,6 @@ export default {
     visibility: hidden;
 }
 
-.p-multiselect-chip {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    padding: 0.25rem 0.75rem;
-    background: ${dt('multiselect.chip.background')};
-    color: ${dt('multiselect.chip.color')};
-    border-radius: ${dt('rounded.sm')};
-    margin-right: 0.25rem;
-}
-
-.p-multiselect-chip-icon {
-    cursor: pointer;
-    margin-left: 0.375rem;
-}
-
 .p-multiselect .p-multiselect-overlay {
     min-width: 100%;
 }

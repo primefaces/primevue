@@ -84,23 +84,6 @@ export default {
     visibility: hidden;
 }
 
-.p-treeselect-chip {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    padding: 0.25rem 0.75rem;
-    background: ${dt('treeselect.chip.background')};
-    color: ${dt('treeselect.chip.color')};
-    border-radius: ${dt('rounded.sm')};
-    margin-right: 0.25rem;
-}
-
-.p-treeselect-chip-icon {
-    cursor: pointer;
-    margin-left: 0.375rem;
-}
-
 .p-treeselect .p-treeselect-overlay {
     min-width: 100%;
 }

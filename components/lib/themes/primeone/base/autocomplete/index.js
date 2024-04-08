@@ -179,27 +179,6 @@ export default {
     color: ${dt('autocomplete.input.multiple.disabled.color')};
 }
 
-.p-autocomplete-chip {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    padding: 0.25rem 0.75rem;
-    background: ${dt('autocomplete.chip.background')};
-    color: ${dt('autocomplete.chip.color')};
-    border-radius: ${dt('rounded.sm')};
-}
-
-.p-autocomplete-chip.p-focus {
-    background: ${dt('autocomplete.chip.focus.background')};
-    color: ${dt('autocomplete.chip.focus.color')};
-}
-
-.p-autocomplete-chip-icon {
-    cursor: pointer;
-    margin-left: 0.375rem;
-}
-
 .p-autocomplete-input-chip {
     flex: 1 1 auto;
     display: inline-flex;
@@ -210,7 +189,7 @@ export default {
 .p-autocomplete-input-chip input {
     border: 0 none;
     outline: 0 none;
-    background-color: transparent;
+    background: transparent;
     margin: 0;
     padding: 0;
     box-shadow: none;
@@ -220,8 +199,6 @@ export default {
     font-feature-settings: inherit;
     font-size: 1rem;
     color: inherit;
-    padding: 0;
-    margin: 0;
 }
 
 .p-autocomplete-input-chip input::placeholder {

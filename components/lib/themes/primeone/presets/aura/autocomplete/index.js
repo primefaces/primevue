@@ -15,12 +15,6 @@ export default {
     },
     colorScheme: {
         light: {
-            chip: {
-                background: '{surface.100}',
-                focusBackground: '{surface.200}',
-                color: '{surface.800}',
-                focusColor: '{surface.900}'
-            },
             overlay: {
                 background: '{surface.0}',
                 borderColor: '{surface.200}',
@@ -53,12 +47,6 @@ export default {
             }
         },
         dark: {
-            chip: {
-                background: '{surface.700}',
-                focusBackground: '{surface.600}',
-                color: '{surface.0}',
-                focusColor: '{surface.0}'
-            },
             overlay: {
                 background: '{surface.900}',
                 borderColor: '{surface.700}',

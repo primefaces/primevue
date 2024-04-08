@@ -22,10 +22,6 @@ export default {
                 background: '{surface.0}',
                 borderColor: '{surface.200}',
                 color: '{surface.700}'
-            },
-            chip: {
-                background: '{surface.100}',
-                color: '{surface.800}'
             }
         },
         dark: {
@@ -35,10 +31,6 @@ export default {
             overlay: {
                 background: '{surface.900}',
                 borderColor: '{surface.700}',
-                color: '{surface.0}'
-            },
-            chip: {
-                background: '{surface.700}',
                 color: '{surface.0}'
             }
         }
