@@ -23,32 +23,6 @@ export default {
     font-weight: 600;
 }
 
-.p-panel-header-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 1.75rem;
-    height: 1.75rem;
-    position: relative;
-    color: ${dt('panel.header.icon.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-}
-
-.p-panel-header-icon:enabled:hover {
-    color: ${dt('panel.header.icon.hover.color')};
-    background: ${dt('panel.header.icon.hover.background')};
-}
-
-.p-panel-header-icon:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
 .p-panel-content {
     padding: 0 1.125rem 1.125rem 1.125rem;
 }
