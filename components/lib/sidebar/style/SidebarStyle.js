@@ -19,26 +19,26 @@ const classes = {
         const pos = positions.find((item) => item === props.position);
 
         return [
-            'p-sidebar-mask',
+            'p-drawer-mask',
             {
                 'p-component-overlay p-component-overlay-enter': props.modal,
-                'p-sidebar-open': instance.containerVisible,
-                'p-sidebar-full': instance.fullScreen
+                'p-drawer-open': instance.containerVisible,
+                'p-drawer-full': instance.fullScreen
             },
-            pos ? `p-sidebar-${pos}` : ''
+            pos ? `p-drawer-${pos}` : ''
         ];
     },
     root: ({ instance }) => [
-        'p-sidebar p-component',
+        'p-drawer p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false,
-            'p-sidebar-full': instance.fullScreen
+            'p-drawer-full': instance.fullScreen
         }
     ],
-    header: 'p-sidebar-header',
-    title: 'p-sidebar-title',
-    closeButton: 'p-sidebar-close-button',
-    content: 'p-sidebar-content'
+    header: 'p-drawer-header',
+    title: 'p-drawer-title',
+    closeButton: 'p-drawer-close-button',
+    content: 'p-drawer-content'
 };
 
 export default BaseStyle.extend({

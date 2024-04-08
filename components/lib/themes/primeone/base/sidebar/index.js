@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-sidebar {
+.p-drawer {
     display: flex;
     flex-direction: column;
     pointer-events: auto;
@@ -13,13 +13,13 @@ export default {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-.p-sidebar-content {
+.p-drawer-content {
     overflow-y: auto;
     flex-grow: 1;
     padding: 0 1.125rem 1.125rem 1.125rem;
 }
 
-.p-sidebar-header {
+.p-drawer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,12 +27,12 @@ export default {
     padding: 1.125rem;
 }
 
-.p-sidebar-title {
+.p-drawer-title {
     font-weight: 600;
     font-size: 1.25rem;
 }
 
-.p-sidebar-full .p-sidebar {
+.p-drawer-full .p-drawer {
     transition: none;
     transform: none;
     width: 100vw !important;
@@ -43,108 +43,108 @@ export default {
     border-width: 1px;
 }
 
-.p-sidebar-left .p-sidebar-enter-from,
-.p-sidebar-left .p-sidebar-leave-to {
+.p-drawer-left .p-drawer-enter-from,
+.p-drawer-left .p-drawer-leave-to {
     transform: translateX(-100%);
 }
 
-.p-sidebar-right .p-sidebar-enter-from,
-.p-sidebar-right .p-sidebar-leave-to {
+.p-drawer-right .p-drawer-enter-from,
+.p-drawer-right .p-drawer-leave-to {
     transform: translateX(100%);
 }
 
-.p-sidebar-top .p-sidebar-enter-from,
-.p-sidebar-top .p-sidebar-leave-to {
+.p-drawer-top .p-drawer-enter-from,
+.p-drawer-top .p-drawer-leave-to {
     transform: translateY(-100%);
 }
 
-.p-sidebar-bottom .p-sidebar-enter-from,
-.p-sidebar-bottom .p-sidebar-leave-to {
+.p-drawer-bottom .p-drawer-enter-from,
+.p-drawer-bottom .p-drawer-leave-to {
     transform: translateY(100%);
 }
 
-.p-sidebar-full .p-sidebar-enter-from,
-.p-sidebar-full .p-sidebar-leave-to {
+.p-drawer-full .p-drawer-enter-from,
+.p-drawer-full .p-drawer-leave-to {
     opacity: 0;
 }
 
-.p-sidebar-full .p-sidebar-enter-active,
-.p-sidebar-full .p-sidebar-leave-active {
+.p-drawer-full .p-drawer-enter-active,
+.p-drawer-full .p-drawer-leave-active {
     transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.p-sidebar-left .p-sidebar {
+.p-drawer-left .p-drawer {
     width: 20rem;
     height: 100%;
     border-right-width: 1px;
 }
 
-.p-sidebar-right .p-sidebar {
+.p-drawer-right .p-drawer {
     width: 20rem;
     height: 100%;
     border-left-width: 1px;
 }
 
-.p-sidebar-top .p-sidebar {
+.p-drawer-top .p-drawer {
     height: 10rem;
     width: 100%;
     border-bottom-width: 1px;
 }
 
-.p-sidebar-bottom .p-sidebar {
+.p-drawer-bottom .p-drawer {
     height: 10rem;
     width: 100%;
     border-top-width: 1px;
 }
 
-.p-sidebar-left .p-sidebar-sm,
-.p-sidebar-right .p-sidebar-sm {
+.p-drawer-left .p-drawer-sm,
+.p-drawer-right .p-drawer-sm {
     width: 20rem;
 }
 
-.p-sidebar-left .p-sidebar-md,
-.p-sidebar-right .p-sidebar-md {
+.p-drawer-left .p-drawer-md,
+.p-drawer-right .p-drawer-md {
     width: 40rem;
 }
 
-.p-sidebar-left .p-sidebar-lg,
-.p-sidebar-right .p-sidebar-lg {
+.p-drawer-left .p-drawer-lg,
+.p-drawer-right .p-drawer-lg {
     width: 60rem;
 }
 
-.p-sidebar-top .p-sidebar-sm,
-.p-sidebar-bottom .p-sidebar-sm {
+.p-drawer-top .p-drawer-sm,
+.p-drawer-bottom .p-drawer-sm {
     height: 10rem;
 }
 
-.p-sidebar-top .p-sidebar-md,
-.p-sidebar-bottom .p-sidebar-md {
+.p-drawer-top .p-drawer-md,
+.p-drawer-bottom .p-drawer-md {
     height: 20rem;
 }
 
-.p-sidebar-top .p-sidebar-lg,
-.p-sidebar-bottom .p-sidebar-lg {
+.p-drawer-top .p-drawer-lg,
+.p-drawer-bottom .p-drawer-lg {
     height: 30rem;
 }
 
-.p-sidebar-left .p-sidebar-content,
-.p-sidebar-right .p-sidebar-content,
-.p-sidebar-top .p-sidebar-content,
-.p-sidebar-bottom .p-sidebar-content {
+.p-drawer-left .p-drawer-content,
+.p-drawer-right .p-drawer-content,
+.p-drawer-top .p-drawer-content,
+.p-drawer-bottom .p-drawer-content {
     width: 100%;
     height: 100%;
 }
 
 @media screen and (max-width: 64em) {
-    .p-sidebar-left .p-sidebar-lg,
-    .p-sidebar-left .p-sidebar-md,
-    .p-sidebar-right .p-sidebar-lg,
-    .p-sidebar-right .p-sidebar-md {
+    .p-drawer-left .p-drawer-lg,
+    .p-drawer-left .p-drawer-md,
+    .p-drawer-right .p-drawer-lg,
+    .p-drawer-right .p-drawer-md {
         width: 20rem;
     }
 }
 
-.p-sidebar-open {
+.p-drawer-open {
     display: flex;
 }
 `
