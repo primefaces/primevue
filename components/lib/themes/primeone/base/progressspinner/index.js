@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-progress-spinner {
+.p-progressspinner {
     position: relative;
     margin: 0 auto;
     width: 100px;
@@ -8,13 +8,13 @@ export default {
     display: inline-block;
 }
 
-.p-progress-spinner::before {
+.p-progressspinner::before {
     content: "";
     display: block;
     padding-top: 100%;
 }
 
-.p-progress-spinner-svg {
+.p-progressspinner-spin {
     height: 100%;
     transform-origin: center center;
     width: 100%;
@@ -24,23 +24,23 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
-    animation: p-progress-spinner-rotate 2s linear infinite;
+    animation: p-progressspinner-rotate 2s linear infinite;
 }
 
-.p-progress-spinner-circle {
+.p-progressspinner-circle {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: 0;
     stroke: ${dt('progressspinner.color-1')};
-    animation: p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite;
+    animation: p-progressspinner-dash 1.5s ease-in-out infinite, p-progressspinner-color 6s ease-in-out infinite;
     stroke-linecap: round;
 }
 
-@keyframes p-progress-spinner-rotate {
+@keyframes p-progressspinner-rotate {
     100% {
         transform: rotate(360deg);
     }
 }
-@keyframes p-progress-spinner-dash {
+@keyframes p-progressspinner-dash {
     0% {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
@@ -54,7 +54,7 @@ export default {
         stroke-dashoffset: -124px;
     }
 }
-@keyframes p-progress-spinner-color {
+@keyframes p-progressspinner-color {
     100%,
     0% {
         stroke: ${dt('progressspinner.color-1')};

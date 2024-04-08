@@ -1,9 +1,9 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-progress-spinner',
-    spinner: 'p-progress-spinner-svg',
-    circle: 'p-progress-spinner-circle'
+    root: 'p-progressspinner',
+    spinner: 'p-progressspinner-spin',
+    circle: 'p-progressspinner-circle'
 };
 
 export default BaseStyle.extend({
