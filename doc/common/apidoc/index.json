@@ -3289,7 +3289,7 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
+                            "type": "AutoCompletePassThroughOptionType | InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
                         },
@@ -23988,29 +23988,6 @@
                     ],
                     "methods": []
                 },
-                "DropdownSharedPassThroughMethodOptions": {
-                    "description": "Custom shared passthrough(pt) option method.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "props",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DropdownProps",
-                            "default": "",
-                            "description": "Defines valid properties."
-                        },
-                        {
-                            "name": "state",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DropdownState",
-                            "default": "",
-                            "description": "Defines current inline state."
-                        }
-                    ],
-                    "methods": []
-                },
                 "DropdownChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "DropdownEmits.change",
@@ -24073,9 +24050,9 @@
                             "name": "input",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptions<DropdownSharedPassThroughMethodOptions>",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the InputText component."
+                            "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
                             "name": "clearIcon",
@@ -24129,9 +24106,9 @@
                             "name": "filterInput",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptions<DropdownSharedPassThroughMethodOptions>",
+                            "type": "DropdownPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the InputText component."
+                            "description": "Used to pass attributes to the filter input's DOM element."
                         },
                         {
                             "name": "filterIcon",

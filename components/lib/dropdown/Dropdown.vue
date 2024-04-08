@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
-        <InputText
+        <input
             v-if="editable"
             ref="focusInput"
             :id="inputId"
@@ -11,9 +11,6 @@
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
             :disabled="disabled"
-            :invalid="invalid"
-            :variant="variant"
-            :unstyled="unstyled"
             autocomplete="off"
             role="combobox"
             :aria-label="ariaLabel"
@@ -22,11 +19,12 @@
             :aria-expanded="overlayVisible"
             :aria-controls="id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
+            :aria-invalid="invalid || undefined"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onEditableInput"
-            :pt="ptm('input')"
+            v-bind="ptm('input')"
         />
         <span
             v-else
@@ -79,7 +77,7 @@
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
                         <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                            <InputText
+                            <input
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
@@ -87,9 +85,6 @@
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
-                                :invalid="invalid"
-                                :variant="variant"
-                                :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
                                 :aria-owns="id + '_list'"
@@ -97,7 +92,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('filterInput')"
+                                v-bind="ptm('filterInput')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -190,7 +185,6 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
-import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -307,7 +301,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
 
-            isFocus && DomHandler.focus(this.editable ? this.$refs.focusInput.$el : this.$refs.focusInput);
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -318,7 +312,7 @@ export default {
                 this.searchValue = '';
 
                 this.resetFilterOnHide && (this.filterValue = null);
-                isFocus && DomHandler.focus(this.editable ? this.$refs.focusInput.$el : this.$refs.focusInput);
+                isFocus && DomHandler.focus(this.$refs.focusInput);
             };
 
             setTimeout(() => {
@@ -986,7 +980,6 @@ export default {
         ripple: Ripple
     },
     components: {
-        InputText,
         VirtualScroller,
         Portal,
         TimesIcon,
