@@ -43,11 +43,11 @@ const classes = {
     ],
     header: 'p-dialog-header',
     title: 'p-dialog-title',
-    icons: 'p-dialog-header-icons',
-    maximizableButton: 'p-dialog-header-icon p-dialog-header-maximize p-link',
-    maximizableIcon: 'p-dialog-header-maximize-icon',
-    closeButton: 'p-dialog-header-icon p-dialog-header-close p-link',
-    closeButtonIcon: 'p-dialog-header-close-icon',
+    icons: 'p-dialog-header-actions',
+    maximizableButton: 'p-dialog-maximize-button',
+    maximizableIcon: 'p-dialog-maximize-button-icon',
+    closeButton: 'p-dialog-close-button',
+    closeButtonIcon: 'p-dialog-close-button-icon',
     content: 'p-dialog-content',
     footer: 'p-dialog-footer'
 };

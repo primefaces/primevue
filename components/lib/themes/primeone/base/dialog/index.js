@@ -36,38 +36,11 @@ export default {
     gap: 0.5rem;
 }
 
-.p-dialog-header-icons {
+.p-dialog-header-actions {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-
-.p-dialog-header-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: ${dt('dialog.header.icon.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-}
-
-.p-dialog-header-icon:enabled:hover {
-    background: ${dt('dialog.header.icon.hover.background')};
-    color: ${dt('dialog.header.icon.hover.color')};
-}
-
-.p-dialog-header-icon:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
 .p-dialog-enter-active {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
