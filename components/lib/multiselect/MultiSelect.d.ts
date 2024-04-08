@@ -9,6 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ChipPassThroughOptions } from '../chip';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
@@ -133,9 +134,10 @@ export interface MultiSelectPassThroughOptions {
      */
     token?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the token label's DOM element.
+     * Used to pass attributes to the Chip.
+     * @see {@link ChipPassThroughOptions}
      */
-    tokenLabel?: MultiSelectPassThroughOptionType;
+    tokenLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the remove token icon's DOM element.
      */

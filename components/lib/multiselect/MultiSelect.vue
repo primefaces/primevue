@@ -31,12 +31,12 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('token')" v-bind="ptm('token')">
-                            <slot name="chip" :value="item">
-                                <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
-                            </slot>
-                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :onClick="(event) => removeOption(event, item)" :removeCallback="(event) => removeOption(event, item)">
-                                <span v-if="removeTokenIcon" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
-                                <TimesCircleIcon v-else :class="cx('removeTokenIcon')" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
+                            <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
+                                <Chip :class="cx('tokenLabel')" :label="getLabelByValue(item)" :removeIcon="removeTokenIcon" removable @remove="removeOption($event, item)" :pt="ptm('tokenLabel')">
+                                    <template #removeicon>
+                                        <slot name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
+                                    </template>
+                                </Chip>
                             </slot>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
@@ -197,12 +197,12 @@
 <script>
 import { FilterService } from 'primevue/api';
 import Checkbox from 'primevue/checkbox';
+import Chip from 'primevue/chip';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
-import TimesCircleIcon from 'primevue/icons/timescircle';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -802,6 +802,7 @@ export default {
             }
         },
         removeOption(event, optionValue) {
+            event.stopPropagation();
             let value = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
 
             this.updateModel(event, value);
@@ -1095,9 +1096,9 @@ export default {
         Checkbox,
         VirtualScroller,
         Portal,
+        Chip,
         TimesIcon,
         SearchIcon,
-        TimesCircleIcon,
         ChevronDownIcon,
         SpinnerIcon,
         CheckIcon

@@ -9,6 +9,7 @@
  */
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ChipPassThroughOptions } from '../chip';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
 import { TreeNode } from '../treenode';
@@ -84,9 +85,10 @@ export interface TreeSelectPassThroughOptions {
      */
     token?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the token label's DOM element.
+     * Used to pass attributes to the Chip.
+     * @see {@link ChipPassThroughOptions}
      */
-    tokenLabel?: TreeSelectPassThroughOptionType;
+    tokenLabel?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the trigger's DOM element.
      */

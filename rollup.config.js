@@ -265,6 +265,7 @@ const CORE_DEPENDENCIES = {
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/badge': 'primevue.badge',
     'primevue/listbox': 'primevue.listbox',
+    'primevue/chip': 'primevue.chip',
     'primevue/togglebutton': 'primevue.togglebutton',
     ...CORE_PASSTHROUGH_DEPENDENCIES,
     ...CORE_THEME_DEPENDENCIES

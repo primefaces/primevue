@@ -255,6 +255,7 @@ export default {
             'primevue/badge': path.resolve(__dirname, './components/lib/badge/Badge.vue'),
             'primevue/togglebutton': path.resolve(__dirname, './components/lib/togglebutton/ToggleButton.vue'),
             'primevue/listbox': path.resolve(__dirname, './components/lib/listbox/Listbox.vue'),
+            'primevue/chip': path.resolve(__dirname, './components/lib/chip/Chip.vue'),
             'primevue/confirmationeventbus': path.resolve(__dirname, './components/lib/confirmationeventbus/ConfirmationEventBus.js'),
             'primevue/toasteventbus': path.resolve(__dirname, './components/lib/toasteventbus/ToastEventBus.js'),
             'primevue/overlayeventbus': path.resolve(__dirname, './components/lib/overlayeventbus/OverlayEventBus.js'),
