@@ -5,7 +5,7 @@ const classes = {
     root: ({ props, instance }) => [
         'p-badge p-component',
         {
-            'p-badge-no-gutter': ObjectUtils.isNotEmpty(props.value) && String(props.value).length === 1,
+            'p-badge-circle': ObjectUtils.isNotEmpty(props.value) && String(props.value).length === 1,
             'p-badge-dot': ObjectUtils.isEmpty(props.value) && !instance.$slots.default,
             'p-badge-lg': props.size === 'large',
             'p-badge-xl': props.size === 'xlarge',

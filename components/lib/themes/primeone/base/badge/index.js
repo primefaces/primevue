@@ -35,7 +35,7 @@ export default {
     padding: 0;
 }
 
-.p-badge-no-gutter {
+.p-badge-circle {
     padding: 0;
     border-radius: 50%;
 }
