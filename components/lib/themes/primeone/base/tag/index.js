@@ -6,10 +6,10 @@ export default {
     justify-content: center;
     background: ${dt('tag.primary.background')};
     color: ${dt('tag.primary.color')};
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 700;
     padding: 0.25rem 0.4rem;
-    border-radius: 6px;
+    border-radius: ${dt('rounded.base')};
     gap: 0.25rem;
 }
 
@@ -33,7 +33,7 @@ export default {
     color: ${dt('tag.info.color')};
 }
 
-.p-tag-warning {
+.p-tag-warn {
     background: ${dt('tag.warn.background')};
     color: ${dt('tag.warn.color')};
 }

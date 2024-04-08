@@ -6,7 +6,7 @@ const classes = {
         {
             'p-tag-info': props.severity === 'info',
             'p-tag-success': props.severity === 'success',
-            'p-tag-warning': props.severity === 'warning',
+            'p-tag-warn': props.severity === 'warning',
             'p-tag-danger': props.severity === 'danger',
             'p-tag-secondary': props.severity === 'secondary',
             'p-tag-contrast': props.severity === 'contrast',
@@ -14,7 +14,7 @@ const classes = {
         }
     ],
     icon: 'p-tag-icon',
-    value: 'p-tag-value'
+    value: 'p-tag-label'
 };
 
 export default BaseStyle.extend({
