@@ -35,7 +35,7 @@ export default {
     display: none;
 }
 
-.p-terminal-response {
+.p-terminal-command-response {
     margin: 2px 0;
 }
 `
