@@ -32,10 +32,10 @@ export default {
     },
     methods: {
         block() {
-            let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
+            let styleClass = 'p-blockui-mask p-component-overlay p-component-overlay-enter';
 
             if (this.fullScreen) {
-                styleClass += ' p-blockui-document';
+                styleClass += ' p-blockui-mask-document';
 
                 this.mask = DomHandler.createElement('div', {
                     style: {
