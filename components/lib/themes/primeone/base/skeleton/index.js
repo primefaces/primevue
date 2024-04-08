@@ -23,7 +23,7 @@ export default {
     border-radius: 50%;
 }
 
-.p-skeleton-none::after {
+.p-skeleton-animation-none::after {
     animation: none;
 }
 

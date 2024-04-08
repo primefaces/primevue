@@ -9,7 +9,7 @@ const classes = {
         'p-skeleton p-component',
         {
             'p-skeleton-circle': props.shape === 'circle',
-            'p-skeleton-none': props.animation === 'none'
+            'p-skeleton-animation-none': props.animation === 'none'
         }
     ]
 };
