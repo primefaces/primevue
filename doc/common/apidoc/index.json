@@ -28875,14 +28875,6 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "iconPosition",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"left\" | \"right\"",
-                            "default": "right",
-                            "description": "Position of the icon"
-                        },
-                        {
                             "name": "dt",
                             "optional": true,
                             "readonly": false,

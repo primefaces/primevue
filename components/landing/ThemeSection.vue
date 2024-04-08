@@ -21,7 +21,7 @@
                     <template #header>
                         <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
                             <h5 class="m-0">Customers</h5>
-                            <IconField iconPosition="left" class="mt-3 sm:mt-0 w-full sm:w-auto">
+                            <IconField class="mt-3 sm:mt-0 w-full sm:w-auto">
                                 <InputIcon>
                                     <i class="pi pi-search" />
                                 </InputIcon>

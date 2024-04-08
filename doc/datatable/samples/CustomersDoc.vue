@@ -17,7 +17,7 @@
                 <template #header>
                     <div class="flex justify-content-between">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                        <IconField iconPosition="left">
+                        <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
                             </InputIcon>
@@ -145,7 +145,7 @@ export default {
     <template #header>
         <div class="flex justify-content-between">
             <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-            <IconField iconPosition="left">
+            <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
                 </InputIcon>
@@ -247,7 +247,7 @@ export default {
             <template #header>
                 <div class="flex justify-content-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
@@ -440,7 +440,7 @@ export default {
             <template #header>
                 <div class="flex justify-content-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>

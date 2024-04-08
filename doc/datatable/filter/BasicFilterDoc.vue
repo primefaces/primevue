@@ -11,7 +11,7 @@
             <DataTable v-model:filters="filters" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="row" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
                 <template #header>
                     <div class="flex justify-content-end">
-                        <IconField iconPosition="left">
+                        <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
                             </InputIcon>
@@ -120,7 +120,7 @@ export default {
         :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
     <template #header>
         <div class="flex justify-content-end">
-            <IconField iconPosition="left">
+            <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
                 </InputIcon>
@@ -196,7 +196,7 @@ export default {
                 :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
             <template #header>
                 <div class="flex justify-content-end">
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
@@ -352,7 +352,7 @@ export default {
                 :globalFilterFields="['name', 'country.name', 'representative.name', 'status']">
             <template #header>
                 <div class="flex justify-content-end">
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>

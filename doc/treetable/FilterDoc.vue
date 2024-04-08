@@ -14,7 +14,7 @@
             <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
                 <template #header>
                     <div class="text-right">
-                        <IconField iconPosition="left">
+                        <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
                             </InputIcon>
@@ -62,7 +62,7 @@ export default {
 <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
     <template #header>
         <div class="text-right">
-            <IconField iconPosition="left">
+            <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
                 </InputIcon>
@@ -96,7 +96,7 @@ export default {
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
                 <div class="text-right">
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
@@ -153,7 +153,7 @@ export default {
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
                 <div class="text-right">
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>

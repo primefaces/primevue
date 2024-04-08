@@ -68,11 +68,6 @@ export interface IconFieldPassThroughAttributes {
  */
 export interface IconFieldProps {
     /**
-     * Position of the icon
-     * @defaultValue right
-     */
-    iconPosition?: 'left' | 'right' | undefined;
-    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

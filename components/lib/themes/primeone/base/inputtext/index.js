@@ -42,16 +42,6 @@ export default {
     color: ${dt('inputtext.disabled.color')};
 }
 
-.p-input-icon-right > svg:last-of-type,
-.p-input-icon-right > i:last-of-type {
-    right: 0.75rem;
-    color: #94a3b8;
-}
-
-.p-input-icon-right > .p-inputtext {
-    padding-right: 2.5rem;
-}
-
 .p-inputtext::placeholder {
     color: ${dt('inputtext.placeholder.color')};
 }

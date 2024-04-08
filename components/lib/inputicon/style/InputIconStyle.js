@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-input-icon'
+    root: 'p-inputicon'
 };
 
 export default BaseStyle.extend({

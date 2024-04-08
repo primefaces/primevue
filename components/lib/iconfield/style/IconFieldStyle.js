@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-icon-field'
+    root: 'p-iconfield'
 };
 
 export default BaseStyle.extend({

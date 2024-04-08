@@ -23,7 +23,7 @@
                 tableStyle="min-width: 50rem"
             >
                 <template #header>
-                    <IconField iconPosition="left">
+                    <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
@@ -112,7 +112,7 @@ export default {
     stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
     selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
     <template #header>
-        <IconField iconPosition="left">
+        <IconField>
             <InputIcon>
                 <i class="pi pi-search" />
             </InputIcon>
@@ -175,7 +175,7 @@ export default {
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
                 selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
             <template #header>
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon>
                         <i class="pi pi-search" />
                     </InputIcon>
@@ -303,7 +303,7 @@ export default {
                 stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
                 selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
             <template #header>
-                <IconField iconPosition="left">
+                <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
                 </InputIcon>

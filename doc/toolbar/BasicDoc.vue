@@ -11,7 +11,7 @@
             </template>
 
             <template #center>
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon>
                         <i class="pi pi-search" />
                     </InputIcon>
@@ -49,7 +49,7 @@ export default {
     </template>
 
     <template #center>
-        <IconField iconPosition="left">
+        <IconField>
             <InputIcon>
                 <i class="pi pi-search" />
             </InputIcon>
@@ -71,7 +71,7 @@ export default {
             </template>
 
             <template #center>
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon>
                         <i class="pi pi-search" />
                     </InputIcon>
@@ -114,7 +114,7 @@ export default {
             </template>
 
             <template #center>
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon>
                         <i class="pi pi-search" />
                     </InputIcon>
