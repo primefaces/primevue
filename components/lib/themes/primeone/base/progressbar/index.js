@@ -32,14 +32,11 @@ export default {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: width 1s ease-in-out;
 }
 
 .p-progressbar-determinate .p-progressbar-label {
     display: inline-flex;
-}
-
-.p-progressbar-determinate .p-progressbar-value-animate {
-    transition: width 1s ease-in-out;
 }
 
 .p-progressbar-indeterminate .p-progressbar-value::before {

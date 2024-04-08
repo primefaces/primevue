@@ -9,7 +9,7 @@ const classes = {
         }
     ],
     container: 'p-progressbar-indeterminate-container',
-    value: 'p-progressbar-value p-progressbar-value-animate',
+    value: 'p-progressbar-value',
     label: 'p-progressbar-label'
 };
 
