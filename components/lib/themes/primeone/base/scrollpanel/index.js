@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-scrollpanel-wrapper {
+.p-scrollpanel-content-container {
     overflow: hidden;
     width: 100%;
     height: 100%;
