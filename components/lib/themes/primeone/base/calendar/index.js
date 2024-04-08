@@ -112,36 +112,6 @@ export default {
     line-height: 1.75rem;
 }
 
-.p-datepicker-prev,
-.p-datepicker-next {
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: ${dt('calendar.navigator.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-}
-
-.p-datepicker-prev:enabled:hover,
-.p-datepicker-next:enabled:hover {
-    background: ${dt('calendar.navigator.hover.background')};
-    color: ${dt('calendar.navigator.hover.color')};
-}
-
-.p-datepicker-prev:focus-visible,
-.p-datepicker-next:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
 .p-datepicker-view-year,
 .p-datepicker-view-month {
     font-weight: 500;
@@ -352,33 +322,6 @@ export default {
     padding: 0 0.5rem;
 }
 
-.p-timepicker button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: ${dt('calendar.timepicker.spin.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-}
-
-.p-timepicker button:enabled:hover {
-    background: ${dt('calendar.timepicker.spin.hover.background')};
-    color: ${dt('calendar.timepicker.spin.hover.color')};
-}
-
-.p-timepicker button:focus-visible {
-    outline: 1px solid ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
 .p-timepicker button:last-child {
     margin-top: 0.2em;
 }
@@ -389,17 +332,6 @@ export default {
 
 .p-datepicker-timeonly .p-timepicker {
     border-top: 0 none;
-}
-
-/* Touch UI */
-.p-datepicker-touch-ui,
-.p-calendar .p-datepicker-touch-ui {
-    min-width: 80vw;
-}
-
-.p-datepicker.p-datepicker-mobile table th,
-.p-datepicker.p-datepicker-mobile table td {
-    padding: 0.25rem;
 }
 `
 };

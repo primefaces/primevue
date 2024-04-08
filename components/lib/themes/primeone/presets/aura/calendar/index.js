@@ -11,11 +11,6 @@ export default {
                 borderColor: '{surface.200}',
                 color: '{surface.700}'
             },
-            navigator: {
-                hoverBackground: '{surface.100}',
-                color: '{surface.500}',
-                hoverColor: '{surface.600}'
-            },
             monthPicker: {
                 hoverBackground: '{surface.100}',
                 color: '{surface.700}',
@@ -60,11 +55,6 @@ export default {
             timepicker: {
                 borderColor: '{surface.200}'
             },
-            timepickerSpin: {
-                hoverBackground: '{surface.100}',
-                color: '{surface.500}',
-                hoverColor: '{surface.600}'
-            },
             dropdown: {
                 width: '2.5rem',
                 background: '{surface.100}',
@@ -88,11 +78,6 @@ export default {
                 background: '{surface.900}',
                 borderColor: '{surface.700}',
                 color: '{surface.0}'
-            },
-            navigator: {
-                hoverBackground: '{surface.800}',
-                color: '{surface.400}',
-                hoverColor: '{surface.300}'
             },
             monthPicker: {
                 hoverBackground: '{surface.800}',
@@ -137,11 +122,6 @@ export default {
             },
             timepicker: {
                 borderColor: '{surface.700}'
-            },
-            timepickerSpin: {
-                hoverBackground: '{surface.800}',
-                color: '{surface.400}',
-                hoverColor: '{surface.300}'
             },
             dropdown: {
                 background: '{surface.800}',

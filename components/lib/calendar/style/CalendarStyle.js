@@ -20,24 +20,22 @@ const classes = {
     panel: ({ instance, props }) => [
         'p-datepicker-panel p-component',
         {
-            'p-datepicker-mobile': instance.queryMatches,
             'p-datepicker-panel-inline': props.inline,
             'p-disabled': props.disabled,
             'p-datepicker-timeonly': props.timeOnly,
-            'p-datepicker-touch-ui': props.touchUI,
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
     group: 'p-datepicker-calendar-container',
     calendar: 'p-datepicker-calendar',
     header: 'p-datepicker-header',
-    previousButton: 'p-datepicker-prev p-link',
+    previousButton: 'p-datepicker-navigator p-datepicker-prev p-link',
     previousIcon: 'p-datepicker-prev-icon',
     title: 'p-datepicker-title',
     monthTitle: 'p-datepicker-view-month p-link',
     yearTitle: 'p-datepicker-view-year p-link',
     decadeTitle: 'p-datepicker-decade',
-    nextButton: 'p-datepicker-next p-link',
+    nextButton: 'p-datepicker-navigator p-datepicker-next p-link',
     nextIcon: 'p-datepicker-next-icon',
     grid: 'p-datepicker-day-view',
     weekHeader: 'p-datepicker-weekheader p-disabled',

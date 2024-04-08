@@ -223,13 +223,13 @@ export default {
         todayButtonProps: {
             type: Object,
             default() {
-                return { severity: 'secondary', text: true };
+                return { severity: 'secondary', text: true, size: 'small' };
             }
         },
         clearButtonProps: {
             type: Object,
             default() {
-                return { severity: 'secondary', text: true };
+                return { severity: 'secondary', text: true, size: 'small' };
             }
         },
         ariaLabelledby: {
