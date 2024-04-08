@@ -4,7 +4,7 @@ export default {
     display: inline-flex;
 }
 
-.p-inputchips-group {
+.p-inputchips-input {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -25,28 +25,28 @@ export default {
     box-shadow: ${dt('chips.box.shadow')};
 }
 
-.p-inputchips:not(.p-disabled):hover .p-inputchips-group {
+.p-inputchips:not(.p-disabled):hover .p-inputchips-input {
     border-color: ${dt('chips.hover.border.color')};
 }
 
-.p-inputchips:not(.p-disabled).p-focus .p-inputchips-group {
+.p-inputchips:not(.p-disabled).p-focus .p-inputchips-input {
     border-color: ${dt('chips.focus.border.color')};
     outline: 0 none;
 }
 
-.p-inputchips.p-invalid .p-inputchips-group {
+.p-inputchips.p-invalid .p-inputchips-input {
     border-color: ${dt('chips.invalid.border.color')};
 }
 
-.p-variant-filled.p-inputchips-group {
+.p-variant-filled.p-inputchips-input {
     background: ${dt('chips.filled.background')};
 }
 
-.p-inputchips:not(.p-disabled).p-focus .p-variant-filled.p-inputchips-group  {
+.p-inputchips:not(.p-disabled).p-focus .p-variant-filled.p-inputchips-input  {
     background: ${dt('chips.filled.focus.background')};
 }
 
-.p-inputchips.p-disabled .p-inputchips-group {
+.p-inputchips.p-disabled .p-inputchips-input {
     opacity: 1;
     background: ${dt('chips.disabled.background')};
     color: ${dt('chips.disabled.color')};

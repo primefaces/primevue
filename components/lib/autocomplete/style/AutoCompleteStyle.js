@@ -19,7 +19,7 @@ const classes = {
     ],
     input: 'p-autocomplete-input',
     container: ({ props, instance }) => [
-        'p-autocomplete-chip-group',
+        'p-autocomplete-input-multiple',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
