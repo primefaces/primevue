@@ -52,27 +52,6 @@ export default {
     color: ${dt('chips.disabled.color')};
 }
 
-.p-inputchips-chip {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    padding: 0.25rem 0.75rem;
-    background: ${dt('chips.chip.background')};
-    color: ${dt('chips.chip.color')};
-    border-radius: ${dt('rounded.sm')};
-}
-
-.p-inputchips-chip.p-focus {
-    background: ${dt('chips.chip.focus.background')};
-    color: ${dt('chips.chip.focus.color')};
-}
-
-.p-inputchips-chip-icon {
-    cursor: pointer;
-    margin-left: 0.375rem;
-}
-
 .p-inputchips-input-item {
     padding: 0.25rem 0;
     margin-left: 0.5rem;
@@ -83,7 +62,7 @@ export default {
 .p-inputchips-input-item input {
     border: 0 none;
     outline: 0 none;
-    background-color: transparent;
+    background: transparent;
     margin: 0;
     padding: 0;
     box-shadow: none;
@@ -93,8 +72,6 @@ export default {
     font-feature-settings: inherit;
     font-size: 1rem;
     color: inherit;
-    padding: 0;
-    margin: 0;
 }
 
 .p-inputchips-input-item input::placeholder {

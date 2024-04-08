@@ -12,23 +12,5 @@ export default {
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
         boxShadow: '{form.field.box.shadow}'
-    },
-    colorScheme: {
-        light: {
-            chip: {
-                background: '{surface.100}',
-                focusBackground: '{surface.200}',
-                color: '{surface.800}',
-                focusColor: '{surface.900}'
-            }
-        },
-        dark: {
-            chip: {
-                background: '{surface.700}',
-                focusBackground: '{surface.600}',
-                color: '{surface.0}',
-                focusColor: '{surface.0}'
-            }
-        }
     }
 };
