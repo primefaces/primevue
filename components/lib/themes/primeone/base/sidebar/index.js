@@ -27,35 +27,9 @@ export default {
     padding: 1.125rem;
 }
 
-.p-sidebar-header-content {
+.p-sidebar-title {
     font-weight: 600;
     font-size: 1.25rem;
-}
-
-.p-sidebar-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: ${dt('sidebar.header.icon.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-}
-
-.p-sidebar-icon:enabled:hover {
-    background: ${dt('sidebar.header.icon.hover.background')};
-    color: ${dt('sidebar.header.icon.hover.color')};
-}
-
-.p-sidebar-icon:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-sidebar-full .p-sidebar {
@@ -170,7 +144,7 @@ export default {
     }
 }
 
-.p-sidebar-visible {
+.p-sidebar-open {
     display: flex;
 }
 `

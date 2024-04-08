@@ -45,9 +45,7 @@ const classes = {
     title: 'p-dialog-title',
     icons: 'p-dialog-header-actions',
     maximizableButton: 'p-dialog-maximize-button',
-    maximizableIcon: 'p-dialog-maximize-button-icon',
     closeButton: 'p-dialog-close-button',
-    closeButtonIcon: 'p-dialog-close-button-icon',
     content: 'p-dialog-content',
     footer: 'p-dialog-footer'
 };
