@@ -40,31 +40,6 @@ export default {
     will-change: transform;
 }
 
-.p-speeddial-item.p-focus > .p-speeddial-action {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
-.p-speeddial-action {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-    width: 2.5rem;
-    height: 2.5rem;
-    background: ${dt('speeddial.item.background')};
-    color: ${dt('speeddial.item.color')};
-    outline-color: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-}
-
-.p-speeddial-action:hover {
-    background: ${dt('speeddial.item.hover.background')};
-    color: ${dt('speeddial.item.hover.color')};
-}
-
 .p-speeddial-circle .p-speeddial-item,
 .p-speeddial-semi-circle .p-speeddial-item,
 .p-speeddial-quarter-circle .p-speeddial-item {
