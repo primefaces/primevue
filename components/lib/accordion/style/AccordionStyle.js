@@ -4,23 +4,23 @@ const classes = {
     root: 'p-accordion p-component',
     tab: {
         root: ({ instance, index }) => [
-            'p-accordion-tab',
+            'p-accordion-panel',
             {
-                'p-accordion-tab-active': instance.isTabActive(index)
+                'p-accordion-panel-active': instance.isTabActive(index)
             }
         ],
         header: ({ instance, tab, index }) => [
-            'p-accordion-header',
+            'p-accordion-panel-header',
             {
-                'p-highlight': instance.isTabActive(index),
+                'p-accordion-panel-header-active': instance.isTabActive(index),
                 'p-disabled': instance.getTabProp(tab, 'disabled')
             }
         ],
-        headerAction: 'p-accordion-header-link p-accordion-header-action',
-        headerIcon: 'p-accordion-toggle-icon',
-        headerTitle: 'p-accordion-header-text',
-        toggleableContent: 'p-toggleable-content',
-        content: 'p-accordion-content'
+        headerAction: 'p-accordion-panel-header-content',
+        headerIcon: 'p-accordion-panel-toggle-icon',
+        headerTitle: 'p-accordion-panel-title',
+        toggleableContent: 'p-accordion-panel-content-container',
+        content: 'p-accordion-panel-content'
     }
 };
 
