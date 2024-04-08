@@ -22,8 +22,7 @@ const classes = {
             'p-sidebar-mask',
             {
                 'p-component-overlay p-component-overlay-enter': props.modal,
-                'p-sidebar-mask-scrollblocker': props.blockScroll,
-                'p-sidebar-visible': instance.containerVisible,
+                'p-sidebar-open': instance.containerVisible,
                 'p-sidebar-full': instance.fullScreen
             },
             pos ? `p-sidebar-${pos}` : ''
@@ -37,9 +36,8 @@ const classes = {
         }
     ],
     header: 'p-sidebar-header',
-    title: 'p-sidebar-header-content',
-    closeButton: 'p-sidebar-close p-sidebar-icon p-link',
-    closeIcon: 'p-sidebar-close-icon',
+    title: 'p-sidebar-title',
+    closeButton: 'p-sidebar-close-button',
     content: 'p-sidebar-content'
 };
 
