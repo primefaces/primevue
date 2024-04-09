@@ -16,6 +16,7 @@ const classes = {
     ],
     input: 'p-datepicker-input',
     dropdownButton: 'p-datepicker-dropdown',
+    inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',
     panel: ({ instance, props }) => [
         'p-datepicker-panel p-component',
