@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-message-wrapper {
+.p-message-content {
     display: flex;
     align-items: center;
     padding: 0.5rem 0.75rem;
@@ -15,12 +15,12 @@ export default {
     flex-shrink: 0;
 }
 
-.p-message-close {
+.p-message-close-button {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-left: auto;
+    margin: 0 0 0 auto;
     overflow: hidden;
     position: relative;
     width: 1.75rem;
@@ -30,9 +30,13 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     color: inherit;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    user-select: none;
 }
 
-.p-message-close:focus-visible {
+.p-message-close-button:focus-visible {
     outline-width: ${dt('focus.ring.width')};
     outline-style: ${dt('focus.ring.style')};
     outline-offset: ${dt('focus.ring.offset')};
@@ -45,11 +49,11 @@ export default {
     box-shadow: ${dt('message.info.box.shadow')};
 }
 
-.p-message-info .p-message-close:focus-visible {
+.p-message-info .p-message-close-button:focus-visible {
     outline-color: ${dt('message.info.color')};
 }
 
-.p-message-info .p-message-close:hover {
+.p-message-info .p-message-close-button:hover {
     background: ${dt('message.info.close.hover.background')};
 }
 
@@ -60,11 +64,11 @@ export default {
     box-shadow: ${dt('message.success.box.shadow')};
 }
 
-.p-message-success .p-message-close:focus-visible {
+.p-message-success .p-message-close-button:focus-visible {
     outline-color: ${dt('message.success.color')};
 }
 
-.p-message-success .p-message-close:hover {
+.p-message-success .p-message-close-button:hover {
     background: ${dt('message.success.close.hover.background')};
 }
 
@@ -75,11 +79,11 @@ export default {
     box-shadow: ${dt('message.warn.box.shadow')};
 }
 
-.p-message-warn .p-message-close:focus-visible {
+.p-message-warn .p-message-close-button:focus-visible {
     outline-color: ${dt('message.warn.color')};
 }
 
-.p-message-warn .p-message-close:hover {
+.p-message-warn .p-message-close-button:hover {
     background: ${dt('message.warn.close.hover.background')};
 }
 
@@ -90,11 +94,11 @@ export default {
     box-shadow: ${dt('message.error.box.shadow')};
 }
 
-.p-message-error .p-message-close:focus-visible {
+.p-message-error .p-message-close-button:focus-visible {
     outline-color: ${dt('message.error.color')};
 }
 
-.p-message-error .p-message-close:hover {
+.p-message-error .p-message-close-button:hover {
     background: ${dt('message.error.close.hover.background')};
 }
 
@@ -105,11 +109,11 @@ export default {
     box-shadow: ${dt('message.secondary.box.shadow')};
 }
 
-.p-message-secondary .p-message-close:focus-visible {
+.p-message-secondary .p-message-close-button:focus-visible {
     outline-color: ${dt('message.secondary.color')};
 }
 
-.p-message-secondary .p-message-close:hover {
+.p-message-secondary .p-message-close-button:hover {
     background: ${dt('message.secondary.close.hover.background')};
 }
 
@@ -120,11 +124,11 @@ export default {
     box-shadow: ${dt('message.contrast.box.shadow')};
 }
 
-.p-message-contrast .p-message-close:focus-visible {
+.p-message-contrast .p-message-close-button:focus-visible {
     outline-color: ${dt('message.contrast.color')};
 }
 
-.p-message-contrast .p-message-close:hover {
+.p-message-contrast .p-message-close-button:hover {
     background: ${dt('message.contrast.close.hover.background')};
 }
 
@@ -138,7 +142,7 @@ export default {
     margin-right: 0.5rem;
 }
 
-.p-message .p-icon:not(.p-message-close-icon) {
+.p-message .p-icon:not(.p-message-close-button-icon) {
     width: 1rem;
     height: 1rem;
 }
@@ -166,7 +170,7 @@ export default {
     transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin 0.15s;
 }
 
-.p-message-leave-active .p-message-close {
+.p-message-leave-active .p-message-close-button {
     display: none;
 }
 `
