@@ -6,13 +6,13 @@ const classes = {
     menuitem: ({ instance, item, index }) => [
         'p-steps-item',
         {
-            'p-highlight p-steps-current': instance.isActive(index),
+            'p-steps-item-active': instance.isActive(index),
             'p-disabled': instance.isItemDisabled(item, index)
         }
     ],
-    action: 'p-menuitem-link',
-    step: 'p-steps-number',
-    label: 'p-steps-title'
+    action: 'p-steps-item-link',
+    step: 'p-steps-item-number',
+    label: 'p-steps-item-label'
 };
 
 export default BaseStyle.extend({
