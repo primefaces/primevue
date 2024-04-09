@@ -9,17 +9,15 @@ export default {
     min-width: 12.5rem;
 }
 
-.p-tieredmenu ul {
+.p-tieredmenu-root-list,
+.p-tieredmenu-submenu-list {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.p-tieredmenu-root-list {
     outline: 0 none;
 }
 
-.p-tieredmenu .p-submenu-list {
+.p-tieredmenu-submenu-list {
     position: absolute;
     min-width: 100%;
     z-index: 1;
@@ -31,7 +29,26 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.p-tieredmenu .p-menuitem-link {
+.p-tieredmenu-item {
+    position: relative;
+    margin: 2px 0;
+}
+
+.p-tieredmenu-item:first-child {
+    margin-top: 0;
+}
+
+.p-tieredmenu-item:last-child {
+    margin-bottom: 0;
+}
+
+.p-tieredmenu-item-content {
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.sm')};
+    color: ${dt('tieredmenu.item.color')};
+}
+
+.p-tieredmenu-item-link {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -43,34 +60,16 @@ export default {
     user-select: none;
 }
 
-.p-tieredmenu .p-menuitem-text {
+.p-tieredmenu-item-text {
     line-height: 1;
 }
 
-.p-tieredmenu .p-menuitem {
-    position: relative;
-    margin: 2px 0;
-}
-
-.p-tieredmenu .p-menuitem:first-child {
-    margin-top: 0;
-}
-.p-tieredmenu .p-menuitem:last-child {
-    margin-bottom: 0;
-}
-
-.p-tieredmenu .p-menuitem-content {
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
-    color: ${dt('tieredmenu.item.color')};
-}
-
-.p-tieredmenu .p-menuitem-icon {
+.p-tieredmenu-item-icon {
     color: ${dt('tieredmenu.item.icon.color')};
     margin-right: 0.5rem;
 }
 
-.p-tieredmenu .p-submenu-icon {
+.p-tieredmenu-submenu-icon {
     color: ${dt('tieredmenu.item.icon.color')};
     margin-left: auto;
     font-size: 0.875rem;
@@ -78,42 +77,42 @@ export default {
     height: 0.875rem;
 }
 
-.p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content {
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content {
     color: ${dt('tieredmenu.item.focus.color')};
     background: ${dt('tieredmenu.item.focus.background')};
 }
 
-.p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-icon,
-.p-tieredmenu .p-menuitem.p-focus > .p-menuitem-content .p-submenu-icon {
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content .p-tieredmenu-item-icon,
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
     color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
-.p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover {
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover {
     color: ${dt('tieredmenu.item.focus.color')};
     background: ${dt('tieredmenu.item.focus.background')};
 }
 
-.p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
-.p-tieredmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover .p-tieredmenu-item-icon,
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover .p-tieredmenu-submenu-icon {
     color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
-.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content {
+.p-tieredmenu-item-active > .p-tieredmenu-item-content {
     color: ${dt('tieredmenu.item.focus.color')};
     background: ${dt('tieredmenu.item.focus.background')};
 }
 
-.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
-.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-submenu-icon {
+.p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-item-icon,
+.p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
     color: ${dt('tieredmenu.item.icon.focus.color')};
 }
 
-.p-tieredmenu .p-menuitem-separator {
+.p-tieredmenu-separator {
     border-top: 1px solid ${dt('tieredmenu.separator.border.color')};
     margin: 2px 0;
 }
 
-.p-tieredmenu.p-tieredmenu-overlay {
+.p-tieredmenu-overlay {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 

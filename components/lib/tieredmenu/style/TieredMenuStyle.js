@@ -15,20 +15,20 @@ const classes = {
     start: 'p-tieredmenu-start',
     menu: 'p-tieredmenu-root-list',
     menuitem: ({ instance, processedItem }) => [
-        'p-menuitem',
+        'p-tieredmenu-item',
         {
-            'p-menuitem-active p-highlight': instance.isItemActive(processedItem),
+            'p-tieredmenu-item-active': instance.isItemActive(processedItem),
             'p-focus': instance.isItemFocused(processedItem),
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-menuitem-content',
-    action: 'p-menuitem-link',
-    icon: 'p-menuitem-icon',
-    text: 'p-menuitem-text',
-    submenuIcon: 'p-submenu-icon',
-    submenu: 'p-submenu-list',
-    separator: 'p-menuitem-separator',
+    content: 'p-tieredmenu-item-content',
+    action: 'p-tieredmenu-item-link',
+    icon: 'p-tieredmenu-item-icon',
+    text: 'p-tieredmenu-item-text',
+    submenuIcon: 'p-tieredmenu-submenu-icon',
+    submenu: 'p-tieredmenu-submenu-list',
+    separator: 'p-tieredmenu-separator',
     end: 'p-tieredmenu-end'
 };
 
