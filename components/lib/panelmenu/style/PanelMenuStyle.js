@@ -6,30 +6,30 @@ const classes = {
     header: ({ instance, item }) => [
         'p-panelmenu-header',
         {
-            'p-highlight': instance.isItemActive(item) && !!item.items,
+            'p-panelmenu-header-active': instance.isItemActive(item) && !!item.items,
             'p-disabled': instance.isItemDisabled(item)
         }
     ],
     headerContent: 'p-panelmenu-header-content',
-    headerAction: 'p-panelmenu-header-action',
-    headerIcon: 'p-menuitem-icon',
-    headerLabel: 'p-menuitem-text',
-    toggleableContent: 'p-toggleable-content',
+    headerAction: 'p-panelmenu-header-link',
+    headerIcon: 'p-panelmenu-header-icon',
+    headerLabel: 'p-panelmenu-header-label',
+    toggleableContent: 'p-panelmenu-content-container',
     menuContent: 'p-panelmenu-content',
     menu: 'p-panelmenu-root-list',
     menuitem: ({ instance, processedItem }) => [
-        'p-menuitem',
+        'p-panelmenu-item',
         {
             'p-focus': instance.isItemFocused(processedItem),
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-menuitem-content',
-    action: 'p-menuitem-link',
-    icon: 'p-menuitem-icon',
-    label: 'p-menuitem-text',
-    submenuIcon: 'p-submenu-icon',
-    submenu: 'p-submenu-list',
+    content: 'p-panelmenu-item-content',
+    action: 'p-panelmenu-item-link',
+    icon: 'p-panelmenu-item-icon',
+    label: 'p-panelmenu-item-label',
+    submenuIcon: 'p-panelmenu-submenu-icon',
+    submenu: 'p-panelmenu-submenu',
     separator: 'p-menuitem-separator'
 };
 
