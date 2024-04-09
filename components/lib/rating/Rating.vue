@@ -1,25 +1,5 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
-        <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="getPTOptions('cancelItem', 0)" :data-p-focused="focusedOptionIndex === 0">
-            <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
-                <input
-                    type="radio"
-                    value="0"
-                    :name="name"
-                    :checked="modelValue === 0"
-                    :disabled="disabled"
-                    :readonly="readonly"
-                    :aria-label="cancelAriaLabel()"
-                    @focus="onFocus($event, 0)"
-                    @blur="onBlur"
-                    @change="onChange($event, 0)"
-                    v-bind="ptm('hiddenCancelInput')"
-                />
-            </span>
-            <slot name="cancelicon" :class="cx('cancelIcon')">
-                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="[cx('cancelIcon'), cancelIcon]" v-bind="ptm('cancelIcon')" />
-            </slot>
-        </div>
         <template v-for="value in stars" :key="value">
             <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('item', value)" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
                 <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
@@ -94,6 +74,7 @@ export default {
             }
         },
         onFocus(event, value) {
+            console.log(event);
             this.focusedOptionIndex = value;
             this.$emit('focus', event);
         },
@@ -117,9 +98,6 @@ export default {
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
-        },
-        cancelAriaLabel() {
-            return this.$primevue.config.locale.clear;
         },
         starAriaLabel(value) {
             return value === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, value);

@@ -22,19 +22,11 @@ export default {
             type: Number,
             default: 5
         },
-        cancel: {
-            type: Boolean,
-            default: false
-        },
         onIcon: {
             type: String,
             default: undefined
         },
         offIcon: {
-            type: String,
-            default: undefined
-        },
-        cancelIcon: {
             type: String,
             default: undefined
         }

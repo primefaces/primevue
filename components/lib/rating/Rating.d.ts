@@ -58,14 +58,6 @@ export interface RatingPassThroughOptions {
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the cancel item's DOM element.
-     */
-    cancelItem?: RatingPassThroughOptionType;
-    /**
-     * Used to pass attributes to the cancel icon's DOM element.
-     */
-    cancelIcon?: RatingPassThroughOptionType;
-    /**
      * Used to pass attributes to the item's DOM element.
      */
     item?: RatingPassThroughOptionType;
@@ -77,14 +69,6 @@ export interface RatingPassThroughOptions {
      * Used to pass attributes to the off icon's DOM element.
      */
     offIcon?: RatingPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden cancel inputW wapper's DOM element.
-     */
-    hiddenCancelInputWrapper?: RatingPassThroughOptionType;
-    /**
-     * Used to pass attributes to the hidden cancel input's DOM element.
-     */
-    hiddenCancelInput?: RatingPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden item input wrapper's DOM element.
      */
@@ -180,12 +164,6 @@ export interface RatingProps {
      */
     stars?: number | undefined;
     /**
-     * When specified a cancel icon is displayed to allow clearing the value.
-     * @deprecated since v4.0.0-beta.1
-     * @defaultValue false
-     */
-    cancel?: boolean | undefined;
-    /**
      * Icon for the on state.
      * @deprecated since v3.27.0. Use 'onicon' slot.
      */
@@ -195,11 +173,6 @@ export interface RatingProps {
      * @deprecated since v3.27.0. Use 'officon' slot.
      */
     offIcon?: string | undefined;
-    /**
-     * Icon for the cancelable state.
-     * @deprecated since v3.27.0. Use 'cancelicon' slot.
-     */
-    cancelIcon?: string | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -225,16 +198,6 @@ export interface RatingProps {
  * Defines valid slots in Rating component.
  */
 export interface RatingSlots {
-    /**
-     * Custom cancel icon template.
-     * @param {Object} scope - cancelicon slot's params.
-     */
-    cancelicon(scope: {
-        /**
-         * Style class of the icon.
-         */
-        class: string;
-    }): VNode[];
     /**
      * Custom on icon template.
      * @param {Object} scope - on icon slot's params.
