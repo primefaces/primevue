@@ -35,12 +35,12 @@ export default {
     border-radius: 6px;
 }
 
-p-dock-item.p-focus {
+.p-dock-item.p-focus {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-dock-link {
+.p-dock-item-link {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -17,9 +17,9 @@ const classes = {
             'p-disabled': instance.disabled(processedItem)
         }
     ],
-    content: 'p-menuitem-content',
-    action: 'p-dock-link',
-    icon: 'p-dock-icon'
+    content: 'p-dock-item-content',
+    action: 'p-dock-item-link',
+    icon: 'p-dock-item-icon'
 };
 
 export default BaseStyle.extend({
