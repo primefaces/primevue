@@ -7513,7 +7513,7 @@
                             "name": "previousButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the previous button's DOM element."
                         },
@@ -7553,9 +7553,9 @@
                             "name": "nextButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the previous button's DOM element."
+                            "description": "Used to pass attributes to the next button's DOM element."
                         },
                         {
                             "name": "container",
@@ -8274,14 +8274,6 @@
                             "description": "Type of view to display."
                         },
                         {
-                            "name": "touchUI",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When enabled, calendar overlay is displayed as optimized for touch devices."
-                        },
-                        {
                             "name": "monthNavigator",
                             "optional": true,
                             "readonly": false,
@@ -8595,6 +8587,22 @@
                             "type": "object",
                             "default": "",
                             "description": "Used to pass all properties of the ButtonProps to the clear button component."
+                        },
+                        {
+                            "name": "navigatorButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the navigator button component."
+                        },
+                        {
+                            "name": "timepickerButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the timepicker button component."
                         },
                         {
                             "name": "ariaLabelledby",
@@ -45637,22 +45645,6 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "cancelItem",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the cancel item's DOM element."
-                        },
-                        {
-                            "name": "cancelIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the cancel icon's DOM element."
-                        },
-                        {
                             "name": "item",
                             "optional": true,
                             "readonly": false,
@@ -45675,22 +45667,6 @@
                             "type": "RatingPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the off icon's DOM element."
-                        },
-                        {
-                            "name": "hiddenCancelInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden cancel inputW wapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenCancelInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the hidden cancel input's DOM element."
                         },
                         {
                             "name": "hiddenItemInputWrapper",
@@ -45846,15 +45822,6 @@
                             "description": "Number of stars."
                         },
                         {
-                            "name": "cancel",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When specified a cancel icon is displayed to allow clearing the value.",
-                            "deprecated": "since v4.0.0-beta.1"
-                        },
-                        {
                             "name": "onIcon",
                             "optional": true,
                             "readonly": false,
@@ -45871,15 +45838,6 @@
                             "default": "",
                             "description": "Icon for the off state.",
                             "deprecated": "since v3.27.0. Use 'officon' slot."
-                        },
-                        {
-                            "name": "cancelIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Icon for the cancelable state.",
-                            "deprecated": "since v3.27.0. Use 'cancelicon' slot."
                         },
                         {
                             "name": "dt",
@@ -45921,19 +45879,6 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": [
-                        {
-                            "name": "cancelicon",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
-                                    "description": "cancelicon slot's params."
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom cancel icon template."
-                        },
                         {
                             "name": "onicon",
                             "parameters": [
@@ -48831,9 +48776,9 @@
                             "name": "action",
                             "optional": true,
                             "readonly": false,
-                            "type": "SpeedDialPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the action's Button component."
                         },
                         {
                             "name": "actionIcon",
@@ -49125,6 +49070,22 @@
                             "description": "Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
                         },
                         {
+                            "name": "buttonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the button component."
+                        },
+                        {
+                            "name": "actionButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the item component."
+                        },
+                        {
                             "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
@@ -49186,7 +49147,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">onClick</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Item click function</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">onClick</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Item click function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Button click function</span>\n}",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -49199,7 +49160,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Button click function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Button click function</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">visible</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Visible state of the item</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Button click function</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Button click function</span>\n}",
                                     "description": "button slot's params."
                                 }
                             ],

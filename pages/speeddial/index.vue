@@ -13,12 +13,12 @@
 <script>
 import AccessibilityDoc from '@/doc/speeddial/AccessibilityDoc.vue';
 import CircleDoc from '@/doc/speeddial/CircleDoc.vue';
-import CustomDoc from '@/doc/speeddial/CustomDoc.vue';
 import ImportDoc from '@/doc/speeddial/ImportDoc.vue';
 import LinearDoc from '@/doc/speeddial/LinearDoc.vue';
 import MaskDoc from '@/doc/speeddial/MaskDoc.vue';
 import QuarterCircleDoc from '@/doc/speeddial/QuarterCircleDoc.vue';
 import SemiCircleDoc from '@/doc/speeddial/SemiCircleDoc.vue';
+import TemplateDoc from '@/doc/speeddial/TemplateDoc.vue';
 import TooltipDoc from '@/doc/speeddial/TooltipDoc.vue';
 import PTComponent from '@/doc/speeddial/pt/index.vue';
 import ThemingDoc from '@/doc/speeddial/theming/index.vue';
@@ -34,7 +34,7 @@ export default {
                 { id: 'quarter-circle', label: 'Quarter Circle', component: QuarterCircleDoc },
                 { id: 'tooltip', label: 'Tooltip', component: TooltipDoc },
                 { id: 'mask', label: 'Mask', component: MaskDoc },
-                { id: 'custom', label: 'Custom', component: CustomDoc },
+                { id: 'template', label: 'Template', component: TemplateDoc },
                 { id: 'accessibility', label: 'Accessibility', component: AccessibilityDoc }
             ],
             ptComponent: PTComponent,
