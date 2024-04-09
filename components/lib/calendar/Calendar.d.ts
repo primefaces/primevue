@@ -161,8 +161,9 @@ export interface CalendarPassThroughOptions {
     header?: CalendarPassThroughOptionType;
     /**
      * Used to pass attributes to the previous button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    previousButton?: CalendarPassThroughOptionType;
+    previousButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the title's DOM element.
      */
@@ -180,9 +181,10 @@ export interface CalendarPassThroughOptions {
      */
     decadeTitle?: CalendarPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the next button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    nextButton?: CalendarPassThroughOptionType;
+    nextButton?: ButtonPassThroughOptions<CalendarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -766,15 +768,27 @@ export interface CalendarProps {
     /**
      * Used to pass all properties of the ButtonProps to the today button component.
      * @type {ButtonProps}
-     * @defaultValue { severity: 'secondary', text: true }
+     * @defaultValue { severity: 'secondary', text: true, size: 'small' }
      */
     todayButtonProps?: object | undefined;
     /**
      * Used to pass all properties of the ButtonProps to the clear button component.
      * @type {ButtonProps}
-     * @defaultValue { severity: 'secondary', text: true }
+     * @defaultValue { severity: 'secondary', text: true, size: 'small' }
      */
     clearButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the navigator button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', text: true }
+     */
+    navigatorButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the timepicker button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', text: true }
+     */
+    timepickerButtonProps?: object | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

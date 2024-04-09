@@ -232,6 +232,18 @@ export default {
                 return { severity: 'secondary', text: true, size: 'small' };
             }
         },
+        navigatorButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
+            }
+        },
+        timepickerButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
+            }
+        },
         ariaLabelledby: {
             type: String,
             default: null
