@@ -10,17 +10,15 @@ export default {
     min-width: 12.5rem;
 }
 
-.p-contextmenu ul {
+.p-contextmenu-root-list,
+.p-contextmenu-submenu-list {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.p-contextmenu-root-list {
     outline: 0 none;
 }
 
-.p-contextmenu .p-submenu-list {
+.p-contextmenu-submenu-list {
     position: absolute;
     min-width: 100%;
     z-index: 1;
@@ -32,7 +30,25 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.p-contextmenu .p-menuitem-link {
+.p-contextmenu-item {
+    position: relative;
+    margin: 2px 0;
+}
+
+.p-contextmenu-item:first-child {
+    margin-top: 0;
+}
+.p-contextmenu-item:last-child {
+    margin-bottom: 0;
+}
+
+.p-contextmenu-item-content {
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
+    border-radius: ${dt('rounded.sm')};
+    color: ${dt('contextmenu.item.color')};
+}
+
+.p-contextmenu-item-link {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -44,34 +60,16 @@ export default {
     user-select: none;
 }
 
-.p-contextmenu .p-menuitem-text {
+.p-contextmenu-item-label {
     line-height: 1;
 }
 
-.p-contextmenu .p-menuitem {
-    position: relative;
-    margin: 2px 0;
-}
-
-.p-contextmenu .p-menuitem:first-child {
-    margin-top: 0;
-}
-.p-contextmenu .p-menuitem:last-child {
-    margin-bottom: 0;
-}
-
-.p-contextmenu .p-menuitem-content {
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
-    color: ${dt('contextmenu.item.color')};
-}
-
-.p-contextmenu .p-menuitem-icon {
-    color: ${dt('contextmenu.item.icom.color')};
+.p-contextmenu-item-icon {
+    color: ${dt('contextmenu.item.icon.color')};
     margin-right: 0.5rem;
 }
 
-.p-contextmenu .p-submenu-icon {
+.p-contextmenu-submenu-icon {
     color: ${dt('contextmenu.item.icon.color')};
     margin-left: auto;
     font-size: 0.875rem;
@@ -79,37 +77,37 @@ export default {
     height: 0.875rem;
 }
 
-.p-contextmenu .p-menuitem.p-focus > .p-menuitem-content {
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content {
     color: ${dt('contextmenu.item.focus.color')};
     background: ${dt('contextmenu.item.focus.background')};
 }
 
-.p-contextmenu .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-icon,
-.p-contextmenu .p-menuitem.p-focus > .p-menuitem-content .p-submenu-icon {
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-item-icon,
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
     color: ${dt('contextmenu.item.icon.focus.color')};
 }
 
-.p-contextmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover {
+.p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover {
     color: ${dt('contextmenu.item.focus.color')};
     background: ${dt('contextmenu.item.focus.background')};
 }
 
-.p-contextmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-icon,
-.p-contextmenu .p-menuitem:not(.p-disabled) > .p-menuitem-content:hover .p-submenu-icon {
+.p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-item-icon,
+.p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-submenu-icon {
     color: ${dt('contextmenu.item.icon.focus.color')};
 }
 
-.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content {
+.p-contextmenu-item-active > .p-contextmenu-item-content {
     color: ${dt('contextmenu.item.focus.color')};
     background: ${dt('contextmenu.item.focus.background')};
 }
 
-.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-menuitem-icon,
-.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-content .p-submenu-icon {
+.p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-item-icon,
+.p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
     color: ${dt('contextmenu.item.icon.focus.color')};
 }
 
-.p-contextmenu .p-menuitem-separator {
+.p-contextmenu-separator {
     border-top: 1px solid  ${dt('contextmenu.separator.border.color')};
     margin: 2px 0;
 }

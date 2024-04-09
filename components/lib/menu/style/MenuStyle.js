@@ -23,7 +23,7 @@ const classes = {
     content: 'p-menu-item-content',
     action: 'p-menu-item-link',
     icon: 'p-menu-item-icon',
-    label: 'p-menu-item-text'
+    label: 'p-menu-item-label'
 };
 
 export default BaseStyle.extend({

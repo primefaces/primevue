@@ -60,7 +60,7 @@ export default {
     user-select: none;
 }
 
-.p-tieredmenu-item-text {
+.p-tieredmenu-item-label {
     line-height: 1;
 }
 

@@ -25,7 +25,7 @@ const classes = {
     content: 'p-tieredmenu-item-content',
     action: 'p-tieredmenu-item-link',
     icon: 'p-tieredmenu-item-icon',
-    text: 'p-tieredmenu-item-text',
+    text: 'p-tieredmenu-item-label',
     submenuIcon: 'p-tieredmenu-submenu-icon',
     submenu: 'p-tieredmenu-submenu-list',
     separator: 'p-tieredmenu-separator',

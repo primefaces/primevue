@@ -45,7 +45,7 @@ export default {
     color: ${dt('menu.item.color')};
 }
 
-.p-menu-item-text {
+.p-menu-item-label {
     line-height: 1;
 }
 

@@ -9,10 +9,10 @@ export default {
             item: {
                 focusBackground: '{surface.100}',
                 color: '{surface.700}',
-                colorFocus: '{surface.800}',
+                focusColor: '{surface.800}',
                 icon: {
                     color: '{surface.400}',
-                    colorFocus: '{surface.500}'
+                    focusColor: '{surface.500}'
                 }
             },
             separator: {
@@ -28,10 +28,10 @@ export default {
             item: {
                 focusBackground: '{surface.800}',
                 color: '{surface.0}',
-                colorFocus: '{surface.0}',
+                focusColor: '{surface.0}',
                 icon: {
                     color: '{surface.500}',
-                    colorFocus: '{surface.400}'
+                    focusColor: '{surface.400}'
                 }
             },
             separator: {
