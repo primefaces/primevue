@@ -582,11 +582,6 @@ export interface CalendarProps {
      */
     view?: 'date' | 'month' | 'year' | undefined;
     /**
-     * When enabled, calendar overlay is displayed as optimized for touch devices.
-     * @defaultValue false
-     */
-    touchUI?: boolean | undefined;
-    /**
      * Whether the month should be rendered as a dropdown instead of text.
      *
      * @deprecated since version 3.9.0, Navigator is always on.

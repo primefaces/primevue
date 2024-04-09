@@ -68,10 +68,6 @@ export default {
             type: String,
             default: 'date'
         },
-        touchUI: {
-            type: Boolean,
-            default: false
-        },
         monthNavigator: {
             type: Boolean,
             default: false

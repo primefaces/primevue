@@ -551,12 +551,10 @@ export default {
     timePickerChange: false,
     scrollHandler: null,
     outsideClickListener: null,
-    maskClickListener: null,
     resizeListener: null,
     matchMediaListener: null,
     overlay: null,
     input: null,
-    mask: null,
     previousButton: null,
     nextButton: null,
     timePickerTimer: null,
@@ -589,7 +587,6 @@ export default {
             this.updateCurrentMetaData();
 
             if (!this.typeUpdate && !this.inline && this.input) {
-                // this.input.value = this.formatValue(newValue);
                 this.input.value = this.inputFieldValue;
             }
 
@@ -645,7 +642,6 @@ export default {
                 this.initFocusableCell();
             }
         } else {
-            // this.input.value = this.formatValue(this.modelValue);
             this.input.value = this.inputFieldValue;
         }
     },
@@ -665,10 +661,6 @@ export default {
     beforeUnmount() {
         if (this.timePickerTimer) {
             clearTimeout(this.timePickerTimer);
-        }
-
-        if (this.mask) {
-            this.destroyMask();
         }
 
         this.destroyResponsiveStyleElement();
@@ -870,13 +862,12 @@ export default {
         },
         onOverlayEnter(el) {
             el.setAttribute(this.attributeSelector, '');
-            const styles = this.touchUI ? { position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' } : !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
+            const styles = !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
 
             DomHandler.addStyles(el, styles);
 
             if (this.autoZIndex) {
-                if (this.touchUI) ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
-                else ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
+                ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
 
             this.alignOverlay();
@@ -898,10 +889,6 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
-
-            if (this.mask) {
-                this.disableModality();
-            }
 
             this.overlay = null;
         },
@@ -1088,9 +1075,7 @@ export default {
             return (this.previousButton && (this.previousButton.isSameNode(event.target) || this.previousButton.contains(event.target))) || (this.nextButton && (this.nextButton.isSameNode(event.target) || this.nextButton.contains(event.target)));
         },
         alignOverlay() {
-            if (this.touchUI) {
-                this.enableModality();
-            } else if (this.overlay) {
+            if (this.overlay) {
                 if (this.appendTo === 'self' || this.inline) {
                     DomHandler.relativePosition(this.overlay, this.$el);
                 } else {
@@ -1715,60 +1700,6 @@ export default {
             }
 
             setTimeout(this.updateFocus, 0);
-        },
-        enableModality() {
-            if (!this.mask) {
-                let styleClass = 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter';
-
-                this.mask = DomHandler.createElement('div', {
-                    class: !this.isUnstyled && styleClass,
-                    'p-bind': this.ptm('datepickermask')
-                });
-                this.mask.style.zIndex = String(parseInt(this.overlay.style.zIndex, 10) - 1);
-
-                this.maskClickListener = () => {
-                    this.overlayVisible = false;
-                };
-
-                this.mask.addEventListener('click', this.maskClickListener);
-
-                document.body.appendChild(this.mask);
-                DomHandler.blockBodyScroll();
-            }
-        },
-        disableModality() {
-            if (this.mask) {
-                if (this.isUnstyled) {
-                    this.destroyMask();
-                } else {
-                    DomHandler.addClass(this.mask, 'p-component-overlay-leave');
-                    this.mask.addEventListener('animationend', () => {
-                        this.destroyMask();
-                    });
-                }
-            }
-        },
-        destroyMask() {
-            this.mask.removeEventListener('click', this.maskClickListener);
-            this.maskClickListener = null;
-            document.body.removeChild(this.mask);
-            this.mask = null;
-
-            let bodyChildren = document.body.children;
-            let hasBlockerMasks;
-
-            for (let i = 0; i < bodyChildren.length; i++) {
-                let bodyChild = bodyChildren[i];
-
-                if (DomHandler.isAttributeEquals(bodyChild, 'data-pc-section', 'datepickermask')) {
-                    hasBlockerMasks = true;
-                    break;
-                }
-            }
-
-            if (!hasBlockerMasks) {
-                DomHandler.unblockBodyScroll();
-            }
         },
         updateCurrentMetaData() {
             const viewDate = this.viewDate;

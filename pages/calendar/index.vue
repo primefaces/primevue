@@ -30,7 +30,6 @@ import MultipleDoc from '@/doc/calendar/MultipleDoc.vue';
 import MultipleMonthsDoc from '@/doc/calendar/MultipleMonthsDoc.vue';
 import RangeDoc from '@/doc/calendar/RangeDoc.vue';
 import TimeDoc from '@/doc/calendar/TimeDoc.vue';
-import TouchUIDoc from '@/doc/calendar/TouchUIDoc.vue';
 import YearPickerDoc from '@/doc/calendar/YearPickerDoc.vue';
 import PTComponent from '@/doc/calendar/pt/index.vue';
 import ThemingDoc from '@/doc/calendar/theming/index.vue';
@@ -108,11 +107,6 @@ export default {
                     id: 'datetemplate',
                     label: 'Date Template',
                     component: DateTemplateDoc
-                },
-                {
-                    id: 'touchui',
-                    label: 'Touch UI',
-                    component: TouchUIDoc
                 },
                 {
                     id: 'inline',
