@@ -2,17 +2,17 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: 'p-tabmenu p-component',
-    menu: 'p-tabmenu-nav p-reset',
+    menu: 'p-tabmenu-tablist',
     menuitem: ({ instance, index, item }) => [
-        'p-tabmenuitem',
+        'p-tabmenu-item',
         {
-            'p-highlight': instance.d_activeIndex === index,
+            'p-tabmenu-item-active': instance.d_activeIndex === index,
             'p-disabled': instance.disabled(item)
         }
     ],
-    action: 'p-menuitem-link',
-    icon: 'p-menuitem-icon',
-    label: 'p-menuitem-text',
+    action: 'p-tabmenu-item-link',
+    icon: 'p-tabmenu-item-icon',
+    label: 'p-tabmenu-item-label',
     inkbar: 'p-tabmenu-ink-bar'
 };
 

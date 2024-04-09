@@ -4,7 +4,7 @@ export default {
     overflow-x: auto;
 }
 
-.p-tabmenu-nav {
+.p-tabmenu-tablist {
     display: flex;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ export default {
     position: relative;
 }
 
-.p-tabmenuitem .p-menuitem-link {
+.p-tabmenu-item-link {
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -37,24 +37,23 @@ export default {
     outline-color: transparent;
 }
 
-.p-tabmenuitem .p-menuitem-link:focus-visible {
+.p-tabmenu-item-link:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 
-.p-tabmenuitem .p-menuitem-icon {
+.p-tabmenu-item-icon {
     margin-right: 0.5rem;
 }
 
-.p-tabmenu-nav .p-menuitem-text {
+.p-tabmenu-item-label {
     line-height: 1;
 }
-
-.p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+.p-tabmenu-item:not(.p-tabmenu-item-active):not(.p-disabled):hover .p-tabmenu-item-link {
     color: ${dt('tabmenu.header.hover.color')};
 }
 
-.p-tabmenuitem.p-highlight .p-menuitem-link {
+.p-tabmenu-item-active .p-tabmenu-item-link {
     color: ${dt('tabmenu.header.active.border.color')};
 }
 
