@@ -56,7 +56,7 @@
                 v-bind="ptm('token')"
             >
                 <slot name="chip" :value="option" :index="i" :removeCallback="(event) => removeOption(event, i)">
-                    <Chip :class="cx('tokenLabel')" :label="getOptionLabel(option)" :removeIcon="removeTokenIcon" removable @remove="removeOption($event, i)" :pt="ptm('tokenLabel')">
+                    <Chip :class="cx('tokenLabel')" :label="getOptionLabel(option)" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, i)" :pt="ptm('tokenLabel')">
                         <template #removeicon>
                             <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
                         </template>

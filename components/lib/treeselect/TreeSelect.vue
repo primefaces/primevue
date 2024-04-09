@@ -30,7 +30,7 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="node of selectedNodes" :key="node.key" :class="cx('token')" v-bind="ptm('token')">
-                            <Chip :class="cx('tokenLabel')" :label="node.label" :pt="ptm('tokenLabel')" />
+                            <Chip :class="cx('tokenLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('tokenLabel')" />
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
