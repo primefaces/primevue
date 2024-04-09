@@ -68,10 +68,6 @@ export default {
             type: String,
             default: 'date'
         },
-        touchUI: {
-            type: Boolean,
-            default: false
-        },
         monthNavigator: {
             type: Boolean,
             default: false
@@ -230,6 +226,18 @@ export default {
             type: Object,
             default() {
                 return { severity: 'secondary', text: true, size: 'small' };
+            }
+        },
+        navigatorButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
+            }
+        },
+        timepickerButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true };
             }
         },
         ariaLabelledby: {

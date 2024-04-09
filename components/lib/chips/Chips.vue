@@ -29,7 +29,7 @@
                 :data-p-focused="focusedIndex === i"
             >
                 <slot name="chip" :class="cx('label')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
-                    <Chip :class="cx('label')" :label="val" :removeIcon="removeTokenIcon" removable @remove="removeItem($event, i)" :pt="ptm('label')">
+                    <Chip :class="cx('label')" :label="val" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('label')">
                         <template #removeicon>
                             <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
                         </template>

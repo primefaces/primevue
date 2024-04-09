@@ -28,12 +28,6 @@ describe('Rating.vue', () => {
         expect(wrapper.emitted()['blur'][0]).toEqual([true]);
     });
 
-    it('should not cancel', async () => {
-        await wrapper.setProps({ cancel: false });
-
-        expect(wrapper.find('.p-rating-cancel').exists()).toBe(false);
-    });
-
     it('When star is clicked, onOptionClick method should triggered', async () => {
         await wrapper.find('.p-rating-item').trigger('click');
 

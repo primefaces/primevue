@@ -84,12 +84,6 @@ const CalendarProps = [
         description: 'Type of view to display, valid valids are "date" for datepicker and "month" for month picker.'
     },
     {
-        name: 'touchUI',
-        type: 'boolean',
-        default: 'false',
-        description: 'When enabled, calendar overlay is displayed as optimized for touch devices.'
-    },
-    {
         name: 'monthNavigator',
         type: 'boolean',
         default: 'false',

@@ -8,13 +8,6 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    cancelItem: ({ instance }) => [
-        'p-rating-item p-rating-cancel-item',
-        {
-            'p-focus-visible': instance.focusedOptionIndex === 0 && instance.isFocusVisibleItem
-        }
-    ],
-    cancelIcon: 'p-rating-icon p-rating-cancel',
     item: ({ instance, props, value }) => [
         'p-rating-option',
         {

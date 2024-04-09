@@ -12,7 +12,7 @@
 export default {
     data() {
         return {
-            value: null,
+            value: 5,
             code: {
                 basic: `
 <Rating v-model="value" :stars="10" />
@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            value: null
+            value: 5
         }
     }
 };
@@ -44,7 +44,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value = ref(null);
+const value = ref(5);
 <\/script>
 `
             }

@@ -24,12 +24,6 @@ const RatingProps = [
         description: 'Number of stars.'
     },
     {
-        name: 'cancel',
-        type: 'boolean',
-        default: 'true',
-        description: 'When specified a cancel icon is displayed to allow clearing the value.'
-    },
-    {
         name: 'onIcon',
         type: 'string',
         default: 'null',
@@ -40,12 +34,6 @@ const RatingProps = [
         type: 'string',
         default: 'null',
         description: 'Icon for the off state.'
-    },
-    {
-        name: 'cancelIcon',
-        type: 'string',
-        default: 'null',
-        description: 'Icon for the cancelable state.'
     },
     {
         name: 'pt',
@@ -62,10 +50,6 @@ const RatingProps = [
 ];
 
 const RatingSlots = [
-    {
-        name: 'cancelicon',
-        description: 'Custom cancel icon template.'
-    },
     {
         name: 'onicon',
         description: 'Custom on icon template.'
