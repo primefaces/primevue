@@ -7,25 +7,25 @@ const classes = {
             'p-tabview-scrollable': props.scrollable
         }
     ],
-    navContainer: 'p-tabview-nav-container',
-    previousButton: 'p-tabview-nav-prev p-tabview-nav-btn p-link',
-    navContent: 'p-tabview-nav-content',
-    nav: 'p-tabview-nav',
+    navContainer: 'p-tabview-tablist-container',
+    previousButton: 'p-tabview-prev-button',
+    navContent: 'p-tabview-tablist-scroll-container',
+    nav: 'p-tabview-tablist',
     tab: {
         header: ({ instance, tab, index }) => [
-            'p-tabview-header',
+            'p-tabview-tablist-item',
             instance.getTabProp(tab, 'headerClass'),
             {
-                'p-highlight': instance.d_activeIndex === index,
+                'p-tabview-tablist-item-active': instance.d_activeIndex === index,
                 'p-disabled': instance.getTabProp(tab, 'disabled')
             }
         ],
-        headerAction: 'p-tabview-nav-link p-tabview-header-action',
-        headerTitle: 'p-tabview-title',
+        headerAction: 'p-tabview-tab-header',
+        headerTitle: 'p-tabview-tab-title',
         content: ({ instance, tab }) => ['p-tabview-panel', instance.getTabProp(tab, 'contentClass')]
     },
     inkbar: 'p-tabview-ink-bar',
-    nextButton: 'p-tabview-nav-next p-tabview-nav-btn p-link',
+    nextButton: 'p-tabview-next-button',
     panelContainer: 'p-tabview-panels'
 };
 

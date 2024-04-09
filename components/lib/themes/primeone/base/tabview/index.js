@@ -1,14 +1,14 @@
 export default {
     css: ({ dt }) => `
-.p-tabview-nav-container {
+.p-tabview-tablist-container {
     position: relative;
 }
 
-.p-tabview-scrollable > .p-tabview-nav-container {
+.p-tabview-scrollable > .p-tabview-tablist-container {
     overflow: hidden;
 }
 
-.p-tabview-nav-content {
+.p-tabview-tablist-scroll-container {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -16,7 +16,11 @@ export default {
     overscroll-behavior: contain auto;
 }
 
-.p-tabview-nav {
+.p-tabview-tablist-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.p-tabview-tablist {
     display: flex;
     margin: 0;
     padding: 0;
@@ -28,7 +32,7 @@ export default {
     position: relative;
 }
 
-.p-tabview-nav-link {
+.p-tabview-tab-header {
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -49,27 +53,30 @@ export default {
     outline-color: transparent;
 }
 
-.p-tabview-header:not(.p-disabled) .p-tabview-nav-link:focus-visible {
+.p-tabview-tablist-item:not(.p-disabled) .p-tabview-tab-header:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -1px;
 }
 
-.p-tabview-header:not(.p-highlight):not(.p-disabled):hover >.p-tabview-nav-link {
+.p-tabview-tablist-item:not(.p-highlight):not(.p-disabled):hover > .p-tabview-tab-header {
     color: ${dt('tabview.header.hover.color')};
 }
 
-.p-tabview-header.p-highlight > .p-tabview-nav-link {
+.p-tabview-tablist-item.p-highlight > .p-tabview-tab-header {
     color: ${dt('tabview.header.active.color')};
 }
 
-.p-tabview-title {
+.p-tabview-tab-title {
     line-height: 1;
     white-space: nowrap;
 }
 
-.p-tabview-nav-btn {
+.p-tabview-next-button,
+.p-tabview-prev-button {
     position: absolute;
     top: 0;
+    margin: 0;
+    padding: 0;
     z-index: 2;
     height: 100%;
     display: flex;
@@ -82,27 +89,28 @@ export default {
     outline-color: transparent;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     box-shadow: ${dt('tabview.navigator.icon.box.shadow')};
+    border: none;
+    cursor: pointer;
+    user-select: none;
 }
 
-.p-tabview-nav-btn:focus-visible {
+.p-tabview-next-button:focus-visible,
+.p-tabview-prev-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-tabview-nav-btn:hover {
+.p-tabview-next-button:hover,
+.p-tabview-prev-button:hover {
     color: ${dt('tabview.navigator.icon.hover.color')};
 }
 
-.p-tabview-nav-prev {
+.p-tabview-prev-button {
     left: 0;
 }
 
-.p-tabview-nav-next {
+.p-tabview-next-button {
     right: 0;
-}
-
-.p-tabview-nav-content::-webkit-scrollbar {
-    display: none;
 }
 
 .p-tabview-panels {
