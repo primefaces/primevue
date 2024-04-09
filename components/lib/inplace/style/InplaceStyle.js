@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: ({ props }) => 'p-inplace p-component',
+    root: 'p-inplace p-component',
     display: ({ props }) => ['p-inplace-display', { 'p-disabled': props.disabled }],
     content: 'p-inplace-content'
 };

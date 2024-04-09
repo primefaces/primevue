@@ -8,9 +8,8 @@
  *
  */
 
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -78,11 +77,6 @@ export interface InplacePassThroughOptions {
      */
     content?: InplacePassThroughOptionType;
     /**
-     * Used to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptions}
-     */
-    closeButton?: ButtonPassThroughOptions<InplaceSharedPassThroughMethodOptions>;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -112,11 +106,6 @@ export interface InplaceState {
  */
 export interface InplaceProps {
     /**
-     * Displays a button to switch back to display mode.
-     * @defaultValue false
-     */
-    closable?: boolean | undefined;
-    /**
      * Whether the content is displayed or not.
      * @defaultValue false
      */
@@ -135,10 +124,6 @@ export interface InplaceProps {
      * Used to pass all properties of the HTMLDivElement to display container.
      */
     displayProps?: HTMLAttributes | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the close button.
-     */
-    closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -170,12 +155,14 @@ export interface InplaceSlots {
     display(): VNode[];
     /**
      * Custom content template.
+     * @param {Object} scope - container slot's params.
      */
-    content(): VNode[];
-    /**
-     * Custom close icon template.
-     */
-    closeicon(): VNode[];
+    content(scope: {
+        /**
+         * Close message function.
+         */
+        closeCallback: () => void;
+    }): VNode[];
 }
 
 /**

@@ -6,13 +6,7 @@ const InplaceProps = [
         description: 'Whether the content is displayed or not.'
     },
     {
-        name: 'closable',
-        type: 'boolean',
-        default: 'false',
-        description: 'Displays a button to switch back to display mode.'
-    },
-    {
-        name: 'diabled',
+        name: 'disabled',
         type: 'boolean',
         default: 'false',
         description: 'When present, it specifies that the element should be disabled.'
@@ -64,10 +58,6 @@ const InplaceSlots = [
     {
         name: 'content',
         description: 'Custom content template.'
-    },
-    {
-        name: 'closeicon',
-        description: 'Custom close icon template.'
     }
 ];
 

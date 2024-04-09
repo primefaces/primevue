@@ -6,10 +6,6 @@ export default {
     name: 'BaseInplace',
     extends: BaseComponent,
     props: {
-        closable: {
-            type: Boolean,
-            default: false
-        },
         active: {
             type: Boolean,
             default: false
@@ -18,15 +14,7 @@ export default {
             type: Boolean,
             default: false
         },
-        closeIcon: {
-            type: String,
-            default: undefined
-        },
         displayProps: {
-            type: null,
-            default: null
-        },
-        closeButtonProps: {
             type: null,
             default: null
         }
