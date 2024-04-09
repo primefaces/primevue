@@ -18,24 +18,24 @@ const classes = {
     menubutton: 'p-megamenu-button',
     menu: 'p-megamenu-root-list',
     submenuHeader: ({ instance, processedItem }) => [
-        'p-megamenu-submenu-header p-submenu-header',
+        'p-megamenu-submenu-item',
         {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
     menuitem: ({ instance, processedItem }) => [
-        'p-menuitem',
+        'p-megamenu-item',
         {
-            'p-menuitem-active p-highlight': instance.isItemActive(processedItem),
+            'p-megamenu-item-active': instance.isItemActive(processedItem),
             'p-focus': instance.isItemFocused(processedItem),
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-menuitem-content',
-    action: 'p-menuitem-link',
-    icon: 'p-menuitem-icon',
-    label: 'p-menuitem-text',
-    submenuIcon: 'p-submenu-icon',
+    content: 'p-megamenu-item-content',
+    action: 'p-megamenu-item-link',
+    icon: 'p-megamenu-item-icon',
+    label: 'p-megamenu-item-text',
+    submenuIcon: 'p-megamenu-submenu-icon',
     panel: 'p-megamenu-panel',
     grid: 'p-megamenu-grid',
     column: ({ instance, processedItem }) => {
@@ -69,9 +69,9 @@ const classes = {
 
         return columnClass;
     },
-    submenu: 'p-submenu-list p-megamenu-submenu',
-    submenuLabel: 'p-menuitem-text',
-    separator: 'p-menuitem-separator',
+    submenu: 'p-megamenu-submenu',
+    submenuLabel: 'p-megamenu-submenu-item-label',
+    separator: 'p-megamenu-separator',
     end: 'p-megamenu-end'
 };
 
