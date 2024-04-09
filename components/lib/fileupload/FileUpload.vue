@@ -42,7 +42,7 @@
     </div>
     <div v-else-if="isBasic" :class="cx('root')" v-bind="ptmi('root')">
         <Message v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('messages')">{{ msg }}</Message>
-        <Button :label="basicChooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('button')">
+        <Button :label="basicChooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('button')">
             <template #icon="iconProps">
                 <slot v-if="!hasFiles || auto" name="uploadicon" :class="cx('uploadIcon')">
                     <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, cx('uploadIcon'), uploadIcon]" aria-hidden="true" v-bind="ptm('button')['icon']" />
