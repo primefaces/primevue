@@ -28,7 +28,7 @@ export default {
     display: none;
 }
 
-.p-breadcrumb-action {
+.p-breadcrumb-item-link {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -37,23 +37,23 @@ export default {
     outline-color: transparent;
 }
 
-.p-breadcrumb-action:focus-visible {
+.p-breadcrumb-item-link:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-breadcrumb-label {
+.p-breadcrumb-item-link {
     color: ${dt('breadcrumb.item.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     line-height: 1;
 }
 
-.p-breadcrumb-label:hover {
+.p-breadcrumb-item-label:hover {
     color: ${dt('breadcrumb.item.hover.color')};
     line-height: 1;
 }
 
-.p-breadcrumb-icon {
+.p-breadcrumb-item-icon {
     color: ${dt('breadcrumb.item.icon.color')};
 }
 `

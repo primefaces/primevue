@@ -6,9 +6,9 @@ const classes = {
     home: 'p-breadcrumb-home-item',
     separator: 'p-breadcrumb-separator',
     menuitem: ({ instance }) => ['p-breadcrumb-item', { 'p-disabled': instance.disabled() }],
-    action: 'p-breadcrumb-action',
-    icon: 'p-breadcrumb-icon',
-    label: 'p-breadcrumb-label'
+    action: 'p-breadcrumb-item-link',
+    icon: 'p-breadcrumb-item-icon',
+    label: 'p-breadcrumb-item-label'
 };
 
 export default BaseStyle.extend({
