@@ -11,14 +11,14 @@ export default {
 }
 
 .p-contextmenu-root-list,
-.p-contextmenu-submenu-list {
+.p-contextmenu-submenu {
     margin: 0;
     padding: 0;
     list-style: none;
     outline: 0 none;
 }
 
-.p-contextmenu-submenu-list {
+.p-contextmenu-submenu {
     position: absolute;
     min-width: 100%;
     z-index: 1;

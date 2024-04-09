@@ -10,14 +10,14 @@ export default {
 }
 
 .p-tieredmenu-root-list,
-.p-tieredmenu-submenu-list {
+.p-tieredmenu-submenu {
     margin: 0;
     padding: 0;
     list-style: none;
     outline: 0 none;
 }
 
-.p-tieredmenu-submenu-list {
+.p-tieredmenu-submenu {
     position: absolute;
     min-width: 100%;
     z-index: 1;

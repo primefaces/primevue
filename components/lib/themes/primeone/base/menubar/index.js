@@ -11,7 +11,7 @@ export default {
 }
 
 .p-menubar-root-list,
-.p-menubar-submenu-list {
+.p-menubar-submenu {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -24,7 +24,7 @@ export default {
     flex-wrap: wrap;
 }
 
-.p-menubar-root-list > .p-menubar-item-active > .p-menubar-submenu-list {
+.p-menubar-root-list > .p-menubar-item-active > .p-menubar-submenu {
     display: block;
 }
 
@@ -97,7 +97,7 @@ export default {
     margin-left: 0.5rem;
 }
 
-.p-menubar-submenu-list {
+.p-menubar-submenu {
     display: none;
     position: absolute;
     min-width: 12.5rem;
@@ -110,25 +110,25 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.p-menubar-submenu-list .p-menubar-separator {
+.p-menubar-submenu .p-menubar-separator {
     border-top: 1px solid ${dt('menubar.separator.border.color')};
     margin: 2px 0;
 }
 
-.p-menubar-submenu-list .p-menubar-item {
+.p-menubar-submenu .p-menubar-item {
     position: relative;
     margin: 2px 0;
 }
 
-.p-menubar-submenu-list .p-menubar-item:first-child {
+.p-menubar-submenu .p-menubar-item:first-child {
     margin-top: 0;
 }
 
-.p-menubar-submenu-list .p-menubar-item:last-child {
+.p-menubar-submenu .p-menubar-item:last-child {
     margin-bottom: 0;
 }
 
- .p-menubar-submenu-list > .p-menubar-item-active > .p-menubar-submenu-list {
+ .p-menubar-submenu > .p-menubar-item-active > .p-menubar-submenu {
     display: block;
     left: 100%;
     top: 0;
@@ -223,7 +223,7 @@ export default {
     transform: rotate(-180deg);
 }
 
-.p-menubar-mobile .p-menubar-submenu-list .p-menubar-submenu-icon {
+.p-menubar-mobile .p-menubar-submenu .p-menubar-submenu-icon {
     transition: transform 0.2s;
     transform: rotate(90deg);
 }
@@ -232,7 +232,7 @@ export default {
     transform: rotate(-90deg);
 }
 
-.p-menubar-mobile .p-menubar-submenu-list {
+.p-menubar-mobile .p-menubar-submenu {
     width: 100%;
     position: static;
     box-shadow: none;

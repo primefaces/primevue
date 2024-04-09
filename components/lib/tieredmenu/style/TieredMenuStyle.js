@@ -27,7 +27,7 @@ const classes = {
     icon: 'p-tieredmenu-item-icon',
     text: 'p-tieredmenu-item-label',
     submenuIcon: 'p-tieredmenu-submenu-icon',
-    submenu: 'p-tieredmenu-submenu-list',
+    submenu: 'p-tieredmenu-submenu',
     separator: 'p-tieredmenu-separator',
     end: 'p-tieredmenu-end'
 };

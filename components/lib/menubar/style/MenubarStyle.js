@@ -28,7 +28,7 @@ const classes = {
     icon: 'p-menubar-item-icon',
     label: 'p-menubar-item-label',
     submenuIcon: 'p-menubar-submenu-icon',
-    submenu: 'p-menubar-submenu-list',
+    submenu: 'p-menubar-submenu',
     separator: 'p-menubar-separator',
     end: 'p-menubar-end'
 };

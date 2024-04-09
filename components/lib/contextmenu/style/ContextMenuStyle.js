@@ -21,7 +21,7 @@ const classes = {
     icon: 'p-contextmenu-item-icon',
     label: 'p-contextmenu-item-label',
     submenuIcon: 'p-contextmenu-submenu-icon',
-    submenu: 'p-contextmenu-submenu-list',
+    submenu: 'p-contextmenu-submenu',
     separator: 'p-contextmenu-separator'
 };
 
