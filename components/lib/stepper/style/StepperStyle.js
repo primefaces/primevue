@@ -9,26 +9,21 @@ const classes = {
             'p-readonly': props.linear
         }
     ],
-    nav: 'p-stepper-nav',
+    nav: 'p-stepper-list',
     stepper: {
         header: ({ instance, step, index }) => [
-            'p-stepper-header',
+            'p-stepper-item',
             {
-                'p-highlight': instance.isStepActive(index),
+                'p-stepper-item-active': instance.isStepActive(index),
                 'p-disabled': instance.isItemDisabled(index)
             }
         ],
-        action: 'p-stepper-action',
+        action: 'p-stepper-header',
         number: 'p-stepper-number',
         title: 'p-stepper-title',
         separator: 'p-stepper-separator',
-        toggleableContent: 'p-stepper-toggleable-content',
-        content: ({ props }) => [
-            'p-stepper-content',
-            {
-                'p-toggleable-content': props.orientation === 'vertical'
-            }
-        ]
+        toggleableContent: 'p-stepper-panel-content-container',
+        content: 'p-stepper-panel-content'
     },
     panelContainer: 'p-stepper-panels',
     panel: ({ instance, props, index }) => [

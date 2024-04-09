@@ -1,6 +1,6 @@
 export default {
     css: ({ dt }) => `
-.p-stepper-nav {
+.p-stepper-list {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@ export default {
     overflow-x: auto;
 }
 
-.p-stepper-header {
+.p-stepper-item {
     position: relative;
     display: flex;
     flex: 1 1 auto;
@@ -19,11 +19,11 @@ export default {
     padding: 0.5rem;
 }
 
-.p-stepper-header:last-of-type {
+.p-stepper-item:last-of-type {
     flex: initial;
 }
 
-.p-stepper-action {
+.p-stepper-header {
     border: 0 none;
     display: inline-flex;
     align-items: center;
@@ -35,12 +35,12 @@ export default {
     background: transparent;
 }
 
-.p-stepper-header .p-stepper-action:focus-visible {
+.p-stepper-item .p-stepper-header:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-stepper.p-stepper-readonly .p-stepper-header {
+.p-stepper.p-stepper-readonly .p-stepper-item {
     cursor: auto;
 }
 
@@ -82,25 +82,25 @@ export default {
     box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 
-.p-stepper-header.p-highlight .p-stepper-action {
+.p-stepper-item.p-stepper-item-active .p-stepper-header {
     cursor: default;
 }
 
-.p-stepper-header.p-highlight .p-stepper-number {
+.p-stepper-item.p-stepper-item-active .p-stepper-number {
     background: ${dt('stepper.marker.active.background')};
     color: ${dt('stepper.marker.active.background')};
 }
 
-.p-stepper-header.p-highlight .p-stepper-title {
+.p-stepper-item.p-stepper-item-active .p-stepper-title {
     color: ${dt('stepper.title.active.background')};
 }
 
-.p-stepper-header:not(.p-disabled):focus-visible {
+.p-stepper-item:not(.p-disabled):focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
+.p-stepper-item:has(~ .p-stepper-item-active) .p-stepper-separator {
     background: ${dt('stepper.connector.active.background')};
 }
 
@@ -113,13 +113,13 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-stepper-content {
+.p-stepper-panels {
     background: ${dt('stepper.content.background')};
     color: ${dt('stepper.content.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
-.p-stepper-vertical .p-stepper-nav {
+.p-stepper-vertical .p-stepper-list {
     flex-direction: column;
 }
 
@@ -128,7 +128,7 @@ export default {
     flex-direction: column;
 }
 
-.p-stepper-vertical .p-stepper-toggleable-content {
+.p-stepper-vertical .p-stepper-panel-content-container {
     display: flex;
     flex: 1 1 auto;
 }
@@ -143,11 +143,11 @@ export default {
     flex: 1 1 auto;
 }
 
-.p-stepper-vertical .p-stepper-panel .p-stepper-header {
+.p-stepper-vertical .p-stepper-panel .p-stepper-item {
     flex: initial;
 }
 
-.p-stepper-vertical .p-stepper-panel .p-stepper-content {
+.p-stepper-vertical .p-stepper-panel .p-stepper-panel-content {
     width: 100%;
     padding-left: 1rem;
 }
@@ -163,7 +163,7 @@ export default {
     background: ${dt('stepper.connector.active.background')};
 }
 
-.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-panel-content {
     padding-left: 3rem;
 }
 `
