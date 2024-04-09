@@ -1,49 +1,59 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
-        <slot name="button" :onClick="onClick" :toggleCallback="onClick">
+        <slot name="button" :visible="d_visible" :onClick="onClick" :toggleCallback="onClick">
             <Button
-                type="button"
                 :class="[cx('button'), buttonClass]"
-                rounded
-                @click="onClick($event)"
                 :disabled="disabled"
-                @keydown="onTogglerKeydown"
                 :aria-expanded="d_visible"
                 :aria-haspopup="true"
                 :aria-controls="id + '_list'"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                :pt="ptm('button')"
                 :unstyled="unstyled"
+                @click="onClick($event)"
+                @keydown="onTogglerKeydown"
+                v-bind="buttonProps"
+                :pt="ptm('button')"
             >
-                <template #icon>
+                <template #icon="slotProps">
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, cx('buttonIcon')]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
-                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="d_visible && !!hideIcon ? hideIcon : showIcon" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, cx('buttonIcon'), slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="[d_visible && !!hideIcon ? hideIcon : showIcon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
             </Button>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" :style="sx('menu')" role="menu" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
+        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" :style="sx('menu')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
-                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" :class="cx('menuitem', { id: `${id}_${index}` })" :style="getItemStyle(index)" role="menuitem" v-bind="getPTOptions(`${id}_${index}`, 'menuitem')">
+                <li
+                    v-if="isItemVisible(item)"
+                    :id="`${id}_${index}`"
+                    :aria-controls="`${id}_item`"
+                    :class="cx('menuitem', { id: `${id}_${index}` })"
+                    :style="getItemStyle(index)"
+                    role="none"
+                    :data-p-active="isItemActive(`${id}_${index}`)"
+                    v-bind="getPTOptions(`${id}_${index}`, 'menuitem')"
+                >
                     <template v-if="!$slots.item">
-                        <a
-                            v-ripple
+                        <Button
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             :tabindex="-1"
-                            :href="item.url || '#'"
                             role="menuitem"
                             :class="cx('action', { item })"
-                            :target="item.target"
-                            @click="onItemClick($event, item)"
                             :aria-label="item.label"
-                            v-bind="getPTOptions(`${id}_${index}`, 'action')"
+                            :disabled="disabled"
+                            :unstyled="unstyled"
+                            @click="onItemClick($event, item)"
+                            v-bind="actionButtonProps"
+                            :pt="getPTOptions(`${id}_${index}`, 'action')"
                         >
-                            <span v-if="item.icon" :class="[cx('actionIcon'), item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
-                        </a>
+                            <template v-if="item.icon" #icon="slotProps">
+                                <span :class="[cx('actionIcon'), item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                            </template>
+                        </Button>
                     </template>
-                    <component v-else :is="$slots.item" :item="item" :onClick="(event) => onItemClick(event, item)"></component>
+                    <component v-else :is="$slots.item" :item="item" :onClick="(event) => onItemClick(event, item)" :toggleCallback="(event) => onItemClick(event, item)"></component>
                 </li>
             </template>
         </ul>
@@ -80,17 +90,16 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         },
         visible(newValue) {
             this.d_visible = newValue;
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
@@ -121,12 +130,9 @@ export default {
             });
         },
         onFocus(event) {
-            this.focused = true;
-
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
         },
@@ -223,18 +229,12 @@ export default {
             }
         },
         onTogglerArrowUp(event) {
-            this.focused = true;
-            DomHandler.focus(this.list);
-
             this.show();
             this.navigatePrevItem(event);
 
             event.preventDefault();
         },
         onTogglerArrowDown(event) {
-            this.focused = true;
-            DomHandler.focus(this.list);
-
             this.show();
             this.navigateNextItem(event);
 
@@ -243,11 +243,10 @@ export default {
         onEnterKey(event) {
             const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
+            const buttonEl = DomHandler.findSingle(this.container, 'button');
 
             this.onItemClick(event, this.model[itemIndex]);
             this.onBlur(event);
-
-            const buttonEl = DomHandler.findSingle(this.container, 'button');
 
             buttonEl && DomHandler.focus(buttonEl);
         },
@@ -259,18 +258,14 @@ export default {
             buttonEl && DomHandler.focus(buttonEl);
         },
         onArrowUp(event) {
-            if (this.direction === 'up') {
-                this.navigateNextItem(event);
-            } else if (this.direction === 'down') {
+            if (this.direction === 'down') {
                 this.navigatePrevItem(event);
             } else {
                 this.navigateNextItem(event);
             }
         },
         onArrowDown(event) {
-            if (this.direction === 'up') {
-                this.navigatePrevItem(event);
-            } else if (this.direction === 'down') {
+            if (this.direction === 'down') {
                 this.navigateNextItem(event);
             } else {
                 this.navigatePrevItem(event);
@@ -334,6 +329,9 @@ export default {
 
             if (filteredItems[index]) {
                 this.focusedOptionIndex = filteredItems[index].getAttribute('id');
+                const buttonEl = DomHandler.findSingle(filteredItems[index], '[type="button"]');
+
+                buttonEl && DomHandler.focus(buttonEl);
             }
         },
         findPrevOptionIndex(index) {

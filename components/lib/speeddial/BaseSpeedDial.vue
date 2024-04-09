@@ -57,6 +57,18 @@ export default {
         tooltipOptions: null,
         style: null,
         class: null,
+        buttonProps: {
+            type: Object,
+            default() {
+                return { rounded: true };
+            }
+        },
+        actionButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary', text: true, rounded: true, size: 'small' };
+            }
+        },
         ariaLabelledby: {
             type: String,
             default: null

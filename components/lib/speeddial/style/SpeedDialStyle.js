@@ -28,18 +28,8 @@ const classes = {
         }
     ],
     menu: 'p-speeddial-list',
-    menuitem: ({ instance, id }) => [
-        'p-speeddial-item',
-        {
-            'p-focus': instance.isItemActive(id)
-        }
-    ],
-    action: ({ item }) => [
-        'p-speeddial-action',
-        {
-            'p-disabled': item.disabled
-        }
-    ],
+    menuitem: 'p-speeddial-item',
+    action: 'p-speeddial-action',
     actionIcon: 'p-speeddial-action-icon',
     mask: ({ instance }) => [
         'p-speeddial-mask',

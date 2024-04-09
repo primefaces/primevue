@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
+import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -87,9 +87,10 @@ export interface SpeedDialPassThroughOptions {
      */
     menuitem?: SpeedDialPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
-    action?: SpeedDialPassThroughOptionType;
+    action?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the action icon's DOM element.
      */
@@ -267,6 +268,18 @@ export interface SpeedDialProps {
      */
     tooltipOptions?: SpeedDialTooltipOptions;
     /**
+     * Used to pass all properties of the ButtonProps to the button component.
+     * @type {ButtonProps}
+     * @defaultValue { rounded: true  }
+     */
+    buttonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the item component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', text: true, rounded: true, size: 'small' }
+     */
+    actionButtonProps?: object | undefined;
+    /**
      * Defines a string value that labels an interactive list element.
      */
     ariaLabel?: string | undefined;
@@ -314,12 +327,21 @@ export interface SpeedDialSlots {
          * @param {Event} event - Browser event.
          */
         onClick: (event: Event) => void;
+        /**
+         * Button click function
+         * @param {Event} event - Browser event.
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom button template.
      * @param {Object} scope - button slot's params.
      */
     button(scope: {
+        /**
+         * Visible state of the item
+         */
+        visible: boolean;
         /**
          * Button click function
          * @param {Event} event - Browser event.
