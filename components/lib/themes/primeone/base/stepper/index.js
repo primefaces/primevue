@@ -23,7 +23,7 @@ export default {
     flex: initial;
 }
 
-.p-stepper-header {
+.p-stepper-item-header {
     border: 0 none;
     display: inline-flex;
     align-items: center;
@@ -35,7 +35,7 @@ export default {
     background: transparent;
 }
 
-.p-stepper-item .p-stepper-header:focus-visible {
+.p-stepper-item .p-stepper-item-header:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
@@ -44,7 +44,7 @@ export default {
     cursor: auto;
 }
 
-.p-stepper-title {
+.p-stepper-item-title {
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -56,7 +56,7 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-stepper-number {
+.p-stepper-item-number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +73,7 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-stepper-number::after {
+.p-stepper-item-number::after {
     content: " ";
     position: absolute;
     width: 100%;
@@ -82,17 +82,17 @@ export default {
     box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 
-.p-stepper-item.p-stepper-item-active .p-stepper-header {
+.p-stepper-item-active .p-stepper-item-header {
     cursor: default;
 }
 
-.p-stepper-item.p-stepper-item-active .p-stepper-number {
+.p-stepper-item-active .p-stepper-item-number {
     background: ${dt('stepper.marker.active.background')};
-    color: ${dt('stepper.marker.active.background')};
+    color: ${dt('stepper.marker.active.color')};
 }
 
-.p-stepper-item.p-stepper-item-active .p-stepper-title {
-    color: ${dt('stepper.title.active.background')};
+.p-stepper-item-active .p-stepper-item-title {
+    color: ${dt('stepper.title.active.color')};
 }
 
 .p-stepper-item:not(.p-disabled):focus-visible {

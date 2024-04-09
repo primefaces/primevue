@@ -18,9 +18,9 @@ const classes = {
                 'p-disabled': instance.isItemDisabled(index)
             }
         ],
-        action: 'p-stepper-header',
-        number: 'p-stepper-number',
-        title: 'p-stepper-title',
+        action: 'p-stepper-item-header',
+        number: 'p-stepper-item-number',
+        title: 'p-stepper-item-title',
         separator: 'p-stepper-separator',
         toggleableContent: 'p-stepper-panel-content-container',
         content: 'p-stepper-panel-content'
