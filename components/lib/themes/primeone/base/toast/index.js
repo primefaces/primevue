@@ -38,7 +38,7 @@ export default {
     font-size: 0.875rem;
 }
 
-.p-toast-icon-close {
+.p-toast-close-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,11 +52,14 @@ export default {
     color: inherit;
     width: 1.75rem;
     height: 1.75rem;
-    margin-top: -25%;
+    margin: -25% 0 0 0;
     right: -25%;
+    padding: 0;
+    border: none
+    user-select: none;
 }
 
-.p-toast-icon-close:focus-visible {
+.p-toast-close-button:focus-visible {
     outline-width: ${dt('focus.ring.width')};
     outline-style: ${dt('focus.ring.style')};
     outline-offset: ${dt('focus.ring.offset')};
@@ -73,11 +76,11 @@ export default {
     color: ${dt('toast.info.detail.color')};
 }
 
-.p-toast-message-info .p-toast-icon-close:focus-visible {
+.p-toast-message-info .p-toast-close-button:focus-visible {
     color: ${dt('toast.info.color')};
 }
 
-.p-toast-message-info .p-toast-icon-close:hover {
+.p-toast-message-info .p-toast-close-button:hover {
     background: ${dt('toast.info.close.hover.background')};
 }
 
@@ -92,11 +95,11 @@ export default {
     color: ${dt('toast.success.detail.color')};
 }
 
-.p-toast-message-success .p-toast-icon-close:focus-visible {
+.p-toast-message-success .p-toast-close-button:focus-visible {
     color: ${dt('toast.success.color')};
 }
 
-.p-toast-message-success .p-toast-icon-close:hover {
+.p-toast-message-success .p-toast-close-button:hover {
     background: ${dt('toast.success.close.hover.background')};
 }
 
@@ -111,11 +114,11 @@ export default {
     color: ${dt('toast.warn.detail.color')};
 }
 
-.p-toast-message-warn .p-toast-icon-close:focus-visible {
+.p-toast-message-warn .p-toast-close-button:focus-visible {
     color: ${dt('toast.warn.color')};
 }
 
-.p-toast-message-warn .p-toast-icon-close:hover {
+.p-toast-message-warn .p-toast-close-button:hover {
     background: ${dt('toast.warn.close.hover.background')};
 }
 
@@ -130,11 +133,11 @@ export default {
     color: ${dt('toast.error.detail.color')};
 }
 
-.p-toast-message-error .p-toast-icon-close:focus-visible {
+.p-toast-message-error .p-toast-close-button:focus-visible {
     color: ${dt('toast.error.color')};
 }
 
-.p-toast-message-error .p-toast-icon-close:hover {
+.p-toast-message-error .p-toast-close-button:hover {
     background: ${dt('toast.error.close.hover.background')};
 }
 
@@ -149,11 +152,11 @@ export default {
     color: ${dt('toast.secondary.detail.color')};
 }
 
-.p-toast-message-secondary .p-toast-icon-close:focus-visible {
+.p-toast-message-secondary .p-toast-close-button:focus-visible {
     color: ${dt('toast.secondary.color')};
 }
 
-.p-toast-message-secondary .p-toast-icon-close:hover {
+.p-toast-message-secondary .p-toast-close-button:hover {
     background: ${dt('toast.secondary.close.hover.background')};
 }
 
@@ -168,11 +171,11 @@ export default {
     color: ${dt('toast.contrast.detail.color')};
 }
 
-.p-toast-message-contrast .p-toast-icon-close:focus-visible {
+.p-toast-message-contrast .p-toast-close-button:focus-visible {
     color: ${dt('toast.contrast.color')};
 }
 
-.p-toast-message-contrast .p-toast-icon-close:hover {
+.p-toast-message-contrast .p-toast-close-button:hover {
     background: ${dt('toast.contrast.close.hover.background')};
 }
 
