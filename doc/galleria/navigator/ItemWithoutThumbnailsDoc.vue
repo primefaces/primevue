@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Simple example with indicators only.</p>
+        <p>Simple example with navigators only.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">

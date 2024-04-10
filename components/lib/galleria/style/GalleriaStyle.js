@@ -15,54 +15,54 @@ const classes = {
             'p-galleria p-component',
             {
                 'p-galleria-fullscreen': instance.$attrs.fullScreen,
-                'p-galleria-indicator-onitem': instance.$attrs.showIndicatorsOnItem,
-                'p-galleria-item-nav-onhover': instance.$attrs.showItemNavigatorsOnHover && !instance.$attrs.fullScreen
+                'p-galleria-inset-indicators': instance.$attrs.showIndicatorsOnItem,
+                'p-galleria-hover-navigators': instance.$attrs.showItemNavigatorsOnHover && !instance.$attrs.fullScreen
             },
             thumbnailsPosClass,
             indicatorPosClass
         ];
     },
-    closeButton: 'p-galleria-close p-link',
+    closeButton: 'p-galleria-close-button',
     closeIcon: 'p-galleria-close-icon',
     header: 'p-galleria-header',
     content: 'p-galleria-content',
     footer: 'p-galleria-footer',
-    itemWrapper: 'p-galleria-item-wrapper',
-    itemContainer: 'p-galleria-item-container',
+    itemWrapper: 'p-galleria-items-container',
+    itemContainer: 'p-galleria-items',
     previousItemButton: ({ instance }) => [
-        'p-galleria-item-prev p-galleria-item-nav p-link',
+        'p-galleria-prev-button p-galleria-navigate-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
     ],
-    previousItemIcon: 'p-galleria-item-prev-icon',
+    previousItemIcon: 'p-galleria-prev-icon',
     item: 'p-galleria-item',
     nextItemButton: ({ instance }) => [
-        'p-galleria-item-next p-galleria-item-nav p-link',
+        'p-galleria-next-button p-galleria-navigate-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }
     ],
-    nextItemIcon: 'p-galleria-item-next-icon',
+    nextItemIcon: 'p-galleria-next-icon',
     caption: 'p-galleria-caption',
-    indicators: 'p-galleria-indicators p-reset',
+    indicators: 'p-galleria-indicators',
     indicator: ({ instance, index }) => [
         'p-galleria-indicator',
         {
-            'p-highlight': instance.isIndicatorItemActive(index)
+            'p-galleria-indicator-active': instance.isIndicatorItemActive(index)
         }
     ],
-    indicatorButton: 'p-link',
-    thumbnailWrapper: 'p-galleria-thumbnail-wrapper',
-    thumbnailContainer: 'p-galleria-thumbnail-container',
+    indicatorButton: 'p-galleria-indicator-button',
+    thumbnailWrapper: 'p-galleria-thumbnails',
+    thumbnailContainer: 'p-galleria-thumbnails-content',
     previousThumbnailButton: ({ instance }) => [
-        'p-galleria-thumbnail-prev p-link',
+        'p-galleria-thumbnail-prev-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
     ],
     previousThumbnailIcon: 'p-galleria-thumbnail-prev-icon',
-    thumbnailItemsContainer: 'p-galleria-thumbnail-items-container',
+    thumbnailItemsContainer: 'p-galleria-thumbnails-viewport',
     thumbnailItems: 'p-galleria-thumbnail-items',
     thumbnailItem: ({ instance, index, activeIndex }) => [
         'p-galleria-thumbnail-item',
@@ -73,9 +73,9 @@ const classes = {
             'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === index
         }
     ],
-    thumbnailItemContent: 'p-galleria-thumbnail-item-content',
+    thumbnailItemContent: 'p-galleria-thumbnail',
     nextThumbnailButton: ({ instance }) => [
-        'p-galleria-thumbnail-next p-link',
+        'p-galleria-thumbnail-next-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }

@@ -27,7 +27,8 @@ export default {
             },
             insetIndicator: {
                 background: 'rgba(255, 255, 255, 0.4)',
-                hoverBackground: 'rgba(255, 255, 255, 0.4)'
+                hoverBackground: 'rgba(255, 255, 255, 0.6)',
+                activeBackground: 'rgba(255, 255, 255, 0.9)'
             },
             mask: {
                 background: 'rgba(0,0,0,0.9)'
@@ -65,7 +66,8 @@ export default {
             },
             insetIndicator: {
                 background: 'rgba(255, 255, 255, 0.4)',
-                hoverBackground: 'rgba(255, 255, 255, 0.4)'
+                hoverBackground: 'rgba(255, 255, 255, 0.6)',
+                activeBackground: 'rgba(255, 255, 255, 0.9)'
             },
             mask: {
                 background: 'rgba(0,0,0,0.9)'
