@@ -41,7 +41,7 @@
                         </slot>
                     </button>
                 </div>
-                <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
+                <transition name="p-image-original" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
                     <div v-if="previewVisible" v-bind="ptm('previewContainer')">
                         <slot name="preview" :class="cx('preview')" :style="imagePreviewStyle" :onClick="onPreviewImageClick" :previewCallback="onPreviewImageClick">
                             <img :src="$attrs.src" :class="cx('preview')" :style="imagePreviewStyle" @click="onPreviewImageClick" v-bind="ptm('preview')" />

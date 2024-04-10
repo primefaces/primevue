@@ -7,13 +7,13 @@ export default {
     --p-mask-background: ${dt('image.mask.background')};
 }
 
-.p-image-preview-container {
+.p-image-preview {
     position: relative;
     display: inline-flex;
     line-height: 0;
 }
 
-.p-image-preview-indicator {
+.p-image-preview-mask {
     position: absolute;
     left: 0;
     top: 0;
@@ -32,7 +32,7 @@ export default {
     transition: background-color ${dt('transition.duration')};
 }
 
-.p-image-preview-container:hover > .p-image-preview-indicator {
+.p-image-preview:hover > .p-image-preview-mask {
     opacity: 1;
     cursor: pointer;
     background: ${dt('image.preview.indicator.background')};
@@ -60,6 +60,11 @@ export default {
     color: ${dt('image.action.color')};
     background: transparent;
     width: 3rem;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    cursor: pointer;
+    user-select: none;
     height: 3rem;
     border-radius: 50%;
     outline-color: transparent;
@@ -86,22 +91,22 @@ export default {
     pointer-events: auto;
 }
 
-.p-image-preview {
+.p-image-original {
     transition: transform 0.15s;
     max-width: 100vw;
     max-height: 100vh;
 }
 
-.p-image-preview-enter-active {
+.p-image-original-enter-active {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.p-image-preview-leave-active {
+.p-image-original-leave-active {
     transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.p-image-preview-enter-from,
-.p-image-preview-leave-to {
+.p-image-original-enter-from,
+.p-image-original-leave-to {
     opacity: 0;
     transform: scale(0.7);
 }
