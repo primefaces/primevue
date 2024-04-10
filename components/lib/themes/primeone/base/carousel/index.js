@@ -26,39 +26,6 @@ export default {
     flex-direction: row;
 }
 
-.p-carousel-prev,
-.p-carousel-next {
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: ${dt('carousel.navigator.color')};
-    border: 0 none;
-    background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')},outline-color ${dt('transition.duration')};
-    outline-color: transparent;
-    margin: 0.5rem;
-}
-
-.p-carousel-prev:enabled:hover,
-.p-carousel-next:enabled:hover {
-    color: ${dt('carousel.navigator.hover.color')};
-    background: ${dt('carousel.navigator.hover.background')};
-}
-
-.p-carousel-prev:focus-visible,
-.p-carousel-next:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
 .p-carousel-indicators {
     display: flex;
     flex-direction: row;
