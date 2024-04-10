@@ -9,19 +9,18 @@ const classes = {
         }
     ],
     header: 'p-carousel-header',
-    content: 'p-carousel-content',
-    container: 'p-carousel-container',
+    content: 'p-carousel-content-container',
+    container: 'p-carousel-content',
     previousButton: ({ instance }) => [
-        'p-carousel-prev p-link',
+        'p-carousel-prev-button',
         {
             'p-disabled': instance.backwardIsDisabled
         }
     ],
-    previousButtonIcon: 'p-carousel-next-icon',
-    itemsContent: 'p-carousel-items-content',
-    itemsContainer: 'p-carousel-items-container',
+    itemsContent: 'p-carousel-viewport',
+    itemsContainer: 'p-carousel-items',
     itemCloned: ({ index, value, totalShiftedItems, d_numVisible }) => [
-        'p-carousel-item p-carousel-item-cloned',
+        'p-carousel-item p-carousel-item-clone',
         {
             'p-carousel-item-active': totalShiftedItems * -1 === value.length + d_numVisible,
             'p-carousel-item-start': index === 0,
@@ -37,20 +36,19 @@ const classes = {
         }
     ],
     nextButton: ({ instance }) => [
-        'p-carousel-next p-link',
+        'p-carousel-next-button',
         {
             'p-disabled': instance.forwardIsDisabled
         }
     ],
-    nextButtonIcon: 'p-carousel-prev-icon',
-    indicators: 'p-carousel-indicators p-reset',
+    indicators: 'p-carousel-indicators',
     indicator: ({ instance, index }) => [
         'p-carousel-indicator',
         {
-            'p-highlight': instance.d_page === index
+            'p-carousel-indicator-active': instance.d_page === index
         }
     ],
-    indicatorButton: 'p-link',
+    indicatorButton: 'p-carousel-indicator-button',
     footer: 'p-carousel-footer'
 };
 
