@@ -125,10 +125,9 @@
 import { FilterService } from 'primevue/api';
 import SearchIcon from 'primevue/icons/search';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseListbox from './BaseListbox.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Listbox',

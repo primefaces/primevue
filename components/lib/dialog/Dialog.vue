@@ -64,10 +64,9 @@ import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
 import WindowMinimizeIcon from 'primevue/icons/windowminimize';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
 import { computed } from 'vue';
 import BaseDialog from './BaseDialog.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Dialog',

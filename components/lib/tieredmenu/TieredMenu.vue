@@ -42,10 +42,9 @@
 <script>
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseTieredMenu from './BaseTieredMenu.vue';
 import TieredMenuSub from './TieredMenuSub.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'TieredMenu',

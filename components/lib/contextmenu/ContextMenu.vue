@@ -36,10 +36,9 @@
 
 <script>
 import Portal from 'primevue/portal';
-import { DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'ContextMenu',

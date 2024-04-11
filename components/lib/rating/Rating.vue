@@ -52,9 +52,8 @@
 import BanIcon from 'primevue/icons/ban';
 import StarIcon from 'primevue/icons/star';
 import StarFillIcon from 'primevue/icons/starfill';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueIdMixin } from 'primevue/utils';
 import BaseRating from './BaseRating.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Rating',

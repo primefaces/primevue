@@ -111,9 +111,8 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import Tree from 'primevue/tree';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseTreeSelect from './BaseTreeSelect.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'TreeSelect',

@@ -188,10 +188,9 @@ import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseDropdown from './BaseDropdown.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Dropdown',

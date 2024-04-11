@@ -173,10 +173,9 @@ import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseAutoComplete from './BaseAutoComplete.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'AutoComplete',

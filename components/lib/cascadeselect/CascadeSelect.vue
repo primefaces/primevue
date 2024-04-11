@@ -83,10 +83,9 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'CascadeSelect',

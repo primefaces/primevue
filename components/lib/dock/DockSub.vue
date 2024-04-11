@@ -58,9 +58,8 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
 import { mergeProps } from 'vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'DockSub',

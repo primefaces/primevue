@@ -195,9 +195,8 @@ import AngleLeftIcon from 'primevue/icons/angleleft';
 import AngleRightIcon from 'primevue/icons/angleright';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
 import BasePickList from './BasePickList.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'PickList',

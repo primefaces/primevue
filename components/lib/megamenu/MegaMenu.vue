@@ -57,10 +57,9 @@
 
 <script>
 import BarsIcon from 'primevue/icons/bars';
-import { DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'MegaMenu',

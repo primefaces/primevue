@@ -57,10 +57,9 @@
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueIdMixin } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Accordion',

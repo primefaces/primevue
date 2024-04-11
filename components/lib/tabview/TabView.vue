@@ -95,10 +95,9 @@
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueIdMixin } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseTabView from './BaseTabView.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'TabView',

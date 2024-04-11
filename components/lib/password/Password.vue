@@ -58,9 +58,8 @@ import EyeSlashIcon from 'primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BasePassword from './BasePassword.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Password',

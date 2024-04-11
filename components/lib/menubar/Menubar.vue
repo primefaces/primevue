@@ -56,10 +56,9 @@
 
 <script>
 import BarsIcon from 'primevue/icons/bars';
-import { DomHandler, ObjectUtils, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseMenubar from './BaseMenubar.vue';
 import MenubarSub from './MenubarSub.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Menubar',

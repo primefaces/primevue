@@ -53,10 +53,9 @@
 <script>
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
 import BaseMenu from './BaseMenu.vue';
 import Menuitem from './Menuitem.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Menu',

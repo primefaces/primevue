@@ -57,9 +57,8 @@ import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueIdMixin } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',

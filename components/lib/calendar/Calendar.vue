@@ -520,9 +520,8 @@ import ChevronUpIcon from 'primevue/icons/chevronup';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
 import BaseCalendar from './BaseCalendar.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'Calendar',

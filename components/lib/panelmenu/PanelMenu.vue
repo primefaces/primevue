@@ -55,11 +55,10 @@
 <script>
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BasePanelMenu from './BasePanelMenu.vue';
 import PanelMenuList from './PanelMenuList.vue';
-import { UniqueIdMixin } from 'primevue/utils';
 
 export default {
     name: 'PanelMenu',
