@@ -36,14 +36,14 @@
 
 <script>
 import Portal from 'primevue/portal';
-import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     name: 'ContextMenu',
     extends: BaseContextMenu,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['focus', 'blur', 'show', 'hide'],
     target: null,

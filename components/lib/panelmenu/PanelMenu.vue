@@ -55,7 +55,7 @@
 <script>
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
-import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BasePanelMenu from './BasePanelMenu.vue';
 import PanelMenuList from './PanelMenuList.vue';
@@ -63,7 +63,7 @@ import PanelMenuList from './PanelMenuList.vue';
 export default {
     name: 'PanelMenu',
     extends: BasePanelMenu,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:expandedKeys', 'panel-open', 'panel-close'],
     data() {

@@ -57,13 +57,13 @@ import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
 
 export default {
     name: 'SpeedDial',
     extends: BaseSpeedDial,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
     documentClickListener: null,

@@ -44,12 +44,12 @@ import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import BasePanel from './BasePanel.vue';
-import { UniqueIdMixin } from 'primevue/utils';
+import { UniqueIdMixinFactory } from 'primevue/utils';
 
 export default {
     name: 'Panel',
     extends: BasePanel,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:collapsed', 'toggle'],
     data() {

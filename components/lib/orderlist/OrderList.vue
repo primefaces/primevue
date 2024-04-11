@@ -84,13 +84,13 @@ import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseOrderList from './BaseOrderList.vue';
 
 export default {
     name: 'OrderList',
     extends: BaseOrderList,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'focus', 'blur'],
     itemTouched: false,

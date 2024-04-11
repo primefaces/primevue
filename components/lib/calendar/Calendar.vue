@@ -520,13 +520,13 @@ import ChevronUpIcon from 'primevue/icons/chevronup';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseCalendar from './BaseCalendar.vue';
 
 export default {
     name: 'Calendar',
     extends: BaseCalendar,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     navigationState: null,

@@ -60,12 +60,12 @@
 <script>
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import BaseChips from './BaseChips.vue';
-import { UniqueIdMixin } from 'primevue/utils';
+import { UniqueIdMixinFactory } from 'primevue/utils';
 
 export default {
     name: 'Chips',
     extends: BaseChips,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {

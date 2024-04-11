@@ -121,7 +121,7 @@ export declare namespace ZIndexUtils {
 }
 
 export declare function UniqueComponentId(prefix?: string): string;
-export declare function UniqueIdMixin(propName?: string, sourcePropertyGetter?: (vm: ComponentPublicInstance) => any): ComponentOptionsMixin;
+export declare function UniqueIdMixinFactory(propName?: string, sourcePropertyGetter?: (vm: ComponentPublicInstance) => any): ComponentOptionsMixin;
 
 export declare function EventBus(): {
     on(type: string, fn: any): void;

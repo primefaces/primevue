@@ -83,14 +83,14 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     name: 'CascadeSelect',
     extends: BaseCascadeSelect,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,

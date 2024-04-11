@@ -57,14 +57,14 @@
 
 <script>
 import BarsIcon from 'primevue/icons/bars';
-import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
 
 export default {
     name: 'MegaMenu',
     extends: BaseMegaMenu,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['focus', 'blur'],
     outsideClickListener: null,

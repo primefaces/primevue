@@ -64,14 +64,14 @@ import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
 import WindowMinimizeIcon from 'primevue/icons/windowminimize';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ZIndexUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import { computed } from 'vue';
 import BaseDialog from './BaseDialog.vue';
 
 export default {
     name: 'Dialog',
     extends: BaseDialog,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
     provide() {

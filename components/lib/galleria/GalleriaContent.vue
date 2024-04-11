@@ -65,13 +65,13 @@ import TimesIcon from 'primevue/icons/times';
 import Ripple from 'primevue/ripple';
 import GalleriaItem from './GalleriaItem.vue';
 import GalleriaThumbnails from './GalleriaThumbnails.vue';
-import { UniqueIdMixin } from 'primevue/utils';
+import { UniqueIdMixinFactory } from 'primevue/utils';
 
 export default {
     name: 'GalleriaContent',
     hostName: 'Galleria',
     extends: BaseComponent,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     interval: null,
     emits: ['activeitem-change', 'mask-hide'],

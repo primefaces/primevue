@@ -195,13 +195,13 @@ import AngleLeftIcon from 'primevue/icons/angleleft';
 import AngleRightIcon from 'primevue/icons/angleright';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import BasePickList from './BasePickList.vue';
 
 export default {
     name: 'PickList',
     extends: BasePickList,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'move-to-target', 'move-to-source', 'move-all-to-target', 'move-all-to-source', 'focus', 'blur'],
     itemTouched: false,

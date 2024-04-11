@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import { DomHandler, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
     name: 'ScrollPanel',
     extends: BaseScrollPanel,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     initialized: false,
     documentResizeListener: null,

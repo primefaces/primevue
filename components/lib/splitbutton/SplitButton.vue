@@ -64,12 +64,12 @@ import Button from 'primevue/button';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
 import BaseSplitButton from './BaseSplitButton.vue';
-import { UniqueIdMixin } from 'primevue/utils';
+import { UniqueIdMixinFactory } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
     extends: BaseSplitButton,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['click'],
     data() {

@@ -58,14 +58,14 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
 export default {
     name: 'DockSub',
     hostName: 'Dock',
     extends: BaseComponent,
-    mixins: [UniqueIdMixin('id', (vm) => vm.menuId)],
+    mixins: [UniqueIdMixinFactory('id', (vm) => vm.menuId)],
     emits: ['focus', 'blur'],
     props: {
         position: {

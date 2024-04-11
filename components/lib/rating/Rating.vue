@@ -52,13 +52,13 @@
 import BanIcon from 'primevue/icons/ban';
 import StarIcon from 'primevue/icons/star';
 import StarFillIcon from 'primevue/icons/starfill';
-import { DomHandler, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseRating from './BaseRating.vue';
 
 export default {
     name: 'Rating',
     extends: BaseRating,
-    mixins: [UniqueIdMixin('name', (vm) => vm.$attrs.name)],
+    mixins: [UniqueIdMixinFactory('name', (vm) => vm.$attrs.name)],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     data() {

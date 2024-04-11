@@ -111,13 +111,13 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import Tree from 'primevue/tree';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseTreeSelect from './BaseTreeSelect.vue';
 
 export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     data() {

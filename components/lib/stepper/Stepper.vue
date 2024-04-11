@@ -140,12 +140,12 @@ import BaseStepper from './BaseStepper.vue';
 import StepperContent from './StepperContent.vue';
 import StepperHeader from './StepperHeader.vue';
 import StepperSeparator from './StepperSeparator.vue';
-import { UniqueIdMixin } from 'primevue/utils';
+import { UniqueIdMixinFactory } from 'primevue/utils';
 
 export default {
     name: 'Stepper',
     extends: BaseStepper,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:activeStep', 'step-change'],
     data() {

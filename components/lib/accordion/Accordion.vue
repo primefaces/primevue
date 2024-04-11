@@ -57,14 +57,14 @@
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, UniqueIdMixinFactory } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
 
 export default {
     name: 'Accordion',
     extends: BaseAccordion,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     data() {

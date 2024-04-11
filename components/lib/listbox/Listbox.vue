@@ -125,14 +125,14 @@
 import { FilterService } from 'primevue/api';
 import SearchIcon from 'primevue/icons/search';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueIdMixin } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseListbox from './BaseListbox.vue';
 
 export default {
     name: 'Listbox',
     extends: BaseListbox,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter'],
     list: null,

@@ -162,14 +162,14 @@ import PlusIcon from 'primevue/icons/plus';
 import TrashIcon from 'primevue/icons/trash';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixin } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
 export default {
     name: 'ColumnFilter',
     hostName: 'DataTable',
     extends: BaseComponent,
-    mixins: [UniqueIdMixin()],
+    mixins: [UniqueIdMixinFactory()],
     emits: ['filter-change', 'filter-apply', 'operator-change', 'matchmode-change', 'constraint-add', 'constraint-remove', 'filter-clear', 'apply-click'],
     props: {
         field: {
