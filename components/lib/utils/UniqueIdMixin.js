@@ -6,23 +6,14 @@ const defaultPropName = 'id';
 const defaultSourcePropertyGetter = (vm) => vm.$attrs.id;
 
 export default function (propName = defaultPropName, sourcePropertyGetter = defaultSourcePropertyGetter) {
-    propName ??= defaultPropName;
-    sourcePropertyGetter ??= defaultSourcePropertyGetter;
-
     return {
         data: (vm) => {
-            vm.$watch(
-                sourcePropertyGetter.bind(null, vm),
-                (value) => {
-                    vm[propName] = value || UniqueComponentId();
-                },
-                {
-                    immediate: !isNuxt
-                }
-            );
+            vm.$watch(sourcePropertyGetter.bind(undefined, vm), (value) => {
+                vm[propName] = value || UniqueComponentId();
+            });
 
             return {
-                [propName]: sourcePropertyGetter(vm)
+                [propName]: isNuxt ? sourcePropertyGetter(vm) : sourcePropertyGetter(vm) || UniqueComponentId()
             };
         },
 
