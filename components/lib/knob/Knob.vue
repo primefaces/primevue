@@ -215,7 +215,11 @@ export default {
             return this.valueRadians > this.zeroRadians ? 0 : 1;
         },
         valueToDisplay() {
-            return this.valueTemplate.replace(/{value}/g, this.modelValue);
+            if (typeof this.valueTemplate === 'string') {
+                return this.valueTemplate.replace(/{value}/g, this.modelValue);
+            } else {
+                return this.valueTemplate(this.modelValue);
+            }
         }
     }
 };
