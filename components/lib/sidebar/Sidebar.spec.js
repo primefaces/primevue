@@ -119,4 +119,12 @@ describe('Sidebar.vue', () => {
 
         expect(wrapper.vm.containerVisible).toBeFalsy();
     });
+
+    it('When component is mounted , dismissable property should still be reactive', async () => {
+        await wrapper.setProps({ dismissable: false, visible: true });
+
+        await wrapper.setProps({ dismissable: true });
+
+        expect(wrapper.vm.containerVisible).toBeTruthy();
+    });
 });

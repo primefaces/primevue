@@ -52,6 +52,15 @@ export default {
         return {
             $parentInstance: this
         };
-    }
+    },
+    watch: {
+        dismissable(newValue) {
+            if (newValue) {
+                this.bindOutsideClickListener();
+            } else {
+                this.unbindOutsideClickListener();
+            }
+        }
+    },
 };
 </script>
