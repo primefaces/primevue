@@ -57,13 +57,14 @@
 
 <script>
 import BarsIcon from 'primevue/icons/bars';
-import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, ZIndexUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
 
 export default {
     name: 'MegaMenu',
     extends: BaseMegaMenu,
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['focus', 'blur'],
     outsideClickListener: null,
@@ -75,7 +76,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             mobileActive: false,
             focused: false,
             focusedItemInfo: { index: -1, key: '', parentKey: '' },
@@ -86,12 +86,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         activeItem(newItem) {
             if (ObjectUtils.isNotEmpty(newItem)) {
                 this.bindOutsideClickListener();

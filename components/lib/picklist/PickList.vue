@@ -195,12 +195,13 @@ import AngleLeftIcon from 'primevue/icons/angleleft';
 import AngleRightIcon from 'primevue/icons/angleright';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import BasePickList from './BasePickList.vue';
 
 export default {
     name: 'PickList',
     extends: BasePickList,
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'move-to-target', 'move-to-source', 'move-all-to-target', 'move-all-to-source', 'focus', 'blur'],
     itemTouched: false,
@@ -210,7 +211,6 @@ export default {
     mediaChangeListener: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_selection: this.selection,
             focused: {
                 sourceList: false,
@@ -221,12 +221,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         selection(newValue) {
             this.d_selection = newValue;
         },

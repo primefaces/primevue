@@ -40,12 +40,13 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
     name: 'ScrollPanel',
     extends: BaseScrollPanel,
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     initialized: false,
     documentResizeListener: null,
@@ -62,19 +63,10 @@ export default {
     outsideClickListener: null,
     data() {
         return {
-            id: this.$attrs.id,
             orientation: 'vertical',
             lastScrollTop: 0,
             lastScrollLeft: 0
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     mounted() {
         if (this.$el.offsetParent) {

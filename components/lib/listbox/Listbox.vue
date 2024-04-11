@@ -125,13 +125,14 @@
 import { FilterService } from 'primevue/api';
 import SearchIcon from 'primevue/icons/search';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 import BaseListbox from './BaseListbox.vue';
 
 export default {
     name: 'Listbox',
     extends: BaseListbox,
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter'],
     list: null,
@@ -142,19 +143,12 @@ export default {
     searchValue: '',
     data() {
         return {
-            id: this.$attrs.id,
             filterValue: null,
             focused: false,
             focusedOptionIndex: -1
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        },
         options() {
             this.autoUpdateModel();
         }

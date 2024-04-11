@@ -84,12 +84,13 @@ import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, UniqueIdMixinFactory } from 'primevue/utils';
 import BaseOrderList from './BaseOrderList.vue';
 
 export default {
     name: 'OrderList',
     extends: BaseOrderList,
+    mixins: [UniqueIdMixinFactory()],
     inheritAttrs: false,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'focus', 'blur'],
     itemTouched: false,
@@ -98,19 +99,10 @@ export default {
     list: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_selection: this.selection,
             focused: false,
             focusedOptionIndex: -1
         };
-    },
-    watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     beforeUnmount() {
         this.destroyStyle();

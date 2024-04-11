@@ -58,13 +58,14 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueIdMixinFactory } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
 export default {
     name: 'DockSub',
     hostName: 'Dock',
     extends: BaseComponent,
+    mixins: [UniqueIdMixinFactory('id', (vm) => vm.menuId)],
     emits: ['focus', 'blur'],
     props: {
         position: {
@@ -99,19 +100,10 @@ export default {
     },
     data() {
         return {
-            id: this.menuId,
             currentIndex: -3,
             focused: false,
             focusedOptionIndex: -1
         };
-    },
-    watch: {
-        menuId: {
-            immediate: true,
-            handler(newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
-        }
     },
     methods: {
         getItemId(index) {
