@@ -535,7 +535,7 @@ export default {
                     const isDecimalSign = this.isDecimalSign(char);
                     const isMinusSign = this.isMinusSign(char);
 
-                    if (((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
+                    if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(char) || isMinusSign || isDecimalSign) {
                         this.insert(event, char, { isDecimalSign, isMinusSign });
                     }
 
