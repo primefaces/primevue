@@ -32,7 +32,7 @@
                     <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="slotProps.class" v-bind="getPTOptions('nodeCheckbox.icon')" />
                 </template>
             </Checkbox>
-            <component v-if="templates['nodeicon']" :is="templates['nodeicon']" :node="node" :class="[cx('nodeIcon')]"></component>
+            <component v-if="templates['nodeicon']" :is="templates['nodeicon']" :node="node" :class="[cx('nodeIcon')]" v-bind="getPTOptions('nodeIcon')"></component>
             <span v-else :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('label')" v-bind="getPTOptions('label')" @keydown.stop>
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
