@@ -49,6 +49,9 @@ export default {
             handler(newValue) {
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
+                    this._themeChangeListener(() => this._loadScopedThemeStyles(newValue));
+                } else {
+                    this._unloadScopedThemeStyles();
                 }
             }
         }
@@ -91,7 +94,7 @@ export default {
         this._hook('onBeforeUnmount');
     },
     unmounted() {
-        this.scopedStyleEl?.value?.remove();
+        this._unloadScopedThemeStyles();
         this._hook('onUnmounted');
     },
     methods: {
@@ -184,6 +187,9 @@ export default {
             const scopedStyle = this.$style?.loadTheme(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
 
             this.scopedStyleEl = scopedStyle.el;
+        },
+        _unloadScopedThemeStyles() {
+            this.scopedStyleEl?.value?.remove();
         },
         _themeChangeListener(callback = () => {}) {
             Base.clearLoadedStyleNames();

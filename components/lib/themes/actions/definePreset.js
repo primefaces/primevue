@@ -1,8 +1,7 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
 export default (preset1, preset2) => {
-    const VARIABLE = Theme.defaults.variable;
-    const newPreset = SharedUtils.object.mergeKeysByRegex(preset1, preset2, VARIABLE.excludedKeyRegex);
+    const newPreset = SharedUtils.object.mergeKeys(preset1, preset2);
 
     Theme.setPreset(newPreset);
 
