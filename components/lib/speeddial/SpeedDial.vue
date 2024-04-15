@@ -67,7 +67,7 @@
 import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
-import { $dt, $dtp } from 'primevue/themes';
+import { $dt } from 'primevue/themes';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
@@ -108,8 +108,8 @@ export default {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
                 const hDiff = Math.abs(button.offsetHeight - firstItem.offsetHeight);
 
-                this.list.style.setProperty($dtp('item.diff.x').name, `${wDiff / 2}px`);
-                this.list.style.setProperty($dtp('item.diff.y').name, `${hDiff / 2}px`);
+                this.list.style.setProperty($dt('item.diff.x').name, `${wDiff / 2}px`);
+                this.list.style.setProperty($dt('item.diff.y').name, `${hDiff / 2}px`);
             }
         }
 

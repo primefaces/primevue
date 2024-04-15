@@ -1,4 +1,5 @@
 <script>
+import Base from 'primevue/base';
 import BaseStyle from 'primevue/base/style';
 import Theme, { ThemeService } from 'primevue/themes';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
@@ -35,8 +36,8 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (!newValue) {
-                    BaseComponentStyle.loadStyle(this.$styleOptions);
-                    this.$options.style && this.$style.loadStyle(this.$styleOptions);
+                    this._loadCoreStyles();
+                    this._themeChangeListener(this._loadCoreStyles); // update styles with theme settings
                 } else {
                     // load theme
                     this._loadThemeStyles();
@@ -107,11 +108,28 @@ export default {
             return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
         },
         _loadStyles() {
-            BaseStyle.loadStyle(this.$styleOptions);
-            this._loadGlobalStyles();
-            this._loadThemeStyles();
+            const _load = () => {
+                // @todo
+                if (!Base.isStyleNameLoaded('base')) {
+                    BaseStyle.loadStyle(this.$styleOptions);
+                    this._loadGlobalStyles();
 
-            ThemeService.on('theme:change', this._loadThemeStyles);
+                    Base.setLoadedStyleName('base');
+                }
+
+                this._loadThemeStyles();
+            };
+
+            _load();
+            this._themeChangeListener(_load);
+        },
+        _loadCoreStyles() {
+            if (!Base.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
+                BaseComponentStyle.loadStyle(this.$styleOptions);
+                this.$options.style && this.$style.loadStyle(this.$styleOptions);
+
+                Base.setLoadedStyleName(this.$style.name);
+            }
         },
         _loadGlobalStyles() {
             /*
@@ -166,6 +184,10 @@ export default {
             const scopedStyle = this.$style?.loadTheme(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
 
             this.scopedStyleEl = scopedStyle.el;
+        },
+        _themeChangeListener(callback = () => {}) {
+            Base.clearLoadedStyleNames();
+            ThemeService.on('theme:change', callback);
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;

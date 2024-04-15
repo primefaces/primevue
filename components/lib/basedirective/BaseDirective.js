@@ -1,3 +1,4 @@
+import Base from 'primevue/base';
 import BaseStyle from 'primevue/base/style';
 import Theme, { ThemeService } from 'primevue/themes';
 import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
@@ -76,14 +77,21 @@ const BaseDirective = {
     },
     _loadStyles: (el, binding, vnode) => {
         const config = BaseDirective._getConfig(binding, vnode);
+        const useStyleOptions = { nonce: config?.csp?.nonce };
 
-        BaseStyle.loadStyle({ nonce: config?.csp?.nonce });
-        !el.$instance?.isUnstyled() && el.$instance?.$style?.loadStyle({ nonce: config?.csp?.nonce });
+        BaseDirective._loadCoreStyles(el.$instance, useStyleOptions);
+        BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
+        BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
 
-        BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
-        ThemeService.on('theme:change', () => BaseDirective._loadThemeStyles(el.$instance, { nonce: config?.csp?.nonce }));
+        BaseDirective._themeChangeListener(() => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions));
+    },
+    _loadCoreStyles(instance = {}, useStyleOptions) {
+        if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
+            BaseStyle.loadStyle(useStyleOptions);
+            instance.isUnstyled() && instance.$style?.loadStyle(useStyleOptions);
 
-        BaseDirective._loadScopedThemeStyles(el.$instance, { nonce: config?.csp?.nonce });
+            Base.setLoadedStyleName(instance.$style.name);
+        }
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
         if (instance?.isUnstyled()) return;
@@ -127,6 +135,10 @@ const BaseDirective = {
 
             instance.scopedStyleEl = scopedStyle.el;
         }
+    },
+    _themeChangeListener(callback = () => {}) {
+        Base.clearLoadedStyleNames();
+        ThemeService.on('theme:change', callback);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;

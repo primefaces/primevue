@@ -1,4 +1,4 @@
-import { $dt, $dtp } from 'primevue/themes';
+import { $dt } from 'primevue/themes';
 
 export default {
     innerWidth(el) {
@@ -328,7 +328,7 @@ export default {
             element.style.top = top + 'px';
             element.style.left = left + 'px';
             element.style.transformOrigin = origin;
-            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1') : $dt('anchor.gutter'));
+            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1').variable : $dt('anchor.gutter').variable);
         }
     },
 
@@ -367,7 +367,7 @@ export default {
             element.style.top = top + 'px';
             element.style.left = left + 'px';
             element.style.transformOrigin = origin;
-            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1') : $dt('anchor.gutter'));
+            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1').variable : $dt('anchor.gutter').variable);
         }
     },
 
@@ -851,12 +851,12 @@ export default {
     },
 
     blockBodyScroll(className = 'p-overflow-hidden') {
-        document.body.style.setProperty($dtp('scrollbar.width').name, this.calculateBodyScrollbarWidth() + 'px');
+        document.body.style.setProperty($dt('scrollbar.width').name, this.calculateBodyScrollbarWidth() + 'px');
         this.addClass(document.body, className);
     },
 
     unblockBodyScroll(className = 'p-overflow-hidden') {
-        document.body.style.removeProperty($dtp('scrollbar.width').name);
+        document.body.style.removeProperty($dt('scrollbar.width').name);
         this.removeClass(document.body, className);
     }
 };

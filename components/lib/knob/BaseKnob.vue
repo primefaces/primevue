@@ -37,15 +37,21 @@ export default {
         },
         valueColor: {
             type: String,
-            default: $dt('knob.value.background')
+            default: () => {
+                return $dt('knob.value.background').variable;
+            }
         },
         rangeColor: {
             type: String,
-            default: $dt('knob.range.background')
+            default: () => {
+                return $dt('knob.range.background').variable;
+            }
         },
         textColor: {
             type: String,
-            default: $dt('knob.text.color')
+            default: () => {
+                return $dt('knob.text.color').variable;
+            }
         },
         strokeWidth: {
             type: Number,

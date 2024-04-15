@@ -1,14 +1,25 @@
-import Theme, { SharedUtils } from 'primevue/themes';
+import { SharedUtils } from 'primevue/themes';
+import Theme from 'primevue/themes/config';
 
-const types = ['value', 'variable'];
-
-export const $dt = (tokenPath, param1, param2) => {
+export const $dt = (tokenPath) => {
     const theme = Theme.getTheme();
 
-    return types.includes(param1) ? dt(theme, tokenPath, undefined, param1) : dt(theme, tokenPath, param1, param2);
+    const variable = dtwt(theme, tokenPath, undefined, 'variable');
+    const name = variable.match(/--[\w-]+/g)?.[0];
+    const value = dtwt(theme, tokenPath, undefined, 'value');
+
+    return {
+        name,
+        variable,
+        value
+    };
 };
 
-export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {
+export const dt = (...args) => {
+    return dtwt(Theme.getTheme(), ...args);
+};
+
+export const dtwt = (theme = {}, tokenPath, fallback, type = 'variable') => {
     if (tokenPath) {
         const VARIABLE = Theme.defaults.variable;
         const { prefix, transform } = theme?.options || {};
@@ -20,18 +31,4 @@ export const dt = (theme = {}, tokenPath, fallback, type = 'variable') => {
     }
 
     return '';
-};
-
-export const $dtp = (tokenPath) => {
-    const theme = Theme.getTheme();
-
-    const variable = dt(theme, tokenPath, undefined, 'variable');
-    const name = variable.match(/--[\w-]+/g)?.[0];
-    const value = dt(theme, tokenPath, undefined, 'value');
-
-    return {
-        variable,
-        name,
-        value
-    };
 };

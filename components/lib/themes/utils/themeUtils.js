@@ -1,4 +1,4 @@
-import { SharedUtils, dt, toVariables } from 'primevue/themes';
+import { SharedUtils, dtwt, toVariables } from 'primevue/themes';
 
 export default {
     regex: {
@@ -62,7 +62,7 @@ export default {
             semantic_css = `${semantic_light_css}${semantic_dark_css}`;
         }
 
-        global_css = SharedUtils.object.getItemValue(base?.global?.css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
+        global_css = SharedUtils.object.getItemValue(base?.global?.css, { ...params, dt: (...args) => dtwt(theme, ...args) });
         global_css = this._transformCSS(name, global_css, undefined, 'style', options, set, defaults);
 
         return {
@@ -93,7 +93,7 @@ export default {
     getBaseC({ name = '', theme = {}, params, set, defaults }) {
         const { base, options } = theme;
         const { css } = base?.components?.[name] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (...args) => dtwt(theme, ...args) });
 
         return this._transformCSS(name, computed_css, undefined, 'style', options, set, defaults);
     },
@@ -108,7 +108,7 @@ export default {
         const dName = name.replace('-directive', '');
         const { base, options } = theme;
         const { css } = base?.directives?.[dName] || {};
-        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (tokenPath, fallback, type) => dt(theme, tokenPath, fallback, type) });
+        const computed_css = SharedUtils.object.getItemValue(css, { ...params, dt: (...args) => dtwt(theme, ...args) });
 
         return this._transformCSS(dName, computed_css, undefined, 'style', options, set, defaults);
     },
@@ -173,10 +173,10 @@ export default {
                         if (colorScheme) {
                             const path = this.paths.find((p) => p.scheme === colorScheme) || this.paths.find((p) => p.scheme === 'none');
 
-                            return path?.computed(colorScheme, tokenPathMap['paths']);
+                            return path?.computed(colorScheme, tokenPathMap['binding']);
                         }
 
-                        return this.paths.map((p) => p.computed(p.scheme, tokenPathMap));
+                        return this.paths.map((p) => p.computed(p.scheme, tokenPathMap[p.scheme]));
                     }
                 };
                 tokens[currentKey].paths.push({
@@ -187,8 +187,8 @@ export default {
                         const regex = /{([^}]*)}/g;
                         let computedValue = value;
 
-                        tokenPathMap['path'] = this.path;
-                        tokenPathMap['paths'] ||= {};
+                        tokenPathMap['name'] = this.path;
+                        tokenPathMap['binding'] ||= {};
 
                         if (SharedUtils.object.test(regex, value)) {
                             const val = value.trim();
@@ -204,12 +204,12 @@ export default {
                             computedValue = SharedUtils.object.test(calculationRegex, _val.replace(cleanedVarRegex, '0')) ? `calc(${_val})` : _val;
                         }
 
-                        SharedUtils.object.isEmpty(tokenPathMap['paths']) && delete tokenPathMap['paths'];
+                        SharedUtils.object.isEmpty(tokenPathMap['binding']) && delete tokenPathMap['binding'];
 
                         return {
                             colorScheme,
-                            tokenPath: this.path,
-                            tokenPathMap,
+                            path: this.path,
+                            paths: tokenPathMap,
                             value: computedValue.includes('undefined') ? undefined : computedValue
                         };
                     }
@@ -228,8 +228,17 @@ export default {
 
         const token = normalizePath(path);
         const colorScheme = path.includes('colorScheme.light') ? 'light' : path.includes('colorScheme.dark') ? 'dark' : undefined;
+        const computedValues = [tokens[token]?.computed(colorScheme)].flat().filter((computed) => computed);
 
-        return [tokens[token]?.computed(colorScheme)].flat();
+        return computedValues.length === 1
+            ? computedValues[0].value
+            : computedValues.reduce((acc = {}, computed) => {
+                  const { colorScheme: cs, ...rest } = computed;
+
+                  acc[cs] = rest;
+
+                  return acc;
+              }, undefined);
     },
     _toVariables(theme, options) {
         return toVariables(theme, { prefix: options?.prefix });

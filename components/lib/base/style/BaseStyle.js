@@ -1,11 +1,8 @@
-import Theme from 'primevue/themes';
+import Theme, { dt } from 'primevue/themes';
 import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
-/**
- * @todo padding-right: ${$dt('scrollbar.width')};
- */
-const css = `
+const css = ({ dt }) => `
 .p-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
@@ -24,7 +21,7 @@ const css = `
 
 .p-overflow-hidden {
     overflow: hidden;
-    padding-right: var(--p-scrollbar-width);
+    padding-right: ${dt('scrollbar.width')};
 }
 `;
 
@@ -38,7 +35,9 @@ export default {
     classes,
     inlineStyles,
     loadStyle(options = {}) {
-        return this.css ? useStyle(ObjectUtils.minifyCSS(this.css), { name: this.name, ...options }) : {};
+        const css = ObjectUtils.getItemValue(this.css, { dt });
+
+        return css ? useStyle(ObjectUtils.minifyCSS(css), { name: this.name, ...options }) : {};
     },
     loadTheme(theme, options = {}) {
         return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options }) : {};

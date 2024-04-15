@@ -33,7 +33,7 @@ export default {
 var(--p-blue-500)
 
 // With JS
-$dt('blue.500', 'value')
+$dt('blue.500').value
 `
             }
         };
