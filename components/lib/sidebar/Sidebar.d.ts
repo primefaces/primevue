@@ -9,6 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -47,6 +48,20 @@ export interface SidebarPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface SidebarSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: SidebarProps;
+    /**
+     * Defines current inline state.
+     */
+    state: SidebarState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link SidebarProps.pt}
  */
@@ -64,13 +79,10 @@ export interface SidebarPassThroughOptions {
      */
     title?: SidebarPassThroughOptionType;
     /**
-     * Used to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the previous button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    closeButton?: SidebarPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close icon's DOM element.
-     */
-    closeIcon?: SidebarPassThroughOptionType;
+    toggler?: ButtonPassThroughOptions<SidebarSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -146,6 +158,11 @@ export interface SidebarProps {
      * @defaultValue true
      */
     showCloseIcon?: boolean | undefined;
+    /**
+     * Used to pass the custom value to read for the button inside the component.
+     * @defaultValue { severity: 'secondary', text: true, rounded: true }
+     */
+    closeButtonProps?: object | undefined;
     /**
      * Icon to display in the sidebar close button.
      * @deprecated since v3.27.0. Use 'closeicon' slot.

@@ -20,9 +20,7 @@
                 </div>
             </template>
             <template #icons>
-                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-                    <span class="pi pi-cog"></span>
-                </button>
+                <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
                 <Menu ref="menu" id="config_menu" :model="items" popup />
             </template>
             <p class="m-0">
@@ -74,9 +72,7 @@ export default {
         </div>
     </template>
     <template #icons>
-        <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-            <span class="pi pi-cog"></span>
-        </button>
+        <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
         <Menu ref="menu" id="config_menu" :model="items" popup />
     </template>
     <p class="m-0">
@@ -106,9 +102,7 @@ export default {
                 </div>
             </template>
             <template #icons>
-                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-                    <span class="pi pi-cog"></span>
-                </button>
+                <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
                 <Menu ref="menu" id="config_menu" :model="items" popup />
             </template>
             <p class="m-0">
@@ -174,9 +168,7 @@ export default {
                 </div>
             </template>
             <template #icons>
-                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
-                    <span class="pi pi-cog"></span>
-                </button>
+                <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
                 <Menu ref="menu" id="config_menu" :model="items" popup />
             </template>
             <p class="m-0">

@@ -5,21 +5,23 @@
         </div>
         <div v-if="!empty" :class="[cx('content'), contentClass]" v-bind="ptm('content')">
             <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                <button
+                <Button
                     v-if="showNavigators"
-                    v-ripple
-                    type="button"
                     :class="cx('previousButton')"
                     :disabled="backwardIsDisabled"
                     :aria-label="ariaPrevButtonLabel"
+                    :unstyled="unstyled"
                     @click="navBackward"
-                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
+                    v-bind="prevButtonProps"
+                    :pt="ptm('previousButton')"
                     data-pc-group-section="navigator"
                 >
-                    <slot name="previousicon">
-                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
-                    </slot>
-                </button>
+                    <template #icon="slotProps">
+                        <slot name="previousicon">
+                            <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="[cx('previousButtonIcon'), slotProps.icon]" v-bind="ptm('previousButton')['icon']" />
+                        </slot>
+                    </template>
+                </Button>
 
                 <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
                     <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
@@ -58,22 +60,23 @@
                         </template>
                     </div>
                 </div>
-
-                <button
+                <Button
                     v-if="showNavigators"
-                    v-ripple
-                    type="button"
                     :class="cx('nextButton')"
                     :disabled="forwardIsDisabled"
                     :aria-label="ariaNextButtonLabel"
+                    :unstyled="unstyled"
                     @click="navForward"
-                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                    v-bind="nextButtonProps"
+                    :pt="ptm('nextButton')"
                     data-pc-group-section="navigator"
                 >
-                    <slot name="nexticon">
-                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
-                    </slot>
-                </button>
+                    <template #icon="slotProps">
+                        <slot name="nexticon">
+                            <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="[cx('nextButtonIcon'), slotProps.class]" v-bind="ptm('nextButton')['icon']" />
+                        </slot>
+                    </template>
+                </Button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
                 <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
@@ -99,6 +102,7 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
@@ -637,6 +641,7 @@ export default {
         }
     },
     components: {
+        Button,
         ChevronRightIcon,
         ChevronDownIcon,
         ChevronLeftIcon,

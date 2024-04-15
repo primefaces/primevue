@@ -7,8 +7,9 @@
  * @module panel
  *
  */
-import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -44,6 +45,20 @@ export interface PanelPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface PanelSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: PanelProps;
+    /**
+     * Defines current inline state.
+     */
+    state: PanelState;
 }
 
 /**
@@ -83,13 +98,10 @@ export interface PanelPassThroughOptions {
      */
     icons?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    toggler?: PanelPassThroughOptionType;
-    /**
-     * Used to pass attributes to the togglericon's DOM element.
-     */
-    togglerIcon?: PanelPassThroughOptionType;
+    toggler?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the toggleablecontent's DOM element.
      */
@@ -151,9 +163,9 @@ export interface PanelProps {
     collapsed?: boolean;
     /**
      * Used to pass the custom value to read for the button inside the component.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
+     * @defaultValue { severity: 'secondary', text: true, rounded: true }
      */
-    toggleButtonProps?: ButtonHTMLAttributes | undefined;
+    toggleButtonProps?: object | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

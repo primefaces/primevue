@@ -16,9 +16,9 @@
                 :threshold="100"
                 icon="pi pi-arrow-up"
                 :pt="{
-                    root: 'w-2rem h-2rem border-round-sm bg-primary',
-                    icon: {
-                        class: 'text-base w-1rem h-1rem'
+                    button: {
+                        root: 'w-2rem h-2rem border-round-sm bg-primary',
+                        icon: 'text-base w-1rem h-1rem'
                     }
                 }"
             />
@@ -46,9 +46,9 @@ export default {
         :threshold="100"
         icon="pi pi-arrow-up"
         :pt="{
-            root: 'w-2rem h-2rem border-round-sm bg-primary',
-            icon: {
-                class: 'text-base w-1rem h-1rem'
+            button: {
+                root: 'w-2rem h-2rem border-round-sm bg-primary',
+                icon: 'text-base w-1rem h-1rem'
             }
         }"
     />
@@ -70,9 +70,9 @@ export default {
                 :threshold="100"
                 icon="pi pi-arrow-up"
                 :pt="{
-                    root: 'w-2rem h-2rem border-round-sm bg-primary',
-                    icon: {
-                        class: 'text-base w-1rem h-1rem'
+                    button: {
+                        root: 'w-2rem h-2rem border-round-sm bg-primary',
+                        icon: 'text-base w-1rem h-1rem'
                     }
                 }"
             />
@@ -96,9 +96,9 @@ export default {
                 :threshold="100"
                 icon="pi pi-arrow-up"
                 :pt="{
-                    root: 'w-2rem h-2rem border-round-sm bg-primary',
-                    icon: {
-                        class: 'text-base w-1rem h-1rem'
+                    button: {
+                        root: 'w-2rem h-2rem border-round-sm bg-primary',
+                        icon: 'text-base w-1rem h-1rem'
                     }
                 }"
             />

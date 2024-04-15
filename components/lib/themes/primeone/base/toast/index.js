@@ -55,7 +55,7 @@ export default {
     margin: -25% 0 0 0;
     right: -25%;
     padding: 0;
-    border: none
+    border: none;
     user-select: none;
 }
 

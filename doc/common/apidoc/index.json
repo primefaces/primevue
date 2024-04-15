@@ -9455,6 +9455,29 @@
                     ],
                     "methods": []
                 },
+                "CarouselSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CarouselProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CarouselState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CarouselPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "CarouselProps.pt",
@@ -9495,17 +9518,9 @@
                             "name": "previousButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "CarouselPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the previous button's DOM element."
-                        },
-                        {
-                            "name": "previousButtonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CarouselPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the previous button icon's DOM element."
                         },
                         {
                             "name": "itemsContent",
@@ -9543,17 +9558,9 @@
                             "name": "nextButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "CarouselPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the next button's DOM element."
-                        },
-                        {
-                            "name": "nextButtonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CarouselPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the next button icon's DOM element."
                         },
                         {
                             "name": "indicators",
@@ -9871,17 +9878,17 @@
                             "name": "prevButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonHTMLAttributes",
+                            "type": "object",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the previous navigation button."
+                            "description": "Used to pass attributes to the previous Button component."
                         },
                         {
                             "name": "nextButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonHTMLAttributes",
+                            "type": "object",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the next navigation button."
+                            "description": "Used to pass attributes to the next Button component."
                         },
                         {
                             "name": "dt",
@@ -22447,6 +22454,29 @@
                     ],
                     "methods": []
                 },
+                "DialogSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DialogProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DialogState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "DialogPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "DialogProps.pt",
@@ -22487,33 +22517,17 @@
                             "name": "maximizableButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType<T>",
+                            "type": "ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the maximizable button's DOM element."
-                        },
-                        {
-                            "name": "maximizableIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DialogPassThroughOptionType<T>",
-                            "default": "",
-                            "description": "Used to pass attributes to the maximizable icon's DOM element."
+                            "description": "Used to pass attributes to the maximizable Button component."
                         },
                         {
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType<T>",
+                            "type": "ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the close button's component."
-                        },
-                        {
-                            "name": "closeButtonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DialogPassThroughOptionType<T>",
-                            "default": "",
-                            "description": "Used to pass attributes to the close button icon's component."
+                            "description": "Used to pass attributes to the close Button component."
                         },
                         {
                             "name": "content",
@@ -22665,7 +22679,7 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
+                            "description": "Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component."
                         },
                         {
                             "name": "rtl",
@@ -22829,6 +22843,22 @@
                             "default": "",
                             "description": "Icon to display in the dialog maximize button when dialog is minimized.",
                             "deprecated": "since v3.27.0. Use 'minimizeicon' slot."
+                        },
+                        {
+                            "name": "closeButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the Button component."
+                        },
+                        {
+                            "name": "maximizeButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the Button component."
                         },
                         {
                             "name": "dt",
@@ -30050,14 +30080,6 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "closeButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonPassThroughOptions<InplaceSharedPassThroughMethodOptions>",
-                            "default": "",
-                            "description": "Used to pass attributes to the Button component."
-                        },
-                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
@@ -30101,14 +30123,6 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "closable",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Displays a button to switch back to display mode."
-                        },
-                        {
                             "name": "active",
                             "optional": true,
                             "readonly": false,
@@ -30140,14 +30154,6 @@
                             "type": "HTMLAttributes",
                             "default": "",
                             "description": "Used to pass all properties of the HTMLDivElement to display container."
-                        },
-                        {
-                            "name": "closeButtonProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonHTMLAttributes",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the close button."
                         },
                         {
                             "name": "dt",
@@ -30197,15 +30203,16 @@
                         },
                         {
                             "name": "content",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close message function.</span>\n}",
+                                    "description": "container slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
-                        },
-                        {
-                            "name": "closeicon",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom close icon template."
                         }
                     ]
                 },
@@ -41533,6 +41540,29 @@
                     ],
                     "methods": []
                 },
+                "PanelSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelToggleEvent": {
                     "description": "Custom toggle event.",
                     "relatedProp": "PanelEmits.toggle",
@@ -41596,17 +41626,9 @@
                             "name": "toggler",
                             "optional": true,
                             "readonly": false,
-                            "type": "PanelPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the toggler's DOM element."
-                        },
-                        {
-                            "name": "togglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the togglericon's DOM element."
+                            "description": "Used to pass attributes to the toggler button's DOM element."
                         },
                         {
                             "name": "toggleableContent",
@@ -41711,10 +41733,9 @@
                             "name": "toggleButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonHTMLAttributes",
+                            "type": "object",
                             "default": "",
-                            "description": "Used to pass the custom value to read for the button inside the component.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Used to pass the custom value to read for the button inside the component."
                         },
                         {
                             "name": "dt",
@@ -46812,6 +46833,29 @@
                     ],
                     "methods": []
                 },
+                "ScrollTopSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ScrollTopProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ScrollTopState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ScrollTopPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "ScrollTopProps.pt",
@@ -46820,17 +46864,17 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ScrollTopPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the root's DOM element."
+                            "description": "Used to pass attributes to the previous button's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "ScrollTopPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the previous button's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -46915,6 +46959,14 @@
                             "type": "string",
                             "default": "smooth",
                             "description": "Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump."
+                        },
+                        {
+                            "name": "buttonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the Button component."
                         },
                         {
                             "name": "dt",
@@ -47584,6 +47636,29 @@
                     ],
                     "methods": []
                 },
+                "SidebarSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SidebarProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SidebarState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SidebarPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "SidebarProps.pt",
@@ -47613,20 +47688,12 @@
                             "description": "Used to pass attributes to the header content's DOM element."
                         },
                         {
-                            "name": "closeButton",
+                            "name": "toggler",
                             "optional": true,
                             "readonly": false,
-                            "type": "SidebarPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<SidebarSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the close button's DOM element."
-                        },
-                        {
-                            "name": "closeIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SidebarPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the close icon's DOM element."
+                            "description": "Used to pass attributes to the previous button's DOM element."
                         },
                         {
                             "name": "content",
@@ -47750,6 +47817,14 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Whether to display a close icon inside the panel."
+                        },
+                        {
+                            "name": "closeButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass the custom value to read for the button inside the component."
                         },
                         {
                             "name": "closeIcon",
@@ -55412,6 +55487,29 @@
                     ],
                     "methods": []
                 },
+                "ToastSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToastProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToastState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ToastPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "ToastProps.pt",
@@ -55492,27 +55590,17 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "ToastPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the button's DOM element.",
-                            "deprecated": "since v3.30.2. Use 'closeButton' option."
+                            "description": "/**\nUsed to pass attributes to the button's DOM element."
                         },
                         {
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ToastPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the button's DOM element."
-                        },
-                        {
-                            "name": "buttonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToastPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the button icon's DOM element.",
-                            "deprecated": "since v3.30.2. Use 'closeIcon' option."
+                            "description": "/**\nUsed to pass attributes to the close button's DOM element."
                         },
                         {
                             "name": "closeIcon",
@@ -55746,10 +55834,9 @@
                             "name": "closeButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonHTMLAttributes",
+                            "type": "object",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the close button.",
-                            "deprecated": "since v3.26.0. Use 'pt' property."
+                            "description": "Used to pass attributes to the close Button component."
                         },
                         {
                             "name": "message",

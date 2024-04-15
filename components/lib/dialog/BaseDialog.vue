@@ -111,8 +111,24 @@ export default {
             default: undefined
         },
         closeButtonProps: {
-            type: null,
-            default: null
+            type: Object,
+            default: () => {
+                return {
+                    severity: 'secondary',
+                    text: true,
+                    rounded: true
+                };
+            }
+        },
+        maximizeButtonProps: {
+            type: Object,
+            default: () => {
+                return {
+                    severity: 'secondary',
+                    text: true,
+                    rounded: true
+                };
+            }
         },
         _instance: null
     },

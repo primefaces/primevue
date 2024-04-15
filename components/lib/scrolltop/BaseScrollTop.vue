@@ -21,6 +21,12 @@ export default {
         behavior: {
             type: String,
             default: 'smooth'
+        },
+        buttonProps: {
+            type: Object,
+            default: () => {
+                return { severity: 'secondary' };
+            }
         }
     },
     style: ScrollTopStyle,

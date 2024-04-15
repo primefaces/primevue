@@ -10,8 +10,14 @@ export default {
         toggleable: Boolean,
         collapsed: Boolean,
         toggleButtonProps: {
-            type: null,
-            default: null
+            type: Object,
+            default: () => {
+                return {
+                    severity: 'secondary',
+                    text: true,
+                    rounded: true
+                };
+            }
         }
     },
     style: PanelStyle,

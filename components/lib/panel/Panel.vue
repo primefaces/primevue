@@ -6,24 +6,25 @@
             </slot>
             <div :class="cx('icons')" v-bind="ptm('icons')">
                 <slot name="icons"></slot>
-                <button
+                <Button
                     v-if="toggleable"
                     :id="id + '_header'"
-                    v-ripple
-                    type="button"
-                    role="button"
                     :class="cx('toggler')"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="id + '_content'"
                     :aria-expanded="!d_collapsed"
+                    :unstyled="unstyled"
                     @click="toggle"
                     @keydown="onKeyDown"
-                    v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
+                    v-bind="toggleButtonProps"
+                    :pt="ptm('toggler')"
                 >
-                    <slot name="togglericon" :collapsed="d_collapsed">
-                        <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" v-bind="ptm('togglericon')" />
-                    </slot>
-                </button>
+                    <template #icon="slotProps">
+                        <slot name="togglericon" :collapsed="d_collapsed">
+                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('toggler')['icon']" />
+                        </slot>
+                    </template>
+                </Button>
             </div>
         </div>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
@@ -91,7 +93,8 @@ export default {
     },
     components: {
         PlusIcon,
-        MinusIcon
+        MinusIcon,
+        Button
     },
     directives: {
         ripple: Ripple

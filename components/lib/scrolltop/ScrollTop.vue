@@ -1,16 +1,20 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-        <button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptmi('root')">
-            <slot name="icon" :class="cx('icon')">
-                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon]" v-bind="ptm('icon')" />
-            </slot>
-        </button>
+        <Button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" :aria-label="scrollTopAriaLabel" :unstyled="unstyled" v-bind="buttonProps" :pt="rootPTOptions()">
+            <template #icon="slotProps">
+                <slot name="icon" :class="cx('icon')">
+                    <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon, slotProps.class]" v-bind="iconPTOptions" />
+                </slot>
+            </template>
+        </Button>
     </transition>
 </template>
 
 <script>
+import Button from 'primevue/button';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseScrollTop from './BaseScrollTop.vue';
 
 export default {
@@ -83,7 +87,13 @@ export default {
             ZIndexUtils.clear(el);
         },
         containerRef(el) {
-            this.container = el;
+            this.container = el ? el.$el : undefined;
+        },
+        rootPTOptions() {
+            return mergeProps(this.ptmi('root'), this.ptm('button'));
+        },
+        iconPTOptions() {
+            return mergeProps(this.ptmi('root')['icon'], this.ptm('button')['icon']);
         }
     },
     computed: {
@@ -92,7 +102,8 @@ export default {
         }
     },
     components: {
-        ChevronUpIcon
+        ChevronUpIcon,
+        Button
     }
 };
 </script>

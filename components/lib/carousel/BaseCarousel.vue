@@ -48,12 +48,16 @@ export default {
             default: true
         },
         prevButtonProps: {
-            type: null,
-            default: null
+            type: Object,
+            default: () => {
+                return { severity: 'secondary', text: true, rounded: true };
+            }
         },
         nextButtonProps: {
-            type: null,
-            default: null
+            type: Object,
+            default: () => {
+                return { severity: 'secondary', text: true, rounded: true };
+            }
         }
     },
     style: CarouselStyle,

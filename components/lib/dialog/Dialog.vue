@@ -10,38 +10,42 @@
                                 <span v-if="header" :id="ariaLabelledById" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
                             </slot>
                             <div :class="cx('icons')" v-bind="ptm('icons')">
-                                <button
+                                <Button
                                     v-if="maximizable"
                                     :ref="maximizableRef"
-                                    v-ripple
                                     :autofocus="focusableMax"
                                     :class="cx('maximizableButton')"
                                     @click="maximize"
-                                    type="button"
                                     :tabindex="maximizable ? '0' : '-1'"
-                                    v-bind="ptm('maximizableButton')"
+                                    :unstyled="unstyled"
+                                    v-bind="maximizeButtonProps"
+                                    :pt="ptm('maximizableButton')"
                                     data-pc-group-section="headericon"
                                 >
-                                    <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
-                                        <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
-                                    </slot>
-                                </button>
-                                <button
+                                    <template #icon="slotProps">
+                                        <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
+                                            <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableButton')['icon']" />
+                                        </slot>
+                                    </template>
+                                </Button>
+                                <Button
                                     v-if="closable"
                                     :ref="closeButtonRef"
-                                    v-ripple
                                     :autofocus="focusableClose"
                                     :class="cx('closeButton')"
                                     @click="close"
                                     :aria-label="closeAriaLabel"
-                                    type="button"
-                                    v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
+                                    :unstyled="unstyled"
+                                    v-bind="closeButtonProps"
+                                    :pt="ptm('closeButton')"
                                     data-pc-group-section="headericon"
                                 >
-                                    <slot name="closeicon" :class="cx('closeButtonIcon')">
-                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
-                                    </slot>
-                                </button>
+                                    <template #icon="slotProps">
+                                        <slot name="closeicon" :class="cx('closeButtonIcon')">
+                                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon, slotProps.class]" v-bind="ptm('closeButton')['icon']"></component>
+                                        </slot>
+                                    </template>
+                                </Button>
                             </div>
                         </div>
                         <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
@@ -58,6 +62,7 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
@@ -258,10 +263,10 @@ export default {
             this.footerContainer = el;
         },
         maximizableRef(el) {
-            this.maximizableButton = el;
+            this.maximizableButton = el ? el.$el : undefined;
         },
         closeButtonRef(el) {
-            this.closeButton = el;
+            this.closeButton = el ? el.$el : undefined;
         },
         createStyle() {
             if (!this.styleElement && !this.isUnstyled) {
@@ -404,7 +409,8 @@ export default {
         focustrap: FocusTrap
     },
     components: {
-        Portal: Portal,
+        Button,
+        Portal,
         WindowMinimizeIcon,
         WindowMaximizeIcon,
         TimesIcon

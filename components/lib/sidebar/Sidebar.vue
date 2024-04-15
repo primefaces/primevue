@@ -9,11 +9,24 @@
                             <slot name="header" :class="cx('title')">
                                 <div v-if="header" :class="cx('title')" v-bind="ptm('title')">{{ header }}</div>
                             </slot>
-                            <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
-                                <slot name="closeicon" :class="cx('closeIcon')">
-                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
-                                </slot>
-                            </button>
+                            <Button
+                                v-if="showCloseIcon"
+                                :ref="closeButtonRef"
+                                type="button"
+                                :class="cx('closeButton')"
+                                :aria-label="closeAriaLabel"
+                                :unstyled="unstyled"
+                                @click="hide"
+                                v-bind="closeButtonProps"
+                                :pt="ptm('closeButton')"
+                                data-pc-group-section="iconcontainer"
+                            >
+                                <template #icon="slotProps">
+                                    <slot name="closeicon" :class="cx('closeIcon')">
+                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon, slotProps.class]" v-bind="ptm('closeButton')['icon']"></component>
+                                    </slot>
+                                </template>
+                            </Button>
                         </div>
                         <div :ref="contentRef" :class="cx('content')" v-bind="ptm('content')">
                             <slot></slot>
@@ -26,6 +39,7 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import Portal from 'primevue/portal';
@@ -155,7 +169,7 @@ export default {
             this.headerContainer = el;
         },
         closeButtonRef(el) {
-            this.closeButton = el;
+            this.closeButton = el ? el.$el : undefined;
         },
         bindDocumentKeyDownListener() {
             if (!this.documentKeydownListener) {
@@ -203,7 +217,8 @@ export default {
         ripple: Ripple
     },
     components: {
-        Portal: Portal,
+        Button,
+        Portal,
         TimesIcon
     }
 };

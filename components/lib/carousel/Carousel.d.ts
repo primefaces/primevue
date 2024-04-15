@@ -7,8 +7,9 @@
  * @module carousel
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -49,6 +50,20 @@ export interface CarouselPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface CarouselSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: CarouselProps;
+    /**
+     * Defines current inline state.
+     */
+    state: CarouselState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link CarouselProps.pt}
  */
@@ -71,12 +86,9 @@ export interface CarouselPassThroughOptions {
     container?: CarouselPassThroughOptionType;
     /**
      * Used to pass attributes to the previous button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    previousButton?: CarouselPassThroughOptionType;
-    /**
-     * Used to pass attributes to the previous button icon's DOM element.
-     */
-    previousButtonIcon?: CarouselPassThroughOptionType;
+    previousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the items content's DOM element.
      */
@@ -95,12 +107,9 @@ export interface CarouselPassThroughOptions {
     item?: CarouselPassThroughOptionType;
     /**
      * Used to pass attributes to the next button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    nextButton?: CarouselPassThroughOptionType;
-    /**
-     * Used to pass attributes to the next button icon's DOM element.
-     */
-    nextButtonIcon?: CarouselPassThroughOptionType;
+    nextButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the indicators's DOM element.
      */
@@ -288,13 +297,15 @@ export interface CarouselProps {
      */
     showIndicators?: boolean | undefined;
     /**
-     * Used to pass all properties of the HTMLButtonElement to the previous navigation button.
+     * Used to pass attributes to the previous Button component.
+     * @defaultValue { severity: 'secondary', text: true, rounded: true }
      */
-    prevButtonProps?: ButtonHTMLAttributes | undefined;
+    prevButtonProps?: object | undefined;
     /**
-     * Used to pass all properties of the HTMLButtonElement to the next navigation button.
+     * Used to pass attributes to the next Button component.
+     * @defaultValue { severity: 'secondary', text: true, rounded: true }
      */
-    nextButtonProps?: ButtonHTMLAttributes | undefined;
+    nextButtonProps?: object | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

@@ -47,8 +47,10 @@ export default {
             default: undefined
         },
         closeButtonProps: {
-            type: null,
-            default: null
+            type: Object,
+            default: () => {
+                return {};
+            }
         }
     },
     style: ToastStyle,

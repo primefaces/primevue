@@ -11,9 +11,11 @@
             </template>
             <component v-else :is="templates.message" :message="message"></component>
             <div v-if="message.closable !== false" v-bind="ptm('buttonContainer')">
-                <button v-ripple :class="cx('closeButton')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
-                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
-                </button>
+                <Button :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus :unstyled="unstyled" v-bind="closeButtonProps" :pt="{ ...ptm('button'), ...ptm('closeButton') }">
+                    <template #icon="slotProps">
+                        <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon, slotProps.class]" v-bind="{ ...ptm('buttonIcon')['icon'], ...ptm('closeIcon')['icon'] }" />
+                    </template>
+                </Button>
             </div>
         </div>
     </div>
@@ -21,6 +23,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Button from 'primevue/button';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
@@ -107,6 +110,7 @@ export default {
         }
     },
     components: {
+        Button,
         TimesIcon: TimesIcon,
         InfoCircleIcon: InfoCircleIcon,
         CheckIcon: CheckIcon,

@@ -9,6 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -47,18 +48,34 @@ export interface ScrollTopPassThroughMethodOptions {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface ScrollTopSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: ScrollTopProps;
+    /**
+     * Defines current inline state.
+     */
+    state: ScrollTopState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link ScrollTopProps.pt}
  */
 export interface ScrollTopPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the previous button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    root?: ScrollTopPassThroughOptionType;
+    root?: ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the previous button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    icon?: ScrollTopPassThroughOptionType;
+    button?: ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -112,6 +129,12 @@ export interface ScrollTopProps {
      * @defaultValue smooth
      */
     behavior?: string | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the Button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', rounded: true }
+     */
+    buttonProps?: object | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

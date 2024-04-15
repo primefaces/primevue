@@ -26,6 +26,11 @@ export default {
     flex-direction: row;
 }
 
+.p-carousel-prev-button,
+.p-carousel-next-button {
+    align-self: center;
+}
+
 .p-carousel-indicators {
     display: flex;
     flex-direction: row;

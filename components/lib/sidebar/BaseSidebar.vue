@@ -34,6 +34,12 @@ export default {
             type: Boolean,
             default: true
         },
+        closeButtonProps: {
+            type: Object,
+            default: () => {
+                return { severity: 'secondary', text: true, rounded: true };
+            }
+        },
         closeIcon: {
             type: String,
             default: undefined

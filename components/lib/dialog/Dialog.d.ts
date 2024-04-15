@@ -9,6 +9,7 @@
  */
 import { HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
@@ -43,6 +44,20 @@ export interface DialogPassThroughMethodOptions<T> {
 }
 
 /**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface DialogSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: DialogProps;
+    /**
+     * Defines current inline state.
+     */
+    state: DialogState;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link DialogProps.pt}
  */
@@ -64,21 +79,15 @@ export interface DialogPassThroughOptions<T = any> {
      */
     icons?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the maximizable button's DOM element.
+     * Used to pass attributes to the maximizable Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
-    maximizableButton?: DialogPassThroughOptionType<T>;
+    maximizableButton?: ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the maximizable icon's DOM element.
+     * Used to pass attributes to the close Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
-    maximizableIcon?: DialogPassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the close button's component.
-     */
-    closeButton?: DialogPassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the close button icon's component.
-     */
-    closeButtonIcon?: DialogPassThroughOptionType<T>;
+    closeButton?: ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -178,7 +187,7 @@ export interface DialogProps {
      */
     contentClass?: any;
     /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
@@ -279,6 +288,18 @@ export interface DialogProps {
      * @deprecated since v3.27.0. Use 'minimizeicon' slot.
      */
     minimizeIcon?: string | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the Button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', rounded: true, text: true }
+     */
+    closeButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the Button component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary', rounded: true, text: true }
+     */
+    maximizeButtonProps?: object | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
