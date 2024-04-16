@@ -171,7 +171,7 @@ export interface SplitButtonProps {
     /**
      * Defines the style of the button.
      */
-    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | 'contrast'> | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warn' | 'help' | 'danger' | 'contrast'> | undefined;
     /**
      * Add a shadow to indicate elevation.
      * @defaultValue false

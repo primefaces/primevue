@@ -35,7 +35,7 @@ export default {
         },
         badgeSeverity: {
             type: String,
-            default: 'warning'
+            default: 'warn'
         },
         badgeValue: {
             type: String,

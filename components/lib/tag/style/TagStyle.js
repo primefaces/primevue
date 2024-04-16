@@ -6,7 +6,7 @@ const classes = {
         {
             'p-tag-info': props.severity === 'info',
             'p-tag-success': props.severity === 'success',
-            'p-tag-warn': props.severity === 'warning',
+            'p-tag-warn': props.severity === 'warn',
             'p-tag-danger': props.severity === 'danger',
             'p-tag-secondary': props.severity === 'secondary',
             'p-tag-contrast': props.severity === 'contrast',

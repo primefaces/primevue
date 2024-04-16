@@ -57,7 +57,7 @@ const ButtonProps = [
         name: 'severity',
         type: 'string',
         default: 'null',
-        description: 'Defines the style of the button, valid values are "secondary", "success", "info", "warning", "help", "danger", "contrast".'
+        description: 'Defines the style of the button, valid values are "secondary", "success", "info", "warn", "help", "danger", "contrast".'
     },
     {
         name: 'raised',

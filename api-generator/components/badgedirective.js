@@ -8,7 +8,7 @@ const BadgeDirectiveModifiers = [
         description: 'Default color for severity levels'
     },
     {
-        name: 'warning',
+        name: 'warn',
         description: 'Overrides default severity color'
     },
     {

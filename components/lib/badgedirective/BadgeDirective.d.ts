@@ -95,10 +95,10 @@ export interface BadgeContext {
      */
     success: boolean;
     /**
-     * Current warning state as a boolean.
+     * Current warn state as a boolean.
      * @defaultValue false
      */
-    warning: boolean;
+    warn: boolean;
     /**
      * Current danger state as a boolean.
      * @defaultValue false
@@ -129,10 +129,10 @@ export interface BadgeDirectiveModifiers {
      */
     success?: boolean | undefined;
     /**
-     * Warning severity for Badge directive.
+     * warn severity for Badge directive.
      *  @defaultValue false
      */
-    warning?: boolean | undefined;
+    warn?: boolean | undefined;
     /**
      * Danger severity for Badge directive.
      *  @defaultValue false

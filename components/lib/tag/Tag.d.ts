@@ -82,7 +82,7 @@ export interface TagProps {
     /**
      * Severity type of the tag.
      */
-    severity?: HintedString<'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'contrast'> | undefined;
+    severity?: HintedString<'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast'> | undefined;
     /**
      * Whether the corners of the tag are rounded.
      * @defaultValue false

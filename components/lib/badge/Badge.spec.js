@@ -9,14 +9,14 @@ describe('Badge.vue', () => {
         wrapper = mount(Badge, {
             props: {
                 value: '29',
-                severity: 'warning',
+                severity: 'warn',
                 size: 'large'
             }
         });
     });
     it('should exist', () => {
         expect(wrapper.find('.p-badge.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-badge-warning').exists()).toBe(true);
+        expect(wrapper.find('.p-badge-warn').exists()).toBe(true);
         expect(wrapper.find('.p-badge-lg').exists()).toBe(true);
         expect(wrapper.find('.p-badge-no-gutter').exists()).toBe(false);
 

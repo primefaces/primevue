@@ -175,25 +175,25 @@ export default {
     outline-color: ${dt('button.info.background')};
 }
 
-.p-button-warning {
+.p-button-warn {
     background: ${dt('button.warn.background')};
     border: 1px solid ${dt('button.warn.border.color')};
     color: ${dt('button.warn.color')};
 }
 
-.p-button-warning:not(:disabled):hover {
+.p-button-warn:not(:disabled):hover {
     background: ${dt('button.warn.hover.background')};
     border: 1px solid ${dt('button.warn.hover.border.color')};
     color: ${dt('button.warn.hover.color')};
 }
 
-.p-button-warning:not(:disabled):active {
+.p-button-warn:not(:disabled):active {
     background: ${dt('button.warn.active.background')};
     border: 1px solid ${dt('button.warn.active.border.color')};
     color: ${dt('button.warn.active.color')};
 }
 
-.p-button-warning:focus-visible {
+.p-button-warn:focus-visible {
     background: ${dt('button.warn.background')};
 }
 
@@ -334,18 +334,18 @@ export default {
     color: ${dt('button.outlined.info.color')};
 }
 
-.p-button-outlined.p-button-warning {
+.p-button-outlined.p-button-warn {
     border-color: ${dt('button.outlined.warn.border.color')};
     color: ${dt('button.outlined.warn.color')};
 }
 
-.p-button-outlined.p-button-warning:not(:disabled):hover {
+.p-button-outlined.p-button-warn:not(:disabled):hover {
     background: ${dt('button.outlined.warn.hover.background')};
     border-color: ${dt('button.outlined.warn.border.color')};
     color: ${dt('button.outlined.warn.color')};
 }
 
-.p-button-outlined.p-button-warning:not(:disabled):active {
+.p-button-outlined.p-button-warn:not(:disabled):active {
     background: ${dt('button.outlined.warn.active.background')};
     border-color: ${dt('button.outlined.warn.border.color')};
     color: ${dt('button.outlined.warn.color')};
@@ -492,19 +492,19 @@ export default {
     color: ${dt('button.text.info.color')};
 }
 
-.p-button-text.p-button-warning {
+.p-button-text.p-button-warn {
     background: transparent;
     border-color: transparent;
     color: ${dt('button.text.warn.color')};
 }
 
-.p-button-text.p-button-warning:not(:disabled):hover {
+.p-button-text.p-button-warn:not(:disabled):hover {
     background: ${dt('button.text.warn.hover.background')};
     border-color: transparent;
     color: ${dt('button.text.warn.color')};
 }
 
-.p-button-text.p-button-warning:not(:disabled):active {
+.p-button-text.p-button-warn:not(:disabled):active {
     background: ${dt('button.text.warn.active.background')};
     border-color: transparent;
     color: ${dt('button.text.warn.color')};
