@@ -19,7 +19,20 @@ export function useStyle(css, options = {}) {
     const styleRef = ref(null);
 
     const defaultDocument = DomHandler.isClient() ? window.document : undefined;
-    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined, nonce = undefined, first = false, onLoad = undefined, props = {} } = options;
+    const {
+        document = defaultDocument,
+        immediate = true,
+        manual = false,
+        name = `style_${++_id}`,
+        id = undefined,
+        media = undefined,
+        nonce = undefined,
+        first = false,
+        onMounted: onStyleMounted = undefined,
+        onUpdated: onStyleUpdated = undefined,
+        onLoad: onStyleLoaded = undefined,
+        props = {}
+    } = options;
 
     let stop = () => {};
 
@@ -42,9 +55,10 @@ export function useStyle(css, options = {}) {
                 nonce: _nonce
             });
             first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
-            DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', name);
+            DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             DomHandler.setAttributes(styleRef.value, _styleProps);
-            styleRef.value.onload = onLoad;
+            styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
+            onStyleMounted?.(_name);
         }
 
         if (isLoaded.value) return;
@@ -53,6 +67,7 @@ export function useStyle(css, options = {}) {
             cssRef,
             (value) => {
                 styleRef.value.textContent = value;
+                onStyleUpdated?.(_name);
             },
             { immediate: true }
         );

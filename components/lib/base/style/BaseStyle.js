@@ -40,7 +40,9 @@ export default {
         return css ? useStyle(ObjectUtils.minifyCSS(css), { name: this.name, ...options }) : {};
     },
     loadTheme(theme, options = {}) {
-        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options }) : {};
+        const callbacks = { onMounted: (name) => Theme.onStyleMounted(name), onUpdated: (name) => Theme.onStyleUpdated(name), onLoad: (event, options) => Theme.onStyleLoaded(event, options) };
+
+        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options, ...callbacks }) : {};
     },
     getCommonThemeCSS(params) {
         return Theme.getCommonCSS(this.name, params);

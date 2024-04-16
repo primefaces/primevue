@@ -16,6 +16,7 @@ export default {
     _theme: undefined,
     _layerNames: new Set(),
     _loadedStyleNames: new Set(),
+    _loadingStyles: new Set(),
     _tokens: {},
     update(newValues = {}) {
         const { theme } = newValues;
@@ -121,5 +122,19 @@ export default {
     },
     getStyleSheet(name, params, props = {}) {
         return ThemeUtils.getStyleSheet({ name, theme: this.theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });
+    },
+    onStyleMounted(name) {
+        this._loadingStyles.add(name);
+    },
+    onStyleUpdated(name) {
+        this._loadingStyles.add(name);
+    },
+    onStyleLoaded(event, { name }) {
+        if (this._loadingStyles.size) {
+            this._loadingStyles.delete(name);
+
+            ThemeService.emit(`theme:${name}:load`, event); // Exp: ThemeService.emit('theme:panel-style:load', event)
+            !this._loadingStyles.size && ThemeService.emit('theme:load');
+        }
     }
 };
