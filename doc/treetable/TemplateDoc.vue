@@ -21,7 +21,7 @@
                 </Column>
                 <template #footer>
                     <div class="flex justify-content-start">
-                        <Button icon="pi pi-refresh" label="Reload" severity="warning" />
+                        <Button icon="pi pi-refresh" label="Reload" severity="warn" />
                     </div>
                 </template>
             </TreeTable>
@@ -56,7 +56,7 @@ export default {
     </Column>
     <template #footer>
         <div class="flex justify-content-start">
-            <Button icon="pi pi-refresh" label="Reload" severity="warning" />
+            <Button icon="pi pi-refresh" label="Reload" severity="warn" />
         </div>
     </template>
 </TreeTable>
@@ -81,7 +81,7 @@ export default {
             </Column>
             <template #footer>
                 <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
+                    <Button icon="pi pi-refresh" label="Reload" severity="warn" />
                 </div>
             </template>
         </TreeTable>
@@ -123,7 +123,7 @@ export default {
             </Column>
             <template #footer>
                 <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
+                    <Button icon="pi pi-refresh" label="Reload" severity="warn" />
                 </div>
             </template>
         </TreeTable>

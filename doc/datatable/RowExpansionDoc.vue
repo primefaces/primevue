@@ -239,7 +239,7 @@ export default {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';
@@ -257,7 +257,7 @@ export default {
                     return 'danger';
 
                 case 'PENDING':
-                    return 'warning';
+                    return 'warn';
 
                 case 'RETURNED':
                     return 'info';
@@ -368,7 +368,7 @@ const getSeverity = (product) => {
             return 'success';
 
         case 'LOWSTOCK':
-            return 'warning';
+            return 'warn';
 
         case 'OUTOFSTOCK':
             return 'danger';
@@ -386,7 +386,7 @@ const getOrderSeverity = (order) => {
             return 'danger';
 
         case 'PENDING':
-            return 'warning';
+            return 'warn';
 
         case 'RETURNED':
             return 'info';
@@ -453,7 +453,7 @@ const getOrderSeverity = (order) => {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';
@@ -471,7 +471,7 @@ const getOrderSeverity = (order) => {
                     return 'danger';
 
                 case 'PENDING':
-                    return 'warning';
+                    return 'warn';
 
                 case 'RETURNED':
                     return 'info';

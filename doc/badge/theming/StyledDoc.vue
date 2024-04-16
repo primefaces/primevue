@@ -32,7 +32,7 @@
                     <td>Badge element with info severity.</td>
                 </tr>
                 <tr>
-                    <td>p-badge-warning</td>
+                    <td>p-badge-warn</td>
                     <td>Badge element with warning severity.</td>
                 </tr>
                 <tr>

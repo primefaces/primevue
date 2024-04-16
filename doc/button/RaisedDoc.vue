@@ -7,7 +7,7 @@
         <Button label="Secondary" severity="secondary" raised />
         <Button label="Success" severity="success" raised />
         <Button label="Info" severity="info" raised />
-        <Button label="Warning" severity="warning" raised />
+        <Button label="Warning" severity="warn" raised />
         <Button label="Help" severity="help" raised />
         <Button label="Danger" severity="danger" raised />
         <Button label="Contrast" severity="contrast" raised />
@@ -25,7 +25,7 @@ export default {
 <Button label="Secondary" severity="secondary" raised />
 <Button label="Success" severity="success" raised />
 <Button label="Info" severity="info" raised />
-<Button label="Warning" severity="warning" raised />
+<Button label="Warning" severity="warn" raised />
 <Button label="Help" severity="help" raised />
 <Button label="Danger" severity="danger" raised />
 <Button label="Contrast" severity="contrast" raised />
@@ -37,7 +37,7 @@ export default {
         <Button label="Secondary" severity="secondary" raised />
         <Button label="Success" severity="success" raised />
         <Button label="Info" severity="info" raised />
-        <Button label="Warning" severity="warning" raised />
+        <Button label="Warning" severity="warn" raised />
         <Button label="Help" severity="help" raised />
         <Button label="Danger" severity="danger" raised />
         <Button label="Contrast" severity="contrast" raised />
@@ -54,7 +54,7 @@ export default {
         <Button label="Secondary" severity="secondary" raised />
         <Button label="Success" severity="success" raised />
         <Button label="Info" severity="info" raised />
-        <Button label="Warning" severity="warning" raised />
+        <Button label="Warning" severity="warn" raised />
         <Button label="Help" severity="help" raised />
         <Button label="Danger" severity="danger" raised />
         <Button label="Contrast" severity="contrast" raised />

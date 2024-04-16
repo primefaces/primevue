@@ -103,7 +103,7 @@ export default {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';
@@ -158,7 +158,7 @@ const getSeverity = (status) => {
             return 'success';
 
         case 'LOWSTOCK':
-            return 'warning';
+            return 'warn';
 
         case 'OUTOFSTOCK':
             return 'danger';
@@ -198,7 +198,7 @@ const getSeverity = (status) => {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';

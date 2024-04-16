@@ -26,7 +26,7 @@
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
-                            <Badge value="Pending" severity="warning" />
+                            <Badge value="Pending" severity="warn" />
                             <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" outlined rounded severity="danger" />
                         </div>
                     </div>
@@ -90,7 +90,7 @@ export default {
                     </div>
                     <span class="font-semibold">{{ file.name }}</span>
                     <div>{{ formatSize(file.size) }}</div>
-                    <Badge value="Pending" severity="warning" />
+                    <Badge value="Pending" severity="warn" />
                     <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" outlined rounded  severity="danger" />
                 </div>
             </div>
@@ -146,7 +146,7 @@ export default {
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
-                            <Badge value="Pending" severity="warning" />
+                            <Badge value="Pending" severity="warn" />
                             <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" outlined rounded  severity="danger" />
                         </div>
                     </div>
@@ -255,7 +255,7 @@ export default {
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
-                            <Badge value="Pending" severity="warning" />
+                            <Badge value="Pending" severity="warn" />
                             <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" outlined rounded  severity="danger" />
                         </div>
                     </div>

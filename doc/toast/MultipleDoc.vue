@@ -3,7 +3,7 @@
         <p>Multiple messages are displayed by passing an array to the <i>show</i> method.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button label="Multiple" severity="warning" @click="showMultiple()" />
+        <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,13 +15,13 @@ export default {
             code: {
                 basic: `
 <Toast />
-<Button label="Multiple" severity="warning" @click="showMultiple()" />
+<Button label="Multiple" severity="warn" @click="showMultiple()" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <Button label="Multiple" severity="warning" @click="showMultiple()" />
+        <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <Button label="Multiple" severity="warning" @click="showMultiple()" />
+        <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>
 </template>
 

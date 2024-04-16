@@ -150,7 +150,7 @@ export default {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';
@@ -227,7 +227,7 @@ const getSeverity = (status) => {
             return 'success';
 
         case 'LOWSTOCK':
-            return 'warning';
+            return 'warn';
 
         case 'OUTOFSTOCK':
             return 'danger';
@@ -239,7 +239,7 @@ const getSeverity = (status) => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',
@@ -266,7 +266,7 @@ const getSeverity = (status) => {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';

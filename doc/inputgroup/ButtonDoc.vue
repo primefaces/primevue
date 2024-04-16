@@ -10,7 +10,7 @@
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warning" />
+            <Button icon="pi pi-search" severity="warn" />
         </InputGroup>
 
         <InputGroup>
@@ -35,7 +35,7 @@ export default {
 
 <InputGroup>
     <InputText placeholder="Keyword" />
-    <Button icon="pi pi-search" severity="warning" />
+    <Button icon="pi pi-search" severity="warn" />
 </InputGroup>
 
 <InputGroup>
@@ -54,7 +54,7 @@ export default {
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warning" />
+            <Button icon="pi pi-search" severity="warn" />
         </InputGroup>
 
         <InputGroup>
@@ -75,7 +75,7 @@ export default {
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warning" />
+            <Button icon="pi pi-search" severity="warn" />
         </InputGroup>
 
         <InputGroup>

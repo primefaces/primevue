@@ -525,7 +525,7 @@ export default {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';
@@ -811,7 +811,7 @@ const getStatusLabel = (status) => {
             return 'success';
 
         case 'LOWSTOCK':
-            return 'warning';
+            return 'warn';
 
         case 'OUTOFSTOCK':
             return 'danger';
@@ -941,7 +941,7 @@ const getStatusLabel = (status) => {
                     return 'success';
 
                 case 'LOWSTOCK':
-                    return 'warning';
+                    return 'warn';
 
                 case 'OUTOFSTOCK':
                     return 'danger';

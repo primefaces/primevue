@@ -7,7 +7,7 @@
         <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
         <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
         <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warning"></Tag>
         <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
         <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
     </div>
@@ -24,7 +24,7 @@ export default {
 <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
 <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
 <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-<Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+<Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warning"></Tag>
 <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
 <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
 `,
@@ -35,7 +35,7 @@ export default {
         <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
         <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
         <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warning"></Tag>
         <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
         <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
     </div>
@@ -52,7 +52,7 @@ export default {
         <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
         <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
         <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warning"></Tag>
         <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
         <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
     </div>

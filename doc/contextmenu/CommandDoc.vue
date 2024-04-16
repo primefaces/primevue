@@ -162,7 +162,7 @@ export default {
         },
         getBadge(user) {
             if (user.role === 'Member') return 'info';
-            else if (user.role === 'Guest') return 'warning';
+            else if (user.role === 'Guest') return 'warn';
             else return null;
         }
     }
@@ -237,7 +237,7 @@ const items = ref([
             toast.add({ severity: 'success', summary: 'Success', detail: 'Invitation sent!', life: 3000 });
         }
     }
-]);        
+]);
 
 const onRightClick = (event, user) => {
     selectedUser.value = user;
@@ -246,7 +246,7 @@ const onRightClick = (event, user) => {
 
 const getBadge = (user) => {
     if (user.role === 'Member') return 'info';
-    else if (user.role === 'Guest') return 'warning';
+    else if (user.role === 'Guest') return 'warn';
     else return null;
 }
 <\/script>
@@ -261,7 +261,7 @@ const getBadge = (user) => {
         },
         getBadge(user) {
             if (user.role === 'Member') return 'info';
-            else if (user.role === 'Guest') return 'warning';
+            else if (user.role === 'Guest') return 'warn';
             else return null;
         }
     }

@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center align-items-end gap-2">
         <Badge value="6" size="xlarge" severity="success"></Badge>
-        <Badge value="4" size="large" severity="warning"></Badge>
+        <Badge value="4" size="large" severity="warn"></Badge>
         <Badge value="2"></Badge>
     </div>
     <DocSectionCode :code="code" />
@@ -17,14 +17,14 @@ export default {
             code: {
                 basic: `
 <Badge value="6" size="xlarge" severity="success"></Badge>
-<Badge value="4" size="large" severity="warning"></Badge>
+<Badge value="4" size="large" severity="warn"></Badge>
 <Badge value="2"></Badge>
 `,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center align-items-end gap-2">
         <Badge value="6" size="xlarge" severity="success"></Badge>
-        <Badge value="4" size="large" severity="warning"></Badge>
+        <Badge value="4" size="large" severity="warn"></Badge>
         <Badge value="2"></Badge>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
 <template>
     <div class="card flex flex-wrap justify-content-center align-items-end gap-2">
         <Badge value="6" size="xlarge" severity="success"></Badge>
-        <Badge value="4" size="large" severity="warning"></Badge>
+        <Badge value="4" size="large" severity="warn"></Badge>
         <Badge value="2"></Badge>
     </div>
 </template>

@@ -169,7 +169,7 @@ export default {
                     return 'info';
 
                 case 'negotiation':
-                    return 'warning';
+                    return 'warn';
 
                 case 'renewal':
                     return null;
@@ -257,7 +257,7 @@ const getSeverity = (status) => {
             return 'info';
 
         case 'negotiation':
-            return 'warning';
+            return 'warn';
 
         case 'renewal':
             return null;
@@ -323,7 +323,7 @@ const getSeverity = (status) => {
                     return 'info';
 
                 case 'negotiation':
-                    return 'warning';
+                    return 'warn';
 
                 case 'renewal':
                     return null;
