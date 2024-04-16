@@ -68,12 +68,12 @@ export default {
         };
     },
     watch: {
-        '$attrs.name': {
-            immediate: true,
-            handler: function (newValue) {
-                this.name = newValue || UniqueComponentId();
-            }
+        '$attrs.name': function (newValue) {
+            this.name = newValue || UniqueComponentId();
         }
+    },
+    mounted() {
+        this.name = this.name || UniqueComponentId();
     },
     methods: {
         getPTOptions(key, value) {

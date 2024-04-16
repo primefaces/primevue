@@ -286,11 +286,8 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         }
     },
     overlay: null,
@@ -308,6 +305,8 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.filters && this.filters[this.field]) {
             let fieldFilters = this.filters[this.field];
 

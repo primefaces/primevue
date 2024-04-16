@@ -78,17 +78,16 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         },
         visible(newValue) {
             this.d_visible = newValue;
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');

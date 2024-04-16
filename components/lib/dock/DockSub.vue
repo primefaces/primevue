@@ -106,12 +106,12 @@ export default {
         };
     },
     watch: {
-        menuId: {
-            immediate: true,
-            handler(newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        menuId(newValue) {
+            this.id = newValue || UniqueComponentId();
         }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         getItemId(index) {
