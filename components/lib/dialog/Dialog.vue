@@ -93,11 +93,8 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         }
     },
     documentKeydownListener: null,
@@ -132,6 +129,8 @@ export default {
         this.mask = null;
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.breakpoints) {
             this.createStyle();
         }

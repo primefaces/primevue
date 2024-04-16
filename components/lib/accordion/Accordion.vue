@@ -73,15 +73,15 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': {
-            immediate: true,
-            handler: function (newValue) {
-                this.id = newValue || UniqueComponentId();
-            }
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         },
         activeIndex(newValue) {
             this.d_activeIndex = newValue;
         }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         isAccordionTab(child) {
