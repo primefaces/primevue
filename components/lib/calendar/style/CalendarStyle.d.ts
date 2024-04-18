@@ -1,3 +1,3 @@
-import { BaseStyle } from '../../base/style';
+import { DatePickerStyle } from '../../datepicker/style/DatePickerStyle';
 
-export interface CalendarStyle extends BaseStyle {}
+export interface CalendarStyle extends DatePickerStyle {}

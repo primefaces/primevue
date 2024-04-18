@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import CalendarStyle from 'primevue/calendar/style';
+import DatePickerStyle from 'primevue/datepicker/style';
 
 export default {
-    name: 'BaseCalendar',
+    name: 'BaseDatePicker',
     extends: BaseComponent,
     props: {
         modelValue: null,
@@ -249,7 +249,7 @@ export default {
             default: null
         }
     },
-    style: CalendarStyle,
+    style: DatePickerStyle,
     provide() {
         return {
             $parentInstance: this

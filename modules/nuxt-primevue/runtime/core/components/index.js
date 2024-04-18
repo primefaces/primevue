@@ -5,10 +5,12 @@ const form = [
     'Checkbox',
     'Chips',
     'ColorPicker',
+    'DatePicker',
     'Dropdown',
     'Editor',
     'FloatLabel',
     'IconField',
+    'InputChips',
     'InputGroup',
     'InputGroupAddon',
     'InputIcon',
@@ -23,10 +25,12 @@ const form = [
     'Password',
     'RadioButton',
     'Rating',
+    'Select',
     'SelectButton',
     'Slider',
     'Textarea',
     'ToggleButton',
+    'ToggleSwitch',
     'TreeSelect'
 ];
 
@@ -36,7 +40,16 @@ const data = ['Column', 'Row', 'ColumnGroup', 'DataTable', 'DataView', 'OrderLis
 
 const panel = ['Accordion', 'AccordionTab', 'Card', 'DeferredContent', 'Divider', 'Fieldset', 'Panel', 'ScrollPanel', 'Splitter', 'SplitterPanel', 'Stepper', 'StepperPanel', 'TabView', 'TabPanel', 'Toolbar'];
 
-const overlay = [{ name: 'ConfirmDialog', use: { as: 'ConfirmationService' } }, { name: 'ConfirmPopup', use: { as: 'ConfirmationService' } }, 'Dialog', { name: 'DynamicDialog', use: { as: 'DialogService' } }, 'OverlayPanel', 'Sidebar'];
+const overlay = [
+    { name: 'ConfirmDialog', use: { as: 'ConfirmationService' } },
+    { name: 'ConfirmPopup', use: { as: 'ConfirmationService' } },
+    'Dialog',
+    'Drawer',
+    { name: 'DynamicDialog', use: { as: 'DialogService' } },
+    'OverlayPanel',
+    'Popover',
+    'Sidebar'
+];
 
 const file = ['FileUpload'];
 

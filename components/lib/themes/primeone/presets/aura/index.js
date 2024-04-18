@@ -6,23 +6,22 @@ import blockui from 'primevue/themes/primeone/presets/aura/blockui';
 import breadcrumb from 'primevue/themes/primeone/presets/aura/breadcrumb';
 import button from 'primevue/themes/primeone/presets/aura/button';
 import buttongroup from 'primevue/themes/primeone/presets/aura/buttongroup';
-import calendar from 'primevue/themes/primeone/presets/aura/calendar';
 import card from 'primevue/themes/primeone/presets/aura/card';
 import carousel from 'primevue/themes/primeone/presets/aura/carousel';
 import cascadeselect from 'primevue/themes/primeone/presets/aura/cascadeselect';
 import checkbox from 'primevue/themes/primeone/presets/aura/checkbox';
 import chip from 'primevue/themes/primeone/presets/aura/chip';
-import chips from 'primevue/themes/primeone/presets/aura/chips';
 import colorpicker from 'primevue/themes/primeone/presets/aura/colorpicker';
 import confirmdialog from 'primevue/themes/primeone/presets/aura/confirmdialog';
 import confirmpopup from 'primevue/themes/primeone/presets/aura/confirmpopup';
 import contextmenu from 'primevue/themes/primeone/presets/aura/contextmenu';
 import datatable from 'primevue/themes/primeone/presets/aura/datatable';
 import dataview from 'primevue/themes/primeone/presets/aura/dataview';
+import datepicker from 'primevue/themes/primeone/presets/aura/datepicker';
 import dialog from 'primevue/themes/primeone/presets/aura/dialog';
 import divider from 'primevue/themes/primeone/presets/aura/divider';
 import dock from 'primevue/themes/primeone/presets/aura/dock';
-import dropdown from 'primevue/themes/primeone/presets/aura/dropdown';
+import drawer from 'primevue/themes/primeone/presets/aura/drawer';
 import editor from 'primevue/themes/primeone/presets/aura/editor';
 import fieldset from 'primevue/themes/primeone/presets/aura/fieldset';
 import fileupload from 'primevue/themes/primeone/presets/aura/fileupload';
@@ -32,10 +31,10 @@ import iconfield from 'primevue/themes/primeone/presets/aura/iconfield';
 import image from 'primevue/themes/primeone/presets/aura/image';
 import inlinemessage from 'primevue/themes/primeone/presets/aura/inlinemessage';
 import inplace from 'primevue/themes/primeone/presets/aura/inplace';
+import inputchips from 'primevue/themes/primeone/presets/aura/inputchips';
 import inputgroup from 'primevue/themes/primeone/presets/aura/inputgroup';
 import inputnumber from 'primevue/themes/primeone/presets/aura/inputnumber';
 import inputotp from 'primevue/themes/primeone/presets/aura/inputotp';
-import inputswitch from 'primevue/themes/primeone/presets/aura/inputswitch';
 import inputtext from 'primevue/themes/primeone/presets/aura/inputtext';
 import knob from 'primevue/themes/primeone/presets/aura/knob';
 import listbox from 'primevue/themes/primeone/presets/aura/listbox';
@@ -47,20 +46,20 @@ import metergroup from 'primevue/themes/primeone/presets/aura/metergroup';
 import multiselect from 'primevue/themes/primeone/presets/aura/multiselect';
 import orderlist from 'primevue/themes/primeone/presets/aura/orderlist';
 import organizationchart from 'primevue/themes/primeone/presets/aura/organizationchart';
-import overlaypanel from 'primevue/themes/primeone/presets/aura/overlaypanel';
 import paginator from 'primevue/themes/primeone/presets/aura/paginator';
 import panel from 'primevue/themes/primeone/presets/aura/panel';
 import panelmenu from 'primevue/themes/primeone/presets/aura/panelmenu';
 import password from 'primevue/themes/primeone/presets/aura/password';
 import picklist from 'primevue/themes/primeone/presets/aura/picklist';
+import popover from 'primevue/themes/primeone/presets/aura/popover';
 import progressbar from 'primevue/themes/primeone/presets/aura/progressbar';
 import progressspinner from 'primevue/themes/primeone/presets/aura/progressspinner';
 import radiobutton from 'primevue/themes/primeone/presets/aura/radiobutton';
 import rating from 'primevue/themes/primeone/presets/aura/rating';
 import scrollpanel from 'primevue/themes/primeone/presets/aura/scrollpanel';
 import scrolltop from 'primevue/themes/primeone/presets/aura/scrolltop';
+import select from 'primevue/themes/primeone/presets/aura/select';
 import selectbutton from 'primevue/themes/primeone/presets/aura/selectbutton';
-import sidebar from 'primevue/themes/primeone/presets/aura/sidebar';
 import skeleton from 'primevue/themes/primeone/presets/aura/skeleton';
 import slider from 'primevue/themes/primeone/presets/aura/slider';
 import speeddial from 'primevue/themes/primeone/presets/aura/speeddial';
@@ -77,6 +76,7 @@ import tieredmenu from 'primevue/themes/primeone/presets/aura/tieredmenu';
 import timeline from 'primevue/themes/primeone/presets/aura/timeline';
 import toast from 'primevue/themes/primeone/presets/aura/toast';
 import togglebutton from 'primevue/themes/primeone/presets/aura/togglebutton';
+import toggleswitch from 'primevue/themes/primeone/presets/aura/toggleswitch';
 import toolbar from 'primevue/themes/primeone/presets/aura/toolbar';
 import tooltip from 'primevue/themes/primeone/presets/aura/tooltip';
 import tree from 'primevue/themes/primeone/presets/aura/tree';
@@ -240,13 +240,12 @@ export default {
         breadcrumb,
         button,
         buttongroup,
-        calendar,
+        datepicker,
         card,
         carousel,
         cascadeselect,
         checkbox,
         chip,
-        chips,
         colorpicker,
         confirmdialog,
         confirmpopup,
@@ -256,7 +255,7 @@ export default {
         dialog,
         divider,
         dock,
-        dropdown,
+        drawer,
         editor,
         fieldset,
         fileupload,
@@ -266,10 +265,11 @@ export default {
         image,
         inlinemessage,
         inplace,
+        inputchips,
         inputgroup,
         inputnumber,
         inputotp,
-        inputswitch,
+        toggleswitch,
         inputtext,
         knob,
         listbox,
@@ -281,7 +281,7 @@ export default {
         multiselect,
         orderlist,
         organizationchart,
-        overlaypanel,
+        popover,
         paginator,
         password,
         panel,
@@ -293,9 +293,9 @@ export default {
         rating,
         scrollpanel,
         scrolltop,
+        select,
         selectbutton,
         skeleton,
-        sidebar,
         slider,
         speeddial,
         splitter,

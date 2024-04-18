@@ -98,10 +98,12 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/contextmenu/style': 'primevue.contextmenu.style',
     'primevue/datatable/style': 'primevue.datatable.style',
     'primevue/dataview/style': 'primevue.dataview.style',
+    'primevue/datepicker/style': 'primevue.datepicker.style',
     'primevue/deferredcontent/style': 'primevue.deferredcontent.style',
     'primevue/dialog/style': 'primevue.dialog.style',
     'primevue/divider/style': 'primevue.divider.style',
     'primevue/dock/style': 'primevue.dock.style',
+    'primevue/drawer/style': 'primevue.drawer.style',
     'primevue/dropdown/style': 'primevue.dropdown.style',
     'primevue/dynamicdialog/style': 'primevue.dynamicdialog.style',
     'primevue/editor/style': 'primevue.editor.style',
@@ -112,6 +114,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/image/style': 'primevue.image.style',
     'primevue/inlinemessage/style': 'primevue.inlinemessage.style',
     'primevue/inplace/style': 'primevue.inplace.style',
+    'primevue/inputchips/style': 'primevue.inputchips.style',
     'primevue/inputgroup/style': 'primevue.inputgroup.style',
     'primevue/inputgroupaddon/style': 'primevue.inputgroupaddon.style',
     'primevue/inputmask/style': 'primevue.inputmask.style',
@@ -135,6 +138,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/panelmenu/style': 'primevue.panelmenu.style',
     'primevue/password/style': 'primevue.password.style',
     'primevue/picklist/style': 'primevue.picklist.style',
+    'primevue/popover/style': 'primevue.popover.style',
     'primevue/portal/style': 'primevue.portal.style',
     'primevue/progressbar/style': 'primevue.progressbar.style',
     'primevue/progressspinner/style': 'primevue.progressspinner.style',
@@ -144,6 +148,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/row/style': 'primevue.row.style',
     'primevue/scrollpanel/style': 'primevue.scrollpanel.style',
     'primevue/scrolltop/style': 'primevue.scrolltop.style',
+    'primevue/select/style': 'primevue.select.style',
     'primevue/selectbutton/style': 'primevue.selectbutton.style',
     'primevue/sidebar/style': 'primevue.sidebar.style',
     'primevue/skeleton/style': 'primevue.skeleton.style',
@@ -166,6 +171,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/timeline/style': 'primevue.timeline.style',
     'primevue/toast/style': 'primevue.toast.style',
     'primevue/togglebutton/style': 'primevue.togglebutton.style',
+    'primevue/toggleswitch/style': 'primevue.toggleswitch.style',
     'primevue/toolbar/style': 'primevue.toolbar.style',
     'primevue/tooltip/style': 'primevue.tooltip.style',
     'primevue/tree/style': 'primevue.tree.style',
@@ -175,7 +181,7 @@ const CORE_STYLE_DEPENDENCIES = {
 };
 
 // prettier-ignore
-const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','calendar','card','carousel','cascadeselect','checkbox','chip','chips','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','dialog','divider','dock','dropdown','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputgroup','inputnumber','inputotp','inputswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','selectbutton','sidebar','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toolbar','tooltip','tree','treeselect','treetable'];
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','toggleswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
 const createThemeDependencies = (design, presets) => {
     const baseDeps = THEME_COMPONENTS.reduce((acc, name) => {
@@ -267,6 +273,12 @@ const CORE_DEPENDENCIES = {
     'primevue/listbox': 'primevue.listbox',
     'primevue/chip': 'primevue.chip',
     'primevue/togglebutton': 'primevue.togglebutton',
+    'primevue/popover': 'primevue.popover',
+    'primevue/toggleswitch': 'primevue.toggleswitch',
+    'primevue/inputchips': 'primevue.inputchips',
+    'primevue/drawer': 'primevue.drawer',
+    'primevue/datepicker': 'primevue.datepicker',
+    'primevue/select': 'primevue.select',
     ...CORE_PASSTHROUGH_DEPENDENCIES,
     ...CORE_THEME_DEPENDENCIES
 };

@@ -34,10 +34,12 @@ const STYLE_ALIAS = {
     'primevue/contextmenu/style': path.resolve(__dirname, './components/lib/contextmenu/style/ContextMenuStyle.js'),
     'primevue/datatable/style': path.resolve(__dirname, './components/lib/datatable/style/DataTableStyle.js'),
     'primevue/dataview/style': path.resolve(__dirname, './components/lib/dataview/style/DataViewStyle.js'),
+    'primevue/datepicker/style': path.resolve(__dirname, './components/lib/datepicker/style/DatePickerStyle.js'),
     'primevue/deferredcontent/style': path.resolve(__dirname, './components/lib/deferredcontent/style/DeferredContentStyle.js'),
     'primevue/dialog/style': path.resolve(__dirname, './components/lib/dialog/style/DialogStyle.js'),
     'primevue/divider/style': path.resolve(__dirname, './components/lib/divider/style/DividerStyle.js'),
     'primevue/dock/style': path.resolve(__dirname, './components/lib/dock/style/DockStyle.js'),
+    'primevue/drawer/style': path.resolve(__dirname, './components/lib/drawer/style/DrawerStyle.js'),
     'primevue/dropdown/style': path.resolve(__dirname, './components/lib/dropdown/style/DropdownStyle.js'),
     'primevue/dynamicdialog/style': path.resolve(__dirname, './components/lib/dynamicdialog/style/DynamicDialogStyle.js'),
     'primevue/editor/style': path.resolve(__dirname, './components/lib/editor/style/EditorStyle.js'),
@@ -50,6 +52,7 @@ const STYLE_ALIAS = {
     'primevue/iconfield/style': path.resolve(__dirname, './components/lib/iconfield/style/IconFieldStyle.js'),
     'primevue/inlinemessage/style': path.resolve(__dirname, './components/lib/inlinemessage/style/InlineMessageStyle.js'),
     'primevue/inplace/style': path.resolve(__dirname, './components/lib/inplace/style/InplaceStyle.js'),
+    'primevue/inputchips/style': path.resolve(__dirname, './components/lib/inputchips/style/InputChipsStyle.js'),
     'primevue/inputgroup/style': path.resolve(__dirname, './components/lib/inputgroup/style/InputGroupStyle.js'),
     'primevue/inputgroupaddon/style': path.resolve(__dirname, './components/lib/inputgroupaddon/style/InputGroupAddonStyle.js'),
     'primevue/inputicon/style': path.resolve(__dirname, './components/lib/inputicon/style/InputIconStyle.js'),
@@ -74,6 +77,7 @@ const STYLE_ALIAS = {
     'primevue/panelmenu/style': path.resolve(__dirname, './components/lib/panelmenu/style/PanelMenuStyle.js'),
     'primevue/password/style': path.resolve(__dirname, './components/lib/password/style/PasswordStyle.js'),
     'primevue/picklist/style': path.resolve(__dirname, './components/lib/picklist/style/PickListStyle.js'),
+    'primevue/popover/style': path.resolve(__dirname, './components/lib/popover/style/PopoverStyle.js'),
     'primevue/portal/style': path.resolve(__dirname, './components/lib/portal/style/PortalStyle.js'),
     'primevue/progressbar/style': path.resolve(__dirname, './components/lib/progressbar/style/ProgressBarStyle.js'),
     'primevue/progressspinner/style': path.resolve(__dirname, './components/lib/progressspinner/style/ProgressSpinnerStyle.js'),
@@ -83,6 +87,7 @@ const STYLE_ALIAS = {
     'primevue/row/style': path.resolve(__dirname, './components/lib/row/style/RowStyle.js'),
     'primevue/scrollpanel/style': path.resolve(__dirname, './components/lib/scrollpanel/style/ScrollPanelStyle.js'),
     'primevue/scrolltop/style': path.resolve(__dirname, './components/lib/scrolltop/style/ScrollTopStyle.js'),
+    'primevue/select/style': path.resolve(__dirname, './components/lib/select/style/SelectStyle.js'),
     'primevue/selectbutton/style': path.resolve(__dirname, './components/lib/selectbutton/style/SelectButtonStyle.js'),
     'primevue/sidebar/style': path.resolve(__dirname, './components/lib/sidebar/style/SidebarStyle.js'),
     'primevue/skeleton/style': path.resolve(__dirname, './components/lib/skeleton/style/SkeletonStyle.js'),
@@ -105,6 +110,7 @@ const STYLE_ALIAS = {
     'primevue/timeline/style': path.resolve(__dirname, './components/lib/timeline/style/TimelineStyle.js'),
     'primevue/toast/style': path.resolve(__dirname, './components/lib/toast/style/ToastStyle.js'),
     'primevue/togglebutton/style': path.resolve(__dirname, './components/lib/togglebutton/style/ToggleButtonStyle.js'),
+    'primevue/toggleswitch/style': path.resolve(__dirname, './components/lib/toggleswitch/style/ToggleSwitchStyle.js'),
     'primevue/toolbar/style': path.resolve(__dirname, './components/lib/toolbar/style/ToolbarStyle.js'),
     'primevue/tooltip/style': path.resolve(__dirname, './components/lib/tooltip/style/TooltipStyle.js'),
     'primevue/tree/style': path.resolve(__dirname, './components/lib/tree/style/TreeStyle.js'),
@@ -164,7 +170,7 @@ const ICON_ALIAS = {
 };
 
 // prettier-ignore
-const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','calendar','card','carousel','cascadeselect','checkbox','chip','chips','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','dialog','divider','dock','dropdown','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputgroup','inputnumber','inputotp','inputswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','selectbutton','sidebar','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toolbar','tooltip','tree','treeselect','treetable'];
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
 const createThemeAlias = (design, presets) => {
     const baseAlias = THEME_COMPONENTS.reduce((acc, name) => {
@@ -256,6 +262,12 @@ export default {
             'primevue/togglebutton': path.resolve(__dirname, './components/lib/togglebutton/ToggleButton.vue'),
             'primevue/listbox': path.resolve(__dirname, './components/lib/listbox/Listbox.vue'),
             'primevue/chip': path.resolve(__dirname, './components/lib/chip/Chip.vue'),
+            'primevue/popover': path.resolve(__dirname, './components/lib/popover/Popover.vue'),
+            'primevue/toggleswitch': path.resolve(__dirname, './components/lib/toggleswitch/ToggleSwitch.vue'),
+            'primevue/drawer': path.resolve(__dirname, './components/lib/drawer/Drawer.vue'),
+            'primevue/inputchips': path.resolve(__dirname, './components/lib/inputchips/InputChips.vue'),
+            'primevue/datepicker': path.resolve(__dirname, './components/lib/datepicker/DatePicker.vue'),
+            'primevue/select': path.resolve(__dirname, './components/lib/select/Select.vue'),
             'primevue/confirmationeventbus': path.resolve(__dirname, './components/lib/confirmationeventbus/ConfirmationEventBus.js'),
             'primevue/toasteventbus': path.resolve(__dirname, './components/lib/toasteventbus/ToastEventBus.js'),
             'primevue/overlayeventbus': path.resolve(__dirname, './components/lib/overlayeventbus/OverlayEventBus.js'),

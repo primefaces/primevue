@@ -1,0 +1,9 @@
+{
+    "main": "./datepicker.cjs.js",
+    "module": "./datepicker.esm.js",
+    "unpkg": "./datepicker.min.js",
+    "types": "./DatePicker.d.ts",
+    "browser": {
+        "./sfc": "./DatePicker.vue"
+    }
+}

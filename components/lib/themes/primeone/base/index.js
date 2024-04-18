@@ -6,23 +6,22 @@ import blockui from 'primevue/themes/primeone/base/blockui';
 import breadcrumb from 'primevue/themes/primeone/base/breadcrumb';
 import button from 'primevue/themes/primeone/base/button';
 import buttongroup from 'primevue/themes/primeone/base/buttongroup';
-import calendar from 'primevue/themes/primeone/base/calendar';
 import card from 'primevue/themes/primeone/base/card';
 import carousel from 'primevue/themes/primeone/base/carousel';
 import cascadeselect from 'primevue/themes/primeone/base/cascadeselect';
 import checkbox from 'primevue/themes/primeone/base/checkbox';
 import chip from 'primevue/themes/primeone/base/chip';
-import chips from 'primevue/themes/primeone/base/chips';
 import colorpicker from 'primevue/themes/primeone/base/colorpicker';
 import confirmdialog from 'primevue/themes/primeone/base/confirmdialog';
 import confirmpopup from 'primevue/themes/primeone/base/confirmpopup';
 import contextmenu from 'primevue/themes/primeone/base/contextmenu';
 import datatable from 'primevue/themes/primeone/base/datatable';
 import dataview from 'primevue/themes/primeone/base/dataview';
+import datepicker from 'primevue/themes/primeone/base/datepicker';
 import dialog from 'primevue/themes/primeone/base/dialog';
 import divider from 'primevue/themes/primeone/base/divider';
 import dock from 'primevue/themes/primeone/base/dock';
-import dropdown from 'primevue/themes/primeone/base/dropdown';
+import drawer from 'primevue/themes/primeone/base/drawer';
 import editor from 'primevue/themes/primeone/base/editor';
 import fieldset from 'primevue/themes/primeone/base/fieldset';
 import fileupload from 'primevue/themes/primeone/base/fileupload';
@@ -33,10 +32,10 @@ import iconfield from 'primevue/themes/primeone/base/iconfield';
 import image from 'primevue/themes/primeone/base/image';
 import inlinemessage from 'primevue/themes/primeone/base/inlinemessage';
 import inplace from 'primevue/themes/primeone/base/inplace';
+import inputchips from 'primevue/themes/primeone/base/inputchips';
 import inputgroup from 'primevue/themes/primeone/base/inputgroup';
 import inputnumber from 'primevue/themes/primeone/base/inputnumber';
 import inputotp from 'primevue/themes/primeone/base/inputotp';
-import inputswitch from 'primevue/themes/primeone/base/inputswitch';
 import inputtext from 'primevue/themes/primeone/base/inputtext';
 import knob from 'primevue/themes/primeone/base/knob';
 import listbox from 'primevue/themes/primeone/base/listbox';
@@ -48,20 +47,20 @@ import metergroup from 'primevue/themes/primeone/base/metergroup';
 import multiselect from 'primevue/themes/primeone/base/multiselect';
 import orderlist from 'primevue/themes/primeone/base/orderlist';
 import organizationchart from 'primevue/themes/primeone/base/organizationchart';
-import overlaypanel from 'primevue/themes/primeone/base/overlaypanel';
 import paginator from 'primevue/themes/primeone/base/paginator';
 import panel from 'primevue/themes/primeone/base/panel';
 import panelmenu from 'primevue/themes/primeone/base/panelmenu';
 import password from 'primevue/themes/primeone/base/password';
 import picklist from 'primevue/themes/primeone/base/picklist';
+import popover from 'primevue/themes/primeone/base/popover';
 import progressbar from 'primevue/themes/primeone/base/progressbar';
 import progressspinner from 'primevue/themes/primeone/base/progressspinner';
 import radiobutton from 'primevue/themes/primeone/base/radiobutton';
 import rating from 'primevue/themes/primeone/base/rating';
 import scrollpanel from 'primevue/themes/primeone/base/scrollpanel';
 import scrolltop from 'primevue/themes/primeone/base/scrolltop';
+import select from 'primevue/themes/primeone/base/select';
 import selectbutton from 'primevue/themes/primeone/base/selectbutton';
-import sidebar from 'primevue/themes/primeone/base/sidebar';
 import skeleton from 'primevue/themes/primeone/base/skeleton';
 import slider from 'primevue/themes/primeone/base/slider';
 import speeddial from 'primevue/themes/primeone/base/speeddial';
@@ -78,6 +77,7 @@ import tieredmenu from 'primevue/themes/primeone/base/tieredmenu';
 import timeline from 'primevue/themes/primeone/base/timeline';
 import toast from 'primevue/themes/primeone/base/toast';
 import togglebutton from 'primevue/themes/primeone/base/togglebutton';
+import toggleswitch from 'primevue/themes/primeone/base/toggleswitch';
 import toolbar from 'primevue/themes/primeone/base/toolbar';
 import tooltip from 'primevue/themes/primeone/base/tooltip';
 import tree from 'primevue/themes/primeone/base/tree';
@@ -95,22 +95,21 @@ export default {
         breadcrumb,
         button,
         buttongroup,
-        calendar,
         card,
         carousel,
         cascadeselect,
         checkbox,
         chip,
-        chips,
         colorpicker,
         confirmdialog,
         confirmpopup,
         contextmenu,
-        dataview,
         datatable,
+        dataview,
+        datepicker,
         dialog,
         divider,
-        dropdown,
+        drawer,
         dock,
         editor,
         fieldset,
@@ -121,10 +120,11 @@ export default {
         image,
         inlinemessage,
         inplace,
+        inputchips,
         inputgroup,
         inputnumber,
         inputotp,
-        inputswitch,
+        toggleswitch,
         inputtext,
         knob,
         listbox,
@@ -136,7 +136,7 @@ export default {
         multiselect,
         orderlist,
         organizationchart,
-        overlaypanel,
+        popover,
         paginator,
         password,
         panel,
@@ -148,9 +148,9 @@ export default {
         rating,
         scrollpanel,
         scrolltop,
+        select,
         selectbutton,
         skeleton,
-        sidebar,
         slider,
         speeddial,
         splitter,

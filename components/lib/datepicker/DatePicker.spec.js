@@ -1,12 +1,12 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
-import Calendar from './Calendar.vue';
+import DatePicker from './DatePicker.vue';
 
-describe('Calendar.vue', () => {
+describe('DatePicker.vue', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(Calendar, {
+        wrapper = mount(DatePicker, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -20,7 +20,7 @@ describe('Calendar.vue', () => {
     });
 
     it('should exist', async () => {
-        expect(wrapper.find('.p-calendar.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-datepicker.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-inputtext').exists()).toBe(true);
 
         let input = wrapper.find('.p-inputtext');
