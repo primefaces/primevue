@@ -1,12 +1,12 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
-import OverlayPanel from './OverlayPanel.vue';
+import Popover from './Popover.vue';
 
-describe('OverlayPanel.vue', () => {
+describe('Popover.vue', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(OverlayPanel, {
+        wrapper = mount(Popover, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -25,9 +25,9 @@ describe('OverlayPanel.vue', () => {
     });
 
     it('should exist', () => {
-        expect(wrapper.find('.p-overlaypanel.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-overlaypanel-content').exists()).toBe(true);
-        expect(wrapper.find('.p-overlaypanel-content').text()).toBe('PrimeVue');
-        expect(wrapper.find('.p-overlaypanel-close').exists()).toBe(true);
+        expect(wrapper.find('.p-popover.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-popover-content').exists()).toBe(true);
+        expect(wrapper.find('.p-popover-content').text()).toBe('PrimeVue');
+        expect(wrapper.find('.p-popover-close').exists()).toBe(true);
     });
 });

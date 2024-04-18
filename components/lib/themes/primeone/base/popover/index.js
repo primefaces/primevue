@@ -2,9 +2,9 @@ export default {
     css: ({ dt }) => `
 .p-popover {
     margin-top: 10px;
-    background: ${dt('overlaypanel.background')};
-    color: ${dt('overlaypanel.color')};
-    border: 1px solid ${dt('overlaypanel.border.color')};
+    background: ${dt('popover.background')};
+    color: ${dt('popover.color')};
+    border: 1px solid ${dt('popover.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -51,7 +51,7 @@ export default {
     margin-left: -8px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: ${dt('overlaypanel.background')};
+    border-bottom-color: ${dt('popover.background')};
 }
 
 .p-popover:before {
@@ -59,7 +59,7 @@ export default {
     margin-left: -10px;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: ${dt('overlaypanel.border.color')};
+    border-bottom-color: ${dt('popover.border.color')};
 }
 
 .p-popover-flipped:after,
@@ -70,12 +70,12 @@ export default {
 
 .p-popover.p-popover-flipped:after {
     border-bottom-color: transparent;
-    border-top-color: ${dt('overlaypanel.background')};
+    border-top-color: ${dt('popover.background')};
 }
 
 .p-popover.p-popover-flipped:before {
     border-bottom-color: transparent;
-    border-top-color: ${dt('overlaypanel.border.color')};
+    border-top-color: ${dt('popover.border.color')};
 }
 `
 };

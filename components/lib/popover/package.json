@@ -1,0 +1,9 @@
+{
+    "main": "./popover.cjs.js",
+    "module": "./popover.esm.js",
+    "unpkg": "./popover.min.js",
+    "types": "./Popover.d.ts",
+    "browser": {
+        "./sfc": "./Popover.vue"
+    }
+}

@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import OverlayPanelStyle from 'primevue/overlaypanel/style';
+import PopoverStyle from 'primevue/popover/style';
 
 export default {
-    name: 'BaseOverlayPanel',
+    name: 'BasePopover',
     extends: BaseComponent,
     props: {
         dismissable: {
@@ -31,7 +31,7 @@ export default {
             default: true
         }
     },
-    style: OverlayPanelStyle,
+    style: PopoverStyle,
     provide() {
         return {
             $parentInstance: this

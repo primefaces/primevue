@@ -1,0 +1,6 @@
+{
+    "main": "./popoverstyle.cjs.js",
+    "module": "./popoverstyle.esm.js",
+    "unpkg": "./popoverstyle.min.js",
+    "types": "./PopoverStyle.d.ts"
+}

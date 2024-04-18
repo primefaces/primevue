@@ -1,3 +1,3 @@
-import { BaseStyle } from '../../base/style';
+import { PopoverStyle } from '../../popover/style/PopoverStyle';
 
-export interface OverlayPanelStyle extends BaseStyle {}
+export interface OverlayPanelStyle extends PopoverStyle {}
