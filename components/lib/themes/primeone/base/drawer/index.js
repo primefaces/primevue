@@ -7,9 +7,9 @@ export default {
     transform: translate3d(0px, 0px, 0px);
     position: relative;
     transition: transform 0.3s;
-    background: ${dt('sidebar.background')};
-    color: ${dt('sidebar.color')};
-    border: 1px solid ${dt('sidebar.border.color')};
+    background: ${dt('drawer.background')};
+    color: ${dt('drawer.color')};
+    border: 1px solid ${dt('drawer.border.color')};
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 

@@ -1,3 +1,3 @@
-import { BaseStyle } from '../../base/style';
+import { DrawerStyle } from '../../drawer/style/DrawerStyle';
 
-export interface SidebarStyle extends BaseStyle {}
+export interface SidebarStyle extends DrawerStyle {}

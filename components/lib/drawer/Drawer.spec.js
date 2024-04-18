@@ -2,12 +2,13 @@ import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { describe, expect, it } from 'vitest';
 import DomHandler from '../utils/DomHandler';
-import Sidebar from './Sidebar.vue';
-describe('Sidebar.vue', () => {
+import Drawer from './Drawer.vue';
+
+describe('Drawer.vue', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Sidebar, {
+        wrapper = mount(Drawer, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -19,7 +20,7 @@ describe('Sidebar.vue', () => {
                 bazeZIndex: 1000
             },
             slots: {
-                default: `<h3>Left Sidebar</h3>`,
+                default: `<h3>Left Drawer</h3>`,
                 header: `<span class="header">Header Template</span>`
             }
         });
@@ -29,16 +30,16 @@ describe('Sidebar.vue', () => {
         vi.clearAllMocks();
     });
 
-    it('When mask element triggered, sidebar should be hide', async () => {
+    it('When mask element triggered, drawer should be hide', async () => {
         const hideSpy = vi.spyOn(wrapper.vm, 'hide');
 
-        await wrapper.find('.p-sidebar-mask').trigger('mousedown');
+        await wrapper.find('.p-drawer-mask').trigger('mousedown');
 
         expect(wrapper.emitted()['update:visible'].length).toBe(1);
         expect(hideSpy).toHaveBeenCalled();
     });
 
-    it('When transition trigger to onEnter, sidebar should be visible', async () => {
+    it('When transition trigger to onEnter, drawer should be visible', async () => {
         const focusSpy = vi.spyOn(wrapper.vm, 'focus');
 
         await wrapper.vm.onEnter();
@@ -73,7 +74,7 @@ describe('Sidebar.vue', () => {
     it('When keydown is triggered , hide method should be triggered', async () => {
         const hideSpy = vi.spyOn(wrapper.vm, 'hide');
 
-        await wrapper.find('.p-sidebar-close').trigger('click');
+        await wrapper.find('.p-drawer-close').trigger('click');
 
         expect(hideSpy).toHaveBeenCalled();
     });
@@ -84,7 +85,7 @@ describe('Sidebar.vue', () => {
         await wrapper.unmount();
 
         expect(unbindOutsideClickListenerSpy).toHaveBeenCalled();
-        expect(Sidebar.container).toBe(null);
+        expect(Drawer.container).toBe(null);
     });
 
     it('When hide is triggered , removeClass util should be called', async () => {

@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import SidebarStyle from 'primevue/sidebar/style';
+import DrawerStyle from 'primevue/drawer/style';
 
 export default {
-    name: 'BaseSidebar',
+    name: 'BaseDrawer',
     extends: BaseComponent,
     props: {
         visible: {
@@ -53,7 +53,7 @@ export default {
             default: false
         }
     },
-    style: SidebarStyle,
+    style: DrawerStyle,
     provide() {
         return {
             $parentInstance: this
