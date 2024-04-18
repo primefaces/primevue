@@ -59,7 +59,7 @@
                     </template>
                     <template v-else>
                         <div v-if="isShowOperator" :class="cx('filterOperator')" v-bind="getColumnPT('filterOperator')">
-                            <CFDropdown
+                            <CFSelect
                                 :options="operatorOptions"
                                 :modelValue="operator"
                                 :aria-label="filterOperatorAriaLabel"
@@ -69,11 +69,11 @@
                                 @update:modelValue="onOperatorChange($event)"
                                 :unstyled="unstyled"
                                 :pt="getColumnPT('filterOperatorDropdown')"
-                            ></CFDropdown>
+                            ></CFSelect>
                         </div>
                         <div :class="cx('filterConstraints')" v-bind="getColumnPT('filterConstraints')">
                             <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" :class="cx('filterConstraint')" v-bind="getColumnPT('filterConstraint')">
-                                <CFDropdown
+                                <CFSelect
                                     v-if="isShowMatchModes"
                                     :options="matchModes"
                                     :modelValue="fieldConstraint.matchMode"
@@ -84,7 +84,7 @@
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
                                     :unstyled="unstyled"
                                     :pt="getColumnPT('filterMatchModeDropdown')"
-                                ></CFDropdown>
+                                ></CFSelect>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" :applyFilter="applyFilter" />
                                 <div v-bind="getColumnPT('filterRemove')">
                                     <CFButton
@@ -158,7 +158,6 @@
 import { FilterOperator } from 'primevue/api';
 import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
-import Dropdown from 'primevue/dropdown';
 import FocusTrap from 'primevue/focustrap';
 import FilterIcon from 'primevue/icons/filter';
 import FilterSlashIcon from 'primevue/icons/filterslash';
@@ -166,6 +165,7 @@ import PlusIcon from 'primevue/icons/plus';
 import TrashIcon from 'primevue/icons/trash';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Select from 'primevue/select';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
@@ -711,7 +711,7 @@ export default {
         }
     },
     components: {
-        CFDropdown: Dropdown,
+        CFSelect: Select,
         CFButton: Button,
         Portal: Portal,
         FilterSlashIcon: FilterSlashIcon,

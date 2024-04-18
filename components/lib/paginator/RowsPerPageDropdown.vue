@@ -1,5 +1,5 @@
 <template>
-    <RPPDropdown
+    <RPPSelect
         :modelValue="rows"
         :options="rowsOptions"
         optionLabel="label"
@@ -14,12 +14,12 @@
         <template v-if="templates['rowsperpagedropdownicon']" #dropdownicon="slotProps">
             <component :is="templates['rowsperpagedropdownicon']" :class="slotProps.class" />
         </template>
-    </RPPDropdown>
+    </RPPSelect>
 </template>
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import Dropdown from 'primevue/dropdown';
+import Select from 'primevue/select';
 
 export default {
     name: 'RowsPerPageDropdown',
@@ -51,7 +51,7 @@ export default {
         }
     },
     components: {
-        RPPDropdown: Dropdown
+        RPPSelect: Select
     }
 };
 </script>

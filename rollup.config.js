@@ -263,7 +263,6 @@ const CORE_DEPENDENCIES = {
     'primevue/radiobutton': 'primevue.radiobutton',
     'primevue/message': 'primevue.message',
     'primevue/progressbar': 'primevue.progressbar',
-    'primevue/dropdown': 'primevue.dropdown',
     'primevue/dialog': 'primevue.dialog',
     'primevue/paginator': 'primevue.paginator',
     'primevue/tree': 'primevue.tree',

@@ -14,9 +14,9 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { CheckboxPassThroughOptionType } from '../checkbox';
 import { DataTablePassThroughOptions } from '../datatable';
-import { DropdownPassThroughOptionType } from '../dropdown';
 import { PassThroughOptions } from '../passthrough';
 import { RadioButtonPassThroughOptionType } from '../radiobutton';
+import { SelectPassThroughOptionType } from '../select';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
@@ -207,10 +207,10 @@ export interface ColumnPassThroughOptions {
      */
     filterOperator?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the Dropdown component.
-     * @see {@link DropdownPassThroughOptionType}
+     * Used to pass attributes to the Select component.
+     * @see {@link SelectPassThroughOptionType}
      */
-    filterOperatorDropdown?: DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
+    filterOperatorDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter constraints' DOM element.
      */
@@ -220,10 +220,10 @@ export interface ColumnPassThroughOptions {
      */
     filterConstraint?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the Dropdown component.
-     * @see {@link DropdownPassThroughOptionType}
+     * Used to pass attributes to the Select component.
+     * @see {@link SelectPassThroughOptionType}
      */
-    filterMatchModeDropdown?: DropdownPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
+    filterMatchModeDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter remove button container's DOM element.
      */

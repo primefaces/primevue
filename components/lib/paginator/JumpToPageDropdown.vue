@@ -1,5 +1,5 @@
 <template>
-    <JTPDropdown
+    <JTPSelect
         :modelValue="page"
         :options="pageOptions"
         optionLabel="label"
@@ -14,12 +14,12 @@
         <template v-if="templates['jumptopagedropdownicon']" #dropdownicon="slotProps">
             <component :is="templates['jumptopagedropdownicon']" :class="slotProps.class" />
         </template>
-    </JTPDropdown>
+    </JTPSelect>
 </template>
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import Dropdown from 'primevue/dropdown';
+import Select from 'primevue/select';
 
 export default {
     name: 'JumpToPageDropdown',
@@ -49,7 +49,7 @@ export default {
         }
     },
     components: {
-        JTPDropdown: Dropdown
+        JTPSelect: Select
     }
 };
 </script>
