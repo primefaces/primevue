@@ -1,0 +1,9 @@
+{
+    "main": "./inputchips.cjs.js",
+    "module": "./inputchips.esm.js",
+    "unpkg": "./inputchips.min.js",
+    "types": "./InputChips.d.ts",
+    "browser": {
+        "./sfc": "./InputChips.vue"
+    }
+}

@@ -1,3 +1,3 @@
-import { BaseStyle } from '../../base/style';
+import { InputChipsStyle } from '../../inputchips/style/InputChipsStyle';
 
-export interface ChipsStyle extends BaseStyle {}
+export interface ChipsStyle extends InputChipsStyle {}

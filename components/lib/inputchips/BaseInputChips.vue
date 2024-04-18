@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import ChipsStyle from 'primevue/chips/style';
+import InputChipsStyle from 'primevue/inputchips/style';
 
 export default {
-    name: 'BaseChips',
+    name: 'BaseInputChips',
     extends: BaseComponent,
     props: {
         modelValue: {
@@ -71,7 +71,7 @@ export default {
             default: null
         }
     },
-    style: ChipsStyle,
+    style: InputChipsStyle,
     provide() {
         return {
             $parentInstance: this

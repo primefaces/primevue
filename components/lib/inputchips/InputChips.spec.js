@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import Chips from './Chips.vue';
+import InputChips from './InputChips.vue';
 
-describe('Chips.vue', () => {
+describe('InputChips.vue', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(Chips, {
+        wrapper = mount(InputChips, {
             props: {
                 modelValue: null
             }
@@ -13,9 +13,9 @@ describe('Chips.vue', () => {
     });
 
     it('should exist', () => {
-        expect(wrapper.find('.p-chips.p-component.p-inputwrapper').exists()).toBe(true);
-        expect(wrapper.find('ul.p-chips-multiple-container').exists()).toBe(true);
-        expect(wrapper.find('li.p-chips-input-token').exists()).toBe(true);
+        expect(wrapper.find('.p-inputchips.p-component.p-inputwrapper').exists()).toBe(true);
+        expect(wrapper.find('ul.p-inputchips-multiple-container').exists()).toBe(true);
+        expect(wrapper.find('li.p-inputchips-input-token').exists()).toBe(true);
     });
 
     it('should add item', async () => {
@@ -26,9 +26,9 @@ describe('Chips.vue', () => {
         await wrapper.setProps({ modelValue: ['PrimeVue'] });
 
         expect(addItem).toHaveBeenCalled();
-        expect(wrapper.findAll('.p-chips-token').length).toBe(1);
-        expect(wrapper.find('.p-chips-token-label').exists()).toBe(true);
-        expect(wrapper.find('.p-chips-token-label').text()).toBe('PrimeVue');
+        expect(wrapper.findAll('.p-inputchips-token').length).toBe(1);
+        expect(wrapper.find('.p-inputchips-token-label').exists()).toBe(true);
+        expect(wrapper.find('.p-inputchips-token-label').text()).toBe('PrimeVue');
     });
 
     it('should have correct custom chip removal icon', async () => {
@@ -37,7 +37,7 @@ describe('Chips.vue', () => {
             removeTokenIcon: 'pi pi-discord'
         });
 
-        const icon = wrapper.find('.p-chips-token-icon');
+        const icon = wrapper.find('.p-inputchips-token-icon');
 
         expect(icon.classes()).toContain('pi-discord');
     });

@@ -1,0 +1,6 @@
+{
+    "main": "./inputchipsstyle.cjs.js",
+    "module": "./inputchipsstyle.esm.js",
+    "unpkg": "./inputchipsstyle.min.js",
+    "types": "./InputChipsStyle.d.ts"
+}
