@@ -8,7 +8,7 @@
     </DocSectionText>
     <div class="card flex flex-column align-items-center justify-content-center">
         <div class="flex align-items-center mb-4 gap-2">
-            <InputSwitch v-model="checked" inputId="input-metakey" />
+            <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-30rem" :metaKeySelection="checked"></Tree>
@@ -34,7 +34,7 @@ export default {
 <template>
     <div class="card flex flex-column align-items-center justify-content-center">
         <div class="flex align-items-center mb-4 gap-2">
-            <InputSwitch v-model="checked" inputId="input-metakey" />
+            <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-30rem" :metaKeySelection="checked"></Tree>
@@ -62,7 +62,7 @@ export default {
 <template>
     <div class="card flex flex-column align-items-center justify-content-center">
         <div class="flex align-items-center mb-4 gap-2">
-            <InputSwitch v-model="checked" inputId="input-metakey" />
+            <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-30rem" :metaKeySelection="checked"></Tree>

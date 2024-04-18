@@ -5,7 +5,7 @@
     <div class="card">
         <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
             <template #header>
-                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+                <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
             </template>
             <template #list="slotProps">
                 <div class="grid grid-nogutter">
@@ -63,7 +63,7 @@ export default {
                 basic: `
 <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
     <template #header>
-        <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+        <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
     </template>
     <template #list="slotProps">
         <div class="grid grid-nogutter">
@@ -105,7 +105,7 @@ export default {
     <div class="card">
         <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
             <template #header>
-                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+                <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
             </template>
             <template #list="slotProps">
                 <div class="grid grid-nogutter">
@@ -202,7 +202,7 @@ export default {
     <div class="card">
         <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
             <template #header>
-                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+                <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
             </template>
             <template #list="slotProps">
                 <div class="grid grid-nogutter">

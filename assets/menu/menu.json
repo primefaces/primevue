@@ -67,10 +67,6 @@
                             "to": "/autocomplete"
                         },
                         {
-                            "name": "Calendar",
-                            "to": "/calendar"
-                        },
-                        {
                             "name": "CascadeSelect",
                             "to": "/cascadeselect"
                         },
@@ -79,16 +75,12 @@
                             "to": "/checkbox"
                         },
                         {
-                            "name": "Chips",
-                            "to": "/chips"
-                        },
-                        {
                             "name": "ColorPicker",
                             "to": "/colorpicker"
                         },
                         {
-                            "name": "Dropdown",
-                            "to": "/dropdown"
+                            "name": "DatePicker",
+                            "to": "/datepicker"
                         },
                         {
                             "name": "Editor",
@@ -119,8 +111,8 @@
                             "to": "/inputotp"
                         },
                         {
-                            "name": "InputSwitch",
-                            "to": "/inputswitch"
+                            "name": "InputChips",
+                            "to": "/inputchips"
                         },
                         {
                             "name": "InputText",
@@ -155,6 +147,10 @@
                             "to": "/selectbutton"
                         },
                         {
+                            "name": "Select",
+                            "to": "/select"
+                        },
+                        {
                             "name": "Slider",
                             "to": "/slider"
                         },
@@ -165,6 +161,10 @@
                         {
                             "name": "ToggleButton",
                             "to": "/togglebutton"
+                        },
+                        {
+                            "name": "ToggleSwitch",
+                            "to": "/toggleswitch"
                         },
                         {
                             "name": "TreeSelect",
@@ -303,12 +303,12 @@
                             "to": "/dynamicdialog"
                         },
                         {
-                            "name": "OverlayPanel",
-                            "to": "/overlaypanel"
+                            "name": "Popover",
+                            "to": "/popover"
                         },
                         {
-                            "name": "Sidebar",
-                            "to": "/sidebar"
+                            "name": "Drawer",
+                            "to": "/drawer"
                         },
                         {
                             "name": "Tooltip",

@@ -30,7 +30,7 @@
             <div class="config-panel-settings">
                 <div>
                     <span class="config-panel-label">Ripple</span>
-                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
+                    <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
                 </div>
             </div>
         </div>

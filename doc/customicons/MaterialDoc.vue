@@ -11,11 +11,11 @@ export default {
         return {
             code: {
                 basic: `
-<Dropdown>
+<Select>
     <template #dropdownicon>
         <span class="material-icons">arrow_drop_down</span>
     </template>
-</Dropdown>
+</Select>
 `
             }
         };

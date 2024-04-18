@@ -34,11 +34,11 @@
                 </Column>
                 <Column field="inventoryStatus" header="Status" style="width: 20%">
                     <template #editor="{ data, field }">
-                        <Dropdown v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
+                        <Select v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                             <template #option="slotProps">
                                 <Tag :value="slotProps.option.value" :severity="getStatusLabel(slotProps.option.value)" />
                             </template>
-                        </Dropdown>
+                        </Select>
                     </template>
                     <template #body="slotProps">
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getStatusLabel(slotProps.data.inventoryStatus)" />
@@ -96,11 +96,11 @@ export default {
     </Column>
     <Column field="inventoryStatus" header="Status" style="width: 20%">
         <template #editor="{ data, field }">
-            <Dropdown v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
+            <Select v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                 <template #option="slotProps">
                     <Tag :value="slotProps.option.value" :severity="getStatusLabel(slotProps.option.value)" />
                 </template>
-            </Dropdown>
+            </Select>
         </template>
         <template #body="slotProps">
             <Tag :value="slotProps.data.inventoryStatus" :severity="getStatusLabel(slotProps.data.inventoryStatus)" />
@@ -142,11 +142,11 @@ export default {
             </Column>
             <Column field="inventoryStatus" header="Status" style="width: 20%">
                 <template #editor="{ data, field }">
-                    <Dropdown v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
+                    <Select v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                         <template #option="slotProps">
                             <Tag :value="slotProps.option.value" :severity="getStatusLabel(slotProps.option.value)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
                 <template #body="slotProps">
                     <Tag :value="slotProps.data.inventoryStatus" :severity="getStatusLabel(slotProps.data.inventoryStatus)" />
@@ -236,11 +236,11 @@ export default {
             </Column>
             <Column field="inventoryStatus" header="Status" style="width: 20%">
                 <template #editor="{ data, field }">
-                    <Dropdown v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
+                    <Select v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
                         <template #option="slotProps">
                             <Tag :value="slotProps.option.value" :severity="getStatusLabel(slotProps.option.value)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
                 <template #body="slotProps">
                     <Tag :value="slotProps.data.inventoryStatus" :severity="getStatusLabel(slotProps.data.inventoryStatus)" />

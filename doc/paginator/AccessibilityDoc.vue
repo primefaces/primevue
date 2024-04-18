@@ -16,7 +16,7 @@
         <p>Current page report uses <i>aria-live="polite"</i> to instruct screen reader about the changes to the pagination state.</p>
 
         <p>
-            Rows per page dropdown internally uses a dropdown component, refer to the <NuxtLink to="/dropdown">dropdown</NuxtLink> documentation for accessibility details. Additionally, the dropdown uses an <i>aria-label</i> from the
+            Rows per page dropdown internally uses a dropdown component, refer to the <NuxtLink to="/select">select</NuxtLink> documentation for accessibility details. Additionally, the dropdown uses an <i>aria-label</i> from the
             <i>aria.rowsPerPageLabel</i> property of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API.
         </p>
 
@@ -58,6 +58,6 @@
         </div>
 
         <h3>Rows Per Page Dropdown Keyboard Support</h3>
-        <p>Refer to the <NuxtLink to="/dropdown">dropdown</NuxtLink> documentation for more details about keyboard support.</p>
+        <p>Refer to the <NuxtLink to="/select">select</NuxtLink> documentation for more details about keyboard support.</p>
     </DocSectionText>
 </template>

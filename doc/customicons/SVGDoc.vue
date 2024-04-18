@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-<Dropdown>
+<Select>
     <template #dropdownicon>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g id="chevron-down">
@@ -19,7 +19,7 @@ export default {
             </g>
         </svg>
     </template>
-</Dropdown>
+</Select>
 `
             }
         };

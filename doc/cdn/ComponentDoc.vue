@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-<script src="https://unpkg.com/primevue/calendar/calendar.min.js"><\/script>
+<script src="https://unpkg.com/primevue/datepicker/datepicker.min.js"><\/script>
 `
             }
         };

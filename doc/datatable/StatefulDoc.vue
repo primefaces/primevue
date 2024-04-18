@@ -69,11 +69,11 @@
                         <Tag :value="data.status" :severity="getSeverity(data.status)" />
                     </template>
                     <template #filter="{ filterModel }">
-                        <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                        <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                             <template #option="slotProps">
                                 <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                             </template>
-                        </Dropdown>
+                        </Select>
                     </template>
                 </Column>
                 <template #empty> No customers found. </template>
@@ -158,11 +158,11 @@ export default {
             <Tag :value="data.status" :severity="getSeverity(data.status)" />
         </template>
         <template #filter="{ filterModel }">
-            <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                 <template #option="slotProps">
                     <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                 </template>
-            </Dropdown>
+            </Select>
         </template>
     </Column>
     <template #empty> No customers found. </template>
@@ -221,11 +221,11 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
             </Column>
             <template #empty> No customers found. </template>
@@ -349,11 +349,11 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
             </Column>
             <template #empty> No customers found. </template>

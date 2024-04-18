@@ -69,7 +69,7 @@
                         {{ formatDate(data.date) }}
                     </template>
                     <template #filter="{ filterModel }">
-                        <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" mask="99/99/9999" />
+                        <DatePicker v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                     </template>
                 </Column>
                 <Column header="Balance" filterField="balance" dataType="numeric" style="min-width: 10rem">
@@ -85,11 +85,11 @@
                         <Tag :value="data.status" :severity="getSeverity(data.status)" />
                     </template>
                     <template #filter="{ filterModel }">
-                        <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                        <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                             <template #option="slotProps">
                                 <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                             </template>
-                        </Dropdown>
+                        </Select>
                     </template>
                 </Column>
                 <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width: 12rem">
@@ -210,7 +210,7 @@ export default {
             {{ formatDate(data.date) }}
         </template>
         <template #filter="{ filterModel }">
-            <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" mask="99/99/9999" />
+            <DatePicker v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
         </template>
     </Column>
     <Column header="Balance" filterField="balance" dataType="numeric" style="min-width: 10rem">
@@ -226,11 +226,11 @@ export default {
             <Tag :value="data.status" :severity="getSeverity(data.status)" />
         </template>
         <template #filter="{ filterModel }">
-            <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                 <template #option="slotProps">
                     <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                 </template>
-            </Dropdown>
+            </Select>
         </template>
     </Column>
     <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width: 12rem">
@@ -325,7 +325,7 @@ export default {
                     {{ formatDate(data.date) }}
                 </template>
                 <template #filter="{ filterModel }">
-                    <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" mask="99/99/9999" />
+                    <DatePicker v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                 </template>
             </Column>
             <Column header="Balance" filterField="balance" dataType="numeric" style="min-width: 10rem">
@@ -341,11 +341,11 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
             </Column>
             <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width: 12rem">
@@ -532,7 +532,7 @@ export default {
                     {{ formatDate(data.date) }}
                 </template>
                 <template #filter="{ filterModel }">
-                    <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" mask="99/99/9999" />
+                    <DatePicker v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                 </template>
             </Column>
             <Column header="Balance" filterField="balance" dataType="numeric" style="min-width: 10rem">
@@ -548,11 +548,11 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" class="p-column-filter" showClear>
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
-                    </Dropdown>
+                    </Select>
                 </template>
             </Column>
             <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width: 12rem">

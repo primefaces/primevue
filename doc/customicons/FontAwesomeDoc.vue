@@ -11,11 +11,11 @@ export default {
         return {
             code: {
                 basic: `
-<Dropdown>
+<Select>
     <template #dropdownicon>
         <i class="fa-light fa-chevron-down"></i>
     </template>
-</Dropdown>
+</Select>
 `
             }
         };

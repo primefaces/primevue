@@ -8,7 +8,7 @@
     <DeferredDemo @load="loadDemoData">
         <div class="card">
             <div class="flex justify-content-center align-items-center mb-4 gap-2">
-                <InputSwitch v-model="metaKey" inputId="input-metakey" />
+                <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
                 <label for="input-metakey">MetaKey</label>
             </div>
             <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
@@ -33,7 +33,7 @@ export default {
             metaKey: true,
             code: {
                 basic: `
-<InputSwitch v-model="metaKey" inputId="input-metakey" />
+<ToggleSwitch v-model="metaKey" inputId="input-metakey" />
 
 <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
@@ -46,7 +46,7 @@ export default {
 <template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
-            <InputSwitch v-model="metaKey" inputId="input-metakey" />
+            <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
         <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
@@ -79,7 +79,7 @@ export default {
 <template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
-            <InputSwitch v-model="metaKey" inputId="input-metakey" />
+            <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
         <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">

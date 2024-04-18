@@ -22,7 +22,7 @@ export default {
   <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
     <script src="https://unpkg.com/primevue/core/core.min.js"><\/script>
-    <script src="https://unpkg.com/primevue/calendar/calendar.min.js"><\/script>
+    <script src="https://unpkg.com/primevue/datepicker/datepicker.min.js"><\/script>
 
     <div id="app">
       <p-datepicker v-model="date"></p-datepicker>
@@ -43,7 +43,7 @@ export default {
       });
 
       app.use(primevue.config.default);
-      app.component('p-datepicker', primevue.calendar);
+      app.component('p-datepicker', primevue.datepicker);
 
       app.mount('#app');
     <\/script>

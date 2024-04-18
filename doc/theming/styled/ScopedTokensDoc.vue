@@ -3,8 +3,8 @@
         <p>Design tokens can be scoped to a certain component using CSS variables. In this example, first switch uses the global tokens whereas second one overrides the global with its own tokens.</p>
     </DocSectionText>
     <div class="card flex justify-content-center gap-3">
-        <InputSwitch v-model="checked1" />
-        <InputSwitch v-model="checked2" :dt="amberSwitch" />
+        <ToggleSwitch v-model="checked1" />
+        <ToggleSwitch v-model="checked2" :dt="amberSwitch" />
     </div>
     <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
 </template>
@@ -48,8 +48,8 @@ export default {
                 basic: `
 <template>
     <div>
-        <InputSwitch v-model="checked1" />
-        <InputSwitch v-model="checked2" :dt="amberSwitch" />
+        <ToggleSwitch v-model="checked1" />
+        <ToggleSwitch v-model="checked2" :dt="amberSwitch" />
     </div>
 </template>
 

@@ -28,14 +28,14 @@
                                 </div>
                                 <div class="flex-auto" style="width: 1%">
                                     <span class="text-secondary font-semibold block mb-3">Beneficiary</span>
-                                    <Dropdown v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
+                                    <Select v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
                                         <template #option="slotProps">
                                             <div class="flex align-items-center gap-2">
                                                 <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" width="28" />
                                                 <span>{{ slotProps.option.name }}</span>
                                             </div>
                                         </template>
-                                    </Dropdown>
+                                    </Select>
                                 </div>
                             </div>
                             <span class="text-secondary font-medium block mt-5 mb-3">Account</span>
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <span class="text-secondary font-medium block mt-5 mb-3">Date</span>
-                            <Calendar v-model="dateValue" :showWeek="true" class="w-full" showIcon iconDisplay="input" />
+                            <DatePicker v-model="dateValue" :showWeek="true" class="w-full" showIcon iconDisplay="input" />
                         </div>
                         <div class="box p-4 fadein animation-duration-500">
                             <Chart type="line" :data="chartData" :options="chartOptions" />
@@ -59,7 +59,7 @@
                             <div class="flex align-items-center">
                                 <Chip label="Vue" class="mr-2 font-medium" />
                                 <Chip label="Typescript" class="mr-2 font-medium" />
-                                <InputSwitch v-model="switchValue" class="ml-auto"></InputSwitch>
+                                <ToggleSwitch v-model="switchValue" class="ml-auto"></ToggleSwitch>
                             </div>
                             <div class="mt-5 flex justify-content-center">
                                 <SelectButton v-model="selectButtonValue" :options="selectButtonOptions" optionLabel="name" />
