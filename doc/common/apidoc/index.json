@@ -15428,6 +15428,13 @@
                             "default": ""
                         },
                         {
+                            "name": "datepicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<DatePickerPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "deferredcontent",
                             "optional": true,
                             "readonly": false,
@@ -15453,6 +15460,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<DockPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "drawer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<DrawerPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -15516,6 +15530,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<InplacePassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "inputchips",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<InputChipsPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -15613,7 +15634,7 @@
                             "name": "overlaypanel",
                             "optional": true,
                             "readonly": false,
-                            "type": "DefaultPassThrough<PopoverPassThroughOptions>",
+                            "type": "DefaultPassThrough<OverlayPanelPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -15649,6 +15670,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<PickListPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "popover",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<PopoverPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -15733,6 +15761,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<SelectButtonPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "select",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<SelectPassThroughOptions<any>>",
                             "default": ""
                         },
                         {
@@ -15831,6 +15866,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<ToggleButtonPassThroughOptions<any>>",
+                            "default": ""
+                        },
+                        {
+                            "name": "toggleswitch",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<ToggleSwitchPassThroughOptions>",
                             "default": ""
                         },
                         {
