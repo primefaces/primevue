@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import InputSwitchStyle from 'primevue/inputswitch/style';
+import ToggleSwitchStyle from 'primevue/toggleswitch/style';
 
 export default {
-    name: 'BaseInputSwitch',
+    name: 'BaseToggleSwitch',
     extends: BaseComponent,
     props: {
         modelValue: {
@@ -55,7 +55,7 @@ export default {
             default: null
         }
     },
-    style: InputSwitchStyle,
+    style: ToggleSwitchStyle,
     provide() {
         return {
             $parentInstance: this

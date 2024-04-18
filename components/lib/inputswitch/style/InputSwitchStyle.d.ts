@@ -1,3 +1,3 @@
-import { BaseStyle } from '../../base/style';
+import { ToggleSwitchStyle } from '../../toggleswitch/style/ToggleSwitchStyle';
 
-export interface InputSwitchStyle extends BaseStyle {}
+export interface InputSwitchStyle extends ToggleSwitchStyle {}

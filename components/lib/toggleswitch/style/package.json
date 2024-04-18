@@ -1,0 +1,6 @@
+{
+    "main": "./toggleswitchstyle.cjs.js",
+    "module": "./toggleswitchstyle.esm.js",
+    "unpkg": "./toggleswitchstyle.min.js",
+    "types": "./ToggleSwitchStyle.d.ts"
+}

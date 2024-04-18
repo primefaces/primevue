@@ -1,0 +1,9 @@
+{
+    "main": "./toggleswitch.cjs.js",
+    "module": "./toggleswitch.esm.js",
+    "unpkg": "./toggleswitch.min.js",
+    "types": "./ToggleSwitch.d.ts",
+    "browser": {
+        "./sfc": "./ToggleSwitch.vue"
+    }
+}
