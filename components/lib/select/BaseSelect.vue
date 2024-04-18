@@ -1,9 +1,9 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import DropdownStyle from 'primevue/dropdown/style';
+import SelectStyle from 'primevue/select/style';
 
 export default {
-    name: 'BaseDropdown',
+    name: 'BaseSelect',
     extends: BaseComponent,
     props: {
         modelValue: null,
@@ -163,7 +163,7 @@ export default {
             default: null
         }
     },
-    style: DropdownStyle,
+    style: SelectStyle,
     provide() {
         return {
             $parentInstance: this

@@ -1,0 +1,9 @@
+{
+    "main": "./select.cjs.js",
+    "module": "./select.esm.js",
+    "unpkg": "./select.min.js",
+    "types": "./Select.d.ts",
+    "browser": {
+        "./sfc": "./Select.vue"
+    }
+}

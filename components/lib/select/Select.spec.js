@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { h } from 'vue';
-import Dropdown from './Dropdown.vue';
+import Select from './Select.vue';
 
-describe('Dropdown.vue', () => {
+describe('Select.vue', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -19,10 +19,10 @@ describe('Dropdown.vue', () => {
         await wrapper.trigger('click');
     });
 
-    it('should Dropdown exist', () => {
-        expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-dropdown-panel').exists()).toBe(true);
-        expect(wrapper.find('.p-dropdown-empty-message').exists()).toBe(true);
+    it('should Select exist', () => {
+        expect(wrapper.find('.p-select.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-select-panel').exists()).toBe(true);
+        expect(wrapper.find('.p-select-empty-message').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
     });
@@ -32,7 +32,7 @@ describe('option checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -57,11 +57,11 @@ describe('option checks', () => {
     });
 
     it('should show the options', () => {
-        expect(wrapper.find('.p-dropdown-label.p-placeholder').text()).toBe('Select a City');
-        expect(wrapper.find('.p-dropdown-items-wrapper > .p-dropdown-items').exists()).toBe(true);
-        expect(wrapper.find('.p-dropdown-item').exists()).toBe(true);
-        expect(wrapper.findAll('.p-dropdown-item').length).toBe(5);
-        expect(wrapper.findAll('.p-dropdown-item')[0].text()).toBe('New York');
+        expect(wrapper.find('.p-select-label.p-placeholder').text()).toBe('Select a City');
+        expect(wrapper.find('.p-select-items-wrapper > .p-select-items').exists()).toBe(true);
+        expect(wrapper.find('.p-select-item').exists()).toBe(true);
+        expect(wrapper.findAll('.p-select-item').length).toBe(5);
+        expect(wrapper.findAll('.p-select-item')[0].text()).toBe('New York');
     });
 });
 
@@ -69,7 +69,7 @@ describe('clear checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -87,13 +87,13 @@ describe('clear checks', () => {
     });
 
     it('should have correct icon', () => {
-        expect(wrapper.find('.p-dropdown-clear-icon').classes()).toContain('pi-discord');
+        expect(wrapper.find('.p-select-clear-icon').classes()).toContain('pi-discord');
     });
 
     it('should clear with delete key', async () => {
         const updateModelSpy = vi.spyOn(wrapper.vm, 'updateModel');
 
-        await wrapper.find('.p-dropdown-label.p-inputtext').trigger('keydown', { code: 'Delete' });
+        await wrapper.find('.p-select-label.p-inputtext').trigger('keydown', { code: 'Delete' });
         expect(updateModelSpy).toHaveBeenCalledOnce();
         expect(updateModelSpy).toHaveBeenCalledWith(expect.any(KeyboardEvent), null);
     });
@@ -103,7 +103,7 @@ describe('editable checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -129,8 +129,8 @@ describe('editable checks', () => {
     });
 
     it('should show the options', () => {
-        expect(wrapper.find('.p-dropdown-label.p-placeholder').exists()).toBe(false);
-        expect(wrapper.find('.p-dropdown-label.p-inputtext').exists()).toBe(true);
+        expect(wrapper.find('.p-select-label.p-placeholder').exists()).toBe(false);
+        expect(wrapper.find('.p-select-label.p-inputtext').exists()).toBe(true);
     });
 });
 
@@ -138,7 +138,7 @@ describe('option groups checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -188,8 +188,8 @@ describe('option groups checks', () => {
     });
 
     it('should show the option groups', () => {
-        expect(wrapper.findAll('.p-dropdown-item-group').length).toBe(3);
-        expect(wrapper.findAll('.p-dropdown-item-group')[0].text()).toBe('Germany');
+        expect(wrapper.findAll('.p-select-item-group').length).toBe(3);
+        expect(wrapper.findAll('.p-select-item-group')[0].text()).toBe('Germany');
     });
 });
 
@@ -197,7 +197,7 @@ describe('templating checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -249,7 +249,7 @@ describe('empty templating checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -270,8 +270,8 @@ describe('empty templating checks', () => {
     });
 
     it('should see empty slots', () => {
-        expect(wrapper.find('.p-dropdown-empty-message').exists()).toBe(true);
-        expect(wrapper.find('.p-dropdown-empty-message').text()).toBe('Need options prop');
+        expect(wrapper.find('.p-select-empty-message').exists()).toBe(true);
+        expect(wrapper.find('.p-select-empty-message').text()).toBe('Need options prop');
     });
 });
 
@@ -279,7 +279,7 @@ describe('loader checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -306,11 +306,11 @@ describe('loader checks', () => {
     });
 
     it('should show the loader', async () => {
-        expect(wrapper.find('.p-dropdown-trigger-icon').classes()).toContain('pi-discord');
+        expect(wrapper.find('.p-select-trigger-icon').classes()).toContain('pi-discord');
 
         await wrapper.setProps({ loading: false });
 
-        expect(wrapper.find('.p-dropdown-trigger-icon').classes()).not.toContain('pi-discord');
+        expect(wrapper.find('.p-select-trigger-icon').classes()).not.toContain('pi-discord');
     });
 });
 
@@ -318,7 +318,7 @@ describe('filter checks', () => {
     let wrapper;
 
     beforeEach(async () => {
-        wrapper = mount(Dropdown, {
+        wrapper = mount(Select, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
@@ -348,8 +348,8 @@ describe('filter checks', () => {
     });
 
     it('should make filtering', async () => {
-        const filterInput = wrapper.find('.p-dropdown-filter');
-        const filterIcon = wrapper.find('.p-dropdown-filter-icon');
+        const filterInput = wrapper.find('.p-select-filter');
+        const filterIcon = wrapper.find('.p-select-filter-icon');
 
         expect(filterInput.exists()).toBe(true);
         expect(filterIcon.classes()).toContain('pi-discord');
@@ -364,6 +364,6 @@ describe('filter checks', () => {
 
         await wrapper.setData({ filterValue: 'c' });
 
-        expect(wrapper.findAll('.p-dropdown-item').length).toBe(2);
+        expect(wrapper.findAll('.p-select-item').length).toBe(2);
     });
 });
