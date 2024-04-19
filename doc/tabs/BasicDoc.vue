@@ -67,7 +67,6 @@ export default {
         </TabPanel>
     </TabPanels>
 </Tabs>
-
 `,
                 options: `
 <template>
@@ -104,7 +103,6 @@ export default {
 
 <script>
 <\/script>
-
 `,
                 composition: `
 <template>
