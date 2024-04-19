@@ -70,7 +70,9 @@ export default {
         }
     },
     mounted() {
-        this.updateInkBar();
+        this.$nextTick(() => {
+            this.updateInkBar();
+        });
 
         if (this.showNavigators) {
             this.updateButtonState();
