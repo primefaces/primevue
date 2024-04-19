@@ -71,6 +71,10 @@ export interface InputNumberInputEvent {
      * New value
      */
     value: string | number | undefined;
+    /**
+     * currentValue
+     */
+    formattedValue: string;
 }
 
 /**
@@ -86,6 +90,10 @@ export interface InputNumberBlurEvent {
      * Input value
      */
     value: string;
+    /**
+     * currentValue
+     */
+    formattedValue: string;
 }
 
 /**
