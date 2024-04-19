@@ -147,7 +147,8 @@ export default {
                         } else {
                             this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
-                            this.$refs.yBar.style.cssText = 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
+                            this.$refs.yBar.style.cssText =
+                                'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
                         }
                     }
                 });
