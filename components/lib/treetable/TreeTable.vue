@@ -494,12 +494,12 @@ export default {
 
                 for (let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let filterField = this.columnProp(col, 'field');
+                    let filterField = this.columnProp(col, 'filterField') || this.columnProp(col, 'field');
 
                     //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(col, 'field'))) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, filterField)) {
                         let filterMatchMode = this.columnProp(col, 'filterMatchMode') || 'startsWith';
-                        let filterValue = this.filters[this.columnProp(col, 'field')];
+                        let filterValue = this.filters[filterField];
                         let filterConstraint = FilterService.filters[filterMatchMode];
                         let paramsWithoutNode = { filterField, filterValue, filterConstraint, strict };
 
