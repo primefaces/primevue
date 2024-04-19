@@ -617,16 +617,14 @@ export default {
         onEnterKey(event) {
             if (!this.overlayVisible) {
                 this.focusedOptionIndex = -1; // reset
-                this.onArrowDownKey(event);
             } else {
                 if (this.focusedOptionIndex !== -1) {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                    event.preventDefault();
                 }
 
                 this.hide();
             }
-
-            event.preventDefault();
         },
         onEscapeKey(event) {
             this.overlayVisible && this.hide(true);
