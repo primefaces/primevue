@@ -31398,6 +31398,14 @@
                             "type": "undefined | string | number",
                             "default": "",
                             "description": "New value"
+                        },
+                        {
+                            "name": "formattedValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "currentValue"
                         }
                     ],
                     "methods": []
