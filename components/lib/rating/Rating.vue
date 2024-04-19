@@ -74,7 +74,6 @@ export default {
             }
         },
         onFocus(event, value) {
-            console.log(event);
             this.focusedOptionIndex = value;
             this.$emit('focus', event);
         },
