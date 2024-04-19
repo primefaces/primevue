@@ -90,10 +90,6 @@ export interface InputNumberBlurEvent {
      * Input value
      */
     value: string;
-    /**
-     * currentValue
-     */
-    formattedValue: string;
 }
 
 /**
