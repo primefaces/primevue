@@ -56,7 +56,7 @@ export default {
         },
         valueTemplate: {
             type: [String, Function],
-            default: () => (val) => val
+            default: '{value}'
         },
         tabindex: {
             type: Number,

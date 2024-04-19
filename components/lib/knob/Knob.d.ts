@@ -176,7 +176,7 @@ export interface KnobProps {
     showValue?: boolean | undefined;
     /**
      * Template string of the value.
-     * @defaultValue 'val => val'
+     * @defaultValue '{value}'
      */
     valueTemplate?: (val: number) => string | string | undefined;
     /**
