@@ -61,6 +61,6 @@ export default {
                 this.unbindOutsideClickListener();
             }
         }
-    },
+    }
 };
 </script>
