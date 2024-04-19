@@ -31,6 +31,7 @@
                             :clickCallback="(event) => onItemClick(event, index)"
                             :getStepPT="getStepPT"
                             :getStepProp="getStepProp"
+                            :unstyled="unstyled"
                         />
                     </slot>
                     <slot v-if="index !== stepperpanels.length - 1" name="separator">
@@ -42,6 +43,7 @@
                             :active="isStepActive(index)"
                             :highlighted="index < d_activeStep"
                             :getStepPT="getStepPT(step, 'separator', index)"
+                            :unstyled="unstyled"
                         />
                     </slot>
                 </li>
@@ -61,6 +63,7 @@
                         :nextCallback="(event) => nextCallback(event, index)"
                         :getStepPT="getStepPT"
                         :aria-labelledby="getStepHeaderActionId(index)"
+                        :unstyled="unstyled"
                     />
                 </template>
             </div>
