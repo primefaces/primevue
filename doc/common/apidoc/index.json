@@ -33423,9 +33423,8 @@
                             "name": "valueTemplate",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
-                            "default": "'{value}'",
-                            "description": "Template string of the value."
+                            "type": "Function",
+                            "default": ""
                         },
                         {
                             "name": "tabindex",

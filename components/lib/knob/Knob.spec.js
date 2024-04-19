@@ -44,4 +44,16 @@ describe('Knob.vue', () => {
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([30]);
     });
+
+    it('should work with string valueTemplate', async () => {
+        await wrapper.setProps({ valueTemplate: '{value}%' });
+
+        expect(wrapper.find('.p-knob-text').text()).toBe('20%');
+    });
+
+    it('should work with function valueTemplate', async () => {
+        await wrapper.setProps({ valueTemplate: (val) => val * 10 });
+
+        expect(wrapper.find('.p-knob-text').text()).toBe('200');
+    });
 });

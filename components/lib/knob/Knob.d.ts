@@ -176,9 +176,9 @@ export interface KnobProps {
     showValue?: boolean | undefined;
     /**
      * Template string of the value.
-     * @defaultValue '{value}'
+     * @defaultValue 'val => val'
      */
-    valueTemplate?: string | undefined;
+    valueTemplate?: (val: number) => string | string | undefined;
     /**
      * Index of the element in tabbing order.
      * @defaultValue 0
