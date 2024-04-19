@@ -46,6 +46,7 @@ export default {
     style: TabViewStyle,
     provide() {
         return {
+            $pcTabs: undefined, // Backwards compatible to prevent <TabPanel> component from breaking
             $parentInstance: this
         };
     }

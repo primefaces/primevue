@@ -123,6 +123,8 @@ export default {
         }
     },
     mounted() {
+        console.warn('Deprecated since v4. Use Tabs component instead.');
+
         this.id = this.id || UniqueComponentId();
         this.updateInkBar();
         this.scrollable && this.updateButtonState();

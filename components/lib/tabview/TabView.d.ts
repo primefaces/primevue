@@ -269,6 +269,8 @@ export interface TabViewEmits {
 }
 
 /**
+ * @deprecated Deprecated since v4. Use Tabs component instead.
+ *
  * **PrimeVue - TabView**
  *
  * _TabView is a container component to group content with tabs._
