@@ -69,6 +69,7 @@ import splitter from 'primevue/themes/primeone/base/splitter';
 import stepper from 'primevue/themes/primeone/base/stepper';
 import steps from 'primevue/themes/primeone/base/steps';
 import tabmenu from 'primevue/themes/primeone/base/tabmenu';
+import tabs from 'primevue/themes/primeone/base/tabs';
 import tabview from 'primevue/themes/primeone/base/tabview';
 import tag from 'primevue/themes/primeone/base/tag';
 import terminal from 'primevue/themes/primeone/base/terminal';
@@ -158,6 +159,7 @@ export default {
         steps,
         stepper,
         tabmenu,
+        tabs,
         tabview,
         textarea,
         tieredmenu,

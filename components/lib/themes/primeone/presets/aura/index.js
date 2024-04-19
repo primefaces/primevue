@@ -68,6 +68,7 @@ import splitter from 'primevue/themes/primeone/presets/aura/splitter';
 import stepper from 'primevue/themes/primeone/presets/aura/stepper';
 import steps from 'primevue/themes/primeone/presets/aura/steps';
 import tabmenu from 'primevue/themes/primeone/presets/aura/tabmenu';
+import tabs from 'primevue/themes/primeone/presets/aura/tabs';
 import tabview from 'primevue/themes/primeone/presets/aura/tabview';
 import tag from 'primevue/themes/primeone/presets/aura/tag';
 import terminal from 'primevue/themes/primeone/presets/aura/terminal';
@@ -303,6 +304,7 @@ export default {
         stepper,
         steps,
         tabmenu,
+        tabs,
         tabview,
         textarea,
         tieredmenu,

@@ -274,6 +274,10 @@
                             "to": "/stepper"
                         },
                         {
+                            "name": "Tabs",
+                            "to": "/tabs"
+                        },
+                        {
                             "name": "TabView",
                             "to": "/tabview"
                         },

@@ -162,6 +162,10 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/steps/style': 'primevue.steps.style',
     'primevue/styleclass/style': 'primevue.styleclass.style',
     'primevue/tabmenu/style': 'primevue.tabmenu.style',
+    'primevue/tabs/style': 'primevue.tabs.style',
+    'primevue/tablist/style': 'primevue.tablist.style',
+    'primevue/tab/style': 'primevue.tab.style',
+    'primevue/tabpanels/style': 'primevue.tabpanels.style',
     'primevue/tabpanel/style': 'primevue.tabpanel.style',
     'primevue/tabview/style': 'primevue.tabview.style',
     'primevue/tag/style': 'primevue.tag.style',
@@ -181,7 +185,7 @@ const CORE_STYLE_DEPENDENCIES = {
 };
 
 // prettier-ignore
-const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','toggleswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','toggleswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu', 'tab', 'tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
 const createThemeDependencies = (design, presets) => {
     const baseDeps = THEME_COMPONENTS.reduce((acc, name) => {

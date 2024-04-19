@@ -101,6 +101,10 @@ const STYLE_ALIAS = {
     'primevue/stepperpanel/style': path.resolve(__dirname, './components/lib/stepperpanel/style/StepperPanelStyle.js'),
     'primevue/styleclass/style': path.resolve(__dirname, './components/lib/styleclass/style/StyleClassStyle.js'),
     'primevue/tabmenu/style': path.resolve(__dirname, './components/lib/tabmenu/style/TabMenuStyle.js'),
+    'primevue/tabs/style': path.resolve(__dirname, './components/lib/tabs/style/TabsStyle.js'),
+    'primevue/tablist/style': path.resolve(__dirname, './components/lib/tablist/style/TabListStyle.js'),
+    'primevue/tab/style': path.resolve(__dirname, './components/lib/tab/style/TabStyle.js'),
+    'primevue/tabpanels/style': path.resolve(__dirname, './components/lib/tabpanels/style/TabPanelsStyle.js'),
     'primevue/tabpanel/style': path.resolve(__dirname, './components/lib/tabpanel/style/TabPanelStyle.js'),
     'primevue/tabview/style': path.resolve(__dirname, './components/lib/tabview/style/TabViewStyle.js'),
     'primevue/tag/style': path.resolve(__dirname, './components/lib/tag/style/TagStyle.js'),
@@ -170,7 +174,7 @@ const ICON_ALIAS = {
 };
 
 // prettier-ignore
-const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
+const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabs','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
 const createThemeAlias = (design, presets) => {
     const baseAlias = THEME_COMPONENTS.reduce((acc, name) => {

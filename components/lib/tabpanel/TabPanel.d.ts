@@ -1,8 +1,8 @@
 /**
  *
- * TabPanel is a helper component for TabPanel component.
+ * TabPanel is a helper component for Tabs component.
  *
- * [Live Demo](https://www.primevue.org/tabview/)
+ * [Live Demo](https://www.primevue.org/tabs/)
  *
  * @module tabpanel
  *
@@ -55,18 +55,22 @@ export interface TabPanelPassThroughOptions {
     root?: TabPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the header's DOM element.
+     * @deprecated since v4. Only supported by TabView.
      */
     header?: TabPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the header action's DOM element.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerAction?: TabPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the title's DOM element.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerTitle?: TabPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the list's DOM element.
+     * @deprecated since v4. Only supported by TabView.
      */
     content?: TabPanelPassThroughOptionType;
     /**
@@ -85,43 +89,63 @@ export interface TabPanelPassThroughAttributes {
  */
 export interface TabPanelProps {
     /**
+     * Value of tabpanel.
+     */
+    value: string;
+    /**
+     * Use to change the HTML tag of root element.
+     * @defaultValue DIV
+     */
+    as?: string | undefined;
+    /**
+     * When enabled, it changes the default rendered element for the one passed as a child element.
+     * @defaultValue false
+     */
+    asChild?: boolean | undefined;
+    /**
      * Orientation of tab headers.
+     * @deprecated since v4. Only supported by TabView.
      */
     header?: string | undefined;
     /**
      * Inline style of the tab header.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerStyle?: any;
     /**
      * Style class of the tab header.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerClass?: any;
     /**
      * Used to pass all properties of the HTMLLiElement to the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerProps?: LiHTMLAttributes | undefined;
     /**
      * Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
+     * @deprecated since v4. Only supported by TabView.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
      * Inline style of the tab content.
+     * @deprecated since v4. Only supported by TabView.
      */
     contentStyle?: any;
     /**
      * Style class of the tab content.
+     * @deprecated since v4. Only supported by TabView.
      */
     contentClass?: any;
     /**
      * Used to pass all properties of the HTMLDivElement to the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
+     * @deprecated since v4. Only supported by TabView.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
      * Whether the tab is disabled.
      * @defaultValue false
+     * @deprecated since v4. Only supported by TabView.
      */
     disabled?: boolean | undefined;
     /**
@@ -146,18 +170,22 @@ export interface TabPanelProps {
 export interface TabPanelContext {
     /**
      * Current index of the tab.
+     * @deprecated since v4. Only supported by TabView.
      */
     index: number;
     /**
      * Count of tabs
+     * @deprecated since v4. Only supported by TabView.
      */
     count: number;
     /**
      * Whether the tab is first.
+     * @deprecated since v4. Only supported by TabView.
      */
     first: boolean;
     /**
      * Whether the tab is last.
+     * @deprecated since v4. Only supported by TabView.
      */
     last: boolean;
     /**
@@ -176,6 +204,7 @@ export interface TabPanelSlots {
     default(): VNode[];
     /**
      * Custom header template.
+     * @deprecated since v4. Only supported by TabView.
      */
     header(): VNode[];
 }
@@ -185,9 +214,9 @@ export interface TabPanelEmits {}
 /**
  * **PrimeVue - TabPanel**
  *
- * _TabPanel is a helper component for TabView component._
+ * _TabPanel is a helper component for Tabs component._
  *
- * [Live Demo](https://www.primevue.org/tabview/)
+ * [Live Demo](https://www.primevue.org/tabs/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *

@@ -6,6 +6,20 @@ export default {
     name: 'BaseTabPanel',
     extends: BaseComponent,
     props: {
+        // in Tabs
+        value: {
+            type: String,
+            default: undefined
+        },
+        as: {
+            type: String,
+            default: 'DIV'
+        },
+        asChild: {
+            type: Boolean,
+            default: false
+        },
+        // in TabView
         header: null,
         headerStyle: null,
         headerClass: null,

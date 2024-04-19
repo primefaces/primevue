@@ -5478,7 +5478,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DatePickerStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DrawerStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,FileUploadStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputChipsStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PopoverStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectStyle,SelectButtonStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToggleSwitchStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,ButtonGroupStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DatePickerStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DrawerStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,FileUploadStyle,FloatLabelStyle,FocusTrapStyle,GalleriaStyle,IconFieldStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputChipsStyle,InputGroupStyle,InputGroupAddonStyle,InputIconStyle,InputMaskStyle,InputNumberStyle,InputOtpStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MeterGroupStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PopoverStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectStyle,SelectButtonStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepperStyle,StepperPanelStyle,StepsStyle,StyleClassStyle,TabStyle,TabListStyle,TabMenuStyle,TabPanelStyle,TabPanelsStyle,TabsStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToggleSwitchStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -56558,6 +56558,550 @@
         }
     },
     "styled/PrimeVueStyled": {},
+    "tab": {
+        "description": "Tab is a helper component for Tabs component.\n\n[Live Demo](https://www.primevue.org/tabs/)",
+        "components": {
+            "default": {
+                "description": "Tab is a helper component for Tabs component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabProps": {
+                    "description": "Defines valid properties in Tab component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Value of tab."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether the tab is disabled."
+                        },
+                        {
+                            "name": "as",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "BUTTON",
+                            "description": "Use to change the HTML tag of root element."
+                        },
+                        {
+                            "name": "asChild",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it changes the default rendered element for the one passed as a child element."
+                        },
+                        {
+                            "name": "dt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "It generates scoped CSS variables using design tokens for the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<TabPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabContext": {
+                    "description": "Defines current options in Tab component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the tab is active."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabSlots": {
+                    "description": "Defines valid slots in Tab slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        }
+                    ]
+                },
+                "TabEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabPassThroughOptionType": {
+                    "values": "TabPassThroughAttributes | (options: TabPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "tab/style/TabStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "tablist": {
+        "description": "TabList is a helper component for Tabs component.\n\n[Live Demo](https://www.primevue.org/tabs/)",
+        "components": {
+            "default": {
+                "description": "TabList is a helper component for Tabs component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabListPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabListProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabListContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabListPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabListProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabListPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "previousButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabListPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the previous button component."
+                        },
+                        {
+                            "name": "nextButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabListPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the next button component."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabListPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "inkbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabListPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the inkbar's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabListPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabListProps": {
+                    "description": "Defines valid properties in TabList component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "dt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "It generates scoped CSS variables using design tokens for the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<TabListPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabListContext": {
+                    "description": "Defines current options in TabList component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabListSlots": {
+                    "description": "Defines valid slots in TabList slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        }
+                    ]
+                },
+                "TabListEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabListPassThroughOptionType": {
+                    "values": "TabListPassThroughAttributes | (options: TabListPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "tablist/style/TabListStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabListStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "tabmenu": {
         "description": "TabMenu is a navigation component that displays items as tab headers. Example below uses nested routes with TabMenu.\n\n[Live Demo](https://www.primevue.org/tabmenu/)",
         "components": {
@@ -57018,10 +57562,10 @@
         }
     },
     "tabpanel": {
-        "description": "TabPanel is a helper component for TabPanel component.\n\n[Live Demo](https://www.primevue.org/tabview/)",
+        "description": "TabPanel is a helper component for Tabs component.\n\n[Live Demo](https://www.primevue.org/tabs/)",
         "components": {
             "default": {
-                "description": "TabPanel is a helper component for TabView component.",
+                "description": "TabPanel is a helper component for Tabs component.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -57107,7 +57651,8 @@
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header's DOM element."
+                            "description": "Used to pass attributes to the header's DOM element.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerAction",
@@ -57115,7 +57660,8 @@
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header action's DOM element."
+                            "description": "Used to pass attributes to the header action's DOM element.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerTitle",
@@ -57123,7 +57669,8 @@
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the title's DOM element."
+                            "description": "Used to pass attributes to the title's DOM element.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "content",
@@ -57131,7 +57678,8 @@
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the list's DOM element.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "hooks",
@@ -57161,12 +57709,37 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Value of tabpanel."
+                        },
+                        {
+                            "name": "as",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "DIV",
+                            "description": "Use to change the HTML tag of root element."
+                        },
+                        {
+                            "name": "asChild",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it changes the default rendered element for the one passed as a child element."
+                        },
+                        {
                             "name": "header",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Orientation of tab headers."
+                            "description": "Orientation of tab headers.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerStyle",
@@ -57174,7 +57747,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab header."
+                            "description": "Inline style of the tab header.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerClass",
@@ -57182,7 +57756,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab header."
+                            "description": "Style class of the tab header.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerProps",
@@ -57191,7 +57766,7 @@
                             "type": "LiHTMLAttributes",
                             "default": "",
                             "description": "Used to pass all properties of the HTMLLiElement to the tab header.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "headerActionProps",
@@ -57200,7 +57775,7 @@
                             "type": "AnchorHTMLAttributes",
                             "default": "",
                             "description": "Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "contentStyle",
@@ -57208,7 +57783,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab content."
+                            "description": "Inline style of the tab content.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "contentClass",
@@ -57216,7 +57792,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab content."
+                            "description": "Style class of the tab content.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "contentProps",
@@ -57225,7 +57802,7 @@
                             "type": "HTMLAttributes",
                             "default": "",
                             "description": "Used to pass all properties of the HTMLDivElement to the tab content.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "disabled",
@@ -57233,7 +57810,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the tab is disabled."
+                            "description": "Whether the tab is disabled.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "dt",
@@ -57272,7 +57850,8 @@
                             "readonly": false,
                             "type": "number",
                             "default": "",
-                            "description": "Current index of the tab."
+                            "description": "Current index of the tab.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "count",
@@ -57280,7 +57859,8 @@
                             "readonly": false,
                             "type": "number",
                             "default": "",
-                            "description": "Count of tabs"
+                            "description": "Count of tabs",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "first",
@@ -57288,7 +57868,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "",
-                            "description": "Whether the tab is first."
+                            "description": "Whether the tab is first.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "last",
@@ -57296,7 +57877,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "",
-                            "description": "Whether the tab is last."
+                            "description": "Whether the tab is last.",
+                            "deprecated": "since v4. Only supported by TabView."
                         },
                         {
                             "name": "active",
@@ -57324,7 +57906,8 @@
                             "name": "header",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom header template."
+                            "description": "Custom header template.",
+                            "deprecated": "since v4. Only supported by TabView."
                         }
                     ]
                 },
@@ -57403,11 +57986,607 @@
             }
         }
     },
+    "tabpanels": {
+        "description": "TabPanels is a helper component for Tabs component.\n\n[Live Demo](https://www.primevue.org/tabview/)",
+        "components": {
+            "default": {
+                "description": "TabPanels is a helper component for Tabs component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabPanelsPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabPanelsProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabPanelsContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelsPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabPanelsProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelsPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelsPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelsProps": {
+                    "description": "Defines valid properties in TabPanels component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "dt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "It generates scoped CSS variables using design tokens for the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<TabPanelsPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelsContext": {
+                    "description": "Defines current options in TabPanels component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelsSlots": {
+                    "description": "Defines valid slots in TabPanels slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
+                        }
+                    ]
+                },
+                "TabPanelsEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabPanelsPassThroughOptionType": {
+                    "values": "TabPanelsPassThroughAttributes | (options: TabPanelsPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "tabpanels/style/TabPanelsStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabPanelsStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
+    "tabs": {
+        "description": "Tabs facilitates seamless switching between different views.\n\n[Live Demo](https://www.primevue.org/tabs/)",
+        "components": {
+            "default": {
+                "description": "Tabs facilitates seamless switching between different views.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabsPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabsProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabsState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        },
+                        {
+                            "name": "attrs",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines valid attributes."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines parent options."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabsPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabsProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabsPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabsPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabsState": {
+                    "description": "Defines current inline state in Tabs component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current active value state."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Unique id for the Tabs component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabsProps": {
+                    "description": "Defines valid properties in Tabs component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Value of the active tab."
+                        },
+                        {
+                            "name": "lazy",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css."
+                        },
+                        {
+                            "name": "orientation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"horizontal\" | \"vertical\"",
+                            "default": "horizontal",
+                            "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'."
+                        },
+                        {
+                            "name": "scrollable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When specified, enables horizontal and/or vertical scrolling."
+                        },
+                        {
+                            "name": "showNavigators",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether to display navigation buttons in container when scrollable is enabled."
+                        },
+                        {
+                            "name": "tabindex",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Index of the element in tabbing order."
+                        },
+                        {
+                            "name": "selectOnFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, the focused tab is activated."
+                        },
+                        {
+                            "name": "previousButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonProps",
+                            "default": "",
+                            "description": "Used to pass all properties of the HTMLButtonElement to the previous button."
+                        },
+                        {
+                            "name": "nextButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonProps",
+                            "default": "",
+                            "description": "Used to pass all properties of the HTMLButtonElement to the next button."
+                        },
+                        {
+                            "name": "dt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "It generates scoped CSS variables using design tokens for the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<TabsPassThroughOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabsSlots": {
+                    "description": "Defines valid slots in Tabs slots.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot to detect TabPanel components."
+                        },
+                        {
+                            "name": "previousicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Previous button icon template for the scrollable component."
+                        },
+                        {
+                            "name": "nexticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Next button icon template for the scrollable component."
+                        }
+                    ]
+                },
+                "TabsEmits": {
+                    "description": "Defines valid emits in Tabs component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:value",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "number",
+                                    "description": "Current value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabsPassThroughOptionType": {
+                    "values": "TabsPassThroughAttributes | (options: TabsPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "tabs/style/TabsStyle": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "TabsStyle": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "classes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "inlineStyles",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": ""
+                        },
+                        {
+                            "name": "loadStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "getStyleSheet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "BaseStyle"
+                }
+            }
+        }
+    },
     "tabview": {
         "description": "TabView is a container component to group content with tabs.\n\n[Live Demo](https://www.primevue.org/tabview/)",
         "components": {
             "default": {
-                "description": "TabView is a container component to group content with tabs.",
+                "description": "",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
