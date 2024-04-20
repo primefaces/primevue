@@ -4,8 +4,8 @@
         <div :class="cx('details')" v-bind="ptm('details')">
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
-            <Badge :value="badgeValue" :class="cx('badge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('badge')" />
         </div>
+        <Badge :value="badgeValue" :class="cx('badge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('badge')" />
         <div :class="cx('actions')" v-bind="ptm('actions')">
             <Button @click="$emit('remove', index)" text rounded severity="danger" :class="cx('removeButton')" :unstyled="unstyled" :pt="ptm('removeButton')">
                 <template #icon="iconProps">

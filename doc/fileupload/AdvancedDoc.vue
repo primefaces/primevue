@@ -5,7 +5,7 @@
     <div class="card">
         <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #empty>
-                <p>Drag and drop files to here to upload.</p>
+                <span>Drag and drop files to here to upload.</span>
             </template>
         </FileUpload>
     </div>
@@ -20,7 +20,7 @@ export default {
                 basic: `
 <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
     <template #empty>
-        <p>Drag and drop files to here to upload.</p>
+        <span>Drag and drop files to here to upload.</span>
     </template>
 </FileUpload>
 `,
@@ -30,7 +30,7 @@ export default {
         <Toast />
         <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #empty>
-                <p>Drag and drop files to here to upload.</p>
+                <span>Drag and drop files to here to upload.</span>
             </template>
         </FileUpload>
     </div>
@@ -52,7 +52,7 @@ export default {
         <Toast />
         <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #empty>
-                <p>Drag and drop files to here to upload.</p>
+                <span>Drag and drop files to here to upload.</span>
             </template>
         </FileUpload>
     </div>

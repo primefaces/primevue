@@ -30,10 +30,14 @@
             <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
                 <template v-if="hasFiles">
                     <ProgressBar :value="progress" :showValue="false" :unstyled="unstyled" :pt="ptm('progressbar')" />
-                    <FileContent :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :unstyled="unstyled" :pt="pt" />
+                    <div v-if="hasFiles" :class="cx('fileList')">
+                        <FileContent :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :unstyled="unstyled" :pt="pt" />
+                    </div>
                 </template>
                 <Message v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('message')">{{ msg }}</Message>
-                <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :unstyled="unstyled" :pt="pt" />
+                <div v-if="hasUploadedFiles" :class="cx('fileList')">
+                    <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :unstyled="unstyled" :pt="pt" />
+                </div>
             </slot>
             <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" :class="cx('empty')" v-bind="ptm('empty')">
                 <slot name="empty"></slot>
