@@ -95,6 +95,10 @@
                             "to": "/iconfield"
                         },
                         {
+                            "name": "InputChips",
+                            "to": "/inputchips"
+                        },
+                        {
                             "name": "InputGroup",
                             "to": "/inputgroup"
                         },
@@ -109,10 +113,6 @@
                         {
                             "name": "InputOtp",
                             "to": "/inputotp"
-                        },
-                        {
-                            "name": "InputChips",
-                            "to": "/inputchips"
                         },
                         {
                             "name": "InputText",
@@ -143,12 +143,12 @@
                             "to": "/rating"
                         },
                         {
-                            "name": "SelectButton",
-                            "to": "/selectbutton"
-                        },
-                        {
                             "name": "Select",
                             "to": "/select"
+                        },
+                        {
+                            "name": "SelectButton",
+                            "to": "/selectbutton"
                         },
                         {
                             "name": "Slider",
@@ -180,7 +180,7 @@
                             "to": "/button"
                         },
                         {
-                            "name": "Speed Dial",
+                            "name": "SpeedDial",
                             "to": "/speeddial"
                         },
                         {
@@ -205,7 +205,7 @@
                             "to": "/orderlist"
                         },
                         {
-                            "name": "Org Chart",
+                            "name": "OrgChart",
                             "to": "/organizationchart"
                         },
                         {
@@ -217,16 +217,16 @@
                             "to": "/picklist"
                         },
                         {
+                            "name": "Timeline",
+                            "to": "/timeline"
+                        },
+                        {
                             "name": "Tree",
                             "to": "/tree"
                         },
                         {
                             "name": "TreeTable",
                             "to": "/treetable"
-                        },
-                        {
-                            "name": "Timeline",
-                            "to": "/timeline"
                         },
                         {
                             "name": "VirtualScroller",
@@ -303,16 +303,16 @@
                             "to": "/dialog"
                         },
                         {
+                            "name": "Drawer",
+                            "to": "/drawer"
+                        },
+                        {
                             "name": "DynamicDialog",
                             "to": "/dynamicdialog"
                         },
                         {
                             "name": "Popover",
                             "to": "/popover"
-                        },
-                        {
-                            "name": "Drawer",
-                            "to": "/drawer"
                         },
                         {
                             "name": "Tooltip",
@@ -421,6 +421,10 @@
                     "name": "Misc",
                     "children": [
                         {
+                            "name": "AnimateOnScroll",
+                            "to": "/animateonscroll"
+                        },
+                        {
                             "name": "Avatar",
                             "to": "/avatar"
                         },
@@ -463,10 +467,6 @@
                         {
                             "name": "ProgressSpinner",
                             "to": "/progressspinner"
-                        },
-                        {
-                            "name": "AnimateOnScroll",
-                            "to": "/animateonscroll"
                         },
                         {
                             "name": "Ripple",
