@@ -5,14 +5,14 @@ export default {
     gap: 1.125rem;
 }
 
-.p-picklist-buttons {
+.p-picklist-controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;
 }
 
-.p-picklist-list-wrapper {
+.p-picklist-list-container {
     flex: 1 1 50%;
 }
 

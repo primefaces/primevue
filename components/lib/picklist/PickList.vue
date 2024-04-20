@@ -570,7 +570,7 @@ export default {
         flex-direction: column;
     }
 
-    .p-picklist[${this.attributeSelector}] .p-picklist-buttons {
+    .p-picklist[${this.attributeSelector}] .p-picklist-controls {
         flex-direction: row;
     }
 }
