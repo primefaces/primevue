@@ -222,7 +222,6 @@ export default {
             },
             templateHeroData: {
                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png',
-                light: true,
                 rectangle: true,
                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard1.png',
                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard2.png',
