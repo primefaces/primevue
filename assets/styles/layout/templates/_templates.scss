@@ -1398,19 +1398,26 @@
             border-radius: 1rem;
             border: 1px solid var(--surface-200);
             background-color: var(--surface-card);
-            span {
+
+            &-title {
                 color: var(--surface-900);
                 font-weight: 600;
                 line-height: 1.5rem;
             }
 
-            h2 {
+            &-pricing {
                 color: var(--surface-900);
                 font-size: 2.5rem;
                 font-weight: 600;
                 line-height: 3rem;
                 letter-spacing: -0.025rem;
                 margin: 1rem 0 1.25rem;
+
+                &-discount-active {
+                    color: var(--surface-600);
+                    text-decoration: line-through;
+                    margin-right: 1rem;
+                }
             }
 
             button {

@@ -4,8 +4,11 @@
             <div class="template-license-cards">
                 <template v-for="(detail, index) in license.licenseDetails" :key="index">
                     <div class="template-license-card">
-                        <span>{{ detail.title }}</span>
-                        <h2>{{ detail.price }}</h2>
+                        <span class="template-license-card-title">{{ detail.title }}</span>
+                        <div class="template-license-card-pricing">
+                            <span :class="{ 'template-license-card-pricing-discount-active': license.showDiscount }">{{ detail.price }}</span>
+                            <span v-if="license.showDiscount">{{ detail.discount }}</span>
+                        </div>
                         <div class="template-license-card-included">
                             <template v-for="(txt, i) in detail.included" :key="`text_${i}`">
                                 <p>{{ txt }}</p>

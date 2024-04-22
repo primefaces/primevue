@@ -207,15 +207,18 @@ export default {
             license: {
                 documentLink: 'https://avalon.primevue.org/documentation',
                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
+                showDiscount: false,
                 licenseDetails: [
                     {
                         title: 'Basic License',
                         price: '$49',
+                        discount: '$29',
                         included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', 'Lifetime Support', 'Unlimited Updates']
                     },
                     {
                         title: 'Extended License',
                         price: '$490',
+                        discount: '$290',
                         included: ['Commercial Usage', 'Multiple End Products', 'Lifetime Support', 'Unlimited Updates']
                     }
                 ]
