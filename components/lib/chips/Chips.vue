@@ -107,9 +107,9 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            const inputValue = event.target.value;
-
             if (event.isComposing || event.keyCode === 229) return;
+            
+            const inputValue = event.target.value;
 
             switch (event.code) {
                 case 'Backspace':
