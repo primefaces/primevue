@@ -18,6 +18,7 @@
             :aria-invalid="invalid || undefined"
             @input="onUserInput"
             @keydown="onInputKeyDown"
+            @keypress="onInputAndroidKey"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -371,6 +372,37 @@ export default {
 
             this.isSpecialChar = false;
         },
+        onInputAndroidKey(event) {
+            if (!DomHandler.isAndroid() || this.disabled || this.readOnly) {
+                return;
+            }
+
+            if (this.onKeyUp) {
+                this.onKeyUp(event);
+
+                // do not continue if the user defined event wants to prevent
+                if (event.defaultPrevented) {
+                    return;
+                }
+            }
+
+            const code = event.which || event.keyCode;
+
+            if (code !== 13) {
+                // to submit a form
+                event.preventDefault();
+            }
+
+            const char = String.fromCharCode(code);
+            const _isDecimalSign = this.isDecimalSign(char);
+            const _isMinusSign = this.isMinusSign(char);
+
+            if ((48 <= code && code <= 57) || _isMinusSign || _isDecimalSign) {
+                this.insert(event, char, { isDecimalSign: _isDecimalSign, isMinusSign: _isMinusSign });
+            } else {
+                this.updateValue(event, event.target.value, null, 'delete-single');
+            }
+        },
         onInputKeyDown(event) {
             if (this.readonly) {
                 return;
@@ -383,6 +415,11 @@ export default {
             }
 
             this.lastValue = event.target.value;
+
+            // Android is handled specially in onInputAndroidKey
+            if (DomHandler.isAndroid()) {
+                return;
+            }
 
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;

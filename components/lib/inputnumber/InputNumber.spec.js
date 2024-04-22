@@ -1,4 +1,6 @@
+import { afterEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { DomHandler } from 'primevue/utils';
 import InputNumber from './InputNumber.vue';
 
 describe('InputNumber.vue', () => {
@@ -10,6 +12,10 @@ describe('InputNumber.vue', () => {
                 modelValue: 1
             }
         });
+    });
+
+    afterEach(() => {
+        vi.restoreAllMocks();
     });
 
     it('is exist', () => {
@@ -41,18 +47,44 @@ describe('InputNumber.vue', () => {
         expect(wrapper.find('input.p-inputnumber-input').attributes()['aria-valuenow']).toBe('12');
     });
 
-    it('is keypress called when pressed a number', async () => {
-        wrapper.find('input.p-inputnumber-input').element.setSelectionRange(2, 2);
+    it('is keydown called when pressed a number', async () => {
+        // set the cursor to the end of the input field
+        wrapper.find('input.p-inputnumber-input').element.setSelectionRange(1, 1);
 
-        await wrapper.vm.onInputKeyPress({ which: 49, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'Digit1', key: '1', target: { value: '1' }, preventDefault: () => {} });
 
         expect(wrapper.emitted().input[0][0].value).toBe(11);
     });
 
-    it('is keypress called when pressed minus', async () => {
+    it('calls the keypress handler when a number is pressed on android', async () => {
+        // pretend we're on Android
+        vi.spyOn(DomHandler, 'isAndroid').mockReturnValue(true);
+
+        // set the cursor to the end of the input field
+        wrapper.find('input.p-inputnumber-input').element.setSelectionRange(1, 1);
+
+        await wrapper.vm.onInputAndroidKey({ which: 49, preventDefault: () => {} });
+
+        expect(wrapper.emitted().input[0][0].value).toBe(11);
+    });
+
+    it('is keydown called when pressed minus', async () => {
+        // set the cursor to the start of the input field
         wrapper.find('input.p-inputnumber-input').element.setSelectionRange(0, 0);
 
-        await wrapper.vm.onInputKeyPress({ keyCode: 45, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'Minus', key: '-', target: { value: '1' }, preventDefault: () => {} });
+
+        expect(wrapper.emitted().input[0][0].value).toBe(-1);
+    });
+
+    it('calls the keypress handler when minus is pressed on android', async () => {
+        // pretend we're on Android
+        vi.spyOn(DomHandler, 'isAndroid').mockReturnValue(true);
+
+        // set the cursor to the start of the input field
+        wrapper.find('input.p-inputnumber-input').element.setSelectionRange(0, 0);
+
+        await wrapper.vm.onInputAndroidKey({ which: 45, preventDefault: () => {} });
 
         expect(wrapper.emitted().input[0][0].value).toBe(-1);
     });
