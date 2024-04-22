@@ -109,6 +109,8 @@ export default {
         onKeyDown(event) {
             const inputValue = event.target.value;
 
+            if (event.isComposing || event.keyCode === 229) return;
+
             switch (event.code) {
                 case 'Backspace':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
