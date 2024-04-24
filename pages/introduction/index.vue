@@ -6,6 +6,10 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
+                <div style="border-radius: 20px; max-height: 300px" class="overflow-hidden mb-5 flex align-items-center">
+                    <img alt="PrimeVue Designer" :src="introDesktopImg" class="w-full hidden md:block" />
+                    <img alt="PrimeVue Designer" :src="introMobileImg" class="w-full md:hidden" />
+                </div>
                 <h1>Introduction</h1>
                 <p>Next-generation UI Component suite for Vue.</p>
             </div>
@@ -59,6 +63,14 @@ export default {
                 }
             ]
         };
+    },
+    computed: {
+        introDesktopImg() {
+            return `https://primefaces.org/cdn/primevue/images/overview${this.$appState.darkTheme ? '-dark' : ''}.png`;
+        },
+        introMobileImg() {
+            return `https://primefaces.org/cdn/primevue/images/overview${this.$appState.darkTheme ? '-dark' : ''}-mobile.png`;
+        }
     }
 };
 </script>
