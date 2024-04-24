@@ -16,12 +16,16 @@
                     <td>Container element.</td>
                 </tr>
                 <tr>
-                    <td>p-accordion-header</td>
-                    <td>Header of a tab.</td>
+                    <td>p-accordionpanel</td>
+                    <td>Container of a panel.</td>
                 </tr>
                 <tr>
-                    <td>p-accordion-content</td>
-                    <td>Container of a tab.</td>
+                    <td>p-accordionheader</td>
+                    <td>Header of a panel.</td>
+                </tr>
+                <tr>
+                    <td>p-accordioncontent</td>
+                    <td>Content of a panel.</td>
                 </tr>
             </tbody>
         </table>

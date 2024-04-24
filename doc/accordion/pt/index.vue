@@ -29,8 +29,27 @@ export default {
                     data: getPTOption('Accordion')
                 },
                 {
+                    id: 'pt.doc.accordionpanel',
+                    label: 'AccordionPanel PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('AccordionPanel')
+                },
+                {
+                    id: 'pt.doc.accordionheader',
+                    label: 'AccordionHeader PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('AccordionHeader')
+                },
+                {
+                    id: 'pt.doc.accordioncontent',
+                    label: 'AccordionContent PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('AccordionContent')
+                },
+                {
                     id: 'pt.doc.accordiontab',
                     label: 'AccordionTab PT Options',
+                    badge: { value: 'Deprecated since v4', severity: 'warn' },
                     component: DocApiTable,
                     data: getPTOption('AccordionTab')
                 }

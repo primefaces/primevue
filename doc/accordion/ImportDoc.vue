@@ -10,7 +10,9 @@ export default {
             code: {
                 basic: `
 import Accordion from 'primevue/accordion';
-import AccordionTab from 'primevue/accordiontab';
+import AccordionPanel from 'primevue/accordionpanel';
+import AccordionHeader from 'primevue/accordionheader';
+import AccordionContent from 'primevue/accordioncontent';
 `
             }
         };

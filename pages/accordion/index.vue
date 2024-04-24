@@ -2,9 +2,9 @@
     <DocComponent
         title="Vue Accordion Component"
         header="Accordion"
-        description="Accordion groups a collection of contents in tabs."
+        description="Accordion groups a collection of contents in panels."
         :componentDocs="docs"
-        :apiDocs="['Accordion', 'AccordionTab']"
+        :apiDocs="['Accordion', 'AccordionPanel', 'AccordionHeader', 'AccordionContent']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />
