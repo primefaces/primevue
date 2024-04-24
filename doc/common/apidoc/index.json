@@ -15999,6 +15999,13 @@
                             "readonly": false,
                             "type": "string",
                             "default": ""
+                        },
+                        {
+                            "name": "listLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
                         }
                     ],
                     "methods": []
