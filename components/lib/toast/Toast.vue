@@ -72,17 +72,12 @@ export default {
             this.messages = [...this.messages, message];
         },
         remove(params) {
-            let index = -1;
+            const index = this.messages.findIndex((m) => m.id === params.message.id);
 
-            for (let i = 0; i < this.messages.length; i++) {
-                if (this.messages[i] === params.message) {
-                    index = i;
-                    break;
-                }
+            if (index !== -1) {
+                this.messages.splice(index, 1);
+                this.$emit(params.type, { message: params.message });
             }
-
-            this.messages.splice(index, 1);
-            this.$emit(params.type, { message: params.message });
         },
         onAdd(message) {
             if (this.group == message.group) {
