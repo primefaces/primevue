@@ -9,14 +9,12 @@
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="1" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
-                    </div>
+                <Tab value="1" as="div" class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold white-space-nowrap">Onyama Limba</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="2" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex align-items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
                         <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
                         <Badge value="2" />
@@ -58,14 +56,12 @@ export default {
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
             <span class="font-bold white-space-nowrap">Amy Elsner</span>
         </Tab>
-        <Tab v-slot="{ a11yAttrs, onClick }" value="1" asChild>
-            <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                <span class="font-bold white-space-nowrap">Onyama Limba</span>
-            </div>
+        <Tab value="1" as="div" class="flex align-items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            <span class="font-bold white-space-nowrap">Onyama Limba</span>
         </Tab>
-        <Tab v-slot="{ a11yAttrs, onClick }" value="2" asChild>
-            <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
+        <Tab v-slot="slotProps" value="2" asChild>
+            <div :class="['flex align-items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
                 <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
                 <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
                 <Badge value="2" />
@@ -101,14 +97,12 @@ export default {
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="1" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
-                    </div>
+                <Tab value="1" as="div" class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold white-space-nowrap">Onyama Limba</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="2" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex align-items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
                         <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
                         <Badge value="2" />
@@ -149,14 +143,12 @@ export default {
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="1" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                        <span class="font-bold white-space-nowrap">Onyama Limba</span>
-                    </div>
+                <Tab value="1" as="div" class="flex align-items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold white-space-nowrap">Onyama Limba</span>
                 </Tab>
-                <Tab v-slot="{ a11yAttrs, onClick }" value="2" asChild>
-                    <div class="flex align-items-center gap-2" @click="onClick" v-bind="a11yAttrs">
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex align-items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
                         <span class="font-bold white-space-nowrap">Ioni Bowcher</span>
                         <Badge value="2" />

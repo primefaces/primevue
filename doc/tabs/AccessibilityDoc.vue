@@ -2,9 +2,9 @@
     <DocSectionText id="accessibility" label="Accessibility" v-bind="$attrs">
         <h3>Screen Reader</h3>
         <p>
-            TabView container is defined with the <i>tablist</i> role, as any attribute is passed to the container element <i>aria-labelledby</i> can be optionally used to specify an element to describe the TabView. Each tab header has a
-            <i>tab</i> role along with <i>aria-selected</i> state attribute and <i>aria-controls</i> to refer to the corresponding tab content element. The content element of each tab has <i>tabpanel</i> role, an id to match the
-            <i>aria-controls</i> of the header and <i>aria-labelledby</i> reference to the header as the accessible name.
+            The tabs container in TabList is defined with the <i>tablist</i> role, as any attribute is passed to the container element <i>aria-labelledby</i> can be optionally used to specify an element to describe the Tabs. Each Tab has a
+            <i>tab</i> role along with <i>aria-selected</i> state attribute and <i>aria-controls</i> to refer to the corresponding TabPanel. TabPanel has <i>tabpanel</i> role, an id to match the <i>aria-controls</i> of Tab and
+            <i>aria-labelledby</i> reference to Tab as the accessible name.
         </p>
 
         <h3>Tab Keyboard Support</h3>
