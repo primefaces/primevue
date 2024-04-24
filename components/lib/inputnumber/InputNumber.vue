@@ -10,6 +10,7 @@
             :aria-valuemin="min"
             :aria-valuemax="max"
             :aria-valuenow="modelValue"
+            :inputmode="mode === 'decimal' && !minFractionDigits ? 'numeric' : 'decimal'"
             :disabled="disabled"
             :readonly="readonly"
             :placeholder="placeholder"
@@ -18,6 +19,7 @@
             :aria-invalid="invalid || undefined"
             @input="onUserInput"
             @keydown="onInputKeyDown"
+            @keypress="onInputKeyPress"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -525,21 +527,24 @@ export default {
                     break;
 
                 default:
-                    if (this.readonly) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    let char = event.key;
-                    const isDecimalSign = this.isDecimalSign(char);
-                    const isMinusSign = this.isMinusSign(char);
-
-                    if ((Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
-                        this.insert(event, char, { isDecimalSign, isMinusSign });
-                    }
-
                     break;
+            }
+        },
+        onInputKeyPress(event) {
+            if (this.readonly) {
+                return;
+            }
+
+            let char = event.key;
+            let isDecimalSign = this.isDecimalSign(char);
+            const isMinusSign = this.isMinusSign(char);
+
+            if (event.code !== 'Enter') {
+                event.preventDefault();
+            }
+
+            if ((Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
+                this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
         onPaste(event) {
