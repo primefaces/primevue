@@ -1,5 +1,8 @@
 import { Plugin } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
+import { AccordionContentPassThroughOptions } from '../accordioncontent';
+import { AccordionHeaderPassThroughOptions } from '../accordionheader';
+import { AccordionPanelPassThroughOptions } from '../accordionpanel';
 import { AccordionTabPassThroughOptions } from '../accordiontab';
 import { AnimateOnScrollDirectivePassThroughOptions } from '../animateonscroll';
 import { AutoCompletePassThroughOptions } from '../autocomplete';
@@ -82,8 +85,12 @@ import { SplitterPassThroughOptions } from '../splitter';
 import { SplitterPanelPassThroughOptions } from '../splitterpanel';
 import { StepsPassThroughOptions } from '../steps';
 import { StyleClassDirectivePassThroughOptions } from '../styleclass';
+import { TabPassThroughOptions } from '../tab';
+import { TabListPassThroughOptions } from '../tablist';
 import { TabMenuPassThroughOptions } from '../tabmenu';
 import { TabPanelPassThroughOptions } from '../tabpanel';
+import { TabPanelsPassThroughOptions } from '../tabpanels';
+import { TabsPassThroughOptions } from '../tabs';
 import { TabViewPassThroughOptions } from '../tabview';
 import { TagPassThroughOptions } from '../tag';
 import { TerminalPassThroughOptions } from '../terminal';
@@ -129,6 +136,12 @@ export interface PrimeVueCSPOptions {
 
 export interface PrimeVuePTOptions {
     accordion?: DefaultPassThrough<AccordionPassThroughOptions>;
+    accordionpanel?: DefaultPassThrough<AccordionPanelPassThroughOptions>;
+    accordionheader?: DefaultPassThrough<AccordionHeaderPassThroughOptions>;
+    accordioncontent?: DefaultPassThrough<AccordionContentPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of Accordion instead.
+     */
     accordiontab?: DefaultPassThrough<AccordionTabPassThroughOptions>;
     autocomplete?: DefaultPassThrough<AutoCompletePassThroughOptions>;
     avatar?: DefaultPassThrough<AvatarPassThroughOptions>;
@@ -207,7 +220,14 @@ export interface PrimeVuePTOptions {
     splitterpanel?: DefaultPassThrough<SplitterPanelPassThroughOptions>;
     steps?: DefaultPassThrough<StepsPassThroughOptions>;
     tabmenu?: DefaultPassThrough<TabMenuPassThroughOptions>;
+    tabs?: DefaultPassThrough<TabsPassThroughOptions>;
+    tablist?: DefaultPassThrough<TabListPassThroughOptions>;
+    tab?: DefaultPassThrough<TabPassThroughOptions>;
+    tabpanels?: DefaultPassThrough<TabPanelsPassThroughOptions>;
     tabpanel?: DefaultPassThrough<TabPanelPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use tabs instead.
+     */
     tabview?: DefaultPassThrough<TabViewPassThroughOptions>;
     tag?: DefaultPassThrough<TagPassThroughOptions>;
     terminal?: DefaultPassThrough<TerminalPassThroughOptions>;
