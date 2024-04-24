@@ -1,46 +1,41 @@
 <template>
     <div ref="list" :class="cx('root')" v-bind="ptmi('root')">
-        <Button
+        <button
             v-if="showNavigators && isPrevButtonEnabled"
             ref="prevButton"
+            v-ripple
             :class="cx('previousButton')"
             :aria-label="prevButtonAriaLabel"
-            :unstyled="$pcTabs.unstyled"
             :tabindex="$pcTabs.tabindex"
             @click="onPrevButtonClick"
-            v-bind="$pcTabs.previousButtonProps"
-            :pt="ptm('previousButton')"
+            v-bind="ptm('previousButton')"
             data-pc-group-section="navigator"
         >
-            <template #icon="slotProps">
-                <component :is="templates.previousicon || 'ChevronLeftIcon'" aria-hidden="true" :class="slotProps.icon" v-bind="ptm('previousButton.icon')" />
-            </template>
-        </Button>
-        <div ref="content" :class="cx('content')" role="tablist" :aria-orientation="$pcTabs.orientation" @scroll="onScroll" v-bind="ptm('content')">
-            <slot></slot>
-            <span ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></span>
+            <component :is="templates.previousicon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('previousIcon')" />
+        </button>
+        <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
+            <div ref="tabs" :class="cx('tabs')" role="tablist" :aria-orientation="$pcTabs.orientation" v-bind="ptm('tabs')">
+                <slot></slot>
+                <span ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></span>
+            </div>
         </div>
-        <Button
+        <button
             v-if="showNavigators && isNextButtonEnabled"
             ref="nextButton"
+            v-ripple
             :class="cx('nextButton')"
             :aria-label="nextButtonAriaLabel"
-            :unstyled="$pcTabs.unstyled"
             :tabindex="$pcTabs.tabindex"
             @click="onNextButtonClick"
-            v-bind="$pcTabs.nextButtonProps"
-            :pt="ptm('nextButton')"
+            v-bind="ptm('nextButton')"
             data-pc-group-section="navigator"
         >
-            <template #icon="slotProps">
-                <component :is="templates.nexticon || 'ChevronRightIcon'" aria-hidden="true" :class="slotProps.icon" v-bind="ptm('nextButton.icon')" />
-            </template>
-        </Button>
+            <component :is="templates.nexticon || 'ChevronRightIcon'" aria-hidden="true" v-bind="ptm('nextIcon')" />
+        </button>
     </div>
 </template>
 
 <script>
-import Button from 'primevue/button';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler } from 'primevue/utils';
@@ -115,11 +110,11 @@ export default {
             this.resizeObserver = undefined;
         },
         updateInkBar() {
-            const { content, inkbar } = this.$refs;
+            const { content, inkbar, tabs } = this.$refs;
             const activeTab = DomHandler.findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
 
             inkbar.style.width = DomHandler.getOuterWidth(activeTab) + 'px';
-            inkbar.style.left = DomHandler.getOffset(activeTab).left - DomHandler.getOffset(content).left + 'px';
+            inkbar.style.left = DomHandler.getOffset(activeTab).left - DomHandler.getOffset(tabs).left + 'px';
         },
         updateButtonState() {
             const { list, content } = this.$refs;
@@ -153,7 +148,6 @@ export default {
         }
     },
     components: {
-        Button,
         ChevronLeftIcon,
         ChevronRightIcon
     }

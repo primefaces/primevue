@@ -9,7 +9,6 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ButtonProps } from '../button';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -120,14 +119,6 @@ export interface TabsProps {
      * @defaultValue false
      */
     selectOnFocus?: boolean | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the previous button.
-     */
-    previousButtonProps?: ButtonProps | undefined;
-    /**
-     * Used to pass all properties of the HTMLButtonElement to the next button.
-     */
-    nextButtonProps?: ButtonProps | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

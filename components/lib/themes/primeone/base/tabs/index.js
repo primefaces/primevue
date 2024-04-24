@@ -5,7 +5,15 @@ export default {
     flex-direction: column;
 }
 
-.p-tablist-scroll-container {
+.p-tablist {
+    position: relative;
+}
+
+.p-tabs-scrollable > .p-tablist {
+    overflow: hidden;
+}
+
+.p-tablist-scroller {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -13,34 +21,49 @@ export default {
     overscroll-behavior: contain auto;
 }
 
-.p-tablist-scroll-container::-webkit-scrollbar {
+.p-tablist-scroller::-webkit-scrollbar {
     display: none;
 }
 
-.p-tablist {
-    position: relative;
-    background: ${dt('tabs.nav.background')};
-}
-
-.p-tablist-content {
+.p-tablist-tabs {
     position: relative;
     display: flex;
+    background: ${dt('tabs.nav.background')};
     border: 1px solid ${dt('tabs.nav.border.color')};
     border-width: 0 0 1px 0;
 }
 
-.p-tablist-navigator.p-button {
+.p-tablist-navigator {
+    all: unset;
     position: absolute;
+    top: 0;
     z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${dt('tabs.navigator.icon.background')};
+    color: ${dt('tabs.navigator.icon.color')};
+    width: 2.5rem;
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    box-shadow: ${dt('tabs.navigator.icon.box.shadow')};
+    cursor: pointer;
 }
 
-.p-tablist-navigator.p-tablist-prev-button {
-    top: 0;
+.p-tablist-navigator:focus-visible {
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
+}
+
+.p-tablist-navigator:hover {
+    color: ${dt('tabs.navigator.icon.hover.color')};
+}
+
+.p-tablist-prev-button {
     left: 0;
 }
 
-.p-tablist-navigator.p-tablist-next-button {
-    top: 0;
+.p-tablist-next-button {
     right: 0;
 }
 

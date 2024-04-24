@@ -33,18 +33,6 @@ export default {
         selectOnFocus: {
             type: Boolean,
             default: false
-        },
-        previousButtonProps: {
-            type: Object,
-            default: () => {
-                return { severity: 'secondary', text: true };
-            }
-        },
-        nextButtonProps: {
-            type: Object,
-            default: () => {
-                return { severity: 'secondary', text: true };
-            }
         }
     },
     style: TabsStyle,

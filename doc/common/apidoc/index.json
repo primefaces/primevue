@@ -170,7 +170,8 @@
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to AccordionTab helper components."
+                            "description": "Used to pass attributes to AccordionTab helper components.",
+                            "deprecated": "since v4. Use new structure instead."
                         },
                         {
                             "name": "hooks",
@@ -209,12 +210,12 @@
                             "description": "Current id state as a string"
                         },
                         {
-                            "name": "d_activeIndex",
+                            "name": "d_value",
                             "optional": false,
                             "readonly": false,
-                            "type": "number | number[]",
+                            "type": "string | string[]",
                             "default": "",
-                            "description": "Current active index state."
+                            "description": "Current active value state."
                         }
                     ],
                     "methods": []
@@ -223,6 +224,14 @@
                     "description": "Defines valid properties in Accordion component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "value",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | string | string[]",
+                            "default": "null",
+                            "description": "Value of the active panel or an array of values in multiple mode."
+                        },
                         {
                             "name": "multiple",
                             "optional": true,
@@ -237,7 +246,8 @@
                             "readonly": false,
                             "type": "null | number | number[]",
                             "default": "null",
-                            "description": "Index of the active tab or an array of indexes in multiple mode."
+                            "description": "Index of the active tab or an array of indexes in multiple mode.",
+                            "deprecated": "since v4. Use value property instead."
                         },
                         {
                             "name": "lazy",
@@ -345,6 +355,19 @@
                     "props": [],
                     "methods": [
                         {
+                            "name": "update:value",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "undefined | null | string | string[]",
+                                    "description": "Value of new active panel."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the active panel changes."
+                        },
+                        {
                             "name": "update:activeIndex",
                             "parameters": [
                                 {
@@ -355,7 +378,8 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Emitted when the active tab changes."
+                            "description": "Emitted when the active tab changes.",
+                            "deprecated": "since v4. Use update:value emit instead."
                         },
                         {
                             "name": "tab-open",
@@ -368,7 +392,8 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when a tab gets expanded."
+                            "description": "Callback to invoke when a tab gets expanded.",
+                            "deprecated": "since v4."
                         },
                         {
                             "name": "tab-close",
@@ -381,7 +406,8 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when an active tab is collapsed by clicking on the header."
+                            "description": "Callback to invoke when an active tab is collapsed by clicking on the header.",
+                            "deprecated": "since v4."
                         },
                         {
                             "name": "tab-click",
@@ -394,7 +420,8 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when an active tab is clicked."
+                            "description": "Callback to invoke when an active tab is clicked.",
+                            "deprecated": "since v4."
                         }
                     ]
                 }
@@ -551,6 +578,22 @@
                             "type": "AccordionContentPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionContentPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the transition's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionContentPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -803,6 +846,14 @@
                     "props": [
                         {
                             "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionHeaderPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "toggleicon",
                             "optional": true,
                             "readonly": false,
                             "type": "AccordionHeaderPassThroughOptionType",
@@ -1260,10 +1311,10 @@
         }
     },
     "accordiontab": {
-        "description": "AccordionTab is a helper component for Accordion.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "description": "",
         "components": {
             "default": {
-                "description": "AccordionTab is a helper component for Accordion..",
+                "description": "",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -16051,11 +16102,34 @@
                             "default": ""
                         },
                         {
+                            "name": "accordionpanel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<AccordionPanelPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "accordionheader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<AccordionHeaderPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "accordioncontent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<AccordionContentPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "accordiontab",
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<AccordionTabPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of Accordion instead."
                         },
                         {
                             "name": "autocomplete",
@@ -16597,6 +16671,34 @@
                             "default": ""
                         },
                         {
+                            "name": "tabs",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<TabsPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "tablist",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<TabListPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "tab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<TabPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "tabpanels",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPassThrough<TabPanelsPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "tabpanel",
                             "optional": true,
                             "readonly": false,
@@ -16608,7 +16710,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<TabViewPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use tabs instead."
                         },
                         {
                             "name": "tag",
@@ -59208,22 +59312,6 @@
                             "description": "When enabled, the focused tab is activated."
                         },
                         {
-                            "name": "previousButtonProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonProps",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the previous button."
-                        },
-                        {
-                            "name": "nextButtonProps",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonProps",
-                            "default": "",
-                            "description": "Used to pass all properties of the HTMLButtonElement to the next button."
-                        },
-                        {
                             "name": "dt",
                             "optional": true,
                             "readonly": false,
@@ -59374,7 +59462,7 @@
         }
     },
     "tabview": {
-        "description": "TabView is a container component to group content with tabs.\n\n[Live Demo](https://www.primevue.org/tabview/)",
+        "description": "",
         "components": {
             "default": {
                 "description": "",
