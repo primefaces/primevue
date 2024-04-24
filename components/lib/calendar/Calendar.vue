@@ -563,14 +563,17 @@ export default {
         id: function (newValue) {
             this.d_id = newValue || UniqueComponentId();
         },
-        modelValue(newValue) {
-            this.updateCurrentMetaData();
+        modelValue: {
+            deep: true,
+            handler(newValue) {
+                this.updateCurrentMetaData();
 
-            if (!this.typeUpdate && !this.inline && this.input) {
-                this.input.value = this.formatValue(newValue);
+                if (!this.typeUpdate && !this.inline && this.input) {
+                    this.input.value = this.formatValue(newValue);
+                }
+
+                this.typeUpdate = false;
             }
-
-            this.typeUpdate = false;
         },
         showTime() {
             this.updateCurrentMetaData();
