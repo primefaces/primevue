@@ -1,13 +1,21 @@
 export default {
     css: ({ dt }) => `
-.p-accordion-panel-header-content {
+.p-accordionpanel {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid ${dt('accordion.content.border.color')};
+}
+
+.p-accordionpanel:last-child {
+    border-bottom: 0 none;
+}
+
+.p-accordionheader {
+    all: unset;
     cursor: pointer;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     align-items: center;
-    user-select: none;
-    text-decoration: none;
+    justify-content: space-between;
     padding: 1.125rem 1.125rem 1.125rem 1.125rem;
     color: ${dt('accordion.header.color')};
     background: ${dt('accordion.header.background')};
@@ -17,43 +25,23 @@ export default {
     outline-color: transparent;
 }
 
-.p-accordion-panel-header-text {
-    line-height: 1;
-}
-
-.p-accordion-panel-header:not(.p-disabled) .p-accordion-panel-header-content:focus-visible {
+.p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: -2px;
 }
 
-.p-accordion-panel-header:not(.p-accordion-panel-header-active):not(.p-disabled):hover .p-accordion-panel-header-content {
+.p-accordionpanel:not(.p-active):not(.p-disabled):hover .p-accordionheader {
     color: ${dt('accordion.header.hover.color')}
 }
 
-.p-accordion-panel-header:not(.p-disabled).p-accordion-panel-header-active .p-accordion-panel-header-content {
+.p-accordionpanel:not(.p-disabled).p-active .p-accordionheader {
     color: ${dt('accordion.header.active.color')}
 }
 
-.p-accordion-panel-toggle-icon {
-    transform: rotate(90deg);
-}
-
-.p-accordion-panel-header-active .p-accordion-panel-toggle-icon {
-    transform: rotate(-180deg);
-}
-
-.p-accordion-panel-content {
+.p-accordioncontent-content {
     padding: 0 1.125rem 1.125rem 1.125rem;
     background: color: ${dt('accordion.content.background')}
     color: ${dt('accordion.content.color')}
-}
-
-.p-accordion-panel {
-    border-bottom: 1px solid ${dt('accordion.content.border.color')};
-}
-
-.p-accordion-panel:last-child {
-    border-bottom: 0 none
 }
 `
 };

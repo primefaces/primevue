@@ -1,0 +1,9 @@
+{
+    "main": "./accordionheader.cjs.js",
+    "module": "./accordionheader.esm.js",
+    "unpkg": "./accordionheader.min.js",
+    "types": "./AccordionHeader.d.ts",
+    "browser": {
+        "./sfc": "./AccordionHeader.vue"
+    }
+}

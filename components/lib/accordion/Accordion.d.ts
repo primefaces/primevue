@@ -90,6 +90,7 @@ export interface AccordionPassThroughOptions {
     tab?: AccordionTabPassThroughOptionType;
     /**
      * Used to pass attributes to AccordionTab helper components.
+     * @deprecated since v4. Use new structure instead.
      */
     accordiontab?: AccordionTabPassThroughOptionType;
     /**
@@ -115,15 +116,20 @@ export interface AccordionState {
      */
     id: string;
     /**
-     * Current active index state.
+     * Current active value state.
      */
-    d_activeIndex: number | number[];
+    d_value: string | string[];
 }
 
 /**
  * Defines valid properties in Accordion component.
  */
 export interface AccordionProps {
+    /**
+     * Value of the active panel or an array of values in multiple mode.
+     * @defaultValue null
+     */
+    value?: string | string[] | null | undefined;
     /**
      * When enabled, multiple tabs can be activated at the same time.
      * @defaultValue false
@@ -132,6 +138,7 @@ export interface AccordionProps {
     /**
      * Index of the active tab or an array of indexes in multiple mode.
      * @defaultValue null
+     * @deprecated since v4. Use value property instead.
      */
     activeIndex?: number | number[] | null | undefined;
     /**
@@ -201,23 +208,32 @@ export interface AccordionSlots {
  */
 export interface AccordionEmits {
     /**
+     * Emitted when the active panel changes.
+     * @param {string | string[] | null | undefined} value - Value of new active panel.
+     */
+    'update:value'(value: string | string[] | null | undefined): void;
+    /**
      * Emitted when the active tab changes.
      * @param {number | undefined} value - Index of new active tab.
+     * @deprecated since v4. Use update:value emit instead.
      */
     'update:activeIndex'(value: number | undefined): void;
     /**
      * Callback to invoke when a tab gets expanded.
      * @param {AccordionTabOpenEvent} event - Custom tab open event.
+     * @deprecated since v4.
      */
     'tab-open'(event: AccordionTabOpenEvent): void;
     /**
      * Callback to invoke when an active tab is collapsed by clicking on the header.
      * @param {AccordionTabCloseEvent} event - Custom tab close event.
+     * @deprecated since v4.
      */
     'tab-close'(event: AccordionTabCloseEvent): void;
     /**
      * Callback to invoke when an active tab is clicked.
      * @param {AccordionClickEvent} event - Custom tab click event.
+     * @deprecated since v4.
      */
     'tab-click'(event: AccordionClickEvent): void;
 }

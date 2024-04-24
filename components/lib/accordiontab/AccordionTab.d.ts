@@ -1,4 +1,5 @@
 /**
+ * @deprecated since v4. Use the new structure of Accordion instead.
  *
  * AccordionTab is a helper component for Accordion.
  *
@@ -218,7 +219,9 @@ export interface AccordionTabSlots {
 export interface AccordionTabEmits {}
 
 /**
- * **PrimeVue - Accordion**
+ * @deprecated since v4. Use the new structure of Accordion instead.
+ *
+ * **PrimeVue - AccordionTab**
  *
  * _AccordionTab is a helper component for Accordion.._
  *

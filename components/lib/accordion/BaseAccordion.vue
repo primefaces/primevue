@@ -6,15 +6,23 @@ export default {
     name: 'BaseAccordion',
     extends: BaseComponent,
     props: {
+        value: {
+            type: [String, Array],
+            default: undefined
+        },
         multiple: {
             type: Boolean,
             default: false
         },
-        activeIndex: {
-            type: [Number, Array],
-            default: null
-        },
         lazy: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        selectOnFocus: {
             type: Boolean,
             default: false
         },
@@ -26,18 +34,16 @@ export default {
             type: String,
             default: undefined
         },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
+        // @deprecated since v4.
+        activeIndex: {
+            type: [Number, Array],
+            default: null
         }
     },
     style: AccordionStyle,
     provide() {
         return {
+            $pcAccordion: this,
             $parentInstance: this
         };
     }

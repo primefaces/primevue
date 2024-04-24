@@ -1,10 +1,11 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-accordion p-component'
+    root: 'p-accordionheader',
+    toggleicon: 'p-accordionheader-toggle-icon'
 };
 
 export default BaseStyle.extend({
-    name: 'accordion',
+    name: 'accordionheader',
     classes
 });

@@ -70,6 +70,9 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/base/style': 'primevue.base.style',
     'primevue/basecomponent/style': 'primevue.basecomponent.style',
     'primevue/accordion/style': 'primevue.accordion.style',
+    'primevue/accordionpanel/style': 'primevue.accordionpanel.style',
+    'primevue/accordionheader/style': 'primevue.accordionheader.style',
+    'primevue/accordioncontent/style': 'primevue.accordioncontent.style',
     'primevue/accordiontab/style': 'primevue.accordiontab.style',
     'primevue/animateonscroll/style': 'primevue.animateonscroll.style',
     'primevue/autocomplete/style': 'primevue.autocomplete.style',
@@ -282,6 +285,9 @@ const CORE_DEPENDENCIES = {
     'primevue/drawer': 'primevue.drawer',
     'primevue/datepicker': 'primevue.datepicker',
     'primevue/select': 'primevue.select',
+    'primevue/accordionpanel': 'primevue.accordionpanel',
+    'primevue/accordionheader': 'primevue.accordionheader',
+    'primevue/accordioncontent': 'primevue.accordioncontent',
     ...CORE_PASSTHROUGH_DEPENDENCIES,
     ...CORE_THEME_DEPENDENCIES
 };

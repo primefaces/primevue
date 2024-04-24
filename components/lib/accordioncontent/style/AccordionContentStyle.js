@@ -1,10 +1,11 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-accordion p-component'
+    root: 'p-accordioncontent',
+    content: 'p-accordioncontent-content'
 };
 
 export default BaseStyle.extend({
-    name: 'accordion',
+    name: 'accordioncontent',
     classes
 });

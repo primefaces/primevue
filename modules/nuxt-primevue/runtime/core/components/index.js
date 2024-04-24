@@ -38,7 +38,30 @@ const button = ['Button', 'ButtonGroup', 'SpeedDial', 'SplitButton'];
 
 const data = ['Column', 'Row', 'ColumnGroup', 'DataTable', 'DataView', 'OrderList', 'OrganizationChart', 'Paginator', 'PickList', 'Tree', 'TreeTable', 'Timeline', 'VirtualScroller'];
 
-const panel = ['Accordion', 'AccordionTab', 'Card', 'DeferredContent', 'Divider', 'Fieldset', 'Panel', 'ScrollPanel', 'Splitter', 'SplitterPanel', 'Stepper', 'StepperPanel', 'TabView', 'Tabs', 'TabList', 'Tab', 'TabPanels', 'TabPanel', 'Toolbar'];
+const panel = [
+    'Accordion',
+    'AccordionPanel',
+    'AccordionHeader',
+    'AccordionContent',
+    'AccordionTab',
+    'Card',
+    'DeferredContent',
+    'Divider',
+    'Fieldset',
+    'Panel',
+    'ScrollPanel',
+    'Splitter',
+    'SplitterPanel',
+    'Stepper',
+    'StepperPanel',
+    'TabView',
+    'Tabs',
+    'TabList',
+    'Tab',
+    'TabPanels',
+    'TabPanel',
+    'Toolbar'
+];
 
 const overlay = [
     { name: 'ConfirmDialog', use: { as: 'ConfirmationService' } },
