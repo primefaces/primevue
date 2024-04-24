@@ -1,5 +1,5 @@
 <template>
-    <DocSectionText :id="id" :label="label" :level="componentLevel">
+    <DocSectionText :id="id" :label="label" :level="componentLevel" :badge="badge">
         <p>{{ description || null }}</p>
         <p v-if="relatedProp" class="inline-block">
             See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedPropValue(relatedProp) }} </NuxtLink>
@@ -98,7 +98,8 @@ export default {
         level: {
             type: Number,
             default: 1
-        }
+        },
+        badge: null
     },
     methods: {
         getType(value) {

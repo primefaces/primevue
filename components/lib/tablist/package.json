@@ -1,9 +1,9 @@
 {
-    "main": "./tab.cjs.js",
-    "module": "./tab.esm.js",
-    "unpkg": "./tab.min.js",
-    "types": "./Tab.d.ts",
+    "main": "./tablist.cjs.js",
+    "module": "./tablist.esm.js",
+    "unpkg": "./tablist.min.js",
+    "types": "./TabList.d.ts",
     "browser": {
-        "./sfc": "./Tab.vue"
+        "./sfc": "./TabList.vue"
     }
 }

@@ -91,8 +91,9 @@ export default {
             this.scrollInView(this.findFirstTab());
             event.preventDefault();
         },
-        onEnterKey() {
+        onEnterKey(event) {
             this.changeActiveValue();
+            event.preventDefault();
         },
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;

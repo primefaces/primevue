@@ -19,7 +19,7 @@
     li {
         position: relative;
         z-index: 1;
-        
+
         button {
             background-color: transparent;
             border: 0 none;
@@ -106,6 +106,14 @@
         outline-color: transparent;
         border-radius: 6px;
         @include focus-visible();
+    }
+
+    > .doc-section-label-badge {
+        margin-left: 0.5rem;
+    }
+
+    &:has(.doc-section-label-badge) {
+        line-height: 1;
     }
 
     &:hover {
@@ -230,9 +238,9 @@
     }
 }
 
-.doc-section-code { 
+.doc-section-code {
     position: relative;
-    
+
     div {
         &::-webkit-scrollbar {
             width: 5px;
@@ -264,7 +272,7 @@
     padding: 2px;
     backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, .1);
-    
+
     button {
         outline: 0 none;
         border-radius: 8px;

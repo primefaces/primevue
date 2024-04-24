@@ -6,6 +6,9 @@ const STYLE_ALIAS = {
     'primevue/base/style': path.resolve(__dirname, './components/lib/base/style/BaseStyle.js'),
     'primevue/basecomponent/style': path.resolve(__dirname, './components/lib/basecomponent/style/BaseComponentStyle.js'),
     'primevue/accordion/style': path.resolve(__dirname, './components/lib/accordion/style/AccordionStyle.js'),
+    'primevue/accordionpanel/style': path.resolve(__dirname, './components/lib/accordionpanel/style/AccordionPanelStyle.js'),
+    'primevue/accordionheader/style': path.resolve(__dirname, './components/lib/accordionheader/style/AccordionHeaderStyle.js'),
+    'primevue/accordioncontent/style': path.resolve(__dirname, './components/lib/accordioncontent/style/AccordionContentStyle.js'),
     'primevue/accordiontab/style': path.resolve(__dirname, './components/lib/accordiontab/style/AccordionTabStyle.js'),
     'primevue/animateonscroll/style': path.resolve(__dirname, './components/lib/animateonscroll/style/AnimateOnScrollStyle.js'),
     'primevue/autocomplete/style': path.resolve(__dirname, './components/lib/autocomplete/style/AutoCompleteStyle.js'),
@@ -278,7 +281,10 @@ export default {
             'primevue/terminalservice': path.resolve(__dirname, './components/lib/terminalservice/TerminalService.js'),
             'primevue/dynamicdialogeventbus': path.resolve(__dirname, './components/lib/dynamicdialogeventbus/DynamicDialogEventBus.js'),
             'primevue/virtualscroller': path.resolve(__dirname, './components/lib/virtualscroller/VirtualScroller.vue'),
-            'primevue/passthrough': path.resolve(__dirname, './components/lib/passthrough/index.js')
+            'primevue/passthrough': path.resolve(__dirname, './components/lib/passthrough/index.js'),
+            'primevue/accordioncontent': path.resolve(__dirname, './components/lib/accordioncontent/AccordionContent.vue'),
+            'primevue/accordionheader': path.resolve(__dirname, './components/lib/accordionheader/AccordionHeader.vue'),
+            'primevue/accordionpanel': path.resolve(__dirname, './components/lib/accordionpanel/AccordionPanel.vue')
         }
     }
 };
