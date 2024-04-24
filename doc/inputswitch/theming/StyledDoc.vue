@@ -16,8 +16,8 @@
                     <td>Container element.</td>
                 </tr>
                 <tr>
-                    <td>p-inputswitch-checked</td>
-                    <td>Container element in active state.</td>
+                    <td>p-inputswitch-input</td>
+                    <td>Container of input element.</td>
                 </tr>
                 <tr>
                     <td>p-inputswitch-slider</td>
