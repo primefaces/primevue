@@ -1,5 +1,5 @@
 <template>
-    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
+    <ul :ref="containerRef" :class="cx('list')" :aria-label="listAriaLabel" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
@@ -161,6 +161,9 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        listAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listLabel : undefined;
         }
     },
     directives: {
