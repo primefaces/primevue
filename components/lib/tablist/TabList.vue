@@ -113,16 +113,26 @@ export default {
             const { content, inkbar, tabs } = this.$refs;
             const activeTab = DomHandler.findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
 
-            inkbar.style.width = DomHandler.getOuterWidth(activeTab) + 'px';
-            inkbar.style.left = DomHandler.getOffset(activeTab).left - DomHandler.getOffset(tabs).left + 'px';
+            if (this.$pcTabs.isVertical()) {
+                inkbar.style.height = DomHandler.getOuterHeight(activeTab) + 'px';
+                inkbar.style.top = DomHandler.getOffset(activeTab).top - DomHandler.getOffset(tabs).top + 'px';
+            } else {
+                inkbar.style.width = DomHandler.getOuterWidth(activeTab) + 'px';
+                inkbar.style.left = DomHandler.getOffset(activeTab).left - DomHandler.getOffset(tabs).left + 'px';
+            }
         },
         updateButtonState() {
             const { list, content } = this.$refs;
-            const { scrollLeft, scrollWidth, offsetWidth } = content;
-            const width = DomHandler.getWidth(content);
+            const { scrollLeft, scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
+            const [width, height] = [DomHandler.getWidth(content), DomHandler.getHeight(content)];
 
-            this.isPrevButtonEnabled = scrollLeft !== 0;
-            this.isNextButtonEnabled = list.offsetWidth >= offsetWidth && parseInt(scrollLeft) !== scrollWidth - width;
+            if (this.$pcTabs.isVertical()) {
+                this.isPrevButtonEnabled = scrollTop !== 0;
+                this.isNextButtonEnabled = list.offsetHeight >= offsetHeight && parseInt(scrollTop) !== scrollHeight - height;
+            } else {
+                this.isPrevButtonEnabled = scrollLeft !== 0;
+                this.isNextButtonEnabled = list.offsetWidth >= offsetWidth && parseInt(scrollLeft) !== scrollWidth - width;
+            }
         },
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;

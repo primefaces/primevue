@@ -36,6 +36,9 @@ export default {
                 this.d_value = newValue;
                 this.$emit('update:value', newValue);
             }
+        },
+        isVertical() {
+            return this.orientation === 'vertical';
         }
     }
 };
