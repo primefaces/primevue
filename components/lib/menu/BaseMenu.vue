@@ -42,6 +42,7 @@ export default {
     style: MenuStyle,
     provide() {
         return {
+            $pcMenu: this,
             $parentInstance: this
         };
     }

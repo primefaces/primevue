@@ -30,6 +30,12 @@ export default {
         contentProps: null,
         disabled: Boolean
     },
-    style: TabPanelStyle
+    style: TabPanelStyle,
+    provide() {
+        return {
+            $pcTabPanel: this,
+            $parentInstance: this
+        };
+    }
 };
 </script>

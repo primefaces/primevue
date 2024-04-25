@@ -126,6 +126,7 @@ export default {
     style: GalleriaStyle,
     provide() {
         return {
+            $pcGalleria: this,
             $parentInstance: this
         };
     }

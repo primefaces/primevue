@@ -26,6 +26,7 @@ export default {
     style: TabMenuStyle,
     provide() {
         return {
+            $pcTabMenu: this,
             $parentInstance: this
         };
     }

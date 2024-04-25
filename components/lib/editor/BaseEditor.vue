@@ -16,6 +16,7 @@ export default {
     style: EditorStyle,
     provide() {
         return {
+            $pcEditor: this,
             $parentInstance: this
         };
     },

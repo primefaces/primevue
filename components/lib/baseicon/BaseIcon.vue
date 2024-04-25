@@ -17,6 +17,12 @@ export default {
         }
     },
     style: BaseIconStyle,
+    provide() {
+        return {
+            $pcIcon: this,
+            $parentInstance: this
+        };
+    },
     methods: {
         pti() {
             const isLabelEmpty = ObjectUtils.isEmpty(this.label);

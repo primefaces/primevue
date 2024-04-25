@@ -90,6 +90,7 @@ export default {
     style: VirtualScrollerStyle,
     provide() {
         return {
+            $pcVirtualScroller: this,
             $parentInstance: this
         };
     },

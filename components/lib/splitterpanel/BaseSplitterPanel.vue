@@ -18,6 +18,7 @@ export default {
     style: SplitterPanelStyle,
     provide() {
         return {
+            $pcSplitterPanel: this,
             $parentInstance: this
         };
     }

@@ -22,6 +22,7 @@ export default {
     style: DividerStyle,
     provide() {
         return {
+            $pcDivider: this,
             $parentInstance: this
         };
     }

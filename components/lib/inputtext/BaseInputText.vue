@@ -23,6 +23,7 @@ export default {
     style: InputTextStyle,
     provide() {
         return {
+            $pcInputText: this,
             $parentInstance: this
         };
     }

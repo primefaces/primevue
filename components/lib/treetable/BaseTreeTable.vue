@@ -174,6 +174,7 @@ export default {
     style: TreeTableStyle,
     provide() {
         return {
+            $pcTreeTable: this,
             $parentInstance: this
         };
     }

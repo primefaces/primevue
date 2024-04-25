@@ -74,6 +74,7 @@ export default {
     style: DataViewStyle,
     provide() {
         return {
+            $pcDataView: this,
             $parentInstance: this
         };
     }

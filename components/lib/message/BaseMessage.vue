@@ -38,6 +38,7 @@ export default {
     style: MessageStyle,
     provide() {
         return {
+            $pcMessage: this,
             $parentInstance: this
         };
     }

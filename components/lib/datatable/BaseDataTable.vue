@@ -289,6 +289,7 @@ export default {
     style: DataTableStyle,
     provide() {
         return {
+            $pcDataTable: this,
             $parentInstance: this
         };
     }

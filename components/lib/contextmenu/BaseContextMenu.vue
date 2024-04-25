@@ -42,6 +42,7 @@ export default {
     style: ContextMenuStyle,
     provide() {
         return {
+            $pcContextMenu: this,
             $parentInstance: this
         };
     }

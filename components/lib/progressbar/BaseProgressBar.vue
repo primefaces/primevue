@@ -22,6 +22,7 @@ export default {
     style: ProgressBarStyle,
     provide() {
         return {
+            $pcProgressBar: this,
             $parentInstance: this
         };
     }

@@ -106,6 +106,7 @@ export default {
     style: ListboxStyle,
     provide() {
         return {
+            $pcListbox: this,
             $parentInstance: this
         };
     }

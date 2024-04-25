@@ -104,6 +104,7 @@ export default {
     style: FileUploadStyle,
     provide() {
         return {
+            $pcFileUpload: this,
             $parentInstance: this
         };
     }

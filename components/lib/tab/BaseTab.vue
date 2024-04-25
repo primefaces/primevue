@@ -26,6 +26,7 @@ export default {
     style: TabStyle,
     provide() {
         return {
+            $pcTab: this,
             $parentInstance: this
         };
     }

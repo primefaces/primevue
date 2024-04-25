@@ -18,6 +18,7 @@ export default {
     style: InlineMessageStyle,
     provide() {
         return {
+            $pcInlineMessage: this,
             $parentInstance: this
         };
     }

@@ -38,6 +38,7 @@ export default {
     style: DockStyle,
     provide() {
         return {
+            $pcDock: this,
             $parentInstance: this
         };
     }

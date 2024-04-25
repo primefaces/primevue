@@ -8,6 +8,7 @@ export default {
     style: ButtonGroupStyle,
     provide() {
         return {
+            $pcButtonGroup: this,
             $parentInstance: this
         };
     }

@@ -46,6 +46,7 @@ export default {
     style: InputOtpStyle,
     provide() {
         return {
+            $pcInputOtp: this,
             $parentInstance: this
         };
     }

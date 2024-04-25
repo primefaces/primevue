@@ -81,6 +81,7 @@ export default {
     style: SpeedDialStyle,
     provide() {
         return {
+            $pcSpeedDial: this,
             $parentInstance: this
         };
     }

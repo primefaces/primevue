@@ -86,6 +86,7 @@ export default {
     style: SplitButtonStyle,
     provide() {
         return {
+            $pcSplitButton: this,
             $parentInstance: this
         };
     }

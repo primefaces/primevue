@@ -32,6 +32,7 @@ export default {
     style: ScrollTopStyle,
     provide() {
         return {
+            $pcScrollTop: this,
             $parentInstance: this
         };
     }

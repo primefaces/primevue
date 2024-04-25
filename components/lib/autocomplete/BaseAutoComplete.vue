@@ -173,6 +173,7 @@ export default {
     style: AutoCompleteStyle,
     provide() {
         return {
+            $pcAutoComplete: this,
             $parentInstance: this
         };
     }

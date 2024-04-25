@@ -17,6 +17,7 @@ export default {
     style: FieldsetStyle,
     provide() {
         return {
+            $pcFieldset: this,
             $parentInstance: this
         };
     }

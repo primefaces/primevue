@@ -26,6 +26,7 @@ export default {
     style: PanelMenuStyle,
     provide() {
         return {
+            $pcPanelMenu: this,
             $parentInstance: this
         };
     }

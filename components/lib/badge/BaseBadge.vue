@@ -22,6 +22,7 @@ export default {
     style: BadgeStyle,
     provide() {
         return {
+            $pcBadge: this,
             $parentInstance: this
         };
     }

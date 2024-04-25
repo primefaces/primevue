@@ -11,6 +11,7 @@ export default {
     style: StepperPanelStyle,
     provide() {
         return {
+            $pcStepperPanel: this,
             $parentInstance: this
         };
     }

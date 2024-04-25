@@ -42,6 +42,7 @@ export default {
     style: PaginatorStyle,
     provide() {
         return {
+            $pcPaginator: this,
             $parentInstance: this
         };
     }

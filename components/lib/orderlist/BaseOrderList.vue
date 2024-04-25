@@ -92,6 +92,7 @@ export default {
     style: OrderListStyle,
     provide() {
         return {
+            $pcOrderList: this,
             $parentInstance: this
         };
     }

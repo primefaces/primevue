@@ -108,6 +108,7 @@ export default {
     style: PickListStyle,
     provide() {
         return {
+            $pcPickList: this,
             $parentInstance: this
         };
     }

@@ -81,6 +81,7 @@ export default {
     style: KnobStyle,
     provide() {
         return {
+            $pcKnob: this,
             $parentInstance: this
         };
     }

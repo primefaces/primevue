@@ -34,6 +34,7 @@ export default {
     style: MeterGroupStyle,
     provide() {
         return {
+            $pcMeterGroup: this,
             $parentInstance: this
         };
     }

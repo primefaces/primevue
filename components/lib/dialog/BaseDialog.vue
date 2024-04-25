@@ -135,6 +135,7 @@ export default {
     style: DialogStyle,
     provide() {
         return {
+            $pcDialog: this,
             $parentInstance: this
         };
     }

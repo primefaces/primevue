@@ -26,6 +26,7 @@ export default {
     style: ChartStyle,
     provide() {
         return {
+            $pcChart: this,
             $parentInstance: this
         };
     }

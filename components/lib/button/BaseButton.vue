@@ -78,6 +78,7 @@ export default {
     style: ButtonStyle,
     provide() {
         return {
+            $pcButton: this,
             $parentInstance: this
         };
     }

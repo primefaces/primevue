@@ -22,6 +22,7 @@ export default {
     style: InplaceStyle,
     provide() {
         return {
+            $pcInplace: this,
             $parentInstance: this
         };
     }

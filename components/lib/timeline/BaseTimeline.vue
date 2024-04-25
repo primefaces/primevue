@@ -20,6 +20,7 @@ export default {
     style: TimelineStyle,
     provide() {
         return {
+            $pcTimeline: this,
             $parentInstance: this
         };
     }

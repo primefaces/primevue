@@ -8,6 +8,7 @@ export default {
     style: AvatarGroupStyle,
     provide() {
         return {
+            $pcAvatarGroup: this,
             $parentInstance: this
         };
     }

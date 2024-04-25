@@ -19,6 +19,7 @@ export default {
     style: AccordionTabStyle,
     provide() {
         return {
+            $pcAccordionTab: this,
             $parentInstance: this
         };
     }

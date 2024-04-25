@@ -14,6 +14,7 @@ export default {
     style: ToolbarStyle,
     provide() {
         return {
+            $pcToolbar: this,
             $parentInstance: this
         };
     }

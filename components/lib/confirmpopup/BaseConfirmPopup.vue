@@ -11,6 +11,7 @@ export default {
     style: ConfirmPopupStyle,
     provide() {
         return {
+            $pcConfirmPopup: this,
             $parentInstance: this
         };
     }

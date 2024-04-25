@@ -20,6 +20,7 @@ export default {
     style: TextareaStyle,
     provide() {
         return {
+            $pcTextarea: this,
             $parentInstance: this
         };
     }

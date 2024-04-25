@@ -30,6 +30,7 @@ export default {
     style: MenubarStyle,
     provide() {
         return {
+            $pcMenubar: this,
             $parentInstance: this
         };
     }

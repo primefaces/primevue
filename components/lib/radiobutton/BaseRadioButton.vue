@@ -57,6 +57,7 @@ export default {
     style: RadioButtonStyle,
     provide() {
         return {
+            $pcRadioButton: this,
             $parentInstance: this
         };
     }

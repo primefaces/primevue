@@ -18,6 +18,7 @@ export default {
     style: AccordionHeaderStyle,
     provide() {
         return {
+            $pcAccordionHeader: this,
             $parentInstance: this
         };
     }

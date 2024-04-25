@@ -38,6 +38,7 @@ export default {
     style: AvatarStyle,
     provide() {
         return {
+            $pcAvatar: this,
             $parentInstance: this
         };
     }

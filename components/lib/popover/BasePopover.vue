@@ -34,6 +34,7 @@ export default {
     style: PopoverStyle,
     provide() {
         return {
+            $pcPopover: this,
             $parentInstance: this
         };
     }

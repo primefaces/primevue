@@ -30,6 +30,7 @@ export default {
     style: ChipStyle,
     provide() {
         return {
+            $pcChip: this,
             $parentInstance: this
         };
     }

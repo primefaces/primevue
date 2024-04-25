@@ -252,6 +252,7 @@ export default {
     style: DatePickerStyle,
     provide() {
         return {
+            $pcDatePicker: this,
             $parentInstance: this
         };
     }

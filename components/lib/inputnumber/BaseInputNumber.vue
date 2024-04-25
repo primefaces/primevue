@@ -149,6 +149,7 @@ export default {
     style: InputNumberStyle,
     provide() {
         return {
+            $pcInputNumber: this,
             $parentInstance: this
         };
     }

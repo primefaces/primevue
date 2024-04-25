@@ -9,6 +9,7 @@ export default {
     style: DynamicDialogStyle,
     provide() {
         return {
+            $pcDynamicDialog: this,
             $parentInstance: this
         };
     }

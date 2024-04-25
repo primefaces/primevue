@@ -186,6 +186,7 @@ export default {
     style: ColumnStyle,
     provide() {
         return {
+            $pcColumn: this,
             $parentInstance: this
         };
     }

@@ -8,6 +8,7 @@ export default {
     style: IconFieldStyle,
     provide() {
         return {
+            $pcIconField: this,
             $parentInstance: this
         };
     }

@@ -82,6 +82,7 @@ export default {
     style: TreeStyle,
     provide() {
         return {
+            $pcTree: this,
             $parentInstance: this
         };
     }

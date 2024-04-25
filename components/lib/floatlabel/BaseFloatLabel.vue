@@ -9,6 +9,7 @@ export default {
     style: FloatLabelStyle,
     provide() {
         return {
+            $pcFloatLabel: this,
             $parentInstance: this
         };
     }

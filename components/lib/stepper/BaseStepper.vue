@@ -22,6 +22,7 @@ export default {
     style: StepperStyle,
     provide() {
         return {
+            $pcStepper: this,
             $parentInstance: this
         };
     }

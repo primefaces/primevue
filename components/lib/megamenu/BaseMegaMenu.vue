@@ -38,6 +38,7 @@ export default {
     style: MegaMenuStyle,
     provide() {
         return {
+            $pcMegaMenu: this,
             $parentInstance: this
         };
     }

@@ -14,6 +14,7 @@ export default {
     style: ColumnGroupStyle,
     provide() {
         return {
+            $pcColumnGroup: this,
             $parentInstance: this
         };
     }

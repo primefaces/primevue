@@ -73,6 +73,7 @@ export default {
     style: CheckboxStyle,
     provide() {
         return {
+            $pcCheckbox: this,
             $parentInstance: this
         };
     }

@@ -25,6 +25,7 @@ export default {
     style: StepsStyle,
     provide() {
         return {
+            $pcSteps: this,
             $parentInstance: this
         };
     }

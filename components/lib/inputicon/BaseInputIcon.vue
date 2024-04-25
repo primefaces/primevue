@@ -11,6 +11,7 @@ export default {
     },
     provide() {
         return {
+            $pcInputIcon: this,
             $parentInstance: this
         };
     }

@@ -18,6 +18,7 @@ export default {
     style: BreadcrumbStyle,
     provide() {
         return {
+            $pcBreadcrumb: this,
             $parentInstance: this
         };
     }

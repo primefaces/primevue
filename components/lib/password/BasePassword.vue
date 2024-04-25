@@ -115,6 +115,7 @@ export default {
     style: PasswordStyle,
     provide() {
         return {
+            $pcPassword: this,
             $parentInstance: this
         };
     }

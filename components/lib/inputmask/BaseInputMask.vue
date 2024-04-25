@@ -40,6 +40,12 @@ export default {
             default: null
         }
     },
-    style: InputMaskStyle
+    style: InputMaskStyle,
+    provide() {
+        return {
+            $pcInputMask: this,
+            $parentInstance: this
+        };
+    }
 };
 </script>

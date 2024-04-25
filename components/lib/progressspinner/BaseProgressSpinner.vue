@@ -22,6 +22,7 @@ export default {
     style: ProgressSpinnerStyle,
     provide() {
         return {
+            $pcProgressSpinner: this,
             $parentInstance: this
         };
     }

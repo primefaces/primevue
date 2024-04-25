@@ -63,6 +63,7 @@ export default {
     style: CarouselStyle,
     provide() {
         return {
+            $pcCarousel: this,
             $parentInstance: this
         };
     }

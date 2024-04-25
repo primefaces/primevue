@@ -15,6 +15,12 @@ export default {
             default: false
         }
     },
-    style: AccordionContentStyle
+    style: AccordionContentStyle,
+    provide() {
+        return {
+            $pcAccordionContent: this,
+            $parentInstance: this
+        };
+    }
 };
 </script>

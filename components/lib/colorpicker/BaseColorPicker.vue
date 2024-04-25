@@ -47,6 +47,7 @@ export default {
     style: ColorPickerStyle,
     provide() {
         return {
+            $pcColorPicker: this,
             $parentInstance: this
         };
     }

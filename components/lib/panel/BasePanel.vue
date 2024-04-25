@@ -23,6 +23,7 @@ export default {
     style: PanelStyle,
     provide() {
         return {
+            $pcPanel: this,
             $parentInstance: this
         };
     }

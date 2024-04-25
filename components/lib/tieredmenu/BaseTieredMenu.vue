@@ -46,6 +46,7 @@ export default {
     style: TieredMenuStyle,
     provide() {
         return {
+            $pcTieredMenu: this,
             $parentInstance: this
         };
     }

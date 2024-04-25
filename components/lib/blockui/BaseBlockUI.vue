@@ -26,6 +26,7 @@ export default {
     style: BlockUIStyle,
     provide() {
         return {
+            $pcBlockUI: this,
             $parentInstance: this
         };
     }

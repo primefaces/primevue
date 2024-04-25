@@ -49,6 +49,7 @@ export default {
     style: ToggleButtonStyle,
     provide() {
         return {
+            $pcToggleButton: this,
             $parentInstance: this
         };
     }

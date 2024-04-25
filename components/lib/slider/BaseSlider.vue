@@ -47,6 +47,7 @@ export default {
     style: SliderStyle,
     provide() {
         return {
+            $pcSlider: this,
             $parentInstance: this
         };
     }

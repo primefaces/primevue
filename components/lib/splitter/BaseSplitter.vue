@@ -30,6 +30,7 @@ export default {
     style: SplitterStyle,
     provide() {
         return {
+            $pcSplitter: this,
             $parentInstance: this
         };
     }

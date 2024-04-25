@@ -124,6 +124,7 @@ export default {
     style: CascadeSelectStyle,
     provide() {
         return {
+            $pcCascadeSelect: this,
             $parentInstance: this
         };
     }

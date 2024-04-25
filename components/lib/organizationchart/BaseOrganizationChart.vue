@@ -30,6 +30,7 @@ export default {
     style: OrganizationChartStyle,
     provide() {
         return {
+            $pcOrganizationChart: this,
             $parentInstance: this
         };
     }

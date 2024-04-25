@@ -8,6 +8,7 @@ export default {
     style: InputGroupStyle,
     provide() {
         return {
+            $pcInputGroup: this,
             $parentInstance: this
         };
     }

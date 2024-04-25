@@ -14,6 +14,7 @@ export default {
     style: TagStyle,
     provide() {
         return {
+            $pcTag: this,
             $parentInstance: this
         };
     }

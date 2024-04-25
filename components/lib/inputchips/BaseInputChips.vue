@@ -74,6 +74,7 @@ export default {
     style: InputChipsStyle,
     provide() {
         return {
+            $pcInputChips: this,
             $parentInstance: this
         };
     }

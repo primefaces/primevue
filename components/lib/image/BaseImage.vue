@@ -46,6 +46,7 @@ export default {
     style: ImageStyle,
     provide() {
         return {
+            $pcImage: this,
             $parentInstance: this
         };
     }

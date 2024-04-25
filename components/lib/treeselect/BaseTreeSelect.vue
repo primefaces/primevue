@@ -88,6 +88,7 @@ export default {
     style: TreeSelectStyle,
     provide() {
         return {
+            $pcTreeSelect: this,
             $parentInstance: this
         };
     }

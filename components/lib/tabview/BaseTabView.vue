@@ -47,6 +47,7 @@ export default {
     provide() {
         return {
             $pcTabs: undefined, // Backwards compatible to prevent <TabPanel> component from breaking
+            $pcTabView: this,
             $parentInstance: this
         };
     }

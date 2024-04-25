@@ -166,6 +166,7 @@ export default {
     style: SelectStyle,
     provide() {
         return {
+            $pcSelect: this,
             $parentInstance: this
         };
     }

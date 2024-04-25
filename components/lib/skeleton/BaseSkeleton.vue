@@ -34,6 +34,7 @@ export default {
     style: SkeletonStyle,
     provide() {
         return {
+            $pcSkeleton: this,
             $parentInstance: this
         };
     }

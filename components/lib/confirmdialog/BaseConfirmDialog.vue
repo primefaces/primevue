@@ -19,6 +19,7 @@ export default {
     style: ConfirmDialogStyle,
     provide() {
         return {
+            $pcConfirmDialog: this,
             $parentInstance: this
         };
     }

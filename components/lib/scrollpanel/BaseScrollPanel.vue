@@ -14,6 +14,7 @@ export default {
     style: ScrollPanelStyle,
     provide() {
         return {
+            $pcScrollPanel: this,
             $parentInstance: this
         };
     }

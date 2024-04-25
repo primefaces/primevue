@@ -56,6 +56,7 @@ export default {
     style: DrawerStyle,
     provide() {
         return {
+            $pcDrawer: this,
             $parentInstance: this
         };
     }

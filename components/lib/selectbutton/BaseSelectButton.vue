@@ -34,6 +34,7 @@ export default {
     style: SelectButtonStyle,
     provide() {
         return {
+            $pcSelectButton: this,
             $parentInstance: this
         };
     }

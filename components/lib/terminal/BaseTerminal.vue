@@ -18,6 +18,7 @@ export default {
     style: TerminalStyle,
     provide() {
         return {
+            $pcTerminal: this,
             $parentInstance: this
         };
     }

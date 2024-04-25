@@ -34,6 +34,7 @@ export default {
     style: RatingStyle,
     provide() {
         return {
+            $pcRating: this,
             $parentInstance: this
         };
     }

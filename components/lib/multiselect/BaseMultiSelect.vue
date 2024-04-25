@@ -167,6 +167,7 @@ export default {
     style: MultiSelectStyle,
     provide() {
         return {
+            $pcMultiSelect: this,
             $parentInstance: this
         };
     }

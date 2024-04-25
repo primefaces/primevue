@@ -56,6 +56,7 @@ export default {
     style: ToastStyle,
     provide() {
         return {
+            $pcToast: this,
             $parentInstance: this
         };
     }

@@ -58,6 +58,7 @@ export default {
     style: ToggleSwitchStyle,
     provide() {
         return {
+            $pcToggleSwitch: this,
             $parentInstance: this
         };
     }

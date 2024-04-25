@@ -9,6 +9,7 @@ export default {
     style: TabPanelsStyle,
     provide() {
         return {
+            $pcTabPanels: this,
             $parentInstance: this
         };
     }
