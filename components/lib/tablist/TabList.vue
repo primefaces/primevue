@@ -13,7 +13,7 @@
         >
             <component :is="templates.previousicon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('previousIcon')" />
         </button>
-        <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
+        <div ref="content" :class="cx('content')" @scroll="onScroll" :style="{ height: $pcTabs.scrollHeight }" v-bind="ptm('content')">
             <div ref="tabs" :class="cx('tabs')" role="tablist" :aria-orientation="$pcTabs.orientation" v-bind="ptm('tabs')">
                 <slot></slot>
                 <span ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></span>

@@ -22,6 +22,10 @@ export default {
             type: Boolean,
             default: false
         },
+        scrollHeight: {
+            type: String,
+            default: undefined
+        },
         showNavigators: {
             type: Boolean,
             default: true

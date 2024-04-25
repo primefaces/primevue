@@ -105,6 +105,10 @@ export interface TabsProps {
      */
     scrollable?: boolean | undefined;
     /**
+     * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
+     */
+    scrollHeight?: string | undefined;
+    /**
      * Whether to display navigation buttons in container when scrollable is enabled.
      * @defaultValue true
      */
