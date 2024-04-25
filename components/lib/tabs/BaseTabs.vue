@@ -15,6 +15,7 @@ export default {
             default: false
         },
         orientation: {
+            // @todo
             type: String,
             default: 'horizontal'
         },
