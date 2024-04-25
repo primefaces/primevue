@@ -856,10 +856,7 @@ export default {
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 } else if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single') {
-                        const re = /[.,]/g;
-                        const newSelectionEnd = selectionEnd + Number(re.test(value) || re.test(insertedValueStr));
-
-                        this.$refs.input.$el.setSelectionRange(newSelectionEnd, newSelectionEnd);
+                        this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
                     } else if (operation === 'delete-single') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
                     } else if (operation === 'delete-range' || operation === 'spin') {
