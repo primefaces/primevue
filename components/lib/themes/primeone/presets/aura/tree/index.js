@@ -20,8 +20,8 @@ export default {
                 color: '{surface.500}',
                 hoverColor: '{surface.600}'
             },
-            indeterminate: {
-                color: '{surface.500}'
+            filterIcon: {
+                color: '{surface.400}'
             }
         },
         dark: {
@@ -44,7 +44,7 @@ export default {
                 color: '{surface.400}',
                 hoverColor: '{surface.300}'
             },
-            indeterminate: {
+            filterIcon: {
                 color: '{surface.400}'
             }
         }

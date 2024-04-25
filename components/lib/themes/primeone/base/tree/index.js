@@ -8,28 +8,28 @@ export default {
     padding: 1rem;
 }
 
-.p-tree-container {
+.p-tree-root-children {
     margin: 0;
     padding: 0;
     list-style-type: none;
     overflow: auto;
 }
 
-.p-treenode {
+.p-tree-node {
     padding: 0 0;
     outline: 0 none;
     margin: 2px 0;
 }
 
-.p-tree-container > .p-treenode:first-child {
+.p-tree-root-children > .p-tree-node:first-child {
     margin-top: 0;
 }
 
-.p-tree-container > .p-treenode:last-child {
+.p-tree-root-children > .p-tree-node:last-child {
     margin-bottom: 0;
 }
 
-.p-treenode-content {
+.p-tree-node-content {
     border-radius: ${dt('rounded.base')};
     padding: 0.25rem 0.5rem;
     display: flex;
@@ -39,17 +39,17 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-treenode:focus-visible > .p-treenode-content {
+.p-tree-node:focus-visible > .p-tree-node-content {
     outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: -2px;
 }
 
-.p-treenode-content.p-highlight {
+.p-tree-node-content.p-tree-node-selected {
     background: ${dt('highlight.background')};
     color: ${dt('highlight.color')};
 }
 
-.p-tree-toggler {
+.p-tree-node-toggle-button {
     cursor: pointer;
     user-select: none;
     display: inline-flex;
@@ -69,68 +69,64 @@ export default {
     outline-color: transparent;
 }
 
-.p-tree-toggler:enabled:hover {
+.p-tree-node-toggle-button:enabled:hover {
     background: ${dt('tree.toggle.hover.background')};
     color: ${dt('tree.toggle.hover.color')};
 }
 
-.p-treenode-content.p-highlight .p-tree-toggler,
-.p-treenode-content.p-highlight .p-treenode-icon {
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button,
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button-icon {
     color: inherit;
 }
 
-.p-treenode-content.p-highlight .p-tree-toggler:hover {
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button:hover {
     background: ${dt('tree.toggle.highlight.hover.background')};
 }
 
-.p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover {
     background: ${dt('tree.node.hover.background')};
     color: ${dt('tree.node.hover.color')};
 }
 
-.p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-tree-toggler {
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-toggle-button {
     color: ${dt('tree.toggle.hover.color')};
 }
 
-.p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-treenode-icon {
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-icon {
     color: ${dt('tree.icon.hover.color')};
 }
 
-.p-treenode-children {
+.p-tree-node-children {
     margin: 0;
     padding: 0;
     list-style-type: none;
     padding: 0 0 0 1rem;
 }
 
-.p-tree-wrapper {
+.p-tree-root {
     overflow: auto;
 }
 
-.p-treenode-selectable {
+.p-tree-node-selectable {
     cursor: pointer;
     user-select: none;
 }
 
-.p-treenode-leaf > .p-treenode-content .p-tree-toggler {
+.p-tree-node-leaf > .p-tree-node-content .p-tree-node-toggle-button {
     visibility: hidden;
 }
 
-.p-treenode-icon {
+.p-tree-node-icon {
     margin-right: 0.5rem;
     color: ${dt('tree.icon.color')};
     transition: color ${dt('transition.duration')};
 }
 
-.p-treenode-content .p-checkbox {
+.p-tree-node-content .p-checkbox {
     margin-right: 0.5rem;
 }
 
-.p-treenode-content .p-checkbox.p-indeterminate .p-checkbox-icon {
-    color: ${dt('tree.indeterminate.color')};
-}
-
-.p-tree-filter {
+.p-tree-filter-input {
     width: 100%;
     padding-right: 1.75rem;
 }
@@ -147,7 +143,7 @@ export default {
     top: 50%;
     margin-top: -0.5rem;
     right: 0.75rem;
-    color: #94a3b8;
+    color: ${dt('tree.filter.icon.color')};
 }
 
 .p-tree-loading {
@@ -161,7 +157,7 @@ export default {
     height: 2rem;
 }
 
-.p-tree-loading-overlay {
+.p-tree-mask {
     position: absolute;
     z-index: 1;
     display: flex;
@@ -176,7 +172,7 @@ export default {
     flex-direction: column;
 }
 
-.p-tree-flex-scrollable .p-tree-wrapper {
+.p-tree-flex-scrollable .p-tree-root {
     flex: 1;
 }
 `

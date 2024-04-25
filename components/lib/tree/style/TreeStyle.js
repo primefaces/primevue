@@ -9,33 +9,29 @@ const classes = {
             'p-tree-flex-scrollable': props.scrollHeight === 'flex'
         }
     ],
-    loadingOverlay: 'p-tree-loading-overlay p-component-overlay',
+    loadingOverlay: 'p-tree-mask p-component-overlay',
     loadingIcon: 'p-tree-loading-icon',
     filterContainer: 'p-tree-filter-container',
-    input: 'p-tree-filter',
+    input: 'p-tree-filter-input',
     searchIcon: 'p-tree-filter-icon',
-    wrapper: 'p-tree-wrapper',
-    container: 'p-tree-container',
-    node: ({ instance }) => ['p-treenode', { 'p-treenode-leaf': instance.leaf }],
+    wrapper: 'p-tree-root',
+    container: 'p-tree-root-children',
+    node: ({ instance }) => ['p-tree-node', { 'p-tree-node-leaf': instance.leaf }],
     content: ({ instance }) => [
-        'p-treenode-content',
+        'p-tree-node-content',
         instance.node.styleClass,
         {
-            'p-treenode-selectable': instance.selectable,
-            'p-highlight': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
+            'p-tree-node-selectable': instance.selectable,
+            'p-tree-node-selected': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
         }
     ],
-    toggler: 'p-tree-toggler p-link',
-    togglerIcon: 'p-tree-toggler-icon',
-    nodeTogglerIcon: 'p-tree-node-toggler-icon',
-    nodeCheckbox: ({ instance }) => [
-        {
-            'p-indeterminate': instance.partialChecked
-        }
-    ],
-    nodeIcon: 'p-treenode-icon',
-    label: 'p-treenode-label',
-    subgroup: 'p-treenode-children'
+    toggler: 'p-tree-node-toggle-button',
+    togglerIcon: 'p-tree-node-toggle-button-icon',
+    nodeTogglerIcon: 'p-tree-node-toggler-icon', //todo: discuss
+    nodeCheckbox: 'p-tree-node-checkbox',
+    nodeIcon: 'p-tree-node-icon',
+    label: 'p-tree-node-label',
+    subgroup: 'p-tree-node-children'
 };
 
 export default BaseStyle.extend({
