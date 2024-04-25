@@ -380,6 +380,7 @@ export default {
 
             if (event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
+                this.lastValue = this.$refs.input.$el.value;
 
                 return;
             }
