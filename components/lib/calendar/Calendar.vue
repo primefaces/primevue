@@ -1170,6 +1170,7 @@ export default {
                     this.pm ? date.setHours(this.currentHour + 12) : date.setHours(this.currentHour);
                 }
 
+                date.setHours(this.currentHour);
                 date.setMinutes(this.currentMinute);
                 date.setSeconds(this.currentSecond);
             }
