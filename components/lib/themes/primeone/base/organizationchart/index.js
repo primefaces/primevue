@@ -12,7 +12,7 @@ export default {
     padding: 0 0.75rem;
 }
 
-.p-organizationchart-node-content {
+.p-organizationchart-node {
     display: inline-block;
     position: relative;
     border: 1px solid ${dt('organizationchart.node.border.color')};
@@ -23,21 +23,21 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
 }
 
-.p-organizationchart-node-content:has(.p-node-toggler) {
+.p-organizationchart-node:has(.p-organizationchart-node-toggle-button) {
     padding: 0.75rem 1rem 1.25rem 1rem;
 }
 
-.p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
+.p-organizationchart-node.p-organizationchart-node-selectable:not(.p-highlight):hover {
     background: ${dt('organizationchart.node.hover.background')};
     color: ${dt('organizationchart.node.hover.color')};
 }
 
-.p-organizationchart-node-content.p-highlight {
+.p-organizationchart-node.p-highlight {
     background: ${dt('highlight.background')};
     color: ${dt('highlight.color')};
 }
 
-.p-organizationchart-node-content .p-node-toggler {
+.p-organizationchart-node-toggle-button {
     position: absolute;
     bottom: -0.75rem;
     margin-left: -0.75rem;
@@ -59,51 +59,51 @@ export default {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
-.p-organizationchart-node-content .p-node-toggler:focus-visible {
+.p-organizationchart-node-toggle-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
+.p-organizationchart-node-toggle-button-icon {
     position: relative;
     top: 1px;
 }
 
-.p-organizationchart-line-down {
+.p-organizationchart-connector-down {
     margin: 0 auto;
     height: 20px;
     width: 1px;
     background: ${dt('organizationchart.connector.color')};
 }
 
-.p-organizationchart-line-right {
+.p-organizationchart-connector-right {
     border-radius: 0;
     border-left: 1px solid ${dt('organizationchart.connector.color')};
     border-top-left-radius: ${dt('rounded.base')};
 }
 
-.p-organizationchart-line-left {
+.p-organizationchart-connector-left {
     border-radius: 0;
     border-right: 1px solid ${dt('organizationchart.connector.color')};
 }
 
-.p-organizationchart-line-top {
+.p-organizationchart-connector-top {
     border-top: 1px solid ${dt('organizationchart.connector.color')};
 }
 
-.p-organizationchart-selectable-node {
+.p-organizationchart-node-selectable {
     cursor: pointer;
 }
 
-.p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-left) {
+.p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-left) {
     border-right: 0 none;
 }
 
-.p-organizationchart-lines :nth-last-child(1 of .p-organizationchart-line-left) {
+.p-organizationchart-connectors :nth-last-child(1 of .p-organizationchart-connector-left) {
     border-top-right-radius: ${dt('rounded.base')};
 }
 
-.p-organizationchart-lines :nth-child(1 of .p-organizationchart-line-right) {
+.p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-right) {
     border-left: 1px solid ${dt('organizationchart.connector.color')};
     border-top-left-radius: ${dt('rounded.base')};
 }
