@@ -9,9 +9,9 @@ const classes = {
         }
     ],
     header: 'p-dataview-header',
-    paginator: ({ instance }) => (instance.paginatorTop ? 'p-paginator-top' : instance.paginatorBottom ? 'p-paginator-bottom' : ''),
+    paginator: ({ position }) => 'p-dataview-paginator-' + position,
     content: 'p-dataview-content',
-    emptyMessage: 'p-dataview-emptymessage',
+    emptyMessage: 'p-dataview-empty-message', // TODO: remove?
     footer: 'p-dataview-footer'
 };
 
