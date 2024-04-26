@@ -1066,12 +1066,15 @@ export interface DataTableProps {
     editingRows?: any[] | DataTableEditingRows;
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
+     * The return value is added to the row's :classes array (see Vue.js class bindings).
      */
-    rowClass?: (data: any) => object | undefined;
+    rowClass?: (data: any) => string | object | undefined;
     /**
-     * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
+     * A function that takes the row data as a parameter and returns the inline style object for the corresponding row.
+     * The function may also return an array of style objects which will be merged. 
+     * The return value of this function is directly applied as a Vue.js style-binding on the table row.
      */
-    rowStyle?: (data: any) => object | undefined;
+    rowStyle?: (data: any) => object | object[] | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false
