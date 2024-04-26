@@ -6,7 +6,7 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <div style="border-radius: 20px; max-height: 420px" class="overflow-hidden mb-5 flex align-items-center">
+                <div style="border-radius: 20px; max-height: 640px" class="overflow-hidden mb-5 flex align-items-center">
                     <img alt="PrimeVue Designer" :src="introDesktopImg" class="w-full hidden md:block" />
                     <img alt="PrimeVue Designer" :src="introMobileImg" class="w-full md:hidden" />
                 </div>
