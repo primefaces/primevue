@@ -150,6 +150,9 @@ export interface PrimeVuePTOptions {
     blockui?: DefaultPassThrough<BlockUIPassThroughOptions>;
     breadcrumb?: DefaultPassThrough<BreadcrumbPassThroughOptions>;
     button?: DefaultPassThrough<ButtonPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of DatePicker instead.
+     */
     calendar?: DefaultPassThrough<CalendarPassThroughOptions>;
     card?: DefaultPassThrough<CardPassThroughOptions>;
     carousel?: DefaultPassThrough<CarouselPassThroughOptions>;
@@ -157,6 +160,9 @@ export interface PrimeVuePTOptions {
     chart?: DefaultPassThrough<ChartPassThroughOptions>;
     checkbox?: DefaultPassThrough<CheckboxPassThroughOptions>;
     chip?: DefaultPassThrough<ChipPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of InputChips instead.
+     */
     chips?: DefaultPassThrough<ChipsPassThroughOptions>;
     colorpicker?: DefaultPassThrough<ColorPickerPassThroughOptions>;
     column?: DefaultPassThrough<ColumnPassThroughOptions>;
@@ -172,6 +178,9 @@ export interface PrimeVuePTOptions {
     dialog?: DefaultPassThrough<DialogPassThroughOptions>;
     dock?: DefaultPassThrough<DockPassThroughOptions>;
     drawer?: DefaultPassThrough<DrawerPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of Select instead.
+     */
     dropdown?: DefaultPassThrough<DropdownPassThroughOptions>;
     dynamicdialog?: DefaultPassThrough<DialogPassThroughOptions>;
     editor?: DefaultPassThrough<EditorPassThroughOptions>;
@@ -184,6 +193,9 @@ export interface PrimeVuePTOptions {
     inputchips?: DefaultPassThrough<InputChipsPassThroughOptions>;
     inputmask?: DefaultPassThrough<InputMaskPassThroughOptions>;
     inputnumber?: DefaultPassThrough<InputNumberPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of ToggleSwitch instead.
+     */
     inputswitch?: DefaultPassThrough<InputSwitchPassThroughOptions>;
     inputtext?: DefaultPassThrough<InputTextPassThroughOptions>;
     knob?: DefaultPassThrough<KnobPassThroughOptions>;
@@ -195,6 +207,9 @@ export interface PrimeVuePTOptions {
     multiselect?: DefaultPassThrough<MultiSelectPassThroughOptions>;
     orderlist?: DefaultPassThrough<OrderListPassThroughOptions>;
     organizationchart?: DefaultPassThrough<OrganizationChartPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of Popover instead.
+     */
     overlaypanel?: DefaultPassThrough<OverlayPanelPassThroughOptions>;
     paginator?: DefaultPassThrough<PaginatorPassThroughOptions>;
     panel?: DefaultPassThrough<PanelPassThroughOptions>;
@@ -209,6 +224,9 @@ export interface PrimeVuePTOptions {
     row?: DefaultPassThrough<RowPassThroughOptions>;
     scrollpanel?: DefaultPassThrough<ScrollPanelPassThroughOptions>;
     scrolltop?: DefaultPassThrough<ScrollTopPassThroughOptions>;
+    /**
+     * @deprecated since v4. Use the new structure of Drawer instead.
+     */
     sidebar?: DefaultPassThrough<SidebarPassThroughOptions>;
     skeleton?: DefaultPassThrough<SkeletonPassThroughOptions>;
     slider?: DefaultPassThrough<SliderPassThroughOptions>;
