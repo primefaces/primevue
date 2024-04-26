@@ -1071,7 +1071,7 @@ export interface DataTableProps {
     rowClass?: (data: any) => string | object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style object for the corresponding row.
-     * The function may also return an array of style objects which will be merged. 
+     * The function may also return an array of style objects which will be merged.
      * The return value of this function is directly applied as a Vue.js style-binding on the table row.
      */
     rowStyle?: (data: any) => object | object[] | undefined;
