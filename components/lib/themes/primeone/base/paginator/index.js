@@ -13,11 +13,11 @@ export default {
     gap: 0.25rem;
 }
 
-.p-paginator-left-content {
+.p-paginator-content-start {
     margin-right: auto;
 }
 
-.p-paginator-right-content {
+.p-paginator-content-end {
     margin-left: auto;
 }
 
@@ -41,9 +41,11 @@ export default {
     height: 2.5rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: 50%;
+    padding: 0;
+    margin: 0;
 }
 
-.p-paginator-page:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator-page:not(.p-disabled):not(.p-paginator-page-active):hover,
 .p-paginator-first:not(.p-disabled):hover,
 .p-paginator-prev:not(.p-disabled):hover,
 .p-paginator-next:not(.p-disabled):hover,
@@ -62,12 +64,12 @@ export default {
     gap: 0.25rem;
 }
 
-.p-paginator-page.p-highlight {
+.p-paginator-page.p-paginator-page-active {
     background: ${dt('highlight.background')};
     color: ${dt('highlight.color')};
 }
 
-.p-paginator-page-input .p-inputtext {
+.p-paginator-jtp-input .p-inputtext {
     max-width: 2.5rem;
 }
 `

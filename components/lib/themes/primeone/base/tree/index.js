@@ -58,7 +58,7 @@ export default {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 0;
     width: 1.75rem;
     height: 1.75rem;
     color: ${dt('tree.toggle.color')};
@@ -67,6 +67,7 @@ export default {
     border-radius: 50%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
+    padding: 0;
 }
 
 .p-tree-node-toggle-button:enabled:hover {
