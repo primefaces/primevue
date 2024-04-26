@@ -14,18 +14,9 @@ export default {
             type: Boolean,
             default: false
         },
-        orientation: {
-            // @todo
-            type: String,
-            default: 'horizontal'
-        },
         scrollable: {
             type: Boolean,
             default: false
-        },
-        scrollHeight: {
-            type: String,
-            default: undefined
         },
         showNavigators: {
             type: Boolean,
