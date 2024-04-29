@@ -17,7 +17,7 @@
                     table: { style: 'min-width: 50rem' },
                     column: {
                         bodycell: ({ state }) => ({
-                            style: state['d_editing'] && 'padding-top: 0.6rem; padding-bottom: 0.6rem'
+                            style: state['d_editing'] && 'padding-top: 0.75rem; padding-bottom: 0.75rem'
                         })
                     }
                 }"
@@ -79,7 +79,7 @@ export default {
         table: { style: 'min-width: 50rem' },
         column: {
             bodycell: ({ state }) => ({
-                style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem'
+                style:  state['d_editing']&&'padding-top: 0.75rem; padding-bottom: 0.75rem'
             })
         }
     }"
@@ -125,7 +125,7 @@ export default {
                 table: { style: 'min-width: 50rem' },
                 column: {
                     bodycell: ({ state }) => ({
-                        style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem'
+                        style:  state['d_editing']&&'padding-top: 0.75rem; padding-bottom: 0.75rem'
                     })
                 }
             }"
@@ -219,7 +219,7 @@ export default {
                 table: { style: 'min-width: 50rem' },
                 column: {
                     bodycell: ({ state }) => ({
-                        style:  state['d_editing']&&'padding-top: 0.6rem; padding-bottom: 0.6rem'
+                        style:  state['d_editing']&&'padding-top: 0.75rem; padding-bottom: 0.75rem'
                     })
                 }
             }"
