@@ -1506,19 +1506,25 @@
             border: 1px solid var(--p-surface-200);
             background-color: var(--card-background);
 
-            span {
+            &-title {
                 color: var(--p-surface-900);
                 font-weight: 600;
                 line-height: 1.5rem;
             }
 
-            h2 {
+            &-pricing {
                 color: var(--p-surface-900);
                 font-size: 2.5rem;
                 font-weight: 600;
                 line-height: 3rem;
                 letter-spacing: -0.025rem;
                 margin: 1rem 0 1.25rem;
+
+                &-discount-active {
+                    color: var(--p-surface-600);
+                    text-decoration: line-through;
+                    margin-right: 1rem;
+                }
             }
 
             button {
