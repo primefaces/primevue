@@ -49,7 +49,7 @@ export default {
     color: ${dt('highlight.color')};
 }
 
-.p-tree-node-toggle {
+.p-tree-node-toggle-button {
     cursor: pointer;
     user-select: none;
     display: inline-flex;
@@ -70,17 +70,17 @@ export default {
     padding: 0;
 }
 
-.p-tree-node-toggle:enabled:hover {
+.p-tree-node-toggle-button:enabled:hover {
     background: ${dt('tree.toggle.hover.background')};
     color: ${dt('tree.toggle.hover.color')};
 }
 
-.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle,
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button,
 .p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-icon {
     color: inherit;
 }
 
-.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle:hover {
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button:hover {
     background: ${dt('tree.toggle.highlight.hover.background')};
 }
 
@@ -89,7 +89,7 @@ export default {
     color: ${dt('tree.node.hover.color')};
 }
 
-.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-toggle {
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-toggle-button {
     color: ${dt('tree.toggle.hover.color')};
 }
 
@@ -113,7 +113,7 @@ export default {
     user-select: none;
 }
 
-.p-tree-node-leaf > .p-tree-node-content .p-tree-node-toggle {
+.p-tree-node-leaf > .p-tree-node-content .p-tree-node-toggle-button {
     visibility: hidden;
 }
 

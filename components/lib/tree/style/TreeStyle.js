@@ -25,7 +25,7 @@ const classes = {
             'p-tree-node-selected': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
         }
     ],
-    toggler: 'p-tree-node-toggle',
+    toggler: 'p-tree-node-toggle-button',
     togglerIcon: 'p-tree-node-toggle-icon',
     nodeTogglerIcon: 'p-tree-node-toggler-icon', //todo: discuss
     nodeCheckbox: 'p-tree-node-checkbox',

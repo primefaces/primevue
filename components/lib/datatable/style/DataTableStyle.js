@@ -58,7 +58,7 @@ const classes = {
         }
     ],
     filterInput: 'p-datatable-filter-element-container',
-    filterMenuButton: 'p-datatable-column-filter-dropdown',
+    filterMenuButton: 'p-datatable-column-filter-button',
     headerFilterClearButton: 'p-datatable-column-filter-clear-button',
     filterOverlay: ({ instance, props }) => [
         'p-datatable-filter-overlay p-component',
