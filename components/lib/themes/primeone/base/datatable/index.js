@@ -544,5 +544,38 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child>td {
 .p-datatable.p-datatable-lg .p-datatable-footer {
     padding: 0.9375rem 1.25rem;
 }
+
+.p-datatable-row-toggle-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: ${dt('datatable.row.action.color')};
+    border: 0 none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    outline-color: transparent;
+    user-select: none;
+}
+
+.p-datatable-row-toggle-button:enabled:hover {
+    color: ${dt('datatable.row.action.hover.color')};
+    background: ${dt('datatable.row.action.hover.background')};
+}
+
+.p-datatable-row-toggle-button:focus-visible {
+    outline: 1px solid ${dt('focus.ring.color')};
+    outline-offset: 2px;
+}
+
+.p-datatable-tbody > tr.p-datatable-row-select .p-datatable-row-toggle-button:hover{
+    background: ${dt('datatable.row.action.highlight.hover.background')};
+    color: inherit;
+}
 `
 };

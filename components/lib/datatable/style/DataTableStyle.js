@@ -88,8 +88,8 @@ const classes = {
     filterApplyButton: 'p-datatable-filter-apply-button',
     tbody: ({ props }) => (props.frozenRow ? 'p-datatable-tbody p-datatable-frozen-tbody' : 'p-datatable-tbody'),
     rowgroupHeader: 'p-datatable-row-group-header',
-    rowGroupToggler: 'p-datatable-row-group-toggle',
-    rowGroupTogglerIcon: 'p-row-toggler-icon', //TODO: Remove
+    rowGroupToggler: 'p-datatable-row-toggle-button',
+    rowGroupTogglerIcon: 'p-datatable-row-toggle-icon',
     row: ({ instance, props, index, columnSelectionMode }) => {
         let rowStyleClass = [];
 
@@ -123,8 +123,8 @@ const classes = {
     ],
     columnTitle: 'p-column-title', //TODO: Remove due to stacked mode
     rowReorderIcon: 'p-datatable-reorderable-row-handle',
-    rowToggler: 'p-datatable-row-toggle',
-    rowTogglerIcon: 'p-row-toggler-icon', //TODO: Remove
+    rowToggler: 'p-datatable-row-toggle-button',
+    rowTogglerIcon: 'p-datatable-row-toggle-icon',
     rowEditorInitButton: 'p-datatable-row-editor-init',
     rowEditorInitIcon: 'p-row-editor-init-icon', //TODO: Remove
     rowEditorSaveButton: 'p-datatable-row-editor-save',
