@@ -8,7 +8,7 @@ export default {
             },
             content: {
                 highlightBackground: '{highlight.background}',
-                highlightBorderColor: '{highlight.color}',
+                highlightBorderColor: '{highlight.color}'
             },
             file: {
                 borderColor: '{surface.200}'

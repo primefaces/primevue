@@ -151,9 +151,13 @@ const createVeturAttributes = (component) => {
 };
 
 Object.keys(fileModules).forEach((p) => {
-    createWebTypes(fileModules[p][p]);
-    createVeturTags(fileModules[p][p]);
-    createVeturAttributes(fileModules[p][p]);
+    const component = fileModules[p][p];
+
+    if (component) {
+        createWebTypes(component);
+        createVeturTags(component);
+        createVeturAttributes(component);
+    }
 });
 
 !fs.existsSync(distDir) && fs.mkdirSync(distDir);
