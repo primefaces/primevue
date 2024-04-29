@@ -16185,7 +16185,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<CalendarPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of DatePicker instead."
                         },
                         {
                             "name": "card",
@@ -16234,7 +16236,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<ChipsPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of InputChips instead."
                         },
                         {
                             "name": "colorpicker",
@@ -16339,7 +16343,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<DropdownPassThroughOptions<any>>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of Select instead."
                         },
                         {
                             "name": "dynamicdialog",
@@ -16423,7 +16429,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<InputSwitchPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of ToggleSwitch instead."
                         },
                         {
                             "name": "inputtext",
@@ -16500,7 +16508,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<OverlayPanelPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of Popover instead."
                         },
                         {
                             "name": "paginator",
@@ -16598,7 +16608,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPassThrough<SidebarPassThroughOptions>",
-                            "default": ""
+                            "default": "",
+                            "description": "",
+                            "deprecated": "since v4. Use the new structure of Drawer instead."
                         },
                         {
                             "name": "skeleton",
@@ -19652,8 +19664,23 @@
                     ],
                     "methods": []
                 },
-                "DataTableFilterButtonPropsOptions": {
-                    "description": "Custom datatable filter button props options.",
+                "DataTableFilterButtonInlinePropsOptions": {
+                    "description": "Custom datatable filter inline button props options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "clear",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | ButtonProps",
+                            "default": "",
+                            "description": "Apply button props"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataTableFilterButtonPopoverPropsOptions": {
+                    "description": "Custom datatable filter popover button props options.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -19687,6 +19714,68 @@
                             "type": "undefined | ButtonProps",
                             "default": "",
                             "description": "Apply button props"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataTableFilterButtonPropsOptions": {
+                    "description": "Custom datatable filter buttons' props options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "filter",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | ButtonProps",
+                            "default": "",
+                            "description": "Filter button props"
+                        },
+                        {
+                            "name": "inline",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | DataTableFilterButtonInlinePropsOptions",
+                            "default": "",
+                            "description": "Inline filter buttons' options"
+                        },
+                        {
+                            "name": "popover",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | DataTableFilterButtonPopoverPropsOptions",
+                            "default": "",
+                            "description": "Popover filter buttons' options"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataTableEditButtonPropsOptions": {
+                    "description": "Custom datatable edit buttons' props options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "init",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | ButtonProps",
+                            "default": "",
+                            "description": "Init button props"
+                        },
+                        {
+                            "name": "save",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | ButtonProps",
+                            "default": "",
+                            "description": "Save button props"
+                        },
+                        {
+                            "name": "cancel",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | ButtonProps",
+                            "default": "",
+                            "description": "Cancel button props"
                         }
                     ],
                     "methods": []
@@ -21680,6 +21769,14 @@
                             "type": "DataTableFilterButtonPropsOptions",
                             "default": "",
                             "description": "Used to pass all filter button property object"
+                        },
+                        {
+                            "name": "editButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataTableEditButtonPropsOptions",
+                            "default": "",
+                            "description": "Used to pass all edit button property object"
                         },
                         {
                             "name": "dt",
@@ -59270,14 +59367,6 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css."
-                        },
-                        {
-                            "name": "orientation",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
-                            "default": "horizontal",
-                            "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'."
                         },
                         {
                             "name": "scrollable",

@@ -31,6 +31,7 @@
                     :editingRows="editingRows"
                     :editingRowKeys="editingRowKeys"
                     :templates="templates"
+                    :editButtonProps="editButtonProps"
                     :responsiveLayout="responsiveLayout"
                     :virtualScrollerContentProps="virtualScrollerContentProps"
                     :isVirtualScrollerDisabled="isVirtualScrollerDisabled"
@@ -210,6 +211,10 @@ export default {
         scrollable: {
             type: Boolean,
             default: false
+        },
+        editButtonProps: {
+            type: Object,
+            default: null
         },
         responsiveLayout: {
             type: String,
