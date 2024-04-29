@@ -4,7 +4,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-accordionpanel',
         {
-            'p-active': instance.active,
+            'p-accordionpanel-active': instance.active,
             'p-disabled': props.disabled
         }
     ]

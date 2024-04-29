@@ -30,11 +30,11 @@ export default {
     outline-offset: -2px;
 }
 
-.p-accordionpanel:not(.p-active):not(.p-disabled):hover .p-accordionheader {
+.p-accordionpanel:not(.p-accordionpanel-active):not(.p-disabled):hover > .p-accordionheader {
     color: ${dt('accordion.header.hover.color')}
 }
 
-.p-accordionpanel:not(.p-disabled).p-active .p-accordionheader {
+.p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader {
     color: ${dt('accordion.header.active.color')}
 }
 
