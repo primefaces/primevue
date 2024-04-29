@@ -4,7 +4,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-tab',
         {
-            'p-active': instance.active,
+            'p-tab-active': instance.active,
             'p-disabled': props.disabled
         }
     ]

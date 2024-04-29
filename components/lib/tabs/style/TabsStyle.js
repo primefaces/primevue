@@ -4,8 +4,7 @@ const classes = {
     root: ({ props }) => [
         'p-tabs p-component',
         {
-            'p-tabs-scrollable': props.scrollable,
-            'p-tabs-vertical': props.orientation === 'vertical'
+            'p-tabs-scrollable': props.scrollable
         }
     ]
 };

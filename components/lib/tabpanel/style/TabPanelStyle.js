@@ -4,7 +4,7 @@ const classes = {
     root: ({ instance }) => [
         'p-tabpanel',
         {
-            'p-active': instance.active
+            'p-tabpanel-active': instance.active
         }
     ]
 };

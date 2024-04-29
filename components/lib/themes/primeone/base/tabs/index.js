@@ -13,7 +13,7 @@ export default {
     overflow: hidden;
 }
 
-.p-tablist-scroller {
+.p-tablist-viewport {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -21,11 +21,11 @@ export default {
     overscroll-behavior: contain auto;
 }
 
-.p-tablist-scroller::-webkit-scrollbar {
+.p-tablist-viewport::-webkit-scrollbar {
     display: none;
 }
 
-.p-tablist-tabs {
+.p-tablist-tab-list {
     position: relative;
     display: flex;
     background: ${dt('tabs.nav.background')};
@@ -33,7 +33,8 @@ export default {
     border-width: 0 0 1px 0;
 }
 
-.p-tablist-navigator {
+.p-tablist-prev-button,
+.p-tablist-next-button {
     all: unset;
     position: absolute;
     top: 0;
@@ -50,12 +51,14 @@ export default {
     cursor: pointer;
 }
 
-.p-tablist-navigator:focus-visible {
+.p-tablist-prev-button:focus-visible,
+.p-tablist-next-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-tablist-navigator:hover {
+.p-tablist-prev-button:hover,
+.p-tablist-next-button:hover {
     color: ${dt('tabs.navigator.icon.hover.color')};
 }
 
@@ -90,11 +93,11 @@ export default {
     outline-offset: -1px;
 }
 
-.p-tab:not(.p-active):not(.p-disabled):hover {
+.p-tab:not(.p-tab-active):not(.p-disabled):hover {
     color: ${dt('tabs.header.hover.color')};
 }
 
-.p-tab.p-active {
+.p-tab-active {
     color: ${dt('tabs.header.active.color')};
 }
 
@@ -104,7 +107,7 @@ export default {
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
-.p-tablist-ink-bar {
+.p-tablist-active-bar {
     z-index: 1;
     display: block;
     position: absolute;
