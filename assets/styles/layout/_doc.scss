@@ -145,15 +145,15 @@
             @include doc-link();
         }
     }
+}
 
-    .notification {
-        line-height: 1.5;
-        padding: 1rem;
-        font-weight: 500;
-        border-radius: 10px;
-        background: var(--mark-background);
-        color: var(--mark-text);
-    }
+.doc-notification {
+    line-height: 1.5;
+    padding: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background: var(--mark-background);
+    color: var(--mark-text);
 }
 
 .doc-section-nav {
