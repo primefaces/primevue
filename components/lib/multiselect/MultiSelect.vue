@@ -776,7 +776,9 @@ export default {
             }
         },
         isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
+            const path = event.composedPath();
+
+            return !(path.includes(this.$el) || (this.overlay && path.includes(this.overlay)));
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
