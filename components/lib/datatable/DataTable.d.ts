@@ -161,9 +161,19 @@ export interface DataTableExportCSVOptions {
 }
 
 /**
- * Custom datatable filter button props options.
+ * Custom datatable filter inline button props options.
  */
-export interface DataTableFilterButtonPropsOptions {
+export interface DataTableFilterButtonInlinePropsOptions {
+    /**
+     * Apply button props
+     */
+    clear: ButtonProps | undefined;
+}
+
+/**
+ * Custom datatable filter popover button props options.
+ */
+export interface DataTableFilterButtonPopoverPropsOptions {
     /**
      * Add rule button props
      */
@@ -180,6 +190,42 @@ export interface DataTableFilterButtonPropsOptions {
      * Apply button props
      */
     clear: ButtonProps | undefined;
+}
+
+/**
+ * Custom datatable filter buttons' props options.
+ */
+export interface DataTableFilterButtonPropsOptions {
+    /**
+     * Filter button props
+     */
+    filter: ButtonProps | undefined;
+    /**
+     * Inline filter buttons' options
+     */
+    inline: DataTableFilterButtonInlinePropsOptions | undefined;
+    /**
+     * Popover filter buttons' options
+     */
+    popover: DataTableFilterButtonPopoverPropsOptions | undefined;
+}
+
+/**
+ * Custom datatable edit buttons' props options.
+ */
+export interface DataTableEditButtonPropsOptions {
+    /**
+     * Init button props
+     */
+    init: ButtonProps | undefined;
+    /**
+     * Save button props
+     */
+    save: ButtonProps | undefined;
+    /**
+     * Cancel button props
+     */
+    cancel: ButtonProps | undefined;
 }
 
 /**
@@ -1156,13 +1202,28 @@ export interface DataTableProps {
     /**
      * Used to pass all filter button property object
      * @defaultValue {
-            addRule: { severity: 'info', text: true, size: 'small' },
-            removeRule: { severity: 'danger', text: true, size: 'small' },
-            apply: { size: 'small' },
-            clear: { outlined: true, size: 'small' }
+            filter: { severity: 'secondary', text: true, rounded: true },
+            inline: {
+                clear: { severity: 'secondary', text: true, rounded: true }
+            },
+            popover: {
+                addRule: { severity: 'info', text: true, size: 'small' },
+                removeRule: { severity: 'danger', text: true, size: 'small' },
+                apply: { size: 'small' },
+                clear: { outlined: true, size: 'small' }
+            }
         }
      */
     filterButtonProps?: DataTableFilterButtonPropsOptions | undefined;
+    /**
+     * Used to pass all edit button property object
+     * @defaultValue {
+            init: { severity: 'secondary', text: true, rounded: true },
+            save: { severity: 'secondary', text: true, rounded: true },
+            cancel: { severity: 'secondary', text: true, rounded: true }
+        }
+     */
+    editButtonProps?: DataTableEditButtonPropsOptions | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

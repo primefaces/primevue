@@ -59,6 +59,7 @@
                     :isRowExpanded="d_rowExpanded"
                     :expandedRowIcon="expandedRowIcon"
                     :collapsedRowIcon="collapsedRowIcon"
+                    :editButtonProps="editButtonProps"
                     @radio-change="onRadioChange"
                     @checkbox-change="onCheckboxChange"
                     @row-toggle="onRowToggle"
@@ -252,6 +253,10 @@ export default {
         responsiveLayout: {
             type: String,
             default: 'stack'
+        },
+        editButtonProps: {
+            type: Object,
+            default: null
         },
         virtualScrollerContentProps: {
             type: Object,

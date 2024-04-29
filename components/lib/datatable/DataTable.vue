@@ -131,6 +131,7 @@
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
                             :responsiveLayout="responsiveLayout"
+                            :editButtonProps="rowEditButtonProps"
                             :isVirtualScrollerDisabled="true"
                             @rowgroup-toggle="toggleRowGroup"
                             @row-click="onRowClick($event)"
@@ -187,6 +188,7 @@
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
                             :responsiveLayout="responsiveLayout"
+                            :editButtonProps="rowEditButtonProps"
                             :virtualScrollerContentProps="slotProps"
                             :isVirtualScrollerDisabled="virtualScrollerDisabled"
                             @rowgroup-toggle="toggleRowGroup"
@@ -2072,13 +2074,29 @@ export default {
         },
         headerFilterButtonProps() {
             return {
-                ...{
+                filter: { severity: 'secondary', text: true, rounded: true },
+                ...this.filterButtonProps,
+                inline: {
+                    clear: { severity: 'secondary', text: true, rounded: true },
+                    ...this.filterButtonProps.inline
+                },
+                popover: {
                     addRule: { severity: 'info', text: true, size: 'small' },
                     removeRule: { severity: 'danger', text: true, size: 'small' },
                     apply: { size: 'small' },
-                    clear: { outlined: true, size: 'small' }
+                    clear: { outlined: true, size: 'small' },
+                    ...this.filterButtonProps.popover
+                }
+            };
+        },
+        rowEditButtonProps() {
+            return {
+                ...{
+                    init: { severity: 'secondary', text: true, rounded: true },
+                    save: { severity: 'secondary', text: true, rounded: true },
+                    cancel: { severity: 'secondary', text: true, rounded: true }
                 },
-                ...this.filterButtonProps
+                ...this.editButtonProps
             };
         },
         virtualScrollerDisabled() {

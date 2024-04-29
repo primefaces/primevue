@@ -83,15 +83,45 @@
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')" data-pc-group-section="rowactionbutton">
-                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="cx('rowEditorInitIcon')" v-bind="getColumnPT('rowEditorInitIcon')" />
-            </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')" data-pc-group-section="rowactionbutton">
-                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="cx('rowEditorSaveIcon')" v-bind="getColumnPT('rowEditorSaveIcon')" />
-            </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')" data-pc-group-section="rowactionbutton">
-                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="cx('rowEditorCancelIcon')" v-bind="getColumnPT('rowEditorCancelIcon')" />
-            </button>
+            <Button
+                v-if="!d_editing"
+                :class="cx('rowEditorInitButton')"
+                :aria-label="initButtonAriaLabel"
+                :unstyled="unstyled"
+                @click="onRowEditInit"
+                v-bind="{ ...getColumnPT('rowEditorInitButton'), ...editButtonProps.init }"
+                data-pc-group-section="rowactionbutton"
+            >
+                <template #icon="slotProps">
+                    <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="[cx('rowEditorInitIcon'), slotProps.class]" v-bind="getColumnPT('rowEditorInitIcon')" />
+                </template>
+            </Button>
+            <Button
+                v-if="d_editing"
+                :class="cx('rowEditorSaveButton')"
+                :aria-label="saveButtonAriaLabel"
+                :unstyled="unstyled"
+                @click="onRowEditSave"
+                v-bind="{ ...getColumnPT('rowEditorSaveButton'), ...editButtonProps.save }"
+                data-pc-group-section="rowactionbutton"
+            >
+                <template #icon="slotProps">
+                    <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="[cx('rowEditorSaveIcon'), slotProps.class]" v-bind="getColumnPT('rowEditorSaveIcon')" />
+                </template>
+            </Button>
+            <Button
+                v-if="d_editing"
+                :class="cx('rowEditorCancelButton')"
+                :aria-label="cancelButtonAriaLabel"
+                :unstyled="unstyled"
+                @click="onRowEditCancel"
+                v-bind="{ ...getColumnPT('rowEditorCancelButton'), ...editButtonProps.cancel }"
+                data-pc-group-section="rowactionbutton"
+            >
+                <template #icon="slotProps">
+                    <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="[cx('rowEditorCancelIcon'), slotProps.class]" v-bind="getColumnPT('rowEditorCancelIcon')" />
+                </template>
+            </Button>
         </template>
         <template v-else>{{ resolveFieldData() }}</template>
     </td>
@@ -99,6 +129,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import Button from 'primevue/button';
 import BarsIcon from 'primevue/icons/bars';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
@@ -180,6 +211,10 @@ export default {
         },
         collapsedRowIcon: {
             type: String,
+            default: null
+        },
+        editButtonProps: {
+            type: Object,
             default: null
         }
     },
@@ -532,12 +567,13 @@ export default {
     components: {
         DTRadioButton: RowRadioButton,
         DTCheckbox: RowCheckbox,
-        ChevronDownIcon: ChevronDownIcon,
-        ChevronRightIcon: ChevronRightIcon,
-        BarsIcon: BarsIcon,
-        PencilIcon: PencilIcon,
-        CheckIcon: CheckIcon,
-        TimesIcon: TimesIcon
+        Button,
+        ChevronDownIcon,
+        ChevronRightIcon,
+        BarsIcon,
+        PencilIcon,
+        CheckIcon,
+        TimesIcon
     },
     directives: {
         ripple: Ripple

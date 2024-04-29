@@ -278,10 +278,26 @@ export default {
             type: Object,
             default() {
                 return {
-                    addRule: { severity: 'info', text: true, size: 'small' },
-                    removeRule: { severity: 'danger', text: true, size: 'small' },
-                    apply: { size: 'small' },
-                    clear: { outlined: true, size: 'small' }
+                    filter: { severity: 'secondary', text: true, rounded: true },
+                    inline: {
+                        clear: { severity: 'secondary', text: true, rounded: true }
+                    },
+                    popover: {
+                        addRule: { severity: 'info', text: true, size: 'small' },
+                        removeRule: { severity: 'danger', text: true, size: 'small' },
+                        apply: { size: 'small' },
+                        clear: { outlined: true, size: 'small' }
+                    }
+                };
+            }
+        },
+        editButtonProps: {
+            type: Object,
+            default() {
+                return {
+                    init: { severity: 'secondary', text: true, rounded: true },
+                    save: { severity: 'secondary', text: true, rounded: true },
+                    cancel: { severity: 'secondary', text: true, rounded: true }
                 };
             }
         }
