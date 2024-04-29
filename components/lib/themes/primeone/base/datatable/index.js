@@ -16,18 +16,18 @@ export default {
 }
 
 .p-datatable-column-title,
-.p-datatable-sortable-column-icon,
-.p-datatable-sortable-column-badge {
+.p-datatable-sort-icon,
+.p-datatable-sort-badge {
     vertical-align: middle;
 }
 
-.p-datatable-sortable-column-icon {
+.p-datatable-sort-icon {
     color: ${dt('datatable.sort.icon.color')};
     margin-left: 0.5rem;
     transition: color ${dt('transition.duration')};
 }
 
-.p-datatable-sortable-column-badge {
+.p-datatable-sort-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +43,7 @@ export default {
     color: ${dt('datatable.header.cell.hover.color')};
 }
 
-.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sortable-column-icon {
+.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {
     color: ${dt('datatable.sort.icon.hover.color')};
 }
 
@@ -57,7 +57,7 @@ export default {
     outline-offset: -1px;
 }
 
-.p-datatable-column-sorted .p-datatable-sortable-column-icon {
+.p-datatable-column-sorted .p-datatable-sort-icon {
     color: ${dt('highlight.color')};
 }
 
@@ -573,7 +573,7 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child>td {
     outline-offset: 2px;
 }
 
-.p-datatable-tbody > tr.p-datatable-row-select .p-datatable-row-toggle-button:hover{
+.p-datatable-tbody > tr.p-datatable-row-selected .p-datatable-row-toggle-button:hover{
     background: ${dt('datatable.row.action.highlight.hover.background')};
     color: inherit;
 }

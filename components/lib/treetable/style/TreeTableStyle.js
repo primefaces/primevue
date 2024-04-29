@@ -4,82 +4,59 @@ const classes = {
     root: ({ instance, props }) => [
         'p-treetable p-component',
         {
-            'p-treetable-hoverable-rows': props.rowHover || instance.rowSelectionMode,
-            'p-treetable-auto-layout': props.autoLayout,
+            'p-treetable-hoverable': props.rowHover || instance.rowSelectionMode,
             'p-treetable-resizable': props.resizableColumns,
             'p-treetable-resizable-fit': props.resizableColumns && props.columnResizeMode === 'fit',
-            'p-treetable-gridlines': props.showGridlines,
             'p-treetable-scrollable': props.scrollable,
-            'p-treetable-scrollable-vertical': props.scrollable && props.scrollDirection === 'vertical',
-            'p-treetable-scrollable-horizontal': props.scrollable && props.scrollDirection === 'horizontal',
-            'p-treetable-scrollable-both': props.scrollable && props.scrollDirection === 'both',
             'p-treetable-flex-scrollable': props.scrollable && props.scrollHeight === 'flex',
-            'p-treetable-responsive-scroll': props.responsiveLayout === 'scroll',
+            'p-treetable-gridlines': props.showGridlines,
             'p-treetable-sm': props.size === 'small',
             'p-treetable-lg': props.size === 'large'
         }
     ],
-    loadingWrapper: 'p-treetable-loading',
-    loadingOverlay: 'p-treetable-loading-overlay p-component-overlay',
+    loadingWrapper: 'p-treetable-loading', //TODO: required?
+    loadingOverlay: 'p-treetable-mask p-component-overlay',
     loadingIcon: 'p-treetable-loading-icon',
     header: 'p-treetable-header',
-    paginator: ({ instance }) => (instance.paginatorTop ? 'p-paginator-top' : instance.paginatorBottom ? 'p-paginator-bottom' : ''),
-    wrapper: 'p-treetable-wrapper',
+    paginator: ({ position }) => 'p-treetable-paginator-' + position,
+    wrapper: 'p-treetable-table-container',
     thead: 'p-treetable-thead',
-    //headercell
-    headerCell: ({ instance, props, column }) =>
-        column && instance.hasColumnFilter()
-            ? [
-                  'p-filter-column',
-                  {
-                      'p-frozen-column': instance.columnProp(column, 'frozen')
-                  }
-              ]
-            : [
-                  {
-                      'p-sortable-column': instance.columnProp('sortable'),
-                      'p-resizable-column': props.resizableColumns,
-                      'p-highlight': instance.isColumnSorted(),
-                      'p-frozen-column': instance.columnProp('frozen')
-                  }
-              ],
-    columnResizer: 'p-column-resizer',
-    headerTitle: 'p-column-title',
-    sortIcon: 'p-sortable-column-icon',
-    sortBadge: 'p-sortable-column-badge',
+    headerCell: ({ instance, props }) => [
+        {
+            'p-treetable-sortable-column': instance.columnProp('sortable'),
+            'p-treetable-resizable-column': props.resizableColumns,
+            'p-treetable-column-sorted': instance.isColumnSorted(),
+            'p-treetable-frozen-column': instance.columnProp('frozen')
+        }
+    ],
+    columnResizer: 'p-treetable-column-resizer',
+    headerTitle: 'p-treetable-column-title',
+    sortIcon: 'p-treetable-sort-icon',
+    sortBadge: 'p-treetable-sort-badge',
     tbody: 'p-treetable-tbody',
-    //ttrow
     row: ({ instance }) => [
         {
-            'p-highlight': instance.selected
+            'p-treetable-row-selected': instance.selected
         }
     ],
-    //bodycell
     bodyCell: ({ instance }) => [
         {
-            'p-frozen-column': instance.columnProp('frozen')
+            'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
-    rowToggler: 'p-treetable-toggler p-link',
-    rowTogglerIcon: 'p-tree-toggler-icon',
-    rowCheckbox: ({ instance }) => [
-        'p-treetable-checkbox',
-        {
-            'p-indeterminate': instance.partialChecked
-        }
-    ],
-    //treetable
-    emptyMessage: 'p-treetable-emptymessage',
+    rowToggler: 'p-treetable-row-toggle-button',
+    rowTogglerIcon: 'p-treetable-row-toggle-icon',
+    rowCheckbox: ({ instance }) => 'p-treetable-row-checkbox',
+    emptyMessage: 'p-treetable-empty-message',
     tfoot: 'p-treetable-tfoot',
-    //footercell
     footerCell: ({ instance }) => [
         {
-            'p-frozen-column': instance.columnProp('frozen')
+            'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
     //treetable
     footer: 'p-treetable-footer',
-    resizeHelper: 'p-column-resizer-helper p-highlight'
+    resizeHelper: 'p-treetable-column-resize-indicator'
 };
 
 export default BaseStyle.extend({

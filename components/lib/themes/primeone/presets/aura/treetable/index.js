@@ -15,7 +15,6 @@ export default {
             },
             row: {
                 background: '{surface.0}',
-                stripedBackground: '{surface.50}',
                 hoverBackground: '{surface.100}',
                 color: '{surface.700}',
                 hoverColor: '{surface.800}'
@@ -39,14 +38,11 @@ export default {
                 color: '{surface.500}',
                 hoverColor: '{surface.600}'
             },
-            toggle: {
+            rowAction: {
                 hoverBackground: '{surface.100}',
                 highlightHoverBackground: '{surface.0}',
                 color: '{surface.500}',
-                hoverColor: '{surface.600}'
-            },
-            indeterminate: {
-                color: '{surface.500}'
+                hoverColor: '{surface.500}'
             }
         },
         dark: {
@@ -64,7 +60,6 @@ export default {
             },
             row: {
                 background: '{surface.900}',
-                stripedBackground: '{surface.950}',
                 hoverBackground: '{surface.800}',
                 color: '{surface.0}',
                 hoverColor: '{surface.0}'
@@ -88,14 +83,11 @@ export default {
                 color: '{surface.400}',
                 hoverColor: '{surface.300}'
             },
-            toggle: {
+            rowAction: {
                 hoverBackground: '{surface.800}',
                 highlightHoverBackground: '{surface.900}',
                 color: '{surface.400}',
                 hoverColor: '{surface.300}'
-            },
-            indeterminate: {
-                color: '{surface.400}'
             }
         }
     }

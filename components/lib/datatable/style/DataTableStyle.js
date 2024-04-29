@@ -48,8 +48,8 @@ const classes = {
     columnResizer: 'p-datatable-column-resizer',
     headerContent: 'p-datatable-column-header-content',
     headerTitle: 'p-datatable-column-title',
-    sortIcon: 'p-datatable-sortable-column-icon',
-    sortBadge: 'p-datatable-sortable-column-badge',
+    sortIcon: 'p-datatable-sort-icon',
+    sortBadge: 'p-datatable-sort-badge',
     columnFilter: ({ props }) => [
         'p-datatable-filter',
         {
@@ -115,7 +115,7 @@ const classes = {
     },
     rowExpansion: 'p-datatable-row-expansion',
     rowgroupFooter: 'p-datatable-row-group-footer',
-    emptyMessage: 'p-datatable-emptymessage',
+    emptyMessage: 'p-datatable-empty-message',
     bodyCell: ({ instance }) => [
         {
             'p-datatable-frozen-column': instance.columnProp('frozen')
