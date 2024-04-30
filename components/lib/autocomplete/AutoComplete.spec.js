@@ -86,7 +86,7 @@ describe('AutoComplete.vue', () => {
         });
     });
 
-    describe('multiple', () => {
+    it('multiple', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
                 multiple: true,
@@ -100,10 +100,12 @@ describe('AutoComplete.vue', () => {
                 expect(tokenIcon.classes()).toContain('pi-discord');
             });
         });
+    });
 
+    describe('hideOnOptionSelect', () => {
         it('should hide overlay when hideOnOptionSelect is true', async () => {
             await wrapper.setProps({
-                hideOnOptionSelect: true,
+                hideOnOptionSelect: true
             });
 
             const input = await wrapper.find('input');
@@ -126,7 +128,7 @@ describe('AutoComplete.vue', () => {
 
         it('should keep overlay open when hideOnOptionSelect is false', async () => {
             await wrapper.setProps({
-                hideOnOptionSelect: false,
+                hideOnOptionSelect: false
             });
 
             const input = await wrapper.find('input');
