@@ -1,7 +1,7 @@
 <template>
-    <li v-if="visible()" :class="[cx('menuitem'), item.class]" v-bind="ptm('menuitem', ptmOptions)">
+    <li v-if="visible()" :class="[cx('item'), item.class]" v-bind="ptm('item', ptmOptions)">
         <template v-if="!templates.item">
-            <a :href="item.url || '#'" :class="cx('action')" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick" v-bind="ptm('action', ptmOptions)">
+            <a :href="item.url || '#'" :class="cx('itemLink')" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick" v-bind="ptm('itemLink', ptmOptions)">
                 <component v-if="templates && templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon', ptmOptions)" />
                 <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="ptm('icon', ptmOptions)" />
                 <span v-if="item.label" :class="cx('label')" v-bind="ptm('label', ptmOptions)">{{ label() }}</span>
@@ -62,11 +62,11 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         'aria-current': this.isCurrentUrl(),
                         onClick: ($event) => this.onClick($event)
                     },
-                    this.ptm('action', this.ptmOptions)
+                    this.ptm('itemLink', this.ptmOptions)
                 ),
                 icon: mergeProps(
                     {

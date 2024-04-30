@@ -5,7 +5,7 @@
                 <ContextMenuSub
                     :ref="listRef"
                     :id="id + '_list'"
-                    :class="cx('menu')"
+                    :class="cx('rootList')"
                     role="menubar"
                     :root="true"
                     :tabindex="tabindex"
@@ -319,7 +319,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
+                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="itemlink"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
                 const processedItem = this.visibleItems[this.focusedItemInfo.index];

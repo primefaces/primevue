@@ -2,11 +2,11 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: 'p-breadcrumb p-component',
-    menu: 'p-breadcrumb-list',
-    home: 'p-breadcrumb-home-item',
+    list: 'p-breadcrumb-list',
+    homeItem: 'p-breadcrumb-home-item',
     separator: 'p-breadcrumb-separator',
-    menuitem: ({ instance }) => ['p-breadcrumb-item', { 'p-disabled': instance.disabled() }],
-    action: 'p-breadcrumb-item-link',
+    item: ({ instance }) => ['p-breadcrumb-item', { 'p-disabled': instance.disabled() }],
+    itemLink: 'p-breadcrumb-item-link',
     icon: 'p-breadcrumb-item-icon',
     label: 'p-breadcrumb-item-label'
 };

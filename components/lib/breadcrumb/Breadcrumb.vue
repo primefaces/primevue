@@ -1,7 +1,7 @@
 <template>
     <nav :class="cx('root')" v-bind="ptmi('root')">
-        <ol :class="cx('menu')" v-bind="ptm('menu')">
-            <BreadcrumbItem v-if="home" :item="home" :class="cx('home')" :templates="$slots" :pt="pt" :unstyled="unstyled" v-bind="ptm('home')" />
+        <ol :class="cx('list')" v-bind="ptm('list')">
+            <BreadcrumbItem v-if="home" :item="home" :class="cx('homeItem')" :templates="$slots" :pt="pt" :unstyled="unstyled" v-bind="ptm('homeItem')" />
             <template v-for="(item, i) of model" :key="item.label + '_' + i">
                 <li v-if="home || i !== 0" :class="cx('separator')" v-bind="ptm('separator')">
                     <slot name="separator">

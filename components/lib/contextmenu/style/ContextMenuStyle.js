@@ -7,8 +7,8 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    menu: 'p-contextmenu-root-list',
-    menuitem: ({ instance, processedItem }) => [
+    rootList: 'p-contextmenu-root-list',
+    item: ({ instance, processedItem }) => [
         'p-contextmenu-item',
         {
             'p-contextmenu-item-active': instance.isItemActive(processedItem),
@@ -16,10 +16,10 @@ const classes = {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-contextmenu-item-content',
-    action: 'p-contextmenu-item-link',
-    icon: 'p-contextmenu-item-icon',
-    label: 'p-contextmenu-item-label',
+    itemContent: 'p-contextmenu-item-content',
+    itemLink: 'p-contextmenu-item-link',
+    itemIcon: 'p-contextmenu-item-icon',
+    itemLabel: 'p-contextmenu-item-label',
     submenuIcon: 'p-contextmenu-submenu-icon',
     submenu: 'p-contextmenu-submenu',
     separator: 'p-contextmenu-separator'

@@ -1,9 +1,9 @@
 <template>
-    <div :class="cx('container')" v-bind="ptm('container')">
+    <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
         <ul
             ref="list"
             :id="id"
-            :class="cx('menu')"
+            :class="cx('list')"
             role="menu"
             :aria-orientation="position === 'bottom' || position === 'top' ? 'horizontal' : 'vertical'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
@@ -14,36 +14,36 @@
             @blur="onListBlur"
             @keydown="onListKeyDown"
             @mouseleave="onListMouseLeave"
-            v-bind="ptm('menu')"
+            v-bind="ptm('list')"
         >
             <template v-for="(processedItem, index) of model" :key="index">
                 <li
                     :id="getItemId(index)"
-                    :class="cx('menuitem', { processedItem, id: getItemId(index) })"
+                    :class="cx('item', { processedItem, id: getItemId(index) })"
                     role="menuitem"
                     :aria-label="processedItem.label"
                     :aria-disabled="disabled(processedItem)"
                     @click="onItemClick($event, processedItem)"
                     @mouseenter="onItemMouseEnter(index)"
-                    v-bind="getPTOptions('menuitem', processedItem, index)"
+                    v-bind="getPTOptions('item', processedItem, index)"
                     :data-p-focused="isItemActive(getItemId(index))"
                     :data-p-disabled="disabled(processedItem) || false"
                 >
-                    <div :class="cx('content')" v-bind="getPTOptions('content', processedItem, index)">
+                    <div :class="cx('itemContent')" v-bind="getPTOptions('itemContent', processedItem, index)">
                         <template v-if="!templates['item']">
                             <a
                                 v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
                                 :href="processedItem.url"
-                                :class="cx('action')"
+                                :class="cx('itemLink')"
                                 :target="processedItem.target"
                                 tabindex="-1"
                                 aria-hidden="true"
-                                v-bind="getPTOptions('action', processedItem, index)"
+                                v-bind="getPTOptions('itemLink', processedItem, index)"
                             >
                                 <template v-if="!templates['icon']">
-                                    <span v-ripple :class="[cx('icon'), processedItem.icon]" v-bind="getPTOptions('icon', processedItem, index)"></span>
+                                    <span v-ripple :class="[cx('itemIcon'), processedItem.icon]" v-bind="getPTOptions('itemIcon', processedItem, index)"></span>
                                 </template>
-                                <component v-else :is="templates['icon']" :item="processedItem" :class="cx('icon')"></component>
+                                <component v-else :is="templates['icon']" :item="processedItem" :class="cx('itemIcon')"></component>
                             </a>
                         </template>
                         <component v-else :is="templates['item']" :item="processedItem" :index="index" :label="processedItem.label" :props="getMenuItemProps(processedItem, index)"></component>
@@ -130,7 +130,7 @@ export default {
             });
         },
         isSameMenuItem(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="menuitem"]')));
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="item"]')));
         },
         isItemActive(id) {
             return id === this.focusedOptionIndex;
@@ -223,28 +223,28 @@ export default {
             this.changeFocusedOptionIndex(0);
         },
         onEndKey() {
-            this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'li[data-pc-section="menuitem"][data-p-disabled="false"]').length - 1);
+            this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
         },
         onSpaceKey() {
             const element = DomHandler.findSingle(this.$refs.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, '[data-pc-section="action"]');
+            const anchorElement = element && DomHandler.findSingle(element, '[data-pc-section="itemlink"]');
 
             anchorElement ? anchorElement.click() : element && element.click();
         },
         findNextOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
 
             let order = index >= menuitems.length ? menuitems.length - 1 : index < 0 ? 0 : index;
 
@@ -259,15 +259,15 @@ export default {
                     {
                         tabindex: -1,
                         'aria-hidden': true,
-                        class: this.cx('action')
+                        class: this.cx('itemLink')
                     },
-                    this.getPTOptions('action', item, index)
+                    this.getPTOptions('itemLink', item, index)
                 ),
                 icon: mergeProps(
                     {
-                        class: [this.cx('icon'), item.icon]
+                        class: [this.cx('itemIcon'), item.icon]
                     },
-                    this.getPTOptions('icon', item, index)
+                    this.getPTOptions('itemIcon', item, index)
                 )
             };
         }

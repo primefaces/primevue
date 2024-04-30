@@ -59,29 +59,29 @@ export interface DockPassThroughOptions {
      */
     root?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the list container's DOM element.
      */
-    container?: DockPassThroughOptionType;
+    listContainer?: DockPassThroughOptionType;
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    menu?: DockPassThroughOptionType;
+    list?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the  item's DOM element.
      */
-    menuitem?: DockPassThroughOptionType;
+    item?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: DockPassThroughOptionType;
+    itemContent?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: DockPassThroughOptionType;
+    itemLink?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: DockPassThroughOptionType;
+    itemIcon?: DockPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
