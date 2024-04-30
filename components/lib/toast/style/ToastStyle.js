@@ -18,7 +18,7 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    container: ({ props }) => [
+    message: ({ props }) => [
         'p-toast-message',
         {
             'p-toast-message-info': props.message.severity === 'info' || props.message.severity === undefined,
@@ -29,8 +29,8 @@ const classes = {
             'p-toast-message-contrast': props.message.severity === 'contrast'
         }
     ],
-    content: 'p-toast-message-content',
-    icon: ({ props }) => [
+    messageContent: 'p-toast-message-content',
+    messageIcon: ({ props }) => [
         'p-toast-message-icon',
         {
             [props.infoIcon]: props.message.severity === 'info',
@@ -39,7 +39,7 @@ const classes = {
             [props.successIcon]: props.message.severity === 'success'
         }
     ],
-    text: 'p-toast-message-text',
+    messageText: 'p-toast-message-text',
     summary: 'p-toast-summary',
     detail: 'p-toast-detail',
     closeButton: 'p-toast-close-button',

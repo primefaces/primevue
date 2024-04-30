@@ -75,21 +75,17 @@ export interface ToastPassThroughOptions {
      */
     message?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the message content's DOM element.
      */
-    container?: ToastPassThroughOptionType;
+    messageContent?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the message icon's DOM element.
      */
-    content?: ToastPassThroughOptionType;
+    messageIcon?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the message text's DOM element.
      */
-    icon?: ToastPassThroughOptionType;
-    /**
-     * Used to pass attributes to the text's DOM element.
-     */
-    text?: ToastPassThroughOptionType;
+    messageText?: ToastPassThroughOptionType;
     /**
      * Used to pass attributes to the summary's DOM element.
      */

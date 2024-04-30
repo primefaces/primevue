@@ -2,7 +2,7 @@
     <transition name="p-message" appear v-bind="ptmi('transition')">
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
             <slot v-if="$slots.container" name="container" :onClose="close" :closeCallback="close"></slot>
-            <div v-else :class="cx('wrapper')" v-bind="ptm('wrapper')">
+            <div v-else :class="cx('content')" v-bind="ptm('content')">
                 <slot name="messageicon" class="p-message-icon">
                     <component :is="icon ? 'span' : iconComponent" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
                 </slot>

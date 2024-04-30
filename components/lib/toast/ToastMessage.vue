@@ -1,10 +1,10 @@
 <template>
-    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
+    <div :class="[cx('message'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('message')">
         <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" :closeCallback="onCloseClick" />
-        <div v-else :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
+        <div v-else :class="[cx('messageContent'), message.contentStyleClass]" v-bind="ptm('messageContent')">
             <template v-if="!templates.message">
-                <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />
-                <div :class="cx('text')" v-bind="ptm('text')">
+                <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('messageIcon')" v-bind="ptm('messageIcon')" />
+                <div :class="cx('messageText')" v-bind="ptm('messageText')">
                     <span :class="cx('summary')" v-bind="ptm('summary')">{{ message.summary }}</span>
                     <div :class="cx('detail')" v-bind="ptm('detail')">{{ message.detail }}</div>
                 </div>
