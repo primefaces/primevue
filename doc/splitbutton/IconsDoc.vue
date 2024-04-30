@@ -3,7 +3,17 @@
         <p>The buttons and menuitems have support to display icons.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
+        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
+        <SplitButton label="Save" icon="pi pi-check" @click="save" :model="items">
+            <template #dropdownicon>
+                <i class="pi pi-discord"></i>
+            </template>
+        </SplitButton>
+        <SplitButton label="Save" icon="pi pi-check" @click="save" :model="items">
+            <template #menubuttonicon>
+                <i class="pi pi-discord"></i>
+            </template>
+        </SplitButton>
     </div>
     <DocSectionCode :code="code" />
 </template>

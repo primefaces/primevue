@@ -54,6 +54,10 @@ export default {
             type: String,
             default: undefined
         },
+        dropdownIcon: {
+            type: String,
+            default: undefined
+        },
         severity: {
             type: String,
             default: null

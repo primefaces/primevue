@@ -78,7 +78,7 @@ export interface SplitButtonPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    menuButton?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
+    dropdown?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
@@ -169,6 +169,10 @@ export interface SplitButtonProps {
      */
     menuButtonIcon?: string | undefined;
     /**
+     * Name of the menu button icon.
+     */
+    dropdownIcon?: string | undefined;
+    /**
      * Defines the style of the button.
      */
     severity?: HintedString<'secondary' | 'success' | 'info' | 'warn' | 'help' | 'danger' | 'contrast'> | undefined;
@@ -245,10 +249,21 @@ export interface SplitButtonSlots {
         class: string;
     }): VNode[];
     /**
+     * @deprecated since v4.0. Use dropdownicon slot instead.
      * Custom menu button icon template.
      * @param {Object} scope - menubuttonicon slot's params.
      */
     menubuttonicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom menu button icon template.
+     * @param {Object} scope - menubuttonicon slot's params.
+     */
+    dropdownicon(scope: {
         /**
          * Style class of the icon.
          */

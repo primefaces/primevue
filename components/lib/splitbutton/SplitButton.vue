@@ -27,7 +27,7 @@
         <PVSButton
             ref="button"
             type="button"
-            :class="cx('menuButton')"
+            :class="cx('dropdown')"
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
@@ -38,13 +38,17 @@
             :text="text"
             :outlined="outlined"
             :size="size"
-            v-bind="menuButtonProps"
-            :pt="ptm('menuButton')"
             :unstyled="unstyled"
+            v-bind="menuButtonProps"
+            :pt="ptm('dropdown')"
         >
             <template #icon="slotProps">
-                <slot name="menubuttonicon" :class="slotProps.class">
-                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" data-pc-section="menubuttonicon" />
+                <!--TODO: Deprecated since v4.0-->
+                <slot v-if="$slots.menubuttonicon" name="menubuttonicon" :class="slotProps.class">
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('dropdown')['icon']" data-pc-section="menubuttonicon" />
+                </slot>
+                <slot v-else name="dropdownicon" :class="slotProps.class">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[dropdownIcon, slotProps.class]" v-bind="ptm('dropdown')['icon']" data-pc-section="menubuttonicon" />
                 </slot>
             </template>
         </PVSButton>
