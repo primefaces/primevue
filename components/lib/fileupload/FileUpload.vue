@@ -1,23 +1,23 @@
 <template>
     <div v-if="isAdvanced" :class="cx('root')" v-bind="ptmi('root')">
         <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" v-bind="ptm('input')" />
-        <div :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
+        <div :class="cx('header')" v-bind="ptm('header')">
             <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
                 <Button :label="chooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" :pt="ptm('chooseButton')">
                     <template #icon="iconProps">
-                        <slot name="chooseicon" :class="cx('chooseIcon')">
-                            <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="[iconProps.class, cx('chooseIcon'), chooseIcon]" aria-hidden="true" v-bind="ptm('chooseButton')['icon']" />
+                        <slot name="chooseicon">
+                            <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="[iconProps.class, chooseIcon]" aria-hidden="true" v-bind="ptm('chooseButton')['icon']" />
                         </slot>
                     </template>
                 </Button>
-                <Button v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('uploadButton')">
+                <Button v-if="showUploadButton" :class="cx('uploadButton')" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('uploadButton')">
                     <template #icon="iconProps">
                         <slot name="uploadicon">
                             <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('uploadButton')['icon']" data-pc-section="uploadbuttonicon" />
                         </slot>
                     </template>
                 </Button>
-                <Button v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled" :unstyled="unstyled" :pt="ptm('cancelButton')">
+                <Button v-if="showCancelButton" :class="cx('cancelButton')" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled" :unstyled="unstyled" :pt="ptm('cancelButton')">
                     <template #icon="iconProps">
                         <slot name="cancelicon">
                             <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" v-bind="ptm('cancelButton')['icon']" data-pc-section="cancelbuttonicon" />
@@ -48,8 +48,8 @@
         <Message v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('messages')">{{ msg }}</Message>
         <Button :label="basicChooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('button')">
             <template #icon="iconProps">
-                <slot v-if="!hasFiles || auto" name="uploadicon" :class="cx('uploadIcon')">
-                    <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, cx('uploadIcon'), uploadIcon]" aria-hidden="true" v-bind="ptm('button')['icon']" />
+                <slot v-if="!hasFiles || auto" name="uploadicon">
+                    <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('button')['icon']" />
                 </slot>
                 <slot v-else name="chooseicon" :class="cx('chooseIcon')">
                     <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="[iconProps.class, cx('chooseIcon'), chooseIcon]" aria-hidden="true" v-bind="ptm('button')['icon']" />

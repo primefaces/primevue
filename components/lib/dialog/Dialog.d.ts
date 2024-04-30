@@ -75,9 +75,9 @@ export interface DialogPassThroughOptions<T = any> {
      */
     title?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the header icons' DOM element.
+     * Used to pass attributes to the header actions' DOM element.
      */
-    icons?: DialogPassThroughOptionType<T>;
+    headerActions?: DialogPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the maximizable Button component.
      * @see {@link ButtonPassThroughOptions}

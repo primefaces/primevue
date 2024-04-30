@@ -9,7 +9,7 @@
                             <slot name="header" :class="cx('title')">
                                 <span v-if="header" :id="ariaLabelledById" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
                             </slot>
-                            <div :class="cx('icons')" v-bind="ptm('icons')">
+                            <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
                                 <Button
                                     v-if="maximizable"
                                     :ref="maximizableRef"
@@ -296,7 +296,7 @@ export default {
             }
         },
         initDrag(event) {
-            if (event.target.closest('div').getAttribute('data-pc-section') === 'icons') {
+            if (event.target.closest('div').getAttribute('data-pc-section') === 'headeractions') {
                 return;
             }
 

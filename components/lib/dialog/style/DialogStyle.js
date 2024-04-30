@@ -43,7 +43,7 @@ const classes = {
     ],
     header: 'p-dialog-header',
     title: 'p-dialog-title',
-    icons: 'p-dialog-header-actions',
+    headerActions: 'p-dialog-header-actions',
     maximizableButton: 'p-dialog-maximize-button',
     closeButton: 'p-dialog-close-button',
     content: 'p-dialog-content',

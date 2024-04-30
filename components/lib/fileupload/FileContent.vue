@@ -1,16 +1,16 @@
 <template>
     <div v-for="(file, index) of files" :key="file.name + file.type + file.size" :class="cx('file')" v-bind="ptm('file')">
-        <img role="presentation" :class="cx('thumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('thumbnail')" />
-        <div :class="cx('details')" v-bind="ptm('details')">
+        <img role="presentation" :class="cx('fileThumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('fileThumbnail')" />
+        <div :class="cx('fileInfo')" v-bind="ptm('fileInfo')">
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
         </div>
-        <Badge :value="badgeValue" :class="cx('badge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('badge')" />
-        <div :class="cx('actions')" v-bind="ptm('actions')">
-            <Button @click="$emit('remove', index)" text rounded severity="danger" :class="cx('removeButton')" :unstyled="unstyled" :pt="ptm('removeButton')">
+        <Badge :value="badgeValue" :class="cx('fileBadge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('fileBadge')" />
+        <div :class="cx('fileActions')" v-bind="ptm('fileActions')">
+            <Button @click="$emit('remove', index)" text rounded severity="danger" :class="cx('fileRemoveButton')" :unstyled="unstyled" :pt="ptm('fileRemoveButton')">
                 <template #icon="iconProps">
                     <component v-if="templates.fileremoveicon" :is="templates.fileremoveicon" :class="iconProps.class" :file="file" :index="index" />
-                    <TimesIcon v-else :class="iconProps.class" aria-hidden="true" v-bind="ptm('removeButton')['icon']" />
+                    <TimesIcon v-else :class="iconProps.class" aria-hidden="true" v-bind="ptm('fileRemoveButton')['icon']" />
                 </template>
             </Button>
         </div>

@@ -203,9 +203,9 @@ export interface FileUploadPassThroughOptions {
      */
     input?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the buttonbar's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
-    buttonbar?: FileUploadPassThroughOptionType;
+    header?: FileUploadPassThroughOptionType;
     /**
      * Used to pass attributes to the choose button's DOM element.
      * @see {@link ButtonPassThroughOptions}
@@ -239,13 +239,13 @@ export interface FileUploadPassThroughOptions {
      */
     file?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the thumbnail's DOM element.
+     * Used to pass attributes to the file thumbnail's DOM element.
      */
-    thumbnail?: FileUploadPassThroughOptionType;
+    fileThumbnail?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the details's DOM element.
+     * Used to pass attributes to the file info's DOM element.
      */
-    details?: FileUploadPassThroughOptionType;
+    fileInfo?: FileUploadPassThroughOptionType;
     /**
      * Used to pass attributes to the fileName's DOM element.
      */
@@ -258,16 +258,16 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the Badge component.
      * @see {@link BadgePassThroughOptions}
      */
-    badge?: BadgePassThroughOptions<FileUploadPassThroughMethodOptions>;
+    fileBadge?: BadgePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the actions's DOM element.
+     * Used to pass attributes to the file actions' DOM element.
      */
-    actions?: FileUploadPassThroughOptionType;
+    fileActions?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the remove button's DOM element.
+     * Used to pass attributes to the file remove button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    removeButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    fileRemoveButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the empty's DOM element.
      */
