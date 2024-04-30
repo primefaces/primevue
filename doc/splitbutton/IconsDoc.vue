@@ -4,16 +4,6 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
-        <SplitButton label="Save" icon="pi pi-check" @click="save" :model="items">
-            <template #dropdownicon>
-                <i class="pi pi-discord"></i>
-            </template>
-        </SplitButton>
-        <SplitButton label="Save" icon="pi pi-check" @click="save" :model="items">
-            <template #menubuttonicon>
-                <i class="pi pi-discord"></i>
-            </template>
-        </SplitButton>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -48,13 +38,13 @@ export default {
             ],
             code: {
                 basic: `
-<SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
+<SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
+        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
     </div>
 </template>
 
@@ -100,7 +90,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Toast />
-        <SplitButton label="Save" icon="pi pi-check" menuButtonIcon="pi pi-cog" @click="save" :model="items" />
+        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
     </div>
 </template>
 
