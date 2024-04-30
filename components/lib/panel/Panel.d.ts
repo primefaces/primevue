@@ -94,18 +94,18 @@ export interface PanelPassThroughOptions {
      */
     title?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the icons' DOM element.
+     * Used to pass attributes to the header actions' DOM element.
      */
-    icons?: PanelPassThroughOptionType;
+    headerActions?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggler button's DOM element.
+     * Used to pass attributes to the toggle button button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    toggler?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
+    toggleButton?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the toggleablecontent's DOM element.
+     * Used to pass attributes to the content container's DOM element.
      */
-    toggleableContent?: PanelPassThroughOptionType;
+    contentContainer?: PanelPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -214,10 +214,21 @@ export interface PanelSlots {
      */
     icons(): VNode[];
     /**
+     * @deprecated since v4.0. Use the 'toggleicon' slot instead.
      * Custom toggler icon template of panel.
      * @param {Object} scope - toggler icon slot's params.
      */
     togglericon(scope: {
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean;
+    }): VNode[];
+    /**
+     * Custom toggler icon template of panel.
+     * @param {Object} scope - toggler icon slot's params.
+     */
+    toggleicon(scope: {
         /**
          * Collapsed state as a boolean
          */

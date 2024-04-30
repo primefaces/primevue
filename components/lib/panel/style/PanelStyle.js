@@ -9,9 +9,9 @@ const classes = {
     ],
     header: 'p-panel-header',
     title: 'p-panel-title',
-    icons: 'p-panel-header-actions',
-    toggler: 'p-panel-toggle-button',
-    toggleablecontent: 'p-panel-content-container',
+    headerActions: 'p-panel-header-actions',
+    toggleButton: 'p-panel-toggle-button',
+    contentContainer: 'p-panel-content-container',
     content: 'p-panel-content',
     footer: 'p-panel-footer'
 };

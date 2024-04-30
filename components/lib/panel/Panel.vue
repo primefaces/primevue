@@ -4,12 +4,12 @@
             <slot :id="id + '_header'" name="header" :class="cx('title')">
                 <span v-if="header" :id="id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
-            <div :class="cx('icons')" v-bind="ptm('icons')">
+            <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
                 <slot name="icons"></slot>
                 <Button
                     v-if="toggleable"
                     :id="id + '_header'"
-                    :class="cx('toggler')"
+                    :class="cx('toggleButton')"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="id + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -17,18 +17,19 @@
                     @click="toggle"
                     @keydown="onKeyDown"
                     v-bind="toggleButtonProps"
-                    :pt="ptm('toggler')"
+                    :pt="ptm('toggleButton')"
                 >
                     <template #icon="slotProps">
-                        <slot name="togglericon" :collapsed="d_collapsed">
-                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('toggler')['icon']" />
+                        <!--TODO: togglericon deprecated since v4.0-->
+                        <slot :name="$slots.togglericon ? 'togglericon' : 'toggleicon'" :collapsed="d_collapsed">
+                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('toggleButton')['icon']" />
                         </slot>
                     </template>
                 </Button>
             </div>
         </div>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
-            <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('toggleablecontent')">
+            <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('contentContainer')">
                 <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>

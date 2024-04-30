@@ -79,17 +79,17 @@ export interface FieldsetPassThroughOptions {
      */
     toggler?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the toggle icon's DOM element.
      */
-    togglerIcon?: FieldsetPassThroughOptionType;
+    toggleIcon?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the legend title's DOM element.
+     * Used to pass attributes to the legend label's DOM element.
      */
-    legendTitle?: FieldsetPassThroughOptionType;
+    legendLabel?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the content container's DOM element.
      */
-    toggleableContent?: FieldsetPassThroughOptionType;
+    contentContainer?: FieldsetPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -180,9 +180,26 @@ export interface FieldsetSlots {
      */
     legend: () => VNode[];
     /**
+     * @deprecated since v4.0. Use the 'toggleicon' slot instead.
      * Custom toggler icon template.
+     * @param {Object} scope - toggler icon slot's params.
      */
-    togglericon: () => VNode[];
+    togglericon(scope: {
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean;
+    }): VNode[];
+    /**
+     * Custom toggler icon template.
+     * @param {Object} scope - toggler icon slot's params.
+     */
+    toggleicon(scope: {
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean;
+    }): VNode[];
 }
 
 /**
