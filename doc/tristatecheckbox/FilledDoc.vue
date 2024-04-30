@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A model can be bound using the standard v-model directive.</p>
+        <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
     <div class="card flex flex-column align-items-center">
         <TriStateCheckbox v-model="value" variant="filled" />
@@ -15,7 +15,7 @@ export default {
             value: null,
             code: {
                 basic: `
-<TriStateCheckbox v-model="value" />
+<TriStateCheckbox v-model="value" variant="filled" />
 `,
                 options: `
 <template>

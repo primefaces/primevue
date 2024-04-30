@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ContextMenu requires a collection of menuitems as its <i>model</i> and the <i>show</i> method needs to be called explicity using an event of the target like <i>contextmenu</i> to display the menu.</p>
+        <p>The <i>command</i> property defines the callback to run when an item is activated by click or a key event.</p>
     </DocSectionText>
     <div class="card flex md:justify-content-center">
         <ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
@@ -237,7 +237,7 @@ const items = ref([
             toast.add({ severity: 'success', summary: 'Success', detail: 'Invitation sent!', life: 3000 });
         }
     }
-]);        
+]);
 
 const onRightClick = (event, user) => {
     selectedUser.value = user;
