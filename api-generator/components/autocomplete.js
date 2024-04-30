@@ -222,6 +222,12 @@ const AutoCompleteProps = [
         description: 'When enabled, the focused option is selected.'
     },
     {
+        name: 'hideOnOptionSelect',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to hide the overlay when an option is selected.'
+    },
+    {
         name: 'searchLocale',
         type: 'string',
         default: 'undefined',

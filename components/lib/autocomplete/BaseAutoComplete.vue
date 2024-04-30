@@ -141,6 +141,10 @@ export default {
             type: Boolean,
             default: false
         },
+        hideOnOptionSelect: {
+            type: Boolean,
+            default: true
+        },
         focusOnHover: {
             type: Boolean,
             default: true

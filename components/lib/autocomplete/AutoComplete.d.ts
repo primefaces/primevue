@@ -458,6 +458,11 @@ export interface AutoCompleteProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
+     * Whether to hide the overlay when an option is selected.
+     * @defaultValue true
+     */
+    hideOnOptionSelect?: boolean | undefined;
+    /**
      * When enabled, the focus is placed on the hovered option.
      * @defaultValue true
      */

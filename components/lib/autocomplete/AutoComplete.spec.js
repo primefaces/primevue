@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { nextTick } from 'vue';
 import AutoComplete from './AutoComplete.vue';
+import { describe } from 'vitest';
 
 describe('AutoComplete.vue', () => {
     let wrapper;
@@ -85,7 +86,7 @@ describe('AutoComplete.vue', () => {
         });
     });
 
-    it('multiple', () => {
+    describe('multiple', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
                 multiple: true,
@@ -98,6 +99,52 @@ describe('AutoComplete.vue', () => {
             wrapper.findAll('.p-autocomplete-token-icon').forEach((tokenIcon) => {
                 expect(tokenIcon.classes()).toContain('pi-discord');
             });
+        });
+
+        it('should hide overlay when hideOnOptionSelect is true', async () => {
+            await wrapper.setProps({
+                hideOnOptionSelect: true,
+            });
+
+            const input = await wrapper.find('input');
+
+            await input.setValue('b');
+
+            // @NOTE: Without this delay, the test fails. vm.$nextTick() doesn't help.
+            await new Promise((resolve) => setTimeout(resolve, 300));
+
+            await wrapper.setProps({
+                suggestions: [{ name: 'Bahrain', code: 'BH' }]
+            });
+
+            await wrapper.find('.p-autocomplete-item').trigger('click');
+
+            await new Promise((resolve) => setTimeout(resolve, 5));
+
+            expect(wrapper.find('.p-autocomplete-panel').exists()).toBe(false);
+        });
+
+        it('should keep overlay open when hideOnOptionSelect is false', async () => {
+            await wrapper.setProps({
+                hideOnOptionSelect: false,
+            });
+
+            const input = await wrapper.find('input');
+
+            await input.setValue('b');
+
+            // @NOTE: Without this delay, the test fails. vm.$nextTick() doesn't help.
+            await new Promise((resolve) => setTimeout(resolve, 300));
+
+            await wrapper.setProps({
+                suggestions: [{ name: 'Bahrain', code: 'BH' }]
+            });
+
+            await wrapper.find('.p-autocomplete-item').trigger('click');
+
+            await new Promise((resolve) => setTimeout(resolve, 5));
+
+            expect(wrapper.find('.p-autocomplete-panel').exists()).toBe(true);
         });
     });
 });

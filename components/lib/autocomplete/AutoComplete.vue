@@ -515,7 +515,9 @@ export default {
 
             this.$emit('item-select', { originalEvent: event, value: option });
 
-            isHide && this.hide(true);
+            if (this.hideOnOptionSelect) {
+                isHide && this.hide(true);
+            }
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -623,7 +625,9 @@ export default {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                 }
 
-                this.hide();
+                if (this.hideOnOptionSelect) {
+                    this.hide();
+                }
             }
         },
         onEscapeKey(event) {
