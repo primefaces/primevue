@@ -2,20 +2,20 @@
     <li
         v-if="visible()"
         :id="id"
-        :class="[cx('menuitem'), item.class]"
+        :class="[cx('item'), item.class]"
         role="menuitem"
         :style="item.style"
         :aria-label="label()"
         :aria-disabled="disabled()"
-        v-bind="getPTOptions('menuitem')"
+        v-bind="getPTOptions('item')"
         :data-p-focused="isItemFocused()"
         :data-p-disabled="disabled() || false"
     >
-        <div :class="cx('content')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" v-bind="getPTOptions('content')">
+        <div :class="cx('itemContent')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" v-bind="getPTOptions('itemContent')">
             <template v-if="!templates.item">
-                <a v-ripple :href="item.url" :class="cx('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon')" />
-                    <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
+                <a v-ripple :href="item.url" :class="cx('itemLink')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink')">
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('itemIcon')" />
+                    <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" v-bind="getPTOptions('itemIcon')" />
                     <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
             </template>
@@ -82,17 +82,17 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         tabindex: '-1',
                         'aria-hidden': true
                     },
-                    this.getPTOptions('action')
+                    this.getPTOptions('itemLink')
                 ),
                 icon: mergeProps(
                     {
-                        class: [this.cx('icon'), item.icon]
+                        class: [this.cx('itemIcon'), item.icon]
                     },
-                    this.getPTOptions('icon')
+                    this.getPTOptions('itemIcon')
                 ),
                 label: mergeProps(
                     {

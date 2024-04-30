@@ -3,23 +3,23 @@
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
-        <slot :id="id" name="menubutton" :class="cx('menubutton')" :toggleCallback="(event) => menuButtonClick(event)">
+        <slot :id="id" :name="$slots.menubutton ? 'menubutton' : 'button'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
             <a
                 v-if="model && model.length > 0"
                 ref="menubutton"
                 role="button"
                 tabindex="0"
-                :class="cx('menubutton')"
+                :class="cx('button')"
                 :aria-haspopup="model.length && model.length > 0 ? true : false"
                 :aria-expanded="mobileActive"
                 :aria-controls="id"
                 :aria-label="$primevue.config.locale.aria?.navigation"
                 @click="menuButtonClick($event)"
                 @keydown="menuButtonKeydown($event)"
-                v-bind="ptm('menubutton')"
+                v-bind="ptm('button')"
             >
-                <slot name="menubuttonicon">
-                    <BarsIcon v-bind="ptm('menubuttonicon')" />
+                <slot :name="$slots.menubuttonicon ? 'menubuttonicon' : 'buttonicon'">
+                    <BarsIcon v-bind="ptm('buttonicon')" />
                 </slot>
             </a>
         </slot>
@@ -421,7 +421,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
+                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="itemlink"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
 

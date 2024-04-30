@@ -9,20 +9,20 @@ const classes = {
         }
     ],
     start: 'p-menu-start',
-    menu: 'p-menu-list',
-    submenuHeader: 'p-menu-submenu-item',
+    list: 'p-menu-list',
+    submenuItem: 'p-menu-submenu-item',
     separator: 'p-menu-separator',
     end: 'p-menu-end',
-    menuitem: ({ instance }) => [
+    item: ({ instance }) => [
         'p-menu-item',
         {
             'p-focus': instance.id === instance.focusedOptionId,
             'p-disabled': instance.disabled()
         }
     ],
-    content: 'p-menu-item-content',
-    action: 'p-menu-item-link',
-    icon: 'p-menu-item-icon',
+    itemContent: 'p-menu-item-content',
+    itemLink: 'p-menu-item-link',
+    itemIcon: 'p-menu-item-icon',
     label: 'p-menu-item-label'
 };
 

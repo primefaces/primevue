@@ -15,15 +15,15 @@ const classes = {
         }
     ],
     start: 'p-megamenu-start',
-    menubutton: 'p-megamenu-button',
-    menu: 'p-megamenu-root-list',
-    submenuHeader: ({ instance, processedItem }) => [
+    button: 'p-megamenu-button',
+    rootList: 'p-megamenu-root-list',
+    submenuItem: ({ instance, processedItem }) => [
         'p-megamenu-submenu-item',
         {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    menuitem: ({ instance, processedItem }) => [
+    item: ({ instance, processedItem }) => [
         'p-megamenu-item',
         {
             'p-megamenu-item-active': instance.isItemActive(processedItem),
@@ -31,9 +31,9 @@ const classes = {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-megamenu-item-content',
-    action: 'p-megamenu-item-link',
-    icon: 'p-megamenu-item-icon',
+    itemContent: 'p-megamenu-item-content',
+    itemLink: 'p-megamenu-item-link',
+    itemIcon: 'p-megamenu-item-icon',
     label: 'p-megamenu-item-text',
     submenuIcon: 'p-megamenu-submenu-icon',
     panel: 'p-megamenu-panel',
@@ -70,7 +70,7 @@ const classes = {
         return columnClass;
     },
     submenu: 'p-megamenu-submenu',
-    submenuLabel: 'p-megamenu-submenu-item-label',
+    submenuItemLabel: 'p-megamenu-submenu-item-label',
     separator: 'p-megamenu-separator',
     end: 'p-megamenu-end'
 };

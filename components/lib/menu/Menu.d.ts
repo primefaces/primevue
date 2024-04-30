@@ -63,27 +63,27 @@ export interface MenuPassThroughOptions {
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    menu?: MenuPassThroughOptionType;
+    list?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu header's DOM element.
+     * Used to pass attributes to the submenu item's DOM element.
      */
-    submenuHeader?: MenuPassThroughOptionType;
+    submenuItem?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
-    menuitem?: MenuPassThroughOptionType;
+    item?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: MenuPassThroughOptionType;
+    itemContent?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: MenuPassThroughOptionType;
+    itemLink?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: MenuPassThroughOptionType;
+    itemIcon?: MenuPassThroughOptionType;
     /**
      * Used to pass attributes to the label's DOM element.
      */
@@ -300,10 +300,21 @@ export interface MenuSlots {
         class: any;
     }): VNode[];
     /**
-     * Custom item template.
+     * @deprecated since v4.0. Use submenuitem slot instead.
+     * Custom submenu header template.
      * @param {Object} scope - submenuheader slot's params.
      */
     submenuheader(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+    }): VNode[];
+    /**
+     * Custom submenu item template.
+     * @param {Object} scope - submenuitem slot's params.
+     */
+    submenuitem(scope: {
         /**
          * Menuitem instance
          */

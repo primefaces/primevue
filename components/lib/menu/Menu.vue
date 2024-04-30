@@ -8,7 +8,7 @@
                 <ul
                     :ref="listRef"
                     :id="id + '_list'"
-                    :class="cx('menu')"
+                    :class="cx('list')"
                     role="menu"
                     :tabindex="tabindex"
                     :aria-activedescendant="focused ? focusedOptionId : undefined"
@@ -17,12 +17,13 @@
                     @focus="onListFocus"
                     @blur="onListBlur"
                     @keydown="onListKeyDown"
-                    v-bind="ptm('menu')"
+                    v-bind="ptm('list')"
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuHeader'), item.class]" role="none" v-bind="ptm('submenuHeader')">
-                                <slot name="submenuheader" :item="item">{{ label(item) }}</slot>
+                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuItem'), item.class]" role="none" v-bind="ptm('submenuItem')">
+                                <!--TODO: submenuheader deprecated since v4.0. Use submenuitem-->
+                                <slot :name="$slots.submenuheader ? 'submenuheader' : 'submenuitem'" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem
@@ -205,12 +206,12 @@ export default {
             event.preventDefault();
         },
         onEndKey(event) {
-            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li[data-pc-section="menuitem"][data-p-disabled="false"]').length - 1);
+            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
             event.preventDefault();
         },
         onEnterKey(event) {
             const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
+            const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="itemlink"]');
 
             this.popup && DomHandler.focus(this.target);
             anchorElement ? anchorElement.click() : element && element.click();
@@ -221,19 +222,19 @@ export default {
             this.onEnterKey(event);
         },
         findNextOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
 
             order > -1 && (this.focusedOptionIndex = links[order].getAttribute('id'));

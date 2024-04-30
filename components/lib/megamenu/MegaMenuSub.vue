@@ -1,12 +1,12 @@
 <template>
-    <ul :class="level === 0 ? cx('menu') : cx('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('menu') : ptm('submenu')">
-        <li v-if="submenu" :class="[cx('submenuHeader', { submenu }), getItemProp(submenu, 'class')]" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuHeader')">{{ getItemLabel(submenu) }}</li>
+    <ul :class="level === 0 ? cx('rootList') : cx('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('rootList') : ptm('submenu')">
+        <li v-if="submenu" :class="[cx('submenuItem', { submenu }), getItemProp(submenu, 'class')]" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuItem')">{{ getItemLabel(submenu) }}</li>
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
                 :style="getItemProp(processedItem, 'style')"
-                :class="[cx('menuitem', { processedItem }), getItemProp(processedItem, 'class')]"
+                :class="[cx('item', { processedItem }), getItemProp(processedItem, 'class')]"
                 role="menuitem"
                 :aria-label="getItemLabel(processedItem)"
                 :aria-disabled="isItemDisabled(processedItem) || undefined"
@@ -15,17 +15,19 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
-                v-bind="getPTOptions(processedItem, index, 'menuitem')"
+                v-bind="getPTOptions(processedItem, index, 'item')"
                 :data-p-highlight="isItemActive(processedItem)"
                 :data-p-focused="isItemFocused(processedItem)"
                 :data-p-disabled="isItemDisabled(processedItem)"
             >
-                <div :class="cx('content')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, index, 'content')">
+                <div :class="cx('itemContent')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, index, 'itemContent')">
                     <template v-if="!templates.item">
-                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
-                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('icon')" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                            <span :class="level === 0 ? cx('label') : cx('submenuLabel')" v-bind="level === 0 ? getPTOptions(processedItem, index, 'label') : getPTOptions(processedItem, index, 'submenuLabel')">{{ getItemLabel(processedItem) }}</span>
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'itemLink')">
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'itemIcon')" />
+                            <span :class="level === 0 ? cx('label') : cx('submenuItemLabel')" v-bind="level === 0 ? getPTOptions(processedItem, index, 'label') : getPTOptions(processedItem, index, 'submenuItemLabel')">
+                                {{ getItemLabel(processedItem) }}
+                            </span>
                             <template v-if="isItemGroup(processedItem)">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
                                 <component v-else :is="horizontal || mobileActive ? 'AngleDownIcon' : 'AngleRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
@@ -188,17 +190,17 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         tabindex: -1,
                         'aria-hidden': true
                     },
-                    this.getPTOptions(processedItem, index, 'action')
+                    this.getPTOptions(processedItem, index, 'itemLink')
                 ),
                 icon: mergeProps(
                     {
-                        class: [this.cx('icon'), this.getItemProp(processedItem, 'icon')]
+                        class: [this.cx('itemIcon'), this.getItemProp(processedItem, 'icon')]
                     },
-                    this.getPTOptions(processedItem, index, 'icon')
+                    this.getPTOptions(processedItem, index, 'itemIcon')
                 ),
                 label: mergeProps(
                     {

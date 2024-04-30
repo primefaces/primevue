@@ -59,25 +59,25 @@ export interface MegaMenuPassThroughOptions {
      */
     root?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
-    menu?: MegaMenuPassThroughOptionType;
+    rootList?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the  item's DOM element.
      */
-    menuitem?: MegaMenuPassThroughOptionType;
+    item?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: MegaMenuPassThroughOptionType;
+    itemContent?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: MegaMenuPassThroughOptionType;
+    itemLink?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: MegaMenuPassThroughOptionType;
+    itemIcon?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the label's DOM element.
      */
@@ -99,17 +99,17 @@ export interface MegaMenuPassThroughOptions {
      */
     column?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu header's DOM element.
+     * Used to pass attributes to the submenu item's DOM element.
      */
-    submenuHeader?: MegaMenuPassThroughOptionType;
+    submenuItem?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu label's DOM element.
+     * Used to pass attributes to the submenu item label's DOM element.
      */
-    submenuLabel?: MegaMenuPassThroughOptionType;
+    submenuItemLabel?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the separator's DOM element.
      */
@@ -117,7 +117,7 @@ export interface MegaMenuPassThroughOptions {
     /**
      * Used to pass attributes to the mobile popup menu button's DOM element.
      */
-    menubutton?: MegaMenuPassThroughOptionType;
+    button?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the start of the component.
      */
