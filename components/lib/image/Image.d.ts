@@ -60,13 +60,13 @@ export interface ImagePassThroughOptions {
      */
     image?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the button's DOM element.
+     * Used to pass attributes to the preview mask's DOM element.
      */
-    button?: ImagePassThroughOptionType;
+    previewMask?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the  preview icon's DOM element.
      */
-    icon?: ImagePassThroughOptionType;
+    previewIcon?: ImagePassThroughOptionType;
     /**
      * Used to pass attributes to the mask's DOM element.
      */
@@ -116,13 +116,13 @@ export interface ImagePassThroughOptions {
      */
     closeIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the preview container's DOM element.
+     * Used to pass attributes to the original container's DOM element.
      */
-    previewContainer?: ImagePassThroughOptionType;
+    originalContainer?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the preview's DOM element.
+     * Used to pass attributes to the original's DOM element.
      */
-    preview?: ImagePassThroughOptionType;
+    original?: ImagePassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

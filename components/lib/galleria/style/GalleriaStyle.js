@@ -27,8 +27,8 @@ const classes = {
     header: 'p-galleria-header',
     content: 'p-galleria-content',
     footer: 'p-galleria-footer',
-    itemWrapper: 'p-galleria-items-container',
-    itemContainer: 'p-galleria-items',
+    itemsContainer: 'p-galleria-items-container',
+    items: 'p-galleria-items',
     previousItemButton: ({ instance }) => [
         'p-galleria-prev-button p-galleria-navigate-button',
         {
@@ -45,7 +45,7 @@ const classes = {
     ],
     nextItemIcon: 'p-galleria-next-icon',
     caption: 'p-galleria-caption',
-    indicators: 'p-galleria-indicators',
+    indicatorList: 'p-galleria-indicator-list',
     indicator: ({ instance, index }) => [
         'p-galleria-indicator',
         {
@@ -53,8 +53,8 @@ const classes = {
         }
     ],
     indicatorButton: 'p-galleria-indicator-button',
-    thumbnailWrapper: 'p-galleria-thumbnails',
-    thumbnailContainer: 'p-galleria-thumbnails-content',
+    thumbnails: 'p-galleria-thumbnails',
+    thumbnailContent: 'p-galleria-thumbnails-content',
     previousThumbnailButton: ({ instance }) => [
         'p-galleria-thumbnail-prev-button',
         {
@@ -73,7 +73,7 @@ const classes = {
             'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === index
         }
     ],
-    thumbnailItemContent: 'p-galleria-thumbnail',
+    thumbnail: 'p-galleria-thumbnail',
     nextThumbnailButton: ({ instance }) => [
         'p-galleria-thumbnail-next-button',
         {

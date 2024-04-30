@@ -21,7 +21,7 @@ export default {
     width: 100%;
 }
 
-.p-carousel-items {
+.p-carousel-item-list {
     display: flex;
     flex-direction: row;
 }
@@ -31,7 +31,7 @@ export default {
     align-self: center;
 }
 
-.p-carousel-indicators {
+.p-carousel-indicator-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -76,7 +76,7 @@ export default {
     flex-direction: column;
 }
 
-.p-carousel-vertical .p-carousel-items {
+.p-carousel-vertical .p-carousel-item-list {
     flex-direction: column;
     height: 100%;
 }

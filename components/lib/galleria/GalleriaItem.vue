@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('itemWrapper')" v-bind="ptm('itemWrapper')">
-        <div :class="cx('itemContainer')" v-bind="ptm('itemContainer')">
+    <div :class="cx('itemsContainer')" v-bind="ptm('itemsContainer')">
+        <div :class="cx('items')" v-bind="ptm('items')">
             <button v-if="showItemNavigators" v-ripple type="button" :class="cx('previousItemButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')" data-pc-group-section="itemnavigator">
                 <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('previousItemIcon')" v-bind="ptm('previousItemIcon')" />
             </button>
@@ -14,7 +14,7 @@
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
             </div>
         </div>
-        <ul v-if="showIndicators" ref="indicatorContent" :class="cx('indicators')" v-bind="ptm('indicators')">
+        <ul v-if="showIndicators" ref="indicatorContent" :class="cx('indicatorList')" v-bind="ptm('indicatorList')">
             <li
                 v-for="(item, index) of value"
                 :key="`p-galleria-indicator-${index}`"

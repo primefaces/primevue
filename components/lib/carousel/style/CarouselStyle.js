@@ -9,17 +9,17 @@ const classes = {
         }
     ],
     header: 'p-carousel-header',
-    content: 'p-carousel-content-container',
-    container: 'p-carousel-content',
+    contentContainer: 'p-carousel-content-container',
+    content: 'p-carousel-content',
     previousButton: ({ instance }) => [
         'p-carousel-prev-button',
         {
             'p-disabled': instance.backwardIsDisabled
         }
     ],
-    itemsContent: 'p-carousel-viewport',
-    itemsContainer: 'p-carousel-items',
-    itemCloned: ({ index, value, totalShiftedItems, d_numVisible }) => [
+    viewport: 'p-carousel-viewport',
+    itemList: 'p-carousel-item-list',
+    itemClone: ({ index, value, totalShiftedItems, d_numVisible }) => [
         'p-carousel-item p-carousel-item-clone',
         {
             'p-carousel-item-active': totalShiftedItems * -1 === value.length + d_numVisible,
@@ -41,7 +41,7 @@ const classes = {
             'p-disabled': instance.forwardIsDisabled
         }
     ],
-    indicators: 'p-carousel-indicators',
+    indicatorList: 'p-carousel-indicator-list',
     indicator: ({ instance, index }) => [
         'p-carousel-indicator',
         {

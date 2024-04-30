@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('thumbnailWrapper')" v-bind="ptm('thumbnailWrapper')">
-        <div :class="cx('thumbnailContainer')" v-bind="ptm('thumbnailContainer')">
+    <div :class="cx('thumbnails')" v-bind="ptm('thumbnails')">
+        <div :class="cx('thumbnailContent')" v-bind="ptm('thumbnailContent')">
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
@@ -41,12 +41,12 @@
                         :data-p-galleria-thumbnail-item-end="lastItemActiveIndex() === index"
                     >
                         <div
-                            :class="cx('thumbnailItemContent')"
+                            :class="cx('thumbnail')"
                             :tabindex="activeIndex === index ? '0' : '-1'"
                             :aria-label="ariaPageLabel(index + 1)"
                             :aria-current="activeIndex === index ? 'page' : undefined"
                             @click="onItemClick(index)"
-                            v-bind="ptm('thumbnailItemContent')"
+                            v-bind="ptm('thumbnail')"
                         >
                             <component v-if="templates.thumbnail" :is="templates.thumbnail" :item="item" />
                         </div>

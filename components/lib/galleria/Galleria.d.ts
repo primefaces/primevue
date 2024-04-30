@@ -91,13 +91,13 @@ export interface GalleriaPassThroughOptions {
      */
     footer?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the item wrapper's DOM element.
-     */
-    itemWrapper?: GalleriaPassThroughOptionType;
-    /**
      * Used to pass attributes to the item container's DOM element.
      */
-    itemContainer?: GalleriaPassThroughOptionType;
+    itemsContainer?: GalleriaPassThroughOptionType;
+    /**
+     * Used to pass attributes to the items' DOM element.
+     */
+    items?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the previous item button's DOM element.
      */
@@ -123,9 +123,9 @@ export interface GalleriaPassThroughOptions {
      */
     caption?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the indicators's DOM element.
+     * Used to pass attributes to the indicator list's DOM element.
      */
-    indicators?: GalleriaPassThroughOptionType;
+    indicatorList?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the indicator's DOM element.
      */
@@ -135,13 +135,13 @@ export interface GalleriaPassThroughOptions {
      */
     indicatorButton?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the thumbnail wrapper's DOM element.
+     * Used to pass attributes to the thumbnails' DOM element.
      */
-    thumbnailWrapper?: GalleriaPassThroughOptionType;
+    thumbnails?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the thumbnail container's DOM element.
+     * Used to pass attributes to the thumbnail content's DOM element.
      */
-    thumbnailContainer?: GalleriaPassThroughOptionType;
+    thumbnailContent?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the previous thumbnail button's DOM element.
      */
@@ -163,9 +163,9 @@ export interface GalleriaPassThroughOptions {
      */
     thumbnailItem?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the thumbnail item content's DOM element.
+     * Used to pass attributes to the thumbnail's DOM element.
      */
-    thumbnailItemContent?: GalleriaPassThroughOptionType;
+    thumbnail?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the next thumbnail button's DOM element.
      */

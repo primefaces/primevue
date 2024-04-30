@@ -7,9 +7,8 @@ const classes = {
             'p-image-preview': props.preview
         }
     ],
-    image: ({ props }) => props.image,
-    button: 'p-image-preview-mask',
-    icon: 'p-image-preview-icon',
+    previewMask: 'p-image-preview-mask',
+    previewIcon: 'p-image-preview-icon',
     mask: 'p-image-mask p-component-overlay p-component-overlay-enter',
     toolbar: 'p-image-toolbar',
     rotateRightButton: 'p-image-action p-image-rotate-right-button',
@@ -27,7 +26,7 @@ const classes = {
         }
     ],
     closeButton: 'p-image-action p-image-close-button',
-    preview: 'p-image-original'
+    original: 'p-image-original'
 };
 
 export default BaseStyle.extend({

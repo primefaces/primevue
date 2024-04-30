@@ -214,7 +214,7 @@ export default {
     height: 100%;
 }
 
-.p-galleria-indicators {
+.p-galleria-indicator-list {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,17 +264,17 @@ export default {
     order: 2;
 }
 
-.p-galleria-indicators-left .p-galleria-indicators,
-.p-galleria-indicators-top .p-galleria-indicators {
+.p-galleria-indicators-left .p-galleria-indicator-list,
+.p-galleria-indicators-top .p-galleria-indicator-list {
     order: 1;
 }
 
-.p-galleria-indicators-left .p-galleria-indicators,
-.p-galleria-indicators-right .p-galleria-indicators {
+.p-galleria-indicators-left .p-galleria-indicator-list,
+.p-galleria-indicators-right .p-galleria-indicator-list {
     flex-direction: column;
 }
 
-.p-galleria-inset-indicators .p-galleria-indicators {
+.p-galleria-inset-indicators .p-galleria-indicator-list {
     position: absolute;
     display: flex;
     z-index: 1;
@@ -293,28 +293,28 @@ export default {
     background: ${dt('galleria.inset.indicator.active.background')};
 }
 
-.p-galleria-inset-indicators.p-galleria-indicators-top .p-galleria-indicators {
+.p-galleria-inset-indicators.p-galleria-indicators-top .p-galleria-indicator-list {
     top: 0;
     left: 0;
     width: 100%;
     align-items: flex-start;
 }
 
-.p-galleria-inset-indicators.p-galleria-indicators-right .p-galleria-indicators {
+.p-galleria-inset-indicators.p-galleria-indicators-right .p-galleria-indicator-list {
     right: 0;
     top: 0;
     height: 100%;
     align-items: flex-end;
 }
 
-.p-galleria-inset-indicators.p-galleria-indicators-bottom .p-galleria-indicators {
+.p-galleria-inset-indicators.p-galleria-indicators-bottom .p-galleria-indicator-list {
     bottom: 0;
     left: 0;
     width: 100%;
     align-items: flex-end;
 }
 
-.p-galleria-inset-indicators.p-galleria-indicators-left .p-galleria-indicators {
+.p-galleria-inset-indicators.p-galleria-indicators-left .p-galleria-indicator-list {
     left: 0;
     top: 0;
     height: 100%;

@@ -77,30 +77,30 @@ export interface CarouselPassThroughOptions {
      */
     header?: CarouselPassThroughOptionType;
     /**
+     * Used to pass attributes to the content container's DOM element.
+     */
+    contentContainer?: CarouselPassThroughOptionType;
+    /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: CarouselPassThroughOptionType;
-    /**
-     * Used to pass attributes to the container's DOM element.
-     */
-    container?: CarouselPassThroughOptionType;
     /**
      * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     previousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the items content's DOM element.
+     * Used to pass attributes to the viewport's DOM element.
      */
-    itemsContent?: CarouselPassThroughOptionType;
+    viewport?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the items container's DOM element.
+     * Used to pass attributes to the items list's DOM element.
      */
-    itemsContainer?: CarouselPassThroughOptionType;
+    itemList?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the item cloned's DOM element.
+     * Used to pass attributes to the item clone's DOM element.
      */
-    itemCloned?: CarouselPassThroughOptionType;
+    itemClone?: CarouselPassThroughOptionType;
     /**
      * Used to pass attributes to the item's DOM element.
      */
@@ -111,9 +111,9 @@ export interface CarouselPassThroughOptions {
      */
     nextButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the indicators's DOM element.
+     * Used to pass attributes to the indicator list's DOM element.
      */
-    indicators?: CarouselPassThroughOptionType;
+    indicatorList?: CarouselPassThroughOptionType;
     /**
      * Used to pass attributes to the indicator's DOM element.
      */
