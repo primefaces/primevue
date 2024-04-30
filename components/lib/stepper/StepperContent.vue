@@ -1,10 +1,10 @@
 <template>
     <div
         :id="id"
-        :class="cx('stepper.content', { stepperpanel, index })"
+        :class="cx('stepper.panelContent', { stepperpanel, index })"
         role="tabpanel"
         :aria-labelledby="ariaLabelledby"
-        v-bind="{ ...getStepPT(stepperpanel, 'root', index), ...getStepPT(stepperpanel, 'content', index) }"
+        v-bind="{ ...getStepPT(stepperpanel, 'root', index), ...getStepPT(stepperpanel, 'panelContent', index) }"
         data-pc-name="stepperpanel"
         :data-pc-index="index"
         :data-p-active="active"

@@ -54,9 +54,9 @@ export interface ScrollPanelPassThroughOptions {
      */
     root?: ScrollPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the content container's DOM element.
      */
-    wrapper?: ScrollPanelPassThroughOptionType;
+    contentContainer?: ScrollPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */

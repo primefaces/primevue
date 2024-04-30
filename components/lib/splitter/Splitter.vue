@@ -15,7 +15,7 @@
                 :data-p-gutter-resizing="false"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandler')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandler')"></div>
+                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandle')"></div>
             </div>
         </template>
     </div>

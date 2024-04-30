@@ -56,37 +56,33 @@ export interface StepperPanelPassThroughOptions {
      */
     root?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
-    header?: StepperPanelPassThroughOptionType;
+    item?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item header's DOM element.
      */
-    action?: StepperPanelPassThroughOptionType;
+    itemHeader?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the number's DOM element.
+     * Used to pass attributes to the item number's DOM element.
      */
-    number?: StepperPanelPassThroughOptionType;
+    itemNumber?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the title's DOM element.
+     * Used to pass attributes to the item title's DOM element.
      */
-    title?: StepperPanelPassThroughOptionType;
+    itemTitle?: StepperPanelPassThroughOptionType;
     /**
      * Used to pass attributes to the separator's DOM element.
      */
     separator?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the panel content container's DOM element.
      */
-    content?: StepperPanelPassThroughOptionType;
+    panelContentContainer?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel content's DOM element.
      */
-    panel?: StepperPanelPassThroughOptionType;
-    /**
-     * Used to pass attributes to the toggleable content's DOM element.
-     */
-    toggleableContent?: StepperPanelPassThroughOptionType;
+    panelContent?: StepperPanelPassThroughOptionType;
     /**
      * Used to control Vue Transition API.
      */

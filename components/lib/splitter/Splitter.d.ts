@@ -107,9 +107,9 @@ export interface SplitterPassThroughOptions {
      */
     gutter?: SplitterPassThroughOptionType;
     /**
-     * Used to pass attributes to the gutter handler's DOM element.
+     * Used to pass attributes to the gutter handle's DOM element.
      */
-    gutterHandler?: SplitterPassThroughOptionType;
+    gutterHandle?: SplitterPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

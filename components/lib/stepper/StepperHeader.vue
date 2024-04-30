@@ -5,15 +5,15 @@
         :index="index"
         :active="active"
         :highlighted="highlighted"
-        :class="cx('stepper.action')"
-        :headerClass="cx('stepper.action')"
-        :numberClass="cx('stepper.number')"
-        :titleClass="cx('stepper.title')"
+        :class="cx('stepper.itemHeader')"
+        :headerClass="cx('stepper.itemHeader')"
+        :numberClass="cx('stepper.itemNumber')"
+        :titleClass="cx('stepper.itemTitle')"
         :clickCallback="(event) => clickCallback(event, index)"
     />
-    <button v-else :id="id" :class="cx('stepper.action')" role="tab" :tabindex="disabled ? -1 : undefined" :aria-controls="ariaControls" @click="clickCallback($event, index)" v-bind="getStepPT(stepperpanel, 'action', index)">
-        <span :class="cx('stepper.number')" v-bind="getStepPT(stepperpanel, 'number', index)">{{ index + 1 }}</span>
-        <span :class="cx('stepper.title')" v-bind="getStepPT(stepperpanel, 'title', index)">{{ getStepProp(stepperpanel, 'header') }}</span>
+    <button v-else :id="id" :class="cx('stepper.itemHeader')" role="tab" :tabindex="disabled ? -1 : undefined" :aria-controls="ariaControls" @click="clickCallback($event, index)" v-bind="getStepPT(stepperpanel, 'itemHeader', index)">
+        <span :class="cx('stepper.itemNumber')" v-bind="getStepPT(stepperpanel, 'itemNumber', index)">{{ index + 1 }}</span>
+        <span :class="cx('stepper.itemTitle')" v-bind="getStepPT(stepperpanel, 'itemTitle', index)">{{ getStepProp(stepperpanel, 'item') }}</span>
     </button>
 </template>
 

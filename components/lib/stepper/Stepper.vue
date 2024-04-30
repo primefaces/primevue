@@ -3,14 +3,14 @@
         <slot v-if="$slots.start" name="start" />
 
         <template v-if="orientation === 'horizontal'">
-            <ul ref="nav" :class="cx('nav')" v-bind="ptm('nav')">
+            <ul ref="nav" :class="cx('list')" v-bind="ptm('list')">
                 <li
                     v-for="(step, index) of stepperpanels"
                     :key="getStepKey(step, index)"
-                    :class="cx('stepper.header', { step, index })"
+                    :class="cx('stepper.item', { step, index })"
                     :aria-current="isStepActive(index) ? 'step' : undefined"
                     role="presentation"
-                    v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'header', index) }"
+                    v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'item', index) }"
                     data-pc-name="stepperpanel"
                     :data-p-highlight="isStepActive(index)"
                     :data-p-disabled="isItemDisabled(index)"
@@ -26,7 +26,7 @@
                             :disabled="isItemDisabled(index)"
                             :active="isStepActive(index)"
                             :highlighted="index < d_activeStep"
-                            :class="cx('stepper.action')"
+                            :class="cx('stepper.itemHeader')"
                             :aria-controls="getStepContentId(index)"
                             :clickCallback="(event) => onItemClick(event, index)"
                             :getStepPT="getStepPT"
@@ -46,7 +46,7 @@
                     </slot>
                 </li>
             </ul>
-            <div :class="cx('panelContainer')" v-bind="ptm('panelContainer')">
+            <div :class="cx('panels')" v-bind="ptm('panels')">
                 <template v-for="(step, index) of stepperpanels" :key="getStepKey(step, index)">
                     <StepperContent
                         v-show="isStepActive(index)"
@@ -79,7 +79,7 @@
                 :data-pc-index="index"
                 :data-p-active="isStepActive(index)"
             >
-                <div :class="cx('stepper.header', { step, index })" v-bind="getStepPT(step, 'header', index)">
+                <div :class="cx('stepper.item', { step, index })" v-bind="getStepPT(step, 'item', index)">
                     <slot name="header">
                         <StepperHeader
                             :id="getStepHeaderActionId(index)"
@@ -89,7 +89,7 @@
                             :disabled="isItemDisabled(index)"
                             :active="isStepActive(index)"
                             :highlighted="index < d_activeStep"
-                            :class="cx('stepper.action')"
+                            :class="cx('stepper.itemHeader')"
                             :aria-controls="getStepContentId(index)"
                             :clickCallback="(event) => onItemClick(event, index)"
                             :getStepPT="getStepPT"
@@ -99,7 +99,7 @@
                 </div>
 
                 <transition name="p-toggleable-content" v-bind="getStepPT(step, 'transition', index)">
-                    <div v-show="isStepActive(index)" :class="cx('stepper.toggleableContent')" v-bind="getStepPT(step, 'toggleableContent', index)">
+                    <div v-show="isStepActive(index)" :class="cx('stepper.panelContentContainer')" v-bind="getStepPT(step, 'panelContentContainer', index)">
                         <slot v-if="index !== stepperpanels.length - 1" name="separator">
                             <StepperSeparator
                                 :template="step.children?.separator"

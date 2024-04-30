@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
-        <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
+        <div :class="cx('contentContainer')" v-bind="ptm('contentContainer')">
             <div ref="content" :id="contentId" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
             </div>

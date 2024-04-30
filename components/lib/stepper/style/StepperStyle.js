@@ -9,23 +9,23 @@ const classes = {
             'p-readonly': props.linear
         }
     ],
-    nav: 'p-stepper-list',
+    list: 'p-stepper-list',
     stepper: {
-        header: ({ instance, step, index }) => [
+        item: ({ instance, step, index }) => [
             'p-stepper-item',
             {
                 'p-stepper-item-active': instance.isStepActive(index),
                 'p-disabled': instance.isItemDisabled(index)
             }
         ],
-        action: 'p-stepper-item-header',
-        number: 'p-stepper-item-number',
-        title: 'p-stepper-item-title',
+        itemHeader: 'p-stepper-item-header',
+        itemNumber: 'p-stepper-item-number',
+        itemTitle: 'p-stepper-item-title',
         separator: 'p-stepper-separator',
-        toggleableContent: 'p-stepper-panel-content-container',
-        content: 'p-stepper-panel-content'
+        panelContentContainer: 'p-stepper-panel-content-container',
+        panelContent: 'p-stepper-panel-content'
     },
-    panelContainer: 'p-stepper-panels',
+    panels: 'p-stepper-panels',
     panel: ({ instance, props, index }) => [
         'p-stepper-panel',
         {
