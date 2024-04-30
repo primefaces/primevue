@@ -1,22 +1,22 @@
 <template>
     <nav :id="id" :class="cx('root')" v-bind="ptmi('root')">
-        <ol ref="list" :class="cx('menu')" v-bind="ptm('menu')">
+        <ol ref="list" :class="cx('list')" v-bind="ptm('list')">
             <template v-for="(item, index) of model" :key="label(item) + '_' + index.toString()">
                 <li
                     v-if="visible(item)"
-                    :class="[cx('menuitem', { item, index }), item.class]"
+                    :class="[cx('item', { item, index }), item.class]"
                     :style="item.style"
                     :aria-current="isActive(index) ? 'step' : undefined"
                     @click="onItemClick($event, item, index)"
                     @keydown="onItemKeydown($event, item, index)"
-                    v-bind="getPTOptions('menuitem', item, index)"
+                    v-bind="getPTOptions('item', item, index)"
                     :data-p-highlight="isActive(index)"
                     :data-p-disabled="isItemDisabled(item, index)"
                 >
                     <template v-if="!$slots.item">
-                        <span :class="cx('action')" v-bind="getPTOptions('action', item, index)">
-                            <span :class="cx('step')" v-bind="getPTOptions('step', item, index)">{{ index + 1 }}</span>
-                            <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
+                        <span :class="cx('itemLink')" v-bind="getPTOptions('itemLink', item, index)">
+                            <span :class="cx('itemNumber')" v-bind="getPTOptions('itemNumber', item, index)">{{ index + 1 }}</span>
+                            <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel', item, index)">{{ label(item) }}</span>
                         </span>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :index="index" :active="index === d_activeStep" :label="label(item)" :props="getMenuItemProps(item, index)"></component>
@@ -160,12 +160,12 @@ export default {
             return prevItem ? prevItem.children[0] : null;
         },
         findFirstItem() {
-            const firstSibling = DomHandler.findSingle(this.$refs.list, '[data-pc-section="menuitem"]');
+            const firstSibling = DomHandler.findSingle(this.$refs.list, '[data-pc-section="item"]');
 
             return firstSibling ? firstSibling.children[0] : null;
         },
         findLastItem() {
-            const siblings = DomHandler.find(this.$refs.list, '[data-pc-section="menuitem"]');
+            const siblings = DomHandler.find(this.$refs.list, '[data-pc-section="item"]');
 
             return siblings ? siblings[siblings.length - 1].children[0] : null;
         },
@@ -193,23 +193,23 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         onClick: ($event) => this.onItemClick($event, item),
                         onKeyDown: ($event) => this.onItemKeydown($event, item)
                     },
-                    this.getPTOptions('action', item, index)
+                    this.getPTOptions('itemLink', item, index)
                 ),
                 step: mergeProps(
                     {
-                        class: this.cx('step')
+                        class: this.cx('itemNumber')
                     },
-                    this.getPTOptions('step', item, index)
+                    this.getPTOptions('itemNumber', item, index)
                 ),
                 label: mergeProps(
                     {
-                        class: this.cx('label')
+                        class: this.cx('itemLabel')
                     },
-                    this.getPTOptions('label', item, index)
+                    this.getPTOptions('itemLabel', item, index)
                 )
             };
         }

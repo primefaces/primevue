@@ -19,7 +19,7 @@
                 >
                     <div :class="cx('headerContent')" v-bind="getPTOptions('headerContent', item, index)">
                         <template v-if="!$slots.item">
-                            <a :href="getItemProp(item, 'url')" :class="cx('headerAction')" :tabindex="-1" v-bind="getPTOptions('headerAction', item, index)">
+                            <a :href="getItemProp(item, 'url')" :class="cx('headerLink')" :tabindex="-1" v-bind="getPTOptions('headerLink', item, index)">
                                 <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
                                     <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions('submenuIcon', item, index)" />
                                 </slot>
@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
-                    <div v-show="isItemActive(item)" :id="getContentId(index)" :class="cx('toggleableContent')" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('toggleableContent')">
-                        <div v-if="getItemProp(item, 'items')" :class="cx('menuContent')" v-bind="ptm('menuContent')">
+                    <div v-show="isItemActive(item)" :id="getContentId(index)" :class="cx('contentContainer')" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('contentContainer')">
+                        <div v-if="getItemProp(item, 'items')" :class="cx('content')" v-bind="ptm('content')">
                             <PanelMenuList
                                 :panelId="getPanelId(index)"
                                 :items="getItemProp(item, 'items')"
@@ -164,14 +164,14 @@ export default {
             }
         },
         onHeaderArrowDownKey(event) {
-            const rootList = DomHandler.getAttribute(event.currentTarget, 'data-p-highlight') === true ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="menu"]') : null;
+            const rootList = DomHandler.getAttribute(event.currentTarget, 'data-p-highlight') === true ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
             event.preventDefault();
         },
         onHeaderArrowUpKey(event) {
             const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
-            const rootList = DomHandler.getAttribute(prevHeader, 'data-p-highlight') === true ? DomHandler.findSingle(prevHeader.nextElementSibling, '[data-pc-section="menu"]') : null;
+            const rootList = DomHandler.getAttribute(prevHeader, 'data-p-highlight') === true ? DomHandler.findSingle(prevHeader.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
             event.preventDefault();
@@ -185,7 +185,7 @@ export default {
             event.preventDefault();
         },
         onHeaderEnterKey(event, item) {
-            const headerAction = DomHandler.findSingle(event.currentTarget, '[data-pc-section="headeraction"]');
+            const headerAction = DomHandler.findSingle(event.currentTarget, '[data-pc-section="headerlink"]');
 
             headerAction ? headerAction.click() : this.onHeaderClick(event, item);
             event.preventDefault();

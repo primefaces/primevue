@@ -14,8 +14,8 @@ const classes = {
     ],
     start: 'p-menubar-start',
     button: 'p-menubar-button',
-    menu: 'p-menubar-root-list',
-    menuitem: ({ instance, processedItem }) => [
+    rootList: 'p-menubar-root-list',
+    item: ({ instance, processedItem }) => [
         'p-menubar-item',
         {
             'p-menubar-item-active': instance.isItemActive(processedItem),
@@ -23,10 +23,10 @@ const classes = {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-menubar-item-content',
-    action: 'p-menubar-item-link',
-    icon: 'p-menubar-item-icon',
-    label: 'p-menubar-item-label',
+    itemContent: 'p-menubar-item-content',
+    itemLink: 'p-menubar-item-link',
+    itemIcon: 'p-menubar-item-icon',
+    itemLabel: 'p-menubar-item-label',
     submenuIcon: 'p-menubar-submenu-icon',
     submenu: 'p-menubar-submenu',
     separator: 'p-menubar-separator',

@@ -61,29 +61,29 @@ export interface TieredMenuPassThroughOptions<T = any> {
      */
     root?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
-    menu?: TieredMenuPassThroughOptionType<T>;
+    rootList?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the list item's DOM element.
      */
-    menuitem?: TieredMenuPassThroughOptionType<T>;
+    item?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: TieredMenuPassThroughOptionType<T>;
+    itemContent?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: TieredMenuPassThroughOptionType<T>;
+    itemLink?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: TieredMenuPassThroughOptionType<T>;
+    itemIcon?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: TieredMenuPassThroughOptionType<T>;
+    itemLabel?: TieredMenuPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the submenu icon's DOM element.
      */

@@ -57,23 +57,23 @@ export interface StepsPassThroughOptions {
     /**
      * Used to pass attributes to the list's DOM element.
      */
-    menu?: StepsPassThroughOptionType;
+    list?: StepsPassThroughOptionType;
     /**
      * Used to pass attributes to the list item's DOM element.
      */
-    menuitem?: StepsPassThroughOptionType;
+    item?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: StepsPassThroughOptionType;
+    itemLink?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the step's DOM element.
+     * Used to pass attributes to the item number's DOM element.
      */
-    step?: StepsPassThroughOptionType;
+    itemNumber?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: StepsPassThroughOptionType;
+    itemLabel?: StepsPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

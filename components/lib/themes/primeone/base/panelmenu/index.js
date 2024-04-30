@@ -107,7 +107,7 @@ export default {
     color: ${dt('panelmenu.item.color')};
 }
 
-.p-menupanelmenu-item.p-focus > .p-panelmenu-item-content {
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content {
     background: ${dt('panelmenu.item.focus.background')};
     color: ${dt('panelmenu.item.focus.color')};
 }

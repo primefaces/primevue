@@ -4,7 +4,7 @@
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
-                :class="[cx('menuitem', { processedItem }), getItemProp(processedItem, 'class')]"
+                :class="[cx('item', { processedItem }), getItemProp(processedItem, 'class')]"
                 :style="getItemProp(processedItem, 'style')"
                 role="treeitem"
                 :aria-label="getItemLabel(processedItem)"
@@ -12,19 +12,19 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
-                v-bind="getPTOptions('menuitem', processedItem, index)"
+                v-bind="getPTOptions('item', processedItem, index)"
                 :data-p-focused="isItemFocused(processedItem)"
                 :data-p-disabled="isItemDisabled(processedItem)"
             >
-                <div :class="cx('content')" @click="onItemClick($event, processedItem)" @mousemove="onItemMouseMove($event, processedItem)" v-bind="getPTOptions('content', processedItem, index)">
+                <div :class="cx('itemContent')" @click="onItemClick($event, processedItem)" @mousemove="onItemMouseMove($event, processedItem)" v-bind="getPTOptions('itemContent', processedItem, index)">
                     <template v-if="!templates.item">
-                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action', processedItem, index)">
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink', processedItem, index)">
                             <template v-if="isItemGroup(processedItem)">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :class="cx('submenuIcon')" :active="isItemActive(processedItem)" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
                                 <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
                             </template>
-                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('icon')" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('icon', processedItem, index)" />
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('itemIcon', processedItem, index)" />
                             <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
@@ -40,7 +40,7 @@
                     ></component>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
-                    <div v-show="isItemActive(processedItem)" :class="cx('toggleableContent')" v-bind="ptm('toggleableContent')">
+                    <div v-show="isItemActive(processedItem)" :class="cx('contentContainer')" v-bind="ptm('contentContainer')">
                         <PanelMenuSub
                             v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
                             :id="getItemId(processedItem) + '_list'"
@@ -173,17 +173,17 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         tabindex: -1,
                         'aria-hidden': true
                     },
-                    this.getPTOptions('action', processedItem, index)
+                    this.getPTOptions('itemLink', processedItem, index)
                 ),
                 icon: mergeProps(
                     {
-                        class: [this.cx('icon'), this.getItemProp(processedItem, 'icon')]
+                        class: [this.cx('itemIcon'), this.getItemProp(processedItem, 'icon')]
                     },
-                    this.getPTOptions('icon', processedItem, index)
+                    this.getPTOptions('itemIcon', processedItem, index)
                 ),
                 label: mergeProps(
                     {

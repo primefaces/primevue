@@ -59,29 +59,29 @@ export interface MenubarPassThroughOptions {
      */
     root?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
-    menu?: MenubarPassThroughOptionType;
+    rootList?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
-    menuitem?: MenubarPassThroughOptionType;
+    item?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: MenubarPassThroughOptionType;
+    itemContent?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
-    action?: MenubarPassThroughOptionType;
+    itemLink?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: MenubarPassThroughOptionType;
+    itemIcon?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: MenubarPassThroughOptionType;
+    itemLabel?: MenubarPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu icon's DOM element.
      */

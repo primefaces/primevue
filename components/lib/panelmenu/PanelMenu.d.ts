@@ -73,9 +73,9 @@ export interface PanelMenuPassThroughOptions {
      */
     headerContent?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header action's DOM element.
+     * Used to pass attributes to the header link's DOM element.
      */
-    headerAction?: PanelMenuPassThroughOptionType;
+    headerLink?: PanelMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the submenuIcon's DOM element.
      */
@@ -89,33 +89,33 @@ export interface PanelMenuPassThroughOptions {
      */
     headerLabel?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the content container's DOM element.
      */
-    toggleableContent?: PanelMenuPassThroughOptionType;
-    /**
-     * Used to pass attributes to the menu content's DOM element.
-     */
-    menuContent?: PanelMenuPassThroughOptionType;
-    /**
-     * Used to pass attributes to the list's DOM element.
-     */
-    menu?: PanelMenuPassThroughOptionType;
-    /**
-     * Used to pass attributes to the list item's DOM element.
-     */
-    menuitem?: PanelMenuPassThroughOptionType;
+    contentContainer?: PanelMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the action's DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
-    action?: PanelMenuPassThroughOptionType;
+    rootList?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
-    icon?: PanelMenuPassThroughOptionType;
+    menuitem?: PanelMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item content's DOM element.
+     */
+    itemContent?: PanelMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item link's DOM element.
+     */
+    itemLink?: PanelMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item icon's DOM element.
+     */
+    itemIcon?: PanelMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the label's DOM element.
      */

@@ -1,23 +1,23 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
-        <ul ref="nav" :class="cx('menu')" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
+        <ul ref="nav" :class="cx('tablist')" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('tablist')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <li
                     v-if="visible(item)"
                     ref="tab"
-                    :class="[cx('menuitem', { item, index: i }), item.class]"
+                    :class="[cx('item', { item, index: i }), item.class]"
                     role="presentation"
                     @click="onItemClick($event, item, i)"
                     @keydown="onKeydownItem($event, item, i)"
-                    v-bind="getPTOptions('menuitem', item, i)"
+                    v-bind="getPTOptions('item', item, i)"
                     :data-p-highlight="d_activeIndex === i"
                     :data-p-disabled="disabled(item)"
                 >
                     <template v-if="!$slots.item">
-                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" :class="cx('action')" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="-1" v-bind="getPTOptions('action', item, i)">
-                            <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="cx('icon')" />
-                            <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', item, i)" />
-                            <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" :class="cx('itemLink')" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="-1" v-bind="getPTOptions('itemLink', item, i)">
+                            <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="cx('itemIcon')" />
+                            <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" v-bind="getPTOptions('itemIcon', item, i)" />
+                            <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel', item, i)">{{ label(item) }}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :index="i" :active="i === d_activeIndex" :label="label(item)" :props="getMenuItemProps(item, i)"></component>
@@ -170,17 +170,17 @@ export default {
             return prevItem ? (DomHandler.getAttribute(prevItem, 'data-p-disabled') === true ? this.findPrevItem(prevItem.children[0]) : prevItem.children[0]) : null;
         },
         findFirstItem() {
-            const firstSibling = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const firstSibling = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
 
             return firstSibling ? firstSibling.children[0] : null;
         },
         findLastItem() {
-            const siblings = DomHandler.find(this.$refs.nav, '[data-pc-section="menuitem"][data-p-disabled="false"]');
+            const siblings = DomHandler.find(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
 
             return siblings ? siblings[siblings.length - 1].children[0] : null;
         },
         findActiveItem() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="menuitem"][data-p-disabled="false"][data-p-highlight="true"]');
+            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-highlight="true"]');
 
             return activeItem ? activeItem.children[0] : null;
         },
@@ -190,8 +190,8 @@ export default {
             focusableItem.focus();
         },
         onTabKey() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="menuitem"][data-p-disabled="false"][data-p-highlight="true"]');
-            const focusedItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="action"][tabindex="0"]');
+            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-highlight="true"]');
+            const focusedItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="itemlink"][tabindex="0"]');
 
             if (focusedItem !== activeItem.children[0]) {
                 activeItem && (activeItem.children[0].tabIndex = '0');
@@ -230,24 +230,24 @@ export default {
             return {
                 action: mergeProps(
                     {
-                        class: this.cx('action'),
+                        class: this.cx('itemLink'),
                         tabindex: -1,
                         onClick: ($event) => this.onItemClick($event, item, index),
                         onKeyDown: ($event) => this.onKeydownItem($event, item, index)
                     },
-                    this.getPTOptions('action', item, index)
+                    this.getPTOptions('itemLink', item, index)
                 ),
                 icon: mergeProps(
                     {
-                        class: [this.cx('icon'), item.icon]
+                        class: [this.cx('itemIcon'), item.icon]
                     },
-                    this.getPTOptions('icon', item, index)
+                    this.getPTOptions('itemIcon', item, index)
                 ),
                 label: mergeProps(
                     {
-                        class: this.cx('label')
+                        class: this.cx('itemLabel')
                     },
-                    this.getPTOptions('label', item, index)
+                    this.getPTOptions('itemLabel', item, index)
                 )
             };
         }

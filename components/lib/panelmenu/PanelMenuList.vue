@@ -1,7 +1,7 @@
 <template>
     <PanelMenuSub
         :id="panelId + '_list'"
-        :class="cx('menu')"
+        :class="cx('rootList')"
         role="tree"
         :tabindex="-1"
         :aria-activedescendant="focused ? focusedItemId : undefined"
@@ -17,7 +17,7 @@
         @item-mousemove="onItemMouseMove"
         :pt="pt"
         :unstyled="unstyled"
-        v-bind="ptm('menu')"
+        v-bind="ptm('rootList')"
     />
 </template>
 
@@ -203,7 +203,7 @@ export default {
         onEnterKey(event) {
             if (ObjectUtils.isNotEmpty(this.focusedItem)) {
                 const element = DomHandler.findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && (DomHandler.findSingle(element, '[data-pc-section="action"]') || DomHandler.findSingle(element, 'a,button'));
+                const anchorElement = element && (DomHandler.findSingle(element, '[data-pc-section="itemlink"]') || DomHandler.findSingle(element, 'a,button'));
 
                 anchorElement ? anchorElement.click() : element && element.click();
             }

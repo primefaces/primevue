@@ -13,8 +13,8 @@ const classes = {
         }
     ],
     start: 'p-tieredmenu-start',
-    menu: 'p-tieredmenu-root-list',
-    menuitem: ({ instance, processedItem }) => [
+    rootList: 'p-tieredmenu-root-list',
+    item: ({ instance, processedItem }) => [
         'p-tieredmenu-item',
         {
             'p-tieredmenu-item-active': instance.isItemActive(processedItem),
@@ -22,10 +22,10 @@ const classes = {
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-tieredmenu-item-content',
-    action: 'p-tieredmenu-item-link',
-    icon: 'p-tieredmenu-item-icon',
-    text: 'p-tieredmenu-item-label',
+    itemContent: 'p-tieredmenu-item-content',
+    itemLink: 'p-tieredmenu-item-link',
+    itemIcon: 'p-tieredmenu-item-icon',
+    itemLabel: 'p-tieredmenu-item-label',
     submenuIcon: 'p-tieredmenu-submenu-icon',
     submenu: 'p-tieredmenu-submenu',
     separator: 'p-tieredmenu-separator',

@@ -11,22 +11,22 @@ const classes = {
         }
     ],
     headerContent: 'p-panelmenu-header-content',
-    headerAction: 'p-panelmenu-header-link',
+    headerLink: 'p-panelmenu-header-link',
     headerIcon: 'p-panelmenu-header-icon',
     headerLabel: 'p-panelmenu-header-label',
-    toggleableContent: 'p-panelmenu-content-container',
-    menuContent: 'p-panelmenu-content',
-    menu: 'p-panelmenu-root-list',
-    menuitem: ({ instance, processedItem }) => [
+    contentContainer: 'p-panelmenu-content-container',
+    content: 'p-panelmenu-content',
+    rootList: 'p-panelmenu-root-list',
+    item: ({ instance, processedItem }) => [
         'p-panelmenu-item',
         {
             'p-focus': instance.isItemFocused(processedItem),
             'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    content: 'p-panelmenu-item-content',
-    action: 'p-panelmenu-item-link',
-    icon: 'p-panelmenu-item-icon',
+    itemContent: 'p-panelmenu-item-content',
+    itemLink: 'p-panelmenu-item-link',
+    itemIcon: 'p-panelmenu-item-icon',
     label: 'p-panelmenu-item-label',
     submenuIcon: 'p-panelmenu-submenu-icon',
     submenu: 'p-panelmenu-submenu',
