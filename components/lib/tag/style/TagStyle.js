@@ -14,7 +14,7 @@ const classes = {
         }
     ],
     icon: 'p-tag-icon',
-    value: 'p-tag-label'
+    label: 'p-tag-label'
 };
 
 export default BaseStyle.extend({

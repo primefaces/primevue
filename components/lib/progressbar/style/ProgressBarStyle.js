@@ -8,7 +8,7 @@ const classes = {
             'p-progressbar-indeterminate': instance.indeterminate
         }
     ],
-    container: 'p-progressbar-indeterminate-container',
+    indeterminateContainer: 'p-progressbar-indeterminate-container',
     value: 'p-progressbar-value',
     label: 'p-progressbar-label'
 };

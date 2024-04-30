@@ -54,9 +54,9 @@ export interface TagPassThroughOptions {
      */
     icon?: TagPassThroughOptionType;
     /**
-     * Used to pass attributes to the value's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
-    value?: TagPassThroughOptionType;
+    label?: TagPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

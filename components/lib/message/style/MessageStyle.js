@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const classes = {
     root: ({ props }) => 'p-message p-component p-message-' + props.severity,
-    wrapper: 'p-message-content',
+    content: 'p-message-content',
     icon: 'p-message-icon',
     text: 'p-message-text',
     closeButton: 'p-message-close-button',

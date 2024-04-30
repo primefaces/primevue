@@ -46,6 +46,10 @@ export interface ProgressBarPassThroughOptions<T = any> {
      */
     root?: ProgressBarPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the indeterminate container's DOM element.
+     */
+    indeterminateContainer?: ProgressBarPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the value's DOM element.
      */
     value?: ProgressBarPassThroughOptionType<T>;
