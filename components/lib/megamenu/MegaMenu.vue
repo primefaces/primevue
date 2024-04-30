@@ -3,6 +3,7 @@
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
+        <!--TODO: menubutton deprecated since v4.0. Use button-->
         <slot :id="id" :name="$slots.menubutton ? 'menubutton' : 'button'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
             <a
                 v-if="model && model.length > 0"
@@ -18,6 +19,7 @@
                 @keydown="menuButtonKeydown($event)"
                 v-bind="ptm('button')"
             >
+                <!--TODO: menubuttonicon deprecated since v4.0. Use buttonicon-->
                 <slot :name="$slots.menubuttonicon ? 'menubuttonicon' : 'buttonicon'">
                     <BarsIcon v-bind="ptm('buttonicon')" />
                 </slot>
