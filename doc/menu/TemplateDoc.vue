@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Menu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. The submenu header has its own <i>submenuheader</i> template, additional slots named <i>start</i> and
+            Menu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. The submenu header has its own <i>submenuitem</i> template, additional slots named <i>start</i> and
             <i>end</i> are provided to embed content before or after the menu.
         </p>
     </DocSectionText>
@@ -22,7 +22,7 @@
                     <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
-            <template #submenuheader="{ item }">
+            <template #submenuitem="{ item }">
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
@@ -106,7 +106,7 @@ export default {
             <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
         </span>
     </template>
-    <template #submenuheader="{ item }">
+    <template #submenuitem="{ item }">
         <span class="text-primary font-bold">{{ item.label }}</span>
     </template>
     <template #item="{ item, props }">
@@ -147,7 +147,7 @@ export default {
                     <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
-            <template #submenuheader="{ item }">
+            <template #submenuitem="{ item }">
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
@@ -242,7 +242,7 @@ export default {
                     <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
-            <template #submenuheader="{ item }">
+            <template #submenuitem="{ item }">
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
