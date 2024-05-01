@@ -178,29 +178,6 @@ export default {
                 b: Math.min(100, Math.max(0, hsb.b))
             };
         },
-        validateRGB(rgb) {
-            return {
-                r: Math.min(255, Math.max(0, rgb.r)),
-                g: Math.min(255, Math.max(0, rgb.g)),
-                b: Math.min(255, Math.max(0, rgb.b))
-            };
-        },
-        validateHEX(hex) {
-            var len = 6 - hex.length;
-
-            if (len > 0) {
-                var o = [];
-
-                for (var i = 0; i < len; i++) {
-                    o.push('0');
-                }
-
-                o.push(hex);
-                hex = o.join('');
-            }
-
-            return hex;
-        },
         HEXtoRGB(hex) {
             let hexValue = parseInt(hex.indexOf('#') > -1 ? hex.substring(1) : hex, 16);
 
