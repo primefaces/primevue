@@ -154,11 +154,11 @@ export default {
 
             // common
             if (!Theme.isStyleNameLoaded('common')) {
-                const { primitive, semantic, global } = this.$style?.getCommonThemeCSS?.() || {};
+                const { primitive, semantic } = this.$style?.getCommonThemeCSS?.() || {};
 
                 BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme(global, { name: 'global-style', ...this.$styleOptions });
+                BaseStyle.loadInlineTheme({ name: 'global-style', ...this.$styleOptions });
 
                 Theme.setLoadedStyleName('common');
             }
@@ -168,7 +168,9 @@ export default {
                 const { variables, style } = this.$style?.getComponentThemeCSS?.() || {};
 
                 this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadTheme(style, { name: `${this.$style.name}-style`, ...this.$styleOptions });
+                this.$style?.loadInlineTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
+
+                //this.$style?.loadTheme(style, { name: `${this.$style.name}-style`, ...this.$styleOptions });
 
                 Theme.setLoadedStyleName(this.$style.name);
             }
@@ -289,7 +291,7 @@ export default {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
         ptmi(key = '', params = {}) {
-            // inheritAttrs:true without `pt:*`
+            // inheritAttrs:true
             return mergeProps(this.$_attrsWithoutPT, this.ptm(key, params));
         },
         ptmo(obj = {}, key = '', params = {}) {
@@ -366,7 +368,6 @@ export default {
                 }, {});
         },
         $_attrsWithoutPT() {
-            // $attrs without `pt:*`
             return Object.entries(this.$attrs || {})
                 .filter(([key]) => !key?.startsWith('pt:'))
                 .reduce((acc, [key, value]) => {
