@@ -179,16 +179,10 @@ const ICON_ALIAS = {
 // prettier-ignore
 const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu','tabs','tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
-const createThemeAlias = (design, presets) => {
-    const baseAlias = THEME_COMPONENTS.reduce((acc, name) => {
-        acc[`primevue/themes/${design}/base/${name}`] = path.resolve(__dirname, `./components/lib/themes/${design}/base/${name}/index.js`);
-
-        return acc;
-    }, {});
-
+const createThemeAlias = (presets) => {
     const presetAlias = presets?.reduce((p_acc, p_name) => {
         const p_alias = THEME_COMPONENTS.reduce((acc, name) => {
-            acc[`primevue/themes/${design}/presets/${p_name}/${name}`] = path.resolve(__dirname, `./components/lib/themes/${design}/presets/${p_name}/${name}/index.js`);
+            acc[`primevue/themes/${p_name}/${name}`] = path.resolve(__dirname, `./components/lib/themes/${p_name}/${name}/index.js`);
 
             return acc;
         }, {});
@@ -198,23 +192,16 @@ const createThemeAlias = (design, presets) => {
         return p_acc;
     }, {});
 
-    const otherAlias = presets?.reduce((p_acc, p_name) => {
+    const mainAlias = presets?.reduce((p_acc, p_name) => {
         p_acc = {
             ...p_acc,
-            [`primevue/themes/${design}/presets/${p_name}`]: path.resolve(__dirname, `./components/lib/themes/${design}/presets/${p_name}/index.js`),
-            [`primevue/themes/${design}/${p_name}`]: path.resolve(__dirname, `./components/lib/themes/${design}/${p_name}/index.js`)
+            [`primevue/themes/${p_name}`]: path.resolve(__dirname, `./components/lib/themes/${p_name}/index.js`)
         };
 
         return p_acc;
     }, {});
 
-    const coreAlias = {
-        [`primevue/themes/${design}/base/global`]: path.resolve(__dirname, `./components/lib/themes/${design}/base/global/index.js`),
-        [`primevue/themes/${design}/base`]: path.resolve(__dirname, `./components/lib/themes/${design}/base/index.js`),
-        [`primevue/themes/${design}`]: path.resolve(__dirname, `./components/lib/themes/${design}/index.js`)
-    };
-
-    return { ...baseAlias, ...presetAlias, ...otherAlias, ...coreAlias };
+    return { ...presetAlias, ...mainAlias };
 };
 
 const THEME_ALIAS = {
@@ -223,7 +210,7 @@ const THEME_ALIAS = {
     'primevue/themes/service': path.resolve(__dirname, './components/lib/themes/service/index.js'),
     'primevue/themes/helpers': path.resolve(__dirname, './components/lib/themes/helpers/index.js'),
     'primevue/themes/actions': path.resolve(__dirname, './components/lib/themes/actions/index.js'),
-    ...createThemeAlias('primeone', ['aura']),
+    ...createThemeAlias(['aura']),
     'primevue/themes': path.resolve(__dirname, './components/lib/themes/index.js')
 };
 

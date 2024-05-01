@@ -1,6 +1,5 @@
 import { definePreset } from 'primevue/themes';
-import PrimeOne from 'primevue/themes/primeone';
-import Aura from 'primevue/themes/primeone/aura';
+import Aura from 'primevue/themes/aura';
 
 const Noir = definePreset(Aura, {
     semantic: {
@@ -51,7 +50,6 @@ const Noir = definePreset(Aura, {
 });
 
 export default {
-    base: PrimeOne,
     preset: Noir,
     options: {
         darkModeSelector: '.p-dark'

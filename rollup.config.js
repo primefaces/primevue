@@ -190,16 +190,10 @@ const CORE_STYLE_DEPENDENCIES = {
 // prettier-ignore
 const THEME_COMPONENTS = ['accordion','autocomplete','avatar','badge','blockui','breadcrumb','button','buttongroup','card','carousel','cascadeselect','checkbox','chip','colorpicker','confirmdialog','confirmpopup','contextmenu','datatable','dataview','datepicker','dialog','divider','dock','drawer','editor','fieldset','fileupload','floatlabel','galleria','iconfield','image','inlinemessage','inplace','inputchips','inputgroup','inputnumber','inputotp','toggleswitch','inputtext','knob','listbox','megamenu','menu','menubar','message','metergroup','multiselect','orderlist','organizationchart','overlaypanel','paginator','panel','panelmenu','password','picklist','popover','progressbar','progressspinner','radiobutton','rating','scrollpanel','scrolltop','select','selectbutton','skeleton','slider','speeddial','splitbutton','splitter','steps','stepper','tabmenu', 'tab', 'tabview','tag','terminal','textarea','tieredmenu','timeline','toast','togglebutton','toggleswitch','toolbar','tooltip','tree','treeselect','treetable'];
 
-const createThemeDependencies = (design, presets) => {
-    const baseDeps = THEME_COMPONENTS.reduce((acc, name) => {
-        acc[`primevue/themes/${design}/base/${name}`] = `primevue.themes.${design}.base.${name}`;
-
-        return acc;
-    }, {});
-
+const createThemeDependencies = (presets) => {
     const presetDeps = presets?.reduce((p_acc, p_name) => {
         const p_alias = THEME_COMPONENTS.reduce((acc, name) => {
-            acc[`primevue/themes/${design}/presets/${p_name}/${name}`] = `primevue.themes.${design}.presets.${p_name}.${name}`;
+            acc[`primevue/themes/${p_name}/${name}`] = `primevue.themes.${p_name}.${name}`;
 
             return acc;
         }, {});
@@ -209,32 +203,25 @@ const createThemeDependencies = (design, presets) => {
         return p_acc;
     }, {});
 
-    const otherDeps = presets?.reduce((p_acc, p_name) => {
+    const mainDeps = presets?.reduce((p_acc, p_name) => {
         p_acc = {
             ...p_acc,
-            [`primevue/themes/${design}/presets/${p_name}`]: `primevue.themes.${design}.presets.${p_name}`,
-            [`primevue/themes/${design}/${p_name}`]: `primevue.themes.${design}.${p_name}`
+            [`primevue/themes/${p_name}`]: `primevue.themes.${p_name}`
         };
 
         return p_acc;
     }, {});
 
-    const coreDeps = {
-        [`primevue/themes/${design}/base/global`]: `primevue.themes.${design}.base.global`,
-        [`primevue/themes/${design}/base`]: `primevue.themes.${design}.base`,
-        [`primevue/themes/${design}`]: `primevue.themes.${design}`
-    };
-
-    return { ...baseDeps, ...presetDeps, ...otherDeps, ...coreDeps };
+    return { ...presetDeps, ...mainDeps };
 };
 
 const CORE_THEME_DEPENDENCIES = {
-    ...createThemeDependencies('primeone', ['aura']),
     'primevue/themes/actions': 'primevue.themes.actions',
     'primevue/themes/config': 'primevue.themes.config',
     'primevue/themes/helpers': 'primevue.themes.helpers',
     'primevue/themes/service': 'primevue.themes.service',
     'primevue/themes/utils': 'primevue.themes.utils',
+    ...createThemeDependencies(['aura']),
     'primevue/themes': 'primevue.themes'
 };
 
@@ -596,6 +583,9 @@ function addPackageJson() {
         "tags": "./vetur-tags.json",
         "attributes": "./vetur-attributes.json"
     },
+    "sideEffects": [
+        "*.vue"
+    ],
     "peerDependencies": {
         "vue": "^3.0.0"
     }
