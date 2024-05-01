@@ -18,7 +18,7 @@ export default {
         return {
             code: {
                 basic: `
-import accordion from 'primevue/themes/primeone/presets/aura/accordion';
+import accordion from 'primevue/themes/aura/accordion';
 // ... imports of other component tokens
 
 export default {

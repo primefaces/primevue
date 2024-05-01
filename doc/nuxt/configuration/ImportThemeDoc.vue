@@ -20,8 +20,7 @@ primevue: {
             code2: {
                 basic: `
 import { definePreset } from 'primevue/themes';
-import PrimeOne from 'primevue/themes/primeone';
-import Aura from 'primevue/themes/primeone/aura';
+import Aura from 'primevue/themes/aura';
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -42,7 +41,6 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default {
-    base: PrimeOne,
     preset: MyPreset,
     options: {
         darkModeSelector: '.p-dark'

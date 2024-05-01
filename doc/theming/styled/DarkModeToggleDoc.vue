@@ -21,15 +21,13 @@ export default {
             code1: {
                 basic: `
 import PrimeVue from 'primevue/config';
-import PrimeOne from 'primevue/themes/primeone';
-import Aura from 'primevue/themes/primeone/aura';
+import Aura from 'primevue/themes/aura';
 
 const app = createApp(App);
 
 app.use(PrimeVue, {
     // Default theme configuration
     theme: {
-        base: PrimeOne,
         preset: Aura,
         options: {
             darkModeSelector: '.my-app-dark',

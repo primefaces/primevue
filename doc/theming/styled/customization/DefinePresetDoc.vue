@@ -13,8 +13,7 @@ export default {
                 basic: `
 import PrimeVue from 'primevue/config';
 import { definePreset } from 'primevue/themes';
-import PrimeOne from 'primevue/themes/primeone';
-import Aura from 'primevue/themes/primeone/aura';
+import Aura from 'primevue/themes/aura';
 
 const MyPreset = definePreset(Aura, {
     //Your customizations, see the following sections for examples
@@ -22,7 +21,6 @@ const MyPreset = definePreset(Aura, {
 
 app.use(PrimeVue, {
     theme: {
-        base: PrimeOne,
         preset: MyPreset
     }
  });
