@@ -5,5 +5,8 @@
     "types": "./Popover.d.ts",
     "browser": {
         "./sfc": "./Popover.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./InlineMessage.d.ts",
     "browser": {
         "./sfc": "./InlineMessage.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

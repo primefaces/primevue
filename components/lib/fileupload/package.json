@@ -5,5 +5,8 @@
     "types": "./FileUpload.d.ts",
     "browser": {
         "./sfc": "./FileUpload.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -2,5 +2,6 @@
     "main": "./textareastyle.cjs.js",
     "module": "./textareastyle.esm.js",
     "unpkg": "./textareastyle.min.js",
-    "types": "./TextareaStyle.d.ts"
+    "types": "./TextareaStyle.d.ts",
+    "sideEffects": false
 }

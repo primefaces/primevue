@@ -5,5 +5,8 @@
     "types": "./BlockUI.d.ts",
     "browser": {
         "./sfc": "./BlockUI.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

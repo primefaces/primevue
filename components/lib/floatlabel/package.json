@@ -5,5 +5,8 @@
     "types": "./FloatLabel.d.ts",
     "browser": {
         "./sfc": "./FloatLabel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

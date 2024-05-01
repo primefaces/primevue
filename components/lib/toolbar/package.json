@@ -5,5 +5,8 @@
     "types": "./Toolbar.d.ts",
     "browser": {
         "./sfc": "./Toolbar.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

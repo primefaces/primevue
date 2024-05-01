@@ -5,5 +5,8 @@
     "types": "./ColumnGroup.d.ts",
     "browser": {
         "./sfc": "./ColumnGroup.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

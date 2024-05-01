@@ -5,5 +5,8 @@
     "types": "./SpeedDial.d.ts",
     "browser": {
         "./sfc": "./SpeedDial.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

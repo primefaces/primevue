@@ -5,5 +5,8 @@
     "types": "./DataView.d.ts",
     "browser": {
         "./sfc": "./DataView.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

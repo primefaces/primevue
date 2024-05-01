@@ -5,5 +5,8 @@
     "types": "./Textarea.d.ts",
     "browser": {
         "./sfc": "./Textarea.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

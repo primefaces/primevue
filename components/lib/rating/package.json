@@ -5,5 +5,8 @@
     "types": "./Rating.d.ts",
     "browser": {
         "./sfc": "./Rating.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

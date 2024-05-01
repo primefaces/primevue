@@ -5,5 +5,8 @@
     "types": "./InputNumber.d.ts",
     "browser": {
         "./sfc": "./InputNumber.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

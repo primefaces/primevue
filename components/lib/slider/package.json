@@ -5,5 +5,8 @@
     "types": "./Slider.d.ts",
     "browser": {
         "./sfc": "./Slider.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

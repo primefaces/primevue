@@ -5,5 +5,8 @@
     "types": "./InputIcon.d.ts",
     "browser": {
         "./sfc": "./InputIcon.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Galleria.d.ts",
     "browser": {
         "./sfc": "./Galleria.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

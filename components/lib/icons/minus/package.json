@@ -5,5 +5,8 @@
     "types": "./index.d.ts",
     "browser": {
         "./sfc": "./index.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

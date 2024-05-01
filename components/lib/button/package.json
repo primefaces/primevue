@@ -5,5 +5,8 @@
     "types": "./Button.d.ts",
     "browser": {
         "./sfc": "./Button.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./VirtualScroller.d.ts",
     "browser": {
         "./sfc": "./VirtualScroller.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

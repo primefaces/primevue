@@ -5,5 +5,8 @@
     "types": "./DataTable.d.ts",
     "browser": {
         "./sfc": "./DataTable.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

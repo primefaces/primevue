@@ -5,5 +5,8 @@
     "types": "./Row.d.ts",
     "browser": {
         "./sfc": "./Row.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

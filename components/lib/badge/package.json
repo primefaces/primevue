@@ -5,5 +5,8 @@
     "types": "./Badge.d.ts",
     "browser": {
         "./sfc": "./Badge.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

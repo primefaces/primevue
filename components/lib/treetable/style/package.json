@@ -2,5 +2,6 @@
     "main": "./treetablestyle.cjs.js",
     "module": "./treetablestyle.esm.js",
     "unpkg": "./treetablestyle.min.js",
-    "types": "./TreeTableStyle.d.ts"
+    "types": "./TreeTableStyle.d.ts",
+    "sideEffects": false
 }

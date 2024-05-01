@@ -2,5 +2,6 @@
     "main": "./listboxstyle.cjs.js",
     "module": "./listboxstyle.esm.js",
     "unpkg": "./listboxstyle.min.js",
-    "types": "./ListboxStyle.d.ts"
+    "types": "./ListboxStyle.d.ts",
+    "sideEffects": false
 }

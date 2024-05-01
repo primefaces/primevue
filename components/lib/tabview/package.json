@@ -5,5 +5,8 @@
     "types": "./TabView.d.ts",
     "browser": {
         "./sfc": "./TabView.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

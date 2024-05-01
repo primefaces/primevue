@@ -5,5 +5,8 @@
     "types": "./Divider.d.ts",
     "browser": {
         "./sfc": "./Divider.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Menu.d.ts",
     "browser": {
         "./sfc": "./Menu.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

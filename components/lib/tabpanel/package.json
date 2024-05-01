@@ -5,5 +5,8 @@
     "types": "./TabPanel.d.ts",
     "browser": {
         "./sfc": "./TabPanel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -2,5 +2,6 @@
     "main": "./avatarstyle.cjs.js",
     "module": "./avatarstyle.esm.js",
     "unpkg": "./avatarstyle.min.js",
-    "types": "./AvatarStyle.d.ts"
+    "types": "./AvatarStyle.d.ts",
+    "sideEffects": false
 }

@@ -5,5 +5,8 @@
     "types": "./Carousel.d.ts",
     "browser": {
         "./sfc": "./Carousel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

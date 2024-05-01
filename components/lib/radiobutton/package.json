@@ -5,5 +5,8 @@
     "types": "./RadioButton.d.ts",
     "browser": {
         "./sfc": "./RadioButton.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./ToggleButton.d.ts",
     "browser": {
         "./sfc": "./ToggleButton.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -2,5 +2,6 @@
     "main": "./panelstyle.cjs.js",
     "module": "./panelstyle.esm.js",
     "unpkg": "./panelstyle.min.js",
-    "types": "./PanelStyle.d.ts"
+    "types": "./PanelStyle.d.ts",
+    "sideEffects": false
 }

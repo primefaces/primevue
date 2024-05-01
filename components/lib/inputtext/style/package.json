@@ -2,5 +2,6 @@
     "main": "./inputtextstyle.cjs.js",
     "module": "./inputtextstyle.esm.js",
     "unpkg": "./inputtextstyle.min.js",
-    "types": "./InputTextStyle.d.ts"
+    "types": "./InputTextStyle.d.ts",
+    "sideEffects": false
 }

@@ -5,5 +5,8 @@
     "types": "./ProgressBar.d.ts",
     "browser": {
         "./sfc": "./ProgressBar.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

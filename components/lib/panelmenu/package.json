@@ -5,5 +5,8 @@
     "types": "./PanelMenu.d.ts",
     "browser": {
         "./sfc": "./PanelMenu.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -2,5 +2,6 @@
     "main": "./calendarstyle.cjs.js",
     "module": "./calendarstyle.esm.js",
     "unpkg": "./calendarstyle.min.js",
-    "types": "./CalendarStyle.d.ts"
+    "types": "./CalendarStyle.d.ts",
+    "sideEffects": false
 }

@@ -5,5 +5,8 @@
     "types": "./DeferredContent.d.ts",
     "browser": {
         "./sfc": "./DeferredContent.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

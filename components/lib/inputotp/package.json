@@ -5,5 +5,8 @@
     "types": "./InputOtp.d.ts",
     "browser": {
         "./sfc": "./InputOtp.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

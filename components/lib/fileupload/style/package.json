@@ -2,5 +2,6 @@
     "main": "./fileuploadstyle.cjs.js",
     "module": "./fileuploadstyle.esm.js",
     "unpkg": "./fileuploadstyle.min.js",
-    "types": "./FileUploadStyle.d.ts"
+    "types": "./FileUploadStyle.d.ts",
+    "sideEffects": false
 }

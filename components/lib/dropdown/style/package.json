@@ -2,5 +2,6 @@
     "main": "./dropdownstyle.cjs.js",
     "module": "./dropdownstyle.esm.js",
     "unpkg": "./dropdownstyle.min.js",
-    "types": "./DropdownStyle.d.ts"
+    "types": "./DropdownStyle.d.ts",
+    "sideEffects": false
 }

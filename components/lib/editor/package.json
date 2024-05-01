@@ -5,5 +5,8 @@
     "types": "./Editor.d.ts",
     "browser": {
         "./sfc": "./Editor.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

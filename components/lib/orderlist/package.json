@@ -5,5 +5,8 @@
     "types": "./OrderList.d.ts",
     "browser": {
         "./sfc": "./OrderList.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

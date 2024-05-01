@@ -5,5 +5,8 @@
     "types": "./SplitterPanel.d.ts",
     "browser": {
         "./sfc": "./SplitterPanel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

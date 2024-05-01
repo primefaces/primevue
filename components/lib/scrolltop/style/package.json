@@ -2,5 +2,6 @@
     "main": "./scrolltopstyle.cjs.js",
     "module": "./scrolltopstyle.esm.js",
     "unpkg": "./scrolltopstyle.min.js",
-    "types": "./ScrollTopStyle.d.ts"
+    "types": "./ScrollTopStyle.d.ts",
+    "sideEffects": false
 }

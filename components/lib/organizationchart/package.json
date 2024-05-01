@@ -5,5 +5,8 @@
     "types": "./OrganizationChart.d.ts",
     "browser": {
         "./sfc": "./OrganizationChart.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

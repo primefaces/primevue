@@ -5,5 +5,8 @@
     "types": "./ScrollTop.d.ts",
     "browser": {
         "./sfc": "./ScrollTop.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Chip.d.ts",
     "browser": {
         "./sfc": "./Chip.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

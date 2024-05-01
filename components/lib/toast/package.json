@@ -5,5 +5,8 @@
     "types": "./Toast.d.ts",
     "browser": {
         "./sfc": "./Toast.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./AccordionPanel.d.ts",
     "browser": {
         "./sfc": "./AccordionPanel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

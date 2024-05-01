@@ -2,5 +2,6 @@
     "main": "./ripplestyle.cjs.js",
     "module": "./ripplestyle.esm.js",
     "unpkg": "./ripplestyle.min.js",
-    "types": "./RippleStyle.d.ts"
+    "types": "./RippleStyle.d.ts",
+    "sideEffects": false
 }

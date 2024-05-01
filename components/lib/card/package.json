@@ -5,5 +5,8 @@
     "types": "./Card.d.ts",
     "browser": {
         "./sfc": "./Card.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

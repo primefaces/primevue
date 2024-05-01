@@ -5,5 +5,8 @@
     "types": "./InputMask.d.ts",
     "browser": {
         "./sfc": "./InputMask.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Fieldset.d.ts",
     "browser": {
         "./sfc": "./Fieldset.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

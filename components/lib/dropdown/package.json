@@ -5,5 +5,8 @@
     "types": "./Dropdown.d.ts",
     "browser": {
         "./sfc": "./Dropdown.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

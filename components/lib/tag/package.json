@@ -5,5 +5,8 @@
     "types": "./Tag.d.ts",
     "browser": {
         "./sfc": "./Tag.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

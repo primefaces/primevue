@@ -5,5 +5,8 @@
     "types": "./TreeSelect.d.ts",
     "browser": {
         "./sfc": "./TreeSelect.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

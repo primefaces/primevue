@@ -2,5 +2,6 @@
     "main": "./toaststyle.cjs.js",
     "module": "./toaststyle.esm.js",
     "unpkg": "./toaststyle.min.js",
-    "types": "./ToastStyle.d.ts"
+    "types": "./ToastStyle.d.ts",
+    "sideEffects": false
 }

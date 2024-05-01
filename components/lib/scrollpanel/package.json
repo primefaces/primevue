@@ -5,5 +5,8 @@
     "types": "./ScrollPanel.d.ts",
     "browser": {
         "./sfc": "./ScrollPanel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

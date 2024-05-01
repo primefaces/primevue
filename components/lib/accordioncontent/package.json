@@ -5,5 +5,8 @@
     "types": "./AccordionContent.d.ts",
     "browser": {
         "./sfc": "./AccordionContent.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

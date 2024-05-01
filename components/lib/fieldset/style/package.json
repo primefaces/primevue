@@ -2,5 +2,6 @@
     "main": "./fieldsetstyle.cjs.js",
     "module": "./fieldsetstyle.esm.js",
     "unpkg": "./fieldsetstyle.min.js",
-    "types": "./FieldsetStyle.d.ts"
+    "types": "./FieldsetStyle.d.ts",
+    "sideEffects": false
 }

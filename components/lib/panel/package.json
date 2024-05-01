@@ -5,5 +5,8 @@
     "types": "./Panel.d.ts",
     "browser": {
         "./sfc": "./Panel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

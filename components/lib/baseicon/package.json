@@ -4,5 +4,8 @@
     "unpkg": "./baseicon.min.js",
     "browser": {
         "./sfc": "./BaseIcon.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./InputGroup.d.ts",
     "browser": {
         "./sfc": "./InputGroup.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

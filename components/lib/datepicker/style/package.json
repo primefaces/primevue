@@ -2,5 +2,6 @@
     "main": "./datepickerstyle.cjs.js",
     "module": "./datepickerstyle.esm.js",
     "unpkg": "./datepickerstyle.min.js",
-    "types": "./DatePickerStyle.d.ts"
+    "types": "./DatePickerStyle.d.ts",
+    "sideEffects": false
 }

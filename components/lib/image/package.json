@@ -5,5 +5,8 @@
     "types": "./Image.d.ts",
     "browser": {
         "./sfc": "./Image.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

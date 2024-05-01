@@ -5,5 +5,8 @@
     "types": "./Tabs.d.ts",
     "browser": {
         "./sfc": "./Tabs.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Terminal.d.ts",
     "browser": {
         "./sfc": "./Terminal.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

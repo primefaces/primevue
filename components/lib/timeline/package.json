@@ -5,5 +5,8 @@
     "types": "./Timeline.d.ts",
     "browser": {
         "./sfc": "./Timeline.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

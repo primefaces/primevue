@@ -5,5 +5,8 @@
     "types": "./ConfirmDialog.d.ts",
     "browser": {
         "./sfc": "./ConfirmDialog.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

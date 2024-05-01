@@ -2,5 +2,6 @@
     "main": "./metergroupstyle.cjs.js",
     "module": "./metergroupstyle.esm.js",
     "unpkg": "./metergroupstyle.min.js",
-    "types": "./MeterGroupStyle.d.ts"
+    "types": "./MeterGroupStyle.d.ts",
+    "sideEffects": false
 }

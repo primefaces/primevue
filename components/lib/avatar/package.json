@@ -5,5 +5,8 @@
     "types": "./Avatar.d.ts",
     "browser": {
         "./sfc": "./Avatar.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

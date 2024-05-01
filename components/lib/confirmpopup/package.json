@@ -5,5 +5,8 @@
     "types": "./ConfirmPopup.d.ts",
     "browser": {
         "./sfc": "./ConfirmPopup.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

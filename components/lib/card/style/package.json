@@ -2,5 +2,6 @@
     "main": "./cardstyle.cjs.js",
     "module": "./cardstyle.esm.js",
     "unpkg": "./cardstyle.min.js",
-    "types": "./CardStyle.d.ts"
+    "types": "./CardStyle.d.ts",
+    "sideEffects": false
 }

@@ -5,5 +5,8 @@
     "types": "./StepperPanel.d.ts",
     "browser": {
         "./sfc": "./StepperPanel.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

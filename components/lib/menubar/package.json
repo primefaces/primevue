@@ -5,5 +5,8 @@
     "types": "./Menubar.d.ts",
     "browser": {
         "./sfc": "./Menubar.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

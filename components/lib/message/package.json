@@ -5,5 +5,8 @@
     "types": "./Message.d.ts",
     "browser": {
         "./sfc": "./Message.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

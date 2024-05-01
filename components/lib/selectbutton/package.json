@@ -5,5 +5,8 @@
     "types": "./SelectButton.d.ts",
     "browser": {
         "./sfc": "./SelectButton.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

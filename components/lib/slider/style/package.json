@@ -2,5 +2,6 @@
     "main": "./sliderstyle.cjs.js",
     "module": "./sliderstyle.esm.js",
     "unpkg": "./sliderstyle.min.js",
-    "types": "./SliderStyle.d.ts"
+    "types": "./SliderStyle.d.ts",
+    "sideEffects": false
 }

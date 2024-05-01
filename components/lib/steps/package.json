@@ -5,5 +5,8 @@
     "types": "./Steps.d.ts",
     "browser": {
         "./sfc": "./Steps.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

@@ -5,5 +5,8 @@
     "types": "./Listbox.d.ts",
     "browser": {
         "./sfc": "./Listbox.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

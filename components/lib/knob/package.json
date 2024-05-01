@@ -5,5 +5,8 @@
     "types": "./Knob.d.ts",
     "browser": {
         "./sfc": "./Knob.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

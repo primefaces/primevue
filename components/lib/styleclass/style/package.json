@@ -2,5 +2,6 @@
     "main": "./styleclassstyle.cjs.js",
     "module": "./styleclassstyle.esm.js",
     "unpkg": "./styleclassstyle.min.js",
-    "types": "./StyleClassStyle.d.ts"
+    "types": "./StyleClassStyle.d.ts",
+    "sideEffects": false
 }

@@ -5,5 +5,8 @@
     "types": "./Breadcrumb.d.ts",
     "browser": {
         "./sfc": "./Breadcrumb.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

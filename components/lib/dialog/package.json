@@ -5,5 +5,8 @@
     "types": "./Dialog.d.ts",
     "browser": {
         "./sfc": "./Dialog.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

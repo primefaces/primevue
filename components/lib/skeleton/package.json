@@ -5,5 +5,8 @@
     "types": "./Skeleton.d.ts",
     "browser": {
         "./sfc": "./Skeleton.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

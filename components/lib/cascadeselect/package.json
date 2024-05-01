@@ -5,5 +5,8 @@
     "types": "./CascadeSelect.d.ts",
     "browser": {
         "./sfc": "./CascadeSelect.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

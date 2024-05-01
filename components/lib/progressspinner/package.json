@@ -5,5 +5,8 @@
     "types": "./ProgressSpinner.d.ts",
     "browser": {
         "./sfc": "./ProgressSpinner.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

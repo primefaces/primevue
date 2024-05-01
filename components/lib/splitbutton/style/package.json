@@ -2,5 +2,6 @@
     "main": "./splitbuttonstyle.cjs.js",
     "module": "./splitbuttonstyle.esm.js",
     "unpkg": "./splitbuttonstyle.min.js",
-    "types": "./SplitButtonStyle.d.ts"
+    "types": "./SplitButtonStyle.d.ts",
+    "sideEffects": false
 }

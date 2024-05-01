@@ -5,5 +5,8 @@
     "types": "./Checkbox.d.ts",
     "browser": {
         "./sfc": "./Checkbox.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

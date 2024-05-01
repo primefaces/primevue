@@ -2,5 +2,6 @@
     "main": "./organizationchartstyle.cjs.js",
     "module": "./organizationchartstyle.esm.js",
     "unpkg": "./organizationchartstyle.min.js",
-    "types": "./OrganizationChartStyle.d.ts"
+    "types": "./OrganizationChartStyle.d.ts",
+    "sideEffects": false
 }

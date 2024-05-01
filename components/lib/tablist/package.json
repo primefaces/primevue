@@ -5,5 +5,8 @@
     "types": "./TabList.d.ts",
     "browser": {
         "./sfc": "./TabList.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

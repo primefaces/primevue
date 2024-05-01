@@ -2,5 +2,6 @@
     "main": "./pickliststyle.cjs.js",
     "module": "./pickliststyle.esm.js",
     "unpkg": "./pickliststyle.min.js",
-    "types": "./PickListStyle.d.ts"
+    "types": "./PickListStyle.d.ts",
+    "sideEffects": false
 }

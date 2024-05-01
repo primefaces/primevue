@@ -5,5 +5,8 @@
     "types": "./InputText.d.ts",
     "browser": {
         "./sfc": "./InputText.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }

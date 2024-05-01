@@ -5,5 +5,8 @@
     "types": "./Password.d.ts",
     "browser": {
         "./sfc": "./Password.vue"
-    }
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
 }
