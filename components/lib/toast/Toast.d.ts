@@ -7,9 +7,7 @@
  * @module toast
  *
  */
-import { TransitionProps, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent';
-import { ButtonPassThroughOptions } from '../button';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -45,20 +43,6 @@ export interface ToastPassThroughMethodOptions {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
-}
-
-/**
- * Custom shared passthrough(pt) option method.
- */
-export interface ToastSharedPassThroughMethodOptions {
-    /**
-     * Defines valid properties.
-     */
-    props: ToastProps;
-    /**
-     * Defines current inline state.
-     */
-    state: ToastState;
 }
 
 /**
@@ -99,17 +83,14 @@ export interface ToastPassThroughOptions {
      */
     buttonContainer?: ToastPassThroughOptionType;
     /**
-     * /**
      * Used to pass attributes to the button's DOM element.
-     * @see {@link ButtonPassThroughOptions}
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
-    button?: ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>;
+    button?: ToastPassThroughOptionType;
     /**
-     * /**
-     * Used to pass attributes to the close button's DOM element.
-     * @see {@link ButtonPassThroughOptions}
+     * Used to pass attributes to the button's DOM element.
      */
-    closeButton?: ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>;
+    closeButton?: ToastPassThroughOptionType;
     /**
      * Used to pass attributes to the button icon's DOM element.
      */
@@ -251,10 +232,10 @@ export interface ToastProps {
      */
     successIcon?: string | undefined;
     /**
-     * Used to pass attributes to the close Button component.
-     * @defaultValue {}
+     * Used to pass all properties of the HTMLButtonElement to the close button.
+     * @deprecated since v3.26.0. Use 'pt' property.
      */
-    closeButtonProps?: object | undefined;
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Used to access message options.
      * @type {ToastMessageOptions}
