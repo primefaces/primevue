@@ -1155,11 +1155,11 @@ export default {
             }
 
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
+                if (this.input) {
+                    this.input.focus();
+                }
+                
                 setTimeout(() => {
-                    if (this.input) {
-                        this.input.focus();
-                    }
-
                     this.overlayVisible = false;
                 }, 150);
             }
