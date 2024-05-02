@@ -141,7 +141,12 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (DomHandler.isClickable(event.target) || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggler' || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtogglericon' || event.target.tagName === 'path') {
+            if (
+                DomHandler.isClickable(event.target) ||
+                DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtogglebutton' ||
+                DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' ||
+                event.target.tagName === 'path'
+            ) {
                 return;
             }
 
@@ -219,7 +224,7 @@ export default {
         },
         onArrowRightKey(event) {
             const ishiddenIcon = DomHandler.findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(this.$refs.node, '[data-pc-section="rowtoggler"]');
+            const togglerElement = DomHandler.findSingle(this.$refs.node, '[data-pc-section="rowtogglebutton"]');
 
             if (ishiddenIcon) return;
 
@@ -238,7 +243,7 @@ export default {
 
             const currentTarget = event.currentTarget;
             const ishiddenIcon = DomHandler.findSingle(currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(currentTarget, '[data-pc-section="rowtoggler"]');
+            const togglerElement = DomHandler.findSingle(currentTarget, '[data-pc-section="rowtogglebutton"]');
 
             if (this.expanded && !ishiddenIcon) {
                 togglerElement.click();

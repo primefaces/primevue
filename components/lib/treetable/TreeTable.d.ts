@@ -219,11 +219,11 @@ export interface TreeTablePassThroughOptions {
     /**
      * Used to pass attributes to the loading wrapper's DOM element.
      */
-    loadingWrapper?: TreeTablePassThroughOptionType;
+    loading?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
-    loadingOverlay?: TreeTablePassThroughOptionType;
+    mask?: TreeTablePassThroughOptionType;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
@@ -238,9 +238,9 @@ export interface TreeTablePassThroughOptions {
      */
     paginator?: PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the table container's DOM element.
      */
-    wrapper?: TreeTablePassThroughOptionType;
+    tableContainer?: TreeTablePassThroughOptionType;
     /**
      * Used to pass attributes to the table's DOM element.
      */

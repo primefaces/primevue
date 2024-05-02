@@ -459,12 +459,12 @@ const classes = {
             'p-treetable-lg': props.size === 'large'
         }
     ],
-    loadingWrapper: 'p-treetable-loading', //TODO: required?
-    loadingOverlay: 'p-treetable-mask p-component-overlay',
+    loading: 'p-treetable-loading', //TODO: required?
+    mask: 'p-treetable-mask p-component-overlay',
     loadingIcon: 'p-treetable-loading-icon',
     header: 'p-treetable-header',
     paginator: ({ position }) => 'p-treetable-paginator-' + position,
-    wrapper: 'p-treetable-table-container',
+    tableContainer: 'p-treetable-table-container',
     thead: 'p-treetable-thead',
     headerCell: ({ instance, props }) => [
         {
@@ -475,7 +475,7 @@ const classes = {
         }
     ],
     columnResizer: 'p-treetable-column-resizer',
-    headerTitle: 'p-treetable-column-title',
+    columnTitle: 'p-treetable-column-title',
     sortIcon: 'p-treetable-sort-icon',
     sortBadge: 'p-treetable-sort-badge',
     tbody: 'p-treetable-tbody',
@@ -489,9 +489,9 @@ const classes = {
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
-    rowToggler: 'p-treetable-row-toggle-button',
-    rowTogglerIcon: 'p-treetable-row-toggle-icon',
-    rowCheckbox: ({ instance }) => 'p-treetable-row-checkbox',
+    rowToggleButton: 'p-treetable-row-toggle-button',
+    rowToggleIcon: 'p-treetable-row-toggle-icon',
+    rowCheckbox: 'p-treetable-row-checkbox',
     emptyMessage: 'p-treetable-empty-message',
     tfoot: 'p-treetable-tfoot',
     footerCell: ({ instance }) => [
@@ -499,9 +499,8 @@ const classes = {
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
-    //treetable
     footer: 'p-treetable-footer',
-    resizeHelper: 'p-treetable-column-resize-indicator'
+    columnResizeHelper: 'p-treetable-column-resize-indicator'
 };
 
 export default BaseStyle.extend({

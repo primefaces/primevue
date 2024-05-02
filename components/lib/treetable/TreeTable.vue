@@ -1,8 +1,8 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading && loadingMode === 'mask'" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
-            <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
+        <div v-if="loading && loadingMode === 'mask'" :class="cx('loading')" v-bind="ptm('loading')">
+            <div :class="cx('mask')" v-bind="ptm('mask')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
                 </slot>
@@ -51,7 +51,7 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </TTPaginator>
-        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+        <div :class="cx('tableContainer')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('tableContainer')">
             <table ref="table" role="table" v-bind="{ ...tableProps, ...ptm('table') }">
                 <thead :class="cx('thead')" role="rowgroup" v-bind="ptm('thead')">
                     <tr role="row" v-bind="ptm('headerRow')">
@@ -163,7 +163,7 @@
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
-        <div ref="resizeHelper" :class="cx('resizeHelper')" style="display: none" v-bind="ptm('resizeHelper')"></div>
+        <div ref="resizeHelper" :class="cx('columnResizeHelper')" style="display: none" v-bind="ptm('columnResizeHelper')"></div>
     </div>
 </template>
 
@@ -393,7 +393,7 @@ export default {
 
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
