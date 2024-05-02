@@ -13,6 +13,7 @@ const theme = ({ dt }) => `
 .p-menu-list {
     margin: 0;
     padding: 0;
+    outline: 0;
     list-style: none;
 }
 

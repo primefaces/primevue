@@ -82,6 +82,7 @@ const theme = ({ dt }) => `
 .p-panelmenu-submenu {
     margin: 4px 0 0 0;
     padding: 0 0 0 1rem;
+    outline: 0;
     list-style: none;
 }
 

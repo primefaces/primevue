@@ -14,6 +14,7 @@ const theme = ({ dt }) => `
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;
+    outline: 0;
     list-style: none;
 }
 
