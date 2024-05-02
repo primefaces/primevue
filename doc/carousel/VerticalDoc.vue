@@ -4,7 +4,7 @@
     </DocSectionText>
 
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2 p-3">
                     <div class="mb-3">
@@ -37,7 +37,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" contentClass="flex align-items-center">
+<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex align-items-center">
     <template #item="slotProps">
         <div class="border-1 surface-border border-round m-2  p-3">
             <div class="mb-3">
@@ -61,7 +61,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2  p-3">
                     <div class="mb-3">
@@ -119,7 +119,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" contentClass="flex align-items-center">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex align-items-center">
             <template #item="slotProps">
                 <div class="border-1 surface-border border-round m-2  p-3">
                     <div class="mb-3">
