@@ -83,38 +83,38 @@ const classes = {
             [`p-paginator-${key}`]: instance.hasBreakpoints()
         }
     ],
-    start: 'p-paginator-content-start',
-    end: 'p-paginator-content-end',
-    firstPageButton: ({ instance }) => [
+    contentStart: 'p-paginator-content-start',
+    contentEnd: 'p-paginator-content-end',
+    first: ({ instance }) => [
         'p-paginator-first',
         {
             'p-disabled': instance.$attrs.disabled
         }
     ],
-    firstPageIcon: 'p-paginator-first-icon',
-    previousPageButton: ({ instance }) => [
+    firstIcon: 'p-paginator-first-icon',
+    prev: ({ instance }) => [
         'p-paginator-prev',
         {
             'p-disabled': instance.$attrs.disabled
         }
     ],
-    previousPageIcon: 'p-paginator-prev-icon',
-    nextPageButton: ({ instance }) => [
+    prevIcon: 'p-paginator-prev-icon',
+    next: ({ instance }) => [
         'p-paginator-next',
         {
             'p-disabled': instance.$attrs.disabled
         }
     ],
-    nextPageIcon: 'p-paginator-next-icon',
-    lastPageButton: ({ instance }) => [
+    nextIcon: 'p-paginator-next-icon',
+    last: ({ instance }) => [
         'p-paginator-last',
         {
             'p-disabled': instance.$attrs.disabled
         }
     ],
-    lastPageIcon: 'p-paginator-last-icon',
+    lastIcon: 'p-paginator-last-icon',
     pages: 'p-paginator-pages',
-    pageButton: ({ props, pageLink }) => [
+    page: ({ props, pageLink }) => [
         'p-paginator-page',
         {
             'p-paginator-page-active': pageLink - 1 === props.page

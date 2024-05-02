@@ -57,25 +57,25 @@ export interface TimelinePassThroughOptions {
      */
     event?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the opposite's DOM element.
+     * Used to pass attributes to the event opposite's DOM element.
      */
-    opposite?: TimelinePassThroughOptionType;
+    eventOpposite?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the event separator's DOM element.
      */
-    separator?: TimelinePassThroughOptionType;
+    eventSeparator?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the marker's DOM element.
+     * Used to pass attributes to the event marker's DOM element.
      */
-    marker?: TimelinePassThroughOptionType;
+    eventMarker?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the connector's DOM element.
+     * Used to pass attributes to the event connector's DOM element.
      */
-    connector?: TimelinePassThroughOptionType;
+    eventConnector?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the event content's DOM element.
      */
-    content?: TimelinePassThroughOptionType;
+    eventContent?: TimelinePassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

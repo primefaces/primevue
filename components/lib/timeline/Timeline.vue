@@ -1,18 +1,18 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <div v-for="(item, index) of value" :key="getKey(item, index)" :class="cx('event')" v-bind="getPTOptions('event', index)">
-            <div :class="cx('opposite', { index })" v-bind="getPTOptions('opposite', index)">
+            <div :class="cx('eventOpposite', { index })" v-bind="getPTOptions('eventOpposite', index)">
                 <slot name="opposite" :item="item" :index="index"></slot>
             </div>
-            <div :class="cx('separator')" v-bind="getPTOptions('separator', index)">
+            <div :class="cx('eventSeparator')" v-bind="getPTOptions('eventSeparator', index)">
                 <slot name="marker" :item="item" :index="index">
-                    <div :class="cx('marker')" v-bind="getPTOptions('marker', index)"></div>
+                    <div :class="cx('eventMarker')" v-bind="getPTOptions('eventMarker', index)"></div>
                 </slot>
                 <slot v-if="index !== value.length - 1" name="connector" :item="item" :index="index">
-                    <div :class="cx('connector')" v-bind="getPTOptions('connector', index)"></div>
+                    <div :class="cx('eventConnector')" v-bind="getPTOptions('eventConnector', index)"></div>
                 </slot>
             </div>
-            <div :class="cx('content')" v-bind="getPTOptions('content', index)">
+            <div :class="cx('eventContent')" v-bind="getPTOptions('eventContent', index)">
                 <slot name="content" :item="item" :index="index"></slot>
             </div>
         </div>

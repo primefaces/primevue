@@ -132,29 +132,37 @@ export interface OrganizationChartPassThroughOptions {
      */
     node?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the nodeToggler's DOM element.
+     * Used to pass attributes to the node toggle button's DOM element.
      */
-    nodeToggler?: OrganizationChartPassThroughOptionType;
+    nodeToggleButton?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the nodeTogglerIcon's DOM element.
+     * Used to pass attributes to the node toggle button icon's DOM element.
      */
-    nodeTogglerIcon?: OrganizationChartPassThroughOptionType;
+    nodeToggleButtonIcon?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the lines's DOM element.
+     * Used to pass attributes to the connectors's DOM element.
      */
-    lines?: OrganizationChartPassThroughOptionType;
+    connectors?: OrganizationChartPassThroughOptionType;
     /**
      * Used to pass attributes to the lineCell's DOM element.
      */
     lineCell?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the lineDown's DOM element.
+     * Used to pass attributes to the connector down's DOM element.
      */
-    lineDown?: OrganizationChartPassThroughOptionType;
+    connectorDown?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the nodes's DOM element.
+     * Used to pass attributes to the connector left's DOM element.
      */
-    nodes?: OrganizationChartPassThroughOptionType;
+    connectorLeft?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the connector right's DOM element.
+     */
+    connectorRight?: OrganizationChartPassThroughOptionType;
+    /**
+     * Used to pass attributes to the node children's DOM element.
+     */
+    nodeChildren?: OrganizationChartPassThroughOptionType;
     /**
      * Used to pass attributes to the nodeCell's DOM element.
      */

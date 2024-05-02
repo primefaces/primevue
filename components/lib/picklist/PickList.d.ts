@@ -169,17 +169,17 @@ export interface PickListPassThroughOptions {
      */
     sourceMoveBottomButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the source wrapper's DOM element.
+     * Used to pass attributes to the source list containerr's DOM element.
      */
-    sourceWrapper?: PickListPassThroughOptionType;
+    sourceListContainer?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the source list's DOM element.
      */
     sourceList?: PickListPassThroughOptionType;
     /**
-     * Used to pass attributes to the buttons' DOM element.
+     * Used to pass attributes to the transfer controls' DOM element.
      */
-    buttons?: PickListPassThroughOptionType;
+    transferControls?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the Button component.
      */
@@ -197,9 +197,9 @@ export interface PickListPassThroughOptions {
      */
     moveAllToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the target wrapper's DOM element.
+     * Used to pass attributes to the target list container's DOM element.
      */
-    targetWrapper?: PickListPassThroughOptionType;
+    targetListContainer?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the target list's DOM element.
      */

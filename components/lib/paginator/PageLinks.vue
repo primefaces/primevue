@@ -4,12 +4,12 @@
             v-for="pageLink of value"
             :key="pageLink"
             v-ripple
-            :class="cx('pageButton', { pageLink })"
+            :class="cx('page', { pageLink })"
             type="button"
             :aria-label="ariaPageLabel(pageLink)"
             :aria-current="pageLink - 1 === page ? 'page' : undefined"
             @click="onPageLinkClick($event, pageLink)"
-            v-bind="getPTOptions(pageLink - 1, 'pageButton')"
+            v-bind="getPTOptions(pageLink - 1, 'page')"
             :data-p-highlight="pageLink - 1 === page"
         >
             {{ pageLink }}

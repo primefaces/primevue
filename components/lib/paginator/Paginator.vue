@@ -1,7 +1,7 @@
 <template>
     <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptmi('paginatorWrapper')">
         <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')">
-            <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
+            <div v-if="$slots.start" :class="cx('contentStart')" v-bind="ptm('contentStart')">
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
@@ -47,7 +47,7 @@
                 />
                 <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
             </template>
-            <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
+            <div v-if="$slots.end" :class="cx('contentEnd')" v-bind="ptm('contentEnd')">
                 <slot name="end" :state="currentState"></slot>
             </div>
         </div>

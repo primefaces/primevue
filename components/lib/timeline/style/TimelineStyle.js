@@ -157,11 +157,11 @@ const theme = ({ dt }) => `
 const classes = {
     root: ({ props }) => ['p-timeline p-component', 'p-timeline-' + props.align, 'p-timeline-' + props.layout],
     event: 'p-timeline-event',
-    opposite: 'p-timeline-event-opposite',
-    separator: 'p-timeline-event-separator',
-    marker: 'p-timeline-event-marker',
-    connector: 'p-timeline-event-connector',
-    content: 'p-timeline-event-content'
+    eventOpposite: 'p-timeline-event-opposite',
+    eventSeparator: 'p-timeline-event-separator',
+    eventMarker: 'p-timeline-event-marker',
+    eventConnector: 'p-timeline-event-connector',
+    eventContent: 'p-timeline-event-content'
 };
 
 export default BaseStyle.extend({

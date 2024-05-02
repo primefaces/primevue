@@ -32,7 +32,7 @@
             </Button>
             <slot name="sourcecontrolsend"></slot>
         </div>
-        <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')" data-pc-group-section="listwrapper">
+        <div :class="cx('sourceListContainer')" v-bind="ptm('sourceListContainer')" data-pc-group-section="listcontainer">
             <Listbox
                 ref="sourceList"
                 :id="idSource + '_list'"
@@ -64,7 +64,7 @@
                 </template>
             </Listbox>
         </div>
-        <div :class="cx('buttons')" v-bind="ptm('buttons')" data-pc-group-section="controls">
+        <div :class="cx('transferControls')" v-bind="ptm('transferControls')" data-pc-group-section="controls">
             <slot name="movecontrolsstart"></slot>
             <Button :aria-label="moveToTargetAriaLabel" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="{ ...buttonProps, ...moveToTargetProps }" :pt="ptm('moveToTargetButton')" :unstyled="unstyled">
                 <template #icon>
@@ -96,7 +96,7 @@
             </Button>
             <slot name="movecontrolsend"></slot>
         </div>
-        <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')" data-pc-group-section="listwrapper">
+        <div :class="cx('targetListContainer')" v-bind="ptm('targetListContainer')" data-pc-group-section="listcontainer">
             <Listbox
                 ref="targetList"
                 :id="idTarget + '_list'"

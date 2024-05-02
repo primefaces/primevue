@@ -1,6 +1,6 @@
 <template>
-    <button v-ripple :class="cx('firstPageButton')" type="button" v-bind="getPTOptions('firstPageButton')" data-pc-group-section="pagebutton">
-        <component :is="template || 'AngleDoubleLeftIcon'" :class="cx('firstPageIcon')" v-bind="getPTOptions('firstPageIcon')" />
+    <button v-ripple :class="cx('first')" type="button" v-bind="getPTOptions('first')" data-pc-group-section="pagebutton">
+        <component :is="template || 'AngleDoubleLeftIcon'" :class="cx('firstIcon')" v-bind="getPTOptions('firstIcon')" />
     </button>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-    <button v-ripple :class="cx('lastPageButton')" type="button" v-bind="getPTOptions('lastPageButton')" data-pc-group-section="pagebutton">
-        <component :is="template || 'AngleDoubleRightIcon'" :class="cx('lastPageIcon')" v-bind="getPTOptions('lastPageIcon')" />
+    <button v-ripple :class="cx('last')" type="button" v-bind="getPTOptions('last')" data-pc-group-section="pagebutton">
+        <component :is="template || 'AngleDoubleRightIcon'" :class="cx('lastIcon')" v-bind="getPTOptions('lastIcon')" />
     </button>
 </template>
 

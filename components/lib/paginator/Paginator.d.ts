@@ -74,41 +74,41 @@ export interface PaginatorPassThroughOptions<T = any> {
      */
     root?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the start's DOM element.
+     * Used to pass attributes to the content start's DOM element.
      */
-    start?: PaginatorPassThroughOptionType<T>;
+    contentStart?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the first page button's DOM element.
      */
-    firstPageButton?: PaginatorPassThroughOptionType<T>;
+    first?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the first page icon's DOM element.
+     * Used to pass attributes to the first icon's DOM element.
      */
-    firstPageIcon?: PaginatorPassThroughOptionType<T>;
+    firstIcon?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the prev page button's DOM element.
      */
-    previousPageButton?: PaginatorPassThroughOptionType<T>;
+    prev?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the prev page icon's DOM element.
      */
-    previousPageIcon?: PaginatorPassThroughOptionType<T>;
+    prevIcon?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the next page button's DOM element.
      */
-    nextPageButton?: PaginatorPassThroughOptionType<T>;
+    next?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the next page icon's DOM element.
      */
-    nextPageIcon?: PaginatorPassThroughOptionType<T>;
+    nextIcon?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the last page button's DOM element.
      */
-    lastPageButton?: PaginatorPassThroughOptionType<T>;
+    last?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the last page icon's DOM element.
      */
-    lastPageIcon?: PaginatorPassThroughOptionType<T>;
+    lastIcon?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the pages's DOM element.
      */
@@ -116,7 +116,7 @@ export interface PaginatorPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the page button's DOM element.
      */
-    pageButton?: PaginatorPassThroughOptionType<T>;
+    page?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the current's DOM element.
      */
@@ -137,9 +137,9 @@ export interface PaginatorPassThroughOptions<T = any> {
      */
     jumpToPageInput?: InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the end's DOM element.
+     * Used to pass attributes to the content end's DOM element.
      */
-    end?: PaginatorPassThroughOptionType<T>;
+    contentEnd?: PaginatorPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

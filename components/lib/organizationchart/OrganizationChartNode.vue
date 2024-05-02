@@ -5,32 +5,32 @@
                 <td :colspan="colspan" v-bind="ptm('cell')">
                     <div :class="[cx('node'), node.styleClass]" @click="onNodeClick" v-bind="getPTOptions('node')">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
-                        <a v-if="toggleable" tabindex="0" :class="cx('nodeToggler')" @click="toggleNode" @keydown="onKeydown" v-bind="getPTOptions('nodeToggler')">
-                            <component v-if="templates.togglericon" :is="templates.togglericon" :expanded="expanded" class="p-node-toggler-icon" />
-                            <component v-else :is="expanded ? 'ChevronDownIcon' : 'ChevronUpIcon'" :class="cx('nodeTogglerIcon')" v-bind="getPTOptions('nodeTogglerIcon')" />
+                        <a v-if="toggleable" tabindex="0" :class="cx('nodeToggleButton')" @click="toggleNode" @keydown="onKeydown" v-bind="getPTOptions('nodeToggleButton')">
+                            <component v-if="templates.togglericon" :is="templates.togglericon" :expanded="expanded" :class="cx('nodeToggleButtonIcon')" v-bind="getPTOptions('nodeToggleButtonIcon')" />
+                            <component v-else :is="expanded ? 'ChevronDownIcon' : 'ChevronUpIcon'" :class="cx('nodeToggleButtonIcon')" v-bind="getPTOptions('nodeToggleButtonIcon')" />
                         </a>
                     </div>
                 </td>
             </tr>
-            <tr :style="childStyle" :class="cx('lines')" v-bind="ptm('lines')">
+            <tr :style="childStyle" :class="cx('connectors')" v-bind="ptm('connectors')">
                 <td :colspan="colspan" v-bind="ptm('lineCell')">
-                    <div :class="cx('lineDown')" v-bind="ptm('lineDown')"></div>
+                    <div :class="cx('connectorDown')" v-bind="ptm('connectorDown')"></div>
                 </td>
             </tr>
-            <tr :style="childStyle" :class="cx('lines')" v-bind="ptm('lines')">
+            <tr :style="childStyle" :class="cx('connectors')" v-bind="ptm('connectors')">
                 <template v-if="node.children && node.children.length === 1">
                     <td :colspan="colspan" v-bind="ptm('lineCell')">
-                        <div :class="cx('lineDown')" v-bind="ptm('lineDown')"></div>
+                        <div :class="cx('connectorDown')" v-bind="ptm('connectorDown')"></div>
                     </td>
                 </template>
                 <template v-if="node.children && node.children.length > 1">
                     <template v-for="(child, i) of node.children" :key="child.key">
-                        <td :class="cx('lineLeft', { index: i })" v-bind="getNodeOptions(!(i === 0), 'lineLeft')">&nbsp;</td>
-                        <td :class="cx('lineRight', { index: i })" v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')">&nbsp;</td>
+                        <td :class="cx('connectorLeft', { index: i })" v-bind="getNodeOptions(!(i === 0), 'connectorLeft')">&nbsp;</td>
+                        <td :class="cx('connectorRight', { index: i })" v-bind="getNodeOptions(!(i === node.children.length - 1), 'connectorRight')">&nbsp;</td>
                     </template>
                 </template>
             </tr>
-            <tr :style="childStyle" :class="cx('nodes')" v-bind="ptm('nodes')">
+            <tr :style="childStyle" :class="cx('nodeChildren')" v-bind="ptm('nodeChildren')">
                 <td v-for="child of node.children" :key="child.key" colspan="2" v-bind="ptm('nodeCell')">
                     <OrganizationChartNode
                         :node="child"
@@ -107,7 +107,7 @@ export default {
             });
         },
         onNodeClick(event) {
-            if (DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetoggler') || DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglericon')) {
+            if (DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebutton') || DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebuttonicon')) {
                 return;
             }
 
