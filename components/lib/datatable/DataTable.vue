@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading" :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
+        <div v-if="loading" :class="cx('overlay')" v-bind="ptm('overlay')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
                 <component v-if="$slots.loadingicon" :is="$slots.loadingicon" :class="cx('loadingIcon')" />
@@ -52,7 +52,7 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </DTPaginator>
-        <div :class="cx('wrapper')" :style="[sx('wrapper'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('wrapper')">
+        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('tableContainer')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
@@ -271,11 +271,11 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </DTPaginator>
-        <div ref="resizeHelper" :class="cx('resizeHelper')" style="display: none" v-bind="ptm('resizeHelper')"></div>
-        <span v-if="reorderableColumns" ref="reorderIndicatorUp" :class="cx('reorderIndicatorUp')" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorUp')">
+        <div ref="resizeHelper" :class="cx('columnResizeIndicator')" style="display: none" v-bind="ptm('columnResizeIndicator')"></div>
+        <span v-if="reorderableColumns" ref="reorderIndicatorUp" :class="cx('rowReorderIndicatorUp')" style="position: absolute; display: none" v-bind="ptm('rowReorderIndicatorUp')">
             <component :is="$slots.reorderindicatorupicon || 'ArrowDownIcon'" />
         </span>
-        <span v-if="reorderableColumns" ref="reorderIndicatorDown" :class="cx('reorderIndicatorDown')" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorDown')">
+        <span v-if="reorderableColumns" ref="reorderIndicatorDown" :class="cx('rowReorderIndicatorDown')" style="position: absolute; display: none" v-bind="ptm('rowReorderIndicatorDown')">
             <component :is="$slots.reorderindicatordownicon || 'ArrowUpIcon'" />
         </span>
     </div>
@@ -488,12 +488,12 @@ export default {
 
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headercontent' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
-                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]') && !DomHandler.isClickable(event.target))
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="columnfilterbutton"]') && !DomHandler.isClickable(event.target))
                 ) {
                     DomHandler.clearSelection();
 
@@ -1307,7 +1307,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -1501,7 +1501,7 @@ export default {
             return null;
         },
         onRowMouseDown(event) {
-            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowreordericon' || DomHandler.getAttribute(event.target.parentElement, 'data-pc-section') === 'rowreordericon') event.currentTarget.draggable = true;
+            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'reorderablerowhandle' || DomHandler.getAttribute(event.target.parentElement, 'data-pc-section') === 'reorderablerowhandle') event.currentTarget.draggable = true;
             else event.currentTarget.draggable = false;
         },
         onRowDragStart(e) {
@@ -1774,7 +1774,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="wrapper"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let style = `width: ${width}px !important; max-width: ${width}px !important`;
@@ -1918,7 +1918,7 @@ export default {
                 DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.responsiveStyleElement);
 
-                let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
+                let tableSelector = `.p-datatable-table-container ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
                 let selector = `.p-datatable[${this.attributeSelector}] > ${tableSelector}`;
                 let gridLinesSelector = `.p-datatable[${this.attributeSelector}].p-datatable-gridlines > ${tableSelector}`;
                 let innerHTML = `

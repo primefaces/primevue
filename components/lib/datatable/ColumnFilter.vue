@@ -1,20 +1,20 @@
 <template>
-    <div :class="cx('columnFilter')" v-bind="getColumnPT('columnFilter')">
-        <div v-if="display === 'row'" :class="cx('filterInput')" v-bind="{ ...filterInputProps, ...getColumnPT('filterInput') }">
+    <div :class="cx('filter')" v-bind="getColumnPT('filter')">
+        <div v-if="display === 'row'" :class="cx('filterElementContainer')" v-bind="{ ...filterInputProps, ...getColumnPT('filterElementContainer') }">
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <Button
             v-if="showMenuButton"
             ref="icon"
-            :aria-label="filterMenuButtonAriaLabel"
+            :aria-label="columnFilterButtonAriaLabel"
             aria-haspopup="true"
             :aria-expanded="overlayVisible"
             :aria-controls="overlayId"
-            :class="cx('filterMenuButton')"
+            :class="cx('columnFilterButton')"
             :unstyled="unstyled"
             @click="toggleMenu($event)"
             @keydown="onToggleButtonKeyDown($event)"
-            v-bind="{ ...getColumnPT('filterMenuButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
+            v-bind="{ ...getColumnPT('columnFilterButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
         >
             <template #icon="slotProps">
                 <component :is="filterIconTemplate || 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
@@ -22,10 +22,10 @@
         </Button>
         <Button
             v-if="showClearButton && display === 'row' && hasRowFilter()"
-            :class="cx('headerFilterClearButton')"
+            :class="cx('columnFilterClearButton')"
             :unstyled="unstyled"
             @click="clearFilter()"
-            v-bind="{ ...getColumnPT('headerFilterClearButton', ptmHeaderFilterClearParams), ...filterButtonProps.inline.clear }"
+            v-bind="{ ...getColumnPT('columnFilterClearButton', ptmHeaderFilterClearParams), ...filterButtonProps.inline.clear }"
         >
             <template #icon="slotProps">
                 <component :is="filterClearIconTemplate || 'FilterSlashIcon'" :class="slotProps.class" v-bind="getColumnPT('filterClearIcon')" />
@@ -48,21 +48,21 @@
                 >
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
-                        <ul :class="cx('filterRowItems')" v-bind="getColumnPT('filterRowItems')">
+                        <ul :class="cx('filterConstraintList')" v-bind="getColumnPT('filterConstraintList')">
                             <li
                                 v-for="(matchMode, i) of matchModes"
                                 :key="matchMode.label"
-                                :class="cx('filterRowItem', { matchMode })"
+                                :class="cx('filterConstraint', { matchMode })"
                                 @click="onRowMatchModeChange(matchMode.value)"
                                 @keydown="onRowMatchModeKeyDown($event)"
                                 @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
                                 :tabindex="i === 0 ? '0' : null"
-                                v-bind="getColumnPT('filterRowItem', ptmFilterRowItemOptions(matchMode))"
+                                v-bind="getColumnPT('filterConstraint', ptmFilterConstraintOptions(matchMode))"
                             >
                                 {{ matchMode.label }}
                             </li>
-                            <li :class="cx('filterSeparator')" v-bind="getColumnPT('filterSeparator')"></li>
-                            <li :class="cx('filterRowItem')" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()" v-bind="getColumnPT('filterRowItem')">
+                            <li :class="cx('filterConstraintSeparator')" v-bind="getColumnPT('filterConstraintSeparator')"></li>
+                            <li :class="cx('filterConstraint')" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()" v-bind="getColumnPT('filterConstraint')">
                                 {{ noFilterLabel }}
                             </li>
                         </ul>
@@ -81,52 +81,43 @@
                                 :pt="getColumnPT('filterOperatorDropdown')"
                             ></Select>
                         </div>
-                        <div :class="cx('filterConstraints')" v-bind="getColumnPT('filterConstraints')">
-                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" :class="cx('filterConstraint')" v-bind="getColumnPT('filterConstraint')">
+                        <div :class="cx('filterRuleList')" v-bind="getColumnPT('filterRuleList')">
+                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" :class="cx('filterRule')" v-bind="getColumnPT('filterRule')">
                                 <Select
                                     v-if="isShowMatchModes"
                                     :options="matchModes"
                                     :modelValue="fieldConstraint.matchMode"
-                                    :class="cx('filterMatchModeDropdown')"
+                                    :class="cx('filterConstraintDropdown')"
                                     optionLabel="label"
                                     optionValue="value"
-                                    :aria-label="filterConstraintAriaLabel"
+                                    :aria-label="filterRuleAriaLabel"
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
                                     :unstyled="unstyled"
-                                    :pt="getColumnPT('filterMatchModeDropdown')"
+                                    :pt="getColumnPT('filterConstraintDropdown')"
                                 ></Select>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" :applyFilter="applyFilter" />
                                 <div v-bind="getColumnPT('filterRemove')">
                                     <Button
                                         v-if="showRemoveIcon"
                                         type="button"
-                                        :class="cx('filterRemoveButton')"
+                                        :class="cx('filterRemoveRuleButton')"
                                         @click="removeConstraint(i)"
                                         :label="removeRuleButtonLabel"
                                         :unstyled="unstyled"
                                         v-bind="filterButtonProps.popover.removeRule"
-                                        :pt="getColumnPT('filterRemoveButton')"
+                                        :pt="getColumnPT('filterRemoveRuleButton')"
                                     >
                                         <template #icon="iconProps">
-                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" :class="iconProps.class" v-bind="getColumnPT('filterRemoveButton')['icon']" />
+                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" :class="iconProps.class" v-bind="getColumnPT('filterRemoveRuleButton')['icon']" />
                                         </template>
                                     </Button>
                                 </div>
                             </div>
                         </div>
-                        <div v-if="isShowAddConstraint" :class="cx('filterAddRule')" v-bind="getColumnPT('filterAddRule')">
-                            <Button
-                                type="button"
-                                :label="addRuleButtonLabel"
-                                iconPos="left"
-                                :class="cx('filterAddRuleButton')"
-                                @click="addConstraint()"
-                                :unstyled="unstyled"
-                                v-bind="filterButtonProps.popover.addRule"
-                                :pt="getColumnPT('filterAddRuleButton')"
-                            >
+                        <div v-if="isShowAddConstraint" v-bind="getColumnPT('filterAddButtonContainer')">
+                            <Button type="button" :label="addRuleButtonLabel" iconPos="left" :class="cx('filterAddButton')" @click="addConstraint()" :unstyled="unstyled" v-bind="filterButtonProps.popover.addRule" :pt="getColumnPT('filterAddButton')">
                                 <template #icon="iconProps">
-                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPT('filterAddRuleButton')['icon']" />
+                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPT('filterAddButton')['icon']" />
                                 </template>
                             </Button>
                         </div>
@@ -353,7 +344,7 @@ export default {
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
         },
-        ptmFilterRowItemOptions(matchMode) {
+        ptmFilterConstraintOptions(matchMode) {
             return {
                 context: {
                     highlighted: matchMode && this.isRowMatchModeSelected(matchMode.value)
@@ -516,19 +507,19 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem) return DomHandler.getAttribute(nextItem, 'data-pc-section') === 'filterseparator' ? this.findNextItem(nextItem) : nextItem;
+            if (nextItem) return DomHandler.getAttribute(nextItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findNextItem(nextItem) : nextItem;
             else return item.parentElement.firstElementChild;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) return DomHandler.getAttribute(prevItem, 'data-pc-section') === 'filterseparator' ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return DomHandler.getAttribute(prevItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findPrevItem(prevItem) : prevItem;
             else return item.parentElement.lastElementChild;
         },
         hide() {
             this.overlayVisible = false;
 
-            DomHandler.focus(this.$refs.icon.$el);
+            this.showMenuButton && DomHandler.focus(this.$refs.icon.$el);
         },
         onContentClick(event) {
             this.selfClick = true;
@@ -695,13 +686,13 @@ export default {
         applyButtonLabel() {
             return this.$primevue.config.locale ? this.$primevue.config.locale.apply : undefined;
         },
-        filterMenuButtonAriaLabel() {
+        columnFilterButtonAriaLabel() {
             return this.$primevue.config.locale ? (this.overlayVisible ? this.$primevue.config.locale.showFilterMenu : this.$primevue.config.locale.hideFilterMenu) : undefined;
         },
         filterOperatorAriaLabel() {
             return this.$primevue.config.locale ? this.$primevue.config.locale.filterOperator : undefined;
         },
-        filterConstraintAriaLabel() {
+        filterRuleAriaLabel() {
             return this.$primevue.config.locale ? this.$primevue.config.locale.filterConstraint : undefined;
         },
         ptmHeaderFilterClearParams() {

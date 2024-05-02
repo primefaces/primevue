@@ -595,11 +595,11 @@ const classes = {
             'p-datatable-lg': props.size === 'large'
         }
     ],
-    loadingOverlay: 'p-datatable-mask p-component-overlay',
+    overlay: 'p-datatable-mask p-component-overlay',
     loadingIcon: 'p-datatable-loading-icon',
     header: 'p-datatable-header',
     paginator: ({ position }) => 'p-datatable-paginator-' + position,
-    wrapper: 'p-datatable-table-container',
+    tableContainer: 'p-datatable-table-container',
     table: ({ props }) => [
         'p-datatable-table',
         {
@@ -626,20 +626,20 @@ const classes = {
                   }
               ],
     columnResizer: 'p-datatable-column-resizer',
-    headerContent: 'p-datatable-column-header-content',
-    headerTitle: 'p-datatable-column-title',
+    columnHeaderContent: 'p-datatable-column-header-content',
+    columnTitle: 'p-datatable-column-title',
     sortIcon: 'p-datatable-sort-icon',
     sortBadge: 'p-datatable-sort-badge',
-    columnFilter: ({ props }) => [
+    filter: ({ props }) => [
         'p-datatable-filter',
         {
             'p-datatable-inline-filter': props.display === 'row',
             'p-datatable-popover-filter': props.display === 'menu'
         }
     ],
-    filterInput: 'p-datatable-filter-element-container',
-    filterMenuButton: 'p-datatable-column-filter-button',
-    headerFilterClearButton: 'p-datatable-column-filter-clear-button',
+    filterElementContainer: 'p-datatable-filter-element-container',
+    columnFilterButton: 'p-datatable-column-filter-button',
+    columnFilterClearButton: 'p-datatable-column-filter-clear-button',
     filterOverlay: ({ instance, props }) => [
         'p-datatable-filter-overlay p-component',
         {
@@ -647,29 +647,28 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    filterRowItems: 'p-datatable-filter-constraint-list',
-    filterRowItem: ({ instance, matchMode }) => [
+    filterConstraintList: 'p-datatable-filter-constraint-list',
+    filterConstraint: ({ instance, matchMode }) => [
         'p-datatable-filter-constraint',
         {
             'p-datatable-filter-constraint-selected': matchMode && instance.isRowMatchModeSelected(matchMode.value)
         }
     ],
-    filterSeparator: 'p-datatable-filter-constraint-separator',
+    filterConstraintSeparator: 'p-datatable-filter-constraint-separator',
     filterOperator: 'p-datatable-filter-operator',
     filterOperatorDropdown: 'p-datatable-filter-operator-dropdown',
     filterConstraints: 'p-datatable-filter-rule-list',
-    filterConstraint: 'p-datatable-filter-rule',
-    filterMatchModeDropdown: 'p-datatable-filter-constraint-dropdown',
-    filterRemoveButton: 'p-datatable-filter-remove-rule-button',
-    filterAddRule: 'p-datatable-filter-add-rule-button', //TODO: Remove
-    filterAddRuleButton: 'p-column-filter-add-button',
+    filterRule: 'p-datatable-filter-rule',
+    filterConstraintDropdown: 'p-datatable-filter-constraint-dropdown',
+    filterRemoveRuleButton: 'p-datatable-filter-remove-rule-button',
+    filterAddButton: 'p-column-filter-add-button',
     filterButtonbar: 'p-datatable-filter-buttonbar',
     filterClearButton: 'p-datatable-filter-clear-button',
     filterApplyButton: 'p-datatable-filter-apply-button',
     tbody: ({ props }) => (props.frozenRow ? 'p-datatable-tbody p-datatable-frozen-tbody' : 'p-datatable-tbody'),
-    rowgroupHeader: 'p-datatable-row-group-header',
-    rowGroupToggler: 'p-datatable-row-toggle-button',
-    rowGroupTogglerIcon: 'p-datatable-row-toggle-icon',
+    rowGroupHeader: 'p-datatable-row-group-header',
+    rowToggleButton: 'p-datatable-row-toggle-button',
+    rowToggleIcon: 'p-datatable-row-toggle-icon',
     row: ({ instance, props, index, columnSelectionMode }) => {
         let rowStyleClass = [];
 
@@ -694,23 +693,17 @@ const classes = {
         return rowStyleClass;
     },
     rowExpansion: 'p-datatable-row-expansion',
-    rowgroupFooter: 'p-datatable-row-group-footer',
+    rowGroupFooter: 'p-datatable-row-group-footer',
     emptyMessage: 'p-datatable-empty-message',
     bodyCell: ({ instance }) => [
         {
             'p-datatable-frozen-column': instance.columnProp('frozen')
         }
     ],
-    columnTitle: 'p-column-title', //TODO: Remove due to stacked mode
-    rowReorderIcon: 'p-datatable-reorderable-row-handle',
-    rowToggler: 'p-datatable-row-toggle-button',
-    rowTogglerIcon: 'p-datatable-row-toggle-icon',
-    rowEditorInitButton: 'p-datatable-row-editor-init',
-    rowEditorInitIcon: 'p-row-editor-init-icon', //TODO: Remove
-    rowEditorSaveButton: 'p-datatable-row-editor-save',
-    rowEditorSaveIcon: 'p-row-editor-save-icon', //TODO: Remove
-    rowEditorCancelButton: 'p-datatable-row-editor-cancel',
-    rowEditorCancelIcon: 'p-row-editor-cancel-icon', //TODO: Remove
+    reorderableRowHandle: 'p-datatable-reorderable-row-handle',
+    rowEditorInit: 'p-datatable-row-editor-init',
+    rowEditorSave: 'p-datatable-row-editor-save',
+    rowEditorCancel: 'p-datatable-row-editor-cancel',
     tfoot: 'p-datatable-tfoot',
     footerCell: ({ instance }) => [
         {
@@ -719,13 +712,13 @@ const classes = {
     ],
     virtualScrollerSpacer: 'p-datatable-virtualscroller-spacer',
     footer: 'p-datatable-footer',
-    resizeHelper: 'p-datatable-column-resize-indicator',
-    reorderIndicatorUp: 'p-datatable-row-reorder-indicator-up',
-    reorderIndicatorDown: 'p-datatable-row-reorder-indicator-down'
+    columnResizeIndicator: 'p-datatable-column-resize-indicator',
+    rowReorderIndicatorUp: 'p-datatable-row-reorder-indicator-up',
+    rowReorderIndicatorDown: 'p-datatable-row-reorder-indicator-down'
 };
 
 const inlineStyles = {
-    wrapper: { overflow: 'auto' },
+    tableContainer: { overflow: 'auto' },
     thead: { position: 'sticky' },
     tfoot: { position: 'sticky' }
 };

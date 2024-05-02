@@ -2,13 +2,13 @@
     <template v-if="!empty">
         <tr v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader" :class="cx('rowGroupHeader')" :style="rowGroupHeaderStyle" role="row" v-bind="ptm('rowGroupHeader')">
             <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowGroupHeaderCell') }">
-                <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle" type="button" v-bind="ptm('rowGroupToggler')">
+                <button v-if="expandableRowGroups" :class="cx('rowToggleButton')" @click="onRowGroupToggle" type="button" v-bind="ptm('rowToggleButton')">
                     <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded" />
                     <template v-else>
-                        <span v-if="isRowGroupExpanded && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="ptm('rowGroupTogglerIcon')" />
-                        <ChevronDownIcon v-else-if="isRowGroupExpanded && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="ptm('rowGroupTogglerIcon')" />
-                        <span v-else-if="!isRowGroupExpanded && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="ptm('rowGroupTogglerIcon')" />
-                        <ChevronRightIcon v-else-if="!isRowGroupExpanded && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="ptm('rowGroupTogglerIcon')" />
+                        <span v-if="isRowGroupExpanded && expandedRowIcon" :class="[cx('rowToggleIcon'), expandedRowIcon]" v-bind="ptm('rowToggleIcon')" />
+                        <ChevronDownIcon v-else-if="isRowGroupExpanded && !expandedRowIcon" :class="cx('rowToggleIcon')" v-bind="ptm('rowToggleIcon')" />
+                        <span v-else-if="!isRowGroupExpanded && collapsedRowIcon" :class="[cx('rowToggleIcon'), collapsedRowIcon]" v-bind="ptm('rowToggleIcon')" />
+                        <ChevronRightIcon v-else-if="!isRowGroupExpanded && !collapsedRowIcon" :class="cx('rowToggleIcon')" v-bind="ptm('rowToggleIcon')" />
                     </template>
                 </button>
                 <component :is="templates['groupheader']" :data="rowData" :index="rowIndex" />

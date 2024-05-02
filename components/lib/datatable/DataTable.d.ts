@@ -658,9 +658,9 @@ export interface DataTablePassThroughOptions {
      */
     root?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    loadingOverlay?: DataTablePassThroughOptionType;
+    overlay?: DataTablePassThroughOptionType;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
@@ -675,9 +675,9 @@ export interface DataTablePassThroughOptions {
      */
     paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the table container's DOM element.
      */
-    wrapper?: DataTablePassThroughOptionType;
+    tableContainer?: DataTablePassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -708,11 +708,11 @@ export interface DataTablePassThroughOptions {
      */
     tbody?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rowgroup header's DOM element.
+     * Used to pass attributes to the rowg roup header's DOM element.
      */
     rowGroupHeader?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rowgroup header cell's DOM element.
+     * Used to pass attributes to the row group header cell's DOM element.
      */
     rowGroupHeaderCell?: DataTablePassThroughOptionType;
     /**
@@ -728,11 +728,11 @@ export interface DataTablePassThroughOptions {
      */
     rowExpansionCell?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rowgroup footer's DOM element.
+     * Used to pass attributes to the row group footer's DOM element.
      */
     rowGroupFooter?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rowgroup footer cell's DOM element.
+     * Used to pass attributes to the row group footer cell's DOM element.
      */
     rowGroupFooterCell?: DataTablePassThroughOptionType;
     /**
@@ -752,17 +752,17 @@ export interface DataTablePassThroughOptions {
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the resize helper's DOM element.
+     * Used to pass attributes to the column resize indicator's DOM element.
      */
-    resizeHelper?: DataTablePassThroughOptionType;
+    columnResizeIndicator?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the reorder indicator up's DOM element.
+     * Used to pass attributes to the row reorder indicator up's DOM element.
      */
-    reorderIndicatorUp?: DataTablePassThroughOptionType;
+    rowReorderIndicatorUp?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the reorder indicator down's DOM element.
+     * Used to pass attributes to the row reorder indicator down's DOM element.
      */
-    reorderIndicatorDown?: DataTablePassThroughOptionType;
+    rowReorderIndicatorDown?: DataTablePassThroughOptionType;
     /**
      * Used to pass attributes to the ColumnGroup helper components.
      */
