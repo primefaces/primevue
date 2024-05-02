@@ -38,9 +38,6 @@ export default {
                 if (!newValue) {
                     this._loadCoreStyles();
                     this._themeChangeListener(this._loadCoreStyles); // update styles with theme settings
-                } else {
-                    // load theme
-                    this._loadThemeStyles();
                 }
             }
         },
@@ -114,7 +111,7 @@ export default {
             const _load = () => {
                 // @todo
                 if (!Base.isStyleNameLoaded('base')) {
-                    BaseStyle.loadStyle(this.$styleOptions);
+                    BaseStyle.loadCSS(this.$styleOptions);
                     this._loadGlobalStyles();
 
                     Base.setLoadedStyleName('base');
@@ -128,8 +125,8 @@ export default {
         },
         _loadCoreStyles() {
             if (!Base.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                BaseComponentStyle.loadStyle(this.$styleOptions);
-                this.$options.style && this.$style.loadStyle(this.$styleOptions);
+                BaseComponentStyle.loadCSS(this.$styleOptions);
+                this.$options.style && this.$style.loadCSS(this.$styleOptions);
 
                 Base.setLoadedStyleName(this.$style.name);
             }
@@ -147,7 +144,7 @@ export default {
 
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
-            ObjectUtils.isNotEmpty(globalCSS) && BaseStyle.loadStyle(globalCSS, { name: 'global', ...this.$styleOptions });
+            ObjectUtils.isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
             if (this.isUnstyled) return;
@@ -156,21 +153,19 @@ export default {
             if (!Theme.isStyleNameLoaded('common')) {
                 const { primitive, semantic } = this.$style?.getCommonThemeCSS?.() || {};
 
-                BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...this.$styleOptions });
-                BaseStyle.loadInlineTheme({ name: 'global-style', ...this.$styleOptions });
+                BaseStyle.load(primitive, { name: 'primitive-variables', ...this.$styleOptions });
+                BaseStyle.load(semantic, { name: 'semantic-variables', ...this.$styleOptions });
+                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions });
 
                 Theme.setLoadedStyleName('common');
             }
 
             // component
             if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                const { variables, style } = this.$style?.getComponentThemeCSS?.() || {};
+                const { variables } = this.$style?.getComponentThemeCSS?.() || {};
 
-                this.$style?.loadTheme(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadInlineTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
-
-                //this.$style?.loadTheme(style, { name: `${this.$style.name}-style`, ...this.$styleOptions });
+                this.$style?.load(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
+                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
 
                 Theme.setLoadedStyleName(this.$style.name);
             }
@@ -179,14 +174,14 @@ export default {
             if (!Theme.isStyleNameLoaded('layer-order')) {
                 const layerOrder = this.$style?.getLayerOrderThemeCSS?.();
 
-                BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
+                BaseStyle.load(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
 
                 Theme.setLoadedStyleName('layer-order');
             }
         },
         _loadScopedThemeStyles(preset) {
-            const variables = this.$style?.getPresetThemeCSS?.(preset, `[${this.$attrSelector}]`) || {};
-            const scopedStyle = this.$style?.loadTheme(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
+            const { variables } = this.$style?.getPresetThemeCSS?.(preset, `[${this.$attrSelector}]`) || {};
+            const scopedStyle = this.$style?.load(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
 
             this.scopedStyleEl = scopedStyle.el;
         },
@@ -325,7 +320,7 @@ export default {
             return this.$config?.theme;
         },
         $style() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
             return { nonce: this.$config?.csp?.nonce };

@@ -5,6 +5,6 @@ export declare interface BaseStyle {
     css?: string | undefined;
     classes?: object | undefined;
     inlineStyles?: object | undefined;
-    loadStyle?: ((options?: StyleOptions) => Style | object | undefined) | undefined;
+    load?: ((style: string | ((params?: any) => string | undefined), options?: StyleOptions) => Style | object | undefined) | undefined;
     getStyleSheet?: ((extendedCSS?: string, props?: any) => string | undefined) | undefined;
 }

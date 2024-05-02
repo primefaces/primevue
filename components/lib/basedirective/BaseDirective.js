@@ -87,8 +87,8 @@ const BaseDirective = {
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
-            BaseStyle.loadStyle(useStyleOptions);
-            instance.isUnstyled() && instance.$style?.loadStyle(useStyleOptions);
+            BaseStyle.loadCSS(useStyleOptions);
+            instance.isUnstyled() && instance.$style?.loadCSS(useStyleOptions);
 
             Base.setLoadedStyleName(instance.$style.name);
         }
@@ -100,20 +100,19 @@ const BaseDirective = {
         if (!Theme.isStyleNameLoaded('common')) {
             const { primitive, semantic } = instance.$style?.getCommonThemeCSS?.() || {};
 
-            BaseStyle.loadTheme(primitive, { name: 'primitive-variables', ...useStyleOptions });
-            BaseStyle.loadTheme(semantic, { name: 'semantic-variables', ...useStyleOptions });
-            BaseStyle.loadInlineTheme({ name: 'global-style', ...useStyleOptions });
+            BaseStyle.load(primitive, { name: 'primitive-variables', ...useStyleOptions });
+            BaseStyle.load(semantic, { name: 'semantic-variables', ...useStyleOptions });
+            BaseStyle.loadTheme({ name: 'global-style', ...useStyleOptions });
 
             Theme.setLoadedStyleName('common');
         }
 
         // directive
         if (!Theme.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
-            const { variables, style } = instance.$style?.getDirectiveThemeCSS?.() || {};
+            const { variables } = instance.$style?.getDirectiveThemeCSS?.() || {};
 
-            instance.$style?.loadTheme(variables, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
-            instance.$style?.loadInlineTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions });
-            //instance.$style?.loadTheme(style, { name: `${instance.$style.name}-style`, ...useStyleOptions });
+            instance.$style?.load(variables, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
+            instance.$style?.loadTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions });
 
             Theme.setLoadedStyleName(instance.$style.name);
         }
@@ -122,7 +121,7 @@ const BaseDirective = {
         if (!Theme.isStyleNameLoaded('layer-order')) {
             const layerOrder = instance.$style?.getLayerOrderThemeCSS?.();
 
-            BaseStyle.loadTheme(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
+            BaseStyle.load(layerOrder, { name: 'layer-order', first: true, ...useStyleOptions });
 
             Theme.setLoadedStyleName('layer-order');
         }
@@ -131,8 +130,8 @@ const BaseDirective = {
         const preset = instance.preset();
 
         if (preset && instance.$attrSelector) {
-            const variables = instance.$style?.getPresetThemeCSS?.(preset, `[${instance.$attrSelector}]`) || {};
-            const scopedStyle = instance.$style?.loadTheme(variables, { name: `${instance.$attrSelector}-${instance.$style.name}`, ...useStyleOptions });
+            const { variables } = instance.$style?.getPresetThemeCSS?.(preset, `[${instance.$attrSelector}]`) || {};
+            const scopedStyle = instance.$style?.load(variables, { name: `${instance.$attrSelector}-${instance.$style.name}`, ...useStyleOptions });
 
             instance.scopedStyleEl = scopedStyle.el;
         }
@@ -172,7 +171,7 @@ const BaseDirective = {
                 $modifiers: binding?.modifiers,
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
-                $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadTheme: () => {}, ...options?.style },
+                $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...options?.style },
                 $config: config,
                 $attrSelector: el.$attrSelector,
                 /* computed instance variables */

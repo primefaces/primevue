@@ -19,9 +19,6 @@ export default {
             $pcEditor: this,
             $parentInstance: this
         };
-    },
-    beforeMount() {
-        EditorStyle.loadStyle({ nonce: this.$primevue?.config?.csp?.nonce });
     }
 };
 </script>

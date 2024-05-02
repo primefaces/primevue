@@ -36,9 +36,6 @@ export default {
     get theme() {
         return this._theme;
     },
-    get base() {
-        return this.theme?.base || {};
-    },
     get preset() {
         return this.theme?.preset || {};
     },
@@ -97,7 +94,6 @@ export default {
         const options = { name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
-            style: ThemeUtils.getBaseC(options),
             variables: ThemeUtils.getPresetC(options)
         };
     },
@@ -105,17 +101,21 @@ export default {
         const options = { name, theme: this.theme, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
         return {
-            style: ThemeUtils.getBaseD(options),
             variables: ThemeUtils.getPresetD(options)
         };
     },
     getPresetCSS(name = '', preset, selector, params) {
         const options = { name, preset, options: this.options, selector, params, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } };
 
-        return ThemeUtils.getPreset(options);
+        return {
+            variables: ThemeUtils.getPreset(options)
+        };
     },
     getLayerOrderCSS(name = '') {
         return ThemeUtils.getLayerOrder(name, this.options, { names: this.getLayerNames() }, this.defaults);
+    },
+    transformCSS(name = '', css, type = 'style', mode) {
+        return ThemeUtils.transformCSS(name, css, mode, type, this.options, { layerNames: this.setLayerNames.bind(this) }, this.defaults);
     },
     getCommonStyleSheet(name = '', params, props = {}) {
         return ThemeUtils.getCommonStyleSheet({ name, theme: this.theme, params, props, defaults: this.defaults, set: { layerNames: this.setLayerNames.bind(this) } });

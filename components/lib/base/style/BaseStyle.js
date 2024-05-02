@@ -264,20 +264,16 @@ export default {
     theme,
     classes,
     inlineStyles,
-    loadStyle(options = {}) {
-        const css = ObjectUtils.getItemValue(this.css, { dt });
+    load(style, options = {}, transform = (cs) => cs) {
+        const computedStyle = transform(ObjectUtils.getItemValue(style, { dt }));
 
-        return css ? useStyle(ObjectUtils.minifyCSS(css), { name: this.name, ...options }) : {};
+        return computedStyle ? useStyle(ObjectUtils.minifyCSS(computedStyle), { name: this.name, ...options }) : {};
     },
-    loadInlineTheme(options = {}) {
-        const theme = ObjectUtils.getItemValue(this.theme, { dt });
-
-        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options }) : {};
+    loadCSS(options = {}) {
+        return this.load(this.css, options);
     },
-    loadTheme(theme, options = {}) {
-        const callbacks = { onMounted: (name) => Theme.onStyleMounted(name), onUpdated: (name) => Theme.onStyleUpdated(name), onLoad: (event, options) => Theme.onStyleLoaded(event, options) };
-
-        return theme ? useStyle(ObjectUtils.minifyCSS(theme), { name: this.name, ...options, ...callbacks }) : {};
+    loadTheme(options = {}) {
+        return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, computedStyle));
     },
     getCommonThemeCSS(params) {
         return Theme.getCommonCSS(this.name, params);
@@ -296,12 +292,13 @@ export default {
     },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
-            const _css = ObjectUtils.minifyCSS(`${this.css}${extendedCSS}`);
+            const _css = ObjectUtils.getItemValue(this.css, { dt });
+            const _style = ObjectUtils.minifyCSS(`${_css}${extendedCSS}`);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
 
-            return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_css}</style>`;
+            return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_style}</style>`;
         }
 
         return '';
@@ -310,7 +307,20 @@ export default {
         return Theme.getCommonStyleSheet(this.name, params, props);
     },
     getThemeStyleSheet(params, props = {}) {
-        return Theme.getStyleSheet(this.name, params, props);
+        let css = [Theme.getStyleSheet(this.name, params, props)];
+
+        if (this.theme) {
+            const name = `${this.name}-style`;
+            const _css = ObjectUtils.getItemValue(this.theme, { dt });
+            const _style = ObjectUtils.minifyCSS(Theme.transformCSS(name, _css));
+            const _props = Object.entries(props)
+                .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+                .join(' ');
+
+            css.push(`<style type="text/css" data-primevue-style-id="${name}" ${_props}>${_style}</style>`);
+        }
+
+        return css.join('');
     },
     extend(style) {
         return { ...this, css: undefined, theme: undefined, ...style };
