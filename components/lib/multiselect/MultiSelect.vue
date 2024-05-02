@@ -30,7 +30,7 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('token')" v-bind="ptm('token')">
+                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('token')" v-bind="ptm('token')">
                             <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                 <Chip :class="cx('tokenLabel')" :label="getLabelByValue(item)" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('tokenLabel')">
                                     <template #removeicon>
@@ -38,7 +38,7 @@
                                     </template>
                                 </Chip>
                             </slot>
-                        </div>
+                        </span>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
