@@ -1321,13 +1321,23 @@ export interface DataTableSlots {
      */
     loadingicon(): VNode[];
     /**
-     * Custom reorder indicator up icon template.
+     * Custom row reorder indicator up icon template.
+     * @deprecated since v4.0. Use 'rowreorderindicatorupicon' slot.
      */
     reorderindicatorupicon(): VNode[];
     /**
+     * Custom row reorder indicator up icon template.
+     */
+    rowreorderindicatorupicon(): VNode[];
+    /**
      * Custom reorder indicator down icon template.
+     * @deprecated since v4.0. Use 'rowreorderindicatordownicon' slot.
      */
     reorderindicatordownicon(): VNode[];
+    /**
+     * Custom reorder indicator down icon template.
+     */
+    rowreorderindicatordownicon(): VNode[];
     /**
      * Custom rowgroup toggler icon template.
      * @param {Object} scope - rowgroup toggler icon slot's params.
