@@ -64,21 +64,21 @@
         <template v-else-if="columnProp('expander')">
             <button
                 v-ripple
-                :class="cx('rowToggler')"
+                :class="cx('rowToggleButton')"
                 type="button"
                 :aria-expanded="isRowExpanded"
                 :aria-controls="ariaControls"
                 :aria-label="expandButtonAriaLabel"
                 @click="toggleRow"
-                v-bind="getColumnPT('rowToggler')"
+                v-bind="getColumnPT('rowToggleButton')"
                 data-pc-group-section="rowactionbutton"
             >
-                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :class="cx('rowTogglerIcon')" :rowExpanded="isRowExpanded" />
+                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :class="cx('rowToggleIcon')" :rowExpanded="isRowExpanded" />
                 <template v-else>
-                    <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowTogglerIcon'), expandedRowIcon]" />
-                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
-                    <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="[cx('rowTogglerIcon'), collapsedRowIcon]" />
-                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+                    <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowToggleIcon'), expandedRowIcon]" />
+                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
+                    <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="[cx('rowToggleIcon'), collapsedRowIcon]" />
+                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
                 </template>
             </button>
         </template>
