@@ -77,7 +77,7 @@
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
                         <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-                            <input
+                            <InputText
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
@@ -85,6 +85,9 @@
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
+                                :invalid="invalid"
+                                :variant="variant"
+                                :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
                                 :aria-owns="id + '_list'"
@@ -92,7 +95,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                v-bind="ptm('filterInput')"
+                                :pt="ptm('filterInput')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -185,6 +188,7 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
+import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -662,7 +666,7 @@ export default {
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput);
+            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput.$el);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -978,6 +982,7 @@ export default {
         ripple: Ripple
     },
     components: {
+        InputText,
         VirtualScroller,
         Portal,
         TimesIcon,
