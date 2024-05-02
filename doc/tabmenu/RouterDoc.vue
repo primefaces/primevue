@@ -31,7 +31,7 @@ export default {
                     label: 'Programmatic',
                     icon: 'pi pi-palette',
                     command: () => {
-                        this.$router.push('/unstyled');
+                        this.$router.push('/theming/unstyled');
                     }
                 },
                 { label: 'External', icon: 'pi pi-link', url: 'https://vuejs.org/' }
@@ -83,7 +83,7 @@ export default {
                     label: 'Programmatic',
                     icon: 'pi pi-palette',
                     command: () => {
-                        this.$router.push('/unstyled');
+                        this.$router.push('/theming/unstyled');
                     }
                 },
                 { label: 'External', icon: 'pi pi-link', url: 'https://vuejs.org/' }
@@ -122,7 +122,7 @@ const items = ref([
         label: 'Programmatic',
         icon: 'pi pi-palette',
         command: () => {
-            this.$router.push('/unstyled');
+            this.$router.push('/theming/unstyled');
         }
     },
     { label: 'External', icon: 'pi pi-link', url: 'https://vuejs.org/' }

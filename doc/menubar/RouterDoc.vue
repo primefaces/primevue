@@ -37,7 +37,7 @@ export default {
                         },
                         {
                             label: 'Unstyled',
-                            route: '/unstyled'
+                            route: '/theming/unstyled'
                         }
                     ]
                 },
@@ -117,7 +117,7 @@ export default {
                         },
                         {
                             label: 'Unstyled',
-                            route: '/unstyled'
+                            route: '/theming/unstyled'
                         }
                     ]
                 },
@@ -186,7 +186,7 @@ const items = ref([
             },
             {
                 label: 'Unstyled',
-                route: '/unstyled'
+                route: '/theming/unstyled'
             }
         ]
     },

@@ -39,7 +39,7 @@ export default {
                         {
                             label: 'Unstyled',
                             icon: 'pi pi-heart',
-                            route: '/unstyled'
+                            route: '/theming/unstyled'
                         }
                     ]
                 },
@@ -123,7 +123,7 @@ export default {
                         {
                             label: 'Unstyled',
                             icon: 'pi pi-heart',
-                            route: '/unstyled'
+                            route: '/theming/unstyled'
                         }
                     ]
                 },
@@ -196,7 +196,7 @@ const items = ref([
             {
                 label: 'Unstyled',
                 icon: 'pi pi-heart',
-                route: '/unstyled'
+                route: '/theming/unstyled'
             }
         ]
     },

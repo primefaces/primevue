@@ -31,10 +31,10 @@
                     <ul class="list-none p-0 m-0">
                         <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
                         <li class="mb-4">
-                            <PrimeVueNuxtLink to="/theming" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</PrimeVueNuxtLink>
+                            <PrimeVueNuxtLink to="/theming/styled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</PrimeVueNuxtLink>
                         </li>
                         <li class="mb-4">
-                            <PrimeVueNuxtLink to="/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</PrimeVueNuxtLink>
+                            <PrimeVueNuxtLink to="/theming/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</PrimeVueNuxtLink>
                         </li>
                     </ul>
                 </div>
