@@ -7102,7 +7102,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "BreadcrumbPassThroughOptionType",
@@ -7110,20 +7110,20 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "BreadcrumbPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the  item's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "BreadcrumbPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
                             "name": "icon",
@@ -10340,20 +10340,20 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
+                            "name": "contentContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content container's DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the content's DOM element."
-                        },
-                        {
-                            "name": "container",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CarouselPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
                         },
                         {
                             "name": "previousButton",
@@ -10364,28 +10364,28 @@
                             "description": "Used to pass attributes to the previous button's DOM element."
                         },
                         {
-                            "name": "itemsContent",
+                            "name": "viewport",
                             "optional": true,
                             "readonly": false,
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the items content's DOM element."
+                            "description": "Used to pass attributes to the viewport's DOM element."
                         },
                         {
-                            "name": "itemsContainer",
+                            "name": "itemList",
                             "optional": true,
                             "readonly": false,
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the items container's DOM element."
+                            "description": "Used to pass attributes to the items list's DOM element."
                         },
                         {
-                            "name": "itemCloned",
+                            "name": "itemClone",
                             "optional": true,
                             "readonly": false,
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item cloned's DOM element."
+                            "description": "Used to pass attributes to the item clone's DOM element."
                         },
                         {
                             "name": "item",
@@ -10404,12 +10404,12 @@
                             "description": "Used to pass attributes to the next button's DOM element."
                         },
                         {
-                            "name": "indicators",
+                            "name": "indicatorList",
                             "optional": true,
                             "readonly": false,
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the indicators's DOM element."
+                            "description": "Used to pass attributes to the indicator list's DOM element."
                         },
                         {
                             "name": "indicator",
@@ -14436,15 +14436,15 @@
                             "description": "Used to pass attributes to the column resizer's DOM element."
                         },
                         {
-                            "name": "headerContent",
+                            "name": "columnHeaderContent",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header content's DOM element."
+                            "description": "Used to pass attributes to the column header content's DOM element."
                         },
                         {
-                            "name": "headerTitle",
+                            "name": "columnTitle",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14484,7 +14484,7 @@
                             "description": "Used to pass attributes to the header checkbox's DOM element."
                         },
                         {
-                            "name": "columnFilter",
+                            "name": "filter",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14492,20 +14492,20 @@
                             "description": "Used to pass attributes to the column filter's DOM element."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "filterElementContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter input's DOM element."
+                            "description": "Used to pass attributes to the filter element container's DOM element."
                         },
                         {
-                            "name": "filterMenuButton",
+                            "name": "columnFilterButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter menu button's DOM element."
+                            "description": "Used to pass attributes to the column filter button's DOM element."
                         },
                         {
                             "name": "filterMenuIcon",
@@ -14516,12 +14516,12 @@
                             "description": "Used to pass attributes to the filter menu icon's DOM element."
                         },
                         {
-                            "name": "headerFilterClearButton",
+                            "name": "columnFilterClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header filter clear button's DOM element."
+                            "description": "Used to pass attributes to the column filter clear button's DOM element."
                         },
                         {
                             "name": "filterClearIcon",
@@ -14540,28 +14540,28 @@
                             "description": "Used to pass attributes to the filter overlay's DOM element."
                         },
                         {
-                            "name": "filterRowItems",
+                            "name": "filterConstraintList",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter row items' DOM element."
+                            "description": "Used to pass attributes to the filter constraint list's DOM element."
                         },
                         {
-                            "name": "filterRowItem",
+                            "name": "filterConstraint",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter row item's DOM element."
+                            "description": "Used to pass attributes to the filter constraint's DOM element."
                         },
                         {
-                            "name": "filterSeparator",
+                            "name": "filterConstraintSeparator",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter separator's DOM element."
+                            "description": "Used to pass attributes to the filter constraint separator's DOM element."
                         },
                         {
                             "name": "filterOperator",
@@ -14580,23 +14580,23 @@
                             "description": "Used to pass attributes to the Select component."
                         },
                         {
-                            "name": "filterConstraints",
+                            "name": "filterRuleList",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter constraints' DOM element."
+                            "description": "Used to pass attributes to the filter rule list' DOM element."
                         },
                         {
-                            "name": "filterConstraint",
+                            "name": "filterRule",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter constraint's DOM element."
+                            "description": "Used to pass attributes to the filter rule's DOM element."
                         },
                         {
-                            "name": "filterMatchModeDropdown",
+                            "name": "filterConstraintDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>",
@@ -14612,7 +14612,7 @@
                             "description": "Used to pass attributes to the filter remove button container's DOM element."
                         },
                         {
-                            "name": "filterRemoveButton",
+                            "name": "filterRemoveRuleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14620,15 +14620,15 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "filterAddRule",
+                            "name": "filterAddButtonContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the filter add rule's DOM element."
+                            "description": "Used to pass attributes to the filter add button container's DOM element."
                         },
                         {
-                            "name": "filterAddRuleButton",
+                            "name": "filterAddButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14660,6 +14660,22 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
+                            "name": "rowToggleButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the row toggler button's DOM element."
+                        },
+                        {
+                            "name": "rowToggleIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the row toggler icon's DOM element."
+                        },
+                        {
                             "name": "bodyCell",
                             "optional": true,
                             "readonly": false,
@@ -14668,28 +14684,12 @@
                             "description": "Used to pass attributes to the body cell's DOM element."
                         },
                         {
-                            "name": "rowGroupToggler",
+                            "name": "reorderableRowHandle",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the rowgroup toggler's DOM element."
-                        },
-                        {
-                            "name": "rowGroupTogglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the rowgroup toggler icon's DOM element."
-                        },
-                        {
-                            "name": "columnTitle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the column title's DOM element."
+                            "description": "Used to pass attributes to the reorderable row handle's DOM element."
                         },
                         {
                             "name": "rowRadioButton",
@@ -14708,23 +14708,7 @@
                             "description": "Used to pass attributes to the checkbox's DOM element."
                         },
                         {
-                            "name": "rowToggler",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the rowtoggler's DOM element."
-                        },
-                        {
-                            "name": "rowTogglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the rowtoggler icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorInitButton",
+                            "name": "rowEditorInit",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14732,15 +14716,7 @@
                             "description": "Used to pass attributes to the row editor init button's DOM element."
                         },
                         {
-                            "name": "rowEditorInitIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the row editor init icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorSaveButton",
+                            "name": "rowEditorSave",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14748,28 +14724,12 @@
                             "description": "Used to pass attributes to the row editor save button's DOM element."
                         },
                         {
-                            "name": "rowEditorSaveIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the row editor save icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorCancelButton",
+                            "name": "rowEditorCancel",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the row editor cancel button's DOM element."
-                        },
-                        {
-                            "name": "rowEditorCancelIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the row editor cancel icon's DOM element."
                         },
                         {
                             "name": "footerCell",
@@ -18834,52 +18794,52 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "rootList",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the root list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "submenuIcon",
@@ -20817,12 +20777,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "loadingOverlay",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the loading overlay's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -20849,12 +20809,12 @@
                             "description": "Used to pass attributes to the Paginator component."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "tableContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the table container's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -20918,7 +20878,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the rowgroup header's DOM element."
+                            "description": "Used to pass attributes to the rowg roup header's DOM element."
                         },
                         {
                             "name": "rowGroupHeaderCell",
@@ -20926,7 +20886,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the rowgroup header cell's DOM element."
+                            "description": "Used to pass attributes to the row group header cell's DOM element."
                         },
                         {
                             "name": "bodyRow",
@@ -20958,7 +20918,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the rowgroup footer's DOM element."
+                            "description": "Used to pass attributes to the row group footer's DOM element."
                         },
                         {
                             "name": "rowGroupFooterCell",
@@ -20966,7 +20926,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the rowgroup footer cell's DOM element."
+                            "description": "Used to pass attributes to the row group footer cell's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -21001,28 +20961,28 @@
                             "description": "Used to pass attributes to the footer row's DOM element."
                         },
                         {
-                            "name": "resizeHelper",
+                            "name": "columnResizeIndicator",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the resize helper's DOM element."
+                            "description": "Used to pass attributes to the column resize indicator's DOM element."
                         },
                         {
-                            "name": "reorderIndicatorUp",
+                            "name": "rowReorderIndicatorUp",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the reorder indicator up's DOM element."
+                            "description": "Used to pass attributes to the row reorder indicator up's DOM element."
                         },
                         {
-                            "name": "reorderIndicatorDown",
+                            "name": "rowReorderIndicatorDown",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the reorder indicator down's DOM element."
+                            "description": "Used to pass attributes to the row reorder indicator down's DOM element."
                         },
                         {
                             "name": "columnGroup",
@@ -21903,10 +21863,24 @@
                             "name": "reorderindicatorupicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom reorder indicator up icon template."
+                            "description": "Custom row reorder indicator up icon template.",
+                            "deprecated": "since v4.0. Use 'rowreorderindicatorupicon' slot."
+                        },
+                        {
+                            "name": "rowreorderindicatorupicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row reorder indicator up icon template."
                         },
                         {
                             "name": "reorderindicatordownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom reorder indicator down icon template.",
+                            "deprecated": "since v4.0. Use 'rowreorderindicatordownicon' slot."
+                        },
+                        {
+                            "name": "rowreorderindicatordownicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom reorder indicator down icon template."
@@ -25372,12 +25346,12 @@
                             "description": "Used to pass attributes to the header title's DOM element."
                         },
                         {
-                            "name": "icons",
+                            "name": "headerActions",
                             "optional": true,
                             "readonly": false,
                             "type": "DialogPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the header icons' DOM element."
+                            "description": "Used to pass attributes to the header actions' DOM element."
                         },
                         {
                             "name": "maximizableButton",
@@ -26363,15 +26337,15 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "container",
+                            "name": "listContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
@@ -26379,36 +26353,36 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the  item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "DockPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -29486,28 +29460,28 @@
                             "description": "Used to pass attributes to the toggler's DOM element."
                         },
                         {
-                            "name": "togglerIcon",
+                            "name": "toggleIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the toggler icon's DOM element."
+                            "description": "Used to pass attributes to the toggle icon's DOM element."
                         },
                         {
-                            "name": "legendTitle",
+                            "name": "legendLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the legend title's DOM element."
+                            "description": "Used to pass attributes to the legend label's DOM element."
                         },
                         {
-                            "name": "toggleableContent",
+                            "name": "contentContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the toggleable content's DOM element."
+                            "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
                             "name": "content",
@@ -29653,16 +29627,37 @@
                             "readonly": false,
                             "type": "Function",
                             "default": ""
-                        },
-                        {
-                            "name": "togglericon",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
                         }
                     ],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "togglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">collapsed</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Collapsed state as a boolean</span>\n }",
+                                    "description": "toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use the 'toggleicon' slot instead.\nCustom toggler icon template."
+                        },
+                        {
+                            "name": "toggleicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">collapsed</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Collapsed state as a boolean</span>\n }",
+                                    "description": "toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggler icon template."
+                        }
+                    ]
                 },
                 "FieldsetEmits": {
                     "description": "Defines valid emits in Fildset component.",
@@ -30062,12 +30057,12 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "buttonbar",
+                            "name": "header",
                             "optional": true,
                             "readonly": false,
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the buttonbar's DOM element."
+                            "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
                             "name": "chooseButton",
@@ -30126,20 +30121,20 @@
                             "description": "Used to pass attributes to the file's DOM element."
                         },
                         {
-                            "name": "thumbnail",
+                            "name": "fileThumbnail",
                             "optional": true,
                             "readonly": false,
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the thumbnail's DOM element."
+                            "description": "Used to pass attributes to the file thumbnail's DOM element."
                         },
                         {
-                            "name": "details",
+                            "name": "fileInfo",
                             "optional": true,
                             "readonly": false,
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the details's DOM element."
+                            "description": "Used to pass attributes to the file info's DOM element."
                         },
                         {
                             "name": "fileName",
@@ -30158,7 +30153,7 @@
                             "description": "Used to pass attributes to the fileSize's DOM element."
                         },
                         {
-                            "name": "badge",
+                            "name": "fileBadge",
                             "optional": true,
                             "readonly": false,
                             "type": "BadgePassThroughOptions<FileUploadPassThroughMethodOptions>",
@@ -30166,20 +30161,20 @@
                             "description": "Used to pass attributes to the Badge component."
                         },
                         {
-                            "name": "actions",
+                            "name": "fileActions",
                             "optional": true,
                             "readonly": false,
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the actions's DOM element."
+                            "description": "Used to pass attributes to the file actions' DOM element."
                         },
                         {
-                            "name": "removeButton",
+                            "name": "fileRemoveButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the remove button's DOM element."
+                            "description": "Used to pass attributes to the file remove button's DOM element."
                         },
                         {
                             "name": "empty",
@@ -31359,20 +31354,20 @@
                             "description": "Used to pass attributes to the footer's DOM element."
                         },
                         {
-                            "name": "itemWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "GalleriaPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the item wrapper's DOM element."
-                        },
-                        {
-                            "name": "itemContainer",
+                            "name": "itemsContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the item container's DOM element."
+                        },
+                        {
+                            "name": "items",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the items' DOM element."
                         },
                         {
                             "name": "previousItemButton",
@@ -31423,12 +31418,12 @@
                             "description": "Used to pass attributes to the caption's DOM element."
                         },
                         {
-                            "name": "indicators",
+                            "name": "indicatorList",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the indicators's DOM element."
+                            "description": "Used to pass attributes to the indicator list's DOM element."
                         },
                         {
                             "name": "indicator",
@@ -31447,20 +31442,20 @@
                             "description": "Used to pass attributes to the indicator button's DOM element."
                         },
                         {
-                            "name": "thumbnailWrapper",
+                            "name": "thumbnails",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the thumbnail wrapper's DOM element."
+                            "description": "Used to pass attributes to the thumbnails' DOM element."
                         },
                         {
-                            "name": "thumbnailContainer",
+                            "name": "thumbnailContent",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the thumbnail container's DOM element."
+                            "description": "Used to pass attributes to the thumbnail content's DOM element."
                         },
                         {
                             "name": "previousThumbnailButton",
@@ -31503,12 +31498,12 @@
                             "description": "Used to pass attributes to the thumbnail item's DOM element."
                         },
                         {
-                            "name": "thumbnailItemContent",
+                            "name": "thumbnail",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the thumbnail item content's DOM element."
+                            "description": "Used to pass attributes to the thumbnail's DOM element."
                         },
                         {
                             "name": "nextThumbnailButton",
@@ -32580,20 +32575,20 @@
                             "description": "Used to pass attributes to the image's DOM element."
                         },
                         {
-                            "name": "button",
+                            "name": "previewMask",
                             "optional": true,
                             "readonly": false,
                             "type": "ImagePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the button's DOM element."
+                            "description": "Used to pass attributes to the preview mask's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "previewIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ImagePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the  preview icon's DOM element."
                         },
                         {
                             "name": "mask",
@@ -32692,20 +32687,20 @@
                             "description": "Used to pass attributes to the close icon's DOM element."
                         },
                         {
-                            "name": "previewContainer",
+                            "name": "originalContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "ImagePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the preview container's DOM element."
+                            "description": "Used to pass attributes to the original container's DOM element."
                         },
                         {
-                            "name": "preview",
+                            "name": "original",
                             "optional": true,
                             "readonly": false,
                             "type": "ImagePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the preview's DOM element."
+                            "description": "Used to pass attributes to the original's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -38775,44 +38770,44 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "rootList",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the root list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the  item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
                             "name": "label",
@@ -38855,12 +38850,12 @@
                             "description": "Used to pass attributes to the column's DOM element."
                         },
                         {
-                            "name": "submenuHeader",
+                            "name": "submenuItem",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the submenu header's DOM element."
+                            "description": "Used to pass attributes to the submenu item's DOM element."
                         },
                         {
                             "name": "submenu",
@@ -38871,12 +38866,12 @@
                             "description": "Used to pass attributes to the submenu's DOM element."
                         },
                         {
-                            "name": "submenuLabel",
+                            "name": "submenuItemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the submenu label's DOM element."
+                            "description": "Used to pass attributes to the submenu item label's DOM element."
                         },
                         {
                             "name": "separator",
@@ -38887,7 +38882,7 @@
                             "description": "Used to pass attributes to the separator's DOM element."
                         },
                         {
-                            "name": "menubutton",
+                            "name": "button",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
@@ -39503,7 +39498,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
@@ -39511,44 +39506,44 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "submenuHeader",
+                            "name": "submenuItem",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the submenu header's DOM element."
+                            "description": "Used to pass attributes to the submenu item's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
                             "name": "label",
@@ -39897,7 +39892,21 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom item template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use submenuitem slot instead.\nCustom submenu header template."
+                        },
+                        {
+                            "name": "submenuitem",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n }",
+                                    "description": "submenuitem slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu item template."
                         }
                     ]
                 },
@@ -40100,52 +40109,52 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "rootList",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the root list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "submenuIcon",
@@ -40872,12 +40881,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "content",
                             "optional": true,
                             "readonly": false,
                             "type": "MessagePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
                             "name": "icon",
@@ -41308,39 +41317,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "labellist",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MeterGroupPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the label list's DOM element."
-                        },
-                        {
-                            "name": "labellistitem",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MeterGroupPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the label list item's DOM element."
-                        },
-                        {
-                            "name": "labellisttype",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MeterGroupPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the label list type's DOM element."
-                        },
-                        {
-                            "name": "label",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MeterGroupPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
-                        },
-                        {
-                            "name": "metercontainer",
+                            "name": "meters",
                             "optional": true,
                             "readonly": false,
                             "type": "MeterGroupPassThroughOptionType",
@@ -41354,6 +41331,46 @@
                             "type": "MeterGroupPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the meter's DOM element."
+                        },
+                        {
+                            "name": "labelList",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MeterGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label list's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MeterGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label list item's DOM element."
+                        },
+                        {
+                            "name": "labelIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MeterGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label icon type's DOM element."
+                        },
+                        {
+                            "name": "labelMarker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MeterGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label list type's DOM element."
+                        },
+                        {
+                            "name": "labelText",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MeterGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label's DOM element."
                         }
                     ],
                     "methods": []
@@ -43927,28 +43944,28 @@
                             "description": "Used to pass attributes to the node's DOM element."
                         },
                         {
-                            "name": "nodeToggler",
+                            "name": "nodeToggleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the nodeToggler's DOM element."
+                            "description": "Used to pass attributes to the node toggle button's DOM element."
                         },
                         {
-                            "name": "nodeTogglerIcon",
+                            "name": "nodeToggleButtonIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the nodeTogglerIcon's DOM element."
+                            "description": "Used to pass attributes to the node toggle button icon's DOM element."
                         },
                         {
-                            "name": "lines",
+                            "name": "connectors",
                             "optional": true,
                             "readonly": false,
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the lines's DOM element."
+                            "description": "Used to pass attributes to the connectors's DOM element."
                         },
                         {
                             "name": "lineCell",
@@ -43959,20 +43976,36 @@
                             "description": "Used to pass attributes to the lineCell's DOM element."
                         },
                         {
-                            "name": "lineDown",
+                            "name": "connectorDown",
                             "optional": true,
                             "readonly": false,
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the lineDown's DOM element."
+                            "description": "Used to pass attributes to the connector down's DOM element."
                         },
                         {
-                            "name": "nodes",
+                            "name": "connectorLeft",
                             "optional": true,
                             "readonly": false,
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the nodes's DOM element."
+                            "description": "Used to pass attributes to the connector left's DOM element."
+                        },
+                        {
+                            "name": "connectorRight",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the connector right's DOM element."
+                        },
+                        {
+                            "name": "nodeChildren",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the node children's DOM element."
                         },
                         {
                             "name": "nodeCell",
@@ -44859,15 +44892,15 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "start",
+                            "name": "contentStart",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the start's DOM element."
+                            "description": "Used to pass attributes to the content start's DOM element."
                         },
                         {
-                            "name": "firstPageButton",
+                            "name": "first",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44875,15 +44908,15 @@
                             "description": "Used to pass attributes to the first page button's DOM element."
                         },
                         {
-                            "name": "firstPageIcon",
+                            "name": "firstIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the first page icon's DOM element."
+                            "description": "Used to pass attributes to the first icon's DOM element."
                         },
                         {
-                            "name": "previousPageButton",
+                            "name": "prev",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44891,7 +44924,7 @@
                             "description": "Used to pass attributes to the prev page button's DOM element."
                         },
                         {
-                            "name": "previousPageIcon",
+                            "name": "prevIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44899,7 +44932,7 @@
                             "description": "Used to pass attributes to the prev page icon's DOM element."
                         },
                         {
-                            "name": "nextPageButton",
+                            "name": "next",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44907,7 +44940,7 @@
                             "description": "Used to pass attributes to the next page button's DOM element."
                         },
                         {
-                            "name": "nextPageIcon",
+                            "name": "nextIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44915,7 +44948,7 @@
                             "description": "Used to pass attributes to the next page icon's DOM element."
                         },
                         {
-                            "name": "lastPageButton",
+                            "name": "last",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44923,7 +44956,7 @@
                             "description": "Used to pass attributes to the last page button's DOM element."
                         },
                         {
-                            "name": "lastPageIcon",
+                            "name": "lastIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44939,7 +44972,7 @@
                             "description": "Used to pass attributes to the pages's DOM element."
                         },
                         {
-                            "name": "pageButton",
+                            "name": "page",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
@@ -44979,12 +45012,12 @@
                             "description": "Used to pass attributes to the Dropdown component."
                         },
                         {
-                            "name": "end",
+                            "name": "contentEnd",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the end's DOM element."
+                            "description": "Used to pass attributes to the content end's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -45536,28 +45569,28 @@
                             "description": "Used to pass attributes to the title's DOM element."
                         },
                         {
-                            "name": "icons",
+                            "name": "headerActions",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icons' DOM element."
+                            "description": "Used to pass attributes to the header actions' DOM element."
                         },
                         {
-                            "name": "toggler",
+                            "name": "toggleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the toggler button's DOM element."
+                            "description": "Used to pass attributes to the toggle button button's DOM element."
                         },
                         {
-                            "name": "toggleableContent",
+                            "name": "contentContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the toggleablecontent's DOM element."
+                            "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
                             "name": "content",
@@ -45725,6 +45758,20 @@
                         },
                         {
                             "name": "togglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">collapsed</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Collapsed state as a boolean</span>\n }",
+                                    "description": "toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use the 'toggleicon' slot instead.\nCustom toggler icon template of panel."
+                        },
+                        {
+                            "name": "toggleicon",
                             "parameters": [
                                 {
                                     "name": "scope",
@@ -45967,12 +46014,12 @@
                             "description": "Used to pass attributes to the header content's DOM element."
                         },
                         {
-                            "name": "headerAction",
+                            "name": "headerLink",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header action's DOM element."
+                            "description": "Used to pass attributes to the header link's DOM element."
                         },
                         {
                             "name": "submenuIcon",
@@ -45999,36 +46046,12 @@
                             "description": "Used to pass attributes to the header label's DOM element."
                         },
                         {
-                            "name": "toggleableContent",
+                            "name": "contentContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the toggleable content's DOM element."
-                        },
-                        {
-                            "name": "menuContent",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the menu content's DOM element."
-                        },
-                        {
-                            "name": "menu",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
-                        },
-                        {
-                            "name": "menuitem",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
                             "name": "content",
@@ -46039,20 +46062,44 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "rootList",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the root list's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "menuitem",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "itemContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the item content's DOM element."
+                        },
+                        {
+                            "name": "itemLink",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the item link's DOM element."
+                        },
+                        {
+                            "name": "itemIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
                             "name": "label",
@@ -47616,12 +47663,12 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "sourceWrapper",
+                            "name": "sourceListContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "PickListPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the source wrapper's DOM element."
+                            "description": "Used to pass attributes to the source list containerr's DOM element."
                         },
                         {
                             "name": "sourceList",
@@ -47632,12 +47679,12 @@
                             "description": "Used to pass attributes to the source list's DOM element."
                         },
                         {
-                            "name": "buttons",
+                            "name": "transferControls",
                             "optional": true,
                             "readonly": false,
                             "type": "PickListPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the buttons' DOM element."
+                            "description": "Used to pass attributes to the transfer controls' DOM element."
                         },
                         {
                             "name": "moveToTargetButton",
@@ -47672,12 +47719,12 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "targetWrapper",
+                            "name": "targetListContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "PickListPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the target wrapper's DOM element."
+                            "description": "Used to pass attributes to the target list container's DOM element."
                         },
                         {
                             "name": "targetList",
@@ -48992,6 +49039,14 @@
                             "type": "ProgressBarPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "indeterminateContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressBarPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the indeterminate container's DOM element."
                         },
                         {
                             "name": "value",
@@ -50865,12 +50920,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "contentContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "ScrollPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
                             "name": "content",
@@ -55049,7 +55104,7 @@
                             "description": "Used to pass attributes to the button's DOM element."
                         },
                         {
-                            "name": "menuButton",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
@@ -55206,6 +55261,14 @@
                             "deprecated": "since v3.27.0. Use 'menubuttonicon' slot."
                         },
                         {
+                            "name": "dropdownIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Name of the menu button icon."
+                        },
+                        {
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
@@ -55328,6 +55391,20 @@
                         },
                         {
                             "name": "menubuttonicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "description": "menubuttonicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use dropdownicon slot instead.\nCustom menu button icon template."
+                        },
+                        {
+                            "name": "dropdownicon",
                             "parameters": [
                                 {
                                     "name": "scope",
@@ -55627,12 +55704,12 @@
                             "description": "Used to pass attributes to the gutter's DOM element."
                         },
                         {
-                            "name": "gutterHandler",
+                            "name": "gutterHandle",
                             "optional": true,
                             "readonly": false,
                             "type": "SplitterPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the gutter handler's DOM element."
+                            "description": "Used to pass attributes to the gutter handle's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -56248,20 +56325,20 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "nav",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the nav's DOM element."
+                            "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "panelContainer",
+                            "name": "panels",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel container's DOM element."
+                            "description": "Used to pass attributes to the panels' DOM element."
                         },
                         {
                             "name": "stepperpanel",
@@ -56610,36 +56687,36 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "header",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemHeader",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item header's DOM element."
                         },
                         {
-                            "name": "number",
+                            "name": "itemNumber",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the number's DOM element."
+                            "description": "Used to pass attributes to the item number's DOM element."
                         },
                         {
-                            "name": "title",
+                            "name": "itemTitle",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the title's DOM element."
+                            "description": "Used to pass attributes to the item title's DOM element."
                         },
                         {
                             "name": "separator",
@@ -56650,28 +56727,20 @@
                             "description": "Used to pass attributes to the separator's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "panelContentContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the panel content container's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "panelContent",
                             "optional": true,
                             "readonly": false,
                             "type": "StepperPanelPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
-                        },
-                        {
-                            "name": "toggleableContent",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "StepperPanelPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the toggleable content's DOM element."
+                            "description": "Used to pass attributes to the panel content's DOM element."
                         },
                         {
                             "name": "transition",
@@ -57018,7 +57087,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "StepsPassThroughOptionType",
@@ -57026,7 +57095,7 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "StepsPassThroughOptionType",
@@ -57034,28 +57103,28 @@
                             "description": "Used to pass attributes to the list item's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "StepsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "step",
+                            "name": "itemNumber",
                             "optional": true,
                             "readonly": false,
                             "type": "StepsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the step's DOM element."
+                            "description": "Used to pass attributes to the item number's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "StepsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -58187,44 +58256,44 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "tablist",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the tablist's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the list item's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item itemIcon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "inkbar",
@@ -60175,12 +60244,12 @@
                             "description": "Used to pass attributes to the icon's DOM element."
                         },
                         {
-                            "name": "value",
+                            "name": "label",
                             "optional": true,
                             "readonly": false,
                             "type": "TagPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the value's DOM element."
+                            "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -61167,15 +61236,15 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "menu",
+                            "name": "rootList",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the list's DOM element."
+                            "description": "Used to pass attributes to the root list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
@@ -61183,36 +61252,36 @@
                             "description": "Used to pass attributes to the list item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "action",
+                            "name": "itemLink",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the action's DOM element."
+                            "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "submenuIcon",
@@ -61835,44 +61904,44 @@
                             "description": "Used to pass attributes to the event's DOM element."
                         },
                         {
-                            "name": "opposite",
+                            "name": "eventOpposite",
                             "optional": true,
                             "readonly": false,
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the opposite's DOM element."
+                            "description": "Used to pass attributes to the event opposite's DOM element."
                         },
                         {
-                            "name": "separator",
+                            "name": "eventSeparator",
                             "optional": true,
                             "readonly": false,
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the separator's DOM element."
+                            "description": "Used to pass attributes to the event separator's DOM element."
                         },
                         {
-                            "name": "marker",
+                            "name": "eventMarker",
                             "optional": true,
                             "readonly": false,
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the marker's DOM element."
+                            "description": "Used to pass attributes to the event marker's DOM element."
                         },
                         {
-                            "name": "connector",
+                            "name": "eventConnector",
                             "optional": true,
                             "readonly": false,
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the connector's DOM element."
+                            "description": "Used to pass attributes to the event connector's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "eventContent",
                             "optional": true,
                             "readonly": false,
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the event content's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -62190,29 +62259,6 @@
                     ],
                     "methods": []
                 },
-                "ToastSharedPassThroughMethodOptions": {
-                    "description": "Custom shared passthrough(pt) option method.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "props",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "ToastProps",
-                            "default": "",
-                            "description": "Defines valid properties."
-                        },
-                        {
-                            "name": "state",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "ToastState",
-                            "default": "",
-                            "description": "Defines current inline state."
-                        }
-                    ],
-                    "methods": []
-                },
                 "ToastPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "ToastProps.pt",
@@ -62234,36 +62280,28 @@
                             "description": "Used to pass attributes to the message's DOM element."
                         },
                         {
-                            "name": "container",
+                            "name": "messageContent",
                             "optional": true,
                             "readonly": false,
                             "type": "ToastPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the message content's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "messageIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ToastPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the message icon's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "messageText",
                             "optional": true,
                             "readonly": false,
                             "type": "ToastPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
-                        },
-                        {
-                            "name": "text",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToastPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the text's DOM element."
+                            "description": "Used to pass attributes to the message text's DOM element."
                         },
                         {
                             "name": "summary",
@@ -62293,17 +62331,18 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>",
+                            "type": "ToastPassThroughOptionType",
                             "default": "",
-                            "description": "/**\nUsed to pass attributes to the button's DOM element."
+                            "description": "Used to pass attributes to the button's DOM element.",
+                            "deprecated": "since v3.30.2. Use 'closeButton' option."
                         },
                         {
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions<ToastSharedPassThroughMethodOptions>",
+                            "type": "ToastPassThroughOptionType",
                             "default": "",
-                            "description": "/**\nUsed to pass attributes to the close button's DOM element."
+                            "description": "Used to pass attributes to the button's DOM element."
                         },
                         {
                             "name": "closeIcon",
@@ -62537,9 +62576,10 @@
                             "name": "closeButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "object",
+                            "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Used to pass attributes to the close Button component."
+                            "description": "Used to pass all properties of the HTMLButtonElement to the close button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property."
                         },
                         {
                             "name": "message",
@@ -66477,7 +66517,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "loadingWrapper",
+                            "name": "loading",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
@@ -66485,12 +66525,12 @@
                             "description": "Used to pass attributes to the loading wrapper's DOM element."
                         },
                         {
-                            "name": "loadingOverlay",
+                            "name": "mask",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the loading overlay's DOM element."
+                            "description": "Used to pass attributes to the mask's DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -66517,12 +66557,12 @@
                             "description": "Used to pass attributes to the Paginator component."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "tableContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the table container's DOM element."
                         },
                         {
                             "name": "table",

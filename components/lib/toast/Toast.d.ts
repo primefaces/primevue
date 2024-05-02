@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
