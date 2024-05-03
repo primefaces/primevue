@@ -10,7 +10,7 @@
             <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 
             <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
-                <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex" tableStyle="min-width: 50rem">
                     <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
                     <Column field="size" header="Size" style="min-width: 200px"></Column>
                     <Column field="type" header="Type" style="min-width: 200px"></Column>
@@ -36,7 +36,7 @@ export default {
                 basic: `
 <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
-    <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+    <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex" tableStyle="min-width: 50rem">
         <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
         <Column field="size" header="Size" style="min-width: 200px"></Column>
         <Column field="type" header="Type" style="min-width: 200px"></Column>
@@ -51,7 +51,7 @@ export default {
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
         <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
-            <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex" tableStyle="min-width: 50rem">
                 <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
                 <Column field="size" header="Size" style="min-width: 200px"></Column>
                 <Column field="type" header="Type" style="min-width: 200px"></Column>
@@ -84,7 +84,7 @@ export default {
     <div class="card flex justify-content-center">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
         <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
-            <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex" tableStyle="min-width: 50rem">
                 <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
                 <Column field="size" header="Size" style="min-width: 200px"></Column>
                 <Column field="type" header="Type" style="min-width: 200px"></Column>

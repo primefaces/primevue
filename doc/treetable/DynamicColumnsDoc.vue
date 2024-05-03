@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes">
+            <TreeTable :value="nodes" tableStyle="min-width: 50rem">
                 <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
             </TreeTable>
         </div>
@@ -22,14 +22,14 @@ export default {
             columns: null,
             code: {
                 basic: `
-<TreeTable :value="nodes">
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
         </TreeTable>
     </div>
@@ -61,7 +61,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
         </TreeTable>
     </div>

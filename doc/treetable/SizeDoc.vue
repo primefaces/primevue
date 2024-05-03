@@ -7,10 +7,10 @@
             <div class="flex justify-content-center mb-4">
                 <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
             </div>
-            <TreeTable :value="nodes" :class="`p-treetable-${size.class}`">
-                <Column field="name" header="Name" expander></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+                <Column field="name" header="Name" expander style="width: 34%"></Column>
+                <Column field="size" header="Size" style="width: 33%"></Column>
+                <Column field="type" header="Type" style="width: 33%"></Column>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -26,25 +26,25 @@ export default {
             nodes: null,
             size: { label: 'Normal', value: 'normal' },
             sizeOptions: [
-                { label: 'Small', value: 'small', class: 'sm' },
+                { label: 'Small', value: 'small' },
                 { label: 'Normal', value: 'normal' },
-                { label: 'Large', value: 'large', class: 'lg' }
+                { label: 'Large', value: 'large' }
             ],
             code: {
                 basic: `
-<TreeTable :value="nodes" :class="\`p-treetable-\${size.class}\`">
-    <Column field="name" header="Name" expander></Column>
-    <Column field="size" header="Size"></Column>
-    <Column field="type" header="Type"></Column>
+<TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :class="\`p-treetable-\${size.class}\`">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>
@@ -73,10 +73,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :class="\`p-treetable-\${size.class}\`">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>

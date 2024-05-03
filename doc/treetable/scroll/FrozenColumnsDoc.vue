@@ -4,13 +4,13 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
-                <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
-                <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
-                <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
-                <Column field="size" header="Size 2" style="width: 250px; height: 57px"></Column>
-                <Column field="type" header="Type 3" style="width: 250px; height: 57px"></Column>
-                <Column field="size" header="Size 3" style="width: 250px; height: 57px"></Column>
+            <TreeTable :value="nodes" scrollable scrollHeight="300px">
+                <Column field="name" header="Name" expander frozen style="min-width: 250px" class="font-bold"></Column>
+                <Column field="size" header="Size" style="min-width: 200px"></Column>
+                <Column field="type" header="Type 2" style="min-width: 200px"></Column>
+                <Column field="size" header="Size 2" style="min-width: 200px"></Column>
+                <Column field="type" header="Type 3" style="min-width: 200px"></Column>
+                <Column field="size" header="Size 3" style="min-width: 200px"></Column>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -26,25 +26,25 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
-    <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
-    <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
-    <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
-    <Column field="size" header="Size 2" style="width: 250px; height: 57px"></Column>
-    <Column field="type" header="Type 3" style="width: 250px; height: 57px"></Column>
-    <Column field="size" header="Size 3" style="width: 250px; height: 57px"></Column>
+<TreeTable :value="nodes" scrollable scrollHeight="300px">
+    <Column field="name" header="Name" expander frozen style="min-width: 250px" class="font-bold"></Column>
+    <Column field="size" header="Size" style="min-width: 200px"></Column>
+    <Column field="type" header="Type 2" style="min-width: 200px"></Column>
+    <Column field="size" header="Size 2" style="min-width: 200px"></Column>
+    <Column field="type" header="Type 3" style="min-width: 200px"></Column>
+    <Column field="size" header="Size 3" style="min-width: 200px"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
-            <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
-            <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size 2" style="width: 250px; height: 57px"></Column>
-            <Column field="type" header="Type 3" style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size 3" style="width: 250px; height: 57px"></Column>
+        <TreeTable :value="nodes" scrollable scrollHeight="300px">
+            <Column field="name" header="Name" expander frozen style="min-width: 250px" class="font-bold"></Column>
+            <Column field="size" header="Size" style="min-width: 200px"></Column>
+            <Column field="type" header="Type 2" style="min-width: 200px"></Column>
+            <Column field="size" header="Size 2" style="min-width: 200px"></Column>
+            <Column field="type" header="Type 3" style="min-width: 200px"></Column>
+            <Column field="size" header="Size 3" style="min-width: 200px"></Column>
         </TreeTable>
     </div>
 </template>
@@ -67,13 +67,13 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="300px" scrollDirection="both">
-            <Column field="name" header="Name" expander frozen style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size" style="width: 250px; height: 57px"></Column>
-            <Column field="type" header="Type 2" style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size 2" style="width: 250px; height: 57px"></Column>
-            <Column field="type" header="Type 3" style="width: 250px; height: 57px"></Column>
-            <Column field="size" header="Size 3" style="width: 250px; height: 57px"></Column>
+        <TreeTable :value="nodes" scrollable scrollHeight="300px">
+            <Column field="name" header="Name" expander frozen style="min-width: 250px" class="font-bold"></Column>
+            <Column field="size" header="Size" style="min-width: 200px"></Column>
+            <Column field="type" header="Type 2" style="min-width: 200px"></Column>
+            <Column field="size" header="Size 2" style="min-width: 200px"></Column>
+            <Column field="type" header="Type 3" style="min-width: 200px"></Column>
+            <Column field="size" header="Size 3" style="min-width: 200px"></Column>
         </TreeTable>
     </div>
 </template>

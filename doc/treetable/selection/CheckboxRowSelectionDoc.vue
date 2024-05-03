@@ -8,10 +8,10 @@
     <DocSectionCode :code="introCode" hideToggleCode importCode hideStackBlitz />
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
-                <Column field="name" header="Name" expander></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" tableStyle="min-width: 50rem">
+                <Column field="name" header="Name" expander style="width: 34%"></Column>
+                <Column field="size" header="Size" style="width: 33%"></Column>
+                <Column field="type" header="Type" style="width: 33%"></Column>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -38,19 +38,19 @@ export default {
             },
             code: {
                 basic: `
-<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
-    <Column field="name" header="Name" expander></Column>
-    <Column field="size" header="Size"></Column>
-    <Column field="type" header="Type"></Column>
+<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>
@@ -74,10 +74,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>

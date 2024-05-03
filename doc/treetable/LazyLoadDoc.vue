@@ -12,7 +12,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+            <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
                 <Column field="name" header="Name" expander></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
@@ -33,7 +33,7 @@ export default {
             code: {
                 basic: `
 <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
@@ -43,7 +43,7 @@ export default {
 <template>
     <div class="card">
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
@@ -144,7 +144,7 @@ export default {
 <template>
     <div>
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords">
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
             <Column field="name" header="Name" :expander="true"></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>

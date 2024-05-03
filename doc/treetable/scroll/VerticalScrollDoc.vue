@@ -4,10 +4,10 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" scrollable scrollHeight="270px">
-                <Column field="name" header="Name" expander></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+            <TreeTable :value="nodes" scrollable scrollHeight="270px" tableStyle="min-width: 50rem">
+                <Column field="name" header="Name" expander style="width: 34%"></Column>
+                <Column field="size" header="Size" style="width: 33%"></Column>
+                <Column field="type" header="Type" style="width: 33%"></Column>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -23,19 +23,19 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" scrollable scrollHeight="270px">
-    <Column field="name" header="Name" expander></Column>
-    <Column field="size" header="Size"></Column>
-    <Column field="type" header="Type"></Column>
+<TreeTable :value="nodes" scrollable scrollHeight="270px" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="270px">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable :value="nodes" scrollable scrollHeight="270px" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>
@@ -58,10 +58,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" scrollable scrollHeight="270px">
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+        <TreeTable :value="nodes" scrollable scrollHeight="270px" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>

@@ -4,10 +4,10 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" sortMode="multiple">
-                <Column field="name" header="Name" sortable expander></Column>
-                <Column field="size" header="Size" sortable></Column>
-                <Column field="type" header="Type" sortable></Column>
+            <TreeTable :value="nodes" sortMode="multiple" tableStyle="min-width: 50rem">
+                <Column field="name" header="Name" sortable expander style="width: 34%"></Column>
+                <Column field="size" header="Size" sortable style="width: 33%"></Column>
+                <Column field="type" header="Type" sortable style="width: 33%"></Column>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -23,19 +23,19 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" sortMode="multiple">
-    <Column field="name" header="Name" sortable expander></Column>
-    <Column field="size" header="Size" sortable></Column>
-    <Column field="type" header="Type" sortable></Column>
+<TreeTable :value="nodes" sortMode="multiple" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" sortable expander style="width: 34%"></Column>
+    <Column field="size" header="Size" sortable style="width: 33%"></Column>
+    <Column field="type" header="Type" sortable style="width: 33%"></Column>
 </TreeTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" sortMode="multiple">
-            <Column field="name" header="Name" sortable expander></Column>
-            <Column field="size" header="Size" sortable></Column>
-            <Column field="type" header="Type" sortable></Column>
+        <TreeTable :value="nodes" sortMode="multiple" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" sortable expander style="width: 34%"></Column>
+            <Column field="size" header="Size" sortable style="width: 33%"></Column>
+            <Column field="type" header="Type" sortable style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>
@@ -58,10 +58,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" sortMode="multiple">
-            <Column field="name" header="Name" sortable expander></Column>
-            <Column field="size" header="Size" sortable></Column>
-            <Column field="type" header="Type" sortable></Column>
+        <TreeTable :value="nodes" sortMode="multiple" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" sortable expander style="width: 34%"></Column>
+            <Column field="size" header="Size" sortable style="width: 33%"></Column>
+            <Column field="type" header="Type" sortable style="width: 33%"></Column>
         </TreeTable>
     </div>
 </template>

@@ -14,13 +14,14 @@
                 :rowsPerPageOptions="[5, 10, 25, 50]"
                 paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                 currentPageReportTemplate="{first} to {last} of {totalRecords}"
+                tableStyle="min-width: 50rem"
             >
                 <template #paginatorstart>
                     <Button type="button" icon="pi pi-refresh" text />
                 </template>
-                <Column field="name" header="Name" expander></Column>
-                <Column field="size" header="Size"></Column>
-                <Column field="type" header="Type"></Column>
+                <Column field="name" header="Name" expander style="width: 34%"></Column>
+                <Column field="size" header="Size" style="width: 33%"></Column>
+                <Column field="type" header="Type" style="width: 33%"></Column>
                 <template #paginatorend>
                     <Button type="button" icon="pi pi-download" text />
                 </template>
@@ -37,15 +38,21 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
+<TreeTable
+    :value="nodes"
+    :paginator="true"
+    :rows="5"
+    :rowsPerPageOptions="[5, 10, 25, 50]"
     paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-    currentPageReportTemplate="{first} to {last} of {totalRecords}">
+    currentPageReportTemplate="{first} to {last} of {totalRecords}"
+    tableStyle="min-width: 50rem"
+>
     <template #paginatorstart>
         <Button type="button" icon="pi pi-refresh" text />
     </template>
-    <Column field="name" header="Name" expander></Column>
-    <Column field="size" header="Size"></Column>
-    <Column field="type" header="Type"></Column>
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
     <template #paginatorend>
         <Button type="button" icon="pi pi-download" text />
     </template>
@@ -54,15 +61,21 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
+        <TreeTable
+            :value="nodes"
+            :paginator="true"
+            :rows="5"
+            :rowsPerPageOptions="[5, 10, 25, 50]"
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-            currentPageReportTemplate="{first} to {last} of {totalRecords}">
+            currentPageReportTemplate="{first} to {last} of {totalRecords}"
+            tableStyle="min-width: 50rem"
+        >
             <template #paginatorstart>
                 <Button type="button" icon="pi pi-refresh" text />
             </template>
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
             <template #paginatorend>
                 <Button type="button" icon="pi pi-download" text />
             </template>
@@ -111,15 +124,21 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
+        <TreeTable
+            :value="nodes"
+            :paginator="true"
+            :rows="5"
+            :rowsPerPageOptions="[5, 10, 25, 50]"
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-            currentPageReportTemplate="{first} to {last} of {totalRecords}">
+            currentPageReportTemplate="{first} to {last} of {totalRecords}"
+            tableStyle="min-width: 50rem"
+        >
             <template #paginatorstart>
                 <Button type="button" icon="pi pi-refresh" text />
             </template>
-            <Column field="name" header="Name" expander></Column>
-            <Column field="size" header="Size"></Column>
-            <Column field="type" header="Type"></Column>
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
             <template #paginatorend>
                 <Button type="button" icon="pi pi-download" text />
             </template>

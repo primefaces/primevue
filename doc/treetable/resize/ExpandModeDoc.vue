@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines :tableProps="{ style: { minWidth: '50rem' } }">
+            <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines tableStyle="min-width: 50rem">
                 <Column field="name" header="Name" expander></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
@@ -23,7 +23,7 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines :tableProps="{ style: { minWidth: '50rem' } }">
+<TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines tableStyle="min-width: 50rem">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
@@ -32,7 +32,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines :tableProps="{ style: { minWidth: '50rem' } }">
+        <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines tableStyle="min-width: 50rem">
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
@@ -58,7 +58,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines :tableProps="{ style: { minWidth: '50rem' } }">
+        <TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="expand" showGridlines tableStyle="min-width: 50rem">
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>

@@ -19,7 +19,6 @@ import DynamicColumnsDoc from '@/doc/treetable/DynamicColumnsDoc.vue';
 import FilterDoc from '@/doc/treetable/FilterDoc.vue';
 import ImportDoc from '@/doc/treetable/ImportDoc.vue';
 import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc.vue';
-import ResponsiveDoc from '@/doc/treetable/ResponsiveDoc.vue';
 import SizeDoc from '@/doc/treetable/SizeDoc.vue';
 import TemplateDoc from '@/doc/treetable/TemplateDoc.vue';
 import PaginatorBasicDoc from '@/doc/treetable/paginator/PaginatorBasicDoc.vue';
@@ -193,11 +192,6 @@ export default {
                     id: 'column_toggle',
                     label: 'Column Toggle',
                     component: ColumnToggleDoc
-                },
-                {
-                    id: 'responsive',
-                    label: 'Responsive',
-                    component: ResponsiveDoc
                 },
                 {
                     id: 'accessibility',

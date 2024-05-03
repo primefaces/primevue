@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes">
+            <TreeTable :value="nodes" tableStyle="min-width: 50rem">
                 <template #header>
                     <div style="text-align: left">
                         <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip" />
@@ -29,7 +29,7 @@ export default {
             columns: null,
             code: {
                 basic: `
-<TreeTable :value="nodes">
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
     <template #header>
         <div style="text-align:left">
             <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
@@ -42,7 +42,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <template #header>
                 <div style="text-align:left">
                     <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
@@ -87,7 +87,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <TreeTable :value="nodes">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <template #header>
                 <div style="text-align:left">
                     <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>

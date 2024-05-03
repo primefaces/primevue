@@ -475,7 +475,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -748,7 +748,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -1019,7 +1019,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -1290,7 +1290,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -1710,7 +1710,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -1881,7 +1881,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -5137,7 +5137,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -5465,7 +5465,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -5693,7 +5693,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -5937,7 +5937,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -6246,7 +6246,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -6305,7 +6305,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -6461,7 +6461,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -6693,7 +6693,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -6997,7 +6997,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -7410,7 +7410,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -7864,7 +7864,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -8076,7 +8076,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -9896,7 +9896,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -10196,7 +10196,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -10886,7 +10886,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -11873,7 +11873,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -12240,7 +12240,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -12748,7 +12748,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -13106,7 +13106,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -13684,7 +13684,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -14144,7 +14144,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -15482,6 +15482,20 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'rowtoggleicon' slot instead.\nCustom row toggler icon template."
+                        },
+                        {
+                            "name": "rowtoggleicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the row toggler icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">rowExpanded</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Current row expanded state.</span>\n }",
+                                    "description": "row toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom row toggler icon template."
                         },
                         {
@@ -15570,6 +15584,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom row reorder icon template."
+                        },
+                        {
+                            "name": "nodetogglericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'nodetoggleicon' slot instead.\nCustom node toggler icon template."
+                        },
+                        {
+                            "name": "nodetoggleicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom node toggler icon template."
                         }
                     ]
                 },
@@ -15631,7 +15658,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -15891,7 +15918,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -18256,7 +18283,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -18650,7 +18677,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -19337,7 +19364,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -22527,7 +22554,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -23113,7 +23140,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -24951,7 +24978,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -25210,7 +25237,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -25929,7 +25956,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -26224,7 +26251,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -26774,7 +26801,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -27261,7 +27288,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -28467,7 +28494,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -28573,7 +28600,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -29316,7 +29343,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -29745,7 +29772,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -30754,7 +30781,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -30986,7 +31013,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -31179,7 +31206,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -32129,7 +32156,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -32357,7 +32384,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -32988,7 +33015,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -33277,7 +33304,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -33653,7 +33680,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -34245,7 +34272,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -34473,7 +34500,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -34700,7 +34727,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -34920,7 +34947,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -35331,7 +35358,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -36085,7 +36112,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -36547,7 +36574,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -36955,7 +36982,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -37246,7 +37273,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -37698,7 +37725,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -38657,7 +38684,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -39349,7 +39376,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -39996,7 +40023,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -40636,7 +40663,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -41212,7 +41239,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -41666,7 +41693,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -43041,7 +43068,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -43698,7 +43725,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -44362,7 +44389,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -44756,7 +44783,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -45402,7 +45429,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -45877,7 +45904,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -46581,7 +46608,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -47329,7 +47356,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -48427,7 +48454,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -48839,7 +48866,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -48952,7 +48979,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -49220,7 +49247,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -49481,7 +49508,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -49942,7 +49969,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -50426,7 +50453,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -50595,7 +50622,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -50815,7 +50842,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -51130,7 +51157,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -51464,7 +51491,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -52687,7 +52714,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53157,7 +53184,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53626,7 +53653,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53895,7 +53922,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -54291,7 +54318,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -54968,7 +54995,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -55514,7 +55541,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -55953,7 +55980,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -56220,7 +56247,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -56582,7 +56609,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -56982,7 +57009,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -57376,7 +57403,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -57598,7 +57625,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -57872,7 +57899,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -58143,7 +58170,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -58602,7 +58629,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -59027,7 +59054,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -59266,7 +59293,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -59599,7 +59626,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -60139,7 +60166,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -60422,7 +60449,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -60754,7 +60781,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -61115,7 +61142,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -61791,7 +61818,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -62167,7 +62194,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -62769,7 +62796,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -63270,7 +63297,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -63693,7 +63720,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -63966,7 +63993,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -64355,7 +64382,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -65160,7 +65187,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -66033,7 +66060,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -67136,28 +67163,28 @@
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
                         {
-                            "name": "scrollDirection",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"both\" | \"horizontal\" | \"vertical\"",
-                            "default": "vertical",
-                            "description": "Orientation of the scrolling."
-                        },
-                        {
-                            "name": "responsiveLayout",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"scroll\" | \"stack\"",
-                            "default": "stack",
-                            "description": "Defines the responsive mode, currently only option is scroll."
-                        },
-                        {
                             "name": "size",
                             "optional": true,
                             "readonly": false,
                             "type": "\"small\" | \"large\"",
                             "default": "",
                             "description": "Defines the size of the table."
+                        },
+                        {
+                            "name": "tableStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Inline style of the table element."
+                        },
+                        {
+                            "name": "tableClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the table element."
                         },
                         {
                             "name": "tableProps",
@@ -67576,7 +67603,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -68739,7 +68766,7 @@
                             "default": ""
                         },
                         {
-                            "name": "loadStyle",
+                            "name": "load",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
