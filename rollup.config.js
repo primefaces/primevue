@@ -313,7 +313,10 @@ const TERSER_PLUGIN_OPTIONS = {
     compress: {
         keep_infinity: true,
         pure_getters: true,
-        reduce_funcs: false
+        reduce_funcs: true
+    },
+    mangle: {
+        reserved: ['theme', 'css']
     }
 };
 
