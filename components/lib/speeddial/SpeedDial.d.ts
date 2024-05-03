@@ -276,7 +276,7 @@ export interface SpeedDialProps {
     /**
      * Used to pass all properties of the ButtonProps to the item component.
      * @type {ButtonProps}
-     * @defaultValue { severity: 'secondary', text: true, rounded: true, size: 'small' }
+     * @defaultValue { severity: 'secondary', rounded: true, size: 'small' }
      */
     actionButtonProps?: object | undefined;
     /**

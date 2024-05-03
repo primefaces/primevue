@@ -66,7 +66,7 @@ export default {
         actionButtonProps: {
             type: Object,
             default() {
-                return { severity: 'secondary', text: true, rounded: true, size: 'small' };
+                return { severity: 'secondary', rounded: true, size: 'small' };
             }
         },
         ariaLabelledby: {
