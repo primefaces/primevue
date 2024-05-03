@@ -47,7 +47,15 @@ export default {
             type: String,
             default: undefined
         },
+        maskIcon: {
+            type: String,
+            default: undefined
+        },
         showIcon: {
+            type: String,
+            default: undefined
+        },
+        unmaskIcon: {
             type: String,
             default: undefined
         },
@@ -100,6 +108,22 @@ export default {
             default: null
         },
         panelProps: {
+            type: null,
+            default: null
+        },
+        overlayId: {
+            type: String,
+            default: null
+        },
+        overlayClass: {
+            type: [String, Object],
+            default: null
+        },
+        overlayStyle: {
+            type: Object,
+            default: null
+        },
+        overlayProps: {
             type: null,
             default: null
         },

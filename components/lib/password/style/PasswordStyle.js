@@ -82,9 +82,9 @@ const classes = {
         }
     ],
     input: 'p-password-input',
-    hideIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
-    showIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
-    panel: ({ instance }) => [
+    maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
+    unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
+    overlay: ({ instance }) => [
         'p-password-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false

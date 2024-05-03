@@ -76,17 +76,17 @@ export interface PasswordPassThroughOptions {
      */
     input?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the hide icon's DOM element.
+     * Used to pass attributes to the mask icon's DOM element.
      */
-    hideIcon?: PasswordPassThroughOptionType;
+    maskIcon?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the show icon's DOM element.
+     * Used to pass attributes to the unmask icon's DOM element.
      */
-    showIcon?: PasswordPassThroughOptionType;
+    unmaskIcon?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    panel?: PasswordPassThroughOptionType;
+    overlay?: PasswordPassThroughOptionType;
     /**
      * Used to pass attributes to the meter's DOM element.
      */
@@ -213,14 +213,22 @@ export interface PasswordProps extends InputHTMLAttributes {
     toggleMask?: boolean | undefined;
     /**
      * Icon to hide displaying the password as plain text.
-     * @deprecated since v3.27.0. Use 'hideicon' slot.
+     * @deprecated since v3.27.0. Use 'maskicon' slot.
      */
     hideIcon?: string | undefined;
     /**
+     * Icon to hide displaying the password as plain text.
+     */
+    maskIcon?: string | undefined;
+    /**
      * Icon to show displaying the password as plain text.
-     * @deprecated since v3.27.0. Use 'showicon' slot.
+     * @deprecated since v3.27.0. Use 'unmaskicon' slot.
      */
     showIcon?: string | undefined;
+    /**
+     * Icon to show displaying the password as plain text.
+     */
+    unmaskIcon?: string | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -278,6 +286,22 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     panelProps?: HTMLAttributes | undefined;
     /**
+     * Identifier of the underlying overlay element.
+     */
+    overlayId?: string | undefined;
+    /**
+     * Style class of the overlay.
+     */
+    overlayClass?: string | object | undefined;
+    /**
+     * Inline style of the overlay.
+     */
+    overlayStyle?: object | undefined;
+    /**
+     * Used to pass all properties of the HTMLDivElement to the overlay inside the component.
+     */
+    overlayProps?: HTMLAttributes | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
@@ -323,7 +347,8 @@ export interface PasswordSlots {
      */
     content(): VNode[];
     /**
-     * Custom hide icon template.
+     * @deprecated since v4.0. Use 'maskicon' slot instead.
+     * Custom mask icon template.
      * @param {Object} scope - hideicon slot's params.
      */
     hideicon(scope: {
@@ -333,22 +358,53 @@ export interface PasswordSlots {
          */
         onClick: () => void;
         /**
-         * Hide icon click event
+         * Mask icon click event
          */
         toggleCallback: () => void;
     }): VNode[];
     /**
-     * Custom show icon template.
-     * @param {Object} scope - showicon slot's params.
+     * Custom hide icon template.
+     * @param {Object} scope - maskicon slot's params.
      */
-    showicon(scope: {
+    maskicon(scope: {
         /**
          * Hide icon click event
          * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
          */
         onClick: () => void;
         /**
-         * Hide icon click event
+         * Mask icon click event
+         */
+        toggleCallback: () => void;
+    }): VNode[];
+    /**
+     * @deprecated since v4.0. use 'unmaskicon' slot instead.
+     * Custom unmask icon template.
+     * @param {Object} scope - showicon slot's params.
+     */
+    showicon(scope: {
+        /**
+         * Unmask icon click event
+         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
+         */
+        onClick: () => void;
+        /**
+         * Unmask icon click event
+         */
+        toggleCallback: () => void;
+    }): VNode[];
+    /**
+     * Custom unmask icon template.
+     * @param {Object} scope - showicon slot's params.
+     */
+    unmaskicon(scope: {
+        /**
+         * Unmask icon click event
+         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
+         */
+        onClick: () => void;
+        /**
+         * Unmask icon click event
          */
         toggleCallback: () => void;
     }): VNode[];

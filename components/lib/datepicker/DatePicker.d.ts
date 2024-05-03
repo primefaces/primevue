@@ -140,21 +140,21 @@ export interface DatePickerPassThroughOptions {
      */
     input?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the dropdown button's DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
-    dropdownButton?: DatePickerPassThroughOptionType;
+    dropdown?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
     panel?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the group container's DOM element.
+     * Used to pass attributes to the calendar container's DOM element.
      */
-    groupContainer?: DatePickerPassThroughOptionType;
+    calendarContainer?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the group's DOM element.
+     * Used to pass attributes to the calendar's DOM element.
      */
-    group?: DatePickerPassThroughOptionType;
+    calendar?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the header's DOM element.
      */
@@ -169,17 +169,21 @@ export interface DatePickerPassThroughOptions {
      */
     title?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the month title's DOM element.
+     * Used to pass attributes to the view month's DOM element.
      */
-    monthTitle?: DatePickerPassThroughOptionType;
+    viewMonth?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the year title's DOM element.
+     * Used to pass attributes to the view year's DOM element.
      */
-    yearTitle?: DatePickerPassThroughOptionType;
+    viewYear?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the decade title's DOM element.
+     * Used to pass attributes to the decade's DOM element.
      */
-    decadeTitle?: DatePickerPassThroughOptionType;
+    decade?: DatePickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the view day's DOM element.
+     */
+    dayView?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the next button's DOM element.
      * @see {@link ButtonPassThroughOptions}
@@ -214,9 +218,9 @@ export interface DatePickerPassThroughOptions {
      */
     tableHeaderCell?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week label's DOM element.
+     * Used to pass attributes to the week day cell's DOM element.
      */
-    weekLabel?: DatePickerPassThroughOptionType;
+    weekDayCell?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the week day's DOM element.
      */
@@ -238,25 +242,25 @@ export interface DatePickerPassThroughOptions {
      */
     weekLabelContainer?: DatePickerPassThroughOptionType;
     /**
+     * Used to pass attributes to the day cell's DOM element.
+     */
+    dayCell?: DatePickerPassThroughOptionType;
+    /**
      * Used to pass attributes to the day's DOM element.
      */
     day?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the day label's DOM element.
+     * Used to pass attributes to the month view's DOM element.
      */
-    dayLabel?: DatePickerPassThroughOptionType;
-    /**
-     * Used to pass attributes to the month picker's DOM element.
-     */
-    monthPicker?: DatePickerPassThroughOptionType;
+    monthView?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the month's DOM element.
      */
     month?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the year picker's DOM element.
+     * Used to pass attributes to the year view's DOM element.
      */
-    yearPicker?: DatePickerPassThroughOptionType;
+    yearView?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the year's DOM element.
      */

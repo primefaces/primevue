@@ -35,7 +35,7 @@ const theme = ({ dt }) => `
     outline: 0 none;
 }
 
-.p-inputinputchips.p-invalid .p-inputchips-input {
+.p-inputchips.p-invalid .p-inputchips-input {
     border-color: ${dt('inputchips.invalid.border.color')};
 }
 
@@ -47,7 +47,7 @@ const theme = ({ dt }) => `
     background: ${dt('inputchips.filled.focus.background')};
 }
 
-.p-inputinputchips.p-disabled .p-inputchips-input {
+.p-inputchips.p-disabled .p-inputchips-input {
     opacity: 1;
     background: ${dt('inputchips.disabled.background')};
     color: ${dt('inputchips.disabled.color')};
@@ -95,16 +95,16 @@ const classes = {
             'p-inputwrapper-focus': instance.focused
         }
     ],
-    container: ({ props, instance }) => [
+    input: ({ props, instance }) => [
         'p-inputchips-input',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    token: ({ state, index }) => ['p-inputchips-chip', { 'p-focus': state.focusedIndex === index }],
-    label: 'p-inputchips-chip-label',
-    removeTokenIcon: 'p-inputchips-chip-icon',
-    inputToken: 'p-inputchips-input-item'
+    chip: ({ state, index }) => ['p-inputchips-chip', { 'p-focus': state.focusedIndex === index }],
+    chipLabel: 'p-inputchips-chip-label',
+    chipIcon: 'p-inputchips-chip-icon',
+    inputItem: 'p-inputchips-input-item'
 };
 
 export default BaseStyle.extend({

@@ -91,30 +91,30 @@ export interface InputChipsPassThroughOptions {
      */
     root?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
-    container?: InputChipsPassThroughOptionType;
+    input?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the token's DOM element.
+     * Used to pass attributes to the chip's DOM element.
      */
-    token?: InputChipsPassThroughOptionType;
+    chip?: InputChipsPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip component.
      * @see {@link ChipPassThroughOptions}
      */
-    label?: ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>;
+    chipLabel?: ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the chip icon's DOM element.
      */
-    removeTokenIcon?: InputChipsPassThroughOptionType;
+    chipIcon?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the input token's DOM element.
+     * Used to pass attributes to the input item's DOM element.
      */
-    inputToken?: InputChipsPassThroughOptionType;
+    inputItem?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input item field's DOM element.
      */
-    input?: InputChipsPassThroughOptionType;
+    inputItemField?: InputChipsPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -201,6 +201,10 @@ export interface InputChipsProps {
      */
     removeTokenIcon?: string | undefined;
     /**
+     * Icon to display in chip remove action.
+     */
+    chipIcon?: string | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
@@ -262,8 +266,9 @@ export interface InputChipsSlots {
         value: any;
     }): VNode[];
     /**
-     * Custom remove token icon template.
-     * @param {Object} scope - remove token icon slot's params.
+     * @deprecated since v4.0. Use 'chipicon' slot.
+     * Custom chip icon template.
+     * @param {Object} scope - chip icon slot's params.
      */
     removetokenicon(scope: {
         /**
@@ -275,13 +280,38 @@ export interface InputChipsSlots {
          */
         index: number;
         /**
-         * Remove token icon function.
+         * chip icon function.
          * @param {Event} event - Browser event
          * @deprecated since v3.39.0. Use 'removeCallback' property instead.
          */
         onClick: (event: Event, index: number) => void;
         /**
-         * Remove token icon function.
+         * chip icon function.
+         * @param {Event} event - Browser event
+         */
+        removeCallback: (event: Event, index: number) => void;
+    }): VNode[];
+    /**
+     * Custom chip icon template.
+     * @param {Object} scope - chip icon slot's params.
+     */
+    chipicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * chip icon function.
+         * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
+         */
+        onClick: (event: Event, index: number) => void;
+        /**
+         * chip icon function.
          * @param {Event} event - Browser event
          */
         removeCallback: (event: Event, index: number) => void;

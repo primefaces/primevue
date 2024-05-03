@@ -32,7 +32,7 @@
         />
         <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
             <button
-                :class="cx('dropdownButton')"
+                :class="cx('dropdown')"
                 :disabled="disabled"
                 @click="onButtonClick"
                 type="button"
@@ -40,7 +40,7 @@
                 aria-haspopup="dialog"
                 :aria-expanded="overlayVisible"
                 :aria-controls="panelId"
-                v-bind="ptm('dropdownButton')"
+                v-bind="ptm('dropdown')"
             >
                 <slot name="dropdownicon" :class="icon">
                     <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButtonIcon')" />
@@ -71,7 +71,7 @@
                     v-bind="ptm('panel')"
                 >
                     <template v-if="!timeOnly">
-                        <div :class="cx('group')" v-bind="ptm('group')">
+                        <div :class="cx('calendarContainer')" v-bind="ptm('calendarContainer')">
                             <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('calendar')" v-bind="ptm('calendar')">
                                 <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
@@ -101,10 +101,10 @@
                                                 type="button"
                                                 @click="switchToYearView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('yearTitle')"
+                                                :class="cx('viewYear')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseYear"
-                                                v-bind="ptm('yearTitle')"
+                                                v-bind="ptm('viewYear')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getYear(month) }}
@@ -114,10 +114,10 @@
                                                 type="button"
                                                 @click="switchToMonthView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('monthTitle')"
+                                                :class="cx('viewMonth')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseMonth"
-                                                v-bind="ptm('monthTitle')"
+                                                v-bind="ptm('viewMonth')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getMonthName(month.month) }}
@@ -129,10 +129,10 @@
                                                 type="button"
                                                 @click="switchToMonthView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('monthTitle')"
+                                                :class="cx('viewMonth')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseMonth"
-                                                v-bind="ptm('monthTitle')"
+                                                v-bind="ptm('viewMonth')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getMonthName(month.month) }}
@@ -142,16 +142,16 @@
                                                 type="button"
                                                 @click="switchToYearView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('yearTitle')"
+                                                :class="cx('viewYear')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseYear"
-                                                v-bind="ptm('yearTitle')"
+                                                v-bind="ptm('viewYear')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getYear(month) }}
                                             </button>
                                         </template>
-                                        <span v-if="currentView === 'year'" :class="cx('decadeTitle')" v-bind="ptm('decadeTitle')">
+                                        <span v-if="currentView === 'year'" :class="cx('decade')" v-bind="ptm('decade')">
                                             <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
                                     </div>
@@ -175,7 +175,7 @@
                                         </template>
                                     </Button>
                                 </div>
-                                <table v-if="currentView === 'date'" :class="cx('grid')" role="grid" v-bind="ptm('grid')">
+                                <table v-if="currentView === 'date'" :class="cx('dayView')" role="grid" v-bind="ptm('dayView')">
                                     <thead v-bind="ptm('tableHeader')">
                                         <tr v-bind="ptm('tableHeaderRow')">
                                             <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
@@ -185,8 +185,8 @@
                                                     </span>
                                                 </slot>
                                             </th>
-                                            <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell" :class="cx('weekDay')">
-                                                <span v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel" :class="cx('weekDay')">{{ weekDay }}</span>
+                                            <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell" :class="cx('weekDayCell')">
+                                                <span :class="cx('weekDay')" v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel">{{ weekDay }}</span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -204,9 +204,9 @@
                                                 v-for="date of week"
                                                 :key="date.day + '' + date.month"
                                                 :aria-label="date.day"
-                                                :class="cx('day', { date })"
+                                                :class="cx('dayCell', { date })"
                                                 v-bind="
-                                                    ptm('day', {
+                                                    ptm('dayCell', {
                                                         context: {
                                                             date,
                                                             today: date.today,
@@ -222,14 +222,14 @@
                                             >
                                                 <span
                                                     v-ripple
-                                                    :class="cx('dayLabel', { date })"
+                                                    :class="cx('day', { date })"
                                                     @click="onDateSelect($event, date)"
                                                     draggable="false"
                                                     @keydown="onDateCellKeydown($event, date, groupIndex)"
                                                     :aria-selected="isSelected(date)"
                                                     :aria-disabled="!date.selectable"
                                                     v-bind="
-                                                        ptm('dayLabel', {
+                                                        ptm('day', {
                                                             context: {
                                                                 date,
                                                                 today: date.today,
@@ -254,7 +254,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div v-if="currentView === 'month'" :class="cx('monthPicker')" v-bind="ptm('monthPicker')">
+                        <div v-if="currentView === 'month'" :class="cx('monthView')" v-bind="ptm('monthView')">
                             <span
                                 v-for="(m, i) of monthPickerValues"
                                 :key="m"
@@ -281,7 +281,7 @@
                                 </div>
                             </span>
                         </div>
-                        <div v-if="currentView === 'year'" :class="cx('yearPicker')" v-bind="ptm('yearPicker')">
+                        <div v-if="currentView === 'year'" :class="cx('yearView')" v-bind="ptm('yearView')">
                             <span
                                 v-for="y of yearPickerValues"
                                 :key="y.value"
@@ -356,7 +356,7 @@
                                 </template>
                             </Button>
                         </div>
-                        <div :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
+                        <div v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
                             <span v-bind="ptm('separator')" data-pc-group-section="timepickerlabel">{{ timeSeparator }}</span>
                         </div>
                         <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')" data-pc-group-section="timepickerContainer">
@@ -2453,9 +2453,9 @@ export default {
                         let cells;
 
                         if (this.currentView === 'month') {
-                            cells = DomHandler.find(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]:not([data-p-disabled="true"])');
+                            cells = DomHandler.find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cells = DomHandler.find(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]:not([data-p-disabled="true"])');
+                            cells = DomHandler.find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
                             cells = DomHandler.find(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
@@ -2465,9 +2465,9 @@ export default {
                         }
                     } else {
                         if (this.currentView === 'month') {
-                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]:not([data-p-disabled="true"])');
+                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]:not([data-p-disabled="true"])');
+                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
                             cell = DomHandler.findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
@@ -2488,14 +2488,14 @@ export default {
             let cell;
 
             if (this.currentView === 'month') {
-                let cells = DomHandler.find(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"][data-p-highlight="true"]');
+                let cells = DomHandler.find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"][data-p-highlight="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else if (this.currentView === 'year') {
-                let cells = DomHandler.find(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"][data-p-highlight="true"]');
+                let cells = DomHandler.find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"][data-p-highlight="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];

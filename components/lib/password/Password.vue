@@ -9,7 +9,7 @@
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            :aria-controls="(panelProps && panelProps.id) || panelId || panelUniqueId"
+            :aria-controls="(overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId"
             :aria-expanded="overlayVisible"
             :aria-haspopup="true"
             :placeholder="placeholder"
@@ -26,18 +26,27 @@
             :pt="ptm('input')"
             :unstyled="unstyled"
         />
-        <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('hideIcon'), hideIcon]" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
+        <!-- TODO: hide* and show* deprecated since v4.0-->
+        <slot v-if="toggleMask && unmasked" :name="$slots.hideicon ? 'hideicon' : 'maskicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
+            <component :is="hideIcon || maskIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('maskIcon'), maskIcon || hideIcon]" @click="onMaskToggle" v-bind="ptm('maskIcon')" />
         </slot>
-        <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="[cx('showIcon'), showIcon]" @click="onMaskToggle" v-bind="ptm('showIcon')" />
+        <slot v-if="toggleMask && !unmasked" :name="$slots.showicon ? 'showicon' : 'unmaskicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
+            <component :is="showIcon || unmaskIcon ? 'i' : 'EyeIcon'" :class="[cx('unmaskIcon'), unmaskIcon || showIcon]" @click="onMaskToggle" v-bind="ptm('unmaskIcon')" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" v-bind="{ ...panelProps, ...ptm('panel') }">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :id="overlayId || panelId || overlayUniqueId"
+                    :class="[cx('overlay'), panelClass, overlayClass]"
+                    :style="[overlayStyle, panelStyle]"
+                    @click="onOverlayClick"
+                    v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
+                >
                     <slot name="header"></slot>
                     <slot name="content">
                         <div :class="cx('meter')" v-bind="ptm('meter')">
@@ -303,8 +312,8 @@ export default {
         promptText() {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         },
-        panelUniqueId() {
-            return this.id + '_panel';
+        overlayUniqueId() {
+            return this.id + '_overlay';
         }
     },
     components: {

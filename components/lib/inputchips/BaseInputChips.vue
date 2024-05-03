@@ -62,6 +62,10 @@ export default {
             type: String,
             default: undefined
         },
+        chipIcon: {
+            type: String,
+            default: undefined
+        },
         ariaLabelledby: {
             type: String,
             default: null

@@ -2,7 +2,7 @@
     <div :class="cx('root')" v-bind="ptmi('root')">
         <ul
             ref="container"
-            :class="cx('container')"
+            :class="cx('input')"
             tabindex="-1"
             role="listbox"
             aria-orientation="horizontal"
@@ -13,30 +13,31 @@
             @focus="onContainerFocus"
             @blur="onContainerBlur"
             @keydown="onContainerKeyDown"
-            v-bind="ptm('container')"
+            v-bind="ptm('input')"
         >
             <li
                 v-for="(val, i) of modelValue"
                 :key="`${i}_${val}`"
                 :id="id + '_inputchips_item_' + i"
                 role="option"
-                :class="cx('token', { index: i })"
+                :class="cx('chip', { index: i })"
                 :aria-label="val"
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
-                v-bind="ptm('token')"
+                v-bind="ptm('chip')"
                 :data-p-focused="focusedIndex === i"
             >
-                <slot name="chip" :class="cx('label')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
-                    <Chip :class="cx('label')" :label="val" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('label')">
+                <slot name="chip" :class="cx('chipLabel')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
+                    <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
+                    <Chip :class="cx('chipLabel')" :label="val" :removeIcon="removeTokenIcon || chipIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('chipLabel')">
                         <template #removeicon>
-                            <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
+                            <slot :name="$slots.removetokenicon ? 'removetokenicon' : 'chipicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
                         </template>
                     </Chip>
                 </slot>
             </li>
-            <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
+            <li :class="cx('inputItem')" role="option" v-bind="ptm('inputItem')">
                 <input
                     ref="input"
                     :id="inputId"
@@ -51,7 +52,7 @@
                     @input="onInput"
                     @keydown="onKeyDown($event)"
                     @paste="onPaste($event)"
-                    v-bind="{ ...inputProps, ...ptm('input') }"
+                    v-bind="{ ...inputProps, ...ptm('inputItemField') }"
                 />
             </li>
         </ul>
