@@ -47,7 +47,6 @@ import UpdatePresetDoc from '@/doc/theming/styled/utils/UpdatePresetDoc.vue';
 import UpdatePrimaryPaletteDoc from '@/doc/theming/styled/utils/UpdatePrimaryPaletteDoc.vue';
 import UpdateSurfacePaletteDoc from '@/doc/theming/styled/utils/UpdateSurfacePaletteDoc.vue';
 import UsePresetDoc from '@/doc/theming/styled/utils/UsePresetDoc.vue';
-import UseThemeDoc from '@/doc/theming/styled/utils/UseThemeDoc.vue';
 
 export default {
     data() {
@@ -163,11 +162,6 @@ export default {
                             id: 'updatesurfacepalette',
                             label: 'updateSurfacePalette',
                             component: UpdateSurfacePaletteDoc
-                        },
-                        {
-                            id: 'usetheme',
-                            label: 'useTheme',
-                            component: UseThemeDoc
                         },
                         {
                             id: 'dt',
