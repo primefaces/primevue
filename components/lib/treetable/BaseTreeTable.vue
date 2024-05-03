@@ -150,20 +150,24 @@ export default {
             type: Boolean,
             default: false
         },
-        scrollDirection: {
-            type: String,
-            default: 'vertical'
-        },
         scrollHeight: {
             type: String,
             default: null
         },
         responsiveLayout: {
             type: String,
-            default: null
+            default: 'scroll'
         },
         size: {
             type: String,
+            default: null
+        },
+        tableStyle: {
+            type: null,
+            default: null
+        },
+        tableClass: {
+            type: [String, Object],
             default: null
         },
         tableProps: {

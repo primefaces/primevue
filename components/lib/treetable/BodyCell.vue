@@ -137,7 +137,6 @@ export default {
                     selected: this.$parent.selected,
                     frozen: this.columnProp('frozen'),
                     scrollable: this.$parentInstance.scrollable,
-                    scrollDirection: this.$parentInstance.scrollDirection,
                     showGridlines: this.$parentInstance.showGridlines,
                     size: this.$parentInstance?.size
                 }

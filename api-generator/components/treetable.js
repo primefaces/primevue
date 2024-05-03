@@ -211,12 +211,6 @@ const TreeTableProps = [
         description: 'When specified, enables horizontal and/or vertical scrolling.'
     },
     {
-        name: 'scrollDirection',
-        type: 'string',
-        default: 'vertical',
-        description: 'Orientation of the scrolling, options are "vertical", "horizontal" and "both".'
-    },
-    {
         name: 'scrollHeight',
         type: 'string',
         default: 'null',

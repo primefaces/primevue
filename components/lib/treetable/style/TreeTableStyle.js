@@ -427,6 +427,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     user-select: none;
+    margin-right: 0.5rem;
 }
 
 .p-treetable-row-toggle-button:enabled:hover {
@@ -442,6 +443,11 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
 .p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-row-toggle-button:hover{
     background: ${dt('treetable.row.action.highlight.hover.background')};
     color: inherit;
+}
+
+.p-treetable .p-treetable-row-checkbox {
+    vertical-align: middle;
+    margin-right: 0.5rem;
 }
 `;
 
@@ -465,12 +471,20 @@ const classes = {
     header: 'p-treetable-header',
     paginator: ({ position }) => 'p-treetable-paginator-' + position,
     tableContainer: 'p-treetable-table-container',
+    table: ({ props }) => [
+        'p-treetable-table',
+        {
+            'p-treetable-scrollable-table': props.scrollable,
+            'p-treetable-resizable-table': props.resizableColumns,
+            'p-treetable-resizable-table-fit': props.resizableColumns && props.columnResizeMode === 'fit'
+        }
+    ],
     thead: 'p-treetable-thead',
-    headerCell: ({ instance, props }) => [
+    headerCell: ({ instance, props, context }) => [
         {
             'p-treetable-sortable-column': instance.columnProp('sortable'),
             'p-treetable-resizable-column': props.resizableColumns,
-            'p-treetable-column-sorted': instance.isColumnSorted(),
+            'p-treetable-column-sorted': context?.sorted,
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
@@ -503,8 +517,15 @@ const classes = {
     columnResizeHelper: 'p-treetable-column-resize-indicator'
 };
 
+const inlineStyles = {
+    tableContainer: { overflow: 'auto' },
+    thead: { position: 'sticky' },
+    tfoot: { position: 'sticky' }
+};
+
 export default BaseStyle.extend({
     name: 'treetable',
     theme,
-    classes
+    classes,
+    inlineStyles
 });

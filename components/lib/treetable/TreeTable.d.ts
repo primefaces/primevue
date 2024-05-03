@@ -587,19 +587,17 @@ export interface TreeTableProps {
      */
     scrollHeight?: HintedString<'flex'> | undefined;
     /**
-     * Orientation of the scrolling.
-     * @defaultValue vertical
-     */
-    scrollDirection?: 'vertical' | 'horizontal' | 'both' | undefined;
-    /**
-     * Defines the responsive mode, currently only option is scroll.
-     * @defaultValue stack
-     */
-    responsiveLayout?: 'stack' | 'scroll' | undefined;
-    /**
      * Defines the size of the table.
      */
     size?: 'small' | 'large' | undefined;
+    /**
+     * Inline style of the table element.
+     */
+    tableStyle?: string | object | undefined;
+    /**
+     * Style class of the table element.
+     */
+    tableClass?: string | object | undefined;
     /**
      * Props to pass to the table element.
      */

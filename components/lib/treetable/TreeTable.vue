@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptmi('root')">
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading && loadingMode === 'mask'" :class="cx('loading')" v-bind="ptm('loading')">
             <div :class="cx('mask')" v-bind="ptm('mask')">
@@ -51,9 +51,9 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </TTPaginator>
-        <div :class="cx('tableContainer')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('tableContainer')">
-            <table ref="table" role="table" v-bind="{ ...tableProps, ...ptm('table') }">
-                <thead :class="cx('thead')" role="rowgroup" v-bind="ptm('thead')">
+        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: scrollHeight }]" v-bind="ptm('tableContainer')">
+            <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="tableStyle" v-bind="{ ...tableProps, ...ptm('table') }">
+                <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="ptm('thead')">
                     <tr role="row" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTHeaderCell
@@ -111,7 +111,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
+                <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :unstyled="unstyled" :pt="pt"></TTFooterCell>
@@ -171,7 +171,7 @@
 import { FilterService } from 'primevue/api';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
-import { DomHandler, HelperSet, ObjectUtils } from 'primevue/utils';
+import { DomHandler, HelperSet, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';
@@ -240,16 +240,10 @@ export default {
         }
     },
     mounted() {
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
-    },
-    updated() {
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
+        this.$el.setAttribute(this.attributeSelector, '');
     },
     beforeUnmount() {
+        this.destroyStyleElement();
         this.d_columns.clear();
     },
     methods: {
@@ -649,21 +643,18 @@ export default {
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if (!this.scrollable) {
-                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
-
-                            if (nextColumn) {
-                                nextColumn.style.width = nextColumnWidth + 'px';
-                            }
-                        } else {
-                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
-                        }
+                        this.resizeTableCells(newColumnWidth, nextColumnWidth);
                     }
                 } else if (this.columnResizeMode === 'expand') {
-                    this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    else this.resizeTableCells(newColumnWidth);
+                    const updateTableWidth = (el) => {
+                        !!el && (el.style.width = el.style.minWidth = tableWidth);
+                    };
+
+                    // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
+                    this.resizeTableCells(newColumnWidth);
+                    updateTableWidth(this.$refs.table);
                 }
 
                 this.$emit('column-resize-end', {
@@ -681,23 +672,31 @@ export default {
         },
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
-            let children = this.$refs.table.children;
+            let widths = [];
+            let headers = DomHandler.find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
 
-            for (let child of children) {
-                for (let row of child.children) {
-                    let resizeCell = row.children[colIndex];
+            headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
 
-                    resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+            this.destroyStyleElement();
+            this.createStyleElement();
 
-                    if (this.columnResizeMode === 'fit') {
-                        let nextCell = resizeCell.nextElementSibling;
+            let innerHTML = '';
+            let selector = `[data-pc-name="treetable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] > table[data-pc-section="table"]`;
 
-                        if (nextCell) {
-                            nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
-                        }
+            widths.forEach((width, index) => {
+                let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
+                let style = `width: ${colWidth}px !important; max-width: ${colWidth}px !important`;
+
+                innerHTML += `
+                    ${selector} > thead[data-pc-section="thead"] > tr > th:nth-child(${index + 1}),
+                    ${selector} > tbody[data-pc-section="tbody"] > tr > td:nth-child(${index + 1}),
+                    ${selector} > tfoot[data-pc-section="tfoot"] > tr > td:nth-child(${index + 1}) {
+                        ${style}
                     }
-                }
-            }
+                `;
+            });
+
+            this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -750,11 +749,20 @@ export default {
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
         },
-        updateScrollWidth() {
-            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
-        },
         getItemLabel(node) {
             return node.data.name;
+        },
+        createStyleElement() {
+            this.styleElement = document.createElement('style');
+            this.styleElement.type = 'text/css';
+            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+            document.head.appendChild(this.styleElement);
+        },
+        destroyStyleElement() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         },
         setTabindex(node, index) {
             if (this.isNodeSelected(node)) {
@@ -852,6 +860,9 @@ export default {
 
                 return data ? data.length : 0;
             }
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {

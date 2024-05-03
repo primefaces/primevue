@@ -99,7 +99,6 @@ export default {
                     frozen: this.$parentInstance.scrollable && this.columnProp('frozen'),
                     resizable: this.resizableColumns,
                     scrollable: this.$parentInstance.scrollable,
-                    scrollDirection: this.$parentInstance.scrollDirection,
                     showGridlines: this.$parentInstance.showGridlines,
                     size: this.$parentInstance?.size
                 }
