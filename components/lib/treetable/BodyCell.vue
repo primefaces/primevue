@@ -2,11 +2,15 @@
     <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" :data-p-frozen-column="columnProp('frozen')">
         <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggleButton')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggleButton')" data-pc-group-section="rowactionbutton">
             <template v-if="node.loading && loadingMode === 'icon'">
-                <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
-                <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
+                <component v-if="templates['nodetoggleicon']" :is="templates['nodetoggleicon']" />
+                <!-- TODO: Deprecated since v4.0-->
+                <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" />
+                <SpinnerIcon v-else spin v-bind="ptm('nodetoggleicon')" />
             </template>
             <template v-else>
-                <component v-if="column.children && column.children.rowtogglericon" :is="column.children && column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('rowToggleIcon')" />
+                <component v-if="column.children && column.children.rowtoggleicon" :is="column.children.rowtoggleicon" :node="node" :expanded="expanded" :class="cx('rowToggleIcon')" />
+                <!-- TODO: Deprecated since v4.0-->
+                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('rowToggleIcon')" />
                 <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
                 <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
             </template>

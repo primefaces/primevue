@@ -865,10 +865,25 @@ export interface ColumnSlots {
         loadingOptions: ColumnLoadingOptions;
     }): VNode[];
     /**
+     * @deprecated since v4.0. Use 'rowtoggleicon' slot instead.
      * Custom row toggler icon template.
      * @param {Object} scope - row toggler icon slot's params.
      */
     rowtogglericon(scope: {
+        /**
+         * Style class of the row toggler icon.
+         */
+        class: string;
+        /**
+         * Current row expanded state.
+         */
+        rowExpanded: boolean;
+    }): VNode[];
+    /**
+     * Custom row toggler icon template.
+     * @param {Object} scope - row toggler icon slot's params.
+     */
+    rowtoggleicon(scope: {
         /**
          * Style class of the row toggler icon.
          */
@@ -948,6 +963,15 @@ export interface ColumnSlots {
      * Custom row reorder icon template.
      */
     rowreordericon(): VNode[];
+    /**
+     * @deprecated since v4.0. Use 'nodetoggleicon' slot instead.
+     * Custom node toggler icon template.
+     */
+    nodetogglericon(): VNode[];
+    /**
+     * Custom node toggler icon template.
+     */
+    nodetoggleicon(): VNode[];
 }
 
 export interface ColumnEmits {}
