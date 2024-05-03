@@ -58,9 +58,9 @@ export interface RatingPassThroughOptions {
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
-    item?: RatingPassThroughOptionType;
+    option?: RatingPassThroughOptionType;
     /**
      * Used to pass attributes to the on icon's DOM element.
      */
@@ -70,13 +70,13 @@ export interface RatingPassThroughOptions {
      */
     offIcon?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden item input wrapper's DOM element.
+     * Used to pass attributes to the hidden option input wrapper's DOM element.
      */
-    hiddenItemInputWrapper?: RatingPassThroughOptionType;
+    hiddenOptionInputWrapper?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden item input's DOM element.
+     * Used to pass attributes to the hidden option input's DOM element.
      */
-    hiddenItemInput?: RatingPassThroughOptionType;
+    hiddenOptionInput?: RatingPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -110,12 +110,12 @@ export interface RatingState {
  */
 export interface RatingContext {
     /**
-     * Current active state of the item as a boolean.
+     * Current active state of the option as a boolean.
      * @defaultValue false
      */
     active: boolean;
     /**
-     * Current focused state of item as a boolean.
+     * Current focused state of option as a boolean.
      * @defaultValue false
      */
     focused: boolean;
@@ -204,7 +204,7 @@ export interface RatingSlots {
      */
     onicon(scope: {
         /**
-         * Item value
+         * Option value
          */
         value: number;
         /**
@@ -218,7 +218,7 @@ export interface RatingSlots {
      */
     officon(scope: {
         /**
-         * Item value
+         * Option value
          */
         value: number;
         /**

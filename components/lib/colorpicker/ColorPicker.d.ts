@@ -71,9 +71,9 @@ export interface ColorPickerPassThroughOptions {
      */
     root?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the preview's DOM element.
      */
-    input?: ColorPickerPassThroughOptionType;
+    preview?: ColorPickerPassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -83,13 +83,13 @@ export interface ColorPickerPassThroughOptions {
      */
     content?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the selector's DOM element.
+     * Used to pass attributes to the color selector's DOM element.
      */
-    selector?: ColorPickerPassThroughOptionType;
+    colorSelector?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the color's DOM element.
+     * Used to pass attributes to the color background's DOM element.
      */
-    color?: ColorPickerPassThroughOptionType;
+    colorBackground?: ColorPickerPassThroughOptionType;
     /**
      * Used to pass attributes to the color handler's DOM element.
      */

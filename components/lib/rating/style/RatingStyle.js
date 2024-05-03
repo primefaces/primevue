@@ -47,7 +47,7 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    item: ({ instance, props, value }) => [
+    option: ({ instance, props, value }) => [
         'p-rating-option',
         {
             'p-rating-option-active': value <= props.modelValue,

@@ -65,9 +65,9 @@ export interface KnobPassThroughOptions {
      */
     value?: KnobPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
-    label?: KnobPassThroughOptionType;
+    text?: KnobPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

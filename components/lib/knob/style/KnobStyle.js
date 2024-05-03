@@ -38,7 +38,7 @@ const classes = {
     root: ({ props }) => ['p-knob p-component', { 'p-disabled': props.disabled }],
     range: 'p-knob-range',
     value: 'p-knob-value',
-    label: 'p-knob-text'
+    text: 'p-knob-text'
 };
 
 export default BaseStyle.extend({

@@ -21,7 +21,7 @@
         >
             <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" :class="cx('range')" v-bind="ptm('range')"></path>
             <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" :class="cx('value')" v-bind="ptm('value')"></path>
-            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" :class="cx('label')" v-bind="ptm('label')">{{ valueToDisplay }}</text>
+            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" :class="cx('text')" v-bind="ptm('text')">{{ valueToDisplay }}</text>
         </svg>
     </div>
 </template>

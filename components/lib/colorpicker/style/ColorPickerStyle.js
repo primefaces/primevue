@@ -111,7 +111,7 @@ const theme = ({ dt }) => `
 
 const classes = {
     root: 'p-colorpicker p-component',
-    input: ({ props }) => ['p-colorpicker-preview', { 'p-disabled': props.disabled }],
+    preview: ({ props }) => ['p-colorpicker-preview', { 'p-disabled': props.disabled }],
     panel: ({ instance, props }) => [
         'p-colorpicker-panel',
         {
@@ -120,8 +120,8 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    selector: 'p-colorpicker-color-selector',
-    color: 'p-colorpicker-color-background',
+    colorSelector: 'p-colorpicker-color-selector',
+    colorBackground: 'p-colorpicker-color-background',
     colorHandle: 'p-colorpicker-color-handle',
     hue: 'p-colorpicker-hue',
     hueHandle: 'p-colorpicker-hue-handle'

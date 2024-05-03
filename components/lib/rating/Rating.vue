@@ -1,8 +1,8 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="value in stars" :key="value">
-            <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('item', value)" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
-                <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
+            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
+                <span class="p-hidden-accessible" v-bind="ptm('hiddenOptionInputWrapper')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
                         :value="value"
@@ -14,7 +14,7 @@
                         @focus="onFocus($event, value)"
                         @blur="onBlur"
                         @change="onChange($event, value)"
-                        v-bind="ptm('hiddenItemInput')"
+                        v-bind="ptm('hiddenOptionInput')"
                     />
                 </span>
                 <slot v-if="value <= modelValue" name="onicon" :value="value" :class="cx('onIcon')">
