@@ -89,7 +89,6 @@
                         {
                             "name": "FloatLabel",
                             "to": "/floatlabel"
-                            "to": "/floatlabel"
                         },
                         {
                             "name": "IconField",
@@ -451,7 +450,6 @@
                         },
                         {
                             "name": "MeterGroup",
-                            "to": "/metergroup"
                             "to": "/metergroup"
                         },
                         {
