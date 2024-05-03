@@ -107,7 +107,7 @@ export default {
         },
         dropdownIcon: {
             type: String,
-            default: undefined
+            default: null
         },
         dropdownClass: {
             type: [String, Object],
@@ -115,11 +115,15 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: undefined
+            default: null
         },
         removeTokenIcon: {
             type: String,
-            default: undefined
+            default: null
+        },
+        chipIcon: {
+            type: String,
+            default: null
         },
         virtualScrollerOptions: {
             type: Object,

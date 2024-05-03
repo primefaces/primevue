@@ -52,6 +52,18 @@ export default {
             type: null,
             default: null
         },
+        overlayClass: {
+            type: [String, Object],
+            default: null
+        },
+        overlayStyle: {
+            type: Object,
+            default: null
+        },
+        overlayProps: {
+            type: null,
+            default: null
+        },
         appendTo: {
             type: [String, Object],
             default: 'body'

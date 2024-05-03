@@ -149,26 +149,26 @@ export interface AutoCompletePassThroughOptions {
      */
     input?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions> | AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the input multiple's DOM element.
      */
-    container?: AutoCompletePassThroughOptionType;
+    inputMultiple?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the token's DOM element.
+     * Used to pass attributes to the chip's DOM element.
      */
-    token?: AutoCompletePassThroughOptionType;
+    chip?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    tokenLabel?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
+    chipLabel?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the chip icon's DOM element.
      */
-    removeTokenIcon?: AutoCompletePassThroughOptionType;
+    chipIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the input token's DOM element.
+     * Used to pass attributes to the input chip's DOM element.
      */
-    inputToken?: AutoCompletePassThroughOptionType;
+    inputChip?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
@@ -442,6 +442,10 @@ export interface AutoCompleteProps {
      */
     removeTokenIcon?: string | undefined;
     /**
+     * Icon to display in chip remove action.
+     */
+    chipIcon?: string | undefined;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @type {VirtualScrollerProps}
      */
@@ -658,9 +662,36 @@ export interface AutoCompleteSlots {
         class: string;
     }): VNode[];
     /**
-     * Custom remove token icon template in multiple mode.
+     * @deprecated since v4.0. Use 'chipicon' slot instead.
+     * Custom chip icon template in multiple mode.
+     * @param {Object} scope - chip icon slot's params.
      */
     removetokenicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
+         */
+        onClick: (event: Event, index: number) => void;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        removeCallback: (event: Event, index: number) => void;
+    }): VNode[];
+    /**
+     * Custom chip icon template in multiple mode.
+     * @param {Object} scope - chip icon slot's params.
+     */
+    chipicon(scope: {
         /**
          * Style class of the icon.
          */

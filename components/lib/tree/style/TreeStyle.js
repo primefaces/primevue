@@ -159,7 +159,7 @@ const theme = ({ dt }) => `
     height: 2rem;
 }
 
-.p-tree-mask {
+.p-tree .p-tree-mask {
     position: absolute;
     z-index: 1;
     display: flex;
@@ -188,15 +188,15 @@ const classes = {
             'p-tree-flex-scrollable': props.scrollHeight === 'flex'
         }
     ],
-    loadingOverlay: 'p-tree-mask p-component-overlay',
+    mask: 'p-tree-mask p-component-overlay',
     loadingIcon: 'p-tree-loading-icon',
     filterContainer: 'p-tree-filter-container',
-    input: 'p-tree-filter-input',
-    searchIcon: 'p-tree-filter-icon',
-    wrapper: 'p-tree-root',
-    container: 'p-tree-root-children',
+    filterInput: 'p-tree-filter-input',
+    filterIcon: 'p-tree-filter-icon',
+    wrapper: 'p-tree-root', //TODO: discuss
+    rootChildren: 'p-tree-root-children',
     node: ({ instance }) => ['p-tree-node', { 'p-tree-node-leaf': instance.leaf }],
-    content: ({ instance }) => [
+    nodeContent: ({ instance }) => [
         'p-tree-node-content',
         instance.node.styleClass,
         {
@@ -204,13 +204,13 @@ const classes = {
             'p-tree-node-selected': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
         }
     ],
-    toggler: 'p-tree-node-toggle-button',
-    togglerIcon: 'p-tree-node-toggle-icon',
-    nodeTogglerIcon: 'p-tree-node-toggler-icon', //todo: discuss
+    nodeToggleButton: 'p-tree-node-toggle-button',
+    nodeToggleIcon: 'p-tree-node-toggle-icon',
+    nodeTogglerIcon: 'p-tree-node-toggler-icon', //TODO: discuss
     nodeCheckbox: 'p-tree-node-checkbox',
     nodeIcon: 'p-tree-node-icon',
-    label: 'p-tree-node-label',
-    subgroup: 'p-tree-node-children'
+    nodeLabel: 'p-tree-node-label',
+    nodeChildren: 'p-tree-node-children'
 };
 
 export default BaseStyle.extend({

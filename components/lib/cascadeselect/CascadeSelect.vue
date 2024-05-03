@@ -30,7 +30,7 @@
                 {{ label }}
             </slot>
         </span>
-        <div :class="cx('dropdownButton')" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdownButton')">
+        <div :class="cx('dropdown')" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -44,8 +44,16 @@
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
-                    <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :class="[cx('overlay'), panelClass, overlayClass]"
+                    :style="[panelStyle, overlayStyle]"
+                    @click="onOverlayClick"
+                    @keydown="onOverlayKeyDown"
+                    v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
+                >
+                    <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
                             role="tree"

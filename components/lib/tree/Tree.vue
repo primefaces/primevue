@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <template v-if="loading && loadingMode === 'mask'">
-            <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
+            <div :class="cx('mask')" v-bind="ptm('mask')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
                     <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
@@ -9,13 +9,14 @@
             </div>
         </template>
         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
-            <slot name="searchicon" :class="cx('searchIcon')">
-                <SearchIcon :class="cx('searchIcon')" v-bind="ptm('searchIcon')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('filterInput')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('filterInput')" />
+            <!--TODO: searchicon deprecated since v4.0-->
+            <slot :name="$slots.searchicon ? 'searchicon' : 'filtericon'" :class="cx('filterIcon')">
+                <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />
             </slot>
         </div>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
-            <ul :class="cx('container')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('container')">
+            <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
                     :key="node.key"

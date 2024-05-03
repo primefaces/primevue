@@ -29,17 +29,18 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('token')" v-bind="ptm('token')">
-                            <Chip :class="cx('tokenLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('tokenLabel')" />
+                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('chip')" v-bind="ptm('chip')">
+                            <Chip :class="cx('chipLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('chipLabel')" />
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
             </div>
         </div>
-        <div :class="cx('trigger')" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('trigger')">
-            <slot name="triggericon" :class="cx('triggerIcon')">
-                <component :is="'ChevronDownIcon'" :class="cx('triggerIcon')" v-bind="ptm('triggerIcon')" />
+        <div :class="cx('dropdown')" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('dropdown')">
+            <!-- TODO: triggericon is deprecated since v4.0 -->
+            <slot :name="$slots.triggericon ? 'triggericon' : 'dropdownicon'" :class="cx('dropdownIcon')">
+                <component :is="'ChevronDownIcon'" :class="cx('dropdownIcon')" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">

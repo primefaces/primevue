@@ -1,5 +1,5 @@
 <template>
-    <ul :ref="containerRef" :class="cx('rootList')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
+    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('itemList')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
@@ -17,9 +17,9 @@
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'content')">
+                <div v-ripple :class="cx('itemContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'itemContent')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else :class="cx('text')" v-bind="getPTOptions(processedOption, index, 'text')">{{ getOptionLabelToRender(processedOption) }}</span>
+                    <span v-else :class="cx('itemText')" v-bind="getPTOptions(processedOption, index, 'itemText')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
                         <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />
                         <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
@@ -29,7 +29,7 @@
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"
                     role="group"
-                    :class="cx('sublist')"
+                    :class="cx('itemList')"
                     :selectId="selectId"
                     :focusedOptionId="focusedOptionId"
                     :options="getOptionGroupChildren(processedOption)"

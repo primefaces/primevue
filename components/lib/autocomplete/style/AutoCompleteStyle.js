@@ -233,21 +233,21 @@ const classes = {
         }
     ],
     input: 'p-autocomplete-input',
-    container: ({ props, instance }) => [
+    inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    token: ({ instance, i }) => [
+    chip: ({ instance, i }) => [
         'p-autocomplete-chip',
         {
             'p-focus': instance.focusedMultipleOptionIndex === i
         }
     ],
-    tokenLabel: 'p-autocomplete-chip-label',
-    removeTokenIcon: 'p-autocomplete-chip-icon',
-    inputToken: 'p-autocomplete-input-chip',
+    chipLabel: 'p-autocomplete-chip-label',
+    chipIcon: 'p-autocomplete-chip-icon',
+    inputChip: 'p-autocomplete-input-chip',
     loadingIcon: 'p-autocomplete-loader',
     dropdownButton: 'p-autocomplete-dropdown',
     panel: ({ instance }) => [

@@ -112,35 +112,35 @@ export interface TreePassThroughOptions<T = any> {
      * Used to pass attributes to the input's DOM element.
      * @see {@link InputTextPassThroughOptions}
      */
-    input?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
+    filterInput?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the search icon's DOM element.
+     * Used to pass attributes to the filter icon's DOM element.
      */
-    searchIcon?: TreePassThroughOptionType<T>;
+    filterIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the root children's DOM element.
      */
-    container?: TreePassThroughOptionType<T>;
+    rootChildren?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node's DOM element.
      */
     node?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the node content's DOM element.
      */
-    content?: TreePassThroughOptionType<T>;
+    nodeContent?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the node toggle button's DOM element.
      */
-    toggler?: TreePassThroughOptionType<T>;
+    nodeToggleButton?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the node toggle icon's DOM element.
      */
-    togglerIcon?: TreePassThroughOptionType<T>;
+    nodeToggleIcon?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
@@ -150,17 +150,17 @@ export interface TreePassThroughOptions<T = any> {
      */
     nodeIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the node label's DOM element.
      */
-    label?: TreePassThroughOptionType<T>;
+    nodeLabel?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the subgroup's DOM element.
+     * Used to pass attributes to the node children's DOM element.
      */
-    subgroup?: TreePassThroughOptionType<T>;
+    nodeChildren?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
-    loadingOverlay?: TreePassThroughOptionType<T>;
+    mask?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
@@ -349,10 +349,21 @@ export interface TreeSlots {
         class: string;
     }): VNode[];
     /**
+     * @deprecated since v4.0. Use 'filtericon' slot instead.
      * Custom search icon template.
      * @param {Object} scope - searchicon slot's params.
      */
     searchicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom search icon template.
+     * @param {Object} scope - filtericon slot's params.
+     */
+    filtericon(scope: {
         /**
          * Style class of the icon.
          */

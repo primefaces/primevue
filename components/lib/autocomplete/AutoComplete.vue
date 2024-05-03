@@ -33,7 +33,7 @@
         <ul
             v-if="multiple"
             ref="multiContainer"
-            :class="cx('container')"
+            :class="cx('inputMultiple')"
             tabindex="-1"
             role="listbox"
             aria-orientation="horizontal"
@@ -41,7 +41,7 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
-            v-bind="ptm('container')"
+            v-bind="ptm('inputMultiple')"
         >
             <li
                 v-for="(option, i) of modelValue"
@@ -56,14 +56,15 @@
                 v-bind="ptm('token')"
             >
                 <slot name="chip" :value="option" :index="i" :removeCallback="(event) => removeOption(event, i)">
-                    <Chip :class="cx('tokenLabel')" :label="getOptionLabel(option)" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, i)" :pt="ptm('tokenLabel')">
+                    <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
+                    <Chip :class="cx('chipLabel')" :label="getOptionLabel(option)" :removeIcon="removeTokenIcon || chipIcon" removable :unstyled="unstyled" @remove="removeOption($event, i)" :pt="ptm('chipLabel')">
                         <template #removeicon>
-                            <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
+                            <slot :name="$slots.removetokenicon ? 'removetokenicon' : 'chipicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
                         </template>
                     </Chip>
                 </slot>
             </li>
-            <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
+            <li :class="cx('inputChip')" role="option" v-bind="ptm('inputChip')">
                 <input
                     ref="focusInput"
                     :id="inputId"

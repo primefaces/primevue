@@ -91,7 +91,7 @@ export interface CascadeSelectPassThroughOptions {
     /**
      * Used to pass attributes to the dropdown button's DOM element.
      */
-    dropdownButton?: CascadeSelectPassThroughOptionType;
+    dropdown?: CascadeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the dropdown icon's DOM element.
      */
@@ -101,9 +101,13 @@ export interface CascadeSelectPassThroughOptions {
      */
     loadingIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    panel?: CascadeSelectPassThroughOptionType;
+    overlay?: CascadeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the list container's DOM element.
+     */
+    listContainer?: CascadeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the list's DOM element.
      */
@@ -113,13 +117,17 @@ export interface CascadeSelectPassThroughOptions {
      */
     item?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
-    content?: CascadeSelectPassThroughOptionType;
+    itemContent?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the text's DOM element.
+     * Used to pass attributes to the item text's DOM element.
      */
-    text?: CascadeSelectPassThroughOptionType;
+    itemText?: CascadeSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the item list's DOM element.
+     */
+    itemList?: CascadeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the group icon's DOM element.
      */
@@ -307,17 +315,32 @@ export interface CascadeSelectProps {
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
-     * Inline style of the overlay panel.
+     * @deprecated since v4.0. Use 'overlayStyle' prop.
+     * Inline style of the overlay overlay.
      */
     panelStyle?: object | undefined;
     /**
-     * Style class of the overlay panel.
+     * @deprecated since v4.0. Use 'overlayClass' prop.
+     * Style class of the overlay overlay.
      */
     panelClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * @deprecated since v4.0. Use 'overlayProps' prop.
+     * Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
+    /**
+     * Inline style of the overlay overlay.
+     */
+    overlayStyle?: object | undefined;
+    /**
+     * Style class of the overlay overlay.
+     */
+    overlayClass?: string | object | undefined;
+    /**
+     * Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component.
+     */
+    overlayProps?: HTMLAttributes | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @defaultValue body

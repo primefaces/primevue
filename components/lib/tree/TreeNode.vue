@@ -12,18 +12,18 @@
         :aria-checked="ariaChecked"
         :tabindex="index === 0 ? 0 : -1"
         @keydown="onKeyDown"
-        v-bind="level === 1 ? getPTOptions('node') : ptm('subgroup')"
+        v-bind="level === 1 ? getPTOptions('node') : ptm('nodeChildren')"
     >
-        <div :class="cx('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
-            <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
+        <div :class="cx('nodeContent')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('nodeContent')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
+            <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
                     <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
                 </template>
                 <template v-else>
-                    <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
-                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
-                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                    <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
+                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
             </button>
             <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :indeterminate="partialChecked" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-partialchecked="partialChecked">
@@ -33,12 +33,12 @@
             </Checkbox>
             <component v-if="templates['nodeicon']" :is="templates['nodeicon']" :node="node" :class="[cx('nodeIcon')]" v-bind="getPTOptions('nodeIcon')"></component>
             <span v-else :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
-            <span :class="cx('label')" v-bind="getPTOptions('label')" @keydown.stop>
+            <span :class="cx('nodeLabel')" v-bind="getPTOptions('nodeLabel')" @keydown.stop>
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
                 <template v-else>{{ label(node) }}</template>
             </span>
         </div>
-        <ul v-if="hasChildren && expanded" :class="cx('subgroup')" role="group" v-bind="ptm('subgroup')">
+        <ul v-if="hasChildren && expanded" :class="cx('nodeChildren')" role="group" v-bind="ptm('nodeChildren')">
             <TreeNode
                 v-for="childNode of node.children"
                 :key="childNode.key"
@@ -134,7 +134,7 @@ export default {
             });
         },
         onClick(event) {
-            if (this.toggleClicked || DomHandler.getAttribute(event.target, '[data-pc-section="toggler"]') || DomHandler.getAttribute(event.target.parentElement, '[data-pc-section="toggler"]')) {
+            if (this.toggleClicked || DomHandler.getAttribute(event.target, '[data-pc-section="nodetogglebutton"]') || DomHandler.getAttribute(event.target.parentElement, '[data-pc-section="nodetogglebutton"]')) {
                 this.toggleClicked = false;
 
                 return;
@@ -199,7 +199,7 @@ export default {
             }
         },
         onArrowDown(event) {
-            const nodeElement = event.target.getAttribute('data-pc-section') === 'toggler' ? event.target.closest('[role="treeitem"]') : event.target;
+            const nodeElement = event.target.getAttribute('data-pc-section') === 'nodetogglebutton' ? event.target.closest('[role="treeitem"]') : event.target;
             const listElement = nodeElement.children[1];
 
             if (listElement) {
@@ -244,7 +244,7 @@ export default {
             });
         },
         onArrowLeft(event) {
-            const togglerElement = DomHandler.findSingle(event.currentTarget, '[data-pc-section="toggler"]');
+            const togglerElement = DomHandler.findSingle(event.currentTarget, '[data-pc-section="nodetogglebutton"]');
 
             if (this.level === 0 && !this.expanded) {
                 return false;
@@ -272,7 +272,7 @@ export default {
             this.setAllNodesTabIndexes();
         },
         setAllNodesTabIndexes() {
-            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="container"]'), '[role="treeitem"]');
+            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="rootchildren"]'), '[role="treeitem"]');
 
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 

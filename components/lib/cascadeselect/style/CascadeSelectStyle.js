@@ -209,17 +209,17 @@ const classes = {
             'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
         }
     ],
-    dropdownButton: 'p-cascadeselect-dropdown',
+    dropdown: 'p-cascadeselect-dropdown',
     loadingIcon: 'p-cascadeselect-loading-icon',
     dropdownIcon: 'p-cascadeselect-dropdown-icon',
-    panel: ({ instance }) => [
+    overlay: ({ instance }) => [
         'p-cascadeselect-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    wrapper: 'p-cascadeselect-list-container',
-    rootList: 'p-cascadeselect-list',
+    listContainer: 'p-cascadeselect-list-container',
+    list: 'p-cascadeselect-list',
     item: ({ instance, processedOption }) => [
         'p-cascadeselect-item',
         {
@@ -229,10 +229,10 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(processedOption)
         }
     ],
-    content: 'p-cascadeselect-item-content',
-    text: 'p-cascadeselect-item-text',
+    itemContent: 'p-cascadeselect-item-content',
+    itemText: 'p-cascadeselect-item-text',
     groupIcon: 'p-cascadeselect-group-icon',
-    sublist: 'p-cascadeselect-overlay p-cascadeselect-item-list'
+    itemList: 'p-cascadeselect-overlay p-cascadeselect-item-list'
 };
 
 export default BaseStyle.extend({

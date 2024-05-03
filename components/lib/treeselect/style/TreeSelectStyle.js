@@ -140,10 +140,10 @@ const classes = {
             'p-treeselect-label-empty': !props.placeholder && instance.emptyValue
         }
     ],
-    token: 'p-treeselect-chip',
-    tokenLabel: 'p-treeselect-chip-label',
-    trigger: 'p-treeselect-dropdown',
-    triggerIcon: 'p-treeselect-dropdown-icon',
+    chip: 'p-treeselect-chip',
+    chipLabel: 'p-treeselect-chip-label',
+    dropdown: 'p-treeselect-dropdown',
+    dropdownIcon: 'p-treeselect-dropdown-icon',
     panel: ({ instance }) => [
         'p-treeselect-overlay p-component',
         {

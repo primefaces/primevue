@@ -81,22 +81,22 @@ export interface TreeSelectPassThroughOptions {
      */
     label?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the token's DOM element.
+     * Used to pass attributes to the chip's DOM element.
      */
-    token?: TreeSelectPassThroughOptionType;
+    chip?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    tokenLabel?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
+    chipLabel?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the trigger's DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
-    trigger?: TreeSelectPassThroughOptionType;
+    dropdown?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the trigger icon's DOM element.
+     * Used to pass attributes to the dropdown icon's DOM element.
      */
-    triggerIcon?: TreeSelectPassThroughOptionType;
+    dropdownIcon?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -325,15 +325,21 @@ export interface TreeSelectSlots {
      */
     empty(): VNode[];
     /**
+     * @deprecated since v4.0. use 'dropdownicon' slot instead.
      * Custom indicator template.
-     * @deprecated since v3.27.0. Use 'triggericon' slot.
-     */
-    indicator(): VNode[];
-    /**
-     * Custom indicator template.
-     * @param {Object} scope - triggericon slot's params.
+     * @param {Object} scope - dropdownicon slot's params.
      */
     triggericon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom indicator template.
+     * @param {Object} scope - dropdownicon slot's params.
+     */
+    dropdownicon(scope: {
         /**
          * Style class of the icon.
          */
