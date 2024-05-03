@@ -17159,6 +17159,13 @@
                             "readonly": false,
                             "type": "string",
                             "default": ""
+                        },
+                        {
+                            "name": "listLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -35484,6 +35491,14 @@
                             "type": "undefined | string | number",
                             "default": "",
                             "description": "New value"
+                        },
+                        {
+                            "name": "formattedValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "currentValue"
                         }
                     ],
                     "methods": []
@@ -37575,9 +37590,8 @@
                             "name": "valueTemplate",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
-                            "default": "'{value}'",
-                            "description": "Template string of the value."
+                            "type": "Function",
+                            "default": ""
                         },
                         {
                             "name": "tabindex",

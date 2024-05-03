@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Label is a string template that can be customized with the <i>valueTemplate</i> property having <i>60</i> as the placeholder .</p>
+        <p>The label can be customized with the <i>valueTemplate</i> property using either a template string or a function.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Knob v-model="value" valueTemplate="{value}%" />

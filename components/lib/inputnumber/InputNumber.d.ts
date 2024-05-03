@@ -70,6 +70,10 @@ export interface InputNumberInputEvent {
      * New value
      */
     value: string | number | undefined;
+    /**
+     * currentValue
+     */
+    formattedValue: string;
 }
 
 /**

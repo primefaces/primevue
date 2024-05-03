@@ -322,6 +322,7 @@ export interface PrimeVueLocaleAriaOptions {
     zoomOut?: string;
     rotateRight?: string;
     rotateLeft?: string;
+    listLabel?: string;
 }
 
 export interface PrimeVueLocaleOptions {

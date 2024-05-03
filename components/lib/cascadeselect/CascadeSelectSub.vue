@@ -161,6 +161,9 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        listAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listLabel : undefined;
         }
     },
     directives: {

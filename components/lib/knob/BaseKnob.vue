@@ -62,7 +62,7 @@ export default {
             default: true
         },
         valueTemplate: {
-            type: String,
+            type: [String, Function],
             default: '{value}'
         },
         tabindex: {

@@ -178,7 +178,7 @@ export interface KnobProps {
      * Template string of the value.
      * @defaultValue '{value}'
      */
-    valueTemplate?: string | undefined;
+    valueTemplate?: (val: number) => string | string | undefined;
     /**
      * Index of the element in tabbing order.
      * @defaultValue 0

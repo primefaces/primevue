@@ -10,6 +10,7 @@
             :aria-valuemin="min"
             :aria-valuemax="max"
             :aria-valuenow="modelValue"
+            :inputmode="mode === 'decimal' && !minFractionDigits ? 'numeric' : 'decimal'"
             :disabled="disabled"
             :readonly="readonly"
             :placeholder="placeholder"
@@ -19,6 +20,7 @@
             :variant="variant"
             @input="onUserInput"
             @keydown="onInputKeyDown"
+            @keypress="onInputKeyPress"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -355,8 +357,9 @@ export default {
                 return;
             }
 
-            if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
+            if (event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
+                this.lastValue = this.$refs.input.$el.value;
 
                 return;
             }
@@ -504,21 +507,24 @@ export default {
                     break;
 
                 default:
-                    if (this.readonly) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    let char = event.key;
-                    const isDecimalSign = this.isDecimalSign(char);
-                    const isMinusSign = this.isMinusSign(char);
-
-                    if (((event.code.startsWith('Digit') || event.code.startsWith('Numpad')) && Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
-                        this.insert(event, char, { isDecimalSign, isMinusSign });
-                    }
-
                     break;
+            }
+        },
+        onInputKeyPress(event) {
+            if (this.readonly) {
+                return;
+            }
+
+            let char = event.key;
+            let isDecimalSign = this.isDecimalSign(char);
+            const isMinusSign = this.isMinusSign(char);
+
+            if (event.code !== 'Enter') {
+                event.preventDefault();
+            }
+
+            if ((Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
+                this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
         onPaste(event) {
@@ -830,10 +836,7 @@ export default {
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 } else if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single') {
-                        const re = /[.,]/g;
-                        const newSelectionEnd = selectionEnd + Number(re.test(value) || re.test(insertedValueStr));
-
-                        this.$refs.input.$el.setSelectionRange(newSelectionEnd, newSelectionEnd);
+                        this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
                     } else if (operation === 'delete-single') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
                     } else if (operation === 'delete-range' || operation === 'spin') {

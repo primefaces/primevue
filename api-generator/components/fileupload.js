@@ -99,7 +99,7 @@ const FileUploadProps = [
         name: 'customUpload',
         type: 'boolean',
         default: 'false',
-        description: 'Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration.'
+        description: 'Whether to use the default upload or a manual implementation defined in uploadHandler callback.'
     },
     {
         name: 'showUploadButton',

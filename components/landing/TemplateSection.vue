@@ -121,5 +121,3 @@ export default {
     }
 };
 </script>
-
-:style="{backgroundImage: imageBg('diamond')}">

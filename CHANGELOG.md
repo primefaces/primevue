@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.52.0](https://github.com/primefaces/primevue/tree/3.52.0) (2024-04-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...3.52.0)
+
+**Fixed bugs:**
+
+-   InputOp: Digits only doesn't work on mobile [\#5635](https://github.com/primefaces/primevue/issues/5635)
+-   Calendar: Hours are set to 00 when clicking the "Today" button [\#5620](https://github.com/primefaces/primevue/issues/5620)
+-   Paginator: Responsive Templating showing multiple layouts on break points [\#5604](https://github.com/primefaces/primevue/issues/5604)
+-   InputNumber: The InputNumber is not working properly in the new version [\#5602](https://github.com/primefaces/primevue/issues/5602)
+-   Menu / Stepper: Pass Through Unstyled Mode [\#5599](https://github.com/primefaces/primevue/issues/5599)
+-   Hydration defects [\#5593](https://github.com/primefaces/primevue/issues/5593)
+-   InputNumber: Cannot input number 0 in Hungarian(QWERTZ) layout [\#5577](https://github.com/primefaces/primevue/issues/5577)
+-   Menu: support style property for submenuHeader item [\#5562](https://github.com/primefaces/primevue/issues/5562)
+-   InputNumber Not Working android [\#5545](https://github.com/primefaces/primevue/issues/5545)
+-   InputNumber: Cannot input numbers in AZERTY layout [\#5508](https://github.com/primefaces/primevue/issues/5508)
+-   DataTable: rowClass, rowStyle typing defects [\#5498](https://github.com/primefaces/primevue/issues/5498)
+-   DataTable: Modifying value of expendedRow is not reflected [\#5372](https://github.com/primefaces/primevue/issues/5372)
+-   InputNumber can't enter 0.0x using minFractionDigits/mode="currency" [\#5170](https://github.com/primefaces/primevue/issues/5170)
+-   Calendar: Input value is not updated when model is changed externally [\#4938](https://github.com/primefaces/primevue/issues/4938)
+
+**Implemented New Features and Enhancements:**
+
+-   AutoComplete: Enter does not submit form [\#5618](https://github.com/primefaces/primevue/issues/5618)
+-   Knob: Added valueTemplate function support [\#5616](https://github.com/primefaces/primevue/issues/5616)
+-   Tree: Missing Passthrough Options [\#5574](https://github.com/primefaces/primevue/issues/5574)
+-   Sidebar: dismissable prop can't be changed dynamically [\#5563](https://github.com/primefaces/primevue/issues/5563)
+-   TreeTable: filterField ignored [\#5525](https://github.com/primefaces/primevue/issues/5525)
+-   ScrollPanel: Errors in moveBar() when xBar and yBar attributes don't exist [\#5518](https://github.com/primefaces/primevue/issues/5518)
+-   Toast: Race condition on remove [\#5225](https://github.com/primefaces/primevue/issues/5225)
+-   Dropdown: aria-label missing from inner ul element [\#5277](https://github.com/primefaces/primevue/issues/5277)
+
 ## [3.51.0](https://github.com/primefaces/primevue/tree/3.51.0) (2024-04-04)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.50.0...3.51.0)

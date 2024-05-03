@@ -73,9 +73,9 @@ const KnobProps = [
     },
     {
         name: 'valueTemplate',
-        type: 'string',
+        type: 'function | string',
         default: '{value}',
-        description: 'Template string of the value.'
+        description: 'Template of the value.'
     },
     {
         name: 'tabindex',

@@ -58,7 +58,7 @@ export default {
                         },
                         {
                             label: 'Vite.js',
-                            url: 'https://vuejs.org/'
+                            url: 'https://vitejs.dev/'
                         }
                     ]
                 }
@@ -138,7 +138,7 @@ export default {
                         },
                         {
                             label: 'Vite.js',
-                            url: 'https://vuejs.org/'
+                            url: 'https://vitejs.dev/'
                         }
                     ]
                 }
@@ -207,7 +207,7 @@ const items = ref([
             },
             {
                 label: 'Vite.js',
-                url: 'https://vuejs.org/'
+                url: 'https://vitejs.dev/'
             }
         ]
     }

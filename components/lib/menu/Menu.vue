@@ -32,6 +32,7 @@
                                     :item="child"
                                     :templates="$slots"
                                     :focusedOptionId="focusedOptionId"
+                                    :unstyled="unstyled"
                                     @item-click="itemClick"
                                     @item-mousemove="itemMouseMove"
                                     :pt="pt"
@@ -40,7 +41,19 @@
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="[cx('separator'), item.class]" :style="item.style" role="separator" v-bind="ptm('separator')"></li>
-                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :index="i" :templates="$slots" :focusedOptionId="focusedOptionId" @item-click="itemClick" @item-mousemove="itemMouseMove" :pt="pt" />
+                        <PVMenuitem
+                            v-else
+                            :key="label(item) + i.toString()"
+                            :id="id + '_' + i"
+                            :item="item"
+                            :index="i"
+                            :templates="$slots"
+                            :focusedOptionId="focusedOptionId"
+                            :unstyled="unstyled"
+                            @item-click="itemClick"
+                            @item-mousemove="itemMouseMove"
+                            :pt="pt"
+                        />
                     </template>
                 </ul>
                 <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
