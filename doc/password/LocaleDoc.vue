@@ -22,26 +22,26 @@ export default {
 `,
                 options: `
 <template>
-  <div class="card flex justify-content-center">
-      <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
-  </div>
+    <div class="card flex justify-content-center">
+        <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          value: null
-      }
-  }
+    data() {
+        return {
+            value: null
+        }
+    }
 };
 <\/script>
 `,
                 composition: `
 <template>
-  <div class="card flex justify-content-center">
-      <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
-  </div>
+    <div class="card flex justify-content-center">
+        <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+    </div>
 </template>
 
 <script setup>
