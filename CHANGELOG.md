@@ -1,5 +1,58 @@
 # Changelog
 
+## [4.0.0-beta-2](https://github.com/primefaces/primevue/tree/4.0.0-beta-2) (2024-05-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta-1...4.0.0-beta-2)
+
+**Deprecated:**
+
+-   Deprecated: TabView [\#5622](https://github.com/primefaces/primevue/issues/5622)
+
+**Breaking Changes:**
+
+-   TreeTable CSS and responsive structure improvements [\#5678](https://github.com/primefaces/primevue/issues/5678)
+-   Deprecated properties [\#5662](https://github.com/primefaces/primevue/issues/5662)
+-   Deprecated slots [\#5661](https://github.com/primefaces/primevue/issues/5618)
+-   Legacy & New alternative components [\#5612](https://github.com/primefaces/primevue/issues/5612)
+-   Key name changes for pt property [\#5592](https://github.com/primefaces/primevue/issues/5592)
+-   Remove legacy CSS rules [\#5493](https://github.com/primefaces/primevue/issues/5493)
+-   warning property name changed as warn [\#5591](https://github.com/primefaces/primevue/issues/5591)
+-   Removed properties [\#5553](https://github.com/primefaces/primevue/issues/5553)
+-   Component Replacements [\#5548](https://github.com/primefaces/primevue/issues/5548)
+-   Remove iconPosition from IconField [\#5547](https://github.com/primefaces/primevue/issues/5547)
+
+**Fixed bugs:**
+
+-   FileUpload v4: disabled property does not disable choose button (it only disables the choose functionality) [\#5529](https://github.com/primefaces/primevue/issues/5529)
+
+**Implemented New Features and Enhancements:**
+
+-   Add sideEffects: false to nested package.json files on components [\#5668](https://github.com/primefaces/primevue/issues/5668)
+-   Remove base option from theme config [\#5667](https://github.com/primefaces/primevue/issues/5667)
+-   Reimplement: Accordion [\#5643](https://github.com/primefaces/primevue/issues/5643)
+-   New Component: Tabs [\#5621](https://github.com/primefaces/primevue/issues/5621)
+
+## [4.0.0-beta-1](https://github.com/primefaces/primevue/tree/4.0.0-beta-1)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...4.0.0-beta-1)
+
+**Breaking Changes:**
+
+-   New Styled Mode Implementation [\#5501](https://github.com/primefaces/primevue/issues/5662)
+-   Remove changeTheme method from $primevue [\#5000](https://github.com/primefaces/primevue/issues/5000)
+-   Remove deprecated Tailwind Pass Through Object [\#5478](https://github.com/primefaces/primevue/issues/5478)
+-   Removed components [\#5476](https://github.com/primefaces/primevue/issues/5662)
+-   Remove primevue[.min].css from build [\#5481](https://github.com/primefaces/primevue/issues/5481)
+-   Remove themes folder from resources [\#5477](https://github.com/primefaces/primevue/issues/5477)
+-   Core behavior changes [\#5437](https://github.com/primefaces/primevue/issues/5437)
+-   Component Replacements [\#5426](https://github.com/primefaces/primevue/issues/5426)
+
+**Implemented New Features and Enhancements:**
+
+-   Add dt props to all components and directives [\#5506](https://github.com/primefaces/primevue/issues/5506)
+-   Add PrimeVueStyled and PrimeVueUnstyled plugins [\#5502](https://github.com/primefaces/primevue/issues/5502)
+-   Checkbox: new indeterminate state [\#5479](https://github.com/primefaces/primevue/issues/5479)
+
 ## [3.52.0](https://github.com/primefaces/primevue/tree/3.52.0) (2024-04-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...3.52.0)
