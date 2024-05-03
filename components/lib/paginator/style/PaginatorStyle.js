@@ -46,6 +46,15 @@ const theme = ({ dt }) => `
     margin: 0;
 }
 
+.p-paginator-page:focus-visible,
+.p-paginator-next:focus-visible,
+.p-paginator-last:focus-visible,
+.p-paginator-first:focus-visible,
+.p-paginator-prev:focus-visible {
+    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
+    outline-offset: ${dt('focus.ring.offset')};
+}
+
 .p-paginator-page:not(.p-disabled):not(.p-paginator-page-active):hover,
 .p-paginator-first:not(.p-disabled):hover,
 .p-paginator-prev:not(.p-disabled):hover,
