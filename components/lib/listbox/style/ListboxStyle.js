@@ -126,12 +126,12 @@ const classes = {
     ],
     header: 'p-listbox-header',
     filterContainer: 'p-listbox-filter-container',
-    filterInput: 'p-listbox-filter',
+    filter: 'p-listbox-filter',
     filterIcon: 'p-listbox-filter-icon',
-    wrapper: 'p-listbox-list-container',
+    listContainer: 'p-listbox-list-container',
     list: 'p-listbox-list',
-    itemGroup: 'p-listbox-option-group',
-    item: ({ instance, option, index, getItemOptions }) => [
+    optionGroup: 'p-listbox-option-group',
+    option: ({ instance, option, index, getItemOptions }) => [
         'p-listbox-option',
         {
             'p-listbox-option-selected': instance.isSelected(option),

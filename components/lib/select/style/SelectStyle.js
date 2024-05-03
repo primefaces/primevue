@@ -227,7 +227,7 @@ const classes = {
             'p-select-open': state.overlayVisible
         }
     ],
-    input: ({ instance, props }) => [
+    label: ({ instance, props }) => [
         'p-select-label',
         {
             'p-placeholder': !props.editable && instance.label === props.placeholder,
@@ -235,10 +235,10 @@ const classes = {
         }
     ],
     clearIcon: 'p-select-clear-icon',
-    trigger: 'p-select-dropdown',
+    dropdown: 'p-select-dropdown',
     loadingicon: 'p-select-loading-icon',
     dropdownIcon: 'p-select-dropdown-icon',
-    panel: ({ instance }) => [
+    overlay: ({ instance }) => [
         'p-select-overlay p-component',
         {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
@@ -246,13 +246,13 @@ const classes = {
     ],
     header: 'p-select-header',
     filterContainer: 'p-select-filter-container',
-    filterInput: 'p-select-filter',
+    filter: 'p-select-filter',
     filterIcon: 'p-select-filter-icon',
-    wrapper: 'p-select-list-container',
+    listContainer: 'p-select-list-container',
     list: 'p-select-list',
-    itemGroup: 'p-select-option-group',
-    itemGroupLabel: 'p-select-option-group-label',
-    item: ({ instance, props, state, option, focusedOption }) => [
+    optionGroup: 'p-select-option-group',
+    optionGroupLabel: 'p-select-option-group-label',
+    option: ({ instance, props, state, option, focusedOption }) => [
         'p-select-option',
         {
             'p-select-option-selected': instance.isSelected(option) && props.highlightOnSelect,
@@ -260,9 +260,9 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    itemLabel: 'p-select-option-label',
-    checkIcon: 'p-select-option-check-icon',
-    blankIcon: 'p-select-option-blank-icon',
+    optionLabel: 'p-select-option-label',
+    optionCheckIcon: 'p-select-option-check-icon',
+    optionBlankIcon: 'p-select-option-blank-icon',
     emptyMessage: 'p-select-empty-message'
 };
 

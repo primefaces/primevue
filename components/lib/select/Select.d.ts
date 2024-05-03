@@ -87,25 +87,25 @@ export interface SelectPassThroughOptions<T = any> {
      */
     root?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
-    input?: SelectPassThroughOptionType<T>;
+    label?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the clear icon's DOM element.
      */
     clearIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the trigger' DOM element.
+     * Used to pass attributes to the dropdown' DOM element.
      */
-    trigger?: SelectPassThroughOptionType<T>;
+    dropdown?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    panel?: SelectPassThroughOptionType<T>;
+    overlay?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header's DOM element.
      */
@@ -115,17 +115,17 @@ export interface SelectPassThroughOptions<T = any> {
      */
     filterContainer?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the filter's DOM element.
      */
-    filterInput?: SelectPassThroughOptionType<T>;
+    filter?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the list container's DOM element.
      */
-    wrapper?: SelectPassThroughOptionType<T>;
+    listContainer?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -136,29 +136,29 @@ export interface SelectPassThroughOptions<T = any> {
      */
     list?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the option group's DOM element.
      */
-    itemGroup?: SelectPassThroughOptionType<T>;
+    optionGroup?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item group label's DOM element.
+     * Used to pass attributes to the option group label's DOM element.
      */
-    itemGroupLabel?: SelectPassThroughOptionType<T>;
+    optionGroupLabel?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
-    item?: SelectPassThroughOptionType<T>;
+    option?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the option label's DOM element.
      */
-    itemLabel?: SelectPassThroughOptionType<T>;
+    optionLabel?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the check icon's DOM element.
+     * Used to pass attributes to the option check icon's DOM element.
      */
-    checkIcon?: SelectPassThroughOptionType<T>;
+    optionCheckIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the bank icon's DOM element.
+     * Used to pass attributes to the option blank icon's DOM element.
      */
-    blankIcon?: SelectPassThroughOptionType<T>;
+    optionBlankIcon?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
@@ -352,25 +352,50 @@ export interface SelectProps {
      */
     showClear?: boolean | undefined;
     /**
+     * @deprecated since v4.0. Use 'labelId' instead.
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
     /**
+     * @deprecated since v4.0. Use 'labelStyle' instead.
      * Inline style of the input field.
      */
     inputStyle?: object | undefined;
     /**
+     * @deprecated since v4.0. Use 'labelClass' instead.
      * Style class of the input field.
      */
     inputClass?: string | object | undefined;
     /**
+     * Identifier of the underlying label element.
+     */
+    labelId?: string | undefined;
+    /**
+     * Inline style of the label field.
+     */
+    labelStyle?: object | undefined;
+    /**
+     * Style class of the label field.
+     */
+    labelClass?: string | object | undefined;
+    /**
+     * @deprecated since v4.0. Use 'overlayStyle' instead.
      * Inline style of the overlay panel.
      */
     panelStyle?: object | undefined;
     /**
+     * @deprecated since v4.0. Use 'overlayClass' instead.
      * Style class of the overlay panel.
      */
     panelClass?: string | object | undefined;
+    /**
+     * Inline style of the overlay.
+     */
+    overlayStyle?: object | undefined;
+    /**
+     * Style class of the overlay.
+     */
+    overlayClass?: string | object | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body

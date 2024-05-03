@@ -3,10 +3,10 @@
         <input
             v-if="editable"
             ref="focusInput"
-            :id="inputId"
+            :id="labelId || inputId"
             type="text"
-            :class="[cx('input'), inputClass]"
-            :style="inputStyle"
+            :class="[cx('label'), inputClass, labelClass]"
+            :style="[inputStyle, labelStyle]"
             :value="editableInputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
@@ -24,14 +24,14 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onEditableInput"
-            v-bind="ptm('input')"
+            v-bind="ptm('label')"
         />
         <span
             v-else
             ref="focusInput"
-            :id="inputId"
-            :class="[cx('input'), inputClass]"
-            :style="inputStyle"
+            :id="labelId || inputId"
+            :class="[cx('label'), inputClass, labelClass]"
+            :style="[inputStyle, labelStyle]"
             :tabindex="!disabled ? tabindex : -1"
             role="combobox"
             :aria-label="ariaLabel || (label === 'p-emptylabel' ? undefined : label)"
@@ -44,14 +44,14 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            v-bind="ptm('input')"
+            v-bind="ptm('label')"
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
         <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :onClick="onClearClick" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
         </slot>
-        <div :class="cx('trigger')" v-bind="ptm('trigger')">
+        <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -62,7 +62,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('panel')">
+                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('overlay'), panelClass, overlayClass]" :style="[panelStyle, overlayStyle]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -83,7 +83,7 @@
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
-                                :class="cx('filterInput')"
+                                :class="cx('filter')"
                                 :placeholder="filterPlaceholder"
                                 :invalid="invalid"
                                 :variant="variant"
@@ -95,7 +95,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('filterInput')"
+                                :pt="ptm('filter')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -105,21 +105,28 @@
                             {{ filterResultMessageText }}
                         </span>
                     </div>
-                    <div :class="cx('wrapper')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+                    <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                                 <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                        <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
+                                        <li
+                                            v-if="isOptionGroup(option)"
+                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                            :class="cx('optionGroup')"
+                                            role="option"
+                                            v-bind="ptm('optionGroup')"
+                                        >
                                             <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">
-                                                <span :class="cx('itemGroupLabel')" v-bind="ptm('itemGroupLabel')">{{ getOptionGroupLabel(option.optionGroup) }}</span>
+                                                <span :class="cx('optionGroupLabel')" v-bind="ptm('optionGroupLabel')">{{ getOptionGroupLabel(option.optionGroup) }}</span>
                                             </slot>
                                         </li>
                                         <li
                                             v-else
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
-                                            :class="cx('item', { option, focusedOption: getOptionIndex(i, getItemOptions) })"
+                                            :class="cx('option', { option, focusedOption: getOptionIndex(i, getItemOptions) })"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             role="option"
                                             :aria-label="getOptionLabel(option)"
@@ -132,14 +139,14 @@
                                             :data-p-highlight="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
-                                            v-bind="getPTItemOptions(option, getItemOptions, i, 'item')"
+                                            v-bind="getPTItemOptions(option, getItemOptions, i, 'option')"
                                         >
                                             <template v-if="checkmark">
-                                                <CheckIcon v-if="isSelected(option)" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
-                                                <BlankIcon v-else :class="cx('blankIcon')" v-bind="ptm('blankIcon')" />
+                                                <CheckIcon v-if="isSelected(option)" :class="cx('optionCheckIcon')" v-bind="ptm('optionCheckIcon')" />
+                                                <BlankIcon v-else :class="cx('optionBlankIcon')" v-bind="ptm('optionBlankIcon')" />
                                             </template>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
-                                                <span :class="cx('itemLabel')" v-bind="ptm('itemLabel')">{{ getOptionLabel(option) }}</span>
+                                                <span :class="cx('optionLabel')" v-bind="ptm('optionLabel')">{{ getOptionLabel(option) }}</span>
                                             </slot>
                                         </li>
                                     </template>

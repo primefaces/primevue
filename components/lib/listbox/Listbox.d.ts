@@ -130,15 +130,15 @@ export interface ListboxPassThroughOptions<T = any> {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
+    filter?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: ListboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the list container's DOM element.
      */
-    wrapper?: ListboxPassThroughOptionType;
+    listContainer?: ListboxPassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -149,13 +149,13 @@ export interface ListboxPassThroughOptions<T = any> {
      */
     list?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the option group's DOM element.
      */
-    itemGroup?: ListboxPassThroughOptionType;
+    optionGroup?: ListboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
-    item?: ListboxPassThroughOptionType;
+    option?: ListboxPassThroughOptionType;
     /**
      * Used to pass attributes to the emptyMessage's DOM element.
      */

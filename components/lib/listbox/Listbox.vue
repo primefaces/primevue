@@ -19,7 +19,7 @@
                 <InputText
                     v-model="filterValue"
                     type="text"
-                    :class="cx('filterInput')"
+                    :class="cx('filter')"
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
@@ -32,7 +32,7 @@
                     @input="onFilterChange"
                     @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
-                    :pt="ptm('filterInput')"
+                    :pt="ptm('filter')"
                 />
 
                 <slot name="filtericon" :class="cx('filterIcon')">
@@ -43,7 +43,7 @@
                 {{ filterResultMessageText }}
             </span>
         </div>
-        <div :class="cx('wrapper')" :style="[{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }, listStyle]" v-bind="ptm('wrapper')">
+        <div :class="cx('listContainer')" :style="[{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }, listStyle]" v-bind="ptm('listContainer')">
             <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="[{ height: scrollHeight }, listStyle]" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                     <ul
@@ -64,7 +64,7 @@
                         v-bind="ptm('list')"
                     >
                         <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                            <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
+                            <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
                                 <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                             </li>
                             <li
@@ -72,7 +72,7 @@
                                 :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                 v-ripple
                                 :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                :class="cx('item', { option, index: i, getItemOptions })"
+                                :class="cx('option', { option, index: i, getItemOptions })"
                                 role="option"
                                 :aria-label="getOptionLabel(option)"
                                 :aria-selected="isSelected(option)"
@@ -84,7 +84,7 @@
                                 @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                 @touchend="onOptionTouchEnd()"
                                 @dblclick="onOptionDblClick($event, option)"
-                                v-bind="getPTOptions(option, getItemOptions, i, 'item')"
+                                v-bind="getPTOptions(option, getItemOptions, i, 'option')"
                                 :data-p-highlight="isSelected(option)"
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"

@@ -62,7 +62,27 @@ export default {
             type: Object,
             default: null
         },
+        labelId: {
+            type: String,
+            default: null
+        },
+        labelClass: {
+            type: [String, Object],
+            default: null
+        },
+        labelStyle: {
+            type: Object,
+            default: null
+        },
         panelClass: {
+            type: [String, Object],
+            default: null
+        },
+        overlayStyle: {
+            type: Object,
+            default: null
+        },
+        overlayClass: {
             type: [String, Object],
             default: null
         },
