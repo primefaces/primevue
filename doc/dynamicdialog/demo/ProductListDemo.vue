@@ -41,8 +41,9 @@ export default {
             this.dialogRef.close(data);
         },
         showInfo() {
-            this.$dialog.open(InfoDemo, {
-                props: {
+            this.$dialog.open({
+                content: InfoDemo,
+                dialogProps: {
                     header: 'Information',
                     modal: true,
                     dismissableMask: true

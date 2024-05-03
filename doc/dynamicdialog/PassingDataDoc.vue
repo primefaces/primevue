@@ -20,7 +20,8 @@ export default {
 const dialog = useDialog();
 
 const showProducts = () => {
-    dialog.open(ProductListDemo, {
+    dialog.open({
+        content: ProductListDemo,
         data: {
             user: 'primetime'
         }
@@ -44,7 +45,8 @@ onMounted(() => {
 const dialog = useDialog();
 
 const showProducts = () => {
-    dialog.open(ProductListDemo, {
+    dialog.open({
+        content: ProductListDemo,
         onClose: (opt) => {
             const callbackParams = opt.data; // {selectedId: 12}
         }

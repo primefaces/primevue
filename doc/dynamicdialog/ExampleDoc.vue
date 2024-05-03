@@ -42,8 +42,9 @@ const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vu
 export default {
     methods: {
         showProducts() {
-            const dialogRef = this.$dialog.open(ProductListDemo, {
-                props: {
+            const dialogRef = this.$dialog.open({
+                content: ProductListDemo,
+                dialogProps: {
                     header: 'Product List',
                     style: {
                         width: '50vw'
@@ -94,8 +95,9 @@ const dialog = useDialog();
 const toast = useToast();
 
 const showProducts = () => {
-    const dialogRef = dialog.open(ProductListDemo, {
-        props: {
+    const dialogRef = dialog.open({
+        content: ProductListDemo,
+        dialogProps: {
             header: 'Product List',
             style: {
                 width: '50vw',
@@ -123,7 +125,7 @@ const showProducts = () => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',
@@ -186,8 +188,9 @@ export default {
             this.dialogRef.close(data);
         },
         showInfo() {
-            this.$dialog.open(InfoDemo, {
-                props: {
+            this.$dialog.open({
+                content: InfoDemo,
+                dialogProps: {
                     header: 'Information',
                     modal: true,
                     dismissableMask: true
@@ -301,8 +304,9 @@ const selectProduct = (data) => {
 };
 
 const showInfo = () => {
-    dialog.open(InfoDemo, {
-        props: {
+    dialog.open({
+        content: InfoDemo,
+        dialogProps: {
             header: "Information",
             modal: true,
             dismissableMask: true,
@@ -365,8 +369,9 @@ const closeDialog = (e) => {
     },
     methods: {
         showProducts() {
-            const dialogRef = this.$dialog.open(ProductListDemo, {
-                props: {
+            const dialogRef = this.$dialog.open({
+                content: ProductListDemo,
+                dialogProps: {
                     header: 'Product List',
                     style: {
                         width: '50vw'

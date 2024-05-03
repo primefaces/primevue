@@ -19,9 +19,12 @@ import { useDialog } from 'primevue/usedialog';
 const dialog = useDialog();
 
 const showProducts = () => {
-    dialog.open(ProductListDemo, {
-        onCancel: (e) => {
-            console.log(e);  // {user: 'primetime'}
+    dialog.open({
+        content: ProductListDemo,
+        emits: {
+            cancel: (e) => {
+                console.log(e);  // {user: 'primetime'}
+            }
         }
     });
 }
@@ -31,10 +34,10 @@ const showProducts = () => {
                 basic: `
 <script setup>
 /* ProductListDemo.vue */
-const emit = defineEmits(['onCancel', 'onSave'])
+const emit = defineEmits(['cancel', 'save'])
 
 function buttonClick() {
-    emit('onCancel', {user: 'primetime'});
+    emit('cancel', {user: 'primetime'});
 }
 <\/script>
 `

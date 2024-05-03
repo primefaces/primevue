@@ -19,7 +19,7 @@ import { useDialog } from 'primevue/usedialog';
 const dialog = useDialog();
 
 const showProducts = () => {
-    dialog.open(ProductListDemo, {});
+    dialog.open({ content: ProductListDemo });
 }
 `
             },
@@ -32,7 +32,7 @@ const dialog = useDialog();
 const dynamicComponent = defineAsyncComponent(() => import('./ProductListDemo.vue'));
 
 const showProducts = () => {
-    dialog.open(dynamicComponent, {});
+    dialog.open({ content: dynamicComponent });
 }
 `
             }

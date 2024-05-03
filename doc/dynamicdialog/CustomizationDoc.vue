@@ -17,8 +17,9 @@ import { useDialog } from 'primevue/usedialog';
 const dialog = useDialog();
 
 const showProducts = () => {
-    dialog.open(ProductListDemo, {
-        props: {
+    dialog.open({
+        content: ProductListDemo,
+        dialogProps: {
             header: 'Product List',
             style: {
                 width: '50vw',
