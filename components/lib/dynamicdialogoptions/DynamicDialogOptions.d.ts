@@ -18,6 +18,10 @@ export interface DynamicDialogTemplates {
      */
     header?: any;
     /**
+     * Custom container template.
+     */
+    container?: any;
+    /**
      * Custom footer template.
      */
     footer?: any;
@@ -46,9 +50,13 @@ export interface DynamicDialogCloseOptions {
  */
 export interface DynamicDialogOptions {
     /**
+     * Dynamic component for content template
+    */
+    content?: any;
+    /**
      * Dialog Props
      */
-    props?: DialogProps;
+    dialogProps?: DialogProps;
     /**
      * Dialog Slots
      */
@@ -57,6 +65,14 @@ export interface DynamicDialogOptions {
      * Custom data object
      */
     data?: any;
+    /**
+     * Custom props object
+     */
+    props?: any;
+    /**
+     * Custom emits object
+     */
+    emits?: any;
     /**
      * Closes the dialog.
      */

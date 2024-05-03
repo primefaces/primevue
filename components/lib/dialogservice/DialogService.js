@@ -5,9 +5,9 @@ import { markRaw } from 'vue';
 export default {
     install: (app) => {
         const DialogService = {
-            open: (content, options) => {
+            open: (options) => {
                 const instance = {
-                    content: content && markRaw(content),
+                    content: options && options.content && markRaw(options.content),
                     options: options || {},
                     data: options && options.data,
                     close: (params) => {
