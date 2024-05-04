@@ -14,9 +14,8 @@ const theme = ({ dt }) => `
 }
 
 .p-speeddial-button.p-speeddial-rotate {
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt(
-    'transition.duration'
-)}, outline-color ${dt('transition.duration')};
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, 
+    box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     will-change: transform;
 }
 
