@@ -52,7 +52,7 @@ const theme = ({ dt }) => `
     text-overflow: ellipsis;
     max-width: 100%;
     margin-left: 0.5rem;
-    color: ${dt('stepper.title.color')};
+    color: ${dt('stepper.item.title.color')};
     font-weight: 500;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
@@ -62,10 +62,10 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     position: relative;
-    color: ${dt('stepper.marker.color')};
-    border: 1px solid ${dt('stepper.marker.border.color')};
+    color: ${dt('stepper.item.number.color')};
+    border: 1px solid ${dt('stepper.item.number.border.color')};
     border-width: 2px;
-    background: ${dt('stepper.marker.background')};
+    background: ${dt('stepper.item.number.background')};
     min-width: 2rem;
     height: 2rem;
     line-height: 2rem;
@@ -88,12 +88,12 @@ const theme = ({ dt }) => `
 }
 
 .p-stepper-item-active .p-stepper-item-number {
-    background: ${dt('stepper.marker.active.background')};
-    color: ${dt('stepper.marker.active.color')};
+    background: ${dt('stepper.item.number.active.background')};
+    color: ${dt('stepper.item.number.active.color')};
 }
 
 .p-stepper-item-active .p-stepper-item-title {
-    color: ${dt('stepper.title.active.color')};
+    color: ${dt('stepper.item.title.active.color')};
 }
 
 .p-stepper-item:not(.p-disabled):focus-visible {
@@ -102,12 +102,12 @@ const theme = ({ dt }) => `
 }
 
 .p-stepper-item:has(~ .p-stepper-item-active) .p-stepper-separator {
-    background: ${dt('stepper.connector.active.background')};
+    background: ${dt('stepper.separator.active.background')};
 }
 
 .p-stepper-separator {
     flex: 1 1 0;
-    background: ${dt('stepper.connector.background')};
+    background: ${dt('stepper.separator.background')};
     width: 100%;
     height: 2px;
     margin-inline-start: 1rem;
@@ -115,9 +115,12 @@ const theme = ({ dt }) => `
 }
 
 .p-stepper-panels {
-    background: ${dt('stepper.content.background')};
-    color: ${dt('stepper.content.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
+}
+
+.p-stepper-panel-content {
+    background: ${dt('stepper.panel.content.background')};
+    color: ${dt('stepper.panel.content.color')};
 }
 
 .p-stepper-vertical .p-stepper-list {

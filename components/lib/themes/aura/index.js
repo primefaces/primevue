@@ -182,6 +182,19 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                },
+                text: {
+                    color: '{surface.700}',
+                    hoverColor: '{surface.800}',
+                    mutedColor: '{surface.500}',
+                    hoverMutedColor: '{surface.600}'
+                },
+                content: {
+                    background: '{surface.0}',
+                    hoverBackground: '{surface.100}',
+                    borderColor: '{surface.200}',
+                    color: '{text.color}',
+                    hoverColor: '{text.hover.color}'
                 }
             },
             dark: {
@@ -228,6 +241,19 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                },
+                text: {
+                    color: '{surface.0}',
+                    hoverColor: '{surface.0}',
+                    mutedColor: '{surface.400}',
+                    hoverMutedColor: '{surface.300}'
+                },
+                content: {
+                    background: '{surface.900}',
+                    hoverBackground: '{surface.800}',
+                    borderColor: '{surface.700}',
+                    color: '{text.color}',
+                    hoverColor: '{text.hover.color}'
                 }
             }
         }

@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-accordionpanel {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid ${dt('accordion.content.border.color')};
+    border-bottom: 1px solid ${dt('accordion.panel.border.color')};
 }
 
 .p-accordionpanel:last-child {

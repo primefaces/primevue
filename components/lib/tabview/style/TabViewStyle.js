@@ -27,8 +27,8 @@ const theme = ({ dt }) => `
     padding: 0;
     list-style-type: none;
     flex: 1 1 auto;
-    background: ${dt('tabview.nav.background')};
-    border: 1px solid ${dt('tabview.nav.border.color')};
+    background: ${dt('tabview.tab.list.background')};
+    border: 1px solid ${dt('tabview.tab.list.border.color')};
     border-width: 0 0 1px 0;
     position: relative;
 }
@@ -43,8 +43,8 @@ const theme = ({ dt }) => `
     overflow: hidden;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent ${dt('tabview.header.border.color')} transparent;
-    color: ${dt('tabview.header.color')};
+    border-color: transparent transparent ${dt('tabview.tab.border.color')} transparent;
+    color: ${dt('tabview.tab.color')};
     padding: 1rem 1.125rem;
     font-weight: 600;
     border-top-right-radius: ${dt('rounded.base')};
@@ -60,11 +60,11 @@ const theme = ({ dt }) => `
 }
 
 .p-tabview-tablist-item:not(.p-highlight):not(.p-disabled):hover > .p-tabview-tab-header {
-    color: ${dt('tabview.header.hover.color')};
+    color: ${dt('tabview.tab.hover.color')};
 }
 
 .p-tabview-tablist-item.p-highlight > .p-tabview-tab-header {
-    color: ${dt('tabview.header.active.color')};
+    color: ${dt('tabview.tab.active.color')};
 }
 
 .p-tabview-tab-title {
@@ -83,13 +83,13 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${dt('tabview.navigator.icon.background')};
-    color: ${dt('tabview.navigator.icon.color')};
+    background: ${dt('tabview.nav.button.background')};
+    color: ${dt('tabview.nav.button.color')};
     width: 2.5rem;
     border-radius: 0;
     outline-color: transparent;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    box-shadow: ${dt('tabview.navigator.icon.box.shadow')};
+    box-shadow: ${dt('tabview.nav.button.box.shadow')};
     border: none;
     cursor: pointer;
     user-select: none;
@@ -103,7 +103,7 @@ const theme = ({ dt }) => `
 
 .p-tabview-next-button:hover,
 .p-tabview-prev-button:hover {
-    color: ${dt('tabview.navigator.icon.hover.color')};
+    color: ${dt('tabview.nav.button.hover.color')};
 }
 
 .p-tabview-prev-button {
@@ -115,8 +115,8 @@ const theme = ({ dt }) => `
 }
 
 .p-tabview-panels {
-    background: ${dt('tabview.navigator.content.background')};
-    color: ${dt('tabview.navigator.content.color')};
+    background: ${dt('tabview.tab.panel.background')};
+    color: ${dt('tabview.tab.panel.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
@@ -126,7 +126,7 @@ const theme = ({ dt }) => `
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: ${dt('tabview.header.active.border.color')};
+    background-color: ${dt('tabview.tab.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 `;

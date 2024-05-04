@@ -10,8 +10,8 @@ const classes = {
     ],
     tabs: 'p-tablist-tab-list',
     inkbar: 'p-tablist-active-bar',
-    previousButton: 'p-tablist-prev-button',
-    nextButton: 'p-tablist-next-button'
+    previousButton: 'p-tablist-prev-button p-tablist-nav-button',
+    nextButton: 'p-tablist-next-button p-tablist-nav-button'
 };
 
 export default BaseStyle.extend({

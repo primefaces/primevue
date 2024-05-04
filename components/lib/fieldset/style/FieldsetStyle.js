@@ -11,6 +11,7 @@ const theme = ({ dt }) => `
 }
 
 .p-fieldset-legend {
+    background: ${dt('fieldset.legend.background')};
     font-weight: 600;
     border-radius: 6px;
     border: 0 none;

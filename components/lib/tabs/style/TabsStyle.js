@@ -29,13 +29,12 @@ const theme = ({ dt }) => `
 .p-tablist-tab-list {
     position: relative;
     display: flex;
-    background: ${dt('tabs.nav.background')};
-    border: 1px solid ${dt('tabs.nav.border.color')};
+    background: ${dt('tabs.tab.list.background')};
+    border: 1px solid ${dt('tabs.tab.list.border.color')};
     border-width: 0 0 1px 0;
 }
 
-.p-tablist-prev-button,
-.p-tablist-next-button {
+.p-tablist-nav-button {
     all: unset;
     position: absolute;
     top: 0;
@@ -44,23 +43,21 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${dt('tabs.navigator.icon.background')};
-    color: ${dt('tabs.navigator.icon.color')};
+    background: ${dt('tabs.nav.button.background')};
+    color: ${dt('tabs.nav.button.color')};
     width: 2.5rem;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    box-shadow: ${dt('tabs.navigator.icon.box.shadow')};
+    box-shadow: ${dt('tabs.nav.button.box.shadow')};
     cursor: pointer;
 }
 
-.p-tablist-prev-button:focus-visible,
-.p-tablist-next-button:focus-visible {
+.p-tablist-nav-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-tablist-prev-button:hover,
-.p-tablist-next-button:hover {
-    color: ${dt('tabs.navigator.icon.hover.color')};
+.p-tablist-nav-button:hover {
+    color: ${dt('tabs.nav.button.hover.color')};
 }
 
 .p-tablist-prev-button {
@@ -75,8 +72,8 @@ const theme = ({ dt }) => `
     cursor: pointer;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent ${dt('tabs.header.border.color')} transparent;
-    color: ${dt('tabs.header.color')};
+    border-color: transparent transparent ${dt('tabs.tab.border.color')} transparent;
+    color: ${dt('tabs.tab.color')};
     background: ${dt('tabs.nav.background')};
     padding: 1rem 1.125rem;
     font-weight: 600;
@@ -95,16 +92,16 @@ const theme = ({ dt }) => `
 }
 
 .p-tab:not(.p-tab-active):not(.p-disabled):hover {
-    color: ${dt('tabs.header.hover.color')};
+    color: ${dt('tabs.tab.hover.color')};
 }
 
 .p-tab-active {
-    color: ${dt('tabs.header.active.color')};
+    color: ${dt('tabs.tab.active.color')};
 }
 
 .p-tabpanels {
-    background: ${dt('tabs.navigator.content.background')};
-    color: ${dt('tabs.navigator.content.color')};
+    background: ${dt('tabs.tab.panel.background')};
+    color: ${dt('tabs.tab.panel.color')};
     padding: 0.875rem 1.125rem 1.125rem 1.125rem;
 }
 
@@ -114,7 +111,7 @@ const theme = ({ dt }) => `
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: ${dt('tabs.header.active.border.color')};
+    background-color: ${dt('tabs.tab.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 `;
