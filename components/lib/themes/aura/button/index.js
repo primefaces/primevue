@@ -4,11 +4,11 @@ export default {
             root: {
                 primary: {
                     background: '{primary.color}',
-                    hoverBackground: '{primary.hoverColor}',
-                    activeBackground: '{primary.activeColor}',
+                    hoverBackground: '{primary.hover.color}',
+                    activeBackground: '{primary.active.color}',
                     borderColor: '{primary.color}',
-                    hoverBorderColor: '{primary.hoverColor}',
-                    activeBorderColor: '{primary.activeColor}',
+                    hoverBorderColor: '{primary.hover.color}',
+                    activeBorderColor: '{primary.active.color}',
                     color: '{primary.inverseColor}',
                     hoverColor: '{primary.inverseColor}',
                     activeColor: '{primary.inverseColor}'
@@ -199,11 +199,11 @@ export default {
             root: {
                 primary: {
                     background: '{primary.color}',
-                    hoverBackground: '{primary.hoverColor}',
-                    activeBackground: '{primary.activeColor}',
+                    hoverBackground: '{primary.hover.color}',
+                    activeBackground: '{primary.active.color}',
                     borderColor: '{primary.color}',
-                    hoverBorderColor: '{primary.hoverColor}',
-                    activeBorderColor: '{primary.activeColor}',
+                    hoverBorderColor: '{primary.hover.color}',
+                    activeBorderColor: '{primary.active.color}',
                     color: '{primary.inverseColor}',
                     hoverColor: '{primary.inverseColor}',
                     activeColor: '{primary.inverseColor}'
