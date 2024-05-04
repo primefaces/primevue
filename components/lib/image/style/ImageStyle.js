@@ -29,14 +29,14 @@ const theme = ({ dt }) => `
     padding: 0;
     cursor: pointer;
     background: transparent;
-    color: ${dt('image.preview.indicator.color')};
+    color: ${dt('image.preview.mask.color')};
     transition: background-color ${dt('transition.duration')};
 }
 
 .p-image-preview:hover > .p-image-preview-mask {
     opacity: 1;
     cursor: pointer;
-    background: ${dt('image.preview.indicator.background')};
+    background: ${dt('image.preview.mask.background')};
 }
 
 .p-image-preview-icon {

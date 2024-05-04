@@ -1,31 +1,31 @@
 export default {
     colorScheme: {
         light: {
-            navigator: {
+            navButton: {
                 hoverBackground: 'rgba(255, 255, 255, 0.1)',
                 color: '{surface.100}'
             },
-            thumbnailNavigator: {
+            thumbnailNavButton: {
                 hoverBackground: '{surface.200}',
                 color: '{surface.600}',
                 hoverColor: '{surface.700}'
             },
-            thumbnailContainer: {
+            thumbnailsContent: {
                 background: '{surface.50}'
             },
             caption: {
                 background: 'rgba(0, 0, 0, 0.5)',
                 color: '{surface.100}'
             },
-            indicator: {
+            indicatorButton: {
                 background: '{surface.200}',
                 hoverBackground: '{surface.300}',
                 activeBackground: '{primary.color}'
             },
-            insetIndicators: {
+            insetIndicatorList: {
                 background: 'rgba(0, 0, 0, 0.5)'
             },
-            insetIndicator: {
+            insetIndicatorButton: {
                 background: 'rgba(255, 255, 255, 0.4)',
                 hoverBackground: 'rgba(255, 255, 255, 0.6)',
                 activeBackground: 'rgba(255, 255, 255, 0.9)'
@@ -33,38 +33,38 @@ export default {
             mask: {
                 background: 'rgba(0,0,0,0.9)'
             },
-            close: {
+            closeButton: {
                 hoverBackground: 'rgba(255,255,255,0.1)',
                 color: '{surface.50}',
                 hoverColor: '{surface.0}'
             }
         },
         dark: {
-            navigator: {
+            navButton: {
                 hoverBackground: 'rgba(255, 255, 255, 0.1)',
                 color: '{surface.400}'
             },
-            thumbnailNavigator: {
+            thumbnailNavButton: {
                 hoverBackground: '{surface.800}',
                 color: '{surface.400}',
                 hoverColor: '{surface.300}'
             },
-            thumbnailContainer: {
+            thumbnailsContent: {
                 background: '{surface.950}'
             },
             caption: {
                 background: 'rgba(0, 0, 0, 0.5)',
                 color: '{surface.100}'
             },
-            indicator: {
+            indicatorButton: {
                 background: '{surface.200}',
                 hoverBackground: '{surface.300}',
                 activeBackground: '{primary.color}'
             },
-            insetIndicators: {
+            insetIndicatorList: {
                 background: 'rgba(0, 0, 0, 0.5)'
             },
-            insetIndicator: {
+            insetIndicatorButton: {
                 background: 'rgba(255, 255, 255, 0.4)',
                 hoverBackground: 'rgba(255, 255, 255, 0.6)',
                 activeBackground: 'rgba(255, 255, 255, 0.9)'
@@ -72,7 +72,7 @@ export default {
             mask: {
                 background: 'rgba(0,0,0,0.9)'
             },
-            close: {
+            closeButton: {
                 hoverBackground: 'rgba(255,255,255,0.1)',
                 color: '{surface.50}',
                 hoverColor: '{surface.0}'

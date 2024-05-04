@@ -18,7 +18,7 @@ const theme = ({ dt }) => `
     height: 100%;
 }
 
-.p-galleria-navigate-button {
+.p-galleria-nav-button {
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;
@@ -27,7 +27,7 @@ const theme = ({ dt }) => `
     align-items: center;
     overflow: hidden;
     background: transparent;
-    color: ${dt('galleria.navigator.color')};
+    color: ${dt('galleria.nav.button.color')};
     width: 3rem;
     height: 3rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -39,8 +39,8 @@ const theme = ({ dt }) => `
     cursor: pointer;
 }
 
-.p-galleria-navigate-button:not(.p-disabled):hover {
-    background: ${dt('galleria.navigator.hover.background')};
+.p-galleria-nav-button:not(.p-disabled):hover {
+    background: ${dt('galleria.nav.button.hover.background')};
 }
 
 .p-galleria-next-icon,
@@ -66,18 +66,18 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-.p-galleria-hover-navigators .p-galleria-navigate-button {
+.p-galleria-hover-navigators .p-galleria-nav-button {
     pointer-events: none;
     opacity: 0;
     transition: opacity ${dt('transition.duration')} ease-in-out;
 }
 
-.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-navigate-button {
+.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button {
     pointer-events: all;
     opacity: 1;
 }
 
-.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-navigate-button.p-disabled {
+.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button.p-disabled {
     pointer-events: none;
 }
 
@@ -98,8 +98,7 @@ const theme = ({ dt }) => `
     flex-shrink: 0;
 }
 
-.p-galleria-thumbnail-prev-button,
-.p-galleria-thumbnail-next-button {
+.p-galleria-thumbnail-nav-button {
     align-self: center;
     flex: 0 0 auto;
     display: flex;
@@ -113,7 +112,7 @@ const theme = ({ dt }) => `
     user-select: none;
     cursor: pointer;
     background: transparent;
-    color: ${dt('galleria.thumbnail.navigator.color')};
+    color: ${dt('galleria.thumbnail.nav.button.color')};
     width: 2rem;
     height: 2rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -121,20 +120,17 @@ const theme = ({ dt }) => `
     border-radius: 50%;
 }
 
-.p-galleria-thumbnail-prev-button:hover,
-.p-galleria-thumbnail-next-button:hover {
-    background: ${dt('galleria.thumbnail.navigator.hover.background')};
-    color: ${dt('galleria.thumbnail.navigator.hover.color')};
+.p-galleria-thumbnail-nav-button:hover {
+    background: ${dt('galleria.thumbnail.nav.button.hover.background')};
+    color: ${dt('galleria.thumbnail.nav.button.hover.color')};
 }
 
-.p-galleria-thumbnail-prev-button:focus-visible,
-.p-galleria-thumbnail-next-button:focus-visible {
+.p-galleria-thumbnail-nav-button:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-galleria-thumbnail-prev-button span,
-.p-galleria-thumbnail-next-button span {
+.p-galleria-thumbnail-nav-button span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,7 +139,7 @@ const theme = ({ dt }) => `
 .p-galleria-thumbnails-content {
     display: flex;
     flex-direction: row;
-    background: ${dt('galleria.thumbnail.container.background')};
+    background: ${dt('galleria.thumbnails.content.background')};
     padding: 1rem 0.25rem;
 }
 
@@ -228,7 +224,7 @@ const theme = ({ dt }) => `
 .p-galleria-indicator-button {
     display: inline-flex;
     align-items: center;
-    background: ${dt('galleria.indicator.background')};
+    background: ${dt('galleria.indicator.button.background')};
     width: 1rem;
     height: 1rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -242,7 +238,7 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-indicator-button:hover {
-    background: ${dt('galleria.indicator.hover.background')};
+    background: ${dt('galleria.indicator.button.hover.background')};
 }
 
 .p-galleria-indicator-button:focus-visible {
@@ -251,7 +247,7 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-indicator-active .p-galleria-indicator-button {
-    background-color: ${dt('galleria.indicator.active.background')};
+    background-color: ${dt('galleria.indicator.button.active.background')};
 }
 
 .p-galleria-indicators-left .p-galleria-items-container,
@@ -279,19 +275,19 @@ const theme = ({ dt }) => `
     position: absolute;
     display: flex;
     z-index: 1;
-    background: ${dt('galleria.inset.indicators.background')};
+    background: ${dt('galleria.inset.indicator.list.background')};
 }
 
 .p-galleria-inset-indicators .p-galleria-indicator-button {
-    background: ${dt('galleria.inset.indicator.background')};
+    background: ${dt('galleria.inset.indicator.button.background')};
 }
 
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {
-    background: ${dt('galleria.inset.indicator.hover.background')};
+    background: ${dt('galleria.inset.indicator.button.hover.background')};
 }
 
 .p-galleria-inset-indicators .p-galleria-indicator-active .p-galleria-indicator-button {
-    background: ${dt('galleria.inset.indicator.active.background')};
+    background: ${dt('galleria.inset.indicator.button.active.background')};
 }
 
 .p-galleria-inset-indicators.p-galleria-indicators-top .p-galleria-indicator-list {
@@ -344,7 +340,7 @@ const theme = ({ dt }) => `
     overflow: hidden;
     margin: 0.5rem;
     background: transparent;
-    color: ${dt('galleria.close.color')};
+    color: ${dt('galleria.close.button.color')};
     width: 3rem;
     height: 3rem;
     padding: 0;
@@ -363,8 +359,8 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-close-button:hover {
-    background: ${dt('galleria.close.hover.background')};
-    color: ${dt('galleria.close.hover.color')};
+    background: ${dt('galleria.close.button.hover.background')};
+    color: ${dt('galleria.close.button.hover.color')};
 }
 
 .p-galleria-close-button:focus-visible {
@@ -372,7 +368,7 @@ const theme = ({ dt }) => `
     outline-offset: ${dt('focus.ring.offset')};
 }
 
-.p-galleria-mask .p-galleria-navigate-button {
+.p-galleria-mask .p-galleria-nav-button {
     position: fixed;
     top: 50%;
     margin-top: -0.5rem;
@@ -392,7 +388,7 @@ const theme = ({ dt }) => `
     transform: scale(0.7);
 }
 
-.p-galleria-enter-active .p-galleria-navigate-button {
+.p-galleria-enter-active .p-galleria-nav-button {
     opacity: 0;
 }
 
@@ -435,7 +431,7 @@ const classes = {
     itemsContainer: 'p-galleria-items-container',
     items: 'p-galleria-items',
     previousItemButton: ({ instance }) => [
-        'p-galleria-prev-button p-galleria-navigate-button',
+        'p-galleria-prev-button p-galleria-nav-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
@@ -443,7 +439,7 @@ const classes = {
     previousItemIcon: 'p-galleria-prev-icon',
     item: 'p-galleria-item',
     nextItemButton: ({ instance }) => [
-        'p-galleria-next-button p-galleria-navigate-button',
+        'p-galleria-next-button p-galleria-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }
@@ -461,7 +457,7 @@ const classes = {
     thumbnails: 'p-galleria-thumbnails',
     thumbnailContent: 'p-galleria-thumbnails-content',
     previousThumbnailButton: ({ instance }) => [
-        'p-galleria-thumbnail-prev-button',
+        'p-galleria-thumbnail-prev-button p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
@@ -480,7 +476,7 @@ const classes = {
     ],
     thumbnail: 'p-galleria-thumbnail',
     nextThumbnailButton: ({ instance }) => [
-        'p-galleria-thumbnail-next-button',
+        'p-galleria-thumbnail-next-button  p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }
