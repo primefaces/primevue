@@ -57,21 +57,21 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item.p-focus .p-menu-item-content {
-    color: ${dt('menu.item.focus.color')};
-    background: ${dt('menu.item.focus.background')};
+    color: ${dt('menu.item.hover.color')};
+    background: ${dt('menu.item.hover.background')};
 }
 
 .p-menu-item.p-focus .p-menu-item-icon {
-    color: ${dt('menu.item.icon.focus.color')};
+    color: ${dt('menu.item.icon.hover.color')};
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover {
-    color: ${dt('menu.item.focus.color')};
-    background: ${dt('menu.item.focus.background')};
+    color: ${dt('menu.item.hover.color')};
+    background: ${dt('menu.item.hover.background')};
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover .p-menu-item-icon {
-    color: ${dt('menu.item.icon.focus.color')};
+    color: ${dt('menu.item.icon.hover.color')};
 }
 
 .p-menu-overlay {
@@ -81,7 +81,7 @@ const theme = ({ dt }) => `
 .p-menu-submenu-item {
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: ${dt('menu.submenu.header.color')};
+    color: ${dt('menu.submenu.item.color')};
     font-weight: 600;
 }
 

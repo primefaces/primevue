@@ -57,33 +57,33 @@ const theme = ({ dt }) => `
 }
 
 .p-menubar-item.p-focus > .p-menubar-item-content {
-    color: ${dt('menubar.item.focus.color')};
-    background: ${dt('menubar.item.focus.background')};
+    color: ${dt('menubar.item.hover.color')};
+    background: ${dt('menubar.item.hover.background')};
 }
 
 .p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-item-icon,
 .p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-submenu-icon {
-    color: ${dt('menubar.item.icon.focus.color')};
+    color: ${dt('menubar.item.icon.hover.color')};
 }
 
 .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover {
-    color: ${dt('menubar.item.focus.color')};
-    background: ${dt('menubar.item.focus.background')};
+    color: ${dt('menubar.item.hover.color')};
+    background: ${dt('menubar.item.hover.background')};
 }
 
 .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-item-icon,
 .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-submenu-icon {
-    color: ${dt('menubar.item.icon.focus.color')};
+    color: ${dt('menubar.item.icon.hover.color')};
 }
 
 .p-menubar-item-active > .p-menubar-item-content {
-    color: ${dt('menubar.item.focus.color')};
-    background: ${dt('menubar.item.focus.background')};
+    color: ${dt('menubar.item.hover.color')};
+    background: ${dt('menubar.item.hover.background')};
 }
 
 .p-menubar-item-active > .p-menubar-item-content .p-menubar-item-icon,
 .p-menubar-item-active > .p-menubar-item-content .p-menubar-submenu-icon {
-    color: ${dt('menubar.item.icon.focus.color')};
+    color: ${dt('menubar.item.icon.hover.color')};
 }
 
 .p-menubar-submenu-icon {

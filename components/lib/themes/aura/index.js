@@ -195,6 +195,22 @@ export default {
                     borderColor: '{surface.200}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
+                },
+                navigation: {
+                    item: {
+                        hoverBackground: '{surface.100}',
+                        color: '{text.color}',
+                        hoverColor: '{text.hover.color}',
+                        icon: {
+                            color: '{surface.400}',
+                            hoverColor: '{surface.500}'
+                        }
+                    },
+                    submenu: {
+                        label: {
+                            color: '{surface.400}'
+                        }
+                    }
                 }
             },
             dark: {
@@ -254,6 +270,22 @@ export default {
                     borderColor: '{surface.700}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
+                },
+                navigation: {
+                    item: {
+                        hoverBackground: '{surface.800}',
+                        color: '{text.color}',
+                        hoverColor: '{text.hover.color}',
+                        icon: {
+                            color: '{surface.500}',
+                            hoverColor: '{surface.400}'
+                        }
+                    },
+                    submenu: {
+                        label: {
+                            color: '{surface.500}'
+                        }
+                    }
                 }
             }
         }

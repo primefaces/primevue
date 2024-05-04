@@ -11,8 +11,8 @@ const theme = ({ dt }) => `
     padding: 0;
     list-style-type: none;
     flex: 1 1 auto;
-    background: ${dt('tabmenu.nav.background')};
-    border: 1px solid ${dt('tabmenu.nav.border.color')};
+    background: ${dt('tabmenu.tablist.background')};
+    border: 1px solid ${dt('tabmenu.tablist.border.color')};
     border-width: 0 0 1px 0;
     position: relative;
 }
@@ -27,8 +27,8 @@ const theme = ({ dt }) => `
     overflow: hidden;
     border-style: solid;
     border-width: 0 0 1px 0;
-    border-color: transparent transparent ${dt('tabmenu.header.border.color')} transparent;
-    color: ${dt('tabmenu.header.color')};
+    border-color: transparent transparent ${dt('tabmenu.item.link.border.color')} transparent;
+    color: ${dt('tabmenu.item.link.color')};
     padding: 1rem 1.125rem;
     font-weight: 600;
     border-top-right-radius: ${dt('rounded.base')};
@@ -51,11 +51,11 @@ const theme = ({ dt }) => `
     line-height: 1;
 }
 .p-tabmenu-item:not(.p-tabmenu-item-active):not(.p-disabled):hover .p-tabmenu-item-link {
-    color: ${dt('tabmenu.header.hover.color')};
+    color: ${dt('tabmenu.item.link.hover.color')};
 }
 
 .p-tabmenu-item-active .p-tabmenu-item-link {
-    color: ${dt('tabmenu.header.active.border.color')};
+    color: ${dt('tabmenu.item.link.active.border.color')};
 }
 
 .p-tabmenu-ink-bar {
@@ -64,7 +64,7 @@ const theme = ({ dt }) => `
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: ${dt('tabmenu.header.active.border.color')};
+    background-color: ${dt('tabmenu.item.link.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 

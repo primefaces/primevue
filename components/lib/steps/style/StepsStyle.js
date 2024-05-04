@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
 
 .p-steps-item:before {
     content: " ";
-    border-top: 2px solid ${dt('steps.connector.border.color')};
+    border-top: 2px solid ${dt('steps.separator.background')};
     width: 100%;
     top: 50%;
     left: 0;
@@ -70,7 +70,7 @@ const theme = ({ dt }) => `
     text-overflow: ellipsis;
     max-width: 100%;
     margin-top: 0.5rem;
-    color: ${dt('steps.item.color')};
+    color: ${dt('steps.item.label.color')};
     display: block;
     font-weight: 500;
 }
@@ -79,9 +79,9 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${dt('steps.marker.color')};
-    border: 2px solid ${dt('steps.marker.border.color')};
-    background: ${dt('steps.marker.background')};
+    color: ${dt('steps.item.number.color')};
+    border: 2px solid ${dt('steps.item.number.border.color')};
+    background: ${dt('steps.item.number.background')};
     min-width: 2rem;
     height: 2rem;
     line-height: 2rem;
@@ -106,13 +106,13 @@ const theme = ({ dt }) => `
 }
 
 .p-steps-item-active .p-steps-item-number {
-    background: ${dt('steps.marker.active.background')};
-    color: ${dt('steps.marker.active.color')};
+    background: ${dt('steps.item.number.active.background')};
+    color: ${dt('steps.item.number.active.color')};
 }
 
 .p-steps-item-active .p-steps-item-label {
     font-weight: 500;
-    color: ${dt('steps.item.active.color')};
+    color: ${dt('steps.item.label.active.color')};
 }
 `;
 

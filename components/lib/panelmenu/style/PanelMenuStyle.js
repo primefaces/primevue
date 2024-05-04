@@ -48,23 +48,23 @@ const theme = ({ dt }) => `
 }
 
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content {
-    background: ${dt('panelmenu.item.focus.background')};
-    color: ${dt('panelmenu.item.focus.color')};
+    background: ${dt('panelmenu.item.hover.background')};
+    color: ${dt('panelmenu.item.hover.color')};
 }
 
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content .p-panelmenu-submenu-icon,
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content .p-panelmenu-header-icon {
-    color: ${dt('panelmenu.item.icon.focus.color')};
+    color: ${dt('panelmenu.item.icon.hover.color')};
 }
 
 .p-panelmenu-header:not(.p-disabled) .p-panelmenu-header-content:hover {
-    background: ${dt('panelmenu.item.focus.background')};
-    color: ${dt('panelmenu.item.focus.color')};
+    background: ${dt('panelmenu.item.hover.background')};
+    color: ${dt('panelmenu.item.hover.color')};
 }
 
 .p-panelmenu-header:not(.p-disabled) .p-panelmenu-header-content:hover .p-panelmenu-submenu-icon,
 .p-panelmenu-header:not(.p-disabled) .p-panelmenu-header-content:hover .p-panelmenu-header-icon {
-    color: ${dt('panelmenu.item.icon.focus.color')};
+    color: ${dt('panelmenu.item.icon.hover.color')};
 }
 
 .p-panelmenu .p-panelmenu-item {
@@ -110,22 +110,22 @@ const theme = ({ dt }) => `
 }
 
 .p-panelmenu-item.p-focus > .p-panelmenu-item-content {
-    background: ${dt('panelmenu.item.focus.background')};
-    color: ${dt('panelmenu.item.focus.color')};
+    background: ${dt('panelmenu.item.hover.background')};
+    color: ${dt('panelmenu.item.hover.color')};
 }
 
 .p-panelmenu-item.p-focus > .p-panelmenu-item-icon {
-    color: ${dt('panelmenu.item.focus.color')};
+    color: ${dt('panelmenu.item.hover.color')};
 }
 
 .p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover {
-    background: ${dt('panelmenu.item.focus.background')};
-    color: ${dt('panelmenu.item.focus.color')};
+    background: ${dt('panelmenu.item.hover.background')};
+    color: ${dt('panelmenu.item.hover.color')};
 }
 
 .p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover .p-panelmenu-item-icon,
 .p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover .p-panelmenu-submenu-icon {
-    color: ${dt('panelmenu.item.icon.focus.color')};
+    color: ${dt('panelmenu.item.icon.hover.color')};
 }
 `;
 

@@ -59,7 +59,7 @@ export default {
                         ],
                         [
                             {
-                                label: 'Home Theather',
+                                label: 'Home Theater',
                                 items: [{ label: 'Projector' }, { label: 'Speakers' }, { label: 'TVs' }]
                             }
                         ],
@@ -170,7 +170,7 @@ export default {
                         ],
                         [
                             {
-                                label: 'Home Theather',
+                                label: 'Home Theater',
                                 items: [{ label: 'Projector' }, { label: 'Speakers' }, { label: 'TVs' }]
                             }
                         ],
@@ -281,7 +281,7 @@ const items = ref([
             ],
             [
                 {
-                    label: 'Home Theather',
+                    label: 'Home Theater',
                     items: [{ label: 'Projector' }, { label: 'Speakers' }, { label: 'TVs' }]
                 }
             ],

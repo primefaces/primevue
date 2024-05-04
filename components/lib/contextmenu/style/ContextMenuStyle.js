@@ -79,33 +79,33 @@ const theme = ({ dt }) => `
 }
 
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content {
-    color: ${dt('contextmenu.item.focus.color')};
-    background: ${dt('contextmenu.item.focus.background')};
+    color: ${dt('contextmenu.item.hover.color')};
+    background: ${dt('contextmenu.item.hover.background')};
 }
 
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-item-icon,
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.focus.color')};
+    color: ${dt('contextmenu.item.icon.hover.color')};
 }
 
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover {
-    color: ${dt('contextmenu.item.focus.color')};
-    background: ${dt('contextmenu.item.focus.background')};
+    color: ${dt('contextmenu.item.hover.color')};
+    background: ${dt('contextmenu.item.hover.background')};
 }
 
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-item-icon,
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.focus.color')};
+    color: ${dt('contextmenu.item.icon.hover.color')};
 }
 
 .p-contextmenu-item-active > .p-contextmenu-item-content {
-    color: ${dt('contextmenu.item.focus.color')};
-    background: ${dt('contextmenu.item.focus.background')};
+    color: ${dt('contextmenu.item.hover.color')};
+    background: ${dt('contextmenu.item.hover.background')};
 }
 
 .p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-item-icon,
 .p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.focus.color')};
+    color: ${dt('contextmenu.item.icon.hover.color')};
 }
 
 .p-contextmenu-separator {
