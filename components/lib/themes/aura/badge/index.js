@@ -3,7 +3,7 @@ export default {
         light: {
             primary: {
                 background: '{primary.color}',
-                color: '{primary.inverseColor}'
+                color: '{primary.contrast.color}'
             },
             secondary: {
                 background: '{surface.100}',
@@ -33,7 +33,7 @@ export default {
         dark: {
             primary: {
                 background: '{primary.color}',
-                color: '{primary.inverseColor}'
+                color: '{primary.contrast.color}'
             },
             secondary: {
                 background: '{surface.800}',

@@ -63,7 +63,7 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-group .p-avatar {
-    border: 2px solid ${dt('avatar.grouped.border.color')};
+    border: 2px solid ${dt('avatar.group.border.color')};
 }
 `;
 

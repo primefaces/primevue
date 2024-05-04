@@ -155,7 +155,7 @@ export default {
                 },
                 primary: {
                     color: '{primary.500}',
-                    inverseColor: '#ffffff',
+                    contrastColor: '#ffffff',
                     hoverColor: '{primary.600}',
                     activeColor: '{primary.700}'
                 },
@@ -214,7 +214,7 @@ export default {
                 },
                 primary: {
                     color: '{primary.400}',
-                    inverseColor: '{surface.900}',
+                    contrastColor: '{surface.900}',
                     hoverColor: '{primary.300}',
                     activeColor: '{primary.200}'
                 },
